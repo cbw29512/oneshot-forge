@@ -71,3 +71,10 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#100e0b;border:1px so
   .tools{grid-template-columns:1fr}
   .map{min-height:300px}
 }
+.forge-controls{display:grid;gap:.5rem}
+.forge-controls label{font-size:.78rem;font-weight:800;color:#d9c7aa;margin-top:.15rem}
+.forge-wide{width:100%;margin-top:.35rem}
+@media(max-width:760px){
+  .top-actions{width:100%}
+  .top-actions .button{flex:1 1 100%}
+}
