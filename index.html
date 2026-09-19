@@ -65,9 +65,13 @@
 
         <label for="forge-seed">Seed <span class="muted">(same seed = same adventure)</span></label>
         <div class="seed-row">
-          <input id="forge-seed" type="text" autocomplete="off" spellcheck="false" placeholder="Leave blank for random">
+          <input id="forge-seed" type="text" autocomplete="off" spellcheck="false" placeholder="Generated automatically">
           <button id="new-seed" class="button secondary small" type="button">New Seed</button>
         </div>
+        <label class="check-row" for="lock-seed">
+          <input id="lock-seed" type="checkbox">
+          <span>Reuse this seed on the next forge</span>
+        </label>
 
         <button id="forge-random-side" class="button forge-wide" type="button">⚒ Forge New Adventure</button>
 
@@ -103,7 +107,7 @@
       </select>
     </aside>
 
-    <section class="workspace" id="active-scene">
+    <section class="workspace" id="active-scene" tabindex="-1">
       <article class="panel scene-panel">
         <div class="section-head">
           <div>
