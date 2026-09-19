@@ -1,0 +1,521 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-lantern-below",
+    "title": "The Lantern Below",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 4,
+    "partySize": 4,
+    "durationMinutes": 240,
+    "tone": ["mystery", "dark fantasy", "heroic"]
+  },
+  "setup": {
+    "pitch": "A village lantern that has burned for generations has gone dark. The party must recover its stolen ember before moonrise, but the thief may have taken it for the right reason.",
+    "openingLocation": "Briar Glen",
+    "gmSummary": "Mara Venn hires the party to recover the Emberglass from the ruined Bellweather Priory. Brother Caldus stole it because the village lantern is not a blessing: it seals a hungry spirit called the Pale Guest beneath the priory. The final choice is whether to restore the old seal, destroy it and fight the spirit, or create a new bargain."
+  },
+  "quest": {
+    "type": "retrieve / break curse",
+    "objective": "Recover the Emberglass and decide how to stop the Pale Guest before moonrise.",
+    "stakes": "If the seal fails completely, the Pale Guest can reach Briar Glen and feed on the memories of its people.",
+    "deadline": "Moonrise, roughly four hours after the adventure begins.",
+    "successConditions": [
+      "The Pale Guest remains contained, destroyed, or bound by a new agreement.",
+      "The party resolves the fate of the Emberglass."
+    ],
+    "failureConditions": [
+      "The Pale Guest escapes the priory without a new binding.",
+      "The party abandons the crisis past moonrise."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {"id": "fact-lantern-seal", "text": "The village lantern and the Emberglass are parts of the same magical seal."},
+      {"id": "fact-caldus-stole", "text": "Brother Caldus stole the Emberglass from Briar Glen."},
+      {"id": "fact-priory", "text": "Caldus took the Emberglass to Bellweather Priory."},
+      {"id": "fact-pale-guest", "text": "A memory-devouring spirit called the Pale Guest is bound beneath the priory."}
+    ],
+    "secrets": [
+      {"id": "secret-mara-knew", "text": "Mara Venn knew the lantern was a seal, but hid that truth because she feared panic.", "revealCondition": "Discover Caldus's journal or successfully confront Mara with evidence."},
+      {"id": "secret-caldus-plan", "text": "Caldus intends to replace the failing village seal with a stronger binding beneath the priory.", "revealCondition": "Speak with Caldus, read his notes, or inspect the ritual chamber."}
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-mara-venn",
+      "name": "Mara Venn",
+      "role": "quest giver and reluctant keeper of the village secret",
+      "personality": ["controlled", "protective", "guilt-ridden"],
+      "voiceCues": ["short practical sentences", "avoids mystical language until confronted"],
+      "wants": ["Recover the Emberglass", "Keep Briar Glen safe", "Avoid public panic"],
+      "fears": ["The seal failing", "The village learning her family hid the truth"],
+      "knows": ["The Emberglass was stolen", "Caldus fled toward Bellweather Priory", "The lantern is part of an old protective seal"],
+      "believes": ["Caldus is desperate but not malicious"],
+      "secrets": ["She knows the seal contains something dangerous beneath the priory"],
+      "lies": ["At first she calls the Emberglass only a sacred village relic"],
+      "cannotKnow": ["Caldus's exact replacement ritual", "Whether the Pale Guest can be reasoned with"],
+      "revealRules": [
+        {"fact": "The lantern is a seal.", "when": "The party presents evidence, succeeds at a social challenge, or refuses the job without more truth."}
+      ],
+      "questFunction": "Starts the quest and provides one route to the priory clue."
+    },
+    {
+      "id": "npc-brother-caldus",
+      "name": "Brother Caldus",
+      "role": "apparent thief, later uneasy ally or antagonist",
+      "personality": ["exhausted", "earnest", "stubborn"],
+      "voiceCues": ["precise language", "frequently corrects himself when emotional"],
+      "wants": ["Replace the failing seal", "Keep the Pale Guest contained", "Avoid killing innocents"],
+      "fears": ["Mara restoring the old failing seal", "The party smashing the Emberglass blindly"],
+      "knows": ["The full purpose of the Emberglass", "The priory layout", "The replacement ritual", "The Pale Guest feeds on memories"],
+      "believes": ["The old village seal will fail within days even if restored"],
+      "secrets": ["He stole the Emberglass because Mara refused to risk a new ritual"],
+      "lies": [],
+      "cannotKnow": ["What the party did in scenes he did not witness"],
+      "revealRules": [
+        {"fact": "The Pale Guest feeds on memories.", "when": "Asked why the seal matters or when the party reaches the ritual chamber."}
+      ],
+      "questFunction": "Carries the twist, explains the real stakes, and can help complete the final ritual."
+    },
+    {
+      "id": "npc-tamsin-reed",
+      "name": "Tamsin Reed",
+      "role": "witness, guide, or suspicious complication",
+      "personality": ["curious", "blunt", "fearless until supernatural danger appears"],
+      "voiceCues": ["fast questions", "dry humor"],
+      "wants": ["Find out why Caldus fled", "Prove she can help"],
+      "fears": ["Being treated like a child", "The whispering woods after dark"],
+      "knows": ["Caldus used the north trail", "An old culvert reaches the priory grounds"],
+      "believes": ["Mara is hiding part of the story"],
+      "secrets": ["She followed Caldus halfway to the priory"],
+      "lies": ["She initially claims she only saw him from her window"],
+      "cannotKnow": ["The nature of the Pale Guest", "The replacement ritual"],
+      "revealRules": [
+        {"fact": "There is an old culvert into the priory grounds.", "when": "The party treats her seriously or asks for another route."}
+      ],
+      "questFunction": "Backup clue source and alternate route to the priory."
+    }
+  ],
+  "locations": [
+    {"id": "loc-briar-glen", "name": "Briar Glen", "description": "A compact hill village gathered around a dark iron lantern in the square.", "connections": ["loc-north-trail"]},
+    {"id": "loc-north-trail", "name": "North Trail", "description": "A rain-cut woodland path leading to the priory ridge.", "connections": ["loc-briar-glen", "loc-priory-yard", "loc-culvert"]},
+    {"id": "loc-culvert", "name": "Old Culvert", "description": "A narrow stone drain that bypasses the priory gate.", "connections": ["loc-north-trail", "loc-priory-crypt"]},
+    {"id": "loc-priory-yard", "name": "Bellweather Priory Yard", "description": "Broken bells and thorn-choked graves surround the ruined chapel.", "connections": ["loc-north-trail", "loc-priory-chapel"]},
+    {"id": "loc-priory-chapel", "name": "Ruined Chapel", "description": "The roof is open to the sky and the altar has been dragged aside.", "connections": ["loc-priory-yard", "loc-priory-crypt"]},
+    {"id": "loc-priory-crypt", "name": "Bell Crypt", "description": "Stone niches surround a cracked bronze bell hanging over a stairwell.", "connections": ["loc-priory-chapel", "loc-culvert", "loc-ritual-chamber"]},
+    {"id": "loc-ritual-chamber", "name": "Ritual Chamber", "description": "A circular vault of black stone marked by a ring of silver script.", "connections": ["loc-priory-crypt"]}
+  ],
+  "scenes": [
+    {
+      "id": "scene-hook",
+      "title": "The Dark Lantern",
+      "purpose": "Give the quest, establish the deadline, and seed that Mara is withholding information.",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "locationId": "loc-briar-glen",
+      "readAloud": "The iron lantern in Briar Glen's square is dark for the first time anyone can remember. Villagers stand at a distance from it as Mara Venn approaches you with a velvet-lined box whose center is conspicuously empty.",
+      "gmNotes": [
+        "Mara offers 200 gp to recover the Emberglass before moonrise.",
+        "She first describes it as a sacred relic, not a seal.",
+        "If pressed hard, she admits Caldus fled toward Bellweather Priory."
+      ],
+      "npcIds": ["npc-mara-venn", "npc-tamsin-reed"],
+      "encounterIds": [],
+      "clueIds": ["clue-priory-location", "clue-mara-hiding"],
+      "entryConditions": [],
+      "exits": ["scene-road", "scene-priory-gate", "scene-culvert"]
+    },
+    {
+      "id": "scene-road",
+      "title": "Whispers on the North Trail",
+      "purpose": "Provide a flexible travel complication and show the supernatural threat reaching beyond the priory.",
+      "pacingClass": "cut-first",
+      "estimatedMinutes": 25,
+      "locationId": "loc-north-trail",
+      "readAloud": "The north trail narrows between wet black trees. Ahead, three travelers stand motionless in the road, staring at one another with the frightened expressions of people who have forgotten each other's names.",
+      "gmNotes": [
+        "The travelers have lost recent memories after a pale mist passed through the trees.",
+        "This encounter can be skipped entirely if the session is running long.",
+        "Helping them reveals that the mist drifted from the priory ridge."
+      ],
+      "npcIds": [],
+      "encounterIds": ["enc-memory-husks"],
+      "clueIds": ["clue-spirit-nature"],
+      "entryConditions": [],
+      "exits": ["scene-priory-gate", "scene-culvert"]
+    },
+    {
+      "id": "scene-priory-gate",
+      "title": "The Broken Bell Gate",
+      "purpose": "Offer combat or bypass and establish that Caldus is preparing, not looting.",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "locationId": "loc-priory-yard",
+      "readAloud": "Two broken bells lean against the priory wall like toppled sentries. Fresh chalk marks circle the chapel doors, and something moves beneath the thorn bushes beside the old graves.",
+      "gmNotes": [
+        "The chalk marks are protective wards, not cult symbols.",
+        "The grave-things attack anyone crossing the yard unless distracted.",
+        "Careful characters can bypass through the culvert if they learned about it."
+      ],
+      "npcIds": [],
+      "encounterIds": ["enc-grave-things"],
+      "clueIds": ["clue-protective-wards"],
+      "entryConditions": [],
+      "exits": ["scene-chapel", "scene-culvert"]
+    },
+    {
+      "id": "scene-culvert",
+      "title": "The Forgotten Culvert",
+      "purpose": "Reward investigation and provide an alternate route that bypasses the yard fight.",
+      "pacingClass": "optional",
+      "estimatedMinutes": 15,
+      "locationId": "loc-culvert",
+      "readAloud": "Cold water trickles through a shoulder-wide stone tunnel. Halfway in, someone has wedged a fresh candle into a crack beside a scratched warning: DO NOT RING THE BELL.",
+      "gmNotes": [
+        "The culvert opens directly into the crypt.",
+        "The warning is Caldus's.",
+        "The candle is less than an hour old."
+      ],
+      "npcIds": [],
+      "encounterIds": [],
+      "clueIds": ["clue-do-not-ring"],
+      "entryConditions": [],
+      "exits": ["scene-crypt"]
+    },
+    {
+      "id": "scene-chapel",
+      "title": "The Open-Sky Chapel",
+      "purpose": "Present the puzzle and reveal Caldus's intent.",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "locationId": "loc-priory-chapel",
+      "readAloud": "Rain falls through the missing roof onto rows of rotted pews. The altar has been dragged aside, revealing a bronze plate engraved with four bells, each marked by a different phase of the moon.",
+      "gmNotes": [
+        "The plate is a lock. Press the bells from darkest moon to brightest to open the crypt stair.",
+        "Ringing the hanging handbell triggers a memory-draining pulse but also opens the stair.",
+        "Caldus's notes nearby reveal he is repairing a binding."
+      ],
+      "npcIds": [],
+      "encounterIds": [],
+      "clueIds": ["clue-caldus-binding"],
+      "entryConditions": [],
+      "exits": ["scene-crypt"]
+    },
+    {
+      "id": "scene-crypt",
+      "title": "The Bell Crypt",
+      "purpose": "Deliver the major revelation and let the party meet Caldus before the finale.",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "locationId": "loc-priory-crypt",
+      "readAloud": "A cracked bronze bell hangs over the center of the crypt, its clapper wrapped in cloth. Brother Caldus stands beyond it, pale with exhaustion, one hand raised and the other clutching a fist-sized coal of red-gold glass.",
+      "gmNotes": [
+        "Caldus does not attack first.",
+        "He tells the party the Emberglass is part of a failing seal.",
+        "If attacked, he defends himself while trying to reach the ritual chamber.",
+        "If convinced the party will help, he becomes an ally."
+      ],
+      "npcIds": ["npc-brother-caldus"],
+      "encounterIds": ["enc-caldus-if-hostile"],
+      "clueIds": ["clue-real-seal", "clue-caldus-plan"],
+      "entryConditions": [],
+      "exits": ["scene-final"]
+    },
+    {
+      "id": "scene-final",
+      "title": "The Pale Guest",
+      "purpose": "Resolve the quest through combat, ritual, negotiation, or a combination.",
+      "pacingClass": "core",
+      "estimatedMinutes": 55,
+      "locationId": "loc-ritual-chamber",
+      "readAloud": "The silver ring in the floor fractures with a sound like ice splitting on a lake. A tall shape unfolds from the darkness beyond it, featureless except for dozens of whispering mouths that speak in voices you almost recognize.",
+      "gmNotes": [
+        "The Pale Guest manifests when the party enters or when the old seal finally fails.",
+        "The party can fight it while Caldus completes the new binding.",
+        "They can destroy the Emberglass, making the spirit fully vulnerable but ending the old seal forever.",
+        "A character may offer a treasured memory as part of a new bargain; the GM should make the cost meaningful but not erase the character."
+      ],
+      "npcIds": ["npc-brother-caldus"],
+      "encounterIds": ["enc-pale-guest"],
+      "clueIds": [],
+      "entryConditions": [],
+      "exits": ["scene-resolution"]
+    },
+    {
+      "id": "scene-resolution",
+      "title": "What Burns After",
+      "purpose": "Close the adventure and make the party's choice matter.",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "locationId": "loc-briar-glen",
+      "readAloud": "Whatever choice you made beneath the priory, dawn finds Briar Glen changed. The iron lantern in the square is no longer simply a tradition. Everyone who looks at it now knows it means something.",
+      "gmNotes": [
+        "Use the ending that matches the final state.",
+        "Mara pays if the village survives, even if the Emberglass is not returned.",
+        "If her secret becomes public, she accepts the consequences rather than fleeing."
+      ],
+      "npcIds": ["npc-mara-venn"],
+      "encounterIds": [],
+      "clueIds": [],
+      "entryConditions": [],
+      "exits": []
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-priory-location",
+      "revelation": "Caldus took the Emberglass toward Bellweather Priory.",
+      "required": true,
+      "sources": ["Mara admits it", "Tamsin saw him take the north trail", "fresh tracks from the lantern square lead north"],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-mara-hiding",
+      "revelation": "Mara is withholding the true purpose of the Emberglass.",
+      "required": false,
+      "sources": ["Mara's evasive answers", "Tamsin's suspicion", "protective records in the chapel"],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-spirit-nature",
+      "revelation": "Something from the priory can steal recent memories.",
+      "required": false,
+      "sources": ["memory-struck travelers", "later Caldus explanation"],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-protective-wards",
+      "revelation": "Caldus has been placing protections around the priory rather than desecrating it.",
+      "required": false,
+      "sources": ["chalk wards at the gate", "Caldus's notes"],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-do-not-ring",
+      "revelation": "Ringing the cracked bell strengthens the Pale Guest's influence.",
+      "required": false,
+      "sources": ["Caldus's warning in the culvert", "notes in the chapel", "Caldus directly"],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-caldus-binding",
+      "revelation": "Caldus is attempting to create a replacement binding.",
+      "required": true,
+      "sources": ["ritual notes in the chapel", "Caldus explains it", "inspection of the ritual chamber"],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-real-seal",
+      "revelation": "The Emberglass is part of a seal containing the Pale Guest.",
+      "required": true,
+      "sources": ["Caldus explains it", "Mara confesses if confronted", "ritual inscriptions in the crypt"],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-caldus-plan",
+      "revelation": "Caldus stole the Emberglass to replace the failing seal, not to profit from it.",
+      "required": true,
+      "sources": ["Caldus explains it", "his journal", "completed portions of the new binding"],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-memory-husks",
+      "name": "Memory-Struck Travelers",
+      "type": "social / hazard",
+      "difficulty": "low",
+      "summary": "Three travelers are confused and frightened. Calming them reveals that a pale mist from the priory stole recent memories.",
+      "resolution": "No combat required. A hostile approach may scatter them and lose this optional clue."
+    },
+    {
+      "id": "enc-grave-things",
+      "name": "Thornbound Grave-Things",
+      "type": "combat or bypass",
+      "difficulty": "medium",
+      "summary": "Four vine-wrapped dead guardians rise from the graves. They do not pursue beyond the priory yard.",
+      "resolution": "Fight them, distract them with fire/noise, or bypass them through the culvert."
+    },
+    {
+      "id": "enc-caldus-if-hostile",
+      "name": "Brother Caldus",
+      "type": "social with optional combat",
+      "difficulty": "medium",
+      "summary": "Caldus wants to talk. If attacked, he fights defensively and retreats toward the ritual chamber.",
+      "resolution": "The scene should still deliver the seal revelation through his shouted warnings, notes, or ritual evidence."
+    },
+    {
+      "id": "enc-pale-guest",
+      "name": "The Pale Guest",
+      "type": "boss / ritual encounter",
+      "difficulty": "hard",
+      "summary": "A memory-eating spirit attacks while the binding fails. Each round should create pressure through whispers, lost recollections, or unstable sigils.",
+      "resolution": "Defeat it, complete the replacement binding, destroy the Emberglass and fight it fully, or negotiate a costly new bargain."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-moon-bells",
+      "name": "Four Moons Lock",
+      "locationId": "loc-priory-chapel",
+      "prompt": "Four engraved bells are marked new moon, crescent, half, and full.",
+      "solution": "Press them from darkest to brightest: new, crescent, half, full.",
+      "failForward": "A wrong sequence emits a whispering pulse and then resets. The crypt can also be opened by ringing the handbell, at a cost."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-memory-bell",
+      "name": "Memory Bell",
+      "locationId": "loc-priory-chapel",
+      "trigger": "Ring the hanging handbell.",
+      "effect": "Each nearby character briefly loses a trivial recent memory and hears the Pale Guest whisper. The crypt opens.",
+      "purpose": "Failure advances the adventure but increases supernatural pressure."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-emberglass",
+      "name": "Emberglass",
+      "type": "quest artifact",
+      "description": "A fist-sized coal of translucent red-gold glass that remains warm without flame.",
+      "stateOptions": ["with-caldus", "with-party", "restored", "destroyed", "used-in-new-binding"]
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-priory",
+      "name": "Bellweather Priory",
+      "asset": null,
+      "regions": [
+        {"id": "region-yard", "label": "Yard", "sceneId": "scene-priory-gate", "x": 5, "y": 38, "w": 22, "h": 24},
+        {"id": "region-chapel", "label": "Chapel", "sceneId": "scene-chapel", "x": 34, "y": 15, "w": 28, "h": 28},
+        {"id": "region-culvert", "label": "Culvert", "sceneId": "scene-culvert", "x": 7, "y": 75, "w": 28, "h": 14},
+        {"id": "region-crypt", "label": "Crypt", "sceneId": "scene-crypt", "x": 40, "y": 55, "w": 22, "h": 22},
+        {"id": "region-final", "label": "Ritual Chamber", "sceneId": "scene-final", "x": 70, "y": 42, "w": 25, "h": 30}
+      ]
+    }
+  ],
+  "events": [
+    {"id": "event-moonrise", "name": "Moonrise", "effect": "The failing seal breaks completely and the Pale Guest can escape if not contained."}
+  ],
+  "recovery": {
+    "policies": [
+      "Preserve established facts, not a predetermined route.",
+      "Never erase a successful player deduction.",
+      "Move a required clue only to a plausible authored backup source.",
+      "Record state changes when recovery changes where information is found."
+    ],
+    "routes": [
+      {
+        "id": "recover-refuse-mara",
+        "trigger": "The party refuses Mara's quest or does not trust her.",
+        "response": "Tamsin approaches them privately and reveals she followed Caldus toward Bellweather Priory. The village lantern then emits a brief pulse of pale mist, making the danger immediate.",
+        "stateChanges": ["Discover clue-priory-location."],
+        "patch": {"discoverClueIds": ["clue-priory-location"]}
+      },
+      {
+        "id": "recover-mara-unavailable",
+        "trigger": "Mara is killed, missing, or otherwise unavailable before giving the destination.",
+        "response": "Tamsin provides the destination. Fresh northbound tracks from the lantern square independently confirm it.",
+        "stateChanges": ["Discover clue-priory-location."],
+        "patch": {"discoverClueIds": ["clue-priory-location"]}
+      },
+      {
+        "id": "recover-skip-chapel",
+        "trigger": "The party bypasses the chapel and reaches Caldus through the culvert.",
+        "response": "Do not force them back. Caldus directly explains the replacement binding and the Emberglass's purpose.",
+        "stateChanges": ["Make the two required revelations available in scene-crypt."],
+        "patch": {"discoverClueIds": ["clue-caldus-binding", "clue-real-seal"]}
+      },
+      {
+        "id": "recover-attack-caldus",
+        "trigger": "The party attacks Caldus before hearing him out.",
+        "response": "Caldus shouts that breaking the Emberglass will free the thing below. His dropped journal and the visible ritual provide the same core revelations if he cannot continue speaking.",
+        "stateChanges": ["Preserve access to clue-real-seal and clue-caldus-plan."],
+        "patch": {"discoverClueIds": ["clue-real-seal", "clue-caldus-plan"]}
+      },
+      {
+        "id": "recover-destroy-emberglass",
+        "trigger": "The party destroys the Emberglass before the new binding is complete.",
+        "response": "Accept the choice. The Pale Guest becomes fully manifest and vulnerable. The objective changes from sealing it to defeating it or bargaining with it.",
+        "stateChanges": ["Set Emberglass to destroyed.", "Advance to final encounter."],
+        "patch": {"setCurrentSceneId": "scene-final", "itemState": {"item-emberglass": "destroyed"}}
+      },
+      {
+        "id": "recover-leave-priory",
+        "trigger": "The party leaves the priory after learning the truth.",
+        "response": "The world advances. Pale mist reaches Briar Glen as moonrise approaches. The party may confront Mara, rally villagers, or return by either known route, but the seal continues to fail.",
+        "stateChanges": ["Return current scene to Briar Glen without removing discovered clues."],
+        "patch": {"setCurrentSceneId": "scene-hook"}
+      }
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 240,
+    "cutOrder": ["scene-road"],
+    "optionalOrder": ["scene-culvert"],
+    "bossReserveMinutes": 55,
+    "resolutionReserveMinutes": 15
+  },
+  "endings": [
+    {
+      "id": "ending-old-seal",
+      "name": "Restore the Old Flame",
+      "condition": "The party returns the Emberglass to the old binding.",
+      "result": "Briar Glen is safe for now, but Caldus warns the failing seal will become a problem again."
+    },
+    {
+      "id": "ending-new-binding",
+      "name": "A Stronger Bell",
+      "condition": "The party completes Caldus's replacement ritual.",
+      "result": "The Pale Guest is bound beneath the priory. The village lantern becomes an ordinary memorial rather than a magical prison."
+    },
+    {
+      "id": "ending-destroyed",
+      "name": "No More Cages",
+      "condition": "The party destroys the Emberglass and defeats the Pale Guest.",
+      "result": "The old bargain ends permanently. Briar Glen must live without the protection or secrecy of the lantern."
+    },
+    {
+      "id": "ending-bargain",
+      "name": "A Memory for a Memory",
+      "condition": "The party negotiates a new bargain with the Pale Guest.",
+      "result": "The spirit withdraws, but the agreed cost becomes part of the campaign's history."
+    }
+  ],
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-hook",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-mara-venn": {"status": "alive", "attitude": "guarded"},
+      "npc-brother-caldus": {"status": "alive", "attitude": "wary"},
+      "npc-tamsin-reed": {"status": "alive", "attitude": "curious"}
+    },
+    "locationState": {
+      "loc-briar-glen": {"revealed": true},
+      "loc-north-trail": {"revealed": false},
+      "loc-culvert": {"revealed": false},
+      "loc-priory-yard": {"revealed": false},
+      "loc-priory-chapel": {"revealed": false},
+      "loc-priory-crypt": {"revealed": false},
+      "loc-ritual-chamber": {"revealed": false}
+    },
+    "itemState": {
+      "item-emberglass": "with-caldus"
+    },
+    "eventState": {
+      "event-moonrise": "pending"
+    }
+  }
+}
