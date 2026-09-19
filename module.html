@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Professional module view for One-Shot Forge adventures.">
+  <title>One-Shot Forge — Module View</title>
+  <link rel="stylesheet" href="module.css">
+</head>
+<body>
+  <header class="module-toolbar">
+    <a class="toolbar-button secondary" href="./">← GM Runner</a>
+    <div class="toolbar-spacer"></div>
+    <button id="print-module" class="toolbar-button" type="button">Print / Save PDF</button>
+  </header>
+
+  <main id="module" class="module-shell" aria-live="polite">
+    <section class="cover-page">
+      <p class="brand">ONE-SHOT FORGE</p>
+      <h1 id="module-title">Loading adventure…</h1>
+      <p id="module-subtitle" class="subtitle"></p>
+      <div id="cover-meta" class="cover-meta"></div>
+      <p id="cover-pitch" class="cover-pitch"></p>
+      <p class="compatibility">Original 5E-compatible fantasy RPG adventure</p>
+    </section>
+
+    <section class="module-section">
+      <h2>Adventure at a Glance</h2>
+      <div id="glance-grid" class="glance-grid"></div>
+      <h3>Adventure Summary</h3>
+      <p id="adventure-summary"></p>
+      <h3>Background</h3>
+      <p id="adventure-background"></p>
+      <h3>Running the Adventure</h3>
+      <div id="running-notes"></div>
+    </section>
+
+    <section class="module-section">
+      <h2>Cast of Characters</h2>
+      <div id="npc-appendix" class="appendix-grid"></div>
+    </section>
+
+    <section class="module-section">
+      <h2>Adventure Flow</h2>
+      <div id="flow-map" class="flow-map"></div>
+    </section>
+
+    <section id="scene-chapters"></section>
+
+    <section class="module-section">
+      <h2>Clue Matrix</h2>
+      <p class="section-intro">Required revelations are intentionally available from multiple sources so the adventure can survive missed scenes, failed checks, or unexpected player decisions.</p>
+      <div id="clue-matrix"></div>
+    </section>
+
+    <section class="module-section">
+      <h2>Possible Endings</h2>
+      <div id="ending-list"></div>
+    </section>
+
+    <section class="module-section">
+      <h2>GM Recovery Guide</h2>
+      <p class="section-intro">Use these only when the party goes off the expected path. Preserve established facts; change delivery, not truth.</p>
+      <div id="recovery-guide"></div>
+    </section>
+  </main>
+
+  <script src="module.js"></script>
+</body>
+</html>
