@@ -13,7 +13,7 @@ One-Shot Forge is an original fantasy RPG one-shot builder and web GM runner. Do
 7. Recovery preserves continuity, not a forced script.
 8. Scenes form a graph and may be skipped/bypassed.
 9. New adventures should require data/content, not new application code.
-10. Keep V1 focused on GM adventure running; do not accidentally build a full VTT or universal combat engine.
+10. Keep V1 focused on GM adventure running; do not accidentally build a full VTT or universal combat engine.\n11. NPC IDs are package-scoped. The same NPC name, portrait, or reusable identity may appear in multiple adventures, and each adventure may assign that NPC a different role, knowledge set, secrets, motives, relationships, or allegiance. Never treat an NPC's role as a global property.
 
 ## Development
 - Prefer small modules and explicit data contracts.
