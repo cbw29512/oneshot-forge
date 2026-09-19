@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oneshot-forge.local/schema/adventure-package.schema.json",
+  "title": "One-Shot Forge Adventure Package",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "metadata",
+    "setup",
+    "quest",
+    "truth",
+    "npcs",
+    "locations",
+    "scenes",
+    "clues",
+    "encounters",
+    "maps",
+    "recovery",
+    "pacing",
+    "endings",
+    "initialState"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "0.1.0" },
+    "metadata": {
+      "type": "object",
+      "required": ["id", "title", "systemCompatibility", "partyLevel", "partySize", "durationMinutes", "tone"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "systemCompatibility": { "type": "string", "minLength": 1 },
+        "partyLevel": { "type": "integer", "minimum": 1 },
+        "partySize": { "type": "integer", "minimum": 1 },
+        "durationMinutes": { "type": "integer", "minimum": 60 },
+        "tone": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "setup": { "type": "object" },
+    "quest": {
+      "type": "object",
+      "required": ["type", "objective", "stakes", "successConditions"],
+      "properties": {
+        "type": { "type": "string" },
+        "objective": { "type": "string" },
+        "stakes": { "type": "string" },
+        "deadline": { "type": ["string", "null"] },
+        "successConditions": { "type": "array", "items": { "type": "string" } },
+        "failureConditions": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "truth": {
+      "type": "object",
+      "required": ["facts", "secrets"],
+      "properties": {
+        "facts": { "type": "array", "items": { "$ref": "#/$defs/fact" } },
+        "secrets": { "type": "array", "items": { "$ref": "#/$defs/secret" } }
+      },
+      "additionalProperties": true
+    },
+    "npcs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/npc" }
+    },
+    "locations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/location" }
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/scene" }
+    },
+    "clues": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/clue" }
+    },
+    "encounters": { "type": "array", "items": { "type": "object" } },
+    "puzzles": { "type": "array", "items": { "type": "object" }, "default": [] },
+    "traps": { "type": "array", "items": { "type": "object" }, "default": [] },
+    "items": { "type": "array", "items": { "type": "object" }, "default": [] },
+    "maps": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/map" }
+    },
+    "events": { "type": "array", "items": { "type": "object" }, "default": [] },
+    "recovery": {
+      "type": "object",
+      "required": ["policies", "routes"],
+      "properties": {
+        "policies": { "type": "array", "items": { "type": "string" } },
+        "routes": { "type": "array", "items": { "$ref": "#/$defs/recoveryRoute" } }
+      }
+    },
+    "pacing": {
+      "type": "object",
+      "required": ["targetMinutes"],
+      "properties": {
+        "targetMinutes": { "type": "integer", "minimum": 60 },
+        "cutOrder": { "type": "array", "items": { "type": "string" } },
+        "optionalOrder": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "endings": { "type": "array", "items": { "type": "object" } },
+    "initialState": { "$ref": "#/$defs/gameState" }
+  },
+  "$defs": {
+    "fact": {
+      "type": "object",
+      "required": ["id", "text"],
+      "properties": {
+        "id": { "type": "string" },
+        "text": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "secret": {
+      "type": "object",
+      "required": ["id", "text", "revealCondition"],
+      "properties": {
+        "id": { "type": "string" },
+        "text": { "type": "string" },
+        "revealCondition": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "npc": {
+      "type": "object",
+      "required": ["id", "name", "role", "wants", "knows", "believes", "secrets", "cannotKnow"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "personality": { "type": "array", "items": { "type": "string" } },
+        "voiceCues": { "type": "array", "items": { "type": "string" } },
+        "wants": { "type": "array", "items": { "type": "string" } },
+        "fears": { "type": "array", "items": { "type": "string" } },
+        "knows": { "type": "array", "items": { "type": "string" } },
+        "believes": { "type": "array", "items": { "type": "string" } },
+        "secrets": { "type": "array", "items": { "type": "string" } },
+        "lies": { "type": "array", "items": { "type": "string" } },
+        "cannotKnow": { "type": "array", "items": { "type": "string" } },
+        "revealRules": { "type": "array", "items": { "type": "object" } },
+        "questFunction": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "location": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "connections": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "scene": {
+      "type": "object",
+      "required": ["id", "title", "purpose", "pacingClass"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "purpose": { "type": "string" },
+        "pacingClass": { "enum": ["core", "optional", "cut-first"] },
+        "estimatedMinutes": { "type": "integer", "minimum": 1 },
+        "locationId": { "type": ["string", "null"] },
+        "readAloud": { "type": "string" },
+        "gmNotes": { "type": "array", "items": { "type": "string" } },
+        "npcIds": { "type": "array", "items": { "type": "string" } },
+        "encounterIds": { "type": "array", "items": { "type": "string" } },
+        "clueIds": { "type": "array", "items": { "type": "string" } },
+        "entryConditions": { "type": "array", "items": { "type": "string" } },
+        "exits": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "clue": {
+      "type": "object",
+      "required": ["id", "revelation", "required", "sources"],
+      "properties": {
+        "id": { "type": "string" },
+        "revelation": { "type": "string" },
+        "required": { "type": "boolean" },
+        "sources": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "canMove": { "type": "boolean", "default": true },
+        "allowEarlyDiscovery": { "type": "boolean", "default": true }
+      },
+      "additionalProperties": true
+    },
+    "map": {
+      "type": "object",
+      "required": ["id", "name", "regions"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "asset": { "type": ["string", "null"] },
+        "regions": { "type": "array", "items": { "type": "object" } }
+      },
+      "additionalProperties": true
+    },
+    "recoveryRoute": {
+      "type": "object",
+      "required": ["id", "trigger", "response"],
+      "properties": {
+        "id": { "type": "string" },
+        "trigger": { "type": "string" },
+        "response": { "type": "string" },
+        "stateChanges": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "gameState": {
+      "type": "object",
+      "required": ["questStage", "currentSceneId", "discoveredClueIds", "revealedSecretIds", "npcState", "locationState", "itemState"],
+      "properties": {
+        "questStage": { "type": "string" },
+        "currentSceneId": { "type": ["string", "null"] },
+        "discoveredClueIds": { "type": "array", "items": { "type": "string" } },
+        "revealedSecretIds": { "type": "array", "items": { "type": "string" } },
+        "npcState": { "type": "object" },
+        "locationState": { "type": "object" },
+        "itemState": { "type": "object" },
+        "eventState": { "type": "object" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
