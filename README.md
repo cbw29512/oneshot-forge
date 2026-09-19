@@ -44,3 +44,24 @@ The Adventure Package is the center of the system. Builder and Runner must both 
 7. Add publishing/library workflow.
 
 See `docs/ARCHITECTURE.md` and `docs/ROADMAP.md`.
+
+
+## Current runnable prototype
+
+The repository now contains a browser GM runner and one complete reference adventure:
+
+- `data/adventures/the-lantern-below.oneshot.json`
+- scene navigation with read-aloud and GM notes
+- clue discovery tracking
+- quest-stage tracking
+- browser-persisted game state
+- semantic map navigation
+- NPC AI-context previews
+- GM-approved off-script recovery routes
+- local `*.oneshot.json` import
+
+### Run locally
+
+Serve the repository root through any static web server, then open `index.html`. The runner loads **The Lantern Below** automatically.
+
+Opening `index.html` directly as a `file://` URL is not supported because browsers normally block the JSON fetch; use a static server or hosted deployment.
