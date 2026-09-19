@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#active-scene">Skip to active scene</a>
+
   <header class="topbar">
     <div>
       <p class="eyebrow">ONE-SHOT FORGE</p>
@@ -16,7 +18,8 @@
     </div>
     <div class="top-actions">
       <button id="forge-random" class="button" type="button">⚒ Forge Random One-Shot</button>
-      <label class="button secondary" for="file-input">Load .oneshot.json</label>
+      <button id="export-adventure" class="button secondary" type="button">Export JSON</button>
+      <button id="load-file" class="button secondary" type="button">Load .oneshot.json</button>
       <input id="file-input" type="file" accept=".json,.oneshot.json,application/json" hidden>
       <button id="reset-state" class="button danger" type="button">Reset Run</button>
     </div>
@@ -29,6 +32,7 @@
           <h2>Forge Settings</h2>
           <span class="badge">Random</span>
         </div>
+
         <label for="forge-level">Party level</label>
         <select id="forge-level">
           <option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option>
@@ -59,7 +63,21 @@
           <option value="weird">Weird Fantasy</option>
         </select>
 
+        <label for="forge-seed">Seed <span class="muted">(same seed = same adventure)</span></label>
+        <div class="seed-row">
+          <input id="forge-seed" type="text" autocomplete="off" spellcheck="false" placeholder="Leave blank for random">
+          <button id="new-seed" class="button secondary small" type="button">New Seed</button>
+        </div>
+
         <button id="forge-random-side" class="button forge-wide" type="button">⚒ Forge New Adventure</button>
+
+        <div class="divider"></div>
+        <label for="saved-adventures">Saved adventures</label>
+        <div class="seed-row">
+          <select id="saved-adventures" aria-label="Saved adventures"></select>
+          <button id="open-saved" class="button secondary small" type="button">Open</button>
+        </div>
+        <p id="save-status" class="tiny muted">Generated adventures save in this browser.</p>
       </div>
 
       <div class="divider"></div>
@@ -69,6 +87,7 @@
         <span id="scene-count" class="badge"></span>
       </div>
       <nav id="scene-list" aria-label="Adventure scenes"></nav>
+
       <div class="divider"></div>
       <h2>Quest</h2>
       <p id="quest-objective"></p>
@@ -78,18 +97,18 @@
         <option value="offered">Offered</option>
         <option value="accepted">Accepted</option>
         <option value="investigating">Investigating</option>
-        <option value="at-priory">At main location</option>
+        <option value="main-location">At main location</option>
         <option value="finale">Finale</option>
         <option value="resolved">Resolved</option>
       </select>
     </aside>
 
-    <section class="workspace">
+    <section class="workspace" id="active-scene">
       <article class="panel scene-panel">
         <div class="section-head">
           <div>
             <p id="scene-kicker" class="eyebrow"></p>
-            <h2 id="scene-title">Scene</h2>
+            <h2 id="scene-title" tabindex="-1">Scene</h2>
           </div>
           <span id="scene-pacing" class="badge"></span>
         </div>
@@ -111,8 +130,18 @@
           <div id="scene-encounters" class="stack"></div>
         </div>
 
+        <div id="scene-puzzles-wrap">
+          <h3>Puzzles & traps</h3>
+          <div id="scene-puzzles" class="stack"></div>
+        </div>
+
+        <div id="scene-exits-wrap">
+          <h3>Where can they go?</h3>
+          <div id="scene-exits" class="card-actions"></div>
+        </div>
+
         <div class="scene-nav">
-          <button id="prev-scene" class="button secondary" type="button">← Previous</button>
+          <button id="prev-scene" class="button secondary" type="button">← Back</button>
           <button id="next-scene" class="button" type="button">Next →</button>
         </div>
       </article>
@@ -141,6 +170,11 @@
           <span id="clue-progress" class="badge"></span>
         </div>
         <div id="required-clues" class="stack"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Adventure resources</h2>
+        <div id="resource-list" class="stack"></div>
       </section>
 
       <section class="panel">
