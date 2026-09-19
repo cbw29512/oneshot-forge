@@ -14,6 +14,10 @@ jobs:
         with:
           node-version: 22
       - name: Check browser JavaScript syntax
-        run: node --check app.js
+        run: |
+          node --check app.js
+          node --check generator.js
       - name: Validate reference adventure
         run: node scripts/validate-adventure.mjs data/adventures/the-lantern-below.oneshot.json
+      - name: Smoke-test random generator
+        run: node scripts/smoke-generator.cjs
