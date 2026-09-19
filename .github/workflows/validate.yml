@@ -17,6 +17,7 @@ jobs:
         run: |
           node --check app.js
           node --check generator.js
+          node --check module.js
       - name: Validate reference adventure
         run: node scripts/validate-adventure.mjs data/adventures/the-lantern-below.oneshot.json
       - name: Smoke-test random generator
