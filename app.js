@@ -47,6 +47,7 @@ async function loadDefault() {
 async function activateAdventure(pkg) {
   validatePackage(pkg);
   adventure = pkg;
+  selectedNpcId = null;
   currentAdventureKey = adventure.metadata.id;
   state = loadState();
   if (!adventure.scenes.some(s => s.id === state.currentSceneId)) {
@@ -262,6 +263,7 @@ function renderMap() {
   const map = el("map");
   map.innerHTML = "";
   const mapData = adventure.maps[0];
+  if (el("map-title")) el("map-title").textContent = mapData?.name || "Adventure Map";
   if (!mapData) {
     map.textContent = "No map in this package.";
     return;
@@ -322,6 +324,26 @@ el("reset-state").addEventListener("click", () => {
   renderAll();
   toast("Run reset.");
 });
+function forgeRandomAdventure() {
+  if (!globalThis.OneShotGenerator?.generate) {
+    alert("Random generator is unavailable.");
+    return;
+  }
+  const generated = globalThis.OneShotGenerator.generate({
+    level: Number(el("forge-level")?.value || 4),
+    partySize: Number(el("forge-party")?.value || 4),
+    durationHours: Number(el("forge-duration")?.value || 4),
+    tone: el("forge-tone")?.value || "random"
+  });
+  activateAdventure(generated);
+  toast("New random one-shot forged.");
+}
+
+["forge-random","forge-random-side"].forEach(id => {
+  const button = el(id);
+  if (button) button.addEventListener("click", forgeRandomAdventure);
+});
+
 el("file-input").addEventListener("change", async event => {
   const file = event.target.files && event.target.files[0];
   if (!file) return;
