@@ -103,3 +103,5 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#100e0b;border:1px so
   blockquote{font-size:1rem;padding:.8rem}
   .map{min-height:260px}
 }
+.check-row{display:flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:700;color:#d9c7aa;cursor:pointer}
+.check-row input{width:auto;min-height:auto;accent-color:var(--accent)}
