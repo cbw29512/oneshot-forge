@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="One-Shot Forge — build and run original 5E-compatible fantasy RPG adventures.">
+  <title>One-Shot Forge</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">ONE-SHOT FORGE</p>
+      <h1 id="adventure-title">Loading adventure…</h1>
+      <p id="adventure-meta" class="muted"></p>
+    </div>
+    <div class="top-actions">
+      <label class="button secondary" for="file-input">Load .oneshot.json</label>
+      <input id="file-input" type="file" accept=".json,.oneshot.json,application/json" hidden>
+      <button id="reset-state" class="button danger" type="button">Reset Run</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar panel">
+      <div class="section-head">
+        <h2>Scenes</h2>
+        <span id="scene-count" class="badge"></span>
+      </div>
+      <nav id="scene-list" aria-label="Adventure scenes"></nav>
+      <div class="divider"></div>
+      <h2>Quest</h2>
+      <p id="quest-objective"></p>
+      <p id="quest-stakes" class="muted"></p>
+      <label for="quest-stage">Quest stage</label>
+      <select id="quest-stage">
+        <option value="offered">Offered</option>
+        <option value="accepted">Accepted</option>
+        <option value="investigating">Investigating</option>
+        <option value="at-priory">At main location</option>
+        <option value="finale">Finale</option>
+        <option value="resolved">Resolved</option>
+      </select>
+    </aside>
+
+    <section class="workspace">
+      <article class="panel scene-panel">
+        <div class="section-head">
+          <div>
+            <p id="scene-kicker" class="eyebrow"></p>
+            <h2 id="scene-title">Scene</h2>
+          </div>
+          <span id="scene-pacing" class="badge"></span>
+        </div>
+        <p id="scene-purpose" class="muted"></p>
+
+        <h3>Read aloud</h3>
+        <blockquote id="read-aloud"></blockquote>
+
+        <h3>GM notes</h3>
+        <ul id="gm-notes"></ul>
+
+        <div id="scene-clues-wrap">
+          <h3>Clues in this scene</h3>
+          <div id="scene-clues" class="stack"></div>
+        </div>
+
+        <div id="scene-encounters-wrap">
+          <h3>Encounters</h3>
+          <div id="scene-encounters" class="stack"></div>
+        </div>
+
+        <div class="scene-nav">
+          <button id="prev-scene" class="button secondary" type="button">← Previous</button>
+          <button id="next-scene" class="button" type="button">Next →</button>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="section-head">
+          <h2>Priory Map</h2>
+          <span class="muted">Schematic GM navigation</span>
+        </div>
+        <div id="map" class="map" aria-label="Adventure map"></div>
+      </article>
+    </section>
+
+    <aside class="tools">
+      <section class="panel">
+        <div class="section-head">
+          <h2>NPCs</h2>
+          <span class="badge">AI-ready</span>
+        </div>
+        <div id="npc-list" class="stack"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Required clues</h2>
+          <span id="clue-progress" class="badge"></span>
+        </div>
+        <div id="required-clues" class="stack"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Players went off script?</h2>
+        <p class="muted">Choose the situation that best matches what happened. Nothing applies until you approve it.</p>
+        <div id="recovery-list" class="stack"></div>
+      </section>
+
+      <section class="panel">
+        <h2>AI context preview</h2>
+        <p class="muted">Select an NPC to see the constrained context we would send to an AI dialogue layer.</p>
+        <pre id="ai-context">No NPC selected.</pre>
+      </section>
+    </aside>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
