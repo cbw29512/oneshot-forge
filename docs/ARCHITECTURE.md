@@ -165,7 +165,7 @@ Every important NPC must define:
 - relationship state
 - quest function
 
-Dialogue generation receives the NPC contract plus current state. It does not receive permission to rewrite truth.
+Dialogue generation receives the NPC contract plus current state. It does not receive permission to rewrite truth.\n\n### Reusable NPC identities\n\nNPC identity and adventure role are deliberately separate concepts. IDs inside an adventure package are local to that package. A recurring NPC name, portrait, or reusable identity may appear in many adventures, while each adventure independently defines that NPC's role, knowledge, motives, secrets, relationships, and allegiance. The runner must never infer an NPC's current role from another adventure.
 
 ## 7. Off-script recovery
 
