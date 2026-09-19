@@ -3,29 +3,29 @@
 ## Phase 1 — Prove the format
 - [x] Define product boundary.
 - [x] Define initial Adventure Package schema.
-- [ ] Create one complete reference adventure package.
+- [x] Create one complete reference adventure package.
 - [ ] Validate required-clue redundancy.
 - [ ] Validate NPC knowledge boundaries.
 - [ ] Validate fresh initial game state.
 - [ ] Define asset manifest for maps/portraits/handouts.
 
 ## Phase 2 — GM Runner
-- [ ] Load a local `*.oneshot.json` package.
-- [ ] Adventure overview.
-- [ ] Scene navigation.
-- [ ] Read-aloud and GM notes.
-- [ ] NPC panel.
-- [ ] Clue discovery tracking.
-- [ ] Quest-stage tracking.
-- [ ] Map display and reveal state.
+- [x] Load a local `*.oneshot.json` package.
+- [x] Adventure overview.
+- [x] Scene navigation.
+- [x] Read-aloud and GM notes.
+- [x] NPC panel.
+- [x] Clue discovery tracking.
+- [x] Quest-stage tracking.
+- [x] Map display and reveal state.
 - [ ] Encounter/puzzle/trap/item panels.
-- [ ] Save/restore local run state.
-- [ ] Reset adventure to fresh state.
+- [x] Save/restore local run state.
+- [x] Reset adventure to fresh state.
 
 ## Phase 3 — Recovery system
 - [ ] Detect unresolved required revelations.
-- [ ] Show authored backup clue sources.
-- [ ] Apply recovery state changes only after GM approval.
+- [x] Show authored backup clue sources.
+- [x] Apply recovery state changes only after GM approval.
 - [ ] Support killed/missing quest giver.
 - [ ] Support skipped scene.
 - [ ] Support captured/befriended enemy.
