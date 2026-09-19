@@ -204,6 +204,7 @@ function syncForgeControls() {
   if (meta.partySize) el("forge-party").value = String(meta.partySize);
   if (meta.durationMinutes) el("forge-duration").value = String(Math.round(meta.durationMinutes / 60));
   if (meta.seed) el("forge-seed").value = meta.seed;
+  if (el("lock-seed")) el("lock-seed").checked = false;
 }
 
 function hasRunProgressed() {
@@ -262,6 +263,9 @@ function renderSavedAdventures() {
     option.textContent = item.title + " — L" + item.level + " / " + Math.round(item.durationMinutes / 60) + "h";
     option.selected = item.id === currentAdventureKey;
     select.appendChild(option);
+  }
+  if (el("save-status")) {
+    el("save-status").textContent = library.length + " adventure" + (library.length === 1 ? "" : "s") + " saved in this browser.";
   }
 }
 
@@ -625,11 +629,10 @@ function forgeRandomAdventure() {
   if (hasRunProgressed() && !confirm("Forge a new adventure? Your current adventure and progress are already saved and can be reopened from Saved adventures.")) {
     return;
   }
-  let seed = el("forge-seed").value.trim();
-  if (!seed) {
-    seed = globalThis.OneShotGenerator.newSeed();
-    el("forge-seed").value = seed;
-  }
+  const reuseSeed = Boolean(el("lock-seed")?.checked);
+  let seed = reuseSeed ? el("forge-seed").value.trim() : "";
+  if (!seed) seed = globalThis.OneShotGenerator.newSeed();
+  el("forge-seed").value = seed;
   const generated = globalThis.OneShotGenerator.generate({
     level:Number(el("forge-level").value || 4),
     partySize:Number(el("forge-party").value || 4),
@@ -637,8 +640,10 @@ function forgeRandomAdventure() {
     tone:el("forge-tone").value || "random",
     seed
   });
-  activateAdventure(generated, {persist:true, fresh:true});
-  toast("New one-shot forged and saved.");
+  const alreadySaved = Boolean(loadSavedPackage(generated.metadata.id));
+  activateAdventure(generated, {persist:true, fresh:!alreadySaved});
+  if (el("lock-seed")) el("lock-seed").checked = false;
+  toast(alreadySaved ? "Reopened the saved run for this seed." : "New random one-shot forged and saved.");
 }
 
 function openSavedAdventure() {
