@@ -471,8 +471,7 @@
       schemaVersion:"0.1.0",
       metadata:{
         id:packageId,title,systemCompatibility:"5E-compatible fantasy RPG",
-        partyLevel:level,partySize,durationMinutes,tone,seed,
-        generatedAt:new Date(0).toISOString()
+        partyLevel:level,partySize,durationMinutes,tone,seed
       },
       setup:{
         pitch:quest.opening(ctx),
