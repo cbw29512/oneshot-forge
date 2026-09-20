@@ -246,15 +246,20 @@ function renderAll() {
   el("quest-stakes").textContent = adventure.quest.stakes;
   el("quest-stage").value = state.questStage;
   if (el("overview-pitch")) {
-    el("overview-pitch").textContent = adventure.setup?.pitch || adventure.quest.objective;
+    const series = adventure.series;
+    const pitch = adventure.setup?.pitch || adventure.quest.objective;
+    el("overview-pitch").textContent = series
+      ? series.title + " · Episode " + series.episode + " — " + pitch
+      : pitch;
   }
   if (el("overview-clock")) {
     const bits = [
       "Level " + meta.partyLevel,
-      meta.partySize + " players",
+      (meta.partySizeRange || (meta.partySize + " players")),
       Math.round(meta.durationMinutes / 60) + " hours",
       adventure.quest.deadline || "No hard clock"
     ];
+    if (adventure.series?.nextTitle) bits.push("Next: " + adventure.series.nextTitle);
     el("overview-clock").innerHTML = bits.map(bit => "<span>" + escapeHtml(bit) + "</span>").join("");
   }
   renderSavedAdventures();

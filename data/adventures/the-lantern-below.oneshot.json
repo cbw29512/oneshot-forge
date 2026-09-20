@@ -11,12 +11,13 @@
       "mystery",
       "dark fantasy",
       "heroic"
-    ]
+    ],
+    "partySizeRange": "3\u20136 players"
   },
   "setup": {
     "pitch": "For as long as anyone in Briar Glen can remember, the iron lantern in the square has burned without oil. Tonight it is dark. Mara Venn hires the party to recover a stolen ember called the Emberglass before moonrise \u2014 but the thief may have taken it because the lantern was never a blessing.",
     "openingLocation": "Briar Glen",
-    "gmSummary": "Mara Venn\u2019s family has used the village lantern as a prison for a memory-eating spirit, the Pale Guest. Brother Caldus stole the Emberglass because the old seal is failing. He is at Bellweather Priory trying to bind the spirit properly. The party can restore the old lantern-seal (temporary safety), help Caldus finish a new binding, smash the Emberglass and fight, or bargain a memory for a memory. Required truths have backup routes. Moonrise is the hard clock."
+    "gmSummary": "Mara Venn\u2019s family has used the village lantern as a prison for a memory-eating spirit, the Pale Guest. Brother Caldus stole the Emberglass because the old seal is failing. He is at Bellweather Priory trying to bind the spirit properly. The party can restore the old lantern-seal (temporary safety), help Caldus finish a new binding, smash the Emberglass and fight, or bargain a memory for a memory. Required truths have backup routes. Moonrise is the hard clock. This is Episode 1 of The Quiet Seals. Keep the six pregens. The chosen ending is fact for Episode 2: The Well That Would Not Dry."
   },
   "quest": {
     "type": "retrieve / break curse",
@@ -471,13 +472,14 @@
       "pacingClass": "core",
       "estimatedMinutes": 15,
       "locationId": "loc-briar-glen",
-      "readAloud": "Dawn at Briar Glen is ordinary weather and an extraordinary quiet. People come out to look at the iron lantern as if it might speak.\n\nMara is already in the square. She does not ask whether you are heroes. She asks what you did with the thing that used to burn there \u2014 and whether the village still has a secret, a prison, a grave, or a debt.\n\nUse the ending that matches the table, then stop. Let the lantern be the last image.",
+      "readAloud": "Dawn at Briar Glen is ordinary weather and an extraordinary quiet. People come out to look at the iron lantern as if it might speak.\n\nMara is already in the square. She does not ask whether you are heroes. She asks what you did with the thing that used to burn there \u2014 and whether the village still has a secret, a prison, a grave, or a debt.\n\nA drover on the north road, if anyone is still listening, says the well at Saltmere has gone wrong. Iron in the water. Names that will not stick. That is tomorrow\u2019s problem. Tonight, end on the lantern.",
       "gmNotes": [
-        "Restore old flame: lantern lights again. Caldus, if alive, says it will fail within a season. Mara pays. The secret can stay buried or not \u2014 party\u2019s word.",
-        "New binding: lantern stays dark. It is a memorial now. Priory holds. Mara pays. Caldus may stay as keeper.",
-        "Destroyed: no cage. Village must live without the old protection. Mara pays if they lived. Some villagers will hate the party for \u2018killing the luck.\u2019",
-        "Bargain: Guest gone for now. Write the owed memories in your campaign notes. Mara pays, badly shaken.",
-        "200 gp from Mara if the glen survives, Emberglass or not. Moonstones in the crypt if they search after."
+        "Restore old flame: lantern lights again. Caldus, if alive, says it will fail within a season. Mara pays. The secret can stay buried or not \u2014 party\u2019s word. Episode 2: Saltmere has heard the lantern \u2018held.\u2019 They want the same trick for their well.",
+        "New binding: lantern stays dark, a memorial. Priory holds. Mara pays. Caldus may stay as keeper. Episode 2: Saltmere wants Caldus or the party, not the old lantern-method.",
+        "Destroyed: no cage. Some villagers hate the party for killing the luck. Mara still pays if they lived. Episode 2: Saltmere is terrified you will smash their well-charm too.",
+        "Bargain: Guest gone for now. Write the owed memories. Mara pays, shaken. Episode 2: something in Saltmere already knows the names you sold.",
+        "200 gp from Mara if the glen survives. Moonstones in the crypt if they search after.",
+        "Do not play Episode 2 tonight unless you have it. Write the ending on the campaign card and stop. Same six characters next session."
       ],
       "npcIds": [
         "npc-mara-venn"
@@ -1308,6 +1310,66 @@
         "Mask of the Wild: hide in light natural cover."
       ],
       "gear": "Scale mail, longbow, 20 arrows, shortsword, explorer\u2019s pack, 11 gp"
+    },
+    {
+      "id": "pregen-hester",
+      "name": "Hester Brine",
+      "level": 4,
+      "class": "Paladin (Oath of Devotion)",
+      "race": "Human",
+      "rules": "5E 2014 SRD",
+      "role": "Face and second front line",
+      "ac": 18,
+      "hp": 36,
+      "speed": "30 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 16,
+        "DEX": 8,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 16
+      },
+      "saves": "Wis +3, Cha +5",
+      "skills": "Persuasion +5, Insight +3, Athletics +5, Religion +2",
+      "attacks": [
+        "Longsword (Dueling). +5 to hit; 1d8+5 slashing (one attack).",
+        "Javelin. +5 to hit; 1d6+3 piercing, range 30/120."
+      ],
+      "spellcasting": {
+        "ability": "Charisma",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": "3 first-level",
+        "cantrips": [],
+        "prepared": [
+          "Bless",
+          "Cure Wounds",
+          "Heroism",
+          "Protection from Evil and Good",
+          "Sanctuary"
+        ]
+      },
+      "features": [
+        "Divine Sense (1/rest, 4 uses): detect celestials, fiends, undead within 60 ft.",
+        "Lay on Hands: 20 HP pool, or 5 HP to neutralize one poison or disease.",
+        "Divine Smite: expend a spell slot on a hit; +2d8 radiant (1st) or +3d8 (2nd). +1d8 vs undead or fiend.",
+        "Channel Divinity (1/rest): Sacred Weapon (CHA to hit for 1 minute) or Turn the Unholy (undead/fiends, Wis DC 13).",
+        "Fighting Style: Dueling. Divine Health: immune to disease."
+      ],
+      "gear": "Chain mail, shield, longsword, 3 javelins, holy symbol, 14 gp"
     }
-  ]
+  ],
+  "series": {
+    "id": "quiet-seals",
+    "title": "The Quiet Seals",
+    "episode": 1,
+    "episodeTitle": "The Lantern Below",
+    "throughLine": "Old bindings that look like blessings are failing across the hill country. Each night is a complete one-shot. Played in order, with the same six characters, they are one campaign.",
+    "carryForward": "Record which ending the table chose, whether Caldus lives, whether Mara\u2019s secret is public, and any memories bargained away. Those facts open Episode 2.",
+    "nextId": "the-well-that-would-not-dry",
+    "nextTitle": "The Well That Would Not Dry",
+    "nextHook": "A day\u2019s walk down-ridge, Saltmere\u2019s well has never gone dry. This week the water tastes of iron, and people forget why they came to draw it. Whatever you did with Briar Glen\u2019s lantern is already a rumor there."
+  }
 }
