@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import {validateAdventureFlow} from "./validate-flow.mjs";
 
 const path = process.argv[2] || "data/adventures/the-lantern-below.oneshot.json";
 const errors = [];
@@ -16,51 +17,6 @@ function loadAdventure(filePath) {
 
 function requireText(value, label) {
   if (!hasText(value)) errors.push(`${label} is required for zero-prep play`);
-}
-
-function reachableTerminals(startId, scenesById) {
-  const terminals = new Set();
-  const visited = new Set();
-  const pending = [startId];
-  while (pending.length) {
-    const id = pending.pop();
-    if (visited.has(id)) continue;
-    visited.add(id);
-    const scene = scenesById.get(id);
-    if (!scene) continue;
-    const exits = scene.exits || [];
-    if (!exits.length) terminals.add(id);
-    else exits.forEach(exitId => pending.push(exitId));
-  }
-  return terminals;
-}
-
-function validateAdventureFlow(scenes, initialSceneId) {
-  const scenesById = new Map((scenes || []).map(scene => [scene.id, scene]));
-  const terminalIds = new Set((scenes || []).filter(scene => !(scene.exits || []).length).map(scene => scene.id));
-  if (!terminalIds.size) errors.push("adventure requires at least one terminal ending scene");
-
-  const reachableFromStart = new Set();
-  const pending = initialSceneId ? [initialSceneId] : [];
-  while (pending.length) {
-    const id = pending.pop();
-    if (reachableFromStart.has(id)) continue;
-    reachableFromStart.add(id);
-    (scenesById.get(id)?.exits || []).forEach(exitId => pending.push(exitId));
-  }
-  for (const scene of scenes || []) {
-    if (!reachableFromStart.has(scene.id)) errors.push(`scene ${scene.id} is unreachable from the opening scene`);
-    if (!reachableTerminals(scene.id, scenesById).size) errors.push(`scene ${scene.id} cannot reach an ending`);
-  }
-
-  const branchScenes = (scenes || []).filter(scene => (scene.exits || []).length > 1);
-  if (!branchScenes.length) errors.push("adventure requires at least one meaningful branch with multiple paths");
-  for (const scene of branchScenes) {
-    const branchTerminalSets = scene.exits.map(exitId => reachableTerminals(exitId, scenesById));
-    if (!branchTerminalSets.length) continue;
-    const shared = [...branchTerminalSets[0]].filter(id => branchTerminalSets.every(set => set.has(id)));
-    if (!shared.length) errors.push(`branching scene ${scene.id} has paths that never reconverge on a shared ending`);
-  }
 }
 
 const adventure = loadAdventure(path);
@@ -87,7 +43,7 @@ requireText(adventure.quest?.stakes, "quest.stakes");
 if (!adventure.initialState?.currentSceneId || !sceneIds.has(adventure.initialState.currentSceneId)) {
   errors.push("initialState.currentSceneId must reference a scene");
 }
-validateAdventureFlow(adventure.scenes || [], adventure.initialState?.currentSceneId);
+errors.push(...validateAdventureFlow(adventure.scenes || [], adventure.initialState?.currentSceneId));
 
 for (const clue of adventure.clues || []) {
   if (clue.required && (!Array.isArray(clue.sources) || clue.sources.length < 2)) {
@@ -106,19 +62,13 @@ for (const scene of adventure.scenes || []) {
 
   if (scene.pacingClass === "core") {
     requireText(scene.readAloud, `core scene ${scene.id}.readAloud`);
-    if (!Array.isArray(scene.gmNotes) || scene.gmNotes.length === 0) {
-      errors.push(`core scene ${scene.id} requires gmNotes[]`);
-    }
-    if (!Number.isInteger(scene.estimatedMinutes) || scene.estimatedMinutes < 1) {
-      errors.push(`core scene ${scene.id} requires estimatedMinutes`);
-    }
+    if (!Array.isArray(scene.gmNotes) || scene.gmNotes.length === 0) errors.push(`core scene ${scene.id} requires gmNotes[]`);
+    if (!Number.isInteger(scene.estimatedMinutes) || scene.estimatedMinutes < 1) errors.push(`core scene ${scene.id} requires estimatedMinutes`);
   }
 }
 
 for (const map of adventure.maps || []) {
-  if (!Array.isArray(map.regions) || map.regions.length === 0) {
-    errors.push(`map ${map.id} requires at least one runnable region`);
-  }
+  if (!Array.isArray(map.regions) || map.regions.length === 0) errors.push(`map ${map.id} requires at least one runnable region`);
   for (const region of map.regions || []) {
     if (region.sceneId && !sceneIds.has(region.sceneId)) errors.push(`map region ${region.id} references missing scene ${region.sceneId}`);
   }
@@ -128,9 +78,7 @@ for (const npc of adventure.npcs || []) {
   for (const field of ["knows", "believes", "secrets", "cannotKnow"]) {
     if (!Array.isArray(npc[field])) errors.push(`NPC ${npc.id} requires ${field}[]`);
   }
-  if (!Array.isArray(npc.voiceCues) || npc.voiceCues.length === 0) {
-    errors.push(`NPC ${npc.id} requires voiceCues[] for zero-prep roleplay`);
-  }
+  if (!Array.isArray(npc.voiceCues) || npc.voiceCues.length === 0) errors.push(`NPC ${npc.id} requires voiceCues[] for zero-prep roleplay`);
   requireText(npc.questFunction, `NPC ${npc.id}.questFunction`);
 }
 
