@@ -215,8 +215,35 @@ function hasRunProgressed() {
     state.sceneHistory.length > 0;
 }
 
+function renderCatalog() {
+  const meta = adventure.metadata || {};
+  el("catalog-adventure-title").textContent = meta.title || "Untitled adventure";
+  el("catalog-adventure-hook").textContent = adventure.setup?.pitch || adventure.quest?.objective || "";
+  const metaWrap = el("catalog-adventure-meta");
+  metaWrap.innerHTML = "";
+  [
+    "Level " + (meta.partyLevel || "?"),
+    (meta.partySize || "?") + " players",
+    Math.round((meta.durationMinutes || 0) / 60) + " hours",
+    ((meta.tone || []).join(" / ") || "fantasy"),
+    "$0.99 target"
+  ].forEach(label => {
+    const chip = document.createElement("span");
+    chip.textContent = label;
+    metaWrap.appendChild(chip);
+  });
+}
+
+function openRunner() {
+  el("catalog-view").hidden = true;
+  el("runner-view").hidden = false;
+  history.replaceState(null, "", "#run");
+  requestAnimationFrame(() => el("active-scene")?.focus({preventScroll:true}));
+}
+
 function renderAll() {
   const meta = adventure.metadata;
+  renderCatalog();
   const planned = adventure.pacing?.plannedMinutes;
   const seedText = meta.seed ? " • seed " + meta.seed : "";
   const plannedText = planned ? " • " + planned + " planned min" : "";
@@ -288,13 +315,27 @@ function renderSceneList() {
 
 function renderScene() {
   const scene = currentScene();
+  const stageIndex = Math.max(0, adventure.scenes.findIndex(item => item.id === scene.id));
   const location = adventure.locations.find(item => item.id === scene.locationId);
-  el("scene-kicker").textContent = location ? location.name : "Adventure scene";
+  const locationName = location ? location.name : "Adventure scene";
+  el("scene-kicker").textContent = "Stage " + (stageIndex + 1) + " of " + adventure.scenes.length + " • " + locationName;
   el("scene-title").textContent = scene.title;
   el("scene-purpose").textContent = scene.purpose;
   el("scene-pacing").textContent = (scene.pacingClass || "core") + " • " + (scene.estimatedMinutes || "?") + " min";
   el("read-aloud").textContent = scene.readAloud || "No read-aloud text.";
   el("gm-notes").innerHTML = (scene.gmNotes || []).map(note => "<li>" + escapeHtml(note) + "</li>").join("");
+
+  const sceneNpcs = (scene.npcIds || []).map(id => adventure.npcs.find(npc => npc.id === id)).filter(Boolean);
+  el("scene-npcs-wrap").hidden = !sceneNpcs.length;
+  el("scene-npcs").innerHTML = sceneNpcs.map(npc =>
+    '<div class="card">' +
+      '<strong>' + escapeHtml(npc.name) + '</strong>' +
+      '<p>' + escapeHtml(npc.role || "") + '</p>' +
+      '<p><b>Voice.</b> ' + escapeHtml((npc.voiceCues || []).join("; ")) + '</p>' +
+      '<p><b>Wants.</b> ' + escapeHtml((npc.wants || []).join("; ")) + '</p>' +
+      '<p><b>Knows now.</b> ' + escapeHtml((npc.knows || []).join("; ")) + '</p>' +
+    '</div>'
+  ).join("");
 
   const sceneClues = (scene.clueIds || []).map(id => adventure.clues.find(clue => clue.id === id)).filter(Boolean);
   el("scene-clues-wrap").hidden = !sceneClues.length;
@@ -656,6 +697,12 @@ function openSavedAdventure() {
   }
   activateAdventure(pkg, {persist:false});
   toast("Saved adventure opened.");
+}
+
+el("open-adventure").addEventListener("click", openRunner);
+if (location.hash === "#run") {
+  el("catalog-view").hidden = true;
+  el("runner-view").hidden = false;
 }
 
 el("prev-scene").addEventListener("click", goBackScene);
