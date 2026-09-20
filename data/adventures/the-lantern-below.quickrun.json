@@ -11,6 +11,14 @@
   ],
   "encounters": [
     {
+      "id":"enc-memory-husks",
+      "objective":"Calm the travelers long enough to learn what happened on the road.",
+      "start":"Three frightened travelers stumble from the north trail unable to agree on where they came from or what they lost.",
+      "creatures":[],
+      "bypass":"The party may ignore them and continue north; the spirit clue remains available from Caldus later.",
+      "end":"Use check-travelers. On success they describe pale mist from the priory; on failure they scatter, but tracks and cold mist still point north."
+    },
+    {
       "id":"enc-grave-things",
       "objective":"Cross the yard or neutralize the guardians.",
       "start":"Four Thornbound Grave-Things rise when a creature moves more than 10 feet into the yard.",
