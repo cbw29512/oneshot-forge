@@ -8,13 +8,15 @@ Pick a card. Run stage cards. GitHub Pages. No ads. No WotC IP. Do not touch Iro
 
 Live: https://cbw29512.github.io/oneshot-forge/
 
-## Freeze
-Chris said: rules-check the current night, then write the next, circle back later. Episode 2 is live. Do not skip ahead to Night 3 until Night 2 is in the catalog and validated.
+## Auditor
+- Auditor pass: Night 1 — The Lantern Below — 2026-09-20 (DCs unified, Mayor in hook)
+- Night 2 — The Well That Would Not Dry — **pending auditor**. Author must not start Night 3 until this is a pass.
 
 ## Next (in order)
-1. Night 3 — The Watch That Did Not Come Back — only after a rules pass on the Well
-2. Playwright browser CI when asked
-3. Checkout only after owner gives a payment account
+1. Auditor pass on The Well That Would Not Dry
+2. Only then Night 3 — The Watch That Did Not Come Back
+3. Playwright browser CI when asked
+4. Checkout only after owner gives a payment account
 
 ## Do not
 - Mix non-D&D
