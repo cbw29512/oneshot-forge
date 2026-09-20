@@ -8,30 +8,28 @@ Pick a card. Run stage cards. GitHub Pages. No ads. No WotC IP. Do not touch Iro
 
 Live: https://cbw29512.github.io/oneshot-forge/
 
-## Cadence
-**One authored night per day, then an auditor pass.** If it starts to feel like slop, skip a day. Never two nights in one run.
+## Active review gate
+**Exactly one active one-shot until Chris explicitly approves it.**
 
-## Auditor
-- Auditor pass: Night 1 — The Lantern Below — 2026-09-20
-- Auditor pass: Night 2 — The Well That Would Not Dry — 2026-09-20
-  - Five endings (summary had said four)
-  - Mill Kade ≠ Oda’s mill; drying-shed fire is in Saltmere
-  - Square map: well-house N, Jory SW, drying shed NW, road S
-  - Name-Drowned billed as CR 1/4 (Low); talk-out is the door
-  - Cistern jobs print DC 13 / 15 / 13 / 15
+Active: **The Lantern Below** — Level 4, 3–6 players, about 4 hours.
+Status: review candidate; not yet approved/frozen.
+
+A second draft, **The Well That Would Not Dry**, was authored before approval. Keep its files for later recovery, but it is FROZEN and must not appear as a live/catalog product until The Lantern Below is explicitly approved. Do not develop Night 3.
 
 ## Next (in order)
-1. Author (tomorrow): Night 3 — The Watch That Did Not Come Back — one night only
-2. Auditor pass on Night 3 before Night 4
-3. Playwright CI when asked
-4. Checkout only after owner gives a payment account
+1. Improve and table-test The Lantern Below against the zero-prep stage-card standard.
+2. Fix any verified Lantern content/runner inconsistency; keep stage-critical information on the active card.
+3. Keep the storefront catalog limited to the active review product plus honest Coming Soon placeholders.
+4. After Chris explicitly approves The Lantern Below, freeze that exact approved version and only then activate/review the next one-shot.
+5. Checkout only after owner gives a payment account.
 
 ## Do not
-- Mix non-D&D
-- Fake Beyond upload
-- Call unwritten nights available
-- Invent payment
-- Write two nights in one day
+- Start another one-shot before active-adventure approval.
+- Publish or catalog an unapproved draft as live.
+- Mix non-D&D.
+- Fake Beyond upload.
+- Invent payment.
+- Call work production-ready unless the exact tested head is green.
 
 ## Last session
-2026-09-20 — Auditor fired now on Night 2. Author idle until the next daily tick.
+2026-09-20 — Re-established Chris's one-active-adventure approval gate after Night 2 was authored prematurely. The Lantern Below remains the active review product; later drafts are frozen/hidden pending approval.
