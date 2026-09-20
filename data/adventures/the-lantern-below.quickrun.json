@@ -1,190 +1,22 @@
 {
   "adventureId": "the-lantern-below",
-  "version": "0.1.0",
-  "target": {
-    "level": 4,
-    "partySize": 4
-  },
+  "version": "0.1.1",
+  "target": {"level": 4, "partySize": 4},
   "checks": [
-    {
-      "id": "check-mara",
-      "sceneId": "scene-hook",
-      "label": "Press Mara for the truth",
-      "dc": 12,
-      "ability": "Wisdom (Insight) or Charisma (Persuasion)",
-      "success": "Mara admits the Emberglass is part of a protective seal and identifies Bellweather Priory.",
-      "failure": "She still names the priory but withholds the seal's purpose; Tamsin can reveal the alternate route."
-    },
-    {
-      "id": "check-travelers",
-      "sceneId": "scene-road",
-      "label": "Calm the memory-struck travelers",
-      "dc": 11,
-      "ability": "Wisdom (Medicine) or Charisma (Persuasion)",
-      "success": "They remember pale mist drifting from the priory and reveal clue-spirit-nature.",
-      "failure": "They scatter, but tracks and cold mist still point toward the priory; no required clue is lost."
-    },
-    {
-      "id": "check-wards",
-      "sceneId": "scene-priory-gate",
-      "label": "Read the chalk wards",
-      "dc": 12,
-      "ability": "Intelligence (Arcana or Religion)",
-      "success": "The marks are protective and recently renewed by Caldus.",
-      "failure": "The marks remain obviously fresh; Caldus or his notes can reveal their purpose later."
-    },
-    {
-      "id": "check-ritual",
-      "sceneId": "scene-final",
-      "label": "Advance the replacement binding",
-      "dc": 13,
-      "ability": "Intelligence (Arcana or Religion)",
-      "success": "Gain 1 ritual success.",
-      "failure": "No progress; the acting character takes 1d6 psychic damage from the Guest's whispers."
-    },
-    {
-      "id": "check-bargain",
-      "sceneId": "scene-final",
-      "label": "Negotiate with the Pale Guest",
-      "dc": 15,
-      "ability": "Charisma (Persuasion, Deception, or Intimidation)",
-      "success": "Gain 1 bargain success; 3 before 2 failures produces a binding bargain.",
-      "failure": "Gain 1 bargain failure and the Guest immediately uses Whispering Theft against the speaker."
-    }
+    {"id":"check-mara","sceneId":"scene-hook","label":"Press Mara for the truth","dc":12,"ability":"Wisdom (Insight) or Charisma (Persuasion)","success":"Mara admits the Emberglass is part of a protective seal and identifies Bellweather Priory.","failure":"She still names the priory but withholds the seal's purpose; Tamsin can reveal the alternate route."},
+    {"id":"check-travelers","sceneId":"scene-road","label":"Calm the memory-struck travelers","dc":12,"ability":"Wisdom (Medicine) or Charisma (Persuasion)","success":"They remember pale mist drifting from the priory and reveal clue-spirit-nature.","failure":"They scatter, but tracks and cold mist still point toward the priory; no required clue is lost."},
+    {"id":"check-wards","sceneId":"scene-priory-gate","label":"Read the chalk wards","dc":12,"ability":"Intelligence (Arcana or Religion)","success":"The marks are protective and recently renewed by Caldus.","failure":"The marks remain obviously fresh; Caldus or his notes can reveal their purpose later."},
+    {"id":"check-ritual","sceneId":"scene-final","label":"Advance the replacement binding","dc":13,"ability":"Intelligence (Arcana or Religion)","success":"Gain 1 ritual success.","failure":"No progress; the acting character takes 1d6 psychic damage from the Guest's whispers."},
+    {"id":"check-bargain","sceneId":"scene-final","label":"Negotiate with the Pale Guest","dc":15,"ability":"Charisma (Persuasion, Deception, or Intimidation)","success":"Gain 1 bargain success; 3 before 2 failures produces a binding bargain.","failure":"Gain 1 bargain failure and the Guest immediately uses Whispering Theft against the speaker."}
   ],
   "encounters": [
-    {
-      "id": "enc-memory-husks",
-      "objective": "Calm the travelers long enough to learn what happened on the road.",
-      "start": "Three frightened travelers stumble from the north trail unable to agree on where they came from or what they lost.",
-      "creatures": [],
-      "bypass": "The party may ignore them and continue north; the spirit clue remains available from Caldus later.",
-      "end": "Use check-travelers. On success they describe pale mist from the priory; on failure they scatter, but tracks and cold mist still point north."
-    },
-    {
-      "id": "enc-grave-things",
-      "objective": "Cross the yard or neutralize the guardians.",
-      "start": "Four Thornbound Grave-Things rise when a creature moves more than 10 feet into the yard.",
-      "bypass": "Characters who know the culvert can skip this encounter. A DC 12 Dexterity (Stealth) group check also crosses the grave edge without waking them; on failure combat starts with the Grave-Things 20 feet away.",
-      "creatures": [
-        {
-          "name": "Thornbound Grave-Thing",
-          "count": 4,
-          "ac": 12,
-          "hp": 18,
-          "speed": "20 ft.",
-          "attack": "Thorn Claw. Melee +4 to hit, reach 5 ft.; 1d6+2 slashing.",
-          "trait": "Rooted Dead. Difficult terrain caused by plants does not slow it. It never pursues beyond the priory yard.",
-          "tactics": "Attack the nearest intruder. If fire damages one, that creature attacks the source of the fire on its next turn."
-        }
-      ],
-      "end": "Combat ends when all guardians are destroyed or no conscious party member remains in the yard. Fleeing into the chapel ends pursuit."
-    },
-    {
-      "id": "enc-caldus-if-hostile",
-      "objective": "Keep the revelation available even if talks collapse.",
-      "start": "Caldus begins 25 feet away and does not attack first.",
-      "creatures": [
-        {
-          "name": "Brother Caldus",
-          "count": 1,
-          "ac": 13,
-          "hp": 36,
-          "speed": "30 ft.",
-          "attack": "Ash Staff. Melee +4 to hit; 1d6+2 bludgeoning plus 1d4 fire.",
-          "ranged": "Ember Bolt. Ranged spell attack +5, range 60 ft.; 2d8 fire.",
-          "reaction": "Warding Spark (1/round). Add +2 AC against one attack that would hit him.",
-          "tactics": "Disengages toward the ritual chamber when below 18 HP. He calls out the truth about the seal every round and surrenders rather than fight to the death."
-        }
-      ],
-      "end": "At 8 HP or fewer Caldus yields if given the chance. If reduced to 0 HP, his journal beside the Emberglass reveals clue-real-seal and clue-caldus-plan."
-    },
-    {
-      "id": "enc-pale-guest",
-      "objective": "Survive while choosing destruction, binding, or bargain.",
-      "start": "The Guest appears at the far side of the 40-foot ritual chamber. Roll initiative immediately after the read-aloud.",
-      "creatures": [
-        {
-          "name": "The Pale Guest",
-          "count": 1,
-          "ac": 14,
-          "hp": 88,
-          "speed": "30 ft., fly 30 ft. (hover)",
-          "saves": "Wis +5, Cha +5",
-          "resistances": "necrotic; bludgeoning, piercing, and slashing from nonmagical attacks",
-          "immunities": "charmed, frightened",
-          "attack": "Memory Rend. Melee +6 to hit, reach 10 ft.; 2d8+3 psychic.",
-          "action": "Whispering Theft. One creature within 60 ft. makes a DC 13 Wisdom save; on failure it takes 3d6 psychic damage and has disadvantage on its next attack roll or ability check. Half damage and no disadvantage on success.",
-          "trait": "Unstable Binding. At initiative count 20, one unoccupied sigil flares. A creature adjacent to it may use its reaction to make DC 12 Intelligence (Arcana or Religion); success suppresses the flare, failure or no attempt deals 1d6 psychic damage to every creature within 10 ft. of that sigil.",
-          "tactics": "Targets whoever most recently advanced the ritual or bargain. It does not leave the chamber while the Emberglass remains intact."
-        }
-      ],
-      "ritual": "The replacement binding needs 3 ritual successes before 3 ritual failures. One character adjacent to a sigil can use an action for check-ritual. Caldus contributes one automatic success at the end of round 2 if conscious and allied. At 3 successes, the Guest is bound and combat ends.",
-      "destroy": "A creature holding the Emberglass may use an action to smash it against the central stone. The Guest loses its nonmagical weapon resistance and cannot be bound afterward.",
-      "bargain": "A character can use an action for check-bargain. Three bargain successes before two failures ends hostilities, but the party must offer one meaningful memory from each willing bargainer; record the memories as story consequences.",
-      "end": "0 HP destroys the Guest; 3 ritual successes bind it; 3 bargain successes create a new pact."
-    }
+    {"id":"enc-memory-husks","objective":"Calm the travelers long enough to learn what happened on the road.","start":"Three frightened travelers stumble from the north trail unable to agree on where they came from or what they lost.","creatures":[],"bypass":"The party may ignore them and continue north; the spirit clue remains available from Caldus later.","end":"Use check-travelers. On success they describe pale mist from the priory; on failure they scatter, but tracks and cold mist still point north."},
+    {"id":"enc-grave-things","objective":"Cross the yard or neutralize the guardians.","start":"Four Thornbound Grave-Things rise when a creature moves more than 10 feet into the yard.","bypass":"Characters who know the culvert can skip this encounter. A DC 12 Dexterity (Stealth) group check also crosses the grave edge without waking them; on failure combat starts with the Grave-Things 20 feet away.","creatures":[{"name":"Thornbound Grave-Thing","count":4,"ac":12,"hp":18,"speed":"20 ft.","attack":"Thorn Claw. Melee +4 to hit, reach 5 ft.; 1d6+2 slashing.","trait":"Rooted Dead. Difficult terrain caused by plants does not slow it. It never pursues beyond the priory yard.","tactics":"Attack the nearest intruder. If fire damages one, that creature attacks the source of the fire on its next turn."}],"end":"Combat ends when all guardians are destroyed or no conscious party member remains in the yard. Fleeing into the chapel ends pursuit."},
+    {"id":"enc-caldus-if-hostile","objective":"Keep the revelation available even if talks collapse.","start":"Caldus begins 25 feet away and does not attack first.","creatures":[{"name":"Brother Caldus","count":1,"ac":13,"hp":36,"speed":"30 ft.","attack":"Ash Staff. Melee +4 to hit; 1d6+2 bludgeoning plus 1d4 fire.","ranged":"Ember Bolt. Ranged spell attack +5, range 60 ft.; 2d8 fire.","reaction":"Warding Spark (1/round). Add +2 AC against one attack that would hit him.","tactics":"Disengages toward the ritual chamber when below 18 HP. He calls out the truth about the seal every round and surrenders rather than fight to the death."}],"end":"At 8 HP or fewer Caldus yields if given the chance. If reduced to 0 HP, his journal beside the Emberglass reveals clue-real-seal and clue-caldus-plan."},
+    {"id":"enc-pale-guest","objective":"Survive while choosing destruction, binding, or bargain.","start":"The Guest appears at the far side of the 40-foot ritual chamber. Roll initiative immediately after the read-aloud.","creatures":[{"name":"The Pale Guest","count":1,"ac":14,"hp":88,"speed":"30 ft., fly 30 ft. (hover)","saves":"Wis +5, Cha +5","resistances":"necrotic; bludgeoning, piercing, and slashing from nonmagical attacks","immunities":"charmed, frightened","attack":"Memory Rend. Melee +6 to hit, reach 10 ft.; 2d8+3 psychic.","action":"Whispering Theft. One creature within 60 ft. makes a DC 13 Wisdom save; on failure it takes 3d6 psychic damage and has disadvantage on its next attack roll or ability check. Half damage and no disadvantage on success.","trait":"Unstable Binding. At initiative count 20, one unoccupied sigil flares. A creature adjacent to it may use its reaction to make DC 12 Intelligence (Arcana or Religion); success suppresses the flare, failure or no attempt deals 1d6 psychic damage to every creature within 10 ft. of that sigil.","tactics":"Targets whoever most recently advanced the ritual or bargain. It does not leave the chamber while the Emberglass remains intact."}],"ritual":"The replacement binding needs 3 ritual successes before 3 ritual failures. One character adjacent to a sigil can use an action for check-ritual. Caldus contributes one automatic success at the end of round 2 if conscious and allied. At 3 successes, the Guest is bound and combat ends.","destroy":"A creature holding the Emberglass may use an action to smash it against the central stone. The Guest loses its nonmagical weapon resistance and cannot be bound afterward.","bargain":"A character can use an action for check-bargain. Three bargain successes before two failures ends hostilities, but the party must offer one meaningful memory from each willing bargainer; record the memories as story consequences.","end":"0 HP destroys the Guest; 3 ritual successes bind it; 3 bargain successes create a new pact."}
   ],
-  "hazards": [
-    {
-      "id": "trap-memory-bell",
-      "sceneId": "scene-chapel",
-      "trigger": "A character rings the hanging handbell.",
-      "save": "DC 12 Wisdom",
-      "failure": "Take 2d6 psychic damage and forget the last minute until finishing a short rest; the player still retains all discovered clues and game information.",
-      "success": "Half damage and no memory loss.",
-      "failForward": "The crypt stair opens either way."
-    }
-  ],
-  "rewards": [
-    {
-      "id": "reward-mara",
-      "when": "Briar Glen survives the crisis.",
-      "reward": "Mara pays the promised 200 gp total even if the Emberglass is not returned."
-    },
-    {
-      "id": "reward-bell-silver",
-      "when": "The party searches the crypt after resolving the finale.",
-      "reward": "A hidden votive box contains 80 gp in old silver and two 50 gp moonstones."
-    },
-    {
-      "id": "reward-ember-blessing",
-      "when": "The party completes the new binding without destroying the Emberglass.",
-      "reward": "Each surviving character gains Ember's Resolve: once before the next long rest, add 1d4 to a failed Wisdom saving throw, then the blessing ends."
-    }
-  ],
-  "mapNotes": [
-    {
-      "sceneId": "scene-priory-gate",
-      "dimensions": "60 x 50 ft.",
-      "features": [
-        "chapel doors on north edge",
-        "four graves spaced 15 ft. apart",
-        "thorn patches are difficult terrain",
-        "culvert entrance outside east wall if discovered"
-      ]
-    },
-    {
-      "sceneId": "scene-crypt",
-      "dimensions": "40 x 35 ft.",
-      "features": [
-        "cracked bell in center",
-        "ritual stair on south wall",
-        "stone niches provide half cover"
-      ]
-    },
-    {
-      "sceneId": "scene-final",
-      "dimensions": "40-ft.-diameter circle",
-      "features": [
-        "central Emberglass socket",
-        "four sigils at cardinal points",
-        "outer darkness is solid wall, not an exit"
-      ]
-    }
-  ],
-  "requiredCheckIds": [
-    "check-ritual",
-    "check-bargain"
-  ]
+  "hazards":[{"id":"trap-memory-bell","sceneId":"scene-chapel","trigger":"A character rings the hanging handbell.","save":"DC 12 Wisdom","failure":"Take 2d6 psychic damage and forget the last minute until finishing a short rest; the player still retains all discovered clues and game information.","success":"Half damage and no memory loss.","failForward":"The crypt stair opens either way."}],
+  "rewards":[{"id":"reward-mara","when":"Briar Glen survives the crisis.","reward":"Mara pays the promised 200 gp total even if the Emberglass is not returned."},{"id":"reward-bell-silver","when":"The party searches the crypt after resolving the finale.","reward":"A hidden votive box contains 80 gp in old silver and two 50 gp moonstones."},{"id":"reward-ember-blessing","when":"The party completes the new binding without destroying the Emberglass.","reward":"Each surviving character gains Ember's Resolve: once before the next long rest, add 1d4 to a failed Wisdom saving throw, then the blessing ends."}],
+  "mapNotes":[{"sceneId":"scene-priory-gate","dimensions":"60 x 50 ft.","features":["chapel doors on north edge","four graves spaced 15 ft. apart","thorn patches are difficult terrain","culvert entrance outside east wall if discovered"]},{"sceneId":"scene-crypt","dimensions":"40 x 35 ft.","features":["cracked bell in center","ritual stair on south wall","stone niches provide half cover"]},{"sceneId":"scene-final","dimensions":"40-ft.-diameter circle","features":["central Emberglass socket","four sigils at cardinal points","outer darkness is solid wall, not an exit"]}],
+  "requiredCheckIds":["check-ritual","check-bargain"]
 }
