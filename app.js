@@ -397,35 +397,35 @@ function renderScene() {
   const location = adventure.locations.find(item => item.id === scene.locationId);
   el("scene-kicker").textContent = location ? location.name : "Adventure scene";
   el("scene-title").textContent = scene.title;
-  el("scene-purpose").textContent = scene.purpose;
+  if (el("scene-purpose")) el("scene-purpose").textContent = scene.purpose || "";
   el("scene-pacing").textContent = (scene.pacingClass || "core") + " • " + (scene.estimatedMinutes || "?") + " min";
   el("read-aloud").textContent = scene.readAloud || "No read-aloud text.";
-  el("gm-notes").innerHTML = (scene.gmNotes || []).map(note => "<li>" + escapeHtml(note) + "</li>").join("");
 
-  const sceneClues = (scene.clueIds || []).map(id => adventure.clues.find(clue => clue.id === id)).filter(Boolean);
-  el("scene-clues-wrap").hidden = !sceneClues.length;
-  el("scene-clues").innerHTML = "";
-  sceneClues.forEach(clue => el("scene-clues").appendChild(clueCard(clue)));
-
-  const encounters = (scene.encounterIds || []).map(id => adventure.encounters.find(encounter => encounter.id === id)).filter(Boolean);
-  el("scene-encounters-wrap").hidden = !encounters.length;
-  el("scene-encounters").innerHTML = encounters.map(encounterCardHtml).join("");
-
+  const encounters = (scene.encounterIds || [])
+    .map(id => adventure.encounters.find(encounter => encounter.id === id))
+    .filter(Boolean);
   const checks = tableChecksFor(scene.id);
-  if (el("scene-checks-wrap")) {
-    el("scene-checks-wrap").hidden = !checks.length;
-    el("scene-checks").innerHTML = checks.map(checkCardHtml).join("");
-  }
-
   const hazards = tableHazardsFor(scene.id);
   const puzzles = (adventure.puzzles || []).filter(item => item.locationId === scene.locationId);
   const traps = (adventure.traps || []).filter(item => item.locationId === scene.locationId);
-  el("scene-puzzles-wrap").hidden = !puzzles.length && !traps.length && !hazards.length;
-  el("scene-puzzles").innerHTML = [
-    ...hazards.map(hazardCardHtml),
-    ...puzzles.map(item => resourceCardHtml("Puzzle", item.name, item.prompt, "Solution: " + item.solution + " • Fail forward: " + item.failForward)),
-    ...traps.map(item => resourceCardHtml("Trap", item.name, item.trigger, item.effect || item.purpose || ""))
-  ].join("");
+  const npcs = (scene.npcIds || [])
+    .map(id => adventure.npcs.find(npc => npc.id === id))
+    .filter(Boolean);
+
+  if (el("dm-box")) el("dm-box").innerHTML = dmBoxHtml(scene, { npcs, checks, hazards, puzzles, traps, encounters });
+
+  const monsterHtml = encounters.map(encounterCardHtml).join("");
+  if (el("monster-box-wrap")) {
+    el("monster-box-wrap").hidden = !monsterHtml;
+    el("monster-box").innerHTML = monsterHtml;
+  }
+
+  const sceneClues = (scene.clueIds || []).map(id => adventure.clues.find(clue => clue.id === id)).filter(Boolean);
+  if (el("scene-clues-wrap")) {
+    el("scene-clues-wrap").hidden = !sceneClues.length;
+    el("scene-clues").innerHTML = "";
+    sceneClues.forEach(clue => el("scene-clues").appendChild(clueCard(clue)));
+  }
 
   const note = tableMapNote(scene.id);
   if (el("scene-mapnote-wrap")) {
@@ -437,6 +437,58 @@ function renderScene() {
   }
   renderPlayMaps(scene);
   renderSceneExits(scene);
+}
+
+function dmBoxHtml(scene, bits) {
+  const chunks = [];
+  if (scene.purpose) chunks.push("<p><b>This room.</b> " + escapeHtml(scene.purpose) + "</p>");
+  if (scene.gmNotes && scene.gmNotes.length) {
+    chunks.push("<p><b>What you know.</b></p><ul>" +
+      scene.gmNotes.map(note => "<li>" + escapeHtml(note) + "</li>").join("") + "</ul>");
+  }
+  if (bits.npcs.length) {
+    chunks.push("<p><b>NPCs here.</b></p>" + bits.npcs.map(npc =>
+      "<p><b>" + escapeHtml(npc.name) + ".</b> " + escapeHtml(npc.role || "") +
+      (npc.voiceCues && npc.voiceCues[0] ? " Voice: " + escapeHtml(npc.voiceCues[0]) + "." : "") +
+      (npc.questFunction ? " " + escapeHtml(npc.questFunction) : "") + "</p>"
+    ).join(""));
+  }
+  if (bits.checks.length) {
+    chunks.push("<p><b>Checks.</b></p>" + bits.checks.map(check =>
+      "<p><b>DC " + escapeHtml(check.dc) + " " + escapeHtml(check.ability) + " — " + escapeHtml(check.label) + ".</b> " +
+      "Success: " + escapeHtml(check.success) + " Failure: " + escapeHtml(check.failure) + "</p>"
+    ).join(""));
+  }
+  if (bits.traps.length) {
+    chunks.push("<p><b>Traps.</b></p>" + bits.traps.map(trap =>
+      "<p><b>" + escapeHtml(trap.name) + ".</b> Trigger: " + escapeHtml(trap.trigger) +
+      (trap.save || trap.dc ? " · " + escapeHtml(trap.save || ("DC " + trap.dc)) : "") +
+      ". " + escapeHtml(trap.effect || "") +
+      (trap.purpose ? " Fail-forward: " + escapeHtml(trap.purpose) : "") + "</p>"
+    ).join(""));
+  }
+  if (bits.puzzles.length) {
+    chunks.push("<p><b>Puzzle (solution is for you).</b></p>" + bits.puzzles.map(item =>
+      "<p><b>" + escapeHtml(item.name) + ".</b> " + escapeHtml(item.prompt) +
+      " <b>Solution:</b> " + escapeHtml(item.solution) +
+      " Fail-forward: " + escapeHtml(item.failForward) + "</p>"
+    ).join(""));
+  }
+  if (bits.hazards.length) {
+    chunks.push("<p><b>Hazards.</b></p>" + bits.hazards.map(h =>
+      "<p><b>" + escapeHtml(h.trigger) + ".</b> Save: " + escapeHtml(h.save) +
+      " Failure: " + escapeHtml(h.failure) + " Success: " + escapeHtml(h.success) + "</p>"
+    ).join(""));
+  }
+  const specials = bits.encounters.filter(enc => enc.talkOut || enc.bypass || enc.special);
+  if (specials.length) {
+    chunks.push("<p><b>Special.</b></p>" + specials.map(enc =>
+      "<p><b>" + escapeHtml(enc.name) + ".</b> " +
+      [enc.special, enc.talkOut && ("Talk-out: " + enc.talkOut), enc.bypass && ("Bypass: " + enc.bypass)]
+        .filter(Boolean).map(escapeHtml).join(" ") + "</p>"
+    ).join(""));
+  }
+  return chunks.join("") || "<p>Nothing hidden in this room beyond the boxed text.</p>";
 }
 
 function tableRef() {

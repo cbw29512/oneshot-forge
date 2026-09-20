@@ -6,7 +6,7 @@
   <meta name="description" content="One-Shot Forge — original 5E-compatible adventures you can run from a browser.">
   <title>One-Shot Forge</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260920n">
+  <link rel="stylesheet" href="styles.css?v=20260920o">
 </head>
 <body>
   <a class="skip-link" href="#active-scene">Skip to active scene</a>
@@ -119,20 +119,26 @@
           </div>
           <span id="scene-pacing" class="badge"></span>
         </div>
-        <p id="scene-purpose" class="muted"></p>
+        <p id="scene-purpose" class="muted print-hide"></p>
 
-        <div class="read-head">
-          <h3>Read this</h3>
-          <button id="copy-readaloud" class="button secondary small" type="button">Copy</button>
-        </div>
-        <blockquote id="read-aloud"></blockquote>
+        <div class="module-page">
+          <section class="boxed-text">
+            <div class="read-head">
+              <p class="box-label">Read aloud</p>
+              <button id="copy-readaloud" class="button secondary small" type="button">Copy</button>
+            </div>
+            <blockquote id="read-aloud"></blockquote>
+          </section>
 
-        <h3>GM only</h3>
-        <ul id="gm-notes"></ul>
+          <section class="dm-box" id="dm-box-wrap">
+            <p class="box-label">For the DM — do not read this</p>
+            <div id="dm-box"></div>
+          </section>
 
-        <div id="scene-checks-wrap">
-          <h3>Checks</h3>
-          <div id="scene-checks" class="stack"></div>
+          <section class="monster-box" id="monster-box-wrap" hidden>
+            <p class="box-label">Monsters</p>
+            <div id="monster-box"></div>
+          </section>
         </div>
 
         <div id="scene-clues-wrap">
@@ -140,20 +146,10 @@
           <div id="scene-clues" class="stack"></div>
         </div>
 
-        <div id="scene-encounters-wrap">
-          <h3>Encounters</h3>
-          <div id="scene-encounters" class="stack"></div>
-        </div>
-
-        <div id="scene-puzzles-wrap">
-          <h3>Puzzles and traps</h3>
-          <div id="scene-puzzles" class="stack"></div>
-        </div>
-
         <div id="play-maps" class="play-maps" hidden></div>
 
         <div id="scene-mapnote-wrap">
-          <h3>Map</h3>
+          <h3>Map notes</h3>
           <div id="scene-mapnote" class="card"></div>
         </div>
 
@@ -233,8 +229,8 @@
   </main>
 
   <div id="toast" role="status" aria-live="polite"></div>
-  <script src="rules.js?v=20260920n"></script>
-  <script src="generator.js?v=20260920n"></script>
-  <script src="app.js?v=20260920n"></script>
+  <script src="rules.js?v=20260920o"></script>
+  <script src="generator.js?v=20260920o"></script>
+  <script src="app.js?v=20260920o"></script>
 </body>
 </html>

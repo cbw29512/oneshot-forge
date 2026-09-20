@@ -595,7 +595,8 @@
       "difficulty": "low",
       "summary": "Three travelers are confused and frightened. Calming them reveals that a pale mist from the priory stole recent memories.",
       "resolution": "No combat required. A hostile approach may scatter them and lose this optional clue.",
-      "talkOut": "Persuasion or Medicine DC 12: they stay and describe the mist. Intimidation scatters them."
+      "talkOut": "Persuasion or Medicine DC 12: they stay and describe the mist. Intimidation scatters them.",
+      "special": "Not a fight unless the party attacks. They scatter if intimidated."
     },
     {
       "id": "enc-grave-things",
@@ -605,7 +606,8 @@
       "summary": "Four vine-wrapped dead guardians rise from the graves. They do not pursue beyond the priory yard.",
       "resolution": "Fight them, distract them with fire/noise, or bypass them through the culvert.",
       "talkOut": null,
-      "bypass": "Culvert or fire/noise. They do not speak."
+      "bypass": "Culvert or fire/noise. They do not speak.",
+      "special": "Ambush if the party walks the grave-row without checking. Fight to the death. They do not speak and do not chase past the broken gate."
     },
     {
       "id": "enc-caldus-if-hostile",
@@ -614,7 +616,8 @@
       "difficulty": "medium",
       "summary": "Caldus wants to talk. If attacked, he fights defensively and retreats toward the ritual chamber.",
       "resolution": "The scene should still deliver the seal revelation through his shouted warnings, notes, or ritual evidence.",
-      "talkOut": "He wants to talk. Persuasion DC 13 to help the new binding; Insight DC 12 to see he is telling the truth."
+      "talkOut": "He wants to talk. Persuasion DC 13 to help the new binding; Insight DC 12 to see he is telling the truth.",
+      "special": "Wants to talk first. Fights defensively and retreats to the ritual chamber if attacked. Does not fight to the death."
     },
     {
       "id": "enc-pale-guest",
@@ -623,7 +626,8 @@
       "difficulty": "hard",
       "summary": "A memory-eating spirit attacks while the binding fails. Each round should create pressure through whispers, lost recollections, or unstable sigils.",
       "resolution": "Defeat it, complete the replacement binding, destroy the Emberglass and fight it fully, or negotiate a costly new bargain.",
-      "talkOut": "Bargain: a memory for a memory. It does not need to be a boss fight."
+      "talkOut": "Bargain: a memory for a memory. It does not need to be a boss fight.",
+      "special": "Appears after the read-aloud; roll initiative. Will negotiate (see talk-out). Does not leave this chamber while the Emberglass exists."
     }
   ],
   "puzzles": [
@@ -642,8 +646,10 @@
       "name": "Memory Bell",
       "locationId": "loc-priory-chapel",
       "trigger": "Ring the hanging handbell.",
-      "effect": "Each nearby character briefly loses a trivial recent memory and hears the Pale Guest whisper. The crypt opens.",
-      "purpose": "Failure advances the adventure but increases supernatural pressure."
+      "effect": "Each nearby creature makes a Wisdom saving throw DC 13. Failure: lose a trivial recent memory and hear the Pale Guest. Success: hear the whisper, keep the memory. Either way the crypt stair is obvious \u2014 fail-forward.",
+      "purpose": "Failure advances the adventure but increases supernatural pressure.",
+      "save": "Wisdom DC 13",
+      "dc": 13
     }
   ],
   "items": [

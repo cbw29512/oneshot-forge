@@ -169,6 +169,54 @@ blockquote {
   line-height: 1.5;
   white-space: pre-wrap;
 }
+
+.module-page { margin: 1rem 0 1.5rem }
+.box-label {
+  margin: 0 0 .45rem;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: var(--font-body);
+}
+.boxed-text {
+  background: #fffdf7;
+  color: #16120c;
+  border: 2px solid #2c2418;
+  padding: 1rem 1.25rem 1.35rem;
+}
+.boxed-text .box-label { color: #6a5c48 }
+.boxed-text blockquote {
+  background: transparent; border: 0; padding: 0; margin: 0;
+  color: #16120c; font-size: 1.18rem; line-height: 1.55;
+  font-family: Georgia, "Source Serif 4", "Fraunces", serif;
+}
+.boxed-text .button {
+  color: #16120c; border-color: #16120c; background: #fff;
+  min-height: 32px;
+}
+.dm-box {
+  background: #efe3c4;
+  color: #16120c;
+  border: 1px solid #c4b48a;
+  border-top: 0;
+  padding: 1rem 1.25rem 1.25rem;
+}
+.dm-box p, .dm-box li { color: #16120c; margin: .35rem 0 }
+.dm-box b { color: #111 }
+.monster-box {
+  background: #e4d2a8;
+  color: #16120c;
+  border: 1px solid #c4b48a;
+  border-top: 0;
+  padding: 1rem 1.25rem 1.25rem;
+}
+.monster-box .card, .monster-box .creature, .monster-box .stat-strip span {
+  background: #f7ecd0;
+  border-color: #c4b48a;
+  color: #16120c;
+}
+.monster-box .muted, .monster-box .tiny { color: #4a4032 }
 ul { padding-left: 1.15rem }
 .stack { display: grid; gap: var(--space-2) }
 .card {
