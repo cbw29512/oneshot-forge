@@ -22,4 +22,8 @@ One-Shot Forge is an original fantasy RPG one-shot builder and web GM runner. Do
 - Never silently invent missing canonical data.
 - Keep original package data separate from runtime state.
 - Add tests for schema changes and state transitions.
-- Before adding a field, decide whether it belongs to immutable truth, mutable state, or presentation.
+## Scheduled work
+- Stay on this repository only.
+- Read `docs/STATUS.md` first. Do the next item on that list. Update STATUS when you stop.
+- If the next item is blocked (needs payment account, Episode 2 facts the owner has not confirmed), stop and write the blocker in STATUS. Do not invent a different project.
+
