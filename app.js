@@ -260,7 +260,7 @@ function renderAll() {
     const series = adventure.series;
     const pitch = adventure.setup?.pitch || adventure.quest.objective;
     el("overview-pitch").textContent = series
-      ? series.title + " · Episode " + series.episode + " — " + pitch
+      ? series.title + (series.hub ? " · " + series.hub : "") + " · Night " + series.episode + " — " + pitch
       : pitch;
   }
   if (el("overview-clock")) {
@@ -270,6 +270,7 @@ function renderAll() {
       Math.round(meta.durationMinutes / 60) + " hours",
       adventure.quest.deadline || "No hard clock"
     ];
+    if (adventure.series?.giver) bits.push("Giver: " + adventure.series.giver);
     if (adventure.series?.nextTitle) bits.push("Next: " + adventure.series.nextTitle);
     if (adventure.informationContract?.rule) bits.push("No single NPC is required");
     if (typeof getRuleset === "function") bits.push(getRuleset() === "2024" ? "2024 SRD" : "2014 SRD");

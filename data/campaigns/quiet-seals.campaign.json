@@ -1,0 +1,228 @@
+{
+  "schema": "oneshot-forge-campaign/0.1",
+  "id": "quiet-seals",
+  "title": "The Quiet Seals",
+  "hub": {
+    "id": "hearthford",
+    "name": "Hearthford",
+    "pitch": "A hill-country market town. Ten people keep it standing. Old blessings in the ridge towns are failing. The mayor sends you out. You come back. You know their names.",
+    "map": "assets/maps/hearthford.jpg",
+    "mapScale": "Not to scale · player handout · no dungeon secrets"
+  },
+  "pregens": "Keep the same six. They live between jobs in Hearthford.",
+  "relationship": {
+    "ranks": [
+      { "value": 0, "label": "Stranger" },
+      { "value": 1, "label": "Helped" },
+      { "value": 2, "label": "Trusted" },
+      { "value": 3, "label": "Bound" }
+    ],
+    "how": "After their one-shot, that NPC becomes Helped. If the table kept a promise to them, Trusted. If the table later risked something for them in town, Bound. Write it on this page. Do not track romance meters.",
+    "finale": "The last quest is never locked. If four or more notables are Trusted or Bound, the town helps and the last fight is weaker. If you skip everyone after Episode 1, the mayor still sends you. You bleed more. Same rule as a single night: prepared pays, rush still finishes."
+  },
+  "structure": {
+    "first": "episode-lantern",
+    "middleOrder": "any",
+    "last": "episode-quiet",
+    "notes": "Mayor Cald Wren gives the first quest and the last. The eight middle one-shots can be picked in any order. Old Fenn does not have his own episode; knowing him changes the last night."
+  },
+  "npcs": [
+    {
+      "id": "npc-cald-wren",
+      "name": "Mayor Cald Wren",
+      "place": "1 · Timber hall on the square",
+      "want": "Trade, quiet, no panic.",
+      "voice": "Short sentences. Counts coin in his head while he talks.",
+      "firstQuest": "episode-lantern",
+      "lastQuest": "episode-quiet"
+    },
+    {
+      "id": "npc-oda-flint",
+      "name": "Reeve Oda Flint",
+      "place": "2 · Mill and grain loft",
+      "want": "The wells on the ridge must keep names and water.",
+      "voice": "Dry. Corrects you once.",
+      "episodeId": "episode-well"
+    },
+    {
+      "id": "npc-brune-holt",
+      "name": "Captain Brune Holt",
+      "place": "3 · Watch barracks",
+      "want": "His missing patrol back, or the truth if they are not coming.",
+      "voice": "Does not shout. Repeats the last order.",
+      "episodeId": "episode-watch"
+    },
+    {
+      "id": "npc-maestra-vell",
+      "name": "Maestra Vell",
+      "place": "4 · Schoolhouse",
+      "want": "The children to keep their own names.",
+      "voice": "Patient until she is not.",
+      "episodeId": "episode-class"
+    },
+    {
+      "id": "npc-joss-amber",
+      "name": "Joss Amber",
+      "place": "5 · Smithy",
+      "want": "Iron that holds a blessing again. She will not sell a nail that lies.",
+      "voice": "Talks to the metal first.",
+      "episodeId": "episode-nail"
+    },
+    {
+      "id": "npc-nim-low",
+      "name": "Nim Low",
+      "place": "6 · North pasture gate",
+      "want": "Whatever is wearing his sheep to stop.",
+      "voice": "Counts on his fingers. Loses count.",
+      "episodeId": "episode-flock"
+    },
+    {
+      "id": "npc-sera-moss",
+      "name": "Doctor Sera Moss",
+      "place": "7 · Infirmary",
+      "want": "A sleep that is only sleep.",
+      "voice": "Asks what you ate. Writes it down.",
+      "episodeId": "episode-ward"
+    },
+    {
+      "id": "npc-idra-quell",
+      "name": "Idra Quell",
+      "place": "8 · Night market, third stall",
+      "want": "A buyer of memories run out of town before the mayor notices she sold to them once.",
+      "voice": "Smiles with one side.",
+      "episodeId": "episode-purse"
+    },
+    {
+      "id": "npc-brother-halve",
+      "name": "Brother Halve",
+      "place": "9 · Chapel",
+      "want": "The saint’s bones to lie still. He is not sure he wants to know why they moved.",
+      "voice": "Quotes the wrong verse on purpose.",
+      "episodeId": "episode-saint"
+    },
+    {
+      "id": "npc-old-fenn",
+      "name": "Old Fenn",
+      "place": "10 · Tannery loft",
+      "want": "To die without anyone asking him to seal a thing again.",
+      "voice": "Long pauses. Then one true sentence.",
+      "episodeId": null,
+      "note": "No one-shot of his own. If they visit, mark Helped. He changes the last night."
+    }
+  ],
+  "episodes": [
+    {
+      "id": "episode-lantern",
+      "number": 1,
+      "title": "The Lantern Below",
+      "giver": "npc-cald-wren",
+      "status": "live",
+      "price": "free",
+      "href": "run.html",
+      "image": "The iron lantern in Briar Glen has gone dark.",
+      "clock": "Moonrise.",
+      "fork": "Restore the old prison, bind it properly, smash it, or bargain.",
+      "pack": "data/adventures/the-lantern-below.oneshot.json"
+    },
+    {
+      "id": "episode-well",
+      "number": 2,
+      "title": "The Well That Would Not Dry",
+      "giver": "npc-oda-flint",
+      "status": "coming",
+      "price": "$0.99",
+      "image": "Saltmere’s well still gives water. The water forgets your name.",
+      "clock": "Until the bucket comes up dry.",
+      "fork": "Keep the well, break the well, or let Saltmere drink and forget."
+    },
+    {
+      "id": "episode-watch",
+      "number": 3,
+      "title": "The Watch That Did Not Come Back",
+      "giver": "npc-brune-holt",
+      "status": "coming",
+      "price": "$0.99",
+      "image": "Six watchmen went up the ridge. Their lanterns are still moving.",
+      "clock": "Dawn, when the lanterns turn around.",
+      "fork": "Bring them home, cut the strings, or take their post."
+    },
+    {
+      "id": "episode-class",
+      "number": 4,
+      "title": "The Class That Forgot",
+      "giver": "npc-maestra-vell",
+      "status": "coming",
+      "price": "$0.99",
+      "image": "Twelve children wrote the same name. It is not any of theirs.",
+      "clock": "The next lesson, at noon.",
+      "fork": "Erase the name, give it a body, or let them keep it."
+    },
+    {
+      "id": "episode-nail",
+      "number": 5,
+      "title": "The Nail That Would Not Hold",
+      "giver": "npc-joss-amber",
+      "status": "coming",
+      "price": "$0.99",
+      "image": "Every blessed nail Joss drives falls out by morning.",
+      "clock": "The new chapel door, before Sunday.",
+      "fork": "Rebless the iron, stop blessing it, or find who is pulling."
+    },
+    {
+      "id": "episode-flock",
+      "number": 6,
+      "title": "The Flock That Walked Uphill",
+      "giver": "npc-nim-low",
+      "status": "coming",
+      "price": "$0.99",
+      "image": "The sheep went up. Something wearing wool came down.",
+      "clock": "Sundown, when the real flock returns.",
+      "fork": "Skin it, follow it, or put Nim’s coat on the problem."
+    },
+    {
+      "id": "episode-ward",
+      "number": 7,
+      "title": "The Ward That Would Not Wake",
+      "giver": "npc-sera-moss",
+      "status": "coming",
+      "price": "$0.99",
+      "image": "Three patients will not wake. They are still answering questions.",
+      "clock": "The fourth bed.",
+      "fork": "Wake them, join the conversation, or close the ward."
+    },
+    {
+      "id": "episode-purse",
+      "number": 8,
+      "title": "The Purse That Talked",
+      "giver": "npc-idra-quell",
+      "status": "coming",
+      "price": "$0.99",
+      "image": "Someone is buying memories in the night market. The coins still whisper.",
+      "clock": "The buyer leaves town at second bell.",
+      "fork": "Rob them, sell to them, or make the coins forget."
+    },
+    {
+      "id": "episode-saint",
+      "number": 9,
+      "title": "The Saint That Stood Up",
+      "giver": "npc-brother-halve",
+      "status": "coming",
+      "price": "$0.99",
+      "image": "The chapel bones sat up. They would like a word.",
+      "clock": "Vespers, when the congregation arrives.",
+      "fork": "Lay them down, let them preach, or take the relic out of town."
+    },
+    {
+      "id": "episode-quiet",
+      "number": 10,
+      "title": "The Quiet That Feeds",
+      "giver": "npc-cald-wren",
+      "status": "coming",
+      "price": "$0.99",
+      "image": "The seals were never blessings. Something under the ridge is being fed by every lantern, well, and nail.",
+      "clock": "The next new moon.",
+      "fork": "Starve it, feed it on purpose, or put a new quiet in its mouth.",
+      "requires": "Episode 1 is done. Middle episodes optional. Relationships change the last fight, they do not lock it."
+    }
+  ]
+}

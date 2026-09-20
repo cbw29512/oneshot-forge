@@ -17,4 +17,4 @@ Not more adventures. One night a stranger can run without rewriting it.
 12. **Cut 20%.** Then stop. One authored episode beats a generator.
 
 ## This product
-The generator is a toy. The catalog is authored episodes in The Quiet Seals. Do not add a thirteenth class or a random mill until Episode 1 and the six sheets are table-complete and Episode 2 is written to this bar.
+The generator is a toy. The catalog is authored episodes in The Quiet Seals: a hub town, ten notables, mayor first and last, each night a complete one-shot. Do not ship eight filler adventures. Author Episode 2 next. The campaign bible is `data/campaigns/quiet-seals.campaign.json`.

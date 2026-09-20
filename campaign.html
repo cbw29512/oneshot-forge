@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The Quiet Seals — Hearthford</title>
+  <link rel="icon" href="assets/mark-lantern.jpg">
+  <link rel="stylesheet" href="styles.css?v=20260920n">
+</head>
+<body class="landing">
+  <header class="land-bar">
+    <a class="brand" href="./">
+      <img src="assets/mark-lantern.jpg" alt="" width="36" height="36">
+      <span>One-Shot Forge</span>
+    </a>
+    <nav class="land-nav">
+      <span id="ruleset-host"></span>
+      <a href="./">Home</a>
+      <a href="sheets.html">Pregens</a>
+      <a href="run.html">Episode 1</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="land-section" style="border-top:0">
+      <p class="eyebrow ember">Campaign · ten nights · one town</p>
+      <h1>The Quiet Seals</h1>
+      <p class="lede">Hearthford has ten people who matter. The mayor sends you on the first job. Each of the others has a night that is a complete one-shot. You come back. You know their names. Then the mayor has one last job. The last night is never locked.</p>
+    </section>
+
+    <section class="land-section">
+      <h2>Hearthford</h2>
+      <p class="muted" id="hub-pitch"></p>
+      <figure class="play-map">
+        <img src="assets/maps/hearthford.jpg" alt="Player map of Hearthford. Ten numbered buildings. No dungeon secrets.">
+        <figcaption>Player handout. Numbers match the notables below.</figcaption>
+      </figure>
+    </section>
+
+    <section class="land-section" id="notables">
+      <h2>Ten notables</h2>
+      <p class="lede short">After a night, mark that NPC Helped. If you kept a promise, Trusted. If you later risked something for them, Bound. This is stored in this browser.</p>
+      <div id="npc-list" class="pack-grid"></div>
+    </section>
+
+    <section class="land-section" id="nights">
+      <h2>Ten nights</h2>
+      <p class="lede short">Episode 1 is live. 2–9 can be any order. Episode 10 is the mayor again. Prepared (four Trusted) pays. Rush still finishes.</p>
+      <div id="ep-list" class="ep-list"></div>
+    </section>
+  </main>
+
+  <footer class="land-foot">
+    <p>Original 5E-compatible fantasy. Not affiliated with Wizards of the Coast.</p>
+    <p class="tiny">This work includes material from the System Reference Document 5.1 and SRD 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0.</p>
+  </footer>
+  <script src="rules.js?v=20260920n"></script>
+  <script>
+    mountRulesetToggle(document.getElementById("ruleset-host"));
+    const KEY = "oneshot-forge:campaign:quiet-seals";
+    const RANKS = ["Stranger", "Helped", "Trusted", "Bound"];
+    function loadState() {
+      try { return JSON.parse(localStorage.getItem(KEY) || "{}"); }
+      catch { return {}; }
+    }
+    function saveState(s) { localStorage.setItem(KEY, JSON.stringify(s)); }
+    function esc(v) {
+      return String(v ?? "").replace(/&/g,"&").replace(/</g,"<").replace(/>/g,">");
+    }
+    fetch("data/campaigns/quiet-seals.campaign.json")
+      .then(r => r.json())
+      .then(camp => {
+        const state = Object.assign({ rel: {}, done: [] }, loadState());
+        document.getElementById("hub-pitch").textContent = camp.hub.pitch;
+        const npcs = camp.npcs || [];
+        const eps = camp.episodes || [];
+        function relOf(id) { return Number(state.rel[id] || 0); }
+        function render() {
+          document.getElementById("npc-list").innerHTML = npcs.map(n => {
+            const r = relOf(n.id);
+            const opts = RANKS.map((label, i) =>
+              '<option value="' + i + '"' + (i === r ? " selected" : "") + ">" + label + "</option>"
+            ).join("");
+            return '<article data-npc="' + esc(n.id) + '"><h3>' + esc(n.name) + "</h3>" +
+              '<p class="tiny">' + esc(n.place) + "</p>" +
+              "<p>" + esc(n.want) + "</p>" +
+              '<p class="muted">' + esc(n.voice) + "</p>" +
+              (n.note ? '<p class="tiny">' + esc(n.note) + "</p>" : "") +
+              '<label class="tiny">Relationship</label>' +
+              '<select class="rel">' + opts + "</select></article>";
+          }).join("");
+          document.getElementById("ep-list").innerHTML = eps.map(ep => {
+            const giver = npcs.find(n => n.id === ep.giver);
+            const live = ep.status === "live";
+            const done = (state.done || []).includes(ep.id);
+            return '<article class="ep' + (live ? " live" : "") + '">' +
+              '<p class="eyebrow">' + (live ? "Live" : "Coming") +
+              (ep.price ? " · " + esc(ep.price) : "") +
+              (done ? " · Done at this table" : "") + "</p>" +
+              "<h3>" + ep.number + ". " + esc(ep.title) + "</h3>" +
+              "<p>" + esc(ep.image) + "</p>" +
+              '<p class="tiny">Clock: ' + esc(ep.clock) + " · Fork: " + esc(ep.fork) + "</p>" +
+              '<p class="muted">Giver: ' + esc(giver ? giver.name : "") + "</p>" +
+              (live ? '<p><a class="button ember small" href="' + esc(ep.href) + '">Run this night</a></p>' : "") +
+              '<label class="check-row"><input type="checkbox" data-ep="' + esc(ep.id) + '"' +
+              (done ? " checked" : "") + "> We finished this night</label>" +
+              "</article>";
+          }).join("");
+          document.querySelectorAll("#npc-list select.rel").forEach(sel => {
+            sel.addEventListener("change", () => {
+              const id = sel.closest("[data-npc]").getAttribute("data-npc");
+              state.rel[id] = Number(sel.value);
+              saveState(state);
+            });
+          });
+          document.querySelectorAll("#ep-list input[data-ep]").forEach(box => {
+            box.addEventListener("change", () => {
+              const id = box.getAttribute("data-ep");
+              state.done = state.done.filter(x => x !== id);
+              if (box.checked) state.done.push(id);
+              saveState(state);
+              render();
+            });
+          });
+        }
+        render();
+      });
+  </script>
+</body>
+</html>

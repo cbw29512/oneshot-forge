@@ -17,7 +17,8 @@
   "setup": {
     "pitch": "For as long as anyone in Briar Glen can remember, the iron lantern in the square has burned without oil. Tonight it is dark. Mara Venn hires the party to recover a stolen ember called the Emberglass before moonrise \u2014 but the thief may have taken it because the lantern was never a blessing.",
     "openingLocation": "Briar Glen",
-    "gmSummary": "Mara Venn\u2019s family has used the village lantern as a prison for a memory-eating spirit, the Pale Guest. Brother Caldus stole the Emberglass because the old seal is failing. He is at Bellweather Priory trying to bind the spirit properly. The party can restore the old lantern-seal (temporary safety), help Caldus finish a new binding, smash the Emberglass and fight, or bargain a memory for a memory. Required truths have backup routes. Moonrise is the hard clock. This is Episode 1 of The Quiet Seals. Keep the six pregens. The chosen ending is fact for Episode 2: The Well That Would Not Dry."
+    "gmSummary": "Mara Venn\u2019s family has used the village lantern as a prison for a memory-eating spirit, the Pale Guest. Brother Caldus stole the Emberglass because the old seal is failing. He is at Bellweather Priory trying to bind the spirit properly. The party can restore the old lantern-seal (temporary safety), help Caldus finish a new binding, smash the Emberglass and fight, or bargain a memory for a memory. Required truths have backup routes. Moonrise is the hard clock. This is Episode 1 of The Quiet Seals. Keep the six pregens. The chosen ending is fact for Episode 2: The Well That Would Not Dry.",
+    "campaignFrame": "Mayor Cald Wren of Hearthford sent the party to Briar Glen. Mara Venn is the local contact. When this night ends, they return to Hearthford. Mark Wren Helped. If they kept Tamsin or Caldus alive and honest, note it."
   },
   "quest": {
     "type": "retrieve / break curse",
@@ -5351,13 +5352,12 @@
   "series": {
     "id": "quiet-seals",
     "title": "The Quiet Seals",
+    "hub": "Hearthford",
     "episode": 1,
     "episodeTitle": "The Lantern Below",
-    "throughLine": "Old bindings that look like blessings are failing across the hill country. Each night is a complete one-shot. Played in order, with the same six characters, they are one campaign.",
-    "carryForward": "Record which ending the table chose, whether Caldus lives, whether Mara\u2019s secret is public, and any memories bargained away. Those facts open Episode 2.",
-    "nextId": "the-well-that-would-not-dry",
-    "nextTitle": "The Well That Would Not Dry",
-    "nextHook": "A day\u2019s walk down-ridge, Saltmere\u2019s well has never gone dry. This week the water tastes of iron, and people forget why they came to draw it. Whatever you did with Briar Glen\u2019s lantern is already a rumor there."
+    "giver": "Mayor Cald Wren",
+    "nextTitle": "Pick a notable in Hearthford \u2014 next authored night is The Well That Would Not Dry",
+    "campaign": "data/campaigns/quiet-seals.campaign.json"
   },
   "informationContract": {
     "rule": "No required fact depends on one NPC being alive, friendly, or present.",

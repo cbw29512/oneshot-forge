@@ -537,3 +537,11 @@ ol.steps b { color: var(--fg) }
 .play-map figcaption { margin-bottom: .4rem }
 .play-map ul { color: var(--fg-muted) }
 
+
+.ep-list { display: grid; gap: 1rem; margin-top: 1.25rem }
+.ep-list article, .ep {
+  border: 1px solid var(--border); border-radius: 12px; padding: 1rem;
+  background: var(--bg-elevated);
+}
+.ep.live { border-color: color-mix(in oklab, var(--ember) 45%, var(--border)); }
+.pack-grid select { margin-top: .4rem }
