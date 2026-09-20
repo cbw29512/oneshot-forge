@@ -18,7 +18,7 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Work loop is daily, not hourly
 
 ## Next (in order)
-1. Author Episode 2: The Well That Would Not Dry to the QUALITY.md bar (same six PCs, Saltmere)
+1. Author Episode 2: The Well That Would Not Dry to the QUALITY.md bar (maps + both editions)
 2. Bring `run.html` chrome closer to the landing without churning CSS
 3. Wire $0.99 only after the owner gives Gumroad / Stripe / PayPal
 
@@ -30,4 +30,4 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Invent payment
 
 ## Last session
-2026-09-20 — table-complete pregens + DDB-like sheets. Warlock Dark One's Own Luck correctly delayed to 6. Loop set to daily.
+2026-09-20 — combat maps, player handouts, 2014/2024 toggle. Tonight’s six rebuilt on SRD 5.2.1 (smite is a spell; fighter Second Wind 3; no Extra Attack at 4).

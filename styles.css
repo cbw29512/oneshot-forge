@@ -517,4 +517,23 @@ ol.steps b { color: var(--fg) }
   body { background: white; color: #1a140f }
   .sheet { break-inside: avoid; border-color: #ccc; background: white; color: #1a140f }
   .muted, .tiny, .beyond-check { color: #444 }
+  .cs { break-inside: avoid; border-color: #bbb; background: white; box-shadow: none; color: #1a140f }
 }
+
+.rules-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden }
+.rules-toggle button {
+  min-height: 36px; border: 0; background: transparent; color: var(--fg-muted);
+  padding: .35rem .8rem; font-weight: 700; font-size: .8rem; letter-spacing: .06em;
+}
+.rules-toggle button.on { background: var(--ember); color: #fff8f2 }
+.rules-notes { margin-top: .75rem; color: var(--fg-muted); font-size: .92rem }
+.rules-notes ul { margin: .3rem 0 0 }
+.play-maps { display: grid; gap: 1rem; margin: 1rem 0 }
+.play-map { margin: 0 }
+.play-map img {
+  width: 100%; max-height: 520px; object-fit: contain;
+  background: #1a1612; border: 1px solid var(--border); border-radius: 8px;
+}
+.play-map figcaption { margin-bottom: .4rem }
+.play-map ul { color: var(--fg-muted) }
+

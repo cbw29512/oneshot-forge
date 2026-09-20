@@ -8,6 +8,7 @@ let adventure = null;
 let state = null;
 let currentAdventureKey = "";
 let selectedNpcId = null;
+let rulesetPregens = null;
 
 const el = id => document.getElementById(id);
 const clone = value => JSON.parse(JSON.stringify(value));
@@ -210,8 +211,18 @@ async function activateAdventure(pkg, options={}) {
   }
 
   syncForgeControls();
+  await refreshRulesetPregens();
   renderAll();
   saveState();
+}
+
+async function refreshRulesetPregens() {
+  rulesetPregens = null;
+  if (typeof getRuleset !== "function" || getRuleset() !== "2024") return;
+  try {
+    const res = await fetch("data/pregens/quiet-seals-level-4-2024-srd.json");
+    if (res.ok) rulesetPregens = (await res.json()).characters || [];
+  } catch { /* keep 2014 embedded pregens */ }
 }
 
 function syncForgeControls() {
@@ -261,7 +272,17 @@ function renderAll() {
     ];
     if (adventure.series?.nextTitle) bits.push("Next: " + adventure.series.nextTitle);
     if (adventure.informationContract?.rule) bits.push("No single NPC is required");
+    if (typeof getRuleset === "function") bits.push(getRuleset() === "2024" ? "2024 SRD" : "2014 SRD");
     el("overview-clock").innerHTML = bits.map(bit => "<span>" + escapeHtml(bit) + "</span>").join("");
+  }
+  if (el("ruleset-notes")) {
+    const edition = typeof getRuleset === "function" ? getRuleset() : "2014";
+    const notes = adventure.rulesets?.[edition]?.tableNotes || [];
+    el("ruleset-notes").hidden = !notes.length;
+    el("ruleset-notes").innerHTML = notes.length
+      ? "<p class=\"eyebrow\">" + escapeHtml(adventure.rulesets[edition].label || edition) + "</p><ul>" +
+        notes.map(n => "<li>" + escapeHtml(n) + "</li>").join("") + "</ul>"
+      : "";
   }
   renderSavedAdventures();
   renderSceneList();
@@ -279,7 +300,7 @@ function renderAll() {
 function renderPregens() {
   const wrap = el("pregen-list");
   if (!wrap) return;
-  const list = adventure.pregens || [];
+  const list = rulesetPregens || adventure.pregens || [];
   if (!list.length) {
     wrap.innerHTML = '<p class="muted">No pregens in this pack.</p>';
     return;
@@ -413,7 +434,7 @@ function renderScene() {
         (note.features || []).map(f => "<li>" + escapeHtml(f) + "</li>").join("") + "</ul>"
       : "";
   }
-
+  renderPlayMaps(scene);
   renderSceneExits(scene);
 }
 
@@ -517,6 +538,30 @@ function resourceCardHtml(kind, name, body, detail) {
     '<p>' + escapeHtml(body || "") + '</p>' +
     (detail ? '<p class="muted">' + escapeHtml(detail) + '</p>' : '') +
     '</div>';
+}
+
+function renderPlayMaps(scene) {
+  const wrap = el("play-maps");
+  if (!wrap) return;
+  const maps = (adventure.playMaps || []).filter(m =>
+    (m.sceneIds || []).includes(scene.id) || (m.kind === "handout" && scene.id === "scene-hook")
+  );
+  if (!maps.length) {
+    wrap.hidden = true;
+    wrap.innerHTML = "";
+    return;
+  }
+  wrap.hidden = false;
+  wrap.innerHTML = maps.map(m => {
+    const tag = m.kind === "combat" ? "Combat map" : "Player handout";
+    return '<figure class="play-map">' +
+      '<figcaption><span class="badge">' + escapeHtml(tag) + "</span> " +
+      escapeHtml(m.title) + " · " + escapeHtml(m.scale || "") + "</figcaption>" +
+      (m.asset ? '<a href="' + escapeHtml(m.asset) + '" target="_blank" rel="noopener"><img src="' +
+        escapeHtml(m.asset) + '" alt="' + escapeHtml(m.title) + '"></a>' : "") +
+      ((m.notes || []).length ? "<ul>" + m.notes.map(n => "<li>" + escapeHtml(n) + "</li>").join("") + "</ul>" : "") +
+      "</figure>";
+  }).join("");
 }
 
 function renderSceneExits(scene) {
@@ -916,3 +961,7 @@ loadInitialAdventure().catch(error => {
   if (meta) meta.textContent = error.message;
   toast(error.message || "Adventure failed to load.");
 });
+
+if (el("ruleset-host") && typeof mountRulesetToggle === "function") {
+  mountRulesetToggle(el("ruleset-host"));
+}

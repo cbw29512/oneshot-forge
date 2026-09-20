@@ -5436,5 +5436,105 @@
         "cost": "Surprise: every PC makes Whispering Theft (DC 13 Wisdom) before initiative. Then play the fight."
       }
     ]
+  },
+  "playMaps": [
+    {
+      "id": "handout-briar-glen",
+      "title": "Briar Glen \u2014 player map",
+      "kind": "handout",
+      "playerSafe": true,
+      "asset": "assets/maps/briar-glen.jpg",
+      "scale": "Not to scale",
+      "sceneIds": [
+        "scene-hook"
+      ],
+      "notes": [
+        "Give this to the players at the start. It does not mark the crypt or the culvert."
+      ]
+    },
+    {
+      "id": "handout-tamsin-trail",
+      "title": "Tamsin\u2019s trail sketch",
+      "kind": "handout",
+      "playerSafe": true,
+      "asset": "assets/maps/tamsin-trail.jpg",
+      "scale": "A villager\u2019s drawing",
+      "sceneIds": [
+        "scene-hook",
+        "scene-road"
+      ],
+      "notes": [
+        "Hand this over if Tamsin (or tracks) point them north. No secrets on it."
+      ]
+    },
+    {
+      "id": "combat-priory-yard",
+      "title": "Priory yard \u2014 grave-things",
+      "kind": "combat",
+      "playerSafe": true,
+      "asset": "assets/maps/priory-yard.jpg",
+      "scale": "5 ft per square \u00b7 60 \u00d7 50 ft",
+      "sceneIds": [
+        "scene-priory-gate"
+      ],
+      "notes": [
+        "Chapel doors north. Four graves, 15 ft apart. Thorn patches are difficult terrain.",
+        "Grave-things start in the graves. They do not chase beyond the broken gate."
+      ]
+    },
+    {
+      "id": "combat-chapel",
+      "title": "Chapel interior",
+      "kind": "combat",
+      "playerSafe": true,
+      "asset": "assets/maps/chapel.jpg",
+      "scale": "5 ft per square",
+      "sceneIds": [
+        "scene-chapel"
+      ],
+      "notes": [
+        "Hanging handbell is the trap. Stair behind the altar goes to the crypt.",
+        "Pews are half cover, difficult if you vault them."
+      ]
+    },
+    {
+      "id": "combat-ritual",
+      "title": "Ritual chamber \u2014 Pale Guest",
+      "kind": "combat",
+      "playerSafe": true,
+      "asset": "assets/maps/ritual-chamber.jpg",
+      "scale": "5 ft per square \u00b7 40 \u00d7 40 ft",
+      "sceneIds": [
+        "scene-crypt",
+        "scene-final"
+      ],
+      "notes": [
+        "Guest starts on the far side of the seal. Four sigils at the cardinals: ritual stations.",
+        "Cracked bell alcove west \u2014 do not ring it. Stairs south. The Guest does not leave this room while the Emberglass exists."
+      ]
+    }
+  ],
+  "rulesets": {
+    "2014": {
+      "label": "5E 2014 SRD",
+      "tableNotes": [
+        "Ability checks and attacks as 2014 PHB/SRD. Inspiration is a d20 reroll the DM awards.",
+        "Hide is opposed Stealth vs passive Perception (or a Perception check).",
+        "Divine Smite is on-hit, not a spell. Extra Attack is level 5 for these classes \u2014 nobody here has it."
+      ]
+    },
+    "2024": {
+      "label": "5E 2024 SRD 5.2.1",
+      "tableNotes": [
+        "Use 2024 actions: Influence, Hide (DC 15 Stealth; success = Invisible while hidden), Search, Study.",
+        "Heroic Inspiration: expend to reroll any die, including damage. 2024 Human pregens gain it after a Long Rest.",
+        "Weapon Mastery is on the 2024 sheets. Apply Sap, Slow, Vex, Nick as written.",
+        "Paladin Divine Smite is a spell (Bonus Action after a melee hit). One free cast per Long Rest, then spell slots.",
+        "Action Surge cannot be used to take the Magic action.",
+        "Channel Divinity: 2024 clerics and paladins have 2 uses at this level (regain 1 on a Short Rest).",
+        "Original monsters (grave-things, Pale Guest) keep the printed AC/HP. They are not MM reprints.",
+        "DCs on the scene cards stay. They were set for a level-4 table and work in both editions."
+      ]
+    }
   }
 }

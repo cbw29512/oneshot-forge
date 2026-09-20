@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260920k">
+  <link rel="stylesheet" href="styles.css?v=20260920m">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -14,6 +14,7 @@
       <span>One-Shot Forge</span>
     </a>
     <nav class="land-nav">
+      <span id="ruleset-host"></span>
       <a href="./">Home</a>
       <a href="run.html">GM table</a>
       <button class="button ember small" type="button" onclick="window.print()">Print</button>
@@ -23,10 +24,12 @@
     <section class="print-hide land-section" style="border-top:0">
       <p class="eyebrow ember">Table-complete · 2014 SRD · level 4</p>
       <h1>Character sheets</h1>
-      <p class="lede short">These are meant to sit on the table like a Beyond sheet: scores, skills, every feature, every spell with its effect. Beyond cannot import them. Print them. If someone insists on typing into Beyond, each sheet has a hand-entry list.</p>
+      <p class="lede short">Click <b>2014 SRD</b> or <b>2024 SRD</b> at the top. Same six people, rebuilt on that edition. Beyond cannot import them. Print them.</p>
     </section>
     <div id="sheets"></div>
   </main>
+  <script src="rules.js?v=20260920m"></script>
+  <script>mountRulesetToggle(document.getElementById("ruleset-host"));</script>
   <script>
     const ABIL = ["STR","DEX","CON","INT","WIS","CHA"];
     const SKILL_ORDER = [
@@ -169,15 +172,20 @@
         '<pre class="beyond-check print-hide">' + esc(beyondList(pc)) + "</pre>" +
       "</article>";
     }
-    fetch("data/pregens/quiet-seals-level-4-2014-srd.json?v=k")
+    const edition = (typeof getRuleset === "function" && getRuleset() === "2024") ? "2024" : "2014";
+    const packUrl = edition === "2024"
+      ? "data/pregens/quiet-seals-level-4-2024-srd.json?v=m"
+      : "data/pregens/quiet-seals-level-4-2014-srd.json?v=m";
+    fetch(packUrl)
       .then(r => r.json())
       .then(pack => {
         const rec = (pack.characters || []).filter(pc => pc.recommended);
         const rest = (pack.characters || []).filter(pc => !pc.recommended);
         document.getElementById("sheets").innerHTML =
           rec.map(sheetHtml).join("") +
-          '<h2 class="print-hide" style="padding:1rem 1.5rem 0">The other six, if you need them</h2>' +
-          rest.map(sheetHtml).join("");
+          (edition === "2024"
+            ? '<p class="print-hide" style="padding:1rem 1.5rem">The extra six classes are still 2014-only. Tonight’s table is these six.</p>'
+            : '<h2 class="print-hide" style="padding:1rem 1.5rem 0">The other six, if you need them</h2>' + rest.map(sheetHtml).join(""));
       })
       .catch(() => { document.getElementById("sheets").innerHTML = "<p>Could not load pregens.</p>"; });
   </script>
