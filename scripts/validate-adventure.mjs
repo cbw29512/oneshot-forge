@@ -112,6 +112,19 @@ if (!/bypass|skip|culvert|leaves|leave/.test(routeText)) {
   errors.push("recovery must cover skipping a core scene");
 }
 
+if (!adventure.pathPressure?.principle) {
+  errors.push("pathPressure.principle is required: pay the prepared table, tax the rush, never lock the ending");
+}
+if (!Array.isArray(adventure.pathPressure?.prepared) || adventure.pathPressure.prepared.length < 2) {
+  errors.push("pathPressure.prepared needs at least two payoffs for following the work");
+}
+if (!Array.isArray(adventure.pathPressure?.rushed) || adventure.pathPressure.rushed.length < 2) {
+  errors.push("pathPressure.rushed needs at least two costs for skipping the work");
+}
+if (!/never lock|not locked|still finish/i.test(String(adventure.pathPressure?.principle || ""))) {
+  errors.push("pathPressure must say the ending is never locked / they still finish");
+}
+
 const totalMinutes = (adventure.scenes || []).reduce((sum, scene) => sum + (scene.estimatedMinutes || 0), 0);
 if (adventure.metadata?.durationMinutes && totalMinutes < adventure.metadata.durationMinutes * 0.6) {
   errors.push(`scene pacing covers only ${totalMinutes} of ${adventure.metadata.durationMinutes} target minutes`);

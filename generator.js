@@ -554,6 +554,23 @@
       }],
       maps:[{id:"map-main",name:location.mapLabel,asset:null,regions:mapRegions}],
       events:[{id:"event-deadline",name:"Deadline",effect:"At " + deadline + ", the unresolved threat escalates."}],
+      pathPressure:{
+        principle:"The ending is never locked. A table that investigates and talks gets extra treasure and a weaker finale. A table that murders, skips every clue, or smashes the quest object early still finishes — they spend more hit points and leave gold on the table.",
+        notDeviation:[
+          "Authored bypasses (side doors, stealth, bargains) are not a rush.",
+          "Any authored ending is a valid ending."
+        ],
+        prepared:[
+          {when:"They found at least two required clues before the finale.", payoff:"The final threat starts at two-thirds hit points."},
+          {when:"The antagonist is alive and not hostile.", payoff:"They can help end the crisis without a full fight."},
+          {when:"The quest giver is alive and not publicly ruined.", payoff:"Full promised pay, plus a small extra purse."}
+        ],
+        rushed:[
+          {when:"They killed the quest giver.", cost:"Half pay from a village chest. The witness still points the way."},
+          {when:"They attacked the antagonist before hearing them.", cost:"No help in the finale. Full hit points on the last threat."},
+          {when:"They reach the finale with zero required clues.", cost:"The last threat acts once against the whole party before initiative."}
+        ]
+      },
       recovery:{
         policies:["Preserve established facts, not a predetermined route.","Never erase a successful player deduction.","Move required information only to a plausible backup source.","Record recovery state changes."],
         routes:[

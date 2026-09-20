@@ -1027,7 +1027,7 @@
             "attack": "Memory Rend. Melee +6 to hit, reach 10 ft.; 2d8+3 psychic.",
             "action": "Whispering Theft. One creature within 60 ft. makes a DC 13 Wisdom save; on failure it takes 3d6 psychic damage and has disadvantage on its next attack roll or ability check. Half damage and no disadvantage on success.",
             "trait": "Unstable Binding. At initiative count 20, one unoccupied sigil flares. A creature adjacent to it may use its reaction to make DC 12 Intelligence (Arcana or Religion); success suppresses the flare, failure or no attempt deals 1d6 psychic damage to every creature within 10 ft. of that sigil.",
-            "tactics": "Targets whoever most recently advanced the ritual or bargain. It does not leave the chamber while the Emberglass remains intact."
+            "tactics": "Targets whoever most recently advanced the ritual or bargain. It does not leave the chamber while the Emberglass remains intact. Prepared table: start at 66 HP. Bell rung: 15 temp HP. Zero clues: Whispering Theft on everyone before initiative."
           }
         ],
         "ritual": "The replacement binding needs 3 ritual successes before 3 ritual failures. One character adjacent to a sigil can use an action for check-ritual. Caldus contributes one automatic success at the end of round 2 if conscious and allied. At 3 successes, the Guest is bound and combat ends.",
@@ -1062,6 +1062,16 @@
         "id": "reward-ember-blessing",
         "when": "The party completes the new binding without destroying the Emberglass.",
         "reward": "Each surviving character gains Ember's Resolve: once before the next long rest, add 1d4 to a failed Wisdom saving throw, then the blessing ends."
+      },
+      {
+        "id": "reward-quiet-purse",
+        "when": "Prepared: Mara alive and not publicly denounced.",
+        "reward": "After the crowd leaves, she presses a 50 gp purse into someone's hand. 'For not making a speech.'"
+      },
+      {
+        "id": "reward-healer-kit",
+        "when": "Prepared: they spoke with Tamsin before leaving the square.",
+        "reward": "She slips them a healer's kit and a loaf. 'If you die on that road I have to look at your horse.'"
       }
     ],
     "mapNotes": [
@@ -1709,5 +1719,61 @@
       }
     ],
     "finaleWithoutNpc": "The Pale Guest scene does not require Caldus. He is an extra ritual success if allied and conscious. Binding, destruction, and bargain all work without him."
+  },
+  "pathPressure": {
+    "principle": "The ending is never locked. A table that does the work gets paid and the last fight is shorter. A table that murders, rings the bell, or skips every clue still finishes \u2014 they spend more hit points and leave gold on the table.",
+    "notDeviation": [
+      "The culvert is an authored route, not a rush.",
+      "Sneaking or bargaining past the grave-things is smart play, not deviation.",
+      "Helping Caldus, restoring the old seal, destroying the Guest, or bargaining are all valid endings."
+    ],
+    "prepared": [
+      {
+        "when": "They found at least two required clues before the chamber.",
+        "payoff": "The unfinished binding has already hurt the Guest. It starts at 66 HP, not 88."
+      },
+      {
+        "when": "Caldus is alive, conscious, and not hostile.",
+        "payoff": "He contributes one automatic ritual success at the end of round 2."
+      },
+      {
+        "when": "They did not ring the cracked bell.",
+        "payoff": "The Guest has no extra temporary hit points."
+      },
+      {
+        "when": "Mara is alive and they did not denounce her in the square.",
+        "payoff": "200 gp as promised, plus a 50 gp quiet purse after the crowd leaves."
+      },
+      {
+        "when": "They searched the crypt after the finale.",
+        "payoff": "80 gp in old silver and two 50 gp moonstones."
+      },
+      {
+        "when": "They completed the new binding without smashing the Emberglass.",
+        "payoff": "Ember's Resolve: once before the next long rest, add 1d4 to a failed Wisdom save."
+      }
+    ],
+    "rushed": [
+      {
+        "when": "They rang the cracked bell.",
+        "cost": "The Pale Guest begins the finale with 15 temporary hit points."
+      },
+      {
+        "when": "They smashed the Emberglass before the ritual chamber.",
+        "cost": "No binding. Guest at 88 HP. Mara pays 100 gp if the glen survives, not 200. Moonstones still exist if they go back."
+      },
+      {
+        "when": "They killed Mara.",
+        "cost": "Village chest: 100 gp. No quiet purse. Tamsin still gives the priory route. The night continues."
+      },
+      {
+        "when": "They killed Caldus before the chamber.",
+        "cost": "No automatic ritual success. Guest at 88 HP. Journal still tells the truth."
+      },
+      {
+        "when": "They reach the finale with zero required clues discovered.",
+        "cost": "Surprise: every PC makes Whispering Theft (DC 13 Wisdom) before initiative. Then play the fight."
+      }
+    ]
   }
 }

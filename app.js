@@ -270,6 +270,7 @@ function renderAll() {
   renderNpcs();
   renderRequiredClues();
   renderResources();
+  renderPathPressure();
   renderRecovery();
   renderAiContext();
   renderPregens();
@@ -667,6 +668,30 @@ function renderAiContext() {
       .map(clue => clue.revelation)
   };
   pre.textContent = JSON.stringify(packet, null, 2);
+}
+
+function renderPathPressure() {
+  const wrap = el("pressure-list");
+  if (!wrap) return;
+  const pp = adventure.pathPressure;
+  if (!pp) {
+    wrap.innerHTML = '<p class="muted">This pack has no prepared/rushed track.</p>';
+    return;
+  }
+  const bits = [];
+  bits.push("<p>" + escapeHtml(pp.principle || "") + "</p>");
+  if (pp.notDeviation?.length) {
+    bits.push("<p class=\"muted\">Not a rush: " + escapeHtml(pp.notDeviation.join(" ")) + "</p>");
+  }
+  bits.push("<p><b>They did the work</b></p>");
+  for (const row of pp.prepared || []) {
+    bits.push('<div class="card"><strong>' + escapeHtml(row.when) + "</strong><p>" + escapeHtml(row.payoff) + "</p></div>");
+  }
+  bits.push("<p><b>They rushed or murdered</b></p>");
+  for (const row of pp.rushed || []) {
+    bits.push('<div class="card"><strong>' + escapeHtml(row.when) + "</strong><p>" + escapeHtml(row.cost) + "</p></div>");
+  }
+  wrap.innerHTML = bits.join("");
 }
 
 function renderRecovery() {
