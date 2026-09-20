@@ -215,12 +215,13 @@
     },
     "gameState": {
       "type": "object",
-      "required": ["questStage", "currentSceneId", "discoveredClueIds", "revealedSecretIds", "npcState", "locationState", "itemState"],
+      "required": ["questStage", "currentSceneId", "discoveredClueIds", "revealedSecretIds", "sceneHistory", "npcState", "locationState", "itemState"],
       "properties": {
         "questStage": { "type": "string" },
         "currentSceneId": { "type": ["string", "null"] },
         "discoveredClueIds": { "type": "array", "items": { "type": "string" } },
         "revealedSecretIds": { "type": "array", "items": { "type": "string" } },
+        "sceneHistory": { "type": "array", "items": { "type": "string" } },
         "npcState": { "type": "object" },
         "locationState": { "type": "object" },
         "itemState": { "type": "object" },
