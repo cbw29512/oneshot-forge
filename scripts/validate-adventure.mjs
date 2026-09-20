@@ -18,6 +18,51 @@ function requireText(value, label) {
   if (!hasText(value)) errors.push(`${label} is required for zero-prep play`);
 }
 
+function reachableTerminals(startId, scenesById) {
+  const terminals = new Set();
+  const visited = new Set();
+  const pending = [startId];
+  while (pending.length) {
+    const id = pending.pop();
+    if (visited.has(id)) continue;
+    visited.add(id);
+    const scene = scenesById.get(id);
+    if (!scene) continue;
+    const exits = scene.exits || [];
+    if (!exits.length) terminals.add(id);
+    else exits.forEach(exitId => pending.push(exitId));
+  }
+  return terminals;
+}
+
+function validateAdventureFlow(scenes, initialSceneId) {
+  const scenesById = new Map((scenes || []).map(scene => [scene.id, scene]));
+  const terminalIds = new Set((scenes || []).filter(scene => !(scene.exits || []).length).map(scene => scene.id));
+  if (!terminalIds.size) errors.push("adventure requires at least one terminal ending scene");
+
+  const reachableFromStart = new Set();
+  const pending = initialSceneId ? [initialSceneId] : [];
+  while (pending.length) {
+    const id = pending.pop();
+    if (reachableFromStart.has(id)) continue;
+    reachableFromStart.add(id);
+    (scenesById.get(id)?.exits || []).forEach(exitId => pending.push(exitId));
+  }
+  for (const scene of scenes || []) {
+    if (!reachableFromStart.has(scene.id)) errors.push(`scene ${scene.id} is unreachable from the opening scene`);
+    if (!reachableTerminals(scene.id, scenesById).size) errors.push(`scene ${scene.id} cannot reach an ending`);
+  }
+
+  const branchScenes = (scenes || []).filter(scene => (scene.exits || []).length > 1);
+  if (!branchScenes.length) errors.push("adventure requires at least one meaningful branch with multiple paths");
+  for (const scene of branchScenes) {
+    const branchTerminalSets = scene.exits.map(exitId => reachableTerminals(exitId, scenesById));
+    if (!branchTerminalSets.length) continue;
+    const shared = [...branchTerminalSets[0]].filter(id => branchTerminalSets.every(set => set.has(id)));
+    if (!shared.length) errors.push(`branching scene ${scene.id} has paths that never reconverge on a shared ending`);
+  }
+}
+
 const adventure = loadAdventure(path);
 const sidecarPath = process.argv[3] || path.replace(/\.oneshot\.json$/, ".quickrun.json");
 const sceneIds = ids(adventure.scenes);
@@ -42,6 +87,7 @@ requireText(adventure.quest?.stakes, "quest.stakes");
 if (!adventure.initialState?.currentSceneId || !sceneIds.has(adventure.initialState.currentSceneId)) {
   errors.push("initialState.currentSceneId must reference a scene");
 }
+validateAdventureFlow(adventure.scenes || [], adventure.initialState?.currentSceneId);
 
 for (const clue of adventure.clues || []) {
   if (clue.required && (!Array.isArray(clue.sources) || clue.sources.length < 2)) {
@@ -94,30 +140,18 @@ if (adventure.metadata?.durationMinutes && totalMinutes < adventure.metadata.dur
 }
 
 if (quickrun) {
-  if (quickrun.adventureId && quickrun.adventureId !== adventure.metadata?.id) {
-    errors.push("quickrun.adventureId must match metadata.id");
-  }
-  if (quickrun.target?.level != null && quickrun.target.level !== adventure.metadata?.partyLevel) {
-    errors.push("quickrun.target.level must match metadata.partyLevel");
-  }
-  if (quickrun.target?.partySize != null && quickrun.target.partySize !== adventure.metadata?.partySize) {
-    errors.push("quickrun.target.partySize must match metadata.partySize");
-  }
+  if (quickrun.adventureId && quickrun.adventureId !== adventure.metadata?.id) errors.push("quickrun.adventureId must match metadata.id");
+  if (quickrun.target?.level != null && quickrun.target.level !== adventure.metadata?.partyLevel) errors.push("quickrun.target.level must match metadata.partyLevel");
+  if (quickrun.target?.partySize != null && quickrun.target.partySize !== adventure.metadata?.partySize) errors.push("quickrun.target.partySize must match metadata.partySize");
   const quickEncounterIds = ids(quickrun.encounters);
-  for (const encounter of adventure.encounters || []) {
-    if (!quickEncounterIds.has(encounter.id)) errors.push(`encounter ${encounter.id} needs a quickrun table entry`);
-  }
+  for (const encounter of adventure.encounters || []) if (!quickEncounterIds.has(encounter.id)) errors.push(`encounter ${encounter.id} needs a quickrun table entry`);
   for (const check of quickrun.checks || []) {
     if (!sceneIds.has(check.sceneId)) errors.push(`quickrun check ${check.id} references missing scene ${check.sceneId}`);
     requireText(check.label, `quickrun check ${check.id}.label`);
     if (!Number.isInteger(check.dc)) errors.push(`quickrun check ${check.id} needs a numeric DC`);
   }
-  for (const hazard of quickrun.hazards || []) {
-    if (hazard.sceneId && !sceneIds.has(hazard.sceneId)) errors.push(`quickrun hazard ${hazard.id} references missing scene`);
-  }
-  for (const note of quickrun.mapNotes || []) {
-    if (note.sceneId && !sceneIds.has(note.sceneId)) errors.push(`quickrun map note references missing scene ${note.sceneId}`);
-  }
+  for (const hazard of quickrun.hazards || []) if (hazard.sceneId && !sceneIds.has(hazard.sceneId)) errors.push(`quickrun hazard ${hazard.id} references missing scene`);
+  for (const note of quickrun.mapNotes || []) if (note.sceneId && !sceneIds.has(note.sceneId)) errors.push(`quickrun map note references missing scene ${note.sceneId}`);
   const authoredById = new Map((adventure.encounters || []).map(item => [item.id, item]));
   for (const encounter of quickrun.encounters || []) {
     requireText(encounter.objective, `quickrun encounter ${encounter.id}.objective`);
@@ -125,24 +159,16 @@ if (quickrun) {
     requireText(encounter.end, `quickrun encounter ${encounter.id}.end`);
     const authored = authoredById.get(encounter.id);
     const combat = /combat|boss/i.test(authored?.type || "");
-    if (combat && (!Array.isArray(encounter.creatures) || !encounter.creatures.length)) {
-      errors.push(`combat quickrun encounter ${encounter.id} requires creatures[]`);
-    }
+    if (combat && (!Array.isArray(encounter.creatures) || !encounter.creatures.length)) errors.push(`combat quickrun encounter ${encounter.id} requires creatures[]`);
     for (const creature of encounter.creatures || []) {
-      if (!Number.isInteger(creature.ac) || !Number.isInteger(creature.hp)) {
-        errors.push(`${creature.name || encounter.id} requires numeric AC and HP`);
-      }
+      if (!Number.isInteger(creature.ac) || !Number.isInteger(creature.hp)) errors.push(`${creature.name || encounter.id} requires numeric AC and HP`);
       requireText(creature.tactics, `${creature.name || encounter.id}.tactics`);
     }
   }
   const requiredCheckIds = Array.isArray(quickrun.requiredCheckIds) ? quickrun.requiredCheckIds : [];
   const checkIds = ids(quickrun.checks);
-  for (const id of requiredCheckIds) {
-    if (!checkIds.has(id)) errors.push(`quickrun.requiredCheckIds lists missing check ${id}`);
-  }
-  if (!Array.isArray(quickrun.rewards) || !quickrun.rewards.length) {
-    errors.push("quickrun requires at least one reward");
-  }
+  for (const id of requiredCheckIds) if (!checkIds.has(id)) errors.push(`quickrun.requiredCheckIds lists missing check ${id}`);
+  if (!Array.isArray(quickrun.rewards) || !quickrun.rewards.length) errors.push("quickrun requires at least one reward");
 }
 
 if (errors.length) {
@@ -153,6 +179,4 @@ if (errors.length) {
 
 console.log(`[validator] ${adventure.metadata.title} passes structural + zero-prep checks.`);
 console.log(`[validator] ${adventure.scenes.length} scenes, ${adventure.npcs.length} NPCs, ${adventure.clues.length} clues, ${totalMinutes} planned minutes.`);
-if (quickrun) {
-  console.log(`[validator] table ref: ${quickrun.encounters?.length || 0} encounters, ${quickrun.checks?.length || 0} checks, ${quickrun.rewards?.length || 0} rewards.`);
-}
+if (quickrun) console.log(`[validator] table ref: ${quickrun.encounters?.length || 0} encounters, ${quickrun.checks?.length || 0} checks, ${quickrun.rewards?.length || 0} rewards.`);
