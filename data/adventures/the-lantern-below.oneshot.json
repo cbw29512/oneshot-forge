@@ -497,6 +497,7 @@
     "currentSceneId": "scene-hook",
     "discoveredClueIds": [],
     "revealedSecretIds": [],
+    "sceneHistory": [],
     "npcState": {
       "npc-mara-venn": {"status": "alive", "attitude": "guarded"},
       "npc-brother-caldus": {"status": "alive", "attitude": "wary"},
