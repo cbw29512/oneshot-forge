@@ -594,7 +594,8 @@
       "type": "social / hazard",
       "difficulty": "low",
       "summary": "Three travelers are confused and frightened. Calming them reveals that a pale mist from the priory stole recent memories.",
-      "resolution": "No combat required. A hostile approach may scatter them and lose this optional clue."
+      "resolution": "No combat required. A hostile approach may scatter them and lose this optional clue.",
+      "talkOut": "Persuasion or Medicine DC 12: they stay and describe the mist. Intimidation scatters them."
     },
     {
       "id": "enc-grave-things",
@@ -602,7 +603,9 @@
       "type": "combat or bypass",
       "difficulty": "medium",
       "summary": "Four vine-wrapped dead guardians rise from the graves. They do not pursue beyond the priory yard.",
-      "resolution": "Fight them, distract them with fire/noise, or bypass them through the culvert."
+      "resolution": "Fight them, distract them with fire/noise, or bypass them through the culvert.",
+      "talkOut": null,
+      "bypass": "Culvert or fire/noise. They do not speak."
     },
     {
       "id": "enc-caldus-if-hostile",
@@ -610,7 +613,8 @@
       "type": "social with optional combat",
       "difficulty": "medium",
       "summary": "Caldus wants to talk. If attacked, he fights defensively and retreats toward the ritual chamber.",
-      "resolution": "The scene should still deliver the seal revelation through his shouted warnings, notes, or ritual evidence."
+      "resolution": "The scene should still deliver the seal revelation through his shouted warnings, notes, or ritual evidence.",
+      "talkOut": "He wants to talk. Persuasion DC 13 to help the new binding; Insight DC 12 to see he is telling the truth."
     },
     {
       "id": "enc-pale-guest",
@@ -618,7 +622,8 @@
       "type": "boss / ritual encounter",
       "difficulty": "hard",
       "summary": "A memory-eating spirit attacks while the binding fails. Each round should create pressure through whispers, lost recollections, or unstable sigils.",
-      "resolution": "Defeat it, complete the replacement binding, destroy the Emberglass and fight it fully, or negotiate a costly new bargain."
+      "resolution": "Defeat it, complete the replacement binding, destroy the Emberglass and fight it fully, or negotiate a costly new bargain.",
+      "talkOut": "Bargain: a memory for a memory. It does not need to be a boss fight."
     }
   ],
   "puzzles": [
@@ -5536,5 +5541,44 @@
         "DCs on the scene cards stay. They were set for a level-4 table and work in both editions."
       ]
     }
+  },
+  "oneshotRecipe": {
+    "shape": "five-room",
+    "genre": "Folk horror",
+    "tale": "Sealed room / monkey\u2019s-paw bargain",
+    "rooms": [
+      {
+        "beat": "1 Guardian",
+        "scene": "scene-priory-gate",
+        "note": "Grave-things: fight, fire, or culvert"
+      },
+      {
+        "beat": "2 Puzzle / RP",
+        "scene": "scene-chapel",
+        "note": "Four Moons Lock, or talk Caldus"
+      },
+      {
+        "beat": "3 Trick",
+        "scene": "scene-chapel",
+        "note": "Memory Bell trap \u2014 fail-forward into the crypt"
+      },
+      {
+        "beat": "4 Climax",
+        "scene": "scene-final",
+        "note": "Pale Guest: fight, bind, smash, or bargain"
+      },
+      {
+        "beat": "5 Revelation",
+        "scene": "scene-final",
+        "note": "Ending is campaign fact in Hearthford"
+      }
+    ]
+  },
+  "xpBudget": {
+    "edition": "SRD 5.2.1",
+    "party": "4 \u00d7 level 4",
+    "low": 1000,
+    "moderate": 1500,
+    "high": 2000
   }
 }

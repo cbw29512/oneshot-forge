@@ -182,6 +182,25 @@ if (quickrun) {
   }
 }
 
+if (!Array.isArray(adventure.puzzles) || adventure.puzzles.length < 1) {
+  errors.push("adventure needs at least one puzzle (prompt, solution, failForward)");
+}
+for (const puzzle of adventure.puzzles || []) {
+  requireText(puzzle.prompt, `puzzle ${puzzle.id}.prompt`);
+  requireText(puzzle.solution, `puzzle ${puzzle.id}.solution`);
+  requireText(puzzle.failForward, `puzzle ${puzzle.id}.failForward`);
+}
+if (!Array.isArray(adventure.traps) || adventure.traps.length < 1) {
+  errors.push("adventure needs at least one trap (trigger, effect, fail-forward purpose)");
+}
+for (const trap of adventure.traps || []) {
+  requireText(trap.trigger, `trap ${trap.id}.trigger`);
+  requireText(trap.effect, `trap ${trap.id}.effect`);
+}
+if (!(adventure.encounters || []).some(enc => hasText(enc.talkOut))) {
+  errors.push("at least one encounter must have talkOut — a BBEG fight is not required");
+}
+
 if (errors.length) {
   console.error(`Adventure validation failed for ${path}:`);
   errors.forEach(error => console.error(" -", error));

@@ -7,15 +7,27 @@
     "name": "Hearthford",
     "pitch": "A hill-country market town. Ten people keep it standing. Old blessings in the ridge towns are failing. The mayor sends you out. You come back. You know their names.",
     "map": "assets/maps/hearthford.jpg",
-    "mapScale": "Not to scale · player handout · no dungeon secrets"
+    "mapScale": "Not to scale \u00b7 player handout \u00b7 no dungeon secrets"
   },
   "pregens": "Keep the same six. They live between jobs in Hearthford.",
   "relationship": {
     "ranks": [
-      { "value": 0, "label": "Stranger" },
-      { "value": 1, "label": "Helped" },
-      { "value": 2, "label": "Trusted" },
-      { "value": 3, "label": "Bound" }
+      {
+        "value": 0,
+        "label": "Stranger"
+      },
+      {
+        "value": 1,
+        "label": "Helped"
+      },
+      {
+        "value": 2,
+        "label": "Trusted"
+      },
+      {
+        "value": 3,
+        "label": "Bound"
+      }
     ],
     "how": "After their one-shot, that NPC becomes Helped. If the table kept a promise to them, Trusted. If the table later risked something for them in town, Bound. Write it on this page. Do not track romance meters.",
     "finale": "The last quest is never locked. If four or more notables are Trusted or Bound, the town helps and the last fight is weaker. If you skip everyone after Episode 1, the mayor still sends you. You bleed more. Same rule as a single night: prepared pays, rush still finishes."
@@ -30,7 +42,7 @@
     {
       "id": "npc-cald-wren",
       "name": "Mayor Cald Wren",
-      "place": "1 · Timber hall on the square",
+      "place": "1 \u00b7 Timber hall on the square",
       "want": "Trade, quiet, no panic.",
       "voice": "Short sentences. Counts coin in his head while he talks.",
       "firstQuest": "episode-lantern",
@@ -39,7 +51,7 @@
     {
       "id": "npc-oda-flint",
       "name": "Reeve Oda Flint",
-      "place": "2 · Mill and grain loft",
+      "place": "2 \u00b7 Mill and grain loft",
       "want": "The wells on the ridge must keep names and water.",
       "voice": "Dry. Corrects you once.",
       "episodeId": "episode-well"
@@ -47,7 +59,7 @@
     {
       "id": "npc-brune-holt",
       "name": "Captain Brune Holt",
-      "place": "3 · Watch barracks",
+      "place": "3 \u00b7 Watch barracks",
       "want": "His missing patrol back, or the truth if they are not coming.",
       "voice": "Does not shout. Repeats the last order.",
       "episodeId": "episode-watch"
@@ -55,7 +67,7 @@
     {
       "id": "npc-maestra-vell",
       "name": "Maestra Vell",
-      "place": "4 · Schoolhouse",
+      "place": "4 \u00b7 Schoolhouse",
       "want": "The children to keep their own names.",
       "voice": "Patient until she is not.",
       "episodeId": "episode-class"
@@ -63,7 +75,7 @@
     {
       "id": "npc-joss-amber",
       "name": "Joss Amber",
-      "place": "5 · Smithy",
+      "place": "5 \u00b7 Smithy",
       "want": "Iron that holds a blessing again. She will not sell a nail that lies.",
       "voice": "Talks to the metal first.",
       "episodeId": "episode-nail"
@@ -71,7 +83,7 @@
     {
       "id": "npc-nim-low",
       "name": "Nim Low",
-      "place": "6 · North pasture gate",
+      "place": "6 \u00b7 North pasture gate",
       "want": "Whatever is wearing his sheep to stop.",
       "voice": "Counts on his fingers. Loses count.",
       "episodeId": "episode-flock"
@@ -79,7 +91,7 @@
     {
       "id": "npc-sera-moss",
       "name": "Doctor Sera Moss",
-      "place": "7 · Infirmary",
+      "place": "7 \u00b7 Infirmary",
       "want": "A sleep that is only sleep.",
       "voice": "Asks what you ate. Writes it down.",
       "episodeId": "episode-ward"
@@ -87,7 +99,7 @@
     {
       "id": "npc-idra-quell",
       "name": "Idra Quell",
-      "place": "8 · Night market, third stall",
+      "place": "8 \u00b7 Night market, third stall",
       "want": "A buyer of memories run out of town before the mayor notices she sold to them once.",
       "voice": "Smiles with one side.",
       "episodeId": "episode-purse"
@@ -95,15 +107,15 @@
     {
       "id": "npc-brother-halve",
       "name": "Brother Halve",
-      "place": "9 · Chapel",
-      "want": "The saint’s bones to lie still. He is not sure he wants to know why they moved.",
+      "place": "9 \u00b7 Chapel",
+      "want": "The saint\u2019s bones to lie still. He is not sure he wants to know why they moved.",
       "voice": "Quotes the wrong verse on purpose.",
       "episodeId": "episode-saint"
     },
     {
       "id": "npc-old-fenn",
       "name": "Old Fenn",
-      "place": "10 · Tannery loft",
+      "place": "10 \u00b7 Tannery loft",
       "want": "To die without anyone asking him to seal a thing again.",
       "voice": "Long pauses. Then one true sentence.",
       "episodeId": null,
@@ -122,7 +134,12 @@
       "image": "The iron lantern in Briar Glen has gone dark.",
       "clock": "Moonrise.",
       "fork": "Restore the old prison, bind it properly, smash it, or bargain.",
-      "pack": "data/adventures/the-lantern-below.oneshot.json"
+      "pack": "data/adventures/the-lantern-below.oneshot.json",
+      "genre": "Folk horror",
+      "tale": "Sealed room / monkey\u2019s-paw bargain",
+      "trap": "Memory Bell",
+      "puzzle": "Four Moons Lock",
+      "talkOut": "Caldus and the Pale Guest can be bargained with"
     },
     {
       "id": "episode-well",
@@ -131,9 +148,14 @@
       "giver": "npc-oda-flint",
       "status": "coming",
       "price": "$0.99",
-      "image": "Saltmere’s well still gives water. The water forgets your name.",
+      "image": "Saltmere\u2019s well still gives water. The water forgets your name.",
       "clock": "Until the bucket comes up dry.",
-      "fork": "Keep the well, break the well, or let Saltmere drink and forget."
+      "fork": "Keep the well, break the well, or let Saltmere drink and forget.",
+      "genre": "Horror",
+      "tale": "Tam Lin / stolen names",
+      "trap": "The bucket that drinks a name",
+      "puzzle": "Which cup is still yours",
+      "talkOut": "The well-thing wants a name, not a fight"
     },
     {
       "id": "episode-watch",
@@ -144,7 +166,12 @@
       "price": "$0.99",
       "image": "Six watchmen went up the ridge. Their lanterns are still moving.",
       "clock": "Dawn, when the lanterns turn around.",
-      "fork": "Bring them home, cut the strings, or take their post."
+      "fork": "Bring them home, cut the strings, or take their post.",
+      "genre": "Classic warband",
+      "tale": "Wild Hunt / dead company",
+      "trap": "Lanterns that mark you as the next post",
+      "puzzle": "Which lantern is still living",
+      "talkOut": "The captain of the missing watch can be ordered home"
     },
     {
       "id": "episode-class",
@@ -155,7 +182,12 @@
       "price": "$0.99",
       "image": "Twelve children wrote the same name. It is not any of theirs.",
       "clock": "The next lesson, at noon.",
-      "fork": "Erase the name, give it a body, or let them keep it."
+      "fork": "Erase the name, give it a body, or let them keep it.",
+      "genre": "Uncanny",
+      "tale": "Pied Piper",
+      "trap": "Chalk that writes you in",
+      "puzzle": "Whose name is on the slate",
+      "talkOut": "The name wants a teacher, not a corpse"
     },
     {
       "id": "episode-nail",
@@ -166,7 +198,12 @@
       "price": "$0.99",
       "image": "Every blessed nail Joss drives falls out by morning.",
       "clock": "The new chapel door, before Sunday.",
-      "fork": "Rebless the iron, stop blessing it, or find who is pulling."
+      "fork": "Rebless the iron, stop blessing it, or find who is pulling.",
+      "genre": "Classic cursed craft",
+      "tale": "The gift that will not stay",
+      "trap": "A nail that unmakes the door behind you",
+      "puzzle": "Which iron was never blessed",
+      "talkOut": "The puller of nails will trade for a true tool"
     },
     {
       "id": "episode-flock",
@@ -177,7 +214,12 @@
       "price": "$0.99",
       "image": "The sheep went up. Something wearing wool came down.",
       "clock": "Sundown, when the real flock returns.",
-      "fork": "Skin it, follow it, or put Nim’s coat on the problem."
+      "fork": "Skin it, follow it, or put Nim\u2019s coat on the problem.",
+      "genre": "Folk horror",
+      "tale": "Wolf in sheep\u2019s clothing",
+      "trap": "Wool that tightens",
+      "puzzle": "Count the flock; the extra one is the answer",
+      "talkOut": "The wearer of wool can be offered a different coat"
     },
     {
       "id": "episode-ward",
@@ -188,7 +230,12 @@
       "price": "$0.99",
       "image": "Three patients will not wake. They are still answering questions.",
       "clock": "The fourth bed.",
-      "fork": "Wake them, join the conversation, or close the ward."
+      "fork": "Wake them, join the conversation, or close the ward.",
+      "genre": "Gothic",
+      "tale": "Sleep that is not sleep",
+      "trap": "A bed that takes a watcher\u2019s hour",
+      "puzzle": "Three questions the sleepers will still answer",
+      "talkOut": "Wake them by promising to keep the fourth bed empty"
     },
     {
       "id": "episode-purse",
@@ -199,7 +246,12 @@
       "price": "$0.99",
       "image": "Someone is buying memories in the night market. The coins still whisper.",
       "clock": "The buyer leaves town at second bell.",
-      "fork": "Rob them, sell to them, or make the coins forget."
+      "fork": "Rob them, sell to them, or make the coins forget.",
+      "genre": "Heist",
+      "tale": "Rumpelstiltskin (buying a name)",
+      "trap": "Coin that calls the buyer",
+      "puzzle": "The ledger of sold memories",
+      "talkOut": "Pay in a false name and walk"
     },
     {
       "id": "episode-saint",
@@ -210,7 +262,12 @@
       "price": "$0.99",
       "image": "The chapel bones sat up. They would like a word.",
       "clock": "Vespers, when the congregation arrives.",
-      "fork": "Lay them down, let them preach, or take the relic out of town."
+      "fork": "Lay them down, let them preach, or take the relic out of town.",
+      "genre": "Religious horror",
+      "tale": "The relic that sits up",
+      "trap": "Pew that kneels you",
+      "puzzle": "The wrong verse opens the reliquary",
+      "talkOut": "Let the saint preach once and lie down"
     },
     {
       "id": "episode-quiet",
@@ -222,7 +279,21 @@
       "image": "The seals were never blessings. Something under the ridge is being fed by every lantern, well, and nail.",
       "clock": "The next new moon.",
       "fork": "Starve it, feed it on purpose, or put a new quiet in its mouth.",
-      "requires": "Episode 1 is done. Middle episodes optional. Relationships change the last fight, they do not lock it."
+      "requires": "Episode 1 is done. Middle episodes optional. Relationships change the last fight, they do not lock it.",
+      "genre": "Mythic",
+      "tale": "Orpheus / what the seals were feeding",
+      "trap": "A quiet that eats a spell slot",
+      "puzzle": "Which seal is the mouth",
+      "talkOut": "Starve it, feed it on purpose, or rename it"
     }
-  ]
+  ],
+  "oneshotRecipe": "docs/ONESHOT_RECIPE.md",
+  "encounterBudget": {
+    "source": "SRD 5.2.1 CC-BY-4.0",
+    "party": "4 characters, level 4",
+    "low": 1000,
+    "moderate": 1500,
+    "high": 2000,
+    "note": "Do not reprint 2014 DMG random charts. If the table owns a DMG they may roll those at the table."
+  }
 }

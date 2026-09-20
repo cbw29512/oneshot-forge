@@ -99,7 +99,10 @@
               (done ? " · Done at this table" : "") + "</p>" +
               "<h3>" + ep.number + ". " + esc(ep.title) + "</h3>" +
               "<p>" + esc(ep.image) + "</p>" +
+              '<p class="tiny">' + esc(ep.genre || "") + (ep.tale ? " · after " + esc(ep.tale) : "") + "</p>" +
               '<p class="tiny">Clock: ' + esc(ep.clock) + " · Fork: " + esc(ep.fork) + "</p>" +
+              (ep.trap ? '<p class="tiny">Trap: ' + esc(ep.trap) + " · Puzzle: " + esc(ep.puzzle) + "</p>" : "") +
+              (ep.talkOut ? '<p class="tiny">Talk-out: ' + esc(ep.talkOut) + "</p>" : "") +
               '<p class="muted">Giver: ' + esc(giver ? giver.name : "") + "</p>" +
               (live ? '<p><a class="button ember small" href="' + esc(ep.href) + '">Run this night</a></p>' : "") +
               '<label class="check-row"><input type="checkbox" data-ep="' + esc(ep.id) + '"' +

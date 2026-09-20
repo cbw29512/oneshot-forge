@@ -18,7 +18,7 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Work loop is daily, not hourly
 
 ## Next (in order)
-1. Author Episode 2: The Well That Would Not Dry (Oda Flint) to the QUALITY.md bar — maps, both editions, full one-shot
+1. Author Episode 2: The Well That Would Not Dry to ONESHOT_RECIPE.md (five rooms, trap, puzzle, talk-out, maps, both editions)
 2. Bring `run.html` chrome closer to the landing without churning CSS
 3. Wire $0.99 only after the owner gives Gumroad / Stripe / PayPal
 
@@ -30,4 +30,4 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Invent payment
 
 ## Last session
-2026-09-20 — Quiet Seals is a hub campaign: Hearthford, 10 notables, mayor first and last, relationship ranks, player town map. Only Episode 1 is fully written. Middle nights are pitches, not filler modules.
+2026-09-20 — one-shot recipe locked: five-room path, trap+puzzle+talk-out, SRD 5.2.1 XP budgets. Drive had no original one-shot pack of yours (only other people’s PDFs we will not copy). Send files if you want them adapted.
