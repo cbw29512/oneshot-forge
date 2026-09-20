@@ -172,9 +172,14 @@ async function loadInitialAdventure() {
   if (lastId) {
     const saved = loadSavedPackage(lastId);
     if (saved) {
-      await activateAdventure(saved, {persist:false});
-      toast("Resumed saved adventure.");
-      return;
+      try {
+        await activateAdventure(saved, {persist:false});
+        toast("Resumed saved adventure.");
+        return;
+      } catch (error) {
+        console.warn("Saved adventure failed; loading reference.", error);
+        safeRemove(LAST_ADVENTURE_KEY);
+      }
     }
   }
 
@@ -221,8 +226,8 @@ function hasRunProgressed() {
   if (!adventure || !state) return false;
   return state.currentSceneId !== adventure.initialState.currentSceneId ||
     state.questStage !== (adventure.initialState.questStage || "offered") ||
-    state.discoveredClueIds.length > 0 ||
-    state.sceneHistory.length > 0;
+    (state.discoveredClueIds || []).length > 0 ||
+    (state.sceneHistory || []).length > 0;
 }
 
 function renderAll() {
