@@ -1080,5 +1080,234 @@
       "check-ritual",
       "check-bargain"
     ]
-  }
+  },
+  "pregens": [
+    {
+      "id": "pregen-brann",
+      "name": "Brann Oakholt",
+      "level": 4,
+      "class": "Fighter (Champion)",
+      "race": "Human",
+      "rules": "5E 2014 SRD",
+      "role": "Front line",
+      "ac": 19,
+      "hp": 40,
+      "speed": "30 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 16,
+        "DEX": 12,
+        "CON": 16,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 10
+      },
+      "saves": "Str +5, Con +5",
+      "skills": "Athletics +5, Perception +3, Survival +3, Intimidation +2",
+      "attacks": [
+        "Longsword. +5 to hit; 1d8+3 slashing (one attack).",
+        "Javelin. +5 to hit; 1d6+3 piercing, range 30/120."
+      ],
+      "features": [
+        "Fighting Style: Defense (+1 AC, included).",
+        "Second Wind (1/rest): bonus action, regain 1d10+4 HP.",
+        "Action Surge (1/rest): one extra action.",
+        "Improved Critical: 19\u201320."
+      ],
+      "gear": "Chain mail, shield, longsword, 3 javelins, explorer\u2019s pack, 12 gp"
+    },
+    {
+      "id": "pregen-pell",
+      "name": "Sister Pell Bramble",
+      "level": 4,
+      "class": "Cleric (Life)",
+      "race": "Hill Dwarf",
+      "rules": "5E 2014 SRD",
+      "role": "Healer and support",
+      "ac": 18,
+      "hp": 39,
+      "speed": "25 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 14,
+        "DEX": 8,
+        "CON": 16,
+        "INT": 10,
+        "WIS": 16,
+        "CHA": 12
+      },
+      "saves": "Wis +5, Cha +3",
+      "skills": "Medicine +5, Insight +5, Religion +2, Persuasion +3",
+      "attacks": [
+        "Warhammer. +4 to hit; 1d8+2 bludgeoning.",
+        "Sacred Flame. Dex DC 13; 1d8 radiant, no cover bonus."
+      ],
+      "spellcasting": {
+        "ability": "Wisdom",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": "4 first-level, 3 second-level",
+        "cantrips": [
+          "Sacred Flame",
+          "Guidance",
+          "Light",
+          "Spare the Dying"
+        ],
+        "prepared": [
+          "Bless",
+          "Cure Wounds",
+          "Healing Word",
+          "Shield of Faith",
+          "Detect Magic",
+          "Spiritual Weapon",
+          "Aid",
+          "Lesser Restoration",
+          "Hold Person"
+        ]
+      },
+      "features": [
+        "Disciple of Life: healing spells restore extra 2 + spell level.",
+        "Channel Divinity (1/rest): Preserve Life \u2014 restore 20 HP split among creatures within 30 ft. (not undead/constructs), up to half their max.",
+        "Dwarven Resilience: advantage vs poison; resistance to poison."
+      ],
+      "gear": "Chain mail, shield, warhammer, holy symbol, healer\u2019s kit, 15 gp"
+    },
+    {
+      "id": "pregen-nyx",
+      "name": "Nyx Keller",
+      "level": 4,
+      "class": "Rogue (Thief)",
+      "race": "Lightfoot Halfling",
+      "rules": "5E 2014 SRD",
+      "role": "Scout and striker",
+      "ac": 15,
+      "hp": 31,
+      "speed": "25 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 8,
+        "DEX": 16,
+        "CON": 14,
+        "INT": 12,
+        "WIS": 13,
+        "CHA": 12
+      },
+      "saves": "Dex +5, Int +3",
+      "skills": "Stealth +7 (expertise), Sleight of Hand +5, Acrobatics +5, Perception +3, Investigation +3; Thieves\u2019 Tools +7 (expertise)",
+      "attacks": [
+        "Rapier. +5 to hit; 1d8+3 piercing. Sneak Attack 2d6 if advantage or an ally is within 5 ft.",
+        "Shortbow. +5 to hit; 1d6+3 piercing, range 80/320."
+      ],
+      "features": [
+        "Cunning Action: bonus action Dash, Disengage, or Hide.",
+        "Thief: Fast Hands (Cunning Action for Use Object / thieves\u2019 tools); Second-Story Work.",
+        "Lucky: reroll 1s on attacks, checks, and saves.",
+        "Brave: advantage vs frightened. Naturally Stealthy: hide behind a Medium creature."
+      ],
+      "gear": "Studded leather, rapier, shortbow, 20 arrows, thieves\u2019 tools, 18 gp"
+    },
+    {
+      "id": "pregen-ivo",
+      "name": "Ivo Ashletter",
+      "level": 4,
+      "class": "Wizard (Evocation)",
+      "race": "High Elf",
+      "rules": "5E 2014 SRD",
+      "role": "Damage and control",
+      "ac": 12,
+      "hp": 26,
+      "speed": "30 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 8,
+        "DEX": 14,
+        "CON": 14,
+        "INT": 16,
+        "WIS": 12,
+        "CHA": 10
+      },
+      "saves": "Int +5, Wis +3",
+      "skills": "Arcana +5, Investigation +5, History +5, Insight +3",
+      "attacks": [
+        "Fire Bolt. +5 to hit; 1d10 fire, range 120.",
+        "Dagger. +4 to hit; 1d4+2 piercing."
+      ],
+      "spellcasting": {
+        "ability": "Intelligence",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": "4 first-level, 3 second-level (no 3rd-level slots until wizard 5)",
+        "cantrips": [
+          "Fire Bolt",
+          "Mage Hand",
+          "Prestidigitation",
+          "Minor Illusion"
+        ],
+        "prepared": [
+          "Mage Armor",
+          "Magic Missile",
+          "Shield",
+          "Detect Magic",
+          "Burning Hands",
+          "Scorching Ray",
+          "Misty Step",
+          "Shatter",
+          "Web"
+        ]
+      },
+      "features": [
+        "Mage Armor: AC 15 for 8 hours (included only while the spell lasts).",
+        "Sculpt Spells: chosen creatures auto-succeed evocation saves and take no damage.",
+        "Arcane Recovery (1/day): recover 2 slot levels on a short rest.",
+        "Fey Ancestry: advantage vs charm; immune to magical sleep."
+      ],
+      "gear": "Spellbook, dagger, component pouch, scholar\u2019s pack, 22 gp"
+    },
+    {
+      "id": "pregen-kael",
+      "name": "Kael Thornwake",
+      "level": 4,
+      "class": "Ranger (Hunter)",
+      "race": "Wood Elf",
+      "rules": "5E 2014 SRD",
+      "role": "Ranged hunter",
+      "ac": 16,
+      "hp": 36,
+      "speed": "35 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 12,
+        "DEX": 16,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 14,
+        "CHA": 8
+      },
+      "saves": "Str +3, Dex +5",
+      "skills": "Perception +4, Stealth +5, Survival +4, Nature +2, Athletics +3",
+      "attacks": [
+        "Longbow (Archery). +7 to hit; 1d8+3 piercing, range 150/600.",
+        "Shortsword. +5 to hit; 1d6+3 piercing."
+      ],
+      "spellcasting": {
+        "ability": "Wisdom",
+        "saveDC": 12,
+        "attack": 4,
+        "slots": "3 first-level",
+        "cantrips": [],
+        "prepared": [
+          "Hunter\u2019s Mark",
+          "Goodberry",
+          "Cure Wounds"
+        ]
+      },
+      "features": [
+        "Colossus Slayer: once per turn, +1d8 damage to a creature below its HP maximum.",
+        "Favored Enemy: undead. Natural Explorer: forest.",
+        "Primeval Awareness (1/rest, spell slot): sense favored enemies within 1 mile (6 in forest).",
+        "Mask of the Wild: hide in light natural cover."
+      ],
+      "gear": "Scale mail, longbow, 20 arrows, shortsword, explorer\u2019s pack, 11 gp"
+    }
+  ]
 }

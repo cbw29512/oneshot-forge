@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="One-Shot Forge — original 5E-compatible adventures you can run from a browser.">
+  <title>One-Shot Forge</title>
+  <link rel="stylesheet" href="styles.css?v=20260920e">
+</head>
+<body>
+  <a class="skip-link" href="#active-scene">Skip to active scene</a>
+
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">One-Shot Forge</p>
+      <h1 id="adventure-title">Opening The Lantern Below</h1>
+      <p id="adventure-meta" class="muted"></p>
+    </div>
+    <div class="top-actions">
+      <a class="button secondary" href="./">Home</a>
+      <button id="forge-random" class="button" type="button">New random</button>
+      <a id="module-view" class="button secondary" href="module.html">Printable module</a>
+      <button id="export-adventure" class="button secondary" type="button">Export</button>
+      <button id="load-file" class="button secondary" type="button">Load JSON</button>
+      <input id="file-input" type="file" accept=".json,.oneshot.json,application/json" hidden>
+      <button id="reset-state" class="button danger" type="button">Reset run</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar panel">
+      <details class="fold">
+        <summary>Forge a different one-shot</summary>
+        <div class="forge-controls">
+          <label for="forge-level">Party level</label>
+          <select id="forge-level">
+            <option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option>
+            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+            <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+            <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+          </select>
+          <label for="forge-party">Players</label>
+          <select id="forge-party">
+            <option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
+          </select>
+          <label for="forge-duration">Session length</label>
+          <select id="forge-duration">
+            <option value="2">2 hours</option>
+            <option value="3">3 hours</option>
+            <option value="4" selected>4 hours</option>
+            <option value="6">6 hours</option>
+          </select>
+          <label for="forge-tone">Tone</label>
+          <select id="forge-tone">
+            <option value="random" selected>Random</option>
+            <option value="heroic">Heroic</option>
+            <option value="mystery">Mystery</option>
+            <option value="horror">Horror</option>
+            <option value="weird">Weird Fantasy</option>
+          </select>
+          <label for="forge-seed">Seed</label>
+          <div class="seed-row">
+            <input id="forge-seed" type="text" autocomplete="off" spellcheck="false" placeholder="Generated automatically">
+            <button id="new-seed" class="button secondary small" type="button">New</button>
+          </div>
+          <label class="check-row" for="lock-seed">
+            <input id="lock-seed" type="checkbox">
+            <span>Reuse seed</span>
+          </label>
+          <button id="forge-random-side" class="button forge-wide" type="button">Forge</button>
+          <label for="saved-adventures">Saved in this browser</label>
+          <div class="seed-row">
+            <select id="saved-adventures" aria-label="Saved adventures"></select>
+            <button id="open-saved" class="button secondary small" type="button">Open</button>
+          </div>
+          <p id="save-status" class="tiny">Build 20260920e</p>
+        </div>
+      </details>
+
+      <div class="divider"></div>
+      <div class="section-head">
+        <h2>Scenes</h2>
+        <span id="scene-count" class="badge"></span>
+      </div>
+      <nav id="scene-list" aria-label="Adventure scenes"></nav>
+
+      <div class="divider"></div>
+      <h2>Quest</h2>
+      <p id="quest-objective"></p>
+      <p id="quest-stakes" class="muted"></p>
+      <label for="quest-stage">Stage</label>
+      <select id="quest-stage">
+        <option value="offered">Offered</option>
+        <option value="accepted">Accepted</option>
+        <option value="investigating">Investigating</option>
+        <option value="main-location">At main location</option>
+        <option value="finale">Finale</option>
+        <option value="resolved">Resolved</option>
+      </select>
+    </aside>
+
+    <section class="workspace" id="active-scene" tabindex="-1">
+      <article class="overview" id="adventure-overview">
+        <p class="eyebrow">At the table</p>
+        <p id="overview-pitch"></p>
+        <div class="clock" id="overview-clock"></div>
+      </article>
+
+      <article class="panel scene-panel">
+        <div class="section-head">
+          <div>
+            <p id="scene-kicker" class="eyebrow"></p>
+            <h2 id="scene-title" tabindex="-1">Scene</h2>
+          </div>
+          <span id="scene-pacing" class="badge"></span>
+        </div>
+        <p id="scene-purpose" class="muted"></p>
+
+        <div class="read-head">
+          <h3>Read this</h3>
+          <button id="copy-readaloud" class="button secondary small" type="button">Copy</button>
+        </div>
+        <blockquote id="read-aloud"></blockquote>
+
+        <h3>GM only</h3>
+        <ul id="gm-notes"></ul>
+
+        <div id="scene-checks-wrap">
+          <h3>Checks</h3>
+          <div id="scene-checks" class="stack"></div>
+        </div>
+
+        <div id="scene-clues-wrap">
+          <h3>Clues here</h3>
+          <div id="scene-clues" class="stack"></div>
+        </div>
+
+        <div id="scene-encounters-wrap">
+          <h3>Encounters</h3>
+          <div id="scene-encounters" class="stack"></div>
+        </div>
+
+        <div id="scene-puzzles-wrap">
+          <h3>Puzzles and traps</h3>
+          <div id="scene-puzzles" class="stack"></div>
+        </div>
+
+        <div id="scene-mapnote-wrap">
+          <h3>Map</h3>
+          <div id="scene-mapnote" class="card"></div>
+        </div>
+
+        <div id="scene-exits-wrap">
+          <h3>If they go</h3>
+          <div id="scene-exits" class="card-actions"></div>
+        </div>
+
+        <div class="scene-nav">
+          <button id="prev-scene" class="button secondary" type="button">Back</button>
+          <button id="next-scene" class="button" type="button">Next</button>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="section-head">
+          <h2 id="map-title">Priory</h2>
+          <span class="muted">Tap a region</span>
+        </div>
+        <div id="map" class="map" aria-label="Adventure map"></div>
+      </article>
+    </section>
+
+    <aside class="tools">
+      <section class="panel">
+        <div class="section-head">
+          <h2>People</h2>
+        </div>
+        <div id="npc-list" class="stack"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Required clues</h2>
+          <span id="clue-progress" class="badge"></span>
+        </div>
+        <div id="required-clues" class="stack"></div>
+      </section>
+
+      <section class="panel">
+        <details class="fold" open>
+          <summary>Pregens if they need characters</summary>
+          <p class="muted">Level 4, 5E 2014 SRD. Original names. Hand one out and start.</p>
+          <div id="pregen-list" class="stack"></div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <h2>Pay and endings</h2>
+        <div id="resource-list" class="stack"></div>
+      </section>
+
+      <section class="panel">
+        <details class="fold">
+          <summary>They went off-script</summary>
+          <p class="muted">Nothing changes until you apply it.</p>
+          <div id="recovery-list" class="stack"></div>
+        </details>
+      </section>
+
+      <section class="panel">
+        <details class="fold">
+          <summary>AI dialogue packet</summary>
+          <p class="muted">Select a person first. Improvises wording, not facts.</p>
+          <pre id="ai-context">No NPC selected.</pre>
+        </details>
+      </section>
+    </aside>
+  </main>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="generator.js?v=20260920e"></script>
+  <script src="app.js?v=20260920e"></script>
+</body>
+</html>

@@ -48,8 +48,10 @@ See `docs/ARCHITECTURE.md` and `docs/ROADMAP.md`.
 
 ## Current runnable prototype
 
-The repository now contains a browser GM runner and one complete reference adventure:
+The repository now contains a landing page, a browser GM runner, and one complete reference adventure:
 
+- `index.html` — product page (what One-Shot Forge is, $0.99 catalog, free sample)
+- `run.html` — GM table for the loaded pack
 - `data/adventures/the-lantern-below.oneshot.json`
 - scene navigation with read-aloud and GM notes
 - clue discovery tracking

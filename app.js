@@ -266,6 +266,48 @@ function renderAll() {
   renderResources();
   renderRecovery();
   renderAiContext();
+  renderPregens();
+}
+
+function renderPregens() {
+  const wrap = el("pregen-list");
+  if (!wrap) return;
+  const list = adventure.pregens || [];
+  if (!list.length) {
+    wrap.innerHTML = '<p class="muted">No pregens in this pack.</p>';
+    return;
+  }
+  wrap.innerHTML = list.map(pregenCardHtml).join("");
+}
+
+function pregenCardHtml(pc) {
+  const scores = pc.scores
+    ? Object.entries(pc.scores).map(([k,v]) => k + " " + v).join(" · ")
+    : "";
+  const spells = pc.spellcasting
+    ? "<p><b>Spells.</b> DC " + escapeHtml(pc.spellcasting.saveDC) +
+      ", +" + escapeHtml(pc.spellcasting.attack) + " · " + escapeHtml(pc.spellcasting.slots) + "</p>" +
+      (pc.spellcasting.cantrips?.length ? "<p>Cantrips: " + escapeHtml(pc.spellcasting.cantrips.join(", ")) + "</p>" : "") +
+      (pc.spellcasting.prepared?.length ? "<p>Prepared: " + escapeHtml(pc.spellcasting.prepared.join(", ")) + "</p>" : "")
+    : "";
+  return '<div class="card pregen">' +
+    "<strong>" + escapeHtml(pc.name) + "</strong>" +
+    '<p><span class="badge">' + escapeHtml(pc.class) + "</span> " +
+    '<span class="badge">' + escapeHtml(pc.race) + "</span> " +
+    '<span class="badge">' + escapeHtml(pc.role) + "</span></p>" +
+    '<div class="stat-strip">' +
+    "<span>AC <b>" + escapeHtml(pc.ac) + "</b></span>" +
+    "<span>HP <b>" + escapeHtml(pc.hp) + "</b></span>" +
+    "<span>Speed <b>" + escapeHtml(pc.speed) + "</b></span>" +
+    "<span>Prof <b>+" + escapeHtml(pc.proficiency) + "</b></span>" +
+    "</div>" +
+    (scores ? '<p class="tiny">' + escapeHtml(scores) + "</p>" : "") +
+    (pc.saves ? "<p><b>Saves.</b> " + escapeHtml(pc.saves) + "</p>" : "") +
+    (pc.attacks || []).map(line => "<p>" + escapeHtml(line) + "</p>").join("") +
+    spells +
+    (pc.features || []).map(line => '<p class="tiny">' + escapeHtml(line) + "</p>").join("") +
+    (pc.gear ? '<p class="muted">' + escapeHtml(pc.gear) + "</p>" : "") +
+    "</div>";
 }
 
 function currentScene() {

@@ -3,213 +3,95 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="One-Shot Forge — original 5E-compatible adventures you can run from a browser.">
-  <title>One-Shot Forge</title>
-  <link rel="stylesheet" href="styles.css?v=20260920d">
+  <meta name="description" content="Verified 5E-compatible one-shots for busy DMs. $0.99. Run in the browser or download the pack, with pregens if your table needs them.">
+  <title>One-Shot Forge — Verified one-shots for DMs</title>
+  <link rel="stylesheet" href="styles.css?v=20260920e">
 </head>
-<body>
-  <a class="skip-link" href="#active-scene">Skip to active scene</a>
+<body class="landing">
+  <a class="skip-link" href="#what">Skip to what this is</a>
 
-  <header class="topbar">
-    <div>
-      <p class="eyebrow">One-Shot Forge</p>
-      <h1 id="adventure-title">Opening The Lantern Below</h1>
-      <p id="adventure-meta" class="muted"></p>
-    </div>
-    <div class="top-actions">
-      <button id="forge-random" class="button" type="button">New random</button>
-      <a id="module-view" class="button secondary" href="module.html">Printable module</a>
-      <button id="export-adventure" class="button secondary" type="button">Export</button>
-      <button id="load-file" class="button secondary" type="button">Load JSON</button>
-      <input id="file-input" type="file" accept=".json,.oneshot.json,application/json" hidden>
-      <button id="reset-state" class="button danger" type="button">Reset run</button>
-    </div>
+  <header class="land-bar">
+    <p class="eyebrow">One-Shot Forge</p>
+    <nav class="land-nav">
+      <a href="#what">What you get</a>
+      <a href="#price">Price</a>
+      <a href="run.html">Open the table</a>
+    </nav>
   </header>
 
-  <main class="layout">
-    <aside class="sidebar panel">
-      <details class="fold">
-        <summary>Forge a different one-shot</summary>
-        <div class="forge-controls">
-          <label for="forge-level">Party level</label>
-          <select id="forge-level">
-            <option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option>
-            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
-            <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
-            <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
-          </select>
-          <label for="forge-party">Players</label>
-          <select id="forge-party">
-            <option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
-          </select>
-          <label for="forge-duration">Session length</label>
-          <select id="forge-duration">
-            <option value="2">2 hours</option>
-            <option value="3">3 hours</option>
-            <option value="4" selected>4 hours</option>
-            <option value="6">6 hours</option>
-          </select>
-          <label for="forge-tone">Tone</label>
-          <select id="forge-tone">
-            <option value="random" selected>Random</option>
-            <option value="heroic">Heroic</option>
-            <option value="mystery">Mystery</option>
-            <option value="horror">Horror</option>
-            <option value="weird">Weird Fantasy</option>
-          </select>
-          <label for="forge-seed">Seed</label>
-          <div class="seed-row">
-            <input id="forge-seed" type="text" autocomplete="off" spellcheck="false" placeholder="Generated automatically">
-            <button id="new-seed" class="button secondary small" type="button">New</button>
-          </div>
-          <label class="check-row" for="lock-seed">
-            <input id="lock-seed" type="checkbox">
-            <span>Reuse seed</span>
-          </label>
-          <button id="forge-random-side" class="button forge-wide" type="button">Forge</button>
-          <label for="saved-adventures">Saved in this browser</label>
-          <div class="seed-row">
-            <select id="saved-adventures" aria-label="Saved adventures"></select>
-            <button id="open-saved" class="button secondary small" type="button">Open</button>
-          </div>
-          <p id="save-status" class="tiny">Build 20260920d</p>
-        </div>
-      </details>
-
-      <div class="divider"></div>
-      <div class="section-head">
-        <h2>Scenes</h2>
-        <span id="scene-count" class="badge"></span>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">For Dungeon Masters who have forty minutes to prep</p>
+      <h1>A complete one-shot. Ninety-nine cents. Sit down and run.</h1>
+      <p class="lede">Verified original 5E-compatible adventures with read-aloud, checks, stat blocks, maps, and five pregens if your players did not bring characters. Run it on this site or download the pack.</p>
+      <div class="hero-actions">
+        <a class="button" href="run.html">Run the free sample</a>
+        <a class="button secondary" href="data/adventures/the-lantern-below.oneshot.json" download>Download The Lantern Below</a>
       </div>
-      <nav id="scene-list" aria-label="Adventure scenes"></nav>
-
-      <div class="divider"></div>
-      <h2>Quest</h2>
-      <p id="quest-objective"></p>
-      <p id="quest-stakes" class="muted"></p>
-      <label for="quest-stage">Stage</label>
-      <select id="quest-stage">
-        <option value="offered">Offered</option>
-        <option value="accepted">Accepted</option>
-        <option value="investigating">Investigating</option>
-        <option value="main-location">At main location</option>
-        <option value="finale">Finale</option>
-        <option value="resolved">Resolved</option>
-      </select>
-    </aside>
-
-    <section class="workspace" id="active-scene" tabindex="-1">
-      <article class="overview" id="adventure-overview">
-        <p class="eyebrow">At the table</p>
-        <p id="overview-pitch"></p>
-        <div class="clock" id="overview-clock"></div>
-      </article>
-
-      <article class="panel scene-panel">
-        <div class="section-head">
-          <div>
-            <p id="scene-kicker" class="eyebrow"></p>
-            <h2 id="scene-title" tabindex="-1">Scene</h2>
-          </div>
-          <span id="scene-pacing" class="badge"></span>
-        </div>
-        <p id="scene-purpose" class="muted"></p>
-
-        <div class="read-head">
-          <h3>Read this</h3>
-          <button id="copy-readaloud" class="button secondary small" type="button">Copy</button>
-        </div>
-        <blockquote id="read-aloud"></blockquote>
-
-        <h3>GM only</h3>
-        <ul id="gm-notes"></ul>
-
-        <div id="scene-checks-wrap">
-          <h3>Checks</h3>
-          <div id="scene-checks" class="stack"></div>
-        </div>
-
-        <div id="scene-clues-wrap">
-          <h3>Clues here</h3>
-          <div id="scene-clues" class="stack"></div>
-        </div>
-
-        <div id="scene-encounters-wrap">
-          <h3>Encounters</h3>
-          <div id="scene-encounters" class="stack"></div>
-        </div>
-
-        <div id="scene-puzzles-wrap">
-          <h3>Puzzles and traps</h3>
-          <div id="scene-puzzles" class="stack"></div>
-        </div>
-
-        <div id="scene-mapnote-wrap">
-          <h3>Map</h3>
-          <div id="scene-mapnote" class="card"></div>
-        </div>
-
-        <div id="scene-exits-wrap">
-          <h3>If they go</h3>
-          <div id="scene-exits" class="card-actions"></div>
-        </div>
-
-        <div class="scene-nav">
-          <button id="prev-scene" class="button secondary" type="button">Back</button>
-          <button id="next-scene" class="button" type="button">Next</button>
-        </div>
-      </article>
-
-      <article class="panel">
-        <div class="section-head">
-          <h2 id="map-title">Priory</h2>
-          <span class="muted">Tap a region</span>
-        </div>
-        <div id="map" class="map" aria-label="Adventure map"></div>
-      </article>
+      <p class="tiny">The Lantern Below is free so you can see the standard. Paid one-shots will be $0.99. Checkout is not open yet.</p>
     </section>
 
-    <aside class="tools">
-      <section class="panel">
-        <div class="section-head">
-          <h2>People</h2>
-        </div>
-        <div id="npc-list" class="stack"></div>
-      </section>
+    <section class="land-section" id="what">
+      <h2>What a verified pack is</h2>
+      <p class="lede short">Not a prompt dump. A session you can open and run without rewriting it at the table.</p>
+      <div class="pack-grid">
+        <article>
+          <h3>Run here</h3>
+          <p>Scene list, read-aloud, DCs, AC/HP, bypasses, and recovery if the party goes sideways.</p>
+        </article>
+        <article>
+          <h3>Or download</h3>
+          <p>One JSON pack you can keep offline, print from the module view, or load back into the runner.</p>
+        </article>
+        <article>
+          <h3>Pregens included</h3>
+          <p>Five original level-4 2014 SRD characters. Hand them out if someone shows up without a sheet.</p>
+        </article>
+        <article>
+          <h3>Verified</h3>
+          <p>Required clues have backup routes. Combat has numbers. Endings match what the table actually did.</p>
+        </article>
+      </div>
+    </section>
 
-      <section class="panel">
-        <div class="section-head">
-          <h2>Required clues</h2>
-          <span id="clue-progress" class="badge"></span>
-        </div>
-        <div id="required-clues" class="stack"></div>
-      </section>
+    <section class="land-section sample">
+      <p class="eyebrow">Free sample</p>
+      <h2>The Lantern Below</h2>
+      <p class="lede short">Level 4, four players, about four hours. A village lantern that never needed oil has gone dark. Recover the stolen ember before moonrise — the thief may have taken it for the right reason.</p>
+      <ul class="plain">
+        <li>Three legal finales: restore the old seal, finish a new binding, destroy it, or bargain a memory</li>
+        <li>Grave-things you can fight or skip, a moon-bell puzzle, and a spirit that eats names</li>
+        <li>Five pregens ready if you need them</li>
+      </ul>
+      <div class="hero-actions">
+        <a class="button" href="run.html">Run at the table</a>
+        <a class="button secondary" href="module.html">Printable module</a>
+      </div>
+    </section>
 
-      <section class="panel">
-        <h2>Pay and endings</h2>
-        <div id="resource-list" class="stack"></div>
-      </section>
+    <section class="land-section" id="price">
+      <h2>Price</h2>
+      <div class="price-card">
+        <p class="price">$0.99</p>
+        <p>Per verified one-shot, when checkout opens. That is the product: one session, complete, no ads, no account required to run the sample.</p>
+        <p class="muted">Payment is not wired yet. Nothing on this page will charge you. The sample is free to run and download while we build the catalog.</p>
+      </div>
+    </section>
 
-      <section class="panel">
-        <details class="fold">
-          <summary>They went off-script</summary>
-          <p class="muted">Nothing changes until you apply it.</p>
-          <div id="recovery-list" class="stack"></div>
-        </details>
-      </section>
-
-      <section class="panel">
-        <details class="fold">
-          <summary>AI dialogue packet</summary>
-          <p class="muted">Select a person first. Improvises wording, not facts.</p>
-          <pre id="ai-context">No NPC selected.</pre>
-        </details>
-      </section>
-    </aside>
+    <section class="land-section">
+      <h2>How a session goes</h2>
+      <ol class="steps">
+        <li><b>Open the pack.</b> Browser or downloaded file.</li>
+        <li><b>Hand out pregens</b> only if someone needs a character. Everyone else uses their own.</li>
+        <li><b>Read the boxed text.</b> Checks and stat blocks sit under it. Do not hunt a PDF.</li>
+        <li><b>End on the choice the table made.</b> The pack has the endings written.</li>
+      </ol>
+    </section>
   </main>
 
-  <div id="toast" role="status" aria-live="polite"></div>
-  <script src="generator.js?v=20260920d"></script>
-  <script src="app.js?v=20260920d"></script>
+  <footer class="land-foot">
+    <p>Original 5E-compatible fantasy. Not affiliated with Wizards of the Coast.</p>
+    <p class="tiny">One-Shot Forge · sample pack is free · paid catalog $0.99 each, coming</p>
+  </footer>
 </body>
 </html>
