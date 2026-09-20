@@ -28,6 +28,7 @@ const encounterIds = ids(adventure.encounters);
 const locationIds = ids(adventure.locations);
 const quickEncounterIds = ids(quickrun.encounters);
 const quickCheckIds = ids(quickrun.checks);
+const authoredEncounterById = new Map((adventure.encounters || []).map(encounter => [encounter.id, encounter]));
 
 requireText(adventure.metadata?.id, "metadata.id");
 requireText(adventure.metadata?.title, "metadata.title");
@@ -77,7 +78,11 @@ for (const encounter of quickrun.encounters || []) {
   requireText(encounter.objective, `quick-run encounter ${encounter.id}.objective`);
   requireText(encounter.start, `quick-run encounter ${encounter.id}.start`);
   requireText(encounter.end, `quick-run encounter ${encounter.id}.end`);
-  if (!Array.isArray(encounter.creatures) || encounter.creatures.length === 0) errors.push(`quick-run encounter ${encounter.id} requires creatures[]`);
+  const authored = authoredEncounterById.get(encounter.id);
+  const combatEncounter = /combat|boss/i.test(authored?.type || "");
+  if (combatEncounter && (!Array.isArray(encounter.creatures) || encounter.creatures.length === 0)) {
+    errors.push(`combat quick-run encounter ${encounter.id} requires creatures[]`);
+  }
   for (const creature of encounter.creatures || []) {
     if (!Number.isInteger(creature.ac) || !Number.isInteger(creature.hp)) errors.push(`${creature.name || encounter.id} requires numeric AC and HP`);
     requireText(creature.tactics, `${creature.name || encounter.id}.tactics`);
