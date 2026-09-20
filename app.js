@@ -138,9 +138,9 @@ function loadSavedPackage(id) {
 
 function loadState() {
   const saved = safeGet(stateKey());
-  if (!saved) return clone(adventure.initialState);
+  if (!saved) return normalizeState(clone(adventure.initialState));
   try { return normalizeState(JSON.parse(saved)); }
-  catch { return clone(adventure.initialState); }
+  catch { return normalizeState(clone(adventure.initialState)); }
 }
 
 function normalizeState(value) {
