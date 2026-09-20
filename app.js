@@ -282,7 +282,11 @@ function renderPregens() {
     wrap.innerHTML = '<p class="muted">No pregens in this pack.</p>';
     return;
   }
-  wrap.innerHTML = list.map(pregenCardHtml).join("");
+  wrap.innerHTML = list
+    .slice()
+    .sort((a, b) => Number(Boolean(b.recommended)) - Number(Boolean(a.recommended)))
+    .map(pregenCardHtml)
+    .join("");
 }
 
 function pregenCardHtml(pc) {
@@ -299,7 +303,9 @@ function pregenCardHtml(pc) {
     "<strong>" + escapeHtml(pc.name) + "</strong>" +
     '<p><span class="badge">' + escapeHtml(pc.class) + "</span> " +
     '<span class="badge">' + escapeHtml(pc.race) + "</span> " +
-    '<span class="badge">' + escapeHtml(pc.role) + "</span></p>" +
+    '<span class="badge">' + escapeHtml(pc.role) + "</span>" +
+    (pc.recommended ? ' <span class="badge">Tonight’s six</span>' : "") +
+    "</p>" +
     '<div class="stat-strip">' +
     "<span>AC <b>" + escapeHtml(pc.ac) + "</b></span>" +
     "<span>HP <b>" + escapeHtml(pc.hp) + "</b></span>" +

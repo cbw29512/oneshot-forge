@@ -1116,7 +1116,8 @@
         "Action Surge (1/rest): one extra action.",
         "Improved Critical: 19\u201320."
       ],
-      "gear": "Chain mail, shield, longsword, 3 javelins, explorer\u2019s pack, 12 gp"
+      "gear": "Chain mail, shield, longsword, 3 javelins, explorer\u2019s pack, 12 gp",
+      "recommended": true
     },
     {
       "id": "pregen-pell",
@@ -1172,7 +1173,8 @@
         "Channel Divinity (1/rest): Preserve Life \u2014 restore 20 HP split among creatures within 30 ft. (not undead/constructs), up to half their max.",
         "Dwarven Resilience: advantage vs poison; resistance to poison."
       ],
-      "gear": "Chain mail, shield, warhammer, holy symbol, healer\u2019s kit, 15 gp"
+      "gear": "Chain mail, shield, warhammer, holy symbol, healer\u2019s kit, 15 gp",
+      "recommended": true
     },
     {
       "id": "pregen-nyx",
@@ -1206,7 +1208,8 @@
         "Lucky: reroll 1s on attacks, checks, and saves.",
         "Brave: advantage vs frightened. Naturally Stealthy: hide behind a Medium creature."
       ],
-      "gear": "Studded leather, rapier, shortbow, 20 arrows, thieves\u2019 tools, 18 gp"
+      "gear": "Studded leather, rapier, shortbow, 20 arrows, thieves\u2019 tools, 18 gp",
+      "recommended": true
     },
     {
       "id": "pregen-ivo",
@@ -1263,7 +1266,8 @@
         "Arcane Recovery (1/day): recover 2 slot levels on a short rest.",
         "Fey Ancestry: advantage vs charm; immune to magical sleep."
       ],
-      "gear": "Spellbook, dagger, component pouch, scholar\u2019s pack, 22 gp"
+      "gear": "Spellbook, dagger, component pouch, scholar\u2019s pack, 22 gp",
+      "recommended": true
     },
     {
       "id": "pregen-kael",
@@ -1309,7 +1313,8 @@
         "Primeval Awareness (1/rest, spell slot): sense favored enemies within 1 mile (6 in forest).",
         "Mask of the Wild: hide in light natural cover."
       ],
-      "gear": "Scale mail, longbow, 20 arrows, shortsword, explorer\u2019s pack, 11 gp"
+      "gear": "Scale mail, longbow, 20 arrows, shortsword, explorer\u2019s pack, 11 gp",
+      "recommended": true
     },
     {
       "id": "pregen-hester",
@@ -1358,7 +1363,302 @@
         "Channel Divinity (1/rest): Sacred Weapon (CHA to hit for 1 minute) or Turn the Unholy (undead/fiends, Wis DC 13).",
         "Fighting Style: Dueling. Divine Health: immune to disease."
       ],
-      "gear": "Chain mail, shield, longsword, 3 javelins, holy symbol, 14 gp"
+      "gear": "Chain mail, shield, longsword, 3 javelins, holy symbol, 14 gp",
+      "recommended": true
+    },
+    {
+      "id": "pregen-rook",
+      "name": "Rook Helmer",
+      "level": 4,
+      "class": "Barbarian (Path of the Berserker)",
+      "race": "Half-Orc",
+      "rules": "5E 2014 SRD",
+      "role": "Rage striker",
+      "recommended": false,
+      "ac": 15,
+      "hp": 45,
+      "speed": "30 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 16,
+        "DEX": 14,
+        "CON": 16,
+        "INT": 8,
+        "WIS": 12,
+        "CHA": 10
+      },
+      "saves": "Str +5, Con +5",
+      "skills": "Athletics +5, Perception +3, Survival +3, Intimidation +2",
+      "attacks": [
+        "Greataxe. +5 to hit; 1d12+3 slashing, +2 while raging.",
+        "Javelin. +5 to hit; 1d6+3 piercing, range 30/120."
+      ],
+      "features": [
+        "Rage 3/long rest (1 minute): advantage on Strength checks/saves; +2 melee Strength damage; resistance to bludgeoning, piercing, slashing.",
+        "Unarmored Defense: AC 10 + Dex + Con (15, included).",
+        "Reckless Attack. Danger Sense (advantage on Dex saves you can see).",
+        "Frenzy: while raging, bonus action melee attack; 1 exhaustion when the rage ends.",
+        "Relentless Endurance (1/long rest): drop to 1 HP instead of 0. Savage Attacks: extra weapon die on a crit."
+      ],
+      "gear": "Greataxe, 4 javelins, explorer\u2019s pack, 9 gp"
+    },
+    {
+      "id": "pregen-sable",
+      "name": "Sable Quinn",
+      "level": 4,
+      "class": "Bard (College of Lore)",
+      "race": "Half-Elf",
+      "rules": "5E 2014 SRD",
+      "role": "Face, support, and control",
+      "recommended": false,
+      "ac": 14,
+      "hp": 31,
+      "speed": "30 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 8,
+        "DEX": 14,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 16
+      },
+      "saves": "Dex +4, Cha +5",
+      "skills": "Persuasion +5, Deception +5, Insight +3, Acrobatics +4, Stealth +4, Perception +3, Investigation +2",
+      "attacks": [
+        "Rapier. +4 to hit; 1d8+2 piercing.",
+        "Vicious Mockery. Wis DC 13; 1d4 psychic and disadvantage on its next attack."
+      ],
+      "spellcasting": {
+        "ability": "Charisma",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": "4 first-level, 3 second-level",
+        "cantrips": [
+          "Vicious Mockery",
+          "Minor Illusion",
+          "Mage Hand"
+        ],
+        "prepared": [
+          "Healing Word",
+          "Faerie Fire",
+          "Dissonant Whispers",
+          "Thunderwave",
+          "Shatter",
+          "Hold Person",
+          "Suggestion",
+          "Enhance Ability"
+        ]
+      },
+      "features": [
+        "Bardic Inspiration (d6, 3/long rest, bonus action).",
+        "Jack of All Trades: +1 to non-proficient checks. Song of Rest: extra 1d6 on short-rest HD.",
+        "Cutting Words: spend inspiration to subtract 1d6 from an enemy attack, check, or damage (reaction).",
+        "Fey Ancestry: advantage vs charm; immune to magical sleep."
+      ],
+      "gear": "Studded leather, rapier, lute, diplomat\u2019s pack, 16 gp"
+    },
+    {
+      "id": "pregen-bram",
+      "name": "Bram Willow",
+      "level": 4,
+      "class": "Druid (Circle of the Land: Forest)",
+      "race": "Human",
+      "rules": "5E 2014 SRD",
+      "role": "Control and utility caster",
+      "recommended": false,
+      "ac": 16,
+      "hp": 31,
+      "speed": "30 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 10,
+        "DEX": 12,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 16,
+        "CHA": 8
+      },
+      "saves": "Int +2, Wis +5",
+      "skills": "Nature +2, Survival +5, Perception +5, Medicine +5",
+      "attacks": [
+        "Shillelagh quarterstaff. +5 to hit; 1d8+3 bludgeoning (bonus action to activate).",
+        "Produce Flame. +5 to hit; 1d8 fire, range 30."
+      ],
+      "spellcasting": {
+        "ability": "Wisdom",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": "4 first-level, 3 second-level",
+        "cantrips": [
+          "Produce Flame",
+          "Shillelagh",
+          "Guidance"
+        ],
+        "prepared": [
+          "Entangle",
+          "Goodberry",
+          "Healing Word",
+          "Thunderwave",
+          "Moonbeam",
+          "Spike Growth",
+          "Pass without Trace",
+          "Heat Metal",
+          "Barkskin",
+          "Spider Climb"
+        ]
+      },
+      "features": [
+        "Wild Shape 2/short rest: beast CR 1/2, no fly, 2 hours.",
+        "Natural Recovery (1/long rest): recover 2 slot levels on a short rest.",
+        "Circle Spells (Forest): barkskin and spider climb always prepared."
+      ],
+      "gear": "Hide armor, shield, quarterstaff, druidic focus, explorer\u2019s pack, 12 gp"
+    },
+    {
+      "id": "pregen-sora",
+      "name": "Sora Palewalk",
+      "level": 4,
+      "class": "Monk (Way of the Open Hand)",
+      "race": "Human",
+      "rules": "5E 2014 SRD",
+      "role": "Mobile striker",
+      "recommended": false,
+      "ac": 16,
+      "hp": 31,
+      "speed": "40 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 10,
+        "DEX": 16,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 16,
+        "CHA": 8
+      },
+      "saves": "Str +2, Dex +5",
+      "skills": "Acrobatics +5, Stealth +5, Insight +5, Athletics +2",
+      "attacks": [
+        "Unarmed strike. +5 to hit; 1d4+3 bludgeoning. Martial Arts: bonus unarmed after an attack.",
+        "Dart. +5 to hit; 1d4+3 piercing, range 20/60."
+      ],
+      "features": [
+        "Unarmored Defense: AC 10 + Dex + Wis (16, included). Unarmored Movement +10 ft.",
+        "Ki 4 points: Flurry of Blows (2 unarmed), Patient Defense (Dodge), Step of the Wind (Dash/Disengage + jump).",
+        "Deflect Missiles. Slow Fall (reduce 20 ft of fall damage).",
+        "Open Hand Technique: on a Flurry hit, knock prone (Dex DC 13), push 15 ft (Str DC 13), or deny reactions until your next turn."
+      ],
+      "gear": "10 darts, explorer\u2019s pack, 8 gp"
+    },
+    {
+      "id": "pregen-vexa",
+      "name": "Vexa Ember",
+      "level": 4,
+      "class": "Sorcerer (Draconic Bloodline: Red)",
+      "race": "Dragonborn (red)",
+      "rules": "5E 2014 SRD",
+      "role": "Burst damage",
+      "recommended": false,
+      "ac": 15,
+      "hp": 34,
+      "speed": "30 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 10,
+        "DEX": 14,
+        "CON": 16,
+        "INT": 8,
+        "WIS": 10,
+        "CHA": 16
+      },
+      "saves": "Con +5, Cha +5",
+      "skills": "Arcana +1, Intimidation +5, Persuasion +5, Insight +2",
+      "attacks": [
+        "Fire Bolt. +5 to hit; 1d10 fire, range 120.",
+        "Breath Weapon (1/short rest): 15-ft cone fire, Dex DC 13, 2d6 fire (half on success)."
+      ],
+      "spellcasting": {
+        "ability": "Charisma",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": "4 first-level, 3 second-level",
+        "cantrips": [
+          "Fire Bolt",
+          "Prestidigitation",
+          "Light",
+          "Mage Hand"
+        ],
+        "prepared": [
+          "Burning Hands",
+          "Magic Missile",
+          "Shield",
+          "Scorching Ray",
+          "Shatter"
+        ]
+      },
+      "features": [
+        "Draconic Resilience: AC 13 + Dex (15, included); +1 HP per level (included).",
+        "Font of Magic: 4 sorcery points. Flexible Casting.",
+        "Metamagic: Quickened Spell (2 pts), Twinned Spell (1 pt for 1st-level).",
+        "Fire resistance (red dragonborn / ancestor)."
+      ],
+      "gear": "Component pouch, dungeoneer\u2019s pack, 19 gp"
+    },
+    {
+      "id": "pregen-mael",
+      "name": "Mael Dusk",
+      "level": 4,
+      "class": "Warlock (The Fiend, Pact of the Tome)",
+      "race": "Tiefling",
+      "rules": "5E 2014 SRD",
+      "role": "Short-rest blaster",
+      "recommended": false,
+      "ac": 13,
+      "hp": 31,
+      "speed": "30 ft.",
+      "proficiency": 2,
+      "scores": {
+        "STR": 8,
+        "DEX": 14,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 16
+      },
+      "saves": "Wis +3, Cha +5",
+      "skills": "Deception +5, Intimidation +5, Arcana +2, Investigation +2",
+      "attacks": [
+        "Eldritch Blast. +5 to hit; 1d10+3 force, range 120 (Agonizing Blast).",
+        "Dagger. +4 to hit; 1d4+2 piercing."
+      ],
+      "spellcasting": {
+        "ability": "Charisma",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": "2 second-level slots, regain on short rest",
+        "cantrips": [
+          "Eldritch Blast",
+          "Minor Illusion",
+          "Prestidigitation",
+          "Guidance",
+          "Mage Hand"
+        ],
+        "prepared": [
+          "Hex",
+          "Armor of Agathys",
+          "Hellish Rebuke",
+          "Misty Step",
+          "Hold Person",
+          "Scorching Ray"
+        ]
+      },
+      "features": [
+        "Dark One\u2019s Blessing: when you drop a creature to 0 HP, gain temp HP = CHA mod + warlock level (7).",
+        "Dark One\u2019s Own Luck (1/short rest): add 1d10 to an ability check or save.",
+        "Invocations: Agonizing Blast, Devil\u2019s Sight (120 ft. magical darkness), Book of Ancient Secrets (rituals).",
+        "Hellish Resistance: fire. Infernal Legacy: thaumaturgy; hellish rebuke 1/day as 2nd-level."
+      ],
+      "gear": "Leather armor, dagger, Book of Shadows, 20 gp"
     }
   ],
   "series": {
