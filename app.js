@@ -42,6 +42,7 @@ function packageKey(id=currentAdventureKey) {
 
 function toast(message) {
   const node = el("toast");
+  if (!node) return;
   node.textContent = message;
   node.classList.add("show");
   clearTimeout(toast.timer);
@@ -244,6 +245,18 @@ function renderAll() {
   el("quest-objective").textContent = adventure.quest.objective;
   el("quest-stakes").textContent = adventure.quest.stakes;
   el("quest-stage").value = state.questStage;
+  if (el("overview-pitch")) {
+    el("overview-pitch").textContent = adventure.setup?.pitch || adventure.quest.objective;
+  }
+  if (el("overview-clock")) {
+    const bits = [
+      "Level " + meta.partyLevel,
+      meta.partySize + " players",
+      Math.round(meta.durationMinutes / 60) + " hours",
+      adventure.quest.deadline || "No hard clock"
+    ];
+    el("overview-clock").innerHTML = bits.map(bit => "<span>" + escapeHtml(bit) + "</span>").join("");
+  }
   renderSavedAdventures();
   renderSceneList();
   renderScene();
@@ -604,8 +617,9 @@ function renderAiContext() {
 
 function renderRecovery() {
   const wrap = el("recovery-list");
+  if (!wrap) return;
   wrap.innerHTML = "";
-  adventure.recovery.routes.forEach(route => {
+  (adventure.recovery?.routes || []).forEach(route => {
     const card = document.createElement("div");
     card.className = "card";
     card.innerHTML =
@@ -780,6 +794,17 @@ el("reset-state").addEventListener("click", () => {
 });
 el("export-adventure").addEventListener("click", exportAdventure);
 el("load-file").addEventListener("click", () => el("file-input").click());
+if (el("copy-readaloud")) {
+  el("copy-readaloud").addEventListener("click", async () => {
+    const text = el("read-aloud")?.textContent || "";
+    try {
+      await navigator.clipboard.writeText(text);
+      toast("Read-aloud copied.");
+    } catch {
+      toast("Could not copy.");
+    }
+  });
+}
 el("new-seed").addEventListener("click", () => {
   el("forge-seed").value = globalThis.OneShotGenerator?.newSeed?.() || "";
 });

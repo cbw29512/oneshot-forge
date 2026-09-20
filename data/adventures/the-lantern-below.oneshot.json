@@ -14,9 +14,9 @@
     ]
   },
   "setup": {
-    "pitch": "A village lantern that has burned for generations has gone dark. The party must recover its stolen ember before moonrise, but the thief may have taken it for the right reason.",
+    "pitch": "For as long as anyone in Briar Glen can remember, the iron lantern in the square has burned without oil. Tonight it is dark. Mara Venn hires the party to recover a stolen ember called the Emberglass before moonrise \u2014 but the thief may have taken it because the lantern was never a blessing.",
     "openingLocation": "Briar Glen",
-    "gmSummary": "Mara Venn hires the party to recover the Emberglass from the ruined Bellweather Priory. Brother Caldus stole it because the village lantern is not a blessing: it seals a hungry spirit called the Pale Guest beneath the priory. The final choice is whether to restore the old seal, destroy it and fight the spirit, or create a new bargain."
+    "gmSummary": "Mara Venn\u2019s family has used the village lantern as a prison for a memory-eating spirit, the Pale Guest. Brother Caldus stole the Emberglass because the old seal is failing. He is at Bellweather Priory trying to bind the spirit properly. The party can restore the old lantern-seal (temporary safety), help Caldus finish a new binding, smash the Emberglass and fight, or bargain a memory for a memory. Required truths have backup routes. Moonrise is the hard clock."
   },
   "quest": {
     "type": "retrieve / break curse",
@@ -210,7 +210,7 @@
     {
       "id": "loc-briar-glen",
       "name": "Briar Glen",
-      "description": "A compact hill village gathered around a dark iron lantern in the square.",
+      "description": "A hill village of forty roofs around a square of packed clay. The iron lantern hangs from a post that has been painted and scraped a dozen times.",
       "connections": [
         "loc-north-trail"
       ]
@@ -218,7 +218,7 @@
     {
       "id": "loc-north-trail",
       "name": "North Trail",
-      "description": "A rain-cut woodland path leading to the priory ridge.",
+      "description": "Beech and blackthorn, rain-cut ruts, one set of fresh boot prints going north.",
       "connections": [
         "loc-briar-glen",
         "loc-priory-yard",
@@ -228,7 +228,7 @@
     {
       "id": "loc-culvert",
       "name": "Old Culvert",
-      "description": "A narrow stone drain that bypasses the priory gate.",
+      "description": "Shoulder-wide priory drain. Soft candle, scratched warning, crypt at the far end.",
       "connections": [
         "loc-north-trail",
         "loc-priory-crypt"
@@ -237,7 +237,7 @@
     {
       "id": "loc-priory-yard",
       "name": "Bellweather Priory Yard",
-      "description": "Broken bells and thorn-choked graves surround the ruined chapel.",
+      "description": "Sixty by fifty feet. Toppled bells, chalked doors, thorned graves, culvert outside the east wall.",
       "connections": [
         "loc-north-trail",
         "loc-priory-chapel"
@@ -246,7 +246,7 @@
     {
       "id": "loc-priory-chapel",
       "name": "Ruined Chapel",
-      "description": "The roof is open to the sky and the altar has been dragged aside.",
+      "description": "Roofless. Dragged altar, moon-bell plate, hanging handbell, Caldus\u2019s notes.",
       "connections": [
         "loc-priory-yard",
         "loc-priory-crypt"
@@ -255,7 +255,7 @@
     {
       "id": "loc-priory-crypt",
       "name": "Bell Crypt",
-      "description": "Stone niches surround a cracked bronze bell hanging over a stairwell.",
+      "description": "Low niches, muffled cracked bell, stair down to the ritual chamber.",
       "connections": [
         "loc-priory-chapel",
         "loc-culvert",
@@ -265,7 +265,7 @@
     {
       "id": "loc-ritual-chamber",
       "name": "Ritual Chamber",
-      "description": "A circular vault of black stone marked by a ring of silver script.",
+      "description": "Forty-foot circle, silver ring, four sigils, Emberglass socket, no second door.",
       "connections": [
         "loc-priory-crypt"
       ]
@@ -279,11 +279,14 @@
       "pacingClass": "core",
       "estimatedMinutes": 20,
       "locationId": "loc-briar-glen",
-      "readAloud": "The iron lantern in Briar Glen's square is dark for the first time anyone can remember. Villagers stand at a distance from it as Mara Venn approaches you with a velvet-lined box whose center is conspicuously empty.",
+      "readAloud": "Rain beads on the iron lantern in Briar Glen\u2019s square. The glass is soot-black, the chain still, the flame gone \u2014 the first time anyone living has seen it dark. People keep to the porch-eaves. No one stands directly under it.\n\nMara Venn comes down the steps of the meeting-house with a velvet-lined box held in both hands. The hollow in the lining is the size of a fist. Behind her, a girl with mud to the knees \u2014 Tamsin Reed \u2014 watches you the way a person watches a door they have already decided to follow.\n\n\u201cIt burned for my grandmother, and hers,\u201d Mara says, not quite looking at the lantern. \u201cBrother Caldus took the heart of it. I will pay two hundred gold if you bring the Emberglass back before the moon clears the ridge.\u201d",
       "gmNotes": [
-        "Mara offers 200 gp to recover the Emberglass before moonrise.",
-        "She first describes it as a sacred relic, not a seal.",
-        "If pressed hard, she admits Caldus fled toward Bellweather Priory."
+        "Pay: 200 gp total, on village survival \u2014 even if the Emberglass is not returned (she will not say that yet).",
+        "Clock: moonrise in about four hours of play. Name it. Put a token on the table if you want.",
+        "Mara\u2019s first story: sacred relic, village luck, Caldus a desperate thief. She will not say \u2018seal\u2019 unless pressed (DC 12 Insight/Persuasion \u2014 see Checks) or shown evidence.",
+        "Tamsin will interrupt if ignored: she saw Caldus take the north trail, and she knows an old culvert. Treat her as an adult and she tells both.",
+        "If the party refuses the job, do not end the session. The lantern ticks. A pale mist will reach the square by scene three anyway \u2014 use recovery route recover-refuse.",
+        "Do not mention the Pale Guest by name. Mara does not use it."
       ],
       "npcIds": [
         "npc-mara-venn",
@@ -308,11 +311,13 @@
       "pacingClass": "cut-first",
       "estimatedMinutes": 25,
       "locationId": "loc-north-trail",
-      "readAloud": "The north trail narrows between wet black trees. Ahead, three travelers stand motionless in the road, staring at one another with the frightened expressions of people who have forgotten each other's names.",
+      "readAloud": "The north trail is a wet cut between blackthorn and beech. Your boots find the ruts of a single walker who did not care who followed.\n\nThree people stand in the road as if they were placed there. A woman in a drover\u2019s coat, a boy with a satchel, an old man still holding a walking stick. They look at one another with the particular fear of people who have lost the last hour of their lives. The boy says, very carefully, \u201cI know I came from somewhere.\u201d\n\nA pale film still hangs in the hollows between the roots, like breath that has not decided to leave.",
       "gmNotes": [
-        "The travelers have lost recent memories after a pale mist passed through the trees.",
-        "This encounter can be skipped entirely if the session is running long.",
-        "Helping them reveals that the mist drifted from the priory ridge."
+        "Cut this whole scene if you are behind clock. The spirit-clue still exists on Caldus later.",
+        "They are not undead. They are frightened. Hostile approach scatters them; the clue is not lost \u2014 tracks and cold mist still point north.",
+        "Check: DC 11 Medicine or Persuasion to calm them (see Checks). Success: they remember pale mist sliding down from the priory ridge, and that it \u2018took the names we were using.\u2019",
+        "If asked who they are: they can give names after a minute (Dora Fen, Kit, Old Pell). They cannot remember why they were on the trail.",
+        "The mist does 0 damage here. It is a warning, not a fight."
       ],
       "npcIds": [],
       "encounterIds": [
@@ -334,11 +339,13 @@
       "pacingClass": "core",
       "estimatedMinutes": 35,
       "locationId": "loc-priory-yard",
-      "readAloud": "Two broken bells lean against the priory wall like toppled sentries. Fresh chalk marks circle the chapel doors, and something moves beneath the thorn bushes beside the old graves.",
+      "readAloud": "Bellweather Priory sits on the ridge like a broken tooth. Two bronze bells have been dragged into the yard and left on their sides; rainwater ticks inside them.\n\nFresh white chalk rings the chapel doors \u2014 tight, careful circles, not graffiti. Thorn has eaten the grave-row. Something under that thorn shifts when your weight hits the mud, as if four bodies rolled over in their sleep.\n\nThe culvert mouth, if Tamsin described it, is a dark slot in the east bank outside the wall. The yard is sixty feet of bad ground.",
       "gmNotes": [
-        "The chalk marks are protective wards, not cult symbols.",
-        "The grave-things attack anyone crossing the yard unless distracted.",
-        "Careful characters can bypass through the culvert if they learned about it."
+        "Wards: DC 12 Arcana/Religion reads them as protective and recent \u2014 Caldus\u2019s work, not a cult.",
+        "Grave-Things: four, AC 12, 18 HP (Encounters). They rise if anyone moves more than 10 feet into the yard. They do not pursue beyond the wall.",
+        "Bypass: culvert if known. Or DC 12 group Stealth along the grave-edge; failure starts the fight 20 feet away.",
+        "Fire: if fire damages a Grave-Thing, that one attacks the fire\u2019s source next turn. They are rooted dead, not an army.",
+        "Do not run this as a slog. One round of pressure, then remind them of the culvert and the chapel doors."
       ],
       "npcIds": [],
       "encounterIds": [
@@ -360,11 +367,12 @@
       "pacingClass": "optional",
       "estimatedMinutes": 15,
       "locationId": "loc-culvert",
-      "readAloud": "Cold water trickles through a shoulder-wide stone tunnel. Halfway in, someone has wedged a fresh candle into a crack beside a scratched warning: DO NOT RING THE BELL.",
+      "readAloud": "The culvert is shoulder-wide, stone, and older than the chapel. Meltwater runs over your boots. Halfway in, a cheap tallow candle is wedged in a crack; the wax is still soft.\n\nScratched into the lintel, in a neat, angry hand: DO NOT RING THE BELL.\n\nThe far end smells of wet bronze and old incense. It opens into the crypt, not the chapel.",
       "gmNotes": [
-        "The culvert opens directly into the crypt.",
-        "The warning is Caldus's.",
-        "The candle is less than an hour old."
+        "Candle less than an hour old \u2014 Caldus is still here.",
+        "The warning is his. Ringing the crypt bell later feeds the Pale Guest (trap in chapel/crypt).",
+        "No fight here. If they make noise, Grave-Things in the yard stir but cannot reach this tunnel.",
+        "This route skips the yard combat entirely. That is allowed. Do not punish it."
       ],
       "npcIds": [],
       "encounterIds": [],
@@ -383,11 +391,12 @@
       "pacingClass": "core",
       "estimatedMinutes": 30,
       "locationId": "loc-priory-chapel",
-      "readAloud": "Rain falls through the missing roof onto rows of rotted pews. The altar has been dragged aside, revealing a bronze plate engraved with four bells, each marked by a different phase of the moon.",
+      "readAloud": "The chapel has no roof. Rain falls on pews that have gone to mushroom and black wood. Someone has dragged the altar three feet off its mark. Under it, a bronze plate is set in the floor: four small bells in a row, each stamped with a moon \u2014 new, crescent, half, full.\n\nA handbell hangs from a nail by the south stair-well, polished from recent use. Scattered on the wet stone: pages in Caldus\u2019s hand, weighted with a broken roof-slate. The first line you can read without touching anything is: \u2018The village flame was never a blessing. It was a door we kept shut.\u2019",
       "gmNotes": [
-        "The plate is a lock. Press the bells from darkest moon to brightest to open the crypt stair.",
-        "Ringing the hanging handbell triggers a memory-draining pulse but also opens the stair.",
-        "Caldus's notes nearby reveal he is repairing a binding."
+        "Puzzle: press darkest to brightest \u2014 new, crescent, half, full. Crypt stair opens. Wrong order: a whisper-pulse, then reset. No damage the first time; second time 1d4 psychic and reset.",
+        "Fail forward: ringing the hanging handbell opens the stair AND triggers trap-memory-bell (DC 12 Wisdom; 2d6 psychic; forget the last minute fictionally \u2014 players keep all discovered clues).",
+        "Caldus\u2019s notes here deliver clue-caldus-binding even if they never meet him politely.",
+        "He is not in this room. He is below."
       ],
       "npcIds": [],
       "encounterIds": [],
@@ -406,12 +415,12 @@
       "pacingClass": "core",
       "estimatedMinutes": 35,
       "locationId": "loc-priory-crypt",
-      "readAloud": "A cracked bronze bell hangs over the center of the crypt, its clapper wrapped in cloth. Brother Caldus stands beyond it, pale with exhaustion, one hand raised and the other clutching a fist-sized coal of red-gold glass.",
+      "readAloud": "The crypt is a low stone room with niches like empty mouths. A cracked bronze bell hangs dead-center, its clapper wrapped in torn vestments. Cloth, not rust, is what keeps it quiet.\n\nBrother Caldus stands on the far side of it. He looks like a man who has not slept in three days. In his left hand is a fist-sized coal of red-gold glass \u2014 warm light leaking between his fingers. His right hand is up, empty, not a weapon.\n\n\u201cIf you came to hang a thief,\u201d he says, very carefully, \u201cwait until I have finished the sentence. The lantern in your square is a lock. I stole the key because the lock is breaking.\u201d",
       "gmNotes": [
-        "Caldus does not attack first.",
-        "He tells the party the Emberglass is part of a failing seal.",
-        "If attacked, he defends himself while trying to reach the ritual chamber.",
-        "If convinced the party will help, he becomes an ally."
+        "He does not attack first. If they talk, he tells the whole truth: Emberglass + lantern = failing seal; Pale Guest feeds on memory; he wants a new binding in the chamber below.",
+        "If they attack: enc-caldus-if-hostile. AC 13, 36 HP. He retreats toward the ritual stair, shouts the truth every round, surrenders at 8 HP. Journal still delivers required clues if he drops.",
+        "If they agree to help: he becomes an ally, hands off the Emberglass or keeps it for the ritual (their call), and leads them down.",
+        "Do not make them fight a paladin-boss here. This is the twist scene. The fight is below."
       ],
       "npcIds": [
         "npc-brother-caldus"
@@ -435,12 +444,13 @@
       "pacingClass": "core",
       "estimatedMinutes": 55,
       "locationId": "loc-ritual-chamber",
-      "readAloud": "The silver ring in the floor fractures with a sound like ice splitting on a lake. A tall shape unfolds from the darkness beyond it, featureless except for dozens of whispering mouths that speak in voices you almost recognize.",
+      "readAloud": "The chamber is a forty-foot circle of black stone. A silver ring in the floor is already hairline-cracked. Four sigils mark the cardinal points. In the center, a socket waits for the Emberglass \u2014 or shows the empty place where it should sit.\n\nThe ring splits with a sound like ice going on a lake. A tall figure unfolds from the far dark: no face, too many mouths, each whispering in a voice someone in the party almost knows. A mother. A dead friend. A child you have not met yet.\n\n\u201cYou kept me in a lamp,\u201d the mouths say together, almost kindly. \u201cChoose better.\u201d",
       "gmNotes": [
-        "The Pale Guest manifests when the party enters or when the old seal finally fails.",
-        "The party can fight it while Caldus completes the new binding.",
-        "They can destroy the Emberglass, making the spirit fully vulnerable but ending the old seal forever.",
-        "A character may offer a treasured memory as part of a new bargain; the GM should make the cost meaningful but not erase the character."
+        "Roll initiative after the read-aloud. Pale Guest: AC 14, 88 HP, fly 30 hover. See Encounters for attacks, Whispering Theft, Unstable Binding.",
+        "Three legal victories: (1) 0 HP \u2014 destroy it. (2) 3 ritual successes before 3 failures \u2014 bind it (check-ritual DC 13; Caldus auto-success end of round 2 if allied and up). (3) 3 bargain successes before 2 failures \u2014 new pact (check-bargain DC 15; cost = one meaningful memory per willing bargainer). Record the memories.",
+        "Smash Emberglass (action, holding it): Guest loses nonmagical weapon resistance; binding becomes impossible.",
+        "It does not leave this room while the Emberglass exists. No fleeing. If the party runs upstairs, moonrise still comes \u2014 recovery, not a chase map.",
+        "Keep rounds short. Narrate one whisper per round. Do not erase character sheets; memory-loss is story, except the listed psychic damage."
       ],
       "npcIds": [
         "npc-brother-caldus"
@@ -461,11 +471,13 @@
       "pacingClass": "core",
       "estimatedMinutes": 15,
       "locationId": "loc-briar-glen",
-      "readAloud": "Whatever choice you made beneath the priory, dawn finds Briar Glen changed. The iron lantern in the square is no longer simply a tradition. Everyone who looks at it now knows it means something.",
+      "readAloud": "Dawn at Briar Glen is ordinary weather and an extraordinary quiet. People come out to look at the iron lantern as if it might speak.\n\nMara is already in the square. She does not ask whether you are heroes. She asks what you did with the thing that used to burn there \u2014 and whether the village still has a secret, a prison, a grave, or a debt.\n\nUse the ending that matches the table, then stop. Let the lantern be the last image.",
       "gmNotes": [
-        "Use the ending that matches the final state.",
-        "Mara pays if the village survives, even if the Emberglass is not returned.",
-        "If her secret becomes public, she accepts the consequences rather than fleeing."
+        "Restore old flame: lantern lights again. Caldus, if alive, says it will fail within a season. Mara pays. The secret can stay buried or not \u2014 party\u2019s word.",
+        "New binding: lantern stays dark. It is a memorial now. Priory holds. Mara pays. Caldus may stay as keeper.",
+        "Destroyed: no cage. Village must live without the old protection. Mara pays if they lived. Some villagers will hate the party for \u2018killing the luck.\u2019",
+        "Bargain: Guest gone for now. Write the owed memories in your campaign notes. Mara pays, badly shaken.",
+        "200 gp from Mara if the glen survives, Emberglass or not. Moonstones in the crypt if they search after."
       ],
       "npcIds": [
         "npc-mara-venn"
