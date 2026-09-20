@@ -44,8 +44,13 @@ if (!adventure.initialState?.currentSceneId || !sceneIds.has(adventure.initialSt
 }
 
 for (const clue of adventure.clues || []) {
-  if (clue.required && (!Array.isArray(clue.sources) || clue.sources.length < 2)) {
-    errors.push(`required clue ${clue.id} must have at least two independent sources`);
+  if (clue.required && (!Array.isArray(clue.sources) || clue.sources.length < 3)) {
+    errors.push(`required clue ${clue.id} must have at least three independent sources`);
+  }
+  if (clue.required) {
+    const blob = (clue.sources || []).join(" ").toLowerCase();
+    const physical = /note|journal|track|inscription|record|ward|mist|evidence|chamber|crypt|chapel|mechanism|ritual|residue|object|bell/.test(blob);
+    if (!physical) errors.push(`required clue ${clue.id} needs at least one physical backup (notes, tracks, inscriptions) so it does not hinge on one NPC`);
   }
 }
 
@@ -86,6 +91,25 @@ for (const npc of adventure.npcs || []) {
     errors.push(`NPC ${npc.id} requires voiceCues[] for zero-prep roleplay`);
   }
   requireText(npc.questFunction, `NPC ${npc.id}.questFunction`);
+}
+
+if (!Array.isArray(adventure.endings) || adventure.endings.length < 2) {
+  errors.push("adventure needs at least two authored endings so the conclusion is not a single script");
+}
+
+const routes = adventure.recovery?.routes || [];
+if (routes.length < 3) {
+  errors.push("recovery.routes needs at least three backups (giver gone, antagonist attacked, scene skipped)");
+}
+const routeText = routes.map(route => String(route.trigger || "") + " " + String(route.response || "")).join(" ").toLowerCase();
+if (!/killed|unavailable|dead|missing|refuses|refuse/.test(routeText)) {
+  errors.push("recovery must cover the quest giver being refused, missing, or dead");
+}
+if (!/attack|hostile|killed/.test(routeText)) {
+  errors.push("recovery must cover the apparent antagonist being attacked before they explain");
+}
+if (!/bypass|skip|culvert|leaves|leave/.test(routeText)) {
+  errors.push("recovery must cover skipping a core scene");
 }
 
 const totalMinutes = (adventure.scenes || []).reduce((sum, scene) => sum + (scene.estimatedMinutes || 0), 0);

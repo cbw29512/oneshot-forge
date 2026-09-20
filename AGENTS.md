@@ -9,7 +9,7 @@ One-Shot Forge is an original fantasy RPG one-shot builder and web GM runner. Do
 3. Adventure truth is immutable during play unless the GM explicitly edits it.
 4. Game state is separate, mutable, and resettable.
 5. AI may improvise wording and local presentation, never canonical facts.
-6. Required revelations need redundant delivery paths.
+6. Required revelations need at least three independent delivery paths. At least one path must be physical (notes, tracks, inscriptions, a ward) so the adventure cannot hinge on a single NPC being alive, friendly, or present. Recovery routes must cover: quest giver refused or dead, antagonist attacked or skipped, a core scene bypassed. The finale must still be reachable and resolvable without any one named NPC.
 7. Recovery preserves continuity, not a forced script.
 8. Scenes form a graph and may be skipped/bypassed.
 9. New adventures should require data/content, not new application code.

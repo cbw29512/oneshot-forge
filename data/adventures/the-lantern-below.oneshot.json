@@ -803,6 +803,22 @@
         "patch": {
           "setCurrentSceneId": "scene-hook"
         }
+      },
+      {
+        "id": "recover-silent-run",
+        "trigger": "The party talks to no one: they refuse Mara, ignore Tamsin, sneak the priory, and never hear Caldus.",
+        "response": "Do not stop the game. Tracks go north. Chapel notes, crypt inscriptions, and the unfinished binding still deliver every required fact. The Pale Guest still manifests. Caldus, if found dead or bypassed, is optional.",
+        "stateChanges": [
+          "Discover all required clues from physical sources."
+        ],
+        "patch": {
+          "discoverClueIds": [
+            "clue-priory-location",
+            "clue-caldus-binding",
+            "clue-real-seal",
+            "clue-caldus-plan"
+          ]
+        }
       }
     ]
   },
@@ -822,13 +838,13 @@
       "id": "ending-old-seal",
       "name": "Restore the Old Flame",
       "condition": "The party returns the Emberglass to the old binding.",
-      "result": "Briar Glen is safe for now, but Caldus warns the failing seal will become a problem again."
+      "result": "Briar Glen is safe for now. Anyone who studied the priory (Caldus if alive, otherwise his notes) can warn that the old seal will fail again."
     },
     {
       "id": "ending-new-binding",
       "name": "A Stronger Bell",
-      "condition": "The party completes Caldus's replacement ritual.",
-      "result": "The Pale Guest is bound beneath the priory. The village lantern becomes an ordinary memorial rather than a magical prison."
+      "condition": "The party completes the replacement binding in the chamber. Caldus is not required.",
+      "result": "The Pale Guest is bound beneath the priory. The village lantern becomes a memorial. If Caldus lived, he may stay as keeper; if not, the binding still holds."
     },
     {
       "id": "ending-destroyed",
@@ -1671,5 +1687,27 @@
     "nextId": "the-well-that-would-not-dry",
     "nextTitle": "The Well That Would Not Dry",
     "nextHook": "A day\u2019s walk down-ridge, Saltmere\u2019s well has never gone dry. This week the water tastes of iron, and people forget why they came to draw it. Whatever you did with Briar Glen\u2019s lantern is already a rumor there."
+  },
+  "informationContract": {
+    "rule": "No required fact depends on one NPC being alive, friendly, or present.",
+    "requiredFacts": [
+      {
+        "id": "clue-priory-location",
+        "ifTheySkip": "Tamsin, northbound tracks, or the mist itself."
+      },
+      {
+        "id": "clue-caldus-binding",
+        "ifTheySkip": "Chapel notes or the ritual chamber even if Caldus is dead."
+      },
+      {
+        "id": "clue-real-seal",
+        "ifTheySkip": "Mara if pressed, crypt inscriptions, Caldus or his journal."
+      },
+      {
+        "id": "clue-caldus-plan",
+        "ifTheySkip": "Journal and the unfinished binding. His speech is one path, not the path."
+      }
+    ],
+    "finaleWithoutNpc": "The Pale Guest scene does not require Caldus. He is an extra ritual success if allied and conscious. Binding, destruction, and bargain all work without him."
   }
 }

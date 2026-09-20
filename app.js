@@ -260,6 +260,7 @@ function renderAll() {
       adventure.quest.deadline || "No hard clock"
     ];
     if (adventure.series?.nextTitle) bits.push("Next: " + adventure.series.nextTitle);
+    if (adventure.informationContract?.rule) bits.push("No single NPC is required");
     el("overview-clock").innerHTML = bits.map(bit => "<span>" + escapeHtml(bit) + "</span>").join("");
   }
   renderSavedAdventures();
