@@ -18,7 +18,7 @@
 - [x] Clue discovery tracking.
 - [x] Quest-stage tracking.
 - [x] Map display and reveal state.
-- [ ] Encounter/puzzle/trap/item panels.
+- [x] Encounter/puzzle/trap/item panels.
 - [x] Save/restore local run state.
 - [x] Reset adventure to fresh state.
 

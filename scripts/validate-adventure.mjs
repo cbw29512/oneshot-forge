@@ -19,11 +19,18 @@ function requireText(value, label) {
 }
 
 const adventure = loadAdventure(path);
+const sidecarPath = process.argv[3] || path.replace(/\.oneshot\.json$/, ".quickrun.json");
 const sceneIds = ids(adventure.scenes);
 const npcIds = ids(adventure.npcs);
 const clueIds = ids(adventure.clues);
 const encounterIds = ids(adventure.encounters);
 const locationIds = ids(adventure.locations);
+
+let quickrun = adventure.quickrun || null;
+if (!quickrun && fs.existsSync(sidecarPath)) {
+  try { quickrun = JSON.parse(fs.readFileSync(sidecarPath, "utf8")); }
+  catch (error) { errors.push("quick-run sidecar is not valid JSON: " + error.message); }
+}
 
 requireText(adventure.metadata?.id, "metadata.id");
 requireText(adventure.metadata?.title, "metadata.title");
@@ -86,6 +93,58 @@ if (adventure.metadata?.durationMinutes && totalMinutes < adventure.metadata.dur
   errors.push(`scene pacing covers only ${totalMinutes} of ${adventure.metadata.durationMinutes} target minutes`);
 }
 
+if (quickrun) {
+  if (quickrun.adventureId && quickrun.adventureId !== adventure.metadata?.id) {
+    errors.push("quickrun.adventureId must match metadata.id");
+  }
+  if (quickrun.target?.level != null && quickrun.target.level !== adventure.metadata?.partyLevel) {
+    errors.push("quickrun.target.level must match metadata.partyLevel");
+  }
+  if (quickrun.target?.partySize != null && quickrun.target.partySize !== adventure.metadata?.partySize) {
+    errors.push("quickrun.target.partySize must match metadata.partySize");
+  }
+  const quickEncounterIds = ids(quickrun.encounters);
+  for (const encounter of adventure.encounters || []) {
+    if (!quickEncounterIds.has(encounter.id)) errors.push(`encounter ${encounter.id} needs a quickrun table entry`);
+  }
+  for (const check of quickrun.checks || []) {
+    if (!sceneIds.has(check.sceneId)) errors.push(`quickrun check ${check.id} references missing scene ${check.sceneId}`);
+    requireText(check.label, `quickrun check ${check.id}.label`);
+    if (!Number.isInteger(check.dc)) errors.push(`quickrun check ${check.id} needs a numeric DC`);
+  }
+  for (const hazard of quickrun.hazards || []) {
+    if (hazard.sceneId && !sceneIds.has(hazard.sceneId)) errors.push(`quickrun hazard ${hazard.id} references missing scene`);
+  }
+  for (const note of quickrun.mapNotes || []) {
+    if (note.sceneId && !sceneIds.has(note.sceneId)) errors.push(`quickrun map note references missing scene ${note.sceneId}`);
+  }
+  const authoredById = new Map((adventure.encounters || []).map(item => [item.id, item]));
+  for (const encounter of quickrun.encounters || []) {
+    requireText(encounter.objective, `quickrun encounter ${encounter.id}.objective`);
+    requireText(encounter.start, `quickrun encounter ${encounter.id}.start`);
+    requireText(encounter.end, `quickrun encounter ${encounter.id}.end`);
+    const authored = authoredById.get(encounter.id);
+    const combat = /combat|boss/i.test(authored?.type || "");
+    if (combat && (!Array.isArray(encounter.creatures) || !encounter.creatures.length)) {
+      errors.push(`combat quickrun encounter ${encounter.id} requires creatures[]`);
+    }
+    for (const creature of encounter.creatures || []) {
+      if (!Number.isInteger(creature.ac) || !Number.isInteger(creature.hp)) {
+        errors.push(`${creature.name || encounter.id} requires numeric AC and HP`);
+      }
+      requireText(creature.tactics, `${creature.name || encounter.id}.tactics`);
+    }
+  }
+  const requiredCheckIds = Array.isArray(quickrun.requiredCheckIds) ? quickrun.requiredCheckIds : [];
+  const checkIds = ids(quickrun.checks);
+  for (const id of requiredCheckIds) {
+    if (!checkIds.has(id)) errors.push(`quickrun.requiredCheckIds lists missing check ${id}`);
+  }
+  if (!Array.isArray(quickrun.rewards) || !quickrun.rewards.length) {
+    errors.push("quickrun requires at least one reward");
+  }
+}
+
 if (errors.length) {
   console.error(`Adventure validation failed for ${path}:`);
   errors.forEach(error => console.error(" -", error));
@@ -94,3 +153,6 @@ if (errors.length) {
 
 console.log(`[validator] ${adventure.metadata.title} passes structural + zero-prep checks.`);
 console.log(`[validator] ${adventure.scenes.length} scenes, ${adventure.npcs.length} NPCs, ${adventure.clues.length} clues, ${totalMinutes} planned minutes.`);
+if (quickrun) {
+  console.log(`[validator] table ref: ${quickrun.encounters?.length || 0} encounters, ${quickrun.checks?.length || 0} checks, ${quickrun.rewards?.length || 0} rewards.`);
+}

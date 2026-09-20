@@ -13,11 +13,11 @@
   <header class="topbar">
     <div>
       <p class="eyebrow">ONE-SHOT FORGE</p>
-      <h1 id="adventure-title">Loading adventure…</h1>
+      <h1 id="adventure-title">Opening The Lantern Below…</h1>
       <p id="adventure-meta" class="muted"></p>
     </div>
     <div class="top-actions">
-      <button id="forge-random" class="button" type="button">⚒ Forge Random One-Shot</button>
+      <button id="forge-random" class="button" type="button">Forge Random One-Shot</button>
       <a id="module-view" class="button secondary" href="module.html">Professional Module</a>
       <button id="export-adventure" class="button secondary" type="button">Export JSON</button>
       <button id="load-file" class="button secondary" type="button">Load .oneshot.json</button>
@@ -74,7 +74,7 @@
           <span>Reuse this seed on the next forge</span>
         </label>
 
-        <button id="forge-random-side" class="button forge-wide" type="button">⚒ Forge New Adventure</button>
+        <button id="forge-random-side" class="button forge-wide" type="button">Forge New Adventure</button>
 
         <div class="divider"></div>
         <label for="saved-adventures">Saved adventures</label>
@@ -125,6 +125,11 @@
         <h3>GM notes</h3>
         <ul id="gm-notes"></ul>
 
+        <div id="scene-checks-wrap">
+          <h3>Checks at the table</h3>
+          <div id="scene-checks" class="stack"></div>
+        </div>
+
         <div id="scene-clues-wrap">
           <h3>Clues in this scene</h3>
           <div id="scene-clues" class="stack"></div>
@@ -138,6 +143,11 @@
         <div id="scene-puzzles-wrap">
           <h3>Puzzles & traps</h3>
           <div id="scene-puzzles" class="stack"></div>
+        </div>
+
+        <div id="scene-mapnote-wrap">
+          <h3>Map callout</h3>
+          <div id="scene-mapnote" class="card"></div>
         </div>
 
         <div id="scene-exits-wrap">

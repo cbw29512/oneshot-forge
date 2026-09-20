@@ -177,7 +177,14 @@ async function loadInitialAdventure() {
 
   const res = await fetch(DEFAULT_ADVENTURE);
   if (!res.ok) throw new Error("Could not load the reference adventure.");
-  await activateAdventure(await res.json(), {persist:true});
+  const pkg = await res.json();
+  if (!pkg.quickrun) {
+    try {
+      const side = await fetch(DEFAULT_ADVENTURE.replace(/\.oneshot\.json$/, ".quickrun.json"));
+      if (side.ok) pkg.quickrun = await side.json();
+    } catch { /* optional sidecar */ }
+  }
+  await activateAdventure(pkg, {persist:true});
 }
 
 async function activateAdventure(pkg, options={}) {
@@ -305,43 +312,126 @@ function renderScene() {
   el("scene-encounters-wrap").hidden = !encounters.length;
   el("scene-encounters").innerHTML = encounters.map(encounterCardHtml).join("");
 
+  const checks = tableChecksFor(scene.id);
+  if (el("scene-checks-wrap")) {
+    el("scene-checks-wrap").hidden = !checks.length;
+    el("scene-checks").innerHTML = checks.map(checkCardHtml).join("");
+  }
+
+  const hazards = tableHazardsFor(scene.id);
   const puzzles = (adventure.puzzles || []).filter(item => item.locationId === scene.locationId);
   const traps = (adventure.traps || []).filter(item => item.locationId === scene.locationId);
-  el("scene-puzzles-wrap").hidden = !puzzles.length && !traps.length;
+  el("scene-puzzles-wrap").hidden = !puzzles.length && !traps.length && !hazards.length;
   el("scene-puzzles").innerHTML = [
+    ...hazards.map(hazardCardHtml),
     ...puzzles.map(item => resourceCardHtml("Puzzle", item.name, item.prompt, "Solution: " + item.solution + " • Fail forward: " + item.failForward)),
     ...traps.map(item => resourceCardHtml("Trap", item.name, item.trigger, item.effect || item.purpose || ""))
   ].join("");
 
+  const note = tableMapNote(scene.id);
+  if (el("scene-mapnote-wrap")) {
+    el("scene-mapnote-wrap").hidden = !note;
+    el("scene-mapnote").innerHTML = note
+      ? "<p><b>" + escapeHtml(note.dimensions) + "</b></p><ul>" +
+        (note.features || []).map(f => "<li>" + escapeHtml(f) + "</li>").join("") + "</ul>"
+      : "";
+  }
+
   renderSceneExits(scene);
 }
 
+function tableRef() {
+  return adventure?.quickrun || null;
+}
+
+function tableEncounter(id) {
+  return (tableRef()?.encounters || []).find(item => item.id === id) || null;
+}
+
+function tableChecksFor(sceneId) {
+  return (tableRef()?.checks || []).filter(item => item.sceneId === sceneId);
+}
+
+function tableHazardsFor(sceneId) {
+  return (tableRef()?.hazards || []).filter(item => item.sceneId === sceneId);
+}
+
+function tableMapNote(sceneId) {
+  return (tableRef()?.mapNotes || []).find(item => item.sceneId === sceneId) || null;
+}
+
+function creatureBlockHtml(creature) {
+  const extras = [creature.saves && ("Saves. " + creature.saves), creature.resistances && ("Resistances. " + creature.resistances), creature.immunities && ("Immunities. " + creature.immunities), creature.attack, creature.ranged, creature.action, creature.reaction, creature.trait]
+    .filter(Boolean);
+  return '<div class="creature">' +
+    "<strong>" + escapeHtml(creature.count) + "× " + escapeHtml(creature.name) + "</strong>" +
+    '<div class="stat-strip">' +
+    "<span>AC <b>" + escapeHtml(creature.ac) + "</b></span>" +
+    "<span>HP <b>" + escapeHtml(creature.hp) + "</b></span>" +
+    "<span>Speed <b>" + escapeHtml(creature.speed) + "</b></span>" +
+    "</div>" +
+    extras.map(line => "<p>" + escapeHtml(line) + "</p>").join("") +
+    (creature.tactics ? '<p class="tiny"><b>Tactics.</b> ' + escapeHtml(creature.tactics) + "</p>" : "") +
+    "</div>";
+}
+
+function checkCardHtml(check) {
+  return '<div class="card check-card">' +
+    "<strong>" + escapeHtml(check.label) + "</strong>" +
+    '<p><span class="badge">DC ' + escapeHtml(check.dc) + "</span> " +
+    '<span class="badge">' + escapeHtml(check.ability) + "</span></p>" +
+    "<p><b>Success.</b> " + escapeHtml(check.success) + "</p>" +
+    "<p><b>Failure.</b> " + escapeHtml(check.failure) + "</p>" +
+    "</div>";
+}
+
+function hazardCardHtml(hazard) {
+  return '<div class="card">' +
+    '<span class="badge">Hazard</span>' +
+    "<strong>" + escapeHtml(hazard.trigger) + "</strong>" +
+    "<p><b>Save.</b> " + escapeHtml(hazard.save) + "</p>" +
+    "<p><b>Failure.</b> " + escapeHtml(hazard.failure) + "</p>" +
+    "<p><b>Success.</b> " + escapeHtml(hazard.success) + "</p>" +
+    '<p class="muted">Fail forward: ' + escapeHtml(hazard.failForward) + "</p>" +
+    "</div>";
+}
+
 function encounterCardHtml(encounter) {
+  const table = tableEncounter(encounter.id);
   const mechanics = encounter.mechanics;
-  let mechanicsHtml = "";
-  if (mechanics) {
-    mechanicsHtml =
+  let body = "";
+  if (table) {
+    body += "<p><b>Objective.</b> " + escapeHtml(table.objective) + "</p>";
+    body += "<p>" + escapeHtml(table.start) + "</p>";
+    body += (table.creatures || []).map(creatureBlockHtml).join("");
+    if (table.bypass) body += "<p><b>Bypass.</b> " + escapeHtml(table.bypass) + "</p>";
+    if (table.ritual) body += '<p class="quick-block"><b>Binding.</b> ' + escapeHtml(table.ritual) + "</p>";
+    if (table.destroy) body += "<p><b>Destroy.</b> " + escapeHtml(table.destroy) + "</p>";
+    if (table.bargain) body += "<p><b>Bargain.</b> " + escapeHtml(table.bargain) + "</p>";
+    body += '<p class="muted"><b>End.</b> ' + escapeHtml(table.end) + "</p>";
+  } else if (mechanics) {
+    body +=
       '<div class="stat-strip">' +
-      '<span><b>' + mechanics.count + '</b> creature' + (mechanics.count === 1 ? "" : "s") + '</span>' +
-      '<span>AC <b>' + mechanics.ac + '</b></span>' +
-      '<span>HP <b>' + mechanics.hpEach + '</b> each</span>' +
-      '<span>Speed <b>' + escapeHtml(mechanics.speed) + '</b></span>' +
-      '</div>' +
+      "<span><b>" + mechanics.count + "</b> creature" + (mechanics.count === 1 ? "" : "s") + "</span>" +
+      "<span>AC <b>" + mechanics.ac + "</b></span>" +
+      "<span>HP <b>" + mechanics.hpEach + "</b> each</span>" +
+      "<span>Speed <b>" + escapeHtml(mechanics.speed) + "</b></span>" +
+      "</div>" +
       '<div class="quick-block">' +
-      '<p><b>Attack.</b> ' + escapeHtml(mechanics.basicAttack) + '</p>' +
-      (mechanics.attacksPerTurn > 1 ? '<p><b>Multiattack.</b> ' + mechanics.attacksPerTurn + ' attacks per turn.</p>' : '') +
-      '<p><b>Signature.</b> ' + escapeHtml(mechanics.signature) + '</p>' +
-      '<p class="tiny muted">' + escapeHtml(mechanics.balanceNote) + '</p>' +
-      '</div>';
+      "<p><b>Attack.</b> " + escapeHtml(mechanics.basicAttack) + "</p>" +
+      (mechanics.attacksPerTurn > 1 ? "<p><b>Multiattack.</b> " + mechanics.attacksPerTurn + " attacks per turn.</p>" : "") +
+      "<p><b>Signature.</b> " + escapeHtml(mechanics.signature) + "</p>" +
+      '<p class="tiny muted">' + escapeHtml(mechanics.balanceNote) + "</p>" +
+      "</div>";
   }
   return '<div class="card">' +
-    '<strong>' + escapeHtml(encounter.name) + '</strong>' +
-    '<p><span class="badge">' + escapeHtml(encounter.type || "encounter") + '</span> ' +
-    '<span class="badge">' + escapeHtml(encounter.difficulty || "") + '</span></p>' +
-    '<p>' + escapeHtml(encounter.summary || "") + '</p>' +
-    mechanicsHtml +
-    '<p class="muted">' + escapeHtml(encounter.resolution || "") + '</p>' +
-    '</div>';
+    "<strong>" + escapeHtml(encounter.name) + "</strong>" +
+    '<p><span class="badge">' + escapeHtml(encounter.type || "encounter") + "</span> " +
+    '<span class="badge">' + escapeHtml(encounter.difficulty || "") + "</span></p>" +
+    "<p>" + escapeHtml(encounter.summary || "") + "</p>" +
+    body +
+    (encounter.resolution ? '<p class="muted">' + escapeHtml(encounter.resolution) + "</p>" : "") +
+    "</div>";
 }
 
 function resourceCardHtml(kind, name, body, detail) {
@@ -465,6 +555,9 @@ function renderResources() {
   }
   for (const ending of adventure.endings || []) {
     cards.push(resourceCardHtml("Ending", ending.name, ending.condition, ending.result));
+  }
+  for (const reward of tableRef()?.rewards || []) {
+    cards.push(resourceCardHtml("Reward", reward.when, reward.reward, ""));
   }
   wrap.innerHTML = cards.join("") || '<p class="muted">No additional resources.</p>';
 }

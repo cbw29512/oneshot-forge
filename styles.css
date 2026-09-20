@@ -105,3 +105,7 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#100e0b;border:1px so
 }
 .check-row{display:flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:700;color:#d9c7aa;cursor:pointer}
 .check-row input{width:auto;min-height:auto;accent-color:var(--accent)}
+.creature{border:1px solid var(--border);background:#15110d;border-radius:.55rem;padding:.7rem;margin:.55rem 0}
+.creature strong{display:block;margin-bottom:.35rem}
+.check-card{border-color:#6a5438}
+.stat-strip span b{font-variant-numeric:tabular-nums}

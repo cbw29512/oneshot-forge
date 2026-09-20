@@ -59,9 +59,10 @@ The repository now contains a browser GM runner and one complete reference adven
 - NPC AI-context previews
 - GM-approved off-script recovery routes
 - local `*.oneshot.json` import
+- zero-prep table stats in the GM runner (AC, HP, DCs, bypass, rewards)
 
 ### Run locally
 
-Serve the repository root through any static web server, then open `index.html`. The runner loads **The Lantern Below** automatically.
+Serve the repository root through any static web server, then open `index.html`. The runner loads **The Lantern Below** automatically, including zero-prep table stats (AC, HP, DCs, bypasses) from `quickrun` inside the adventure package.
 
 Opening `index.html` directly as a `file://` URL is not supported because browsers normally block the JSON fetch; use a static server or hosted deployment.

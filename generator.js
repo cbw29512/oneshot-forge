@@ -467,6 +467,51 @@
     const titleNouns = [object,monsterTitle,location.final,bossName.replace(/^The /,""),"Broken Oath","Silent Bell"];
     const title = (pick(rng,titlePrefixes) + " " + pick(rng,titleNouns)).replace(/^The The /,"The ");
 
+    function creatureFromMechanics(name, mechanics) {
+      if (!mechanics) return null;
+      return {
+        name,
+        count: mechanics.count,
+        ac: mechanics.ac,
+        hp: mechanics.hpEach,
+        speed: mechanics.speed,
+        attack: mechanics.basicAttack,
+        action: mechanics.signature,
+        tactics: "Press the nearest threat unless the listed bypass or bargain is used."
+      };
+    }
+
+    const quickrun = {
+      adventureId: packageId,
+      version: "0.1.0",
+      target: {level, partySize},
+      requiredCheckIds: ["check-final-plan"],
+      checks: [
+        {id:"check-giver",sceneId:"scene-hook",label:"Press the quest giver",dc:clamp(11 + Math.floor(level/5),11,16),ability:"Wisdom (Insight) or Charisma (Persuasion)",success:"They admit the uncomfortable fact about the site.",failure:"They still name the location; the witness remains the backup source."},
+        {id:"check-final-plan",sceneId:"scene-final",label:"Advance the closing plan",dc:clamp(12 + Math.floor(level/4),12,18),ability:"Intelligence (Arcana or Investigation) or Charisma (Persuasion)",success:"Gain 1 plan success. Three successes before three failures ends the threat without requiring a total wipe.",failure:"No progress; the acting character takes light damage equal to the threat's signature pressure."}
+      ],
+      encounters: encounters.map(enc => {
+        const creature = creatureFromMechanics(enc.name, enc.mechanics);
+        return {
+          id: enc.id,
+          objective: enc.summary,
+          start: enc.summary,
+          creatures: creature ? [creature] : [],
+          bypass: enc.mechanics ? "A valid stealth, social, or authored backup route can skip a fight without losing required clues." : "No combat is required.",
+          end: enc.resolution
+        };
+      }),
+      hazards: [],
+      rewards: [
+        {id:"reward-job",when:"The original objective is resolved.",reward:"The promised payment is made unless the party openly betrayed the community."},
+        {id:"reward-site",when:"The party searches the inner site after the finale.",reward:"A modest cache of coin and one story-significant token."}
+      ],
+      mapNotes: [
+        {sceneId:"scene-entrance",dimensions:"50 x 40 ft.",features:["one obvious approach","one quieter side route","difficult terrain along the edges"]},
+        {sceneId:"scene-final",dimensions:"40-ft. chamber",features:["threat starts at the far side","cover along the walls","no exit except the way the party entered until the objective is resolved"]}
+      ]
+    };
+
     return {
       schemaVersion:"0.1.0",
       metadata:{
@@ -562,7 +607,8 @@
         locationState:initialLocationState,
         itemState:{"item-object":"unknown"},
         eventState:{"event-deadline":"pending"}
-      }
+      },
+      quickrun
     };
   }
 

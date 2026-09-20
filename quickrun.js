@@ -1,4 +1,5 @@
 const QUICKRUN_DEFAULT = "data/adventures/the-lantern-below.quickrun.json";
+const PACKAGE_DEFAULT = "data/adventures/the-lantern-below.oneshot.json";
 
 const qrEsc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
   "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
@@ -34,6 +35,14 @@ function renderQuickrun(data) {
 
 async function loadQuickrun() {
   try {
+    const packRes = await fetch(PACKAGE_DEFAULT);
+    if (packRes.ok) {
+      const pkg = await packRes.json();
+      if (pkg.quickrun) {
+        renderQuickrun(pkg.quickrun);
+        return;
+      }
+    }
     const response = await fetch(QUICKRUN_DEFAULT);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     renderQuickrun(await response.json());
