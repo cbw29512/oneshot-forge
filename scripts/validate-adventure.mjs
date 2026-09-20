@@ -35,6 +35,9 @@ requireText(adventure.quest?.stakes, "quest.stakes");
 if (!adventure.initialState?.currentSceneId || !sceneIds.has(adventure.initialState.currentSceneId)) {
   errors.push("initialState.currentSceneId must reference a scene");
 }
+if (!Array.isArray(adventure.initialState?.sceneHistory)) {
+  errors.push("initialState.sceneHistory must be an array so a fresh browser run can navigate safely");
+}
 
 for (const clue of adventure.clues || []) {
   if (clue.required && (!Array.isArray(clue.sources) || clue.sources.length < 2)) {
