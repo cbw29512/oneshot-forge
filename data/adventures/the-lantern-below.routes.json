@@ -1,0 +1,40 @@
+{
+  "adventureId": "the-lantern-below",
+  "requiredClueIds": [
+    "clue-priory-location",
+    "clue-caldus-binding",
+    "clue-real-seal",
+    "clue-caldus-plan"
+  ],
+  "routes": [
+    {
+      "id": "normal-graveyard",
+      "label": "North trail through the priory yard and chapel",
+      "sceneIds": [
+        "scene-hook",
+        "scene-road",
+        "scene-priory-gate",
+        "scene-chapel",
+        "scene-crypt",
+        "scene-final",
+        "scene-resolution"
+      ],
+      "recoveryRouteIds": []
+    },
+    {
+      "id": "culvert-bypass",
+      "label": "North trail through Tamsin's culvert, bypassing the yard",
+      "sceneIds": [
+        "scene-hook",
+        "scene-road",
+        "scene-culvert",
+        "scene-crypt",
+        "scene-final",
+        "scene-resolution"
+      ],
+      "recoveryRouteIds": [
+        "recover-skip-chapel"
+      ]
+    }
+  ]
+}
