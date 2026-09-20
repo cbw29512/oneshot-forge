@@ -7,7 +7,7 @@
   --bg-subtle: #1c1814;
   --fg: #f4efe6;
   --fg-muted: #b7aa98;
-  --fg-subtle: #7d7366;
+  --fg-subtle: #a3988c;
   --border: color-mix(in oklab, #e8dcc8 12%, transparent);
   --border-strong: color-mix(in oklab, #e8dcc8 28%, transparent);
   --accent: #e8d7b8;
@@ -593,3 +593,33 @@ ol.steps b { color: var(--fg) }
 }
 .ep.live { border-color: color-mix(in oklab, var(--ember) 45%, var(--border)); }
 .pack-grid select { margin-top: .4rem }
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+.adv-card {
+  display: grid;
+  gap: .75rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  color: var(--fg);
+  text-decoration: none;
+  padding: 0 0 1rem;
+}
+.adv-card img { width: 100%; aspect-ratio: 1; object-fit: cover }
+.adv-card > div { padding: 0 1rem }
+.adv-card.soon { opacity: .72; padding: 1rem }
+.adv-card.live { border-color: color-mix(in oklab, var(--ember) 40%, var(--border)) }
+.adv-card h3 { margin: .2rem 0 .4rem; text-transform: none; letter-spacing: -0.02em; color: var(--fg); font-size: 1.35rem }
+body.run { background: var(--bg) }
+.run-layout { max-width: 52rem; margin: 0 auto; padding: var(--space-4); display: grid; gap: var(--space-4) }
+.stage-card { padding: var(--space-4) }
+.stage-bar { height: 4px; background: var(--bg-subtle); border-radius: 99px; margin: .4rem 0 1rem; overflow: hidden }
+.stage-bar i { display: block; height: 100%; width: 12%; background: var(--ember) }
+.refs { margin-top: 1rem }
+.refs > summary { font-weight: 700 }

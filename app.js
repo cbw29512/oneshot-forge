@@ -227,10 +227,11 @@ async function refreshRulesetPregens() {
 
 function syncForgeControls() {
   const meta = adventure.metadata || {};
+  if (!el("forge-level")) return;
   if (meta.partyLevel) el("forge-level").value = String(meta.partyLevel);
   if (meta.partySize) el("forge-party").value = String(meta.partySize);
   if (meta.durationMinutes) el("forge-duration").value = String(Math.round(meta.durationMinutes / 60));
-  if (meta.seed) el("forge-seed").value = meta.seed;
+  if (meta.seed && el("forge-seed")) el("forge-seed").value = meta.seed;
   if (el("lock-seed")) el("lock-seed").checked = false;
 }
 
@@ -352,6 +353,7 @@ function currentScene() {
 
 function renderSavedAdventures() {
   const select = el("saved-adventures");
+  if (!select) return;
   const library = readLibrary();
   select.innerHTML = "";
   if (!library.length) {
@@ -399,6 +401,14 @@ function renderScene() {
   el("scene-title").textContent = scene.title;
   if (el("scene-purpose")) el("scene-purpose").textContent = scene.purpose || "";
   el("scene-pacing").textContent = (scene.pacingClass || "core") + " • " + (scene.estimatedMinutes || "?") + " min";
+  const idx = adventure.scenes.findIndex(s => s.id === scene.id);
+  const total = adventure.scenes.length;
+  if (el("stage-progress")) {
+    el("stage-progress").textContent = "Stage " + (idx + 1) + " of " + total + " — " + (scene.title || "");
+  }
+  if (el("stage-bar")) {
+    el("stage-bar").style.width = Math.round(((idx + 1) / total) * 100) + "%";
+  }
   el("read-aloud").textContent = scene.readAloud || "No read-aloud text.";
 
   const encounters = (scene.encounterIds || [])
@@ -951,17 +961,17 @@ function openSavedAdventure() {
   toast("Saved adventure opened.");
 }
 
-el("prev-scene").addEventListener("click", goBackScene);
-el("next-scene").addEventListener("click", () => {
+el("prev-scene")?.addEventListener("click", goBackScene);
+el("next-scene")?.addEventListener("click", () => {
   const target = el("next-scene").dataset.target;
   if (target) goToScene(target);
 });
-el("quest-stage").addEventListener("change", event => {
+el("quest-stage")?.addEventListener("change", event => {
   state.questStage = event.target.value;
   saveState();
   renderAiContext();
 });
-el("reset-state").addEventListener("click", () => {
+el("reset-state")?.addEventListener("click", () => {
   if (!adventure || !confirm("Reset only this adventure's play progress? The saved adventure itself will remain in your library.")) return;
   safeRemove(stateKey());
   state = normalizeState(clone(adventure.initialState));
@@ -970,8 +980,8 @@ el("reset-state").addEventListener("click", () => {
   renderAll();
   toast("Run progress reset.");
 });
-el("export-adventure").addEventListener("click", exportAdventure);
-el("load-file").addEventListener("click", () => el("file-input").click());
+el("export-adventure")?.addEventListener("click", exportAdventure);
+el("load-file")?.addEventListener("click", () => el("file-input").click());
 if (el("copy-readaloud")) {
   el("copy-readaloud").addEventListener("click", async () => {
     const text = el("read-aloud")?.textContent || "";
@@ -983,16 +993,16 @@ if (el("copy-readaloud")) {
     }
   });
 }
-el("new-seed").addEventListener("click", () => {
-  el("forge-seed").value = globalThis.OneShotGenerator?.newSeed?.() || "";
+el("new-seed")?.addEventListener("click", () => {
+  if (el("forge-seed")) el("forge-seed").value = globalThis.OneShotGenerator?.newSeed?.() || "";
 });
-el("open-saved").addEventListener("click", openSavedAdventure);
+el("open-saved")?.addEventListener("click", openSavedAdventure);
 
 ["forge-random","forge-random-side"].forEach(id => {
-  el(id).addEventListener("click", forgeRandomAdventure);
+  el(id)?.addEventListener("click", forgeRandomAdventure);
 });
 
-el("file-input").addEventListener("change", async event => {
+el("file-input")?.addEventListener("change", async event => {
   const file = event.target.files?.[0];
   if (!file) return;
   try {

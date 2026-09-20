@@ -3,234 +3,142 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="One-Shot Forge — original 5E-compatible adventures you can run from a browser.">
-  <title>One-Shot Forge</title>
+  <title>Run — The Lantern Below</title>
+  <meta name="description" content="Stage cards for The Lantern Below. Read, run, choose the next card.">
+  <link rel="canonical" href="https://cbw29512.github.io/oneshot-forge/run.html">
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260920o">
+  <link rel="stylesheet" href="styles.css?v=20260920p">
 </head>
-<body>
-  <a class="skip-link" href="#active-scene">Skip to active scene</a>
-
+<body class="run">
+  <a class="skip-link" href="#active-scene">Skip to stage card</a>
   <header class="topbar">
     <div>
       <p class="eyebrow">One-Shot Forge</p>
-      <h1 id="adventure-title">Opening The Lantern Below</h1>
+      <h1 id="adventure-title">The Lantern Below</h1>
       <p id="adventure-meta" class="muted"></p>
     </div>
     <div class="top-actions">
       <span id="ruleset-host"></span>
       <a class="button secondary" href="./">Home</a>
-      <a class="button secondary" href="campaign.html">Town</a>
       <a class="button secondary" href="sheets.html">Pregens</a>
-      <button id="forge-random" class="button" type="button">New random</button>
-      <a id="module-view" class="button secondary" href="module.html">Printable module</a>
-      <button id="export-adventure" class="button secondary" type="button">Export</button>
-      <button id="load-file" class="button secondary" type="button">Load JSON</button>
-      <input id="file-input" type="file" accept=".json,.oneshot.json,application/json" hidden>
       <button id="reset-state" class="button danger" type="button">Reset run</button>
     </div>
   </header>
 
-  <main class="layout">
-    <aside class="sidebar panel">
-      <details class="fold">
-        <summary>Forge a different one-shot</summary>
-        <div class="forge-controls">
-          <label for="forge-level">Party level</label>
-          <select id="forge-level">
-            <option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option>
-            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
-            <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
-            <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
-          </select>
-          <label for="forge-party">Players</label>
-          <select id="forge-party">
-            <option>2</option><option>3</option><option selected>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
-          </select>
-          <label for="forge-duration">Session length</label>
-          <select id="forge-duration">
-            <option value="2">2 hours</option>
-            <option value="3">3 hours</option>
-            <option value="4" selected>4 hours</option>
-            <option value="6">6 hours</option>
-          </select>
-          <label for="forge-tone">Tone</label>
-          <select id="forge-tone">
-            <option value="random" selected>Random</option>
-            <option value="heroic">Heroic</option>
-            <option value="mystery">Mystery</option>
-            <option value="horror">Horror</option>
-            <option value="weird">Weird Fantasy</option>
-          </select>
-          <label for="forge-seed">Seed</label>
-          <div class="seed-row">
-            <input id="forge-seed" type="text" autocomplete="off" spellcheck="false" placeholder="Generated automatically">
-            <button id="new-seed" class="button secondary small" type="button">New</button>
-          </div>
-          <label class="check-row" for="lock-seed">
-            <input id="lock-seed" type="checkbox">
-            <span>Reuse seed</span>
-          </label>
-          <button id="forge-random-side" class="button forge-wide" type="button">Forge</button>
-          <label for="saved-adventures">Saved in this browser</label>
-          <div class="seed-row">
-            <select id="saved-adventures" aria-label="Saved adventures"></select>
-            <button id="open-saved" class="button secondary small" type="button">Open</button>
-          </div>
-          <p id="save-status" class="tiny">Build 20260920f</p>
-        </div>
-      </details>
-
-      <div class="divider"></div>
+  <main class="run-layout" id="active-scene" tabindex="-1">
+    <article class="panel scene-panel stage-card">
+      <p class="eyebrow ember" id="stage-progress">Stage</p>
+      <div class="stage-bar" aria-hidden="true"><i id="stage-bar"></i></div>
       <div class="section-head">
-        <h2>Scenes</h2>
-        <span id="scene-count" class="badge"></span>
+        <div>
+          <p id="scene-kicker" class="eyebrow"></p>
+          <h2 id="scene-title" tabindex="-1">Scene</h2>
+        </div>
+        <span id="scene-pacing" class="badge"></span>
       </div>
-      <nav id="scene-list" aria-label="Adventure scenes"></nav>
 
-      <div class="divider"></div>
-      <h2>Quest</h2>
-      <p id="quest-objective"></p>
-      <p id="quest-stakes" class="muted"></p>
-      <label for="quest-stage">Stage</label>
-      <select id="quest-stage">
-        <option value="offered">Offered</option>
-        <option value="accepted">Accepted</option>
-        <option value="investigating">Investigating</option>
-        <option value="main-location">At main location</option>
-        <option value="finale">Finale</option>
-        <option value="resolved">Resolved</option>
-      </select>
-    </aside>
-
-    <section class="workspace" id="active-scene" tabindex="-1">
-      <article class="overview" id="adventure-overview">
-        <p class="eyebrow">At the table</p>
-        <p id="overview-pitch"></p>
-        <div class="clock" id="overview-clock"></div>
-        <div id="ruleset-notes" class="rules-notes" hidden></div>
-      </article>
-
-      <article class="panel scene-panel">
-        <div class="section-head">
-          <div>
-            <p id="scene-kicker" class="eyebrow"></p>
-            <h2 id="scene-title" tabindex="-1">Scene</h2>
+      <div class="module-page">
+        <section class="boxed-text">
+          <div class="read-head">
+            <p class="box-label">Read aloud</p>
+            <button id="copy-readaloud" class="button secondary small" type="button">Copy</button>
           </div>
-          <span id="scene-pacing" class="badge"></span>
-        </div>
-        <p id="scene-purpose" class="muted print-hide"></p>
+          <blockquote id="read-aloud"></blockquote>
+        </section>
+        <section class="dm-box">
+          <p class="box-label">What the DM needs</p>
+          <div id="dm-box"></div>
+        </section>
+        <section class="monster-box" id="monster-box-wrap" hidden>
+          <p class="box-label">Encounter</p>
+          <div id="monster-box"></div>
+        </section>
+      </div>
 
-        <div class="module-page">
-          <section class="boxed-text">
-            <div class="read-head">
-              <p class="box-label">Read aloud</p>
-              <button id="copy-readaloud" class="button secondary small" type="button">Copy</button>
-            </div>
-            <blockquote id="read-aloud"></blockquote>
-          </section>
+      <div id="play-maps" class="play-maps" hidden></div>
+      <div id="scene-mapnote-wrap">
+        <h3>Map</h3>
+        <div id="scene-mapnote" class="card"></div>
+      </div>
+      <div id="scene-clues-wrap">
+        <h3>Reward / clue this stage</h3>
+        <div id="scene-clues" class="stack"></div>
+      </div>
+      <div id="scene-exits-wrap">
+        <h3>What happens next</h3>
+        <div id="scene-exits" class="card-actions"></div>
+      </div>
+      <div class="scene-nav">
+        <button id="prev-scene" class="button secondary" type="button">Back</button>
+        <button id="next-scene" class="button" type="button">Next</button>
+      </div>
+    </article>
 
-          <section class="dm-box" id="dm-box-wrap">
-            <p class="box-label">For the DM — do not read this</p>
-            <div id="dm-box"></div>
-          </section>
-
-          <section class="monster-box" id="monster-box-wrap" hidden>
-            <p class="box-label">Monsters</p>
-            <div id="monster-box"></div>
-          </section>
-        </div>
-
-        <div id="scene-clues-wrap">
-          <h3>Clues here</h3>
-          <div id="scene-clues" class="stack"></div>
-        </div>
-
-        <div id="play-maps" class="play-maps" hidden></div>
-
-        <div id="scene-mapnote-wrap">
-          <h3>Map notes</h3>
-          <div id="scene-mapnote" class="card"></div>
-        </div>
-
-        <div id="scene-exits-wrap">
-          <h3>If they go</h3>
-          <div id="scene-exits" class="card-actions"></div>
-        </div>
-
-        <div class="scene-nav">
-          <button id="prev-scene" class="button secondary" type="button">Back</button>
-          <button id="next-scene" class="button" type="button">Next</button>
-        </div>
-      </article>
-
-      <article class="panel">
-        <div class="section-head">
-          <h2 id="map-title">Priory</h2>
-          <span class="muted">Tap a region</span>
-        </div>
-        <div id="map" class="map" aria-label="Adventure map"></div>
-      </article>
-    </section>
-
-    <aside class="tools">
-      <section class="panel">
-        <div class="section-head">
-          <h2>People</h2>
-        </div>
-        <div id="npc-list" class="stack"></div>
-      </section>
-
-      <section class="panel">
-        <div class="section-head">
-          <h2>Required clues</h2>
+    <details class="fold refs">
+      <summary>References (not the game)</summary>
+      <p id="overview-pitch" class="muted"></p>
+      <div id="overview-clock" class="clock"></div>
+      <div id="ruleset-notes" class="rules-notes" hidden></div>
+      <p id="scene-purpose" class="print-hide" hidden></p>
+      <div class="pack-grid">
+        <section>
+          <h3>Scenes</h3>
+          <span id="scene-count" class="badge"></span>
+          <nav id="scene-list" aria-label="Adventure scenes"></nav>
+          <h3>Quest</h3>
+          <p id="quest-objective"></p>
+          <p id="quest-stakes" class="muted"></p>
+          <label for="quest-stage">Stage</label>
+          <select id="quest-stage">
+            <option value="offered">Offered</option>
+            <option value="accepted">Accepted</option>
+            <option value="investigating">Investigating</option>
+            <option value="main-location">At main location</option>
+            <option value="finale">Finale</option>
+            <option value="resolved">Resolved</option>
+          </select>
+        </section>
+        <section>
+          <h3>People</h3>
+          <div id="npc-list" class="stack"></div>
+        </section>
+        <section>
+          <h3>Required clues</h3>
           <span id="clue-progress" class="badge"></span>
-        </div>
-        <div id="required-clues" class="stack"></div>
-      </section>
-
-      <section class="panel">
-        <details class="fold" open>
-          <summary>Pregens if they need characters</summary>
-          <p class="muted">Twelve original level-4 2014 SRD characters. Print them from Pregens — D&D Beyond cannot import JSON.</p>
-          <div id="pregen-list" class="stack"></div>
-        </details>
-      </section>
-
-      <section class="panel">
-        <details class="fold" open>
-          <summary>Prepared vs rushed</summary>
-          <p class="muted">Never lock the ending. Pay the table that did the work. Make the smash-through spend more.</p>
+          <div id="required-clues" class="stack"></div>
+        </section>
+        <section>
+          <h3>Prepared vs rushed</h3>
           <div id="pressure-list" class="stack"></div>
-        </details>
-      </section>
-
-      <section class="panel">
-        <h2>Pay and endings</h2>
-        <div id="resource-list" class="stack"></div>
-      </section>
-
-      <section class="panel">
-        <details class="fold">
-          <summary>They went off-script</summary>
-          <p class="muted">The night does not hinge on one NPC. Apply a backup only if it matches what happened.</p>
+        </section>
+        <section>
+          <h3>Pay and endings</h3>
+          <div id="resource-list" class="stack"></div>
+        </section>
+        <section>
+          <h3>Off-script</h3>
           <div id="recovery-list" class="stack"></div>
-        </details>
-      </section>
-
-      <section class="panel">
-        <details class="fold">
-          <summary>AI dialogue packet</summary>
-          <p class="muted">Select a person first. Improvises wording, not facts.</p>
-          <pre id="ai-context">No NPC selected.</pre>
-        </details>
-      </section>
-    </aside>
+        </section>
+        <section>
+          <h3>Region map</h3>
+          <div id="map" class="map" aria-label="Adventure map"></div>
+          <p id="map-title" class="tiny"></p>
+        </section>
+        <section>
+          <h3>12 pregens, 6 recommended</h3>
+          <div id="pregen-list" class="stack"></div>
+        </section>
+      </div>
+      <pre id="ai-context" hidden>No NPC selected.</pre>
+      <p class="tiny"><button id="export-adventure" class="button secondary small" type="button">Export JSON</button>
+        <button id="load-file" class="button secondary small" type="button">Load JSON</button>
+        <a href="module.html">Printable module</a> · <a href="forge.html">Forge Lab</a></p>
+      <input id="file-input" type="file" accept=".json,.oneshot.json,application/json" hidden>
+    </details>
   </main>
-
   <div id="toast" role="status" aria-live="polite"></div>
-  <script src="rules.js?v=20260920o"></script>
-  <script src="generator.js?v=20260920o"></script>
-  <script src="app.js?v=20260920o"></script>
+  <script src="rules.js?v=20260920p"></script>
+  <script src="generator.js?v=20260920p"></script>
+  <script src="app.js?v=20260920p"></script>
 </body>
 </html>

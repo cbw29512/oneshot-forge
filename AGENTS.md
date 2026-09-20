@@ -26,4 +26,5 @@ One-Shot Forge is an original fantasy RPG one-shot builder and web GM runner. Do
 - Stay on this repository only.
 - Read `docs/STATUS.md` first. Do the next item on that list. Update STATUS when you stop.
 - If the next item is blocked (needs payment account, Episode 2 facts the owner has not confirmed), stop and write the blocker in STATUS. Do not invent a different project.
+- Do not author Episode 2 until docs/STATUS.md says Chris approved The Lantern Below.
 

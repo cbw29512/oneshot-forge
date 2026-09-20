@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Forge Lab — One-Shot Forge</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/mark-lantern.jpg">
+  <link rel="stylesheet" href="styles.css?v=20260920p">
+</head>
+<body class="landing">
+  <header class="land-bar">
+    <a class="brand" href="./"><img src="assets/mark-lantern.jpg" alt="" width="36" height="36"><span>One-Shot Forge</span></a>
+    <nav class="land-nav"><a href="./">Adventures</a></nav>
+  </header>
+  <main>
+    <section class="land-section" style="border-top:0">
+      <p class="eyebrow">Not the product</p>
+      <h1>Forge Lab</h1>
+      <p class="lede short">This generates a random structural one-shot. It is a toy. The catalog is authored nights. If you forge something here it opens in the runner as a saved pack in this browser.</p>
+      <div class="forge-controls" style="max-width:28rem">
+        <label for="forge-level">Party level</label>
+        <select id="forge-level"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option></select>
+        <label for="forge-party">Players</label>
+        <select id="forge-party"><option>3</option><option selected>4</option><option>5</option><option>6</option></select>
+        <label for="forge-duration">Hours</label>
+        <select id="forge-duration"><option value="3">3</option><option value="4" selected>4</option></select>
+        <label for="forge-tone">Tone</label>
+        <select id="forge-tone"><option value="random">Random</option><option value="horror">Horror</option><option value="heroic">Heroic</option></select>
+        <label for="forge-seed">Seed</label>
+        <input id="forge-seed" type="text">
+        <button id="forge-go" class="button ember" type="button">Forge and open</button>
+      </div>
+    </section>
+  </main>
+  <script src="generator.js?v=20260920p"></script>
+  <script>
+    document.getElementById("forge-go").addEventListener("click", () => {
+      const gen = globalThis.OneShotGenerator;
+      if (!gen) return alert("Generator missing.");
+      const seed = document.getElementById("forge-seed").value.trim() || gen.newSeed();
+      const pkg = gen.generate({
+        level: Number(document.getElementById("forge-level").value),
+        partySize: Number(document.getElementById("forge-party").value),
+        durationHours: Number(document.getElementById("forge-duration").value),
+        tone: document.getElementById("forge-tone").value,
+        seed
+      });
+      localStorage.setItem("oneshot-forge:package:" + pkg.metadata.id, JSON.stringify(pkg));
+      localStorage.setItem("oneshot-forge:last-adventure", pkg.metadata.id);
+      location.href = "run.html";
+    });
+  </script>
+</body>
+</html>
