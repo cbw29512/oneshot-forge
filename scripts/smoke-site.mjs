@@ -32,8 +32,8 @@ if (!lantern.includes("Start adventure")) errors.push("adventure page missing St
 for (const rel of [
   "about.html", "privacy.html", "contact.html", "forge.html",
   "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg",
-  "data/adventures/the-lantern-below.oneshot.json"
-]) read(rel);
+read("data/adventures/the-well-that-would-not-dry.oneshot.json");
+if (!index.includes("the-well-that-would-not-dry")) errors.push("homepage missing Night 2 card");
 
 const hrefs = [...index.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
 for (const href of hrefs) {

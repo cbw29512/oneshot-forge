@@ -146,8 +146,8 @@
       "number": 2,
       "title": "The Well That Would Not Dry",
       "giver": "npc-oda-flint",
-      "status": "coming",
-      "price": "$0.99",
+      "status": "live",
+      "price": "free",
       "image": "Saltmere\u2019s well still gives water. The water forgets your name.",
       "clock": "Until the bucket comes up dry.",
       "fork": "Keep the well, break the well, or let Saltmere drink and forget.",
@@ -155,7 +155,9 @@
       "tale": "Tam Lin / stolen names",
       "trap": "The bucket that drinks a name",
       "puzzle": "Which cup is still yours",
-      "talkOut": "The well-thing wants a name, not a fight"
+      "talkOut": "The well-thing wants a name, not a fight",
+      "href": "run.html?id=the-well-that-would-not-dry",
+      "pack": "data/adventures/the-well-that-would-not-dry.oneshot.json"
     },
     {
       "id": "episode-watch",

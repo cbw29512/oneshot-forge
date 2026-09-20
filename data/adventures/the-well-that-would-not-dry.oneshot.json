@@ -1,0 +1,911 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-well-that-would-not-dry",
+    "title": "The Well That Would Not Dry",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 4,
+    "partySize": 4,
+    "partySizeRange": "3\u20136 players",
+    "durationMinutes": 240,
+    "tone": [
+      "horror",
+      "mystery",
+      "folk"
+    ]
+  },
+  "pregenPack": "data/pregens/quiet-seals-level-4-2014-srd.json",
+  "pregenPack2024": "data/pregens/quiet-seals-level-4-2024-srd.json",
+  "series": {
+    "id": "quiet-seals",
+    "title": "The Quiet Seals",
+    "hub": "Hearthford",
+    "episode": 2,
+    "episodeTitle": "The Well That Would Not Dry",
+    "giver": "Reeve Oda Flint",
+    "nextTitle": "Pick another notable \u2014 or keep Oda Trusted",
+    "campaign": "data/campaigns/quiet-seals.campaign.json"
+  },
+  "setup": {
+    "pitch": "Saltmere\u2019s well still gives water. The water forgets your name.",
+    "openingLocation": "Hearthford mill loft",
+    "gmSummary": "The well at Saltmere is another Quiet Seal. A name-stone in the cistern was pried loose. The Draught in the water pays for rain with names. Oda Flint sent the party. Mill Kade keeps the well and will lie to save it. Jory Salt drank this morning and cannot say his daughter\u2019s name. Clock: at dusk the bucket comes up dry and the Draught takes a whole household. Four endings: plug the stone, trick it with a false name, break the well, or let Saltmere drink and forget. No one NPC is required. Campaign fact from Episode 1 (lantern ending) colors how hungry the Draught is, it does not change the graph.",
+    "campaignFrame": "After Briar Glen, they are back in Hearthford. Oda Flint (mill, building 2) has the next job. Mark her Helped when this night ends."
+  },
+  "quest": {
+    "type": "break curse / retrieve",
+    "objective": "Stop the well from drinking names before the dusk bucket comes up dry.",
+    "stakes": "If the bucket is dry at dusk, one household in Saltmere forgets itself.",
+    "deadline": "Dusk, about four hours after Oda sends them.",
+    "successConditions": [
+      "The Draught is bound, starved, tricked, or the name-stone is reseated.",
+      "Saltmere still has water, or the table chose thirst on purpose."
+    ],
+    "failureConditions": [
+      "Dusk, dry bucket, no new arrangement.",
+      "The party leaves Saltmere without touching the well or the stone."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-seal",
+        "text": "The well is a Quiet Seal, same family as Briar Glen\u2019s lantern."
+      },
+      {
+        "id": "fact-stone",
+        "text": "A carved name-stone was pried from the cistern wall."
+      },
+      {
+        "id": "fact-draught",
+        "text": "Something in the water \u2014 the Draught \u2014 buys rain with names."
+      },
+      {
+        "id": "fact-dusk",
+        "text": "When the dusk bucket comes up dry, it takes a whole household."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-mill",
+        "text": "Mill Kade pried the stone because she wanted to forget a fire she caused last winter.",
+        "revealCondition": "Confront her with the dry cup, her confession, or the scratch marks matching her well-hook."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-oda-flint",
+      "name": "Reeve Oda Flint",
+      "role": "quest giver",
+      "personality": [
+        "dry",
+        "corrects you once",
+        "protective of grain"
+      ],
+      "voiceCues": [
+        "short sentences",
+        "names the well before she names people"
+      ],
+      "wants": [
+        "The well keeps water and names"
+      ],
+      "fears": [
+        "Hearthford\u2019s mill running dry"
+      ],
+      "knows": [
+        "Saltmere\u2019s well has always given more than the rain",
+        "Jory drank this morning and could not say his daughter\u2019s name",
+        "The dusk bucket is the clock"
+      ],
+      "believes": [
+        "Mill Kade is tired, not guilty"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "Who pried the name-stone",
+        "The Draught\u2019s true name"
+      ],
+      "revealRules": [
+        {
+          "fact": "Dusk bucket is the clock.",
+          "when": "When she hires them."
+        }
+      ],
+      "questFunction": "Starts the night. If dead or refused, her written order on the mill desk and Jory on the road still send them."
+    },
+    {
+      "id": "npc-mill-kade",
+      "name": "Mill Kade",
+      "role": "well-keeper",
+      "personality": [
+        "careful",
+        "guilty",
+        "will trade water for silence"
+      ],
+      "voiceCues": [
+        "talks to the well first",
+        "says \u2018we\u2019 for the village"
+      ],
+      "wants": [
+        "The well to keep giving",
+        "No one to learn about the fire"
+      ],
+      "fears": [
+        "Thirst",
+        "Her name on the next bucket"
+      ],
+      "knows": [
+        "The cistern has a loose stone with a name cut in it",
+        "The Draught answers if you speak into the shaft",
+        "Four cups on the well-house shelf"
+      ],
+      "believes": [
+        "If they smash the well, Saltmere dies by autumn"
+      ],
+      "secrets": [
+        "She pried the name-stone to forget the mill fire"
+      ],
+      "lies": [
+        "At first: the stone fell on its own in the freeze"
+      ],
+      "cannotKnow": [
+        "Whether a false name will choke the Draught"
+      ],
+      "revealRules": [
+        {
+          "fact": "She pried the stone.",
+          "when": "Shown the dry cup, the matching hook scratches, or a successful DC 13 Insight after the fire is mentioned."
+        }
+      ],
+      "questFunction": "Local contact and one source for the stone. Not required."
+    },
+    {
+      "id": "npc-jory-salt",
+      "name": "Jory Salt",
+      "role": "witness who already paid",
+      "personality": [
+        "afraid",
+        "practical",
+        "keeps asking you to say his daughter\u2019s name so he can hear it"
+      ],
+      "voiceCues": [
+        "repeats the last word you said",
+        "does not say \u2018Lina\u2019 unless you say it first"
+      ],
+      "wants": [
+        "His daughter\u2019s name back"
+      ],
+      "fears": [
+        "The dusk bucket"
+      ],
+      "knows": [
+        "He drank at dawn and the name left",
+        "The well-house has four tin cups",
+        "A wet rope leads down"
+      ],
+      "believes": [
+        "Mill is hiding something"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "Where the name-stone sits now"
+      ],
+      "revealRules": [
+        {
+          "fact": "Drinking the well takes a name.",
+          "when": "Asked what happened this morning."
+        }
+      ],
+      "questFunction": "Backup clue and talk-out leverage with the Draught (offer Lina\u2019s name only if the table is cruel \u2014 print that cost)."
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-hearthford-mill",
+      "name": "Hearthford mill loft",
+      "description": "Grain, chalk tallies, Oda\u2019s desk.",
+      "connections": [
+        "loc-saltmere-square"
+      ]
+    },
+    {
+      "id": "loc-saltmere-square",
+      "name": "Saltmere well-square",
+      "description": "Twenty roofs, a stone well, mill to the west, road south to Hearthford.",
+      "connections": [
+        "loc-hearthford-mill",
+        "loc-well-house",
+        "loc-jory"
+      ]
+    },
+    {
+      "id": "loc-jory",
+      "name": "Jory\u2019s cottage",
+      "description": "One room. A child\u2019s slate with a name written and rubbed out.",
+      "connections": [
+        "loc-saltmere-square"
+      ]
+    },
+    {
+      "id": "loc-well-house",
+      "name": "Well-house",
+      "description": "Shed over the well. Four tin cups. Trapdoor to the shaft.",
+      "connections": [
+        "loc-saltmere-square",
+        "loc-shaft"
+      ]
+    },
+    {
+      "id": "loc-shaft",
+      "name": "Well shaft",
+      "description": "Rungs, wet rope, 40 feet down.",
+      "connections": [
+        "loc-well-house",
+        "loc-cistern"
+      ]
+    },
+    {
+      "id": "loc-cistern",
+      "name": "Cistern",
+      "description": "Forty-foot circle. Walkway. Dark water 15 feet across. Loose name-stone on the ring.",
+      "connections": [
+        "loc-shaft"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-hook",
+      "title": "The Reeve\u2019s Well",
+      "purpose": "Oda hires them. Clock is dusk. Seed Saltmere and the missing name.",
+      "locationId": "loc-hearthford-mill",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "readAloud": "Hearthford\u2019s mill smells of wet grain and chalk. Reeve Oda Flint does not sit. She turns a tally-stick in her hands until the numbers face you.\n\n\u201cSaltmere\u2019s well still draws,\u201d she says. \u201cThe water does not keep names. Jory Salt drank at dawn and could not say his daughter. Dusk is the bad bucket. If it comes up dry, a house forgets itself. I need you there before that.\u201d\n\nOn the desk, already written: an order to Mill Kade, well-keeper, and a note of fifty gold if the well still knows people by nightfall.",
+      "gmNotes": [
+        "Oda is the giver. DC 12 Insight: she is afraid for grain, not for folklore.",
+        "If they refuse or kill her, the written order and Jory on the south road still send them. Recovery.",
+        "Episode 1 fact: if the lantern was smashed, Oda says the ridge \u2018has been thirsty since the flame went\u2019. Cosmetic hunger, same graph.",
+        "Pay: 50 gp now, 50 gp when they return with a well that still names people \u2014 or with a honest reason it does not."
+      ],
+      "npcIds": [
+        "npc-oda-flint"
+      ],
+      "clueIds": [
+        "clue-dusk"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-square"
+      ]
+    },
+    {
+      "id": "scene-square",
+      "title": "The Well That Still Gives",
+      "purpose": "Guardian beat. See the well. Fight, sneak, or talk past the Name-Drowned.",
+      "locationId": "loc-saltmere-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "readAloud": "Saltmere is twenty roofs around a stone well. The bucket is wet. The puddle at the lip does not reflect faces \u2014 only the sky.\n\nPeople draw water and do not drink it. They carry it inside and wait. A woman in a waxed coat \u2014 Mill Kade \u2014 stands between you and the well-house with a hook in her hand.\n\nIn the trough, three shapes sit up. They have the outlines of people who drank here and did not get their names back. They do not speak. They mouth words that have no sound.",
+      "gmNotes": [
+        "Name-Drowned: 3 creatures, AC 12, 22 HP. See Encounters. They rise if anyone drinks, attacks the well, or shoves Mill aside. They do not chase past the square.",
+        "Talk: Persuasion DC 13 with Mill \u2014 she lets them into the well-house if they swear not to break the well. Insight DC 12: she is guilty, not only tired.",
+        "Bypass: Stealth DC 12 group along the mill wall into the well-house. Failure starts the fight 15 feet from the well.",
+        "Jory\u2019s cottage is west if they ask where the man who forgot a child lives."
+      ],
+      "npcIds": [
+        "npc-mill-kade"
+      ],
+      "clueIds": [
+        "clue-draught",
+        "clue-seal"
+      ],
+      "encounterIds": [
+        "enc-name-drowned"
+      ],
+      "exits": [
+        "scene-jory",
+        "scene-cups",
+        "scene-shaft"
+      ]
+    },
+    {
+      "id": "scene-jory",
+      "title": "The Name That Would Not Stay",
+      "purpose": "Backup clues. Jory. Optional. Not a hinge.",
+      "locationId": "loc-jory",
+      "pacingClass": "optional",
+      "estimatedMinutes": 20,
+      "readAloud": "Jory Salt has the door open. A girl of seven sits on the step with a slate. The slate says LINA in a child\u2019s hand. Jory looks at it as if it were a map of a country he has not visited.\n\n\u201cI know she is mine,\u201d he says. \u201cI do not know the sound. If you go down the well, do not drink. The bucket is a mouth.\u201d",
+      "gmNotes": [
+        "He describes the four cups and the wet rope. That is clue-cups physical backup.",
+        "He will not go down. He will shout \u2018LINA\u2019 from the square if they need a true name at the cistern \u2014 that is a cost. Record it.",
+        "If they skip this scene, the slate is still visible from the square (physical)."
+      ],
+      "npcIds": [
+        "npc-jory-salt"
+      ],
+      "clueIds": [
+        "clue-stone"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-square",
+        "scene-cups"
+      ]
+    },
+    {
+      "id": "scene-cups",
+      "title": "Four Cups",
+      "purpose": "Puzzle beat. Opens the trapdoor honestly.",
+      "locationId": "loc-well-house",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "readAloud": "The well-house is a shed. Four tin cups sit on a wet shelf, each sweating a name: ODA, JORY, MILL, and one cup that is dry and blank.\n\nThe trapdoor to the shaft is barred with a simple wooden latch carved in the same hand as the names. It will not lift while the three wet cups still hold water.",
+      "gmNotes": [
+        "Puzzle: the dry cup is the key. Empty the three wet cups back into the well (or drink \u2014 each drink is a name, Wis DC 13 or lose a trivial name until dawn) and the latch opens.",
+        "Solution is the dry cup covering a chip of the name-stone. Investigation DC 12 notices the dry ring and the chip.",
+        "Fail-forward: smash the latch (Str DC 12). The cups spill; the Name-Drowned in the square, if still up, hear it and climb the roof. The shaft still opens.",
+        "Do not let the puzzle eat twenty minutes of guessing. After two wrong tries, tell them the dry cup is wrong in a different way \u2014 it is dry because it hid the chip."
+      ],
+      "npcIds": [],
+      "clueIds": [
+        "clue-stone"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-shaft",
+        "scene-square"
+      ]
+    },
+    {
+      "id": "scene-shaft",
+      "title": "The Bucket That Drinks",
+      "purpose": "Trap. Fail-forward into the cistern.",
+      "locationId": "loc-shaft",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "readAloud": "The shaft is forty feet of wet rungs. A bucket hangs on a new rope, dripping. Names bead on the inside of the tin and slide off before you can read them.\n\nHalfway down, the bucket knocks against a rung as if it were being drawn from below.",
+      "gmNotes": [
+        "Trap: using the bucket or standing on the same rung it strikes. Wisdom DC 13. Failure: 2d6 psychic and your name appears on the next bucket \u2014 fiction only, you still have your character sheet. Success: half damage, no name on the tin.",
+        "Fail-forward: either way they can keep climbing. The cistern is open.",
+        "Athletics DC 12 to climb with no incident if they ignore the bucket (tie it off). Failure means the trap fires once."
+      ],
+      "npcIds": [],
+      "clueIds": [
+        "clue-dusk"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-cistern",
+        "scene-cups"
+      ]
+    },
+    {
+      "id": "scene-cistern",
+      "title": "The Draught",
+      "purpose": "Climax. Fight, plug, trick, or feed.",
+      "locationId": "loc-cistern",
+      "pacingClass": "core",
+      "estimatedMinutes": 50,
+      "readAloud": "The cistern is a forty-foot ring of old stone. Water occupies the middle, black and still, fifteen feet across. A carved stone the size of a loaf lies on the walkway, name-side down. The empty socket in the wall weeps.\n\nThe water stands up. It has too many mouths and none of them are sure they belong to it.\n\n\u201cPut it back,\u201d the mouths say, \u201cor give me a name that still remembers itself. Or break the ring. I will be very thirsty either way.\u201d",
+      "gmNotes": [
+        "Roll initiative after read-aloud unless they answer immediately with a legal talk-out (then delay initiative).",
+        "Draught: AC 14, 72 HP, swim 40. See Encounters.",
+        "Four legal jobs: (1) 0 HP. (2) Action: reseat the name-stone, Athletics or Religion DC 13, three successes before the Draught hits 0 or dusk. (3) Bargain: offer a false name, Deception DC 15, or a true name you have permission to give. (4) Smash the well-ring: Strength DC 15, well dies, town thirsty, Draught reduced to 0.",
+        "Talk-out is real. It wants a name. It does not need to be a boss fight.",
+        "Prepared: start at 54 HP. Rushed (skipped cups and Jory): it acts first and the stone is in the water (need a DC 12 Athletics to fetch)."
+      ],
+      "npcIds": [],
+      "clueIds": [
+        "clue-seal",
+        "clue-draught"
+      ],
+      "encounterIds": [
+        "enc-draught"
+      ],
+      "exits": [
+        "scene-resolution"
+      ]
+    },
+    {
+      "id": "scene-resolution",
+      "title": "What the Well Remembers",
+      "purpose": "Pay, campaign fact, back to Hearthford.",
+      "locationId": "loc-saltmere-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "readAloud": "Dusk on the square. People wait to see whether the bucket comes up with water, with a name, or with nothing.\n\nOda is on the south road if you go back. She will ask what the well costs now. Mark her Helped. If you kept Mill\u2019s secret, Trusted is a conversation, not an automatic.",
+      "gmNotes": [
+        "Apply the ending. Pay remaining gold if they were honest.",
+        "Write the campaign fact on the town page.",
+        "Do not start Episode 3 tonight unless the table is still standing and Chris has more nights live."
+      ],
+      "npcIds": [
+        "npc-oda-flint",
+        "npc-mill-kade",
+        "npc-jory-salt"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-dusk",
+      "revelation": "If the dusk bucket comes up dry, a household forgets itself.",
+      "required": true,
+      "sources": [
+        "Oda says it",
+        "Jory says it",
+        "a record scratched on the well-house wall: DUSK = HOUSE"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-seal",
+      "revelation": "The well is a Quiet Seal, kin to the lantern.",
+      "required": true,
+      "sources": [
+        "Oda if they mention Briar Glen",
+        "inscription on the name-stone",
+        "Mill if pressed after the cups"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-stone",
+      "revelation": "A name-stone was pried from the cistern wall.",
+      "required": true,
+      "sources": [
+        "the chip object under the dry cup",
+        "Mill\u2019s hook scratches on the stone",
+        "the empty socket in the cistern chamber"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-draught",
+      "revelation": "The Draught in the water buys rain with names.",
+      "required": true,
+      "sources": [
+        "the Name-Drowned mouthing it",
+        "Mill if allied",
+        "an inscription on the cistern ring: RAIN FOR NAMES"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-name-drowned",
+      "name": "Name-Drowned",
+      "type": "combat or bypass",
+      "difficulty": "low",
+      "summary": "Three wet dead from the trough. They mouth forgotten names.",
+      "resolution": "Fight, stealth, or talk Mill into sending them under.",
+      "talkOut": "Persuasion DC 13 with Mill: she calls them by no-name and they sit back down. They do not negotiate themselves.",
+      "bypass": "Stealth DC 12 group into the well-house. They do not chase past the square.",
+      "special": "Ambush if someone drinks from the well. Fight until destroyed or Mill\u2019s talk-out. No pursuit."
+    },
+    {
+      "id": "enc-draught",
+      "name": "The Draught",
+      "type": "boss / ritual / bargain",
+      "difficulty": "high",
+      "summary": "A water-that-is-names. Wants a name, a stone, or a broken ring.",
+      "resolution": "Kill, reseat the stone, trick with a false name, give a true name, or smash the well.",
+      "talkOut": "Deception DC 15 with a false name, or Persuasion DC 13 with a true name freely given. It then withdraws. Record the cost.",
+      "special": "Does not leave the cistern. Will negotiate before the first attack if they speak. Smash the ring is Strength DC 15 and ends it, town thirsty."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-cups",
+      "name": "Four Cups",
+      "locationId": "loc-well-house",
+      "prompt": "Three cups sweat names. One is dry and blank. The latch will not lift.",
+      "solution": "The dry cup hides a chip of the name-stone. Empty the wet cups or lift the dry one. Investigation DC 12 notices the dry ring.",
+      "failForward": "Smash the latch (Str DC 12). The shaft opens. The Name-Drowned hear it if still active."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-bucket",
+      "name": "The Bucket That Drinks",
+      "locationId": "loc-shaft",
+      "trigger": "Using the bucket or sharing a rung when it knocks.",
+      "save": "Wisdom DC 13",
+      "dc": 13,
+      "effect": "2d6 psychic. Failure also writes your name on the next bucket (fiction). Success: half damage, no name.",
+      "purpose": "Fail-forward: the climb continues either way."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-name-stone",
+      "name": "Name-stone",
+      "type": "quest artifact",
+      "description": "A loaf-sized carved stone. One face is a name that will not stay in the mouth.",
+      "stateOptions": [
+        "on-walkway",
+        "in-water",
+        "reseated",
+        "destroyed"
+      ]
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-saltmere",
+      "name": "Saltmere",
+      "asset": "assets/maps/saltmere.jpg",
+      "regions": [
+        {
+          "id": "reg-well",
+          "name": "Well",
+          "sceneId": "scene-square"
+        },
+        {
+          "id": "reg-house",
+          "name": "Well-house",
+          "sceneId": "scene-cups"
+        }
+      ]
+    },
+    {
+      "id": "map-cistern",
+      "name": "Cistern",
+      "asset": "assets/maps/cistern.jpg",
+      "regions": [
+        {
+          "id": "reg-water",
+          "name": "Black water",
+          "sceneId": "scene-cistern"
+        },
+        {
+          "id": "reg-ring",
+          "name": "Walkway",
+          "sceneId": "scene-cistern"
+        }
+      ]
+    }
+  ],
+  "playMaps": [
+    {
+      "sceneIds": [
+        "scene-square",
+        "scene-jory"
+      ],
+      "title": "Saltmere (player handout)",
+      "kind": "handout",
+      "src": "assets/maps/saltmere.jpg",
+      "playerSafe": true,
+      "caption": "No secrets. Well, mill, road to Hearthford."
+    },
+    {
+      "sceneIds": [
+        "scene-cistern"
+      ],
+      "title": "Cistern 40\u00d740",
+      "kind": "combat",
+      "src": "assets/maps/cistern.jpg",
+      "grid": "5 ft",
+      "notes": [
+        "Central water 15 ft",
+        "Walkway ring",
+        "Name-stone on the ring unless rushed (then in the water)"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-stone",
+      "name": "The Stone Goes Home",
+      "condition": "Name-stone reseated.",
+      "result": "The well keeps water and names. Mill\u2019s fire is still a secret unless they told it. Oda Helped."
+    },
+    {
+      "id": "ending-false",
+      "name": "A Name That Was Never Anyone",
+      "condition": "The Draught accepts a false name.",
+      "result": "It withdraws, hungry. The well works until the lie wears. Campaign fact: the Draught will ask again in a later night."
+    },
+    {
+      "id": "ending-true",
+      "name": "A Name Freely Given",
+      "condition": "Someone gives a true name with permission.",
+      "result": "The Draught sleeps. Record whose name. That person is Bound to Saltmere in a way the town will notice."
+    },
+    {
+      "id": "ending-broken",
+      "name": "Thirst",
+      "condition": "The well-ring is smashed or the Draught is destroyed without reseating.",
+      "result": "No more names taken. No more extra water. Saltmere hauls from Hearthford. Oda is not pleased and still Helped if they were honest."
+    },
+    {
+      "id": "ending-drink",
+      "name": "Let Them Forget",
+      "condition": "The table walks away before dusk with no new arrangement.",
+      "result": "The dusk bucket is dry. One household (Jory\u2019s, if they met him) forgets itself. The well still gives. This is a legal, ugly ending."
+    }
+  ],
+  "recovery": {
+    "principle": "No single NPC is required. The ending is never locked.",
+    "routes": [
+      {
+        "trigger": "Oda refuses, missing, or dead",
+        "response": "Written mill order and Jory on the south road. Clock still dusk."
+      },
+      {
+        "trigger": "Mill attacked or skipped",
+        "response": "Cups, wall tally, and cistern socket still tell the stone story."
+      },
+      {
+        "trigger": "Jory skipped or hostile",
+        "response": "The child\u2019s slate is visible from the square. Cups still open the shaft."
+      },
+      {
+        "trigger": "Puzzle smashed or shaft skipped by jumping",
+        "response": "They land in the cistern. Trap still can fire once. Finale still runs."
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared pays. Rush costs. The ending is never locked; they still finish.",
+    "prepared": [
+      "Spoke with Jory: he will shout a name from the square if they ask (cost if it is Lina).",
+      "Solved cups without smashing: name-stone starts on the walkway; Draught 54 HP."
+    ],
+    "rushed": [
+      "Skipped cups and Jory: stone is in the water (Athletics DC 12 to fetch).",
+      "Drank from the well: one PC starts the cistern with a name on the bucket (disadvantage on the first save vs the Draught)."
+    ]
+  },
+  "oneshotRecipe": {
+    "shape": "five-room",
+    "genre": "Horror",
+    "tale": "Tam Lin / stolen names",
+    "rooms": [
+      {
+        "beat": "1 Guardian",
+        "scene": "scene-square",
+        "note": "Name-Drowned or Mill\u2019s talk-out"
+      },
+      {
+        "beat": "2 Puzzle",
+        "scene": "scene-cups",
+        "note": "Dry cup / name-stone chip"
+      },
+      {
+        "beat": "3 Trick",
+        "scene": "scene-shaft",
+        "note": "Bucket trap Wis DC 13"
+      },
+      {
+        "beat": "4 Climax",
+        "scene": "scene-cistern",
+        "note": "Plug, trick, smash, or fight"
+      },
+      {
+        "beat": "5 Revelation",
+        "scene": "scene-resolution",
+        "note": "Campaign fact in Hearthford"
+      }
+    ]
+  },
+  "xpBudget": {
+    "edition": "SRD 5.2.1",
+    "party": "4 \u00d7 level 4",
+    "low": 1000,
+    "moderate": 1500,
+    "high": 2000
+  },
+  "rulesets": {
+    "2014": {
+      "notes": [
+        "Name-Drowned are original undead, zombie-adjacent, not SRD zombies by name.",
+        "Draught original. Psychic damage, Wis saves. No non-SRD spells required."
+      ]
+    },
+    "2024": {
+      "notes": [
+        "Same numbers. 2024 pregen pack if the table toggles. No Extra Attack at 4. Paladin smite is a spell."
+      ]
+    }
+  },
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-hook",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-oda-flint": {
+        "status": "alive",
+        "attitude": "brisk"
+      },
+      "npc-mill-kade": {
+        "status": "alive",
+        "attitude": "guarded"
+      },
+      "npc-jory-salt": {
+        "status": "alive",
+        "attitude": "desperate"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-name-stone": "on-walkway"
+    },
+    "eventState": {
+      "event-dusk": "pending"
+    },
+    "sceneHistory": []
+  },
+  "quickrun": {
+    "adventureId": "the-well-that-would-not-dry",
+    "version": "0.1.0",
+    "target": {
+      "level": 4,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-mill",
+      "check-cups",
+      "check-stone",
+      "check-false"
+    ],
+    "checks": [
+      {
+        "id": "check-mill",
+        "sceneId": "scene-square",
+        "label": "Talk Mill into opening the well-house",
+        "dc": 13,
+        "ability": "Charisma (Persuasion)",
+        "success": "She sends the Name-Drowned under and unbars the shed. Insight DC 12 along the way: she is guilty.",
+        "failure": "She refuses. Stealth or a fight still opens the night. Required clues are not lost."
+      },
+      {
+        "id": "check-cups",
+        "sceneId": "scene-cups",
+        "label": "Notice the dry cup hides the chip",
+        "dc": 12,
+        "ability": "Intelligence (Investigation)",
+        "success": "Find the name-stone chip. Latch opens.",
+        "failure": "They can still empty cups or smash the latch (Str DC 12)."
+      },
+      {
+        "id": "check-stone",
+        "sceneId": "scene-cistern",
+        "label": "Reseat the name-stone",
+        "dc": 13,
+        "ability": "Strength (Athletics) or Intelligence (Religion)",
+        "success": "Gain 1 of 3 seating successes.",
+        "failure": "No progress. The acting character is pulled 5 ft toward the water."
+      },
+      {
+        "id": "check-false",
+        "sceneId": "scene-cistern",
+        "label": "Feed a false name",
+        "dc": 15,
+        "ability": "Charisma (Deception)",
+        "success": "The Draught withdraws. Ending-false.",
+        "failure": "It knows. Whispering drink: 3d6 psychic, Wis DC 13 half, and it attacks the speaker."
+      },
+      {
+        "id": "check-true",
+        "sceneId": "scene-cistern",
+        "label": "Give a true name with permission",
+        "dc": 13,
+        "ability": "Charisma (Persuasion)",
+        "success": "The Draught sleeps. Record the name. Ending-true.",
+        "failure": "It takes a syllable anyway (fiction) and the fight continues. The name is not fully given."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-name-drowned",
+        "objective": "Cross the square or put the drowned down.",
+        "start": "Three Name-Drowned sit up in the trough if the well is threatened, drunk from, or Mill is shoved.",
+        "bypass": "Persuasion DC 13 with Mill, or Stealth DC 12 group.",
+        "creatures": [
+          {
+            "name": "Name-Drowned",
+            "count": 3,
+            "ac": 12,
+            "hp": 22,
+            "speed": "20 ft., swim 20 ft.",
+            "attack": "Wet Hands. Melee +4 to hit, reach 5 ft.; 1d6+2 bludgeoning plus the target\u2019s name tastes wrong until end of their next turn (no mechanical penalty unless they drink).",
+            "trait": "Does not pursue past the square. Immune to charmed. Vulnerable to fire.",
+            "tactics": "Grapple toward the well. Fight until destroyed if Mill has not called them down. CR 1/2 each (100 XP); 300 XP total, Low."
+          }
+        ],
+        "end": "Destroyed, sat down by Mill, or the party is in the well-house."
+      },
+      {
+        "id": "enc-draught",
+        "objective": "End the drinking of names.",
+        "start": "The water stands up after the read-aloud. Delay initiative if they answer it immediately.",
+        "creatures": [
+          {
+            "name": "The Draught",
+            "count": 1,
+            "ac": 14,
+            "hp": 72,
+            "speed": "30 ft., swim 40 ft.",
+            "saves": "Con +4, Wis +4",
+            "resistances": "acid; bludgeoning, piercing, and slashing from nonmagical attacks",
+            "immunities": "charmed, frightened, grappled (while in water)",
+            "attack": "Name Pull. Melee +6 to hit, reach 10 ft.; 2d8+3 psychic and pull 5 ft.",
+            "action": "Drinking Whisper. One creature within 60 ft. Wis DC 13; 3d6 psychic and disadvantage on the next check to reseat or deceive. Half damage on success.",
+            "trait": "Lair: at initiative 20, the water rises. DC 12 Strength or be pulled 5 ft toward the center.",
+            "tactics": "Talk first if they speak. Then target whoever holds the stone. Prepared 54 HP. Does not leave the cistern. CR 4 (1,100 XP) plus lair, High band with the drowned."
+          }
+        ],
+        "ritual": "Reseat: 3 successes on check-stone before 0 HP or dusk.",
+        "bargain": "False name check-false DC 15, or true name check-true DC 13.",
+        "destroy": "Smash the ring, Strength DC 15, one action if the character is on the walkway. Well dies.",
+        "end": "0 HP, 3 stone successes, a successful name, or a smashed ring."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "trap-bucket",
+        "sceneId": "scene-shaft",
+        "trigger": "Using the bucket or sharing its rung.",
+        "save": "DC 13 Wisdom",
+        "failure": "2d6 psychic and your name on the next bucket (fiction).",
+        "success": "Half damage, no name.",
+        "failForward": "The climb continues."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-oda",
+        "when": "They return with a well that still names people, or an honest thirst.",
+        "reward": "Remaining 50 gp."
+      },
+      {
+        "id": "reward-chip",
+        "when": "They keep the leftover chip without reseating a fake.",
+        "reward": "A 40 gp moonstone in the well-house box."
+      },
+      {
+        "id": "reward-prepared",
+        "when": "Prepared: Jory and cups without smashing.",
+        "reward": "Jory sends a loaf and a healer\u2019s kit. Mill, if not denounced, adds 25 gp silence-money."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-square",
+        "dimensions": "village square, well at center",
+        "features": [
+          "well",
+          "trough (Name-Drowned)",
+          "well-house north",
+          "Jory west",
+          "road south"
+        ]
+      },
+      {
+        "sceneId": "scene-cistern",
+        "dimensions": "40 x 40 ft.",
+        "features": [
+          "central water 15 ft",
+          "walkway",
+          "name-stone on ring unless rushed",
+          "rungs north"
+        ]
+      }
+    ]
+  }
+}

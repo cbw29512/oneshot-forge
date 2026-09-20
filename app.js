@@ -1,4 +1,8 @@
-const DEFAULT_ADVENTURE = "data/adventures/the-lantern-below.oneshot.json";
+const ADVENTURE_PACKS = {
+  "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
+  "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json"
+};
+const DEFAULT_ADVENTURE = ADVENTURE_PACKS["the-lantern-below"];
 const PACKAGE_PREFIX = "oneshot-forge:package:";
 const STATE_PREFIX = "oneshot-forge:state:";
 const LIBRARY_KEY = "oneshot-forge:library";
@@ -169,7 +173,49 @@ function saveState() {
   safeSet(LAST_ADVENTURE_KEY, currentAdventureKey);
 }
 
+async function fetchPack(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("Could not load " + url);
+  const pkg = await res.json();
+  if (!pkg.quickrun) {
+    try {
+      const side = await fetch(url.replace(/\.oneshot\.json$/, ".quickrun.json"));
+      if (side.ok) pkg.quickrun = await side.json();
+    } catch { /* optional sidecar */ }
+  }
+  if ((!pkg.pregens || !pkg.pregens.length) && pkg.pregenPack) {
+    try {
+      const pr = await fetch(pkg.pregenPack);
+      if (pr.ok) {
+        const data = await pr.json();
+        pkg.pregens = data.characters || data.pregens || data;
+      }
+    } catch { /* sheets still work from sheets.html */ }
+  }
+  return pkg;
+}
+
 async function loadInitialAdventure() {
+  const wanted = new URLSearchParams(location.search).get("id");
+  if (wanted && ADVENTURE_PACKS[wanted]) {
+    const lastId = safeGet(LAST_ADVENTURE_KEY);
+    if (lastId === wanted) {
+      const saved = loadSavedPackage(lastId);
+      if (saved) {
+        try {
+          await activateAdventure(saved, {persist:false});
+          toast("Resumed " + (saved.metadata?.title || wanted) + ".");
+          return;
+        } catch (error) {
+          console.warn("Saved pack failed; fetching authored.", error);
+        }
+      }
+    }
+    const pkg = await fetchPack(ADVENTURE_PACKS[wanted]);
+    await activateAdventure(pkg, { persist: true, fresh: lastId !== wanted });
+    return;
+  }
+
   const lastId = safeGet(LAST_ADVENTURE_KEY);
   if (lastId) {
     const saved = loadSavedPackage(lastId);
@@ -185,15 +231,7 @@ async function loadInitialAdventure() {
     }
   }
 
-  const res = await fetch(DEFAULT_ADVENTURE);
-  if (!res.ok) throw new Error("Could not load the reference adventure.");
-  const pkg = await res.json();
-  if (!pkg.quickrun) {
-    try {
-      const side = await fetch(DEFAULT_ADVENTURE.replace(/\.oneshot\.json$/, ".quickrun.json"));
-      if (side.ok) pkg.quickrun = await side.json();
-    } catch { /* optional sidecar */ }
-  }
+  const pkg = await fetchPack(DEFAULT_ADVENTURE);
   await activateAdventure(pkg, {persist:true});
 }
 
@@ -220,7 +258,7 @@ async function refreshRulesetPregens() {
   rulesetPregens = null;
   if (typeof getRuleset !== "function" || getRuleset() !== "2024") return;
   try {
-    const res = await fetch("data/pregens/quiet-seals-level-4-2024-srd.json");
+    const res = await fetch(adventure?.pregenPack2024 || "data/pregens/quiet-seals-level-4-2024-srd.json");
     if (res.ok) rulesetPregens = (await res.json()).characters || [];
   } catch { /* keep 2014 embedded pregens */ }
 }
