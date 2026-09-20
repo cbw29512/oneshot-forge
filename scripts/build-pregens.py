@@ -562,7 +562,8 @@ def sable():
             "prepareCount": "Known bard spells: 7. Cantrips: 2.",
         },
         "spellList": [
-            spell(0, "Mage Hand", "action", "30 ft.", "Spectral hand, 1 minute."),
+            spell(0, "Vicious Mockery", "action", "60 ft.", "Wis DC 13 or 1d4 psychic and disadvantage on its next attack."),
+            spell(0, "Minor Illusion", "action", "30 ft.", "Sound or image, 5-ft cube, 1 minute."),
             spell(1, "Healing Word", "bonus", "60 ft.", "1d4+3 HP."),
             spell(1, "Faerie Fire", "action", "60 ft. (20-ft cube)", "Dex DC 13 or outlined in light. Attacks against it have advantage. Concentration 1 min."),
             spell(1, "Dissonant Whispers", "action", "60 ft.", "Wis DC 13 or 3d6 psychic and use its reaction to move away. Half damage on success."),

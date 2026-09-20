@@ -2614,7 +2614,8 @@
         "focus": "lute",
         "prepareCount": "Known bard spells: 7. Cantrips: 2.",
         "cantrips": [
-          "Mage Hand"
+          "Vicious Mockery",
+          "Minor Illusion"
         ],
         "prepared": [
           "Healing Word",
@@ -2630,10 +2631,17 @@
       "spellList": [
         {
           "level": 0,
-          "name": "Mage Hand",
+          "name": "Vicious Mockery",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Wis DC 13 or 1d4 psychic and disadvantage on its next attack."
+        },
+        {
+          "level": 0,
+          "name": "Minor Illusion",
           "time": "action",
           "range": "30 ft.",
-          "effect": "Spectral hand, 1 minute."
+          "effect": "Sound or image, 5-ft cube, 1 minute."
         },
         {
           "level": 1,
