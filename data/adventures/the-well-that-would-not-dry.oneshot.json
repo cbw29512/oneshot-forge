@@ -29,7 +29,7 @@
   "setup": {
     "pitch": "Saltmere\u2019s well still gives water. The water forgets your name.",
     "openingLocation": "Hearthford mill loft",
-    "gmSummary": "The well at Saltmere is another Quiet Seal. A name-stone in the cistern was pried loose. The Draught in the water pays for rain with names. Oda Flint sent the party. Mill Kade keeps the well and will lie to save it. Jory Salt drank this morning and cannot say his daughter\u2019s name. Clock: at dusk the bucket comes up dry and the Draught takes a whole household. Four endings: plug the stone, trick it with a false name, break the well, or let Saltmere drink and forget. No one NPC is required. Campaign fact from Episode 1 (lantern ending) colors how hungry the Draught is, it does not change the graph.",
+    "gmSummary": "The well at Saltmere is another Quiet Seal. A name-stone in the cistern was pried loose. The Draught in the water pays for rain with names. Oda Flint sent the party. Mill Kade keeps the well and will lie to save it. Jory Salt drank this morning and cannot say his daughter\u2019s name. Clock: at dusk the bucket comes up dry and the Draught takes a whole household. Five legal endings: reseat the stone, feed a false name, give a true name, smash the well (thirst), or walk away at dusk (a household forgets). No one NPC is required. Campaign fact from Episode 1 (lantern ending) colors how hungry the Draught is, it does not change the graph.",
     "campaignFrame": "After Briar Glen, they are back in Hearthford. Oda Flint (mill, building 2) has the next job. Mark her Helped when this night ends."
   },
   "quest": {
@@ -38,7 +38,7 @@
     "stakes": "If the bucket is dry at dusk, one household in Saltmere forgets itself.",
     "deadline": "Dusk, about four hours after Oda sends them.",
     "successConditions": [
-      "The Draught is bound, starved, tricked, or the name-stone is reseated.",
+      "The Draught is reseated, tricked, paid a true name, destroyed, or the well is smashed on purpose.",
       "Saltmere still has water, or the table chose thirst on purpose."
     ],
     "failureConditions": [
@@ -68,7 +68,7 @@
     "secrets": [
       {
         "id": "secret-mill",
-        "text": "Mill Kade pried the stone because she wanted to forget a fire she caused last winter.",
+        "text": "Mill Kade pried the stone because she wanted to forget a fire she caused in Saltmere\u2019s drying shed last winter \u2014 not Oda\u2019s mill in Hearthford.",
         "revealCondition": "Confront her with the dry cup, her confession, or the scratch marks matching her well-hook."
       }
     ]
@@ -126,7 +126,8 @@
       ],
       "voiceCues": [
         "talks to the well first",
-        "says \u2018we\u2019 for the village"
+        "says \u201cwe\u201d for the village",
+        "people call her Mill; the building is the well-house"
       ],
       "wants": [
         "The well to keep giving",
@@ -145,7 +146,7 @@
         "If they smash the well, Saltmere dies by autumn"
       ],
       "secrets": [
-        "She pried the name-stone to forget the mill fire"
+        "She pried the name-stone to forget the Saltmere drying-shed fire"
       ],
       "lies": [
         "At first: the stone fell on its own in the freeze"
@@ -214,7 +215,7 @@
     {
       "id": "loc-saltmere-square",
       "name": "Saltmere well-square",
-      "description": "Twenty roofs, a stone well, mill to the west, road south to Hearthford.",
+      "description": "Twenty roofs, a stone well at center, well-house north, Jory southwest, drying shed northwest, road south to Hearthford.",
       "connections": [
         "loc-hearthford-mill",
         "loc-well-house",
@@ -293,8 +294,9 @@
       "gmNotes": [
         "Name-Drowned: 3 creatures, AC 12, 22 HP. See Encounters. They rise if anyone drinks, attacks the well, or shoves Mill aside. They do not chase past the square.",
         "Talk: Persuasion DC 13 with Mill \u2014 she lets them into the well-house if they swear not to break the well. Insight DC 12: she is guilty, not only tired.",
-        "Bypass: Stealth DC 12 group along the mill wall into the well-house. Failure starts the fight 15 feet from the well.",
-        "Jory\u2019s cottage is west if they ask where the man who forgot a child lives."
+        "Bypass: Stealth DC 12 group along the drying-shed wall into the well-house. Failure starts the fight 15 feet from the well.",
+        "Jory\u2019s cottage is west if they ask where the man who forgot a child lives.",
+        "Mill is a person (Millicent Kade). Do not call the well-house \u201cthe mill.\u201d Oda\u2019s mill is in Hearthford."
       ],
       "npcIds": [
         "npc-mill-kade"
@@ -395,7 +397,7 @@
       "gmNotes": [
         "Roll initiative after read-aloud unless they answer immediately with a legal talk-out (then delay initiative).",
         "Draught: AC 14, 72 HP, swim 40. See Encounters.",
-        "Four legal jobs: (1) 0 HP. (2) Action: reseat the name-stone, Athletics or Religion DC 13, three successes before the Draught hits 0 or dusk. (3) Bargain: offer a false name, Deception DC 15, or a true name you have permission to give. (4) Smash the well-ring: Strength DC 15, well dies, town thirsty, Draught reduced to 0.",
+        "Five legal jobs: (1) 0 HP. (2) Reseat the name-stone, Athletics or Religion DC 13, three successes. (3) False name, Deception DC 15. (4) True name with permission, Persuasion DC 13. (5) Smash the well-ring, Strength DC 15 \u2014 well dies, town thirsty, Draught 0 HP.",
         "Talk-out is real. It wants a name. It does not need to be a boss fight.",
         "Prepared: start at 54 HP. Rushed (skipped cups and Jory): it acts first and the stone is in the water (need a DC 12 Athletics to fetch)."
       ],
@@ -825,7 +827,7 @@
             "speed": "20 ft., swim 20 ft.",
             "attack": "Wet Hands. Melee +4 to hit, reach 5 ft.; 1d6+2 bludgeoning plus the target\u2019s name tastes wrong until end of their next turn (no mechanical penalty unless they drink).",
             "trait": "Does not pursue past the square. Immune to charmed. Vulnerable to fire.",
-            "tactics": "Grapple toward the well. Fight until destroyed if Mill has not called them down. CR 1/2 each (100 XP); 300 XP total, Low."
+            "tactics": "Grapple toward the well. Fight until destroyed if Mill has not called them down. Treat as CR 1/4 (50 XP) each; 150 XP total, Low. Talk-out is the intended door."
           }
         ],
         "end": "Destroyed, sat down by Mill, or the party is in the well-house."
@@ -889,11 +891,12 @@
         "sceneId": "scene-square",
         "dimensions": "village square, well at center",
         "features": [
-          "well",
+          "well at center",
           "trough (Name-Drowned)",
           "well-house north",
-          "Jory west",
-          "road south"
+          "Jory southwest",
+          "drying shed northwest",
+          "road south to Hearthford"
         ]
       },
       {
