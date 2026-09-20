@@ -138,9 +138,12 @@ function loadSavedPackage(id) {
 
 function loadState() {
   const saved = safeGet(stateKey());
-  if (!saved) return clone(adventure.initialState);
-  try { return normalizeState(JSON.parse(saved)); }
-  catch { return clone(adventure.initialState); }
+  try {
+    const raw = saved ? JSON.parse(saved) : clone(adventure.initialState);
+    return normalizeState(raw);
+  } catch {
+    return normalizeState(clone(adventure.initialState));
+  }
 }
 
 function normalizeState(value) {
@@ -457,7 +460,7 @@ function renderSceneExits(scene) {
     wrap.appendChild(button);
   });
 
-  el("prev-scene").disabled = !state.sceneHistory.length;
+  el("prev-scene").disabled = !(state.sceneHistory && state.sceneHistory.length);
   if (exits.length === 1) {
     el("next-scene").disabled = false;
     el("next-scene").textContent = "Next →";
@@ -796,8 +799,10 @@ el("file-input").addEventListener("change", async event => {
 });
 
 loadInitialAdventure().catch(error => {
-  document.body.innerHTML =
-    '<main style="padding:2rem;color:white;background:#12100d;min-height:100vh">' +
-    "<h1>One-Shot Forge</h1><p>" + escapeHtml(error.message) + "</p>" +
-    "<p>Refresh the page or load a valid .oneshot.json adventure.</p></main>";
+  console.error(error);
+  const title = el("adventure-title");
+  if (title) title.textContent = "Could not open adventure";
+  const meta = el("adventure-meta");
+  if (meta) meta.textContent = error.message;
+  toast(error.message || "Adventure failed to load.");
 });
