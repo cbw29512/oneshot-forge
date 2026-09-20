@@ -10,6 +10,35 @@
 <body>
   <a class="skip-link" href="#active-scene">Skip to active scene</a>
 
+  <section id="catalog-view" class="catalog-shell" aria-labelledby="catalog-heading">
+    <div class="hero-panel">
+      <p class="eyebrow">ONE-SHOT FORGE</p>
+      <h1 id="catalog-heading">Zero prep. Open the adventure. Start with card one.</h1>
+      <p class="hero-copy">5E-compatible fantasy one-shots built to run directly from the webpage. Every stage keeps the read-aloud, GM notes, clues, encounters, choices, and next paths together.</p>
+    </div>
+    <div class="catalog-section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">ADVENTURE LIBRARY</p>
+          <h2>Choose an adventure</h2>
+        </div>
+        <span class="badge">Zero-prep runner</span>
+      </div>
+      <div id="adventure-catalog" class="adventure-catalog">
+        <article class="adventure-card">
+          <div>
+            <p class="eyebrow">ACTIVE ONE-SHOT</p>
+            <h2 id="catalog-adventure-title">Loading adventure…</h2>
+            <p id="catalog-adventure-hook" class="catalog-hook"></p>
+          </div>
+          <div id="catalog-adventure-meta" class="catalog-meta"></div>
+          <button id="open-adventure" class="button adventure-open" type="button">Open Adventure →</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div id="runner-view" hidden>
   <header class="topbar">
     <div>
       <p class="eyebrow">ONE-SHOT FORGE</p>
@@ -195,6 +224,7 @@
       </section>
     </aside>
   </main>
+  </div>
 
   <div id="toast" role="status" aria-live="polite"></div>
   <script src="generator.js"></script>
