@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>One-Shot Forge — Pregen sheets</title>
+  <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260920j">
+  <link rel="stylesheet" href="styles.css?v=20260920k">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -16,86 +16,170 @@
     <nav class="land-nav">
       <a href="./">Home</a>
       <a href="run.html">GM table</a>
-      <button class="button ember small" type="button" onclick="window.print()">Print sheets</button>
+      <button class="button ember small" type="button" onclick="window.print()">Print</button>
     </nav>
   </header>
   <main class="sheets-wrap">
     <section class="print-hide land-section" style="border-top:0">
-      <p class="eyebrow ember">Tonight’s six · print these</p>
+      <p class="eyebrow ember">Table-complete · 2014 SRD · level 4</p>
       <h1>Character sheets</h1>
-      <p class="lede short">D&D Beyond cannot import these. Print them, or use the Beyond checklist on each sheet and type them in by hand. Twelve classes live in the JSON; these six are the table.</p>
+      <p class="lede short">These are meant to sit on the table like a Beyond sheet: scores, skills, every feature, every spell with its effect. Beyond cannot import them. Print them. If someone insists on typing into Beyond, each sheet has a hand-entry list.</p>
     </section>
     <div id="sheets"></div>
   </main>
   <script>
-    const scoresOrder = ["STR","DEX","CON","INT","WIS","CHA"];
+    const ABIL = ["STR","DEX","CON","INT","WIS","CHA"];
+    const SKILL_ORDER = [
+      "acrobatics","animal handling","arcana","athletics","deception","history",
+      "insight","intimidation","investigation","medicine","nature","perception",
+      "performance","persuasion","religion","sleight of hand","stealth","survival"
+    ];
     function esc(v) {
       return String(v == null ? "" : v)
         .replace(/&/g,"&").replace(/</g,"<").replace(/>/g,">");
     }
-    function beyondChecklist(pc) {
-      const lines = [
-        "D&D Beyond builder — type this in by hand. There is no import.",
+    function signed(n) {
+      n = Number(n) || 0;
+      return (n >= 0 ? "+" : "") + n;
+    }
+    function mod(score) { return Math.floor(((Number(score) || 10) - 10) / 2); }
+    function skillRows(map) {
+      if (!map) return "";
+      return SKILL_ORDER.map(name => {
+        const s = map[name] || {};
+        const mark = s.expertise ? "●●" : s.proficient ? "●" : "○";
+        return '<div class="sk' + (s.proficient ? " on" : "") + '"><i>' + mark +
+          "</i><b>" + signed(s.bonus) + "</b><span>" + name + "</span></div>";
+      }).join("");
+    }
+    function saveRows(map, scores) {
+      return ABIL.map(k => {
+        const s = (map && map[k]) || { bonus: mod((scores||{})[k]), proficient: false };
+        return '<div class="sv' + (s.proficient ? " on" : "") + '"><i>' +
+          (s.proficient ? "●" : "○") + "</i><b>" + signed(s.bonus) + "</b><span>" + k + "</span></div>";
+      }).join("");
+    }
+    function scoreCol(pc) {
+      return ABIL.map(k => {
+        const score = (pc.scores || {})[k];
+        return '<div class="ab"><span>' + k + "</span><strong>" + esc(score) +
+          "</strong><em>" + signed(mod(score)) + "</em></div>";
+      }).join("");
+    }
+    function attackTable(list) {
+      if (!list || !list.length) return "";
+      return '<table class="atk"><thead><tr><th>Attack</th><th>Hit</th><th>Damage</th></tr></thead><tbody>' +
+        list.map(a => "<tr><td>" + esc(a.name) + (a.notes ? '<div class="tiny">' + esc(a.notes) + "</div>" : "") +
+          "</td><td>" + signed(a.bonus) + "</td><td>" + esc(a.damage) + " " + esc(a.type) + "</td></tr>").join("") +
+        "</tbody></table>";
+    }
+    function listBlock(title, arr) {
+      if (!arr || !arr.length) return "";
+      return "<h3>" + esc(title) + "</h3><ul>" + arr.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul>";
+    }
+    function spellBlock(pc) {
+      const list = pc.spellList;
+      if (!list || !list.length) return "";
+      const sc = pc.spellcasting || {};
+      const slots = sc.slots || {};
+      const slotLine = Object.keys(slots).map(l => "L" + l + " × " + slots[l]).join(" · ");
+      const groups = {};
+      list.forEach(s => {
+        const k = s.level === 0 ? "Cantrips" : "Level " + s.level;
+        (groups[k] = groups[k] || []).push(s);
+      });
+      let html = '<section class="cs-spells"><h3>Spellcasting</h3><p class="cs-slot">' +
+        esc(sc.ability || "") + " · DC " + esc(sc.saveDC) + " · attack " + signed(sc.attack) +
+        (slotLine ? " · slots " + esc(slotLine) : "") +
+        (sc.prepareCount ? '<span class="tiny"> · ' + esc(sc.prepareCount) + "</span>" : "") +
+        "</p>";
+      for (const [k, arr] of Object.entries(groups)) {
+        html += "<h4>" + esc(k) + "</h4>";
+        html += arr.map(s => '<div class="spl"><b>' + esc(s.name) + "</b> <span>" +
+          esc(s.time) + " · " + esc(s.range) +
+          (s.save ? " · " + esc(s.save) : "") +
+          "</span><p>" + esc(s.effect) + "</p></div>").join("");
+      }
+      return html + "</section>";
+    }
+    function beyondList(pc) {
+      const sk = pc.skillsMap || {};
+      const profSkills = Object.keys(sk).filter(k => sk[k].proficient).join(", ");
+      const spells = (pc.spellList || []).map(s => s.name).join(", ");
+      return [
+        "D&D Beyond has no character import. Type this by hand if you must.",
         "Species: " + (pc.race || ""),
-        "Class & level: " + (pc.class || "") + " 4",
-        "Background: " + (pc.background || "choose closest SRD"),
-        "Ability scores: " + scoresOrder.map(k => k + " " + (pc.scores||{})[k]).join(", "),
-        "Armor / HP: AC " + pc.ac + ", HP " + pc.hp,
-        pc.spellcasting ? ("Spells: " + [].concat(pc.spellcasting.cantrips||[], pc.spellcasting.prepared||[]).join(", ")) : "No spells"
-      ];
-      return lines.join("\n");
+        "Class: " + (pc.class || "") + " 4",
+        "Background: " + (pc.background || ""),
+        "Scores: " + ABIL.map(k => k + " " + (pc.scores||{})[k]).join(", "),
+        "Skills: " + profSkills,
+        spells ? "Spells: " + spells : ""
+      ].filter(Boolean).join("\n");
     }
     function sheetHtml(pc) {
-      const scores = scoresOrder.map(k =>
-        '<span>' + k + ' <b>' + esc((pc.scores||{})[k]) + '</b></span>'
-      ).join("");
-      const spells = pc.spellcasting
-        ? '<p><b>Spellcasting.</b> ' + esc(pc.spellcasting.ability) +
-          ' DC ' + esc(pc.spellcasting.saveDC) + ', +' + esc(pc.spellcasting.attack) +
-          '. Slots: ' + esc(pc.spellcasting.slots) + '</p>' +
-          (pc.spellcasting.cantrips?.length ? '<p>Cantrips: ' + esc(pc.spellcasting.cantrips.join(", ")) + '</p>' : '') +
-          (pc.spellcasting.prepared?.length ? '<p>Prepared: ' + esc(pc.spellcasting.prepared.join(", ")) + '</p>' : '')
-        : "";
-      const img = pc.portrait
-        ? '<img class="sheet-portrait" src="' + esc(pc.portrait) + '" alt="">'
-        : "";
-      return '<article class="sheet" id="' + esc(pc.id) + '">' +
-        img +
-        '<div class="sheet-body">' +
-        '<p class="eyebrow">' + esc(pc.rules || "5E 2014 SRD") + '</p>' +
-        '<h2>' + esc(pc.name) + '</h2>' +
-        '<p>' + esc(pc.race) + ' · ' + esc(pc.class) +
-        (pc.background ? ' · ' + esc(pc.background) : '') +
-        ' · ' + esc(pc.role) + '</p>' +
-        '<div class="stat-strip">' +
-        '<span>AC <b>' + esc(pc.ac) + '</b></span>' +
-        '<span>HP <b>' + esc(pc.hp) + '</b></span>' +
-        '<span>Speed <b>' + esc(pc.speed) + '</b></span>' +
-        '<span>Prof <b>+' + esc(pc.proficiency) + '</b></span>' +
-        '</div>' +
-        '<div class="stat-strip">' + scores + '</div>' +
-        '<p><b>Saves.</b> ' + esc(pc.saves) + '</p>' +
-        '<p><b>Skills.</b> ' + esc(pc.skills) + '</p>' +
-        (pc.attacks||[]).map(line => '<p>' + esc(line) + '</p>').join('') +
-        spells +
-        (pc.features||[]).map(line => '<p class="tiny">' + esc(line) + '</p>').join('') +
-        '<p class="muted">' + esc(pc.gear || "") + '</p>' +
-        '<pre class="beyond-check">' + esc(beyondChecklist(pc)) + '</pre>' +
-        '</div></article>';
+      const img = pc.portrait ? '<img class="cs-port" src="' + esc(pc.portrait) + '" alt="">' : '<div class="cs-port ph"></div>';
+      const prof = pc.proficiencies || {};
+      const pers = pc.personality || {};
+      return '<article class="cs" id="' + esc(pc.id) + '">' +
+        '<header class="cs-top">' + img +
+        '<div class="cs-id">' +
+          '<p class="eyebrow">' + esc(pc.rules || "5E 2014 SRD") + " · XP " + esc(pc.xp || 2700) + "</p>" +
+          "<h2>" + esc(pc.name) + "</h2>" +
+          "<p>" + esc(pc.class) + " 4 · " + esc(pc.race) + " · " + esc(pc.background || "") +
+          " · " + esc(pc.alignment || "") + "</p>" +
+        "</div>" +
+        '<div class="cs-combat">' +
+          '<div><span>Armor Class</span><b>' + esc(pc.ac) + "</b><small>" + esc(pc.acNotes || "") + "</small></div>" +
+          '<div><span>Initiative</span><b>' + signed(pc.initiative) + "</b></div>" +
+          '<div><span>Speed</span><b>' + esc(pc.speedFt || pc.speed) + "</b></div>" +
+          '<div><span>Hit Points</span><b>' + esc(pc.hp) + "</b><small>" + esc(pc.hitDice || "") + "</small></div>" +
+          '<div><span>Proficiency</span><b>+' + esc(pc.proficiency || 2) + "</b></div>" +
+          '<div><span>Passive Wis (Per)</span><b>' + esc(pc.passivePerception) + "</b></div>" +
+        "</div></header>" +
+        '<div class="cs-grid">' +
+          '<section><h3>Abilities</h3><div class="ab-row">' + scoreCol(pc) + "</div>" +
+            "<h3>Saves</h3>" + saveRows(pc.saveMap, pc.scores) +
+            "<h3>Skills</h3>" + skillRows(pc.skillsMap) +
+          "</section>" +
+          "<section><h3>Attacks</h3>" + attackTable(pc.attackList) +
+            listBlock("Bonus actions", pc.bonusActions) +
+            listBlock("Reactions", pc.reactions) +
+            "<h3>Senses & proficiencies</h3>" +
+            "<p>Darkvision " + esc(pc.darkvision || 0) + " ft. · Passive Insight " + esc(pc.passiveInsight) + "</p>" +
+            "<p><b>Armor.</b> " + esc((prof.armor||[]).join(", ") || "none") + "</p>" +
+            "<p><b>Weapons.</b> " + esc((prof.weapons||[]).join(", ")) + "</p>" +
+            "<p><b>Tools.</b> " + esc((prof.tools||[]).join(", ") || "—") + "</p>" +
+            "<p><b>Languages.</b> " + esc((prof.languages||[]).join(", ")) + "</p>" +
+          "</section>" +
+          "<section><h3>Personality</h3>" +
+            "<p><b>Trait.</b> " + esc(pers.trait || "") + "</p>" +
+            "<p><b>Ideal.</b> " + esc(pers.ideal || "") + "</p>" +
+            "<p><b>Bond.</b> " + esc(pers.bond || "") + "</p>" +
+            "<p><b>Flaw.</b> " + esc(pers.flaw || "") + "</p>" +
+            "<p class='tiny'>" + esc(pc.appearance || "") + "</p>" +
+            "<h3>Equipment</h3><p>" + esc(pc.gear || "") + "</p>" +
+          "</section>" +
+        "</div>" +
+        '<section class="cs-feat"><h3>Features & traits</h3>' +
+          (pc.featureList||[]).map(f => '<div class="ft"><b>' + esc(f.name) +
+            "</b> <span>" + esc(f.source) + (f.uses ? " · " + esc(f.uses) : "") +
+            "</span><p>" + esc(f.text) + "</p></div>").join("") +
+        "</section>" +
+        spellBlock(pc) +
+        '<pre class="beyond-check print-hide">' + esc(beyondList(pc)) + "</pre>" +
+      "</article>";
     }
-    fetch("data/pregens/quiet-seals-level-4-2014-srd.json")
+    fetch("data/pregens/quiet-seals-level-4-2014-srd.json?v=k")
       .then(r => r.json())
       .then(pack => {
         const rec = (pack.characters || []).filter(pc => pc.recommended);
         const rest = (pack.characters || []).filter(pc => !pc.recommended);
         document.getElementById("sheets").innerHTML =
           rec.map(sheetHtml).join("") +
-          '<h2 class="print-hide" style="padding:1rem 2rem 0">The other six, if you need them</h2>' +
+          '<h2 class="print-hide" style="padding:1rem 1.5rem 0">The other six, if you need them</h2>' +
           rest.map(sheetHtml).join("");
       })
-      .catch(() => {
-        document.getElementById("sheets").innerHTML = "<p>Could not load pregens.</p>";
-      });
+      .catch(() => { document.getElementById("sheets").innerHTML = "<p>Could not load pregens.</p>"; });
   </script>
 </body>
 </html>

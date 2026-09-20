@@ -394,20 +394,89 @@ ol.steps b { color: var(--fg) }
   margin-bottom: .4rem; border: 1px solid var(--border);
 }
 
-.sheets-wrap { max-width: 52rem; margin: 0 auto }
-.sheet {
-  display: grid;
-  grid-template-columns: 180px minmax(0,1fr);
-  gap: var(--space-4);
+.sheets-wrap { max-width: 1100px; margin: 0 auto; padding-bottom: 3rem }
+.cs {
+  background: #14110e;
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-  margin: var(--space-4);
-  background: var(--bg-elevated);
+  border-radius: 12px;
+  margin: 1.25rem;
+  padding: 1rem;
   break-inside: avoid;
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
 }
-.sheet-portrait { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px }
-.beyond-check { max-height: none; margin-top: var(--space-3); color: var(--fg-muted) }
+.cs-top {
+  display: grid;
+  grid-template-columns: 120px minmax(0,1.2fr) minmax(0,1.4fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.cs-port { width: 120px; height: 120px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border) }
+.cs-port.ph { background: #1c1814 }
+.cs-id h2 { margin: .15rem 0 .25rem; font-size: 1.7rem }
+.cs-id p { margin: 0; color: var(--fg-muted) }
+.cs-combat {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: .4rem;
+}
+.cs-combat div {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .4rem .5rem;
+  background: #1c1814;
+  text-align: center;
+}
+.cs-combat span { display: block; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-subtle) }
+.cs-combat b { display: block; font-size: 1.45rem; font-family: var(--font-display); line-height: 1.1 }
+.cs-combat small { display: block; font-size: .65rem; color: var(--fg-subtle) }
+.cs-grid {
+  display: grid;
+  grid-template-columns: 220px minmax(0,1fr) minmax(220px,.9fr);
+  gap: 1rem;
+}
+.cs-grid h3, .cs-feat h3, .cs-spells h3 {
+  margin: .2rem 0 .45rem;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.ab-row { display: grid; grid-template-columns: repeat(3,1fr); gap: .35rem; margin-bottom: .6rem }
+.ab {
+  border: 1px solid var(--border); border-radius: 8px; text-align: center; padding: .35rem .2rem; background: #1c1814;
+}
+.ab span { display: block; font-size: .62rem; letter-spacing: .1em; color: var(--fg-subtle) }
+.ab strong { display: block; font-size: 1.25rem }
+.ab em { font-style: normal; color: var(--ember); font-weight: 700 }
+.sv, .sk { display: grid; grid-template-columns: 1.4rem 2.1rem 1fr; gap: .25rem; align-items: center; font-size: .78rem; padding: .08rem 0 }
+.sv.on, .sk.on { color: var(--fg) }
+.sv i, .sk i { font-style: normal; color: var(--ember) }
+.sv b, .sk b { font-variant-numeric: tabular-nums }
+.atk { width: 100%; border-collapse: collapse; font-size: .85rem }
+.atk th { text-align: left; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-subtle); padding: .25rem }
+.atk td { border-top: 1px solid var(--border); padding: .35rem .25rem; vertical-align: top }
+.cs-feat, .cs-spells { margin-top: 1rem }
+.ft, .spl { border-top: 1px solid var(--border); padding: .45rem 0 }
+.ft b, .spl b { margin-right: .35rem }
+.ft span, .spl span { color: var(--fg-subtle); font-size: .78rem }
+.ft p, .spl p { margin: .2rem 0 0; color: var(--fg-muted) }
+.cs-slot { color: var(--fg-muted); margin: 0 0 .5rem }
+.cs h4 { margin: .7rem 0 .3rem; font-size: .85rem }
+
+@media (max-width: 900px) {
+  .cs-top, .cs-grid { grid-template-columns: 1fr }
+  .cs-combat { grid-template-columns: repeat(2,1fr) }
+}
+@media print {
+  .print-hide, .land-bar { display: none !important }
+  body.sheets-page { background: white; color: #1a140f }
+  .cs { break-inside: avoid; border-color: #bbb; background: white; box-shadow: none; color: #1a140f }
+  .cs-combat div, .ab { background: #f6f1e8; border-color: #ccc }
+  .cs-id p, .ft p, .spl p, .cs-slot, .sv, .sk { color: #333 }
+  .cs-grid h3, .cs-feat h3, .cs-spells h3, .ab em, .sv i, .sk i { color: #9a3a1c }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto }
