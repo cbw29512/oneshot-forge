@@ -302,6 +302,7 @@ function pregenCardHtml(pc) {
       (pc.spellcasting.prepared?.length ? "<p>Prepared: " + escapeHtml(pc.spellcasting.prepared.join(", ")) + "</p>" : "")
     : "";
   return '<div class="card pregen">' +
+    (pc.portrait ? '<img class="pregen-shot" src="' + escapeHtml(pc.portrait) + '" alt="">' : "") +
     "<strong>" + escapeHtml(pc.name) + "</strong>" +
     '<p><span class="badge">' + escapeHtml(pc.class) + "</span> " +
     '<span class="badge">' + escapeHtml(pc.race) + "</span> " +

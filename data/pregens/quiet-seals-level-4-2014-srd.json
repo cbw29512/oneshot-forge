@@ -46,7 +46,9 @@
         "Improved Critical: 19\u201320."
       ],
       "gear": "Chain mail, shield, longsword, 3 javelins, explorer\u2019s pack, 12 gp",
-      "recommended": true
+      "recommended": true,
+      "portrait": "assets/pregens/brann.jpg",
+      "background": "Soldier"
     },
     {
       "id": "pregen-pell",
@@ -103,7 +105,9 @@
         "Dwarven Resilience: advantage vs poison; resistance to poison."
       ],
       "gear": "Chain mail, shield, warhammer, holy symbol, healer\u2019s kit, 15 gp",
-      "recommended": true
+      "recommended": true,
+      "portrait": "assets/pregens/pell.jpg",
+      "background": "Acolyte"
     },
     {
       "id": "pregen-nyx",
@@ -138,7 +142,9 @@
         "Brave: advantage vs frightened. Naturally Stealthy: hide behind a Medium creature."
       ],
       "gear": "Studded leather, rapier, shortbow, 20 arrows, thieves\u2019 tools, 18 gp",
-      "recommended": true
+      "recommended": true,
+      "portrait": "assets/pregens/nyx.jpg",
+      "background": "Criminal"
     },
     {
       "id": "pregen-ivo",
@@ -196,7 +202,9 @@
         "Fey Ancestry: advantage vs charm; immune to magical sleep."
       ],
       "gear": "Spellbook, dagger, component pouch, scholar\u2019s pack, 22 gp",
-      "recommended": true
+      "recommended": true,
+      "portrait": "assets/pregens/ivo.jpg",
+      "background": "Sage"
     },
     {
       "id": "pregen-kael",
@@ -243,7 +251,9 @@
         "Mask of the Wild: hide in light natural cover."
       ],
       "gear": "Scale mail, longbow, 20 arrows, shortsword, explorer\u2019s pack, 11 gp",
-      "recommended": true
+      "recommended": true,
+      "portrait": "assets/pregens/kael.jpg",
+      "background": "Outlander"
     },
     {
       "id": "pregen-hester",
@@ -293,7 +303,9 @@
         "Fighting Style: Dueling. Divine Health: immune to disease."
       ],
       "gear": "Chain mail, shield, longsword, 3 javelins, holy symbol, 14 gp",
-      "recommended": true
+      "recommended": true,
+      "portrait": "assets/pregens/hester.jpg",
+      "background": "Folk Hero"
     },
     {
       "id": "pregen-rook",

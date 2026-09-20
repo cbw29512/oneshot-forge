@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="One-Shot Forge — original 5E-compatible adventures you can run from a browser.">
   <title>One-Shot Forge</title>
-  <link rel="stylesheet" href="styles.css?v=20260920h">
+  <link rel="icon" href="assets/mark-lantern.jpg">
+  <link rel="stylesheet" href="styles.css?v=20260920j">
 </head>
 <body>
   <a class="skip-link" href="#active-scene">Skip to active scene</a>
@@ -18,6 +19,7 @@
     </div>
     <div class="top-actions">
       <a class="button secondary" href="./">Home</a>
+      <a class="button secondary" href="sheets.html">Pregens</a>
       <button id="forge-random" class="button" type="button">New random</button>
       <a id="module-view" class="button secondary" href="module.html">Printable module</a>
       <button id="export-adventure" class="button secondary" type="button">Export</button>
@@ -189,7 +191,7 @@
       <section class="panel">
         <details class="fold" open>
           <summary>Pregens if they need characters</summary>
-          <p class="muted">Twelve original level-4 2014 SRD characters — one of each class. The six marked “Tonight’s six” are a complete party. Keep the JSON; D&D Beyond cannot import it.</p>
+          <p class="muted">Twelve original level-4 2014 SRD characters. Print them from Pregens — D&D Beyond cannot import JSON.</p>
           <div id="pregen-list" class="stack"></div>
         </details>
       </section>
@@ -226,7 +228,7 @@
   </main>
 
   <div id="toast" role="status" aria-live="polite"></div>
-  <script src="generator.js?v=20260920h"></script>
-  <script src="app.js?v=20260920h"></script>
+  <script src="generator.js?v=20260920j"></script>
+  <script src="app.js?v=20260920j"></script>
 </body>
 </html>
