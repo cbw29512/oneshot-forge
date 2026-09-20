@@ -8,6 +8,22 @@ function fail(message) {
   process.exitCode = 1;
 }
 
+function canonicalize(value) {
+  if (Array.isArray(value)) return value.map(canonicalize);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.keys(value)
+        .sort()
+        .map(key => [key, canonicalize(value[key])])
+    );
+  }
+  return value;
+}
+
+function sameData(left, right) {
+  return JSON.stringify(canonicalize(left ?? null)) === JSON.stringify(canonicalize(right ?? null));
+}
+
 try {
   const adventure = JSON.parse(fs.readFileSync(packagePath, "utf8"));
   const sidecar = JSON.parse(fs.readFileSync(sidecarPath, "utf8"));
@@ -20,9 +36,9 @@ try {
   } else {
     const fields = ["target", "checks", "encounters", "hazards", "rewards", "mapNotes", "requiredCheckIds"];
     for (const field of fields) {
-      const left = JSON.stringify(embedded[field] ?? null);
-      const right = JSON.stringify(sidecar[field] ?? null);
-      if (left !== right) fail(`${field} differs between embedded quickrun and sidecar`);
+      if (!sameData(embedded[field], sidecar[field])) {
+        fail(`${field} differs between embedded quickrun and sidecar`);
+      }
     }
   }
 
