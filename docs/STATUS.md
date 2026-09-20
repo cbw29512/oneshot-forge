@@ -34,4 +34,4 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Write two nights in one day
 
 ## Last session
-2026-09-20 — Auditor fired now on Night 2. Author idle until the next daily tick.
+2026-09-20 — Product pass, not Night 3: Well cover, maps actually render (`src` vs `asset`), print module honors `?id=`, dusk/moonrise on the stage card, sticky Next/Back, Night 1/2 switcher. Author still waits for tomorrow for the Watch.

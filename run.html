@@ -7,7 +7,7 @@
   <meta name="description" content="Stage cards for The Lantern Below. Read, run, choose the next card.">
   <link rel="canonical" href="https://cbw29512.github.io/oneshot-forge/run.html">
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260920p">
+  <link rel="stylesheet" href="styles.css?v=20260920q">
 </head>
 <body class="run">
   <a class="skip-link" href="#active-scene">Skip to stage card</a>
@@ -19,8 +19,12 @@
     </div>
     <div class="top-actions">
       <span id="ruleset-host"></span>
-      <a class="button secondary" href="./">Home</a>
+      <nav class="night-switch" aria-label="Live nights">
+        <a href="run.html?id=the-lantern-below">Night 1</a>
+        <a href="run.html?id=the-well-that-would-not-dry">Night 2</a>
+      </nav>
       <a class="button secondary" href="sheets.html">Pregens</a>
+      <a class="button secondary" id="module-link" href="module.html">Print</a>
       <button id="reset-state" class="button danger" type="button">Reset run</button>
     </div>
   </header>
@@ -28,6 +32,7 @@
   <main class="run-layout" id="active-scene" tabindex="-1">
     <article class="panel scene-panel stage-card">
       <p class="eyebrow ember" id="stage-progress">Stage</p>
+      <p class="stage-clock" id="stage-clock"></p>
       <div class="stage-bar" aria-hidden="true"><i id="stage-bar"></i></div>
       <div class="section-head">
         <div>
@@ -68,7 +73,7 @@
         <h3>What happens next</h3>
         <div id="scene-exits" class="card-actions"></div>
       </div>
-      <div class="scene-nav">
+      <div class="scene-nav sticky-nav">
         <button id="prev-scene" class="button secondary" type="button">Back</button>
         <button id="next-scene" class="button" type="button">Next</button>
       </div>
@@ -137,8 +142,8 @@
     </details>
   </main>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script src="rules.js?v=20260920p"></script>
-  <script src="generator.js?v=20260920p"></script>
-  <script src="app.js?v=20260920p"></script>
+  <script src="rules.js?v=20260920q"></script>
+  <script src="generator.js?v=20260920q"></script>
+  <script src="app.js?v=20260920q"></script>
 </body>
 </html>

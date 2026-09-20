@@ -287,8 +287,10 @@ function renderAll() {
   const seedText = meta.seed ? " • seed " + meta.seed : "";
   const plannedText = planned ? " • " + planned + " planned min" : "";
   el("adventure-title").textContent = meta.title;
+  document.title = "Run — " + meta.title;
+  if (el("module-link")) el("module-link").href = "module.html?id=" + encodeURIComponent(meta.id);
   el("adventure-meta").textContent =
-    "Level " + meta.partyLevel + " • " + meta.partySize + " players • " +
+    "Level " + meta.partyLevel + " • " + (meta.partySizeRange || (meta.partySize + " players")) + " • " +
     Math.round(meta.durationMinutes / 60) + " hours • " + (meta.tone || []).join(" / ") +
     plannedText + seedText;
 
@@ -446,6 +448,9 @@ function renderScene() {
   }
   if (el("stage-bar")) {
     el("stage-bar").style.width = Math.round(((idx + 1) / total) * 100) + "%";
+  }
+  if (el("stage-clock")) {
+    el("stage-clock").textContent = adventure.quest?.deadline || "";
   }
   el("read-aloud").textContent = scene.readAloud || "No read-aloud text.";
 
@@ -655,11 +660,12 @@ function renderPlayMaps(scene) {
   wrap.hidden = false;
   wrap.innerHTML = maps.map(m => {
     const tag = m.kind === "combat" ? "Combat map" : "Player handout";
+    const img = m.asset || m.src;
     return '<figure class="play-map">' +
       '<figcaption><span class="badge">' + escapeHtml(tag) + "</span> " +
-      escapeHtml(m.title) + " · " + escapeHtml(m.scale || "") + "</figcaption>" +
-      (m.asset ? '<a href="' + escapeHtml(m.asset) + '" target="_blank" rel="noopener"><img src="' +
-        escapeHtml(m.asset) + '" alt="' + escapeHtml(m.title) + '"></a>' : "") +
+      escapeHtml(m.title) + " · " + escapeHtml(m.scale || m.grid || "") + "</figcaption>" +
+      (img ? '<a href="' + escapeHtml(img) + '" target="_blank" rel="noopener"><img src="' +
+        escapeHtml(img) + '" alt="' + escapeHtml(m.title) + '"></a>' : "") +
       ((m.notes || []).length ? "<ul>" + m.notes.map(n => "<li>" + escapeHtml(n) + "</li>").join("") + "</ul>" : "") +
       "</figure>";
   }).join("");

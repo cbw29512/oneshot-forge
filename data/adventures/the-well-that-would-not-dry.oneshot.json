@@ -295,7 +295,7 @@
         "Name-Drowned: 3 creatures, AC 12, 22 HP. See Encounters. They rise if anyone drinks, attacks the well, or shoves Mill aside. They do not chase past the square.",
         "Talk: Persuasion DC 13 with Mill \u2014 she lets them into the well-house if they swear not to break the well. Insight DC 12: she is guilty, not only tired.",
         "Bypass: Stealth DC 12 group along the drying-shed wall into the well-house. Failure starts the fight 15 feet from the well.",
-        "Jory\u2019s cottage is west if they ask where the man who forgot a child lives.",
+        "Jory\u2019s cottage is southwest if they ask where the man who forgot a child lives.",
         "Mill is a person (Millicent Kade). Do not call the well-house \u201cthe mill.\u201d Oda\u2019s mill is in Hearthford."
       ],
       "npcIds": [
@@ -584,14 +584,16 @@
   "playMaps": [
     {
       "sceneIds": [
+        "scene-jory",
         "scene-square",
-        "scene-jory"
+        "scene-hook"
       ],
       "title": "Saltmere (player handout)",
       "kind": "handout",
       "src": "assets/maps/saltmere.jpg",
       "playerSafe": true,
-      "caption": "No secrets. Well, mill, road to Hearthford."
+      "caption": "No secrets. Well, mill, road to Hearthford.",
+      "asset": "assets/maps/saltmere.jpg"
     },
     {
       "sceneIds": [
@@ -605,7 +607,8 @@
         "Central water 15 ft",
         "Walkway ring",
         "Name-stone on the ring unless rushed (then in the water)"
-      ]
+      ],
+      "asset": "assets/maps/cistern.jpg"
     }
   ],
   "endings": [

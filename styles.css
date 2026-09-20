@@ -620,6 +620,16 @@ body.run { background: var(--bg) }
 .run-layout { max-width: 52rem; margin: 0 auto; padding: var(--space-4); display: grid; gap: var(--space-4) }
 .stage-card { padding: var(--space-4) }
 .stage-bar { height: 4px; background: var(--bg-subtle); border-radius: 99px; margin: .4rem 0 1rem; overflow: hidden }
-.stage-bar i { display: block; height: 100%; width: 12%; background: var(--ember) }
+.stage-clock { margin: 0 0 .35rem; color: var(--ember); font-weight: 600; font-size: var(--text-sm) }
+.sticky-nav {
+  position: sticky; bottom: 0; z-index: 5;
+  background: color-mix(in oklab, var(--bg-elevated) 92%, black);
+  padding: .6rem 0 .2rem; margin-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.night-switch { display: flex; gap: .6rem; align-items: center; font-size: var(--text-sm) }
+.night-switch a { color: var(--fg-muted) }
+.night-switch a[href*="id="]:hover { color: var(--ember) }
+.play-maps { margin-top: 0 }
 .refs { margin-top: 1rem }
 .refs > summary { font-weight: 700 }

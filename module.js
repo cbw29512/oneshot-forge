@@ -1,6 +1,10 @@
 const PACKAGE_PREFIX = "oneshot-forge:package:";
 const LAST_ADVENTURE_KEY = "oneshot-forge:last-adventure";
-const DEFAULT_ADVENTURE = "data/adventures/the-lantern-below.oneshot.json";
+const ADVENTURE_PACKS = {
+  "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
+  "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json"
+};
+const DEFAULT_ADVENTURE = ADVENTURE_PACKS["the-lantern-below"];
 
 const el = id => document.getElementById(id);
 const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -19,6 +23,10 @@ async function loadAdventure() {
     const raw = readLocal(PACKAGE_PREFIX + requestedId);
     if (raw) {
       try { return JSON.parse(raw); } catch {}
+    }
+    if (ADVENTURE_PACKS[requestedId]) {
+      const response = await fetch(ADVENTURE_PACKS[requestedId]);
+      if (response.ok) return response.json();
     }
   }
   const response = await fetch(DEFAULT_ADVENTURE);

@@ -1,5 +1,9 @@
-const QUICKRUN_DEFAULT = "data/adventures/the-lantern-below.quickrun.json";
-const PACKAGE_DEFAULT = "data/adventures/the-lantern-below.oneshot.json";
+const QUICKRUN_PACKS = {
+  "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
+  "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json"
+};
+const QUICKRUN_DEFAULT = QUICKRUN_PACKS["the-lantern-below"];
+const PACKAGE_DEFAULT = QUICKRUN_DEFAULT;
 
 const qrEsc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
   "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
@@ -35,7 +39,9 @@ function renderQuickrun(data) {
 
 async function loadQuickrun() {
   try {
-    const packRes = await fetch(PACKAGE_DEFAULT);
+    const id = new URLSearchParams(location.search).get("id");
+    const url = (id && QUICKRUN_PACKS[id]) || PACKAGE_DEFAULT;
+    const packRes = await fetch(url);
     if (packRes.ok) {
       const pkg = await packRes.json();
       if (pkg.quickrun) {
@@ -43,9 +49,7 @@ async function loadQuickrun() {
         return;
       }
     }
-    const response = await fetch(QUICKRUN_DEFAULT);
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    renderQuickrun(await response.json());
+    throw new Error("No quickrun in pack");
   } catch (error) {
     console.error("[quickrun] Could not load zero-prep reference", error);
     const host = document.getElementById("quickrun-reference");
