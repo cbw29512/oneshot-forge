@@ -105,3 +105,19 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#100e0b;border:1px so
 }
 .check-row{display:flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:700;color:#d9c7aa;cursor:pointer}
 .check-row input{width:auto;min-height:auto;accent-color:var(--accent)}
+
+
+.catalog-shell{min-height:100vh;padding:clamp(1rem,4vw,3.5rem);display:grid;align-content:start;gap:2rem;max-width:1200px;margin:0 auto}
+.hero-panel{padding:clamp(1.5rem,5vw,4rem);border:1px solid var(--border);border-radius:1.25rem;background:linear-gradient(135deg,#2b2117,#17130f);box-shadow:0 20px 60px #0006}
+.hero-panel h1{font-family:Georgia,serif;font-size:clamp(2.2rem,7vw,5rem);line-height:.98;max-width:12ch;margin:.35rem 0 1rem}
+.hero-copy{max-width:68ch;color:#d8ccbc;font-size:clamp(1rem,2vw,1.2rem);line-height:1.6}
+.catalog-section{display:grid;gap:1rem}
+.adventure-catalog{display:flex;flex-wrap:wrap;gap:1rem}
+.adventure-card{flex:1 1 340px;max-width:560px;display:flex;flex-direction:column;justify-content:space-between;gap:1.2rem;padding:1.25rem;border:1px solid var(--border);border-radius:1rem;background:linear-gradient(180deg,#241d16,#191510);box-shadow:0 12px 30px #0005}
+.adventure-card h2{font-size:clamp(1.5rem,3vw,2.2rem);margin:.25rem 0}
+.catalog-hook{line-height:1.55;color:#d9cdbd}
+.catalog-meta{display:flex;flex-wrap:wrap;gap:.45rem}
+.catalog-meta span{border:1px solid var(--border);background:#17130f;border-radius:999px;padding:.35rem .6rem;color:#dbc6a6;font-size:.82rem}
+.adventure-open{align-self:flex-start;min-width:180px}
+.stage-label{display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem}
+.stage-label .badge{background:#332817}
