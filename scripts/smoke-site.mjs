@@ -19,6 +19,27 @@ if (!/Choose tonight/i.test(index)) errors.push("homepage must lead with choose-
 if (!index.includes("Coming after review")) errors.push("next adventure must remain gated behind review");
 if (!index.includes("12 pregens")) errors.push("homepage must say 12 pregens");
 if (!index.includes("og:image")) errors.push("homepage missing Open Graph image");
+if (!index.includes('src="catalog.js')) errors.push("homepage must hydrate from product contract");
+
+const productsText = read("data/products.json");
+try {
+  const contract = JSON.parse(productsText);
+  if (!Array.isArray(contract.products)) throw new Error("products must be an array");
+  for (const product of contract.products) {
+    const gate = product.releaseGate || {};
+    const gated = product.sellable && gate.approved && gate.checkoutConfigured;
+    if (product.sellable && !gated) errors.push(`${product.id}: sellable product has incomplete release gate`);
+    if (!gated && index.includes(`data-product-id="${product.id}"`) && index.includes(`data-product-id="${product.id}" data-commercial-state="sellable"`)) {
+      errors.push(`${product.id}: homepage exposes Buy state before release gates pass`);
+    }
+  }
+} catch (error) {
+  errors.push("invalid data/products.json: " + error.message);
+}
+
+const catalog = read("catalog.js");
+if (!catalog.includes("checkoutConfigured")) errors.push("catalog hydration must enforce checkout gate");
+if (!catalog.includes("gate.approved")) errors.push("catalog hydration must enforce approval gate");
 
 const run = read("run.html");
 for (const id of ["read-aloud", "dm-box", "monster-box", "stage-progress", "scene-exits", "prev-scene", "next-scene"]) {
@@ -36,7 +57,6 @@ for (const rel of [
   "data/adventures/the-well-that-would-not-dry.oneshot.json"
 ]) read(rel);
 
-// Studio contract: only the current reviewed product may be presented as a live catalog card.
 if (!index.includes("the-lantern-below")) errors.push("homepage missing active Lantern card");
 if (index.includes("the-well-that-would-not-dry")) errors.push("homepage exposes an unapproved second adventure");
 
