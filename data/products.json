@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "currency": "USD",
+  "products": [
+    {
+      "id": "the-lantern-below",
+      "title": "The Lantern Below",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-lantern-below",
+      "productUrl": "adventures/the-lantern-below.html",
+      "level": 4,
+      "party": "3–6 players",
+      "playTime": "about 4 hours",
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      }
+    }
+  ]
+}
