@@ -35,7 +35,10 @@ for (const rel of [
   "data/adventures/the-lantern-below.oneshot.json",
   "data/adventures/the-well-that-would-not-dry.oneshot.json"
 ]) read(rel);
-if (!index.includes("the-well-that-would-not-dry")) errors.push("homepage missing Night 2 card");
+
+// Studio contract: only the current reviewed product may be presented as a live catalog card.
+if (!index.includes("the-lantern-below")) errors.push("homepage missing active Lantern card");
+if (index.includes("the-well-that-would-not-dry")) errors.push("homepage exposes an unapproved second adventure");
 
 const hrefs = [...index.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
 for (const href of hrefs) {
