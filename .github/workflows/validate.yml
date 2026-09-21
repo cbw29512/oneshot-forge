@@ -5,14 +5,32 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Persist authored finale integration
+        if: github.event_name == 'pull_request' && github.head_ref == 'feat/finale-procedure-certification'
+        run: |
+          node scripts/integrate-finale-procedure.mjs data/adventures/the-lantern-below.oneshot.json data/adventures/the-lantern-below.old-flame.json --write
+          if git diff --quiet; then
+            echo "Finale integration already authoritative."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/adventures/the-lantern-below.oneshot.json data/adventures/the-lantern-below.old-flame.json
+            git commit -m "content: integrate Old Flame into Lantern finale"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
       - name: Check browser JavaScript syntax
         run: |
           node --check app.js
