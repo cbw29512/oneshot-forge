@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -34,6 +37,8 @@ jobs:
         run: node scripts/validate-quickrun-sync.mjs data/adventures/the-lantern-below.oneshot.json data/adventures/the-lantern-below.quickrun.json
       - name: Certify Lantern play routes
         run: node scripts/validate-routes.mjs data/adventures/the-lantern-below.oneshot.json data/adventures/the-lantern-below.routes.json
+      - name: Certify finale procedures are runnable in-stage
+        run: node scripts/validate-finale-procedures.mjs data/adventures/the-lantern-below.oneshot.json data/adventures/the-lantern-below.old-flame.json
       - name: Smoke-test random generator
         run: node scripts/smoke-generator.cjs
       - name: Smoke-test product pages and links

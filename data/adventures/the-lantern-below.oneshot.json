@@ -12,12 +12,12 @@
       "dark fantasy",
       "heroic"
     ],
-    "partySizeRange": "3\u20136 players"
+    "partySizeRange": "3–6 players"
   },
   "setup": {
-    "pitch": "For as long as anyone in Briar Glen can remember, the iron lantern in the square has burned without oil. Tonight it is dark. Mara Venn hires the party to recover a stolen ember called the Emberglass before moonrise \u2014 but the thief may have taken it because the lantern was never a blessing.",
+    "pitch": "For as long as anyone in Briar Glen can remember, the iron lantern in the square has burned without oil. Tonight it is dark. Mara Venn hires the party to recover a stolen ember called the Emberglass before moonrise — but the thief may have taken it because the lantern was never a blessing.",
     "openingLocation": "Briar Glen",
-    "gmSummary": "Mara Venn\u2019s family has used the village lantern as a prison for a memory-eating spirit, the Pale Guest. Brother Caldus stole the Emberglass because the old seal is failing. He is at Bellweather Priory trying to bind the spirit properly. The party can restore the old lantern-seal (temporary safety), help Caldus finish a new binding, smash the Emberglass and fight, or bargain a memory for a memory. Required truths have backup routes. Moonrise is the hard clock. This is Episode 1 of The Quiet Seals. Keep the six recommended of twelve pregens. The chosen ending is fact for Episode 2: The Well That Would Not Dry.",
+    "gmSummary": "Mara Venn’s family has used the village lantern as a prison for a memory-eating spirit, the Pale Guest. Brother Caldus stole the Emberglass because the old seal is failing. He is at Bellweather Priory trying to bind the spirit properly. The party can restore the old lantern-seal (temporary safety), help Caldus finish a new binding, smash the Emberglass and fight, or bargain a memory for a memory. Required truths have backup routes. Moonrise is the hard clock. This is Episode 1 of The Quiet Seals. Keep the six recommended of twelve pregens. The chosen ending is fact for Episode 2: The Well That Would Not Dry.",
     "campaignFrame": "Mayor Cald Wren of Hearthford sent the party to Briar Glen. Mara Venn is the local contact. When this night ends, they return to Hearthford. Mark Wren Helped. If they kept Tamsin or Caldus alive and honest, note it."
   },
   "quest": {
@@ -248,7 +248,7 @@
     {
       "id": "loc-priory-chapel",
       "name": "Ruined Chapel",
-      "description": "Roofless. Dragged altar, moon-bell plate, hanging handbell, Caldus\u2019s notes.",
+      "description": "Roofless. Dragged altar, moon-bell plate, hanging handbell, Caldus’s notes.",
       "connections": [
         "loc-priory-yard",
         "loc-priory-crypt"
@@ -281,13 +281,13 @@
       "pacingClass": "core",
       "estimatedMinutes": 20,
       "locationId": "loc-briar-glen",
-      "readAloud": "You came up from Hearthford because Mayor Wren asked. The lantern is Briar Glen\u2019s problem, he said. Then he counted to ten and added: if it goes out, the ridge goes with it.\n\nRain beads on the iron lantern in Briar Glen\u2019s square. The glass is soot-black, the chain still, the flame gone \u2014 the first time anyone living has seen it dark. People keep to the porch-eaves. No one stands directly under it.\n\nMara Venn comes down the steps of the meeting-house with a velvet-lined box held in both hands. The hollow in the lining is the size of a fist. Behind her, a girl with mud to the knees \u2014 Tamsin Reed \u2014 watches you the way a person watches a door they have already decided to follow.\n\n\u201cIt burned for my grandmother, and hers,\u201d Mara says, not quite looking at the lantern. \u201cBrother Caldus took the heart of it. I will pay two hundred gold if you bring the Emberglass back before the moon clears the ridge.\u201d",
+      "readAloud": "You came up from Hearthford because Mayor Wren asked. The lantern is Briar Glen’s problem, he said. Then he counted to ten and added: if it goes out, the ridge goes with it.\n\nRain beads on the iron lantern in Briar Glen’s square. The glass is soot-black, the chain still, the flame gone — the first time anyone living has seen it dark. People keep to the porch-eaves. No one stands directly under it.\n\nMara Venn comes down the steps of the meeting-house with a velvet-lined box held in both hands. The hollow in the lining is the size of a fist. Behind her, a girl with mud to the knees — Tamsin Reed — watches you the way a person watches a door they have already decided to follow.\n\n“It burned for my grandmother, and hers,” Mara says, not quite looking at the lantern. “Brother Caldus took the heart of it. I will pay two hundred gold if you bring the Emberglass back before the moon clears the ridge.”",
       "gmNotes": [
-        "Pay: 200 gp total, on village survival \u2014 even if the Emberglass is not returned (she will not say that yet).",
+        "Pay: 200 gp total, on village survival — even if the Emberglass is not returned (she will not say that yet).",
         "Clock: moonrise in about four hours of play. Name it. Put a token on the table if you want.",
-        "Mara\u2019s first story: sacred relic, village luck, Caldus a desperate thief. She will not say \u2018seal\u2019 unless pressed (DC 12 Insight/Persuasion \u2014 see Checks) or shown evidence.",
+        "Mara’s first story: sacred relic, village luck, Caldus a desperate thief. She will not say ‘seal’ unless pressed (DC 12 Insight/Persuasion — see Checks) or shown evidence.",
         "Tamsin will interrupt if ignored: she saw Caldus take the north trail, and she knows an old culvert. Treat her as an adult and she tells both.",
-        "If the party refuses the job, do not end the session. The lantern ticks. A pale mist will reach the square by scene three anyway \u2014 use recovery route recover-refuse.",
+        "If the party refuses the job, do not end the session. The lantern ticks. A pale mist will reach the square by scene three anyway — use recovery route recover-refuse.",
         "Do not mention the Pale Guest by name. Mara does not use it."
       ],
       "npcIds": [
@@ -313,11 +313,11 @@
       "pacingClass": "cut-first",
       "estimatedMinutes": 25,
       "locationId": "loc-north-trail",
-      "readAloud": "The north trail is a wet cut between blackthorn and beech. Your boots find the ruts of a single walker who did not care who followed.\n\nThree people stand in the road as if they were placed there. A woman in a drover\u2019s coat, a boy with a satchel, an old man still holding a walking stick. They look at one another with the particular fear of people who have lost the last hour of their lives. The boy says, very carefully, \u201cI know I came from somewhere.\u201d\n\nA pale film still hangs in the hollows between the roots, like breath that has not decided to leave.",
+      "readAloud": "The north trail is a wet cut between blackthorn and beech. Your boots find the ruts of a single walker who did not care who followed.\n\nThree people stand in the road as if they were placed there. A woman in a drover’s coat, a boy with a satchel, an old man still holding a walking stick. They look at one another with the particular fear of people who have lost the last hour of their lives. The boy says, very carefully, “I know I came from somewhere.”\n\nA pale film still hangs in the hollows between the roots, like breath that has not decided to leave.",
       "gmNotes": [
         "Cut this whole scene if you are behind clock. The spirit-clue still exists on Caldus later.",
-        "They are not undead. They are frightened. Hostile approach scatters them; the clue is not lost \u2014 tracks and cold mist still point north.",
-        "Check: DC 12 Medicine or Persuasion to calm them (see Checks). Success: they remember pale mist sliding down from the priory ridge, and that it \u2018took the names we were using.\u2019",
+        "They are not undead. They are frightened. Hostile approach scatters them; the clue is not lost — tracks and cold mist still point north.",
+        "Check: DC 12 Medicine or Persuasion to calm them (see Checks). Success: they remember pale mist sliding down from the priory ridge, and that it ‘took the names we were using.’",
         "If asked who they are: they can give names after a minute (Dora Fen, Kit, Old Pell). They cannot remember why they were on the trail.",
         "The mist does 0 damage here. It is a warning, not a fight."
       ],
@@ -341,12 +341,12 @@
       "pacingClass": "core",
       "estimatedMinutes": 35,
       "locationId": "loc-priory-yard",
-      "readAloud": "Bellweather Priory sits on the ridge like a broken tooth. Two bronze bells have been dragged into the yard and left on their sides; rainwater ticks inside them.\n\nFresh white chalk rings the chapel doors \u2014 tight, careful circles, not graffiti. Thorn has eaten the grave-row. Something under that thorn shifts when your weight hits the mud, as if four bodies rolled over in their sleep.\n\nThe culvert mouth, if Tamsin described it, is a dark slot in the east bank outside the wall. The yard is sixty feet of bad ground.",
+      "readAloud": "Bellweather Priory sits on the ridge like a broken tooth. Two bronze bells have been dragged into the yard and left on their sides; rainwater ticks inside them.\n\nFresh white chalk rings the chapel doors — tight, careful circles, not graffiti. Thorn has eaten the grave-row. Something under that thorn shifts when your weight hits the mud, as if four bodies rolled over in their sleep.\n\nThe culvert mouth, if Tamsin described it, is a dark slot in the east bank outside the wall. The yard is sixty feet of bad ground.",
       "gmNotes": [
-        "Wards: DC 12 Arcana/Religion reads them as protective and recent \u2014 Caldus\u2019s work, not a cult.",
+        "Wards: DC 12 Arcana/Religion reads them as protective and recent — Caldus’s work, not a cult.",
         "Grave-Things: four, AC 12, 18 HP (Encounters). They rise if anyone moves more than 10 feet into the yard. They do not pursue beyond the wall.",
         "Bypass: culvert if known. Or DC 12 group Stealth along the grave-edge; failure starts the fight 20 feet away.",
-        "Fire: if fire damages a Grave-Thing, that one attacks the fire\u2019s source next turn. They are rooted dead, not an army.",
+        "Fire: if fire damages a Grave-Thing, that one attacks the fire’s source next turn. They are rooted dead, not an army.",
         "Do not run this as a slog. One round of pressure, then remind them of the culvert and the chapel doors."
       ],
       "npcIds": [],
@@ -371,7 +371,7 @@
       "locationId": "loc-culvert",
       "readAloud": "The culvert is shoulder-wide, stone, and older than the chapel. Meltwater runs over your boots. Halfway in, a cheap tallow candle is wedged in a crack; the wax is still soft.\n\nScratched into the lintel, in a neat, angry hand: DO NOT RING THE BELL.\n\nThe far end smells of wet bronze and old incense. It opens into the crypt, not the chapel.",
       "gmNotes": [
-        "Candle less than an hour old \u2014 Caldus is still here.",
+        "Candle less than an hour old — Caldus is still here.",
         "The warning is his. Ringing the crypt bell later feeds the Pale Guest (trap in chapel/crypt).",
         "No fight here. If they make noise, Grave-Things in the yard stir but cannot reach this tunnel.",
         "This route skips the yard combat entirely. That is allowed. Do not punish it."
@@ -393,11 +393,11 @@
       "pacingClass": "core",
       "estimatedMinutes": 30,
       "locationId": "loc-priory-chapel",
-      "readAloud": "The chapel has no roof. Rain falls on pews that have gone to mushroom and black wood. Someone has dragged the altar three feet off its mark. Under it, a bronze plate is set in the floor: four small bells in a row, each stamped with a moon \u2014 new, crescent, half, full.\n\nA handbell hangs from a nail by the south stair-well, polished from recent use. Scattered on the wet stone: pages in Caldus\u2019s hand, weighted with a broken roof-slate. The first line you can read without touching anything is: \u2018The village flame was never a blessing. It was a door we kept shut.\u2019",
+      "readAloud": "The chapel has no roof. Rain falls on pews that have gone to mushroom and black wood. Someone has dragged the altar three feet off its mark. Under it, a bronze plate is set in the floor: four small bells in a row, each stamped with a moon — new, crescent, half, full.\n\nA handbell hangs from a nail by the south stair-well, polished from recent use. Scattered on the wet stone: pages in Caldus’s hand, weighted with a broken roof-slate. The first line you can read without touching anything is: ‘The village flame was never a blessing. It was a door we kept shut.’",
       "gmNotes": [
-        "Puzzle: press darkest to brightest \u2014 new, crescent, half, full. Crypt stair opens. Wrong order: a whisper-pulse, then reset. No damage the first time; second time 1d4 psychic and reset.",
-        "Fail forward: ringing the hanging handbell opens the stair AND triggers trap-memory-bell (DC 13 Wisdom; 2d6 psychic; forget the last minute fictionally \u2014 players keep all discovered clues).",
-        "Caldus\u2019s notes here deliver clue-caldus-binding even if they never meet him politely.",
+        "Puzzle: press darkest to brightest — new, crescent, half, full. Crypt stair opens. Wrong order: a whisper-pulse, then reset. No damage the first time; second time 1d4 psychic and reset.",
+        "Fail forward: ringing the hanging handbell opens the stair AND triggers trap-memory-bell (DC 13 Wisdom; 2d6 psychic; forget the last minute fictionally — players keep all discovered clues).",
+        "Caldus’s notes here deliver clue-caldus-binding even if they never meet him politely.",
         "He is not in this room. He is below."
       ],
       "npcIds": [],
@@ -417,7 +417,7 @@
       "pacingClass": "core",
       "estimatedMinutes": 35,
       "locationId": "loc-priory-crypt",
-      "readAloud": "The crypt is a low stone room with niches like empty mouths. A cracked bronze bell hangs dead-center, its clapper wrapped in torn vestments. Cloth, not rust, is what keeps it quiet.\n\nBrother Caldus stands on the far side of it. He looks like a man who has not slept in three days. In his left hand is a fist-sized coal of red-gold glass \u2014 warm light leaking between his fingers. His right hand is up, empty, not a weapon.\n\n\u201cIf you came to hang a thief,\u201d he says, very carefully, \u201cwait until I have finished the sentence. The lantern in your square is a lock. I stole the key because the lock is breaking.\u201d",
+      "readAloud": "The crypt is a low stone room with niches like empty mouths. A cracked bronze bell hangs dead-center, its clapper wrapped in torn vestments. Cloth, not rust, is what keeps it quiet.\n\nBrother Caldus stands on the far side of it. He looks like a man who has not slept in three days. In his left hand is a fist-sized coal of red-gold glass — warm light leaking between his fingers. His right hand is up, empty, not a weapon.\n\n“If you came to hang a thief,” he says, very carefully, “wait until I have finished the sentence. The lantern in your square is a lock. I stole the key because the lock is breaking.”",
       "gmNotes": [
         "He does not attack first. If they talk, he tells the whole truth: Emberglass + lantern = failing seal; Pale Guest feeds on memory; he wants a new binding in the chamber below.",
         "If they attack: enc-caldus-if-hostile. AC 13, 36 HP. He retreats toward the ritual stair, shouts the truth every round, surrenders at 8 HP. Journal still delivers required clues if he drops.",
@@ -446,13 +446,17 @@
       "pacingClass": "core",
       "estimatedMinutes": 55,
       "locationId": "loc-ritual-chamber",
-      "readAloud": "The chamber is a forty-foot circle of black stone. A silver ring in the floor is already hairline-cracked. Four sigils mark the cardinal points. In the center, a socket waits for the Emberglass \u2014 or shows the empty place where it should sit.\n\nThe ring splits with a sound like ice going on a lake. A tall figure unfolds from the far dark: no face, too many mouths, each whispering in a voice someone in the party almost knows. A mother. A dead friend. A child you have not met yet.\n\n\u201cYou kept me in a lamp,\u201d the mouths say together, almost kindly. \u201cChoose better.\u201d",
+      "readAloud": "The chamber is a forty-foot circle of black stone. A silver ring in the floor is already hairline-cracked. Four sigils mark the cardinal points. In the center, a socket waits for the Emberglass — or shows the empty place where it should sit.\n\nThe ring splits with a sound like ice going on a lake. A tall figure unfolds from the far dark: no face, too many mouths, each whispering in a voice someone in the party almost knows. A mother. A dead friend. A child you have not met yet.\n\n“You kept me in a lamp,” the mouths say together, almost kindly. “Choose better.”",
       "gmNotes": [
         "Roll initiative after the read-aloud. Pale Guest: AC 14, 88 HP, fly 30 hover. See Encounters for attacks, Whispering Theft, Unstable Binding.",
-        "Three legal victories: (1) 0 HP \u2014 destroy it. (2) 3 ritual successes before 3 failures \u2014 bind it (check-ritual DC 13; Caldus auto-success end of round 2 if allied and up). (3) 3 bargain successes before 2 failures \u2014 new pact (check-bargain DC 15; cost = one meaningful memory per willing bargainer). Record the memories.",
+        "Three legal victories: (1) 0 HP — destroy it. (2) 3 ritual successes before 3 failures — bind it (check-ritual DC 13; Caldus auto-success end of round 2 if allied and up). (3) 3 bargain successes before 2 failures — new pact (check-bargain DC 15; cost = one meaningful memory per willing bargainer). Record the memories.",
         "Smash Emberglass (action, holding it): Guest loses nonmagical weapon resistance; binding becomes impossible.",
-        "It does not leave this room while the Emberglass exists. No fleeing. If the party runs upstairs, moonrise still comes \u2014 recovery, not a chase map.",
-        "Keep rounds short. Narrate one whisper per round. Do not erase character sheets; memory-loss is story, except the listed psychic damage."
+        "It does not leave this room while the Emberglass exists. No fleeing. If the party runs upstairs, moonrise still comes — recovery, not a chase map.",
+        "Keep rounds short. Narrate one whisper per round. Do not erase character sheets; memory-loss is story, except the listed psychic damage.",
+        "Fourth legal victory — Restore the Old Flame: requires the intact Emberglass. Get three successes before two failures. During initiative, one character may spend their action on one attempt; the Pale Guest otherwise acts normally.",
+        "Old Flame checks: DC 13 Arcana, Religion, Athletics, or Persuasion when the approach fits. A different proficient skill is DC 14 with a concrete fictional approach. No character makes more than one attempt per round.",
+        "Old Flame pressure: on a failed attempt, the acting character takes 1d6 psychic damage and the Pale Guest immediately uses Whispering Theft against that character if able. If Caldus is allied and conscious, once during this challenge he may spend his action to grant advantage on one attempt.",
+        "Old Flame result: at three successes, the Guest is pulled back into the old lantern-seal and initiative ends. At two failures, this option closes for the scene but binding, bargaining, and combat remain available. Caldus warns the repaired seal will fail within roughly one season."
       ],
       "npcIds": [
         "npc-brother-caldus"
@@ -473,9 +477,9 @@
       "pacingClass": "core",
       "estimatedMinutes": 15,
       "locationId": "loc-briar-glen",
-      "readAloud": "Dawn at Briar Glen is ordinary weather and an extraordinary quiet. People come out to look at the iron lantern as if it might speak.\n\nMara is already in the square. She does not ask whether you are heroes. She asks what you did with the thing that used to burn there \u2014 and whether the village still has a secret, a prison, a grave, or a debt.\n\nA drover on the north road, if anyone is still listening, says the well at Saltmere has gone wrong. Iron in the water. Names that will not stick. That is tomorrow\u2019s problem. Tonight, end on the lantern.",
+      "readAloud": "Dawn at Briar Glen is ordinary weather and an extraordinary quiet. People come out to look at the iron lantern as if it might speak.\n\nMara is already in the square. She does not ask whether you are heroes. She asks what you did with the thing that used to burn there — and whether the village still has a secret, a prison, a grave, or a debt.\n\nA drover on the north road, if anyone is still listening, says the well at Saltmere has gone wrong. Iron in the water. Names that will not stick. That is tomorrow’s problem. Tonight, end on the lantern.",
       "gmNotes": [
-        "Restore old flame: lantern lights again. Caldus, if alive, says it will fail within a season. Mara pays. The secret can stay buried or not \u2014 party\u2019s word. Episode 2: Saltmere has heard the lantern \u2018held.\u2019 They want the same trick for their well.",
+        "Restore old flame: lantern lights again. Caldus, if alive, says it will fail within a season. Mara pays. The secret can stay buried or not — party’s word. Episode 2: Saltmere has heard the lantern ‘held.’ They want the same trick for their well.",
         "New binding: lantern stays dark, a memorial. Priory holds. Mara pays. Caldus may stay as keeper. Episode 2: Saltmere wants Caldus or the party, not the old lantern-method.",
         "Destroyed: no cage. Some villagers hate the party for killing the luck. Mara still pays if they lived. Episode 2: Saltmere is terrified you will smash their well-charm too.",
         "Bargain: Guest gone for now. Write the owed memories. Mara pays, shaken. Episode 2: something in Saltmere already knows the names you sold.",
@@ -646,7 +650,7 @@
       "name": "Memory Bell",
       "locationId": "loc-priory-chapel",
       "trigger": "Ring the hanging handbell.",
-      "effect": "Each nearby creature makes a Wisdom saving throw DC 13. Failure: lose a trivial recent memory and hear the Pale Guest. Success: hear the whisper, keep the memory. Either way the crypt stair is obvious \u2014 fail-forward.",
+      "effect": "Each nearby creature makes a Wisdom saving throw DC 13. Failure: lose a trivial recent memory and hear the Pale Guest. Success: hear the whisper, keep the memory. Either way the crypt stair is obvious — fail-forward.",
       "purpose": "Failure advances the adventure but increases supernatural pressure.",
       "save": "Wisdom DC 13",
       "dc": 13
@@ -1344,7 +1348,7 @@
         {
           "name": "Improved Critical",
           "source": "Champion 3",
-          "text": "Weapon attacks crit on 19\u201320."
+          "text": "Weapon attacks crit on 19–20."
         },
         {
           "name": "Ability Score Improvement",
@@ -1375,7 +1379,7 @@
           "qty": 3
         },
         {
-          "name": "Explorer\u2019s pack",
+          "name": "Explorer’s pack",
           "qty": 1
         }
       ],
@@ -1383,7 +1387,7 @@
       "personality": {
         "trait": "Counts exits. Sleeps in the mail.",
         "ideal": "Hold the line so someone else gets home.",
-        "bond": "A dead sergeant\u2019s token in his pouch.",
+        "bond": "A dead sergeant’s token in his pouch.",
         "flaw": "Would rather take a hit than admit he was wrong."
       },
       "appearance": "Human man, early forties, iron-grey stubble, a pale scar along the jaw.",
@@ -1404,11 +1408,11 @@
         "Fighting Style: Defense: While wearing armor, +1 AC (already in 19).",
         "Second Wind: Bonus action, 1/rest: regain 1d10+4 HP.",
         "Action Surge: On your turn, take one additional action. 1/rest.",
-        "Improved Critical: Weapon attacks crit on 19\u201320.",
+        "Improved Critical: Weapon attacks crit on 19–20.",
         "Ability Score Improvement: Already applied in the scores on this sheet.",
         "Military Rank: Soldiers loyal to your former rank still recognize you. You can invoke that rank for food, lodging, or an audience with officers."
       ],
-      "gear": "Chain mail, Shield, Longsword, 3\u00d7 Javelin, Explorer\u2019s pack, 12 gp"
+      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Explorer’s pack, 12 gp"
     },
     {
       "id": "pregen-pell",
@@ -1585,7 +1589,7 @@
           "warhammer (dwarf)"
         ],
         "tools": [
-          "smith\u2019s tools"
+          "smith’s tools"
         ],
         "languages": [
           "Common",
@@ -1739,7 +1743,7 @@
         {
           "name": "Disciple of Life",
           "source": "Life 1",
-          "text": "When you restore HP with a 1st-level or higher spell, extra HP = 2 + the spell\u2019s level."
+          "text": "When you restore HP with a 1st-level or higher spell, extra HP = 2 + the spell’s level."
         },
         {
           "name": "Channel Divinity: Turn Undead",
@@ -1788,10 +1792,10 @@
           "name": "Holy symbol"
         },
         {
-          "name": "Healer\u2019s kit"
+          "name": "Healer’s kit"
         },
         {
-          "name": "Acolyte\u2019s vestments"
+          "name": "Acolyte’s vestments"
         }
       ],
       "gp": 15,
@@ -1816,7 +1820,7 @@
         "Sacred Flame. +0 to hit; 1d8 radiant; Dex DC 13; 60 ft.; cover does not help"
       ],
       "features": [
-        "Disciple of Life: When you restore HP with a 1st-level or higher spell, extra HP = 2 + the spell\u2019s level.",
+        "Disciple of Life: When you restore HP with a 1st-level or higher spell, extra HP = 2 + the spell’s level.",
         "Channel Divinity: Turn Undead: Action, 1/rest. Undead within 30 ft. that see/hear you: Wis DC 13 or turned 1 minute.",
         "Channel Divinity: Preserve Life: Action, 1/rest. Restore 20 HP split among creatures within 30 ft. (not undead/constructs), each up to half their HP max.",
         "Dwarven Resilience: Advantage on saves vs poison. Resistance to poison damage. Darkvision 60 ft. Speed 25 is not reduced by heavy armor.",
@@ -1824,7 +1828,7 @@
         "Shelter of the Faithful: You and companions can receive free healing and care at a temple of your faith.",
         "Spellcasting: Wis DC 13, +5 to hit. Slots 4/3. Prepare Wis mod + level = 7, plus domain spells."
       ],
-      "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer\u2019s kit, Acolyte\u2019s vestments, 15 gp"
+      "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer’s kit, Acolyte’s vestments, 15 gp"
     },
     {
       "id": "pregen-nyx",
@@ -2001,14 +2005,14 @@
           "shortswords"
         ],
         "tools": [
-          "thieves\u2019 tools (expertise +7)",
+          "thieves’ tools (expertise +7)",
           "dice set",
           " forgery kit"
         ],
         "languages": [
           "Common",
           "Halfling",
-          "Thieves\u2019 Cant"
+          "Thieves’ Cant"
         ]
       },
       "attackList": [
@@ -2017,7 +2021,7 @@
           "bonus": 5,
           "damage": "1d8+3",
           "type": "piercing",
-          "notes": "finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don\u2019t have disadvantage"
+          "notes": "finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don’t have disadvantage"
         },
         {
           "name": "Shortbow",
@@ -2029,14 +2033,14 @@
       ],
       "bonusActions": [
         "Cunning Action: Dash, Disengage, or Hide.",
-        "Fast Hands: Cunning Action to Use an Object, thieves\u2019 tools (trap/lock), or Sleight of Hand."
+        "Fast Hands: Cunning Action to Use an Object, thieves’ tools (trap/lock), or Sleight of Hand."
       ],
       "reactions": [],
       "featureList": [
         {
           "name": "Sneak Attack",
           "source": "Rogue 1",
-          "text": "Once per turn, +2d6 damage when you hit with a finesse or ranged weapon and have advantage, or an ally is within 5 ft. of the target and you don\u2019t have disadvantage."
+          "text": "Once per turn, +2d6 damage when you hit with a finesse or ranged weapon and have advantage, or an ally is within 5 ft. of the target and you don’t have disadvantage."
         },
         {
           "name": "Cunning Action",
@@ -2046,7 +2050,7 @@
         {
           "name": "Fast Hands",
           "source": "Thief 3",
-          "text": "Use Cunning Action for Use an Object, Dex (Sleight of Hand), or thieves\u2019 tools to pick a lock or disarm a trap."
+          "text": "Use Cunning Action for Use an Object, Dex (Sleight of Hand), or thieves’ tools to pick a lock or disarm a trap."
         },
         {
           "name": "Second-Story Work",
@@ -2094,7 +2098,7 @@
           "qty": 20
         },
         {
-          "name": "Thieves\u2019 tools"
+          "name": "Thieves’ tools"
         },
         {
           "name": "Crowbar"
@@ -2118,13 +2122,13 @@
       "saves": "Dex +5, Int +3",
       "speed": "25 ft.",
       "attacks": [
-        "Rapier. +5 to hit; 1d8+3 piercing; finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don\u2019t have disadvantage",
+        "Rapier. +5 to hit; 1d8+3 piercing; finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don’t have disadvantage",
         "Shortbow. +5 to hit; 1d6+3 piercing; range 80/320; same Sneak Attack rule"
       ],
       "features": [
-        "Sneak Attack: Once per turn, +2d6 damage when you hit with a finesse or ranged weapon and have advantage, or an ally is within 5 ft. of the target and you don\u2019t have disadvantage.",
+        "Sneak Attack: Once per turn, +2d6 damage when you hit with a finesse or ranged weapon and have advantage, or an ally is within 5 ft. of the target and you don’t have disadvantage.",
         "Cunning Action: Bonus action: Dash, Disengage, or Hide.",
-        "Fast Hands: Use Cunning Action for Use an Object, Dex (Sleight of Hand), or thieves\u2019 tools to pick a lock or disarm a trap.",
+        "Fast Hands: Use Cunning Action for Use an Object, Dex (Sleight of Hand), or thieves’ tools to pick a lock or disarm a trap.",
         "Second-Story Work: Climbing does not cost extra movement. Running jump distance +3 ft. (Dex mod).",
         "Lucky: When you roll a 1 on an attack, check, or save, reroll and use the new roll.",
         "Brave: Advantage on saves against being frightened.",
@@ -2132,7 +2136,7 @@
         "Naturally Stealthy: You can attempt to hide even when you are obscured only by a creature one size larger than you.",
         "Criminal Contact: You have a reliable contact who can pass messages through the criminal network."
       ],
-      "gear": "Studded leather, Rapier, Shortbow, 20\u00d7 Arrows, Thieves\u2019 tools, Crowbar, 18 gp"
+      "gear": "Studded leather, Rapier, Shortbow, 20× Arrows, Thieves’ tools, Crowbar, 18 gp"
     },
     {
       "id": "pregen-ivo",
@@ -2462,7 +2466,7 @@
         {
           "name": "Arcane Recovery",
           "source": "Wizard 1",
-          "text": "1/day after a short rest, recover slot levels totaling 2 (wizard level \u00f7 2).",
+          "text": "1/day after a short rest, recover slot levels totaling 2 (wizard level ÷ 2).",
           "uses": "1/day"
         },
         {
@@ -2492,7 +2496,7 @@
           "name": "Arcane focus (crystal)"
         },
         {
-          "name": "Scholar\u2019s pack"
+          "name": "Scholar’s pack"
         },
         {
           "name": "Bottle of ink"
@@ -2501,11 +2505,11 @@
       "gp": 22,
       "personality": {
         "trait": "Writes the last word he heard before he forgets it. Habit. Not a joke.",
-        "ideal": "A seal that needs a village\u2019s silence is a bad seal.",
+        "ideal": "A seal that needs a village’s silence is a bad seal.",
         "bond": "The priory library still has a book he did not finish.",
         "flaw": "Will stop in a fight to read an inscription."
       },
-      "appearance": "High elf, ink on the fingers, scholar\u2019s coat gone to weather.",
+      "appearance": "High elf, ink on the fingers, scholar’s coat gone to weather.",
       "passivePerception": 11,
       "passiveInsight": 13,
       "level": 4,
@@ -2521,12 +2525,12 @@
       ],
       "features": [
         "Spellcasting: Int DC 13, +5. Slots 4/3. Prepare 7 from the book. Rituals if in the book.",
-        "Arcane Recovery: 1/day after a short rest, recover slot levels totaling 2 (wizard level \u00f7 2).",
+        "Arcane Recovery: 1/day after a short rest, recover slot levels totaling 2 (wizard level ÷ 2).",
         "Sculpt Spells: When you cast an evocation that affects others you can see, choose 1 + spell level creatures. They auto-succeed the save and take no damage.",
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60 ft. Trance: 4 hours instead of sleep.",
         "Researcher: If you do not know a piece of lore, you usually know where to find it."
       ],
-      "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar\u2019s pack, Bottle of ink, 22 gp"
+      "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar’s pack, Bottle of ink, 22 gp"
     },
     {
       "id": "pregen-kael",
@@ -2714,7 +2718,7 @@
           "bonus": 7,
           "damage": "1d8+3",
           "type": "piercing",
-          "notes": "Archery included; range 150/600; two-handed. Extra Attack is ranger 5 \u2014 one shot."
+          "notes": "Archery included; range 150/600; two-handed. Extra Attack is ranger 5 — one shot."
         },
         {
           "name": "Shortsword",
@@ -2725,7 +2729,7 @@
         }
       ],
       "bonusActions": [
-        "Hunter\u2019s Mark (if a 1st-level slot remains): bonus, concentration 1 hour. +1d6 damage vs one target; advantage to track it."
+        "Hunter’s Mark (if a 1st-level slot remains): bonus, concentration 1 hour. +1d6 damage vs one target; advantage to track it."
       ],
       "reactions": [],
       "spellcasting": {
@@ -2739,7 +2743,7 @@
         "prepareCount": "Known ranger spells, not prepared: 3.",
         "cantrips": [],
         "prepared": [
-          "Hunter\u2019s Mark",
+          "Hunter’s Mark",
           "Goodberry",
           "Cure Wounds"
         ]
@@ -2747,7 +2751,7 @@
       "spellList": [
         {
           "level": 1,
-          "name": "Hunter\u2019s Mark",
+          "name": "Hunter’s Mark",
           "time": "bonus",
           "range": "90 ft.",
           "effect": "Concentration 1 hour. +1d6 damage vs the marked creature. Bonus action to move it when the target drops."
@@ -2776,7 +2780,7 @@
         {
           "name": "Natural Explorer: Forest",
           "source": "Ranger 1",
-          "text": "In forests: 2\u00d7 food, ignore difficult terrain (you), advantage on initiative if not incapacitated, travel benefits for the group."
+          "text": "In forests: 2× food, ignore difficult terrain (you), advantage on initiative if not incapacitated, travel benefits for the group."
         },
         {
           "name": "Fighting Style: Archery",
@@ -2825,7 +2829,7 @@
           "name": "Shortsword"
         },
         {
-          "name": "Explorer\u2019s pack"
+          "name": "Explorer’s pack"
         }
       ],
       "gp": 11,
@@ -2846,12 +2850,12 @@
       "saves": "Str +3, Dex +5",
       "speed": "35 ft.",
       "attacks": [
-        "Longbow. +7 to hit; 1d8+3 piercing; Archery included; range 150/600; two-handed. Extra Attack is ranger 5 \u2014 one shot.",
+        "Longbow. +7 to hit; 1d8+3 piercing; Archery included; range 150/600; two-handed. Extra Attack is ranger 5 — one shot.",
         "Shortsword. +5 to hit; 1d6+3 piercing; finesse"
       ],
       "features": [
         "Favored Enemy: Undead: Advantage on Survival to track undead and on Int checks to recall about them.",
-        "Natural Explorer: Forest: In forests: 2\u00d7 food, ignore difficult terrain (you), advantage on initiative if not incapacitated, travel benefits for the group.",
+        "Natural Explorer: Forest: In forests: 2× food, ignore difficult terrain (you), advantage on initiative if not incapacitated, travel benefits for the group.",
         "Fighting Style: Archery: +2 to attack rolls with ranged weapons (already in +7).",
         "Colossus Slayer: Once per turn, when you hit a creature below its HP maximum, +1d8 damage.",
         "Primeval Awareness: Expend a spell slot: for 1 minute per slot level, sense favored enemies within 1 mile (6 miles in your favored terrain).",
@@ -2859,7 +2863,7 @@
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. Trance 4 hours.",
         "Wanderer: You can always recall the layout of surrounding territory and find food and water for yourself and five others when the land can provide."
       ],
-      "gear": "Scale mail, Longbow, 20\u00d7 Arrows, Shortsword, Explorer\u2019s pack, 11 gp"
+      "gear": "Scale mail, Longbow, 20× Arrows, Shortsword, Explorer’s pack, 11 gp"
     },
     {
       "id": "pregen-hester",
@@ -3034,7 +3038,7 @@
           "martial weapons"
         ],
         "tools": [
-          "smith\u2019s tools",
+          "smith’s tools",
           "land vehicles"
         ],
         "languages": [
@@ -3059,7 +3063,7 @@
         }
       ],
       "bonusActions": [
-        "Divine Smite is not a bonus \u2014 it is on hit. Sacred Weapon (Channel): bonus action, 1 minute, attacks with one weapon use +5 (Cha) instead of Str, and the weapon is magical."
+        "Divine Smite is not a bonus — it is on hit. Sacred Weapon (Channel): bonus action, 1 minute, attacks with one weapon use +5 (Cha) instead of Str, and the weapon is magical."
       ],
       "reactions": [],
       "spellcasting": {
@@ -3107,7 +3111,7 @@
           "name": "Protection from Evil and Good",
           "time": "action",
           "range": "touch",
-          "effect": "Concentration 10 min. Aberrations, celestials, elementals, fey, fiends, undead: disadvantage to hit the target; target can\u2019t be charmed, frightened, or possessed by them. Oath."
+          "effect": "Concentration 10 min. Aberrations, celestials, elementals, fey, fiends, undead: disadvantage to hit the target; target can’t be charmed, frightened, or possessed by them. Oath."
         },
         {
           "level": 1,
@@ -3148,7 +3152,7 @@
         {
           "name": "Channel Divinity: Sacred Weapon",
           "source": "Devotion 3",
-          "text": "Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better \u2014 +6 to hit), magical, sheds light.",
+          "text": "Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better — +6 to hit), magical, sheds light.",
           "uses": "1/rest shared"
         },
         {
@@ -3185,7 +3189,7 @@
       "personality": {
         "trait": "Keeps her oaths short so she can keep them.",
         "ideal": "A village should not have to rent its safety from a secret.",
-        "bond": "The miller\u2019s family in her home hamlet still writes.",
+        "bond": "The miller’s family in her home hamlet still writes.",
         "flaw": "Will not lie even when a lie would keep someone alive."
       },
       "appearance": "Human woman, mid-thirties, cropped black hair, an iron lantern on a chain instead of a sunburst.",
@@ -3208,11 +3212,11 @@
         "Fighting Style: Dueling: +2 damage with a melee weapon in one hand and no other weapon (already in 1d8+5).",
         "Divine Smite: When you hit with a melee weapon, expend a spell slot: +2d8 radiant (1st) or +3d8 (2nd). +1d8 vs undead or fiend. You have only 1st-level slots: +2d8, or +3d8 vs undead/fiend.",
         "Divine Health: Immune to disease.",
-        "Channel Divinity: Sacred Weapon: Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better \u2014 +6 to hit), magical, sheds light.",
+        "Channel Divinity: Sacred Weapon: Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better — +6 to hit), magical, sheds light.",
         "Channel Divinity: Turn the Unholy: Action, 1/rest. Fiends and undead within 30 ft. that see/hear you: Wis DC 13 or turned 1 minute.",
         "Rustic Hospitality: Common folk will hide you from the law or anyone searching, if you are not putting them in undue danger."
       ],
-      "gear": "Chain mail, Shield, Longsword, 3\u00d7 Javelin, Holy symbol (iron lantern), 14 gp"
+      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Holy symbol (iron lantern), 14 gp"
     },
     {
       "id": "pregen-rook",
@@ -3419,7 +3423,7 @@
         {
           "name": "Rage",
           "source": "Barbarian 1",
-          "text": "Bonus action, 3/long rest, 1 minute. Advantage on Str checks and saves; +2 melee Str damage; resistance to bludgeoning, piercing, slashing. Ends if you don\u2019t attack or take damage for a turn.",
+          "text": "Bonus action, 3/long rest, 1 minute. Advantage on Str checks and saves; +2 melee Str damage; resistance to bludgeoning, piercing, slashing. Ends if you don’t attack or take damage for a turn.",
           "uses": "3/long rest"
         },
         {
@@ -3445,7 +3449,7 @@
         {
           "name": "Relentless Endurance",
           "source": "Half-Orc",
-          "text": "1/long rest, when you drop to 0 HP and don\u2019t die outright, drop to 1 HP instead.",
+          "text": "1/long rest, when you drop to 0 HP and don’t die outright, drop to 1 HP instead.",
           "uses": "1/long rest"
         },
         {
@@ -3468,7 +3472,7 @@
           "qty": 4
         },
         {
-          "name": "Explorer\u2019s pack"
+          "name": "Explorer’s pack"
         }
       ],
       "gp": 9,
@@ -3493,16 +3497,16 @@
         "Javelin. +5 to hit; 1d6+3 piercing; thrown 30/120"
       ],
       "features": [
-        "Rage: Bonus action, 3/long rest, 1 minute. Advantage on Str checks and saves; +2 melee Str damage; resistance to bludgeoning, piercing, slashing. Ends if you don\u2019t attack or take damage for a turn.",
+        "Rage: Bonus action, 3/long rest, 1 minute. Advantage on Str checks and saves; +2 melee Str damage; resistance to bludgeoning, piercing, slashing. Ends if you don’t attack or take damage for a turn.",
         "Unarmored Defense: AC = 10 + Dex + Con while not wearing armor (15). Shield allowed; he is not using one.",
         "Reckless Attack: Advantage on melee Str attacks this turn; attacks against you have advantage until your next turn.",
         "Danger Sense: Advantage on Dex saves against effects you can see. Not if blinded, deafened, or incapacitated.",
         "Frenzy: When you rage, you can frenzy: bonus melee weapon attack each turn. When the rage ends, gain 1 exhaustion.",
-        "Relentless Endurance: 1/long rest, when you drop to 0 HP and don\u2019t die outright, drop to 1 HP instead.",
+        "Relentless Endurance: 1/long rest, when you drop to 0 HP and don’t die outright, drop to 1 HP instead.",
         "Savage Attacks: On a melee crit, roll one extra weapon damage die.",
         "Wanderer: Always know the surrounding territory; find food and water for six when the land allows."
       ],
-      "gear": "Greataxe, 4\u00d7 Javelin, Explorer\u2019s pack, 9 gp"
+      "gear": "Greataxe, 4× Javelin, Explorer’s pack, 9 gp"
     },
     {
       "id": "pregen-sable",
@@ -3819,7 +3823,7 @@
         {
           "name": "Jack of All Trades",
           "source": "Bard 2",
-          "text": "+1 (half proficiency) to any ability check that doesn\u2019t already include proficiency."
+          "text": "+1 (half proficiency) to any ability check that doesn’t already include proficiency."
         },
         {
           "name": "Song of Rest",
@@ -3863,7 +3867,7 @@
           "name": "Lute"
         },
         {
-          "name": "Diplomat\u2019s pack"
+          "name": "Diplomat’s pack"
         }
       ],
       "gp": 16,
@@ -3889,7 +3893,7 @@
       ],
       "features": [
         "Bardic Inspiration: Bonus action, 3/long rest (Cha). d6, 10 minutes, added to one check/save/attack.",
-        "Jack of All Trades: +1 (half proficiency) to any ability check that doesn\u2019t already include proficiency.",
+        "Jack of All Trades: +1 (half proficiency) to any ability check that doesn’t already include proficiency.",
         "Song of Rest: During a short rest, you and allies who hear you regain an extra 1d6 HP if they spend a hit die.",
         "Cutting Words: Reaction: spend inspiration to subtract 1d6 from an enemy attack, check, or damage within 60 ft.",
         "Bonus Proficiencies: Three extra skills (already on the sheet).",
@@ -3897,7 +3901,7 @@
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. +2 Cha / +1 Dex / +1 Con already in scores.",
         "By Popular Demand: You can always find a place to perform; free lodging at the inn where you perform."
       ],
-      "gear": "Studded leather, Rapier, Lute, Diplomat\u2019s pack, 16 gp"
+      "gear": "Studded leather, Rapier, Lute, Diplomat’s pack, 16 gp"
     },
     {
       "id": "pregen-bram",
@@ -4251,7 +4255,7 @@
         {
           "name": "Discovery",
           "source": "Hermit",
-          "text": "The quiet seclusion of your hermitage gave you a unique and powerful discovery \u2014 here: you can always find potable water if it exists within a mile."
+          "text": "The quiet seclusion of your hermitage gave you a unique and powerful discovery — here: you can always find potable water if it exists within a mile."
         }
       ],
       "equipment": [
@@ -4268,7 +4272,7 @@
           "name": "Druidic focus"
         },
         {
-          "name": "Explorer\u2019s pack"
+          "name": "Explorer’s pack"
         }
       ],
       "gp": 12,
@@ -4296,9 +4300,9 @@
         "Wild Shape: 2/short rest. Beast CR 1/2, no fly, up to 2 hours. You keep Wis/Int/Cha, gain beast HP/AC.",
         "Natural Recovery: 1/long rest, after a short rest, recover slot levels totaling 2.",
         "Circle Spells (Forest): Barkskin and Spider Climb always prepared, do not count against prepares.",
-        "Discovery: The quiet seclusion of your hermitage gave you a unique and powerful discovery \u2014 here: you can always find potable water if it exists within a mile."
+        "Discovery: The quiet seclusion of your hermitage gave you a unique and powerful discovery — here: you can always find potable water if it exists within a mile."
       ],
-      "gear": "Hide armor, Shield (wood), Quarterstaff, Druidic focus, Explorer\u2019s pack, 12 gp"
+      "gear": "Hide armor, Shield (wood), Quarterstaff, Druidic focus, Explorer’s pack, 12 gp"
     },
     {
       "id": "pregen-sora",
@@ -4536,7 +4540,7 @@
         {
           "name": "Slow Fall",
           "source": "Monk 4",
-          "text": "Reaction: reduce fall damage by 20 (5 \u00d7 monk level)."
+          "text": "Reaction: reduce fall damage by 20 (5 × monk level)."
         },
         {
           "name": "Discovery",
@@ -4550,7 +4554,7 @@
           "qty": 10
         },
         {
-          "name": "Explorer\u2019s pack"
+          "name": "Explorer’s pack"
         }
       ],
       "gp": 8,
@@ -4581,10 +4585,10 @@
         "Unarmored Movement: +10 ft. speed while unarmored (40).",
         "Deflect Missiles: Reaction: reduce ranged weapon damage by 1d10 + Dex + monk level (1d10+7).",
         "Open Hand Technique: When you hit with Flurry, choose: Dex DC 13 or prone; Str DC 13 or push 15 ft.; or it cannot take reactions until the end of your next turn.",
-        "Slow Fall: Reaction: reduce fall damage by 20 (5 \u00d7 monk level).",
+        "Slow Fall: Reaction: reduce fall damage by 20 (5 × monk level).",
         "Discovery: You know a quiet path into any walled town if you have a day to watch it."
       ],
-      "gear": "10\u00d7 Darts, Explorer\u2019s pack, 8 gp"
+      "gear": "10× Darts, Explorer’s pack, 8 gp"
     },
     {
       "id": "pregen-vexa",
@@ -4759,7 +4763,7 @@
           "light crossbows"
         ],
         "tools": [
-          "smith\u2019s tools",
+          "smith’s tools",
           "land vehicles"
         ],
         "languages": [
@@ -4887,12 +4891,12 @@
         {
           "name": "Dragon Ancestor (Red)",
           "source": "Draconic 1",
-          "text": "You speak Draconic. Fire is your element. (Elemental Affinity is level 6 \u2014 not yet.)"
+          "text": "You speak Draconic. Fire is your element. (Elemental Affinity is level 6 — not yet.)"
         },
         {
           "name": "Font of Magic",
           "source": "Sorcerer 2",
-          "text": "4 sorcery points. Convert points \u2194 slots (2 pts = 1st, 3 pts = 2nd).",
+          "text": "4 sorcery points. Convert points ↔ slots (2 pts = 1st, 3 pts = 2nd).",
           "uses": "4 points"
         },
         {
@@ -4927,7 +4931,7 @@
           "name": "Arcane focus (ember-glass shard)"
         },
         {
-          "name": "Dungeoneer\u2019s pack"
+          "name": "Dungeoneer’s pack"
         }
       ],
       "gp": 19,
@@ -4953,15 +4957,15 @@
       ],
       "features": [
         "Draconic Resilience: AC 13 + Dex when unarmored (15). +1 HP per sorcerer level (in 34).",
-        "Dragon Ancestor (Red): You speak Draconic. Fire is your element. (Elemental Affinity is level 6 \u2014 not yet.)",
-        "Font of Magic: 4 sorcery points. Convert points \u2194 slots (2 pts = 1st, 3 pts = 2nd).",
+        "Dragon Ancestor (Red): You speak Draconic. Fire is your element. (Elemental Affinity is level 6 — not yet.)",
+        "Font of Magic: 4 sorcery points. Convert points ↔ slots (2 pts = 1st, 3 pts = 2nd).",
         "Metamagic: Quickened Spell: 2 points: a 1-action spell becomes a bonus action.",
         "Metamagic: Twinned Spell: Points = spell level. Twin a single-target spell that does not target you.",
         "Breath Weapon: 1/short rest. 15-ft cone fire, Dex DC 13 (8+PB+Con), 2d6, half on success.",
         "Damage Resistance: Resistance to fire.",
         "Rustic Hospitality: Common folk hide you if you are not endangering them."
       ],
-      "gear": "Arcane focus (ember-glass shard), Dungeoneer\u2019s pack, 19 gp"
+      "gear": "Arcane focus (ember-glass shard), Dungeoneer’s pack, 19 gp"
     },
     {
       "id": "pregen-mael",
@@ -5162,7 +5166,7 @@
         "Hex (if a slot remains): bonus, concentration 1 hour. +1d6 necrotic vs one target; disadvantage on checks of one ability."
       ],
       "reactions": [
-        "Hellish Rebuke (slot or 1/day racial as 2nd-level): when you take damage, Dex DC 13, 3d10 fire (racial 2nd) or 2d10 if a 1st-equivalent \u2014 you only have 2nd-level slots: 3d10, half on success."
+        "Hellish Rebuke (slot or 1/day racial as 2nd-level): when you take damage, Dex DC 13, 3d10 fire (racial 2nd) or 2d10 if a 1st-equivalent — you only have 2nd-level slots: 3d10, half on success."
       ],
       "spellcasting": {
         "ability": "Charisma",
@@ -5283,14 +5287,14 @@
           "text": "2 slots of 2nd level. They return on a short rest. Cha DC 13, +5."
         },
         {
-          "name": "Dark One\u2019s Blessing",
+          "name": "Dark One’s Blessing",
           "source": "Fiend 1",
           "text": "When you reduce a hostile creature to 0 HP, gain temp HP = Cha mod + warlock level (7)."
         },
         {
           "name": "Eldritch Invocations (2 at level 4)",
           "source": "Warlock 2",
-          "text": "Agonizing Blast: add Cha to EB damage. Devil\u2019s Sight: 120 ft. vision in magical and nonmagical darkness. (Book of Ancient Secrets is a 5th-level invocation pick \u2014 not yet.)"
+          "text": "Agonizing Blast: add Cha to EB damage. Devil’s Sight: 120 ft. vision in magical and nonmagical darkness. (Book of Ancient Secrets is a 5th-level invocation pick — not yet.)"
         },
         {
           "name": "Pact of the Tome",
@@ -5308,7 +5312,7 @@
           "text": "You have a second identity with papers and acquaintances. You can forge documents as long as you have seen an example."
         },
         {
-          "name": "Not yet: Dark One\u2019s Own Luck",
+          "name": "Not yet: Dark One’s Own Luck",
           "source": "Fiend 6",
           "text": "You do not have this. It arrives at warlock 6. Do not use it."
         }
@@ -5350,12 +5354,12 @@
       ],
       "features": [
         "Pact Magic: 2 slots of 2nd level. They return on a short rest. Cha DC 13, +5.",
-        "Dark One\u2019s Blessing: When you reduce a hostile creature to 0 HP, gain temp HP = Cha mod + warlock level (7).",
-        "Eldritch Invocations (2 at level 4): Agonizing Blast: add Cha to EB damage. Devil\u2019s Sight: 120 ft. vision in magical and nonmagical darkness. (Book of Ancient Secrets is a 5th-level invocation pick \u2014 not yet.)",
+        "Dark One’s Blessing: When you reduce a hostile creature to 0 HP, gain temp HP = Cha mod + warlock level (7).",
+        "Eldritch Invocations (2 at level 4): Agonizing Blast: add Cha to EB damage. Devil’s Sight: 120 ft. vision in magical and nonmagical darkness. (Book of Ancient Secrets is a 5th-level invocation pick — not yet.)",
         "Pact of the Tome: Book of Shadows: three extra cantrips (Guidance, Mage Hand, Minor Illusion).",
         "Infernal Legacy: Thaumaturgy at will. Hellish Rebuke 1/day as a 2nd-level spell. Fire resistance. Darkvision 60.",
         "False Identity: You have a second identity with papers and acquaintances. You can forge documents as long as you have seen an example.",
-        "Not yet: Dark One\u2019s Own Luck: You do not have this. It arrives at warlock 6. Do not use it."
+        "Not yet: Dark One’s Own Luck: You do not have this. It arrives at warlock 6. Do not use it."
       ],
       "gear": "Leather armor, Dagger, Book of Shadows, Arcane focus, 20 gp"
     }
@@ -5367,7 +5371,7 @@
     "episode": 1,
     "episodeTitle": "The Lantern Below",
     "giver": "Mayor Cald Wren",
-    "nextTitle": "Pick a notable in Hearthford \u2014 next authored night is The Well That Would Not Dry",
+    "nextTitle": "Pick a notable in Hearthford — next authored night is The Well That Would Not Dry",
     "campaign": "data/campaigns/quiet-seals.campaign.json"
   },
   "informationContract": {
@@ -5393,7 +5397,7 @@
     "finaleWithoutNpc": "The Pale Guest scene does not require Caldus. He is an extra ritual success if allied and conscious. Binding, destruction, and bargain all work without him."
   },
   "pathPressure": {
-    "principle": "The ending is never locked. A table that does the work gets paid and the last fight is shorter. A table that murders, rings the bell, or skips every clue still finishes \u2014 they spend more hit points and leave gold on the table.",
+    "principle": "The ending is never locked. A table that does the work gets paid and the last fight is shorter. A table that murders, rings the bell, or skips every clue still finishes — they spend more hit points and leave gold on the table.",
     "notDeviation": [
       "The culvert is an authored route, not a rush.",
       "Sneaking or bargaining past the grave-things is smart play, not deviation.",
@@ -5451,7 +5455,7 @@
   "playMaps": [
     {
       "id": "handout-briar-glen",
-      "title": "Briar Glen \u2014 player map",
+      "title": "Briar Glen — player map",
       "kind": "handout",
       "playerSafe": true,
       "asset": "assets/maps/briar-glen.jpg",
@@ -5465,11 +5469,11 @@
     },
     {
       "id": "handout-tamsin-trail",
-      "title": "Tamsin\u2019s trail sketch",
+      "title": "Tamsin’s trail sketch",
       "kind": "handout",
       "playerSafe": true,
       "asset": "assets/maps/tamsin-trail.jpg",
-      "scale": "A villager\u2019s drawing",
+      "scale": "A villager’s drawing",
       "sceneIds": [
         "scene-hook",
         "scene-road"
@@ -5480,11 +5484,11 @@
     },
     {
       "id": "combat-priory-yard",
-      "title": "Priory yard \u2014 grave-things",
+      "title": "Priory yard — grave-things",
       "kind": "combat",
       "playerSafe": true,
       "asset": "assets/maps/priory-yard.jpg",
-      "scale": "5 ft per square \u00b7 60 \u00d7 50 ft",
+      "scale": "5 ft per square · 60 × 50 ft",
       "sceneIds": [
         "scene-priory-gate"
       ],
@@ -5510,18 +5514,18 @@
     },
     {
       "id": "combat-ritual",
-      "title": "Ritual chamber \u2014 Pale Guest",
+      "title": "Ritual chamber — Pale Guest",
       "kind": "combat",
       "playerSafe": true,
       "asset": "assets/maps/ritual-chamber.jpg",
-      "scale": "5 ft per square \u00b7 40 \u00d7 40 ft",
+      "scale": "5 ft per square · 40 × 40 ft",
       "sceneIds": [
         "scene-crypt",
         "scene-final"
       ],
       "notes": [
         "Guest starts on the far side of the seal. Four sigils at the cardinals: ritual stations.",
-        "Cracked bell alcove west \u2014 do not ring it. Stairs south. The Guest does not leave this room while the Emberglass exists."
+        "Cracked bell alcove west — do not ring it. Stairs south. The Guest does not leave this room while the Emberglass exists."
       ]
     }
   ],
@@ -5531,7 +5535,7 @@
       "tableNotes": [
         "Ability checks and attacks as 2014 PHB/SRD. Inspiration is a d20 reroll the DM awards.",
         "Hide is opposed Stealth vs passive Perception (or a Perception check).",
-        "Divine Smite is on-hit, not a spell. Extra Attack is level 5 for these classes \u2014 nobody here has it."
+        "Divine Smite is on-hit, not a spell. Extra Attack is level 5 for these classes — nobody here has it."
       ]
     },
     "2024": {
@@ -5551,7 +5555,7 @@
   "oneshotRecipe": {
     "shape": "five-room",
     "genre": "Folk horror",
-    "tale": "Sealed room / monkey\u2019s-paw bargain",
+    "tale": "Sealed room / monkey’s-paw bargain",
     "rooms": [
       {
         "beat": "1 Guardian",
@@ -5566,7 +5570,7 @@
       {
         "beat": "3 Trick",
         "scene": "scene-chapel",
-        "note": "Memory Bell trap \u2014 fail-forward into the crypt"
+        "note": "Memory Bell trap — fail-forward into the crypt"
       },
       {
         "beat": "4 Climax",
@@ -5582,7 +5586,7 @@
   },
   "xpBudget": {
     "edition": "SRD 5.2.1",
-    "party": "4 \u00d7 level 4",
+    "party": "4 × level 4",
     "low": 1000,
     "moderate": 1500,
     "high": 2000
