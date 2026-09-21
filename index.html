@@ -23,17 +23,8 @@
 <body class="landing">
   <a class="skip-link" href="#nights">Skip to adventures</a>
   <header class="land-bar">
-    <a class="brand" href="./">
-      <img src="assets/mark-lantern.jpg" alt="" width="36" height="36">
-      <span>One-Shot Forge</span>
-    </a>
-    <nav class="land-nav">
-      <span id="ruleset-host"></span>
-      <a href="#nights">Adventures</a>
-      <a href="campaign.html">Town</a>
-      <a href="sheets.html">Pregens</a>
-      <a href="about.html">About</a>
-    </nav>
+    <a class="brand" href="./"><img src="assets/mark-lantern.jpg" alt="" width="36" height="36"><span>One-Shot Forge</span></a>
+    <nav class="land-nav"><span id="ruleset-host"></span><a href="#nights">Adventures</a><a href="campaign.html">Town</a><a href="sheets.html">Pregens</a><a href="about.html">About</a></nav>
   </header>
 
   <section class="hero-bleed">
@@ -43,10 +34,7 @@
       <p class="eyebrow ember">Pick → Open → Run</p>
       <h1>You have a game tonight. Click one card.</h1>
       <p class="lede">The site hands you Stage 1. You read it, run it, choose what they did. The next card is the right next card until the night ends. You never prep.</p>
-      <div class="hero-actions">
-        <a class="button ember" href="#nights">Choose tonight’s adventure</a>
-        <a class="button ghost" href="sheets.html">12 pregens, 6 for the table</a>
-      </div>
+      <div class="hero-actions"><a class="button ember" href="#nights">Choose tonight’s adventure</a><a class="button ghost" href="sheets.html">12 pregens, 6 for the table</a></div>
       <p class="tiny">Episode 1 is free. Checkout is not open. 3–6 players.</p>
     </div>
   </section>
@@ -57,28 +45,21 @@
       <h2>One finished night. More after review.</h2>
       <p class="lede short">Each adventure is finished, reviewed, and frozen before the next one enters the catalog. Nothing unfinished is sold as a playable night.</p>
       <div class="catalog">
-        <a class="adv-card live" href="adventures/the-lantern-below.html">
+        <a class="adv-card live" href="adventures/the-lantern-below.html" data-product-id="the-lantern-below">
           <img src="assets/cover-lantern.jpg" alt="">
           <div>
-            <p class="eyebrow">Live · Free · Night 1</p>
+            <p class="eyebrow" data-product-status>Live · Free preview</p>
             <h3>The Lantern Below</h3>
             <p>The iron lantern in Briar Glen has gone dark. Level 4 · 3–6 players · about 4 hours.</p>
-            <span class="button ember small">Start adventure</span>
+            <span class="button ember small" data-product-action data-commercial-state="preview">Start adventure</span>
           </div>
         </a>
-        <article class="adv-card soon">
-          <div>
-            <p class="eyebrow">Coming after review · $0.99 target</p>
-            <h3>Next forged adventure</h3>
-            <p>The next zero-prep one-shot enters production only after the current adventure is approved and frozen.</p>
-          </div>
-        </article>
+        <article class="adv-card soon"><div><p class="eyebrow">Coming after review · $0.99 target</p><h3>Next forged adventure</h3><p>The next zero-prep one-shot enters production only after the current adventure is approved and frozen.</p></div></article>
       </div>
     </section>
 
     <section class="land-section" id="party">
-      <p class="eyebrow">Characters</p>
-      <h2>12 pregens. 6 recommended tonight.</h2>
+      <p class="eyebrow">Characters</p><h2>12 pregens. 6 recommended tonight.</h2>
       <p class="lede short">Original level-4 SRD characters for 3–6 players. Print the sheets. D&D Beyond cannot import them.</p>
       <div class="party-grid">
         <a class="face" href="sheets.html#pregen-brann"><img src="assets/pregens/brann.jpg" alt=""><span>Brann<br><small>Fighter</small></span></a>
@@ -90,23 +71,12 @@
       </div>
     </section>
 
-    <section class="land-section" id="problem">
-      <h2>What this solves</h2>
-      <div class="pack-grid">
-        <article><h3>No time to write</h3><p>The stage card is the prep.</p></article>
-        <article><h3>No time for sheets</h3><p>12 pregens, 6 for a full party.</p></article>
-        <article><h3>One-shots that go nowhere</h3><p>Hearthford remembers last Saturday.</p></article>
-        <article><h3>PDFs that are still homework</h3><p>Numbers, DCs, and talk-outs are on the card.</p></article>
-      </div>
-    </section>
+    <section class="land-section" id="problem"><h2>What this solves</h2><div class="pack-grid"><article><h3>No time to write</h3><p>The stage card is the prep.</p></article><article><h3>No time for sheets</h3><p>12 pregens, 6 for a full party.</p></article><article><h3>One-shots that go nowhere</h3><p>Hearthford remembers last Saturday.</p></article><article><h3>PDFs that are still homework</h3><p>Numbers, DCs, and talk-outs are on the card.</p></article></div></section>
   </main>
 
-  <footer class="land-foot">
-    <p><a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a> · <a href="forge.html">Forge Lab</a></p>
-    <p>Original 5E-compatible fantasy. Not affiliated with Wizards of the Coast.</p>
-    <p class="tiny">This work includes material from the System Reference Document 5.1 and SRD 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0.</p>
-  </footer>
+  <footer class="land-foot"><p><a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a> · <a href="forge.html">Forge Lab</a></p><p>Original 5E-compatible fantasy. Not affiliated with Wizards of the Coast.</p><p class="tiny">This work includes material from the System Reference Document 5.1 and SRD 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0.</p></footer>
   <script src="rules.js?v=20260920p"></script>
   <script>mountRulesetToggle(document.getElementById("ruleset-host"));</script>
+  <script src="catalog.js?v=20260921a"></script>
 </body>
 </html>
