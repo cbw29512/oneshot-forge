@@ -28,5 +28,15 @@
   },
   "pacing": "About 5–10 minutes at the table. Keep each attempt to one declared approach, one roll, and one consequence.",
   "runnerPlacement": "Render with the other finale solution procedures on the scene-final Stage Card. Do not place it in a separate GM reference panel.",
+  "certificationMarkers": [
+    "Restore the Old Flame",
+    "three successes",
+    "two failures",
+    "DC 13",
+    "spend their action",
+    "1d6 psychic",
+    "grant advantage",
+    "one season"
+  ],
   "integrationStatus": "Authored and ready to merge into the authoritative Adventure Package; not yet authoritative until scene-final contains this procedure."
 }
