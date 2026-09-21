@@ -29,23 +29,27 @@ const adventure = readJson(packagePath);
 const procedure = readJson(procedurePath);
 if (!adventure || !procedure) process.exit();
 
+if (procedure.adventureId !== adventure?.metadata?.id) {
+  fail(`${procedure.procedureId || "procedure"}: adventureId does not match package metadata.id`);
+}
+
 const scene = (adventure.scenes || []).find(item => item.id === procedure.sceneId);
-if (!scene) fail(`${procedure.procedureId}: scene ${procedure.sceneId} does not exist`);
+if (!scene) {
+  fail(`${procedure.procedureId || "procedure"}: scene ${procedure.sceneId} does not exist`);
+}
+
+const markers = procedure.certificationMarkers;
+if (!Array.isArray(markers) || markers.length < 4) {
+  fail(`${procedure.procedureId || "procedure"}: certificationMarkers must contain at least four table-critical strings`);
+}
 
 const text = sceneText(scene);
-const markers = [
-  procedure.label,
-  "three-success",
-  "two failures",
-  "dc 13",
-  "action",
-  "1d6 psychic",
-  "advantage",
-  "one season"
-];
-
-for (const marker of markers) {
-  const normalized = String(marker).toLowerCase().replace("three-success", "three success");
+for (const marker of markers || []) {
+  const normalized = String(marker).trim().toLowerCase();
+  if (!normalized) {
+    fail(`${procedure.procedureId || "procedure"}: certificationMarkers cannot contain blank values`);
+    continue;
+  }
   if (scene && !text.includes(normalized)) {
     fail(`${procedure.procedureId}: authoritative ${procedure.sceneId} is missing table-critical marker: ${marker}`);
   }
