@@ -1,0 +1,31 @@
+{
+  "adventureId": "the-lantern-below",
+  "sceneId": "scene-final",
+  "procedureId": "restore-old-flame",
+  "label": "Restore the Old Flame",
+  "purpose": "Give the GM a complete fourth finale solution that restores the failing village seal temporarily without requiring an external rules lookup.",
+  "requirements": [
+    "The Emberglass still exists.",
+    "At least one character is able to carry or manipulate the Emberglass.",
+    "The party chooses temporary containment instead of the replacement binding, bargain, or destruction."
+  ],
+  "gmProcedure": [
+    "Tell the players the old seal can still be restarted, but Caldus warns that it is structurally failing and will buy months, not a permanent cure.",
+    "Run a three-success skill challenge before two failures. One character acts per attempt; a character must describe how the chosen skill helps carry the old binding back through the Emberglass.",
+    "Base DC 13. Arcana or Religion can stabilize the seal pattern. Athletics can hold a failing sigil or bell mechanism in place. Persuasion can anchor a willing character through the Pale Guest's stolen voices. Accept another proficient skill at DC 14 when the player gives a concrete approach that fits the fiction.",
+    "On each failure, the acting character takes 1d6 psychic damage and the Pale Guest immediately uses Whispering Theft against that character if it is able.",
+    "At three successes, the Emberglass flashes white-hot and the Pale Guest is pulled back into the old lantern-seal. End initiative immediately.",
+    "At two failures, the old pattern collapses. The Emberglass remains intact, but Restore the Old Flame can no longer be attempted this scene. The party must use the replacement binding, bargain, or combat solution."
+  ],
+  "success": {
+    "endingId": "ending-old-flame",
+    "result": "The village lantern burns again and the Pale Guest is contained, but Caldus states plainly that the repaired seal will fail within roughly one season.",
+    "reward": "Mara pays the promised 200 gp if Briar Glen survives. Preserve any other earned conditional rewards."
+  },
+  "failure": {
+    "result": "The old seal cannot be restarted tonight. Do not dead-end the adventure; immediately present the remaining legal finale solutions."
+  },
+  "pacing": "About 5–10 minutes at the table. Keep each attempt to one declared approach, one roll, and one consequence.",
+  "runnerPlacement": "Render with the other finale solution procedures on the scene-final Stage Card. Do not place it in a separate GM reference panel.",
+  "integrationStatus": "Authored and ready to merge into the authoritative Adventure Package; not yet authoritative until scene-final contains this procedure."
+}
