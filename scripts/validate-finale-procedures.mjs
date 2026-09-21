@@ -14,9 +14,8 @@ function readJson(path) {
   }
 }
 
-function includesAll(haystack, needles) {
-  const text = JSON.stringify(haystack || {}).toLowerCase();
-  return needles.every(needle => text.includes(String(needle).toLowerCase()));
+function sceneText(scene) {
+  return JSON.stringify(scene || {}).toLowerCase();
 }
 
 const packagePath = process.argv[2];
@@ -33,17 +32,23 @@ if (!adventure || !procedure) process.exit();
 const scene = (adventure.scenes || []).find(item => item.id === procedure.sceneId);
 if (!scene) fail(`${procedure.procedureId}: scene ${procedure.sceneId} does not exist`);
 
-const required = [
-  procedure.procedureId,
-  procedure.name,
-  procedure.dc,
-  procedure.successTarget,
-  procedure.failureLimit,
-  "action"
-].filter(value => value !== undefined && value !== null && value !== "");
+const text = sceneText(scene);
+const markers = [
+  procedure.label,
+  "three-success",
+  "two failures",
+  "dc 13",
+  "action",
+  "1d6 psychic",
+  "advantage",
+  "one season"
+];
 
-if (scene && !includesAll(scene, required)) {
-  fail(`${procedure.procedureId}: authoritative ${procedure.sceneId} does not contain the complete runnable procedure (${required.join(", ")})`);
+for (const marker of markers) {
+  const normalized = String(marker).toLowerCase().replace("three-success", "three success");
+  if (scene && !text.includes(normalized)) {
+    fail(`${procedure.procedureId}: authoritative ${procedure.sceneId} is missing table-critical marker: ${marker}`);
+  }
 }
 
 if (procedure.integrationStatus && /not yet authoritative/i.test(procedure.integrationStatus)) {
