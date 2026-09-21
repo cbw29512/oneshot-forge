@@ -16,7 +16,7 @@ function read(rel) {
 const index = read("index.html");
 if (!index.includes('id="nights"')) errors.push("homepage missing #nights catalog");
 if (!/Choose tonight/i.test(index)) errors.push("homepage must lead with choose-tonight catalog");
-if (!index.includes("Coming soon")) errors.push("unwritten nights must say Coming soon");
+if (!index.includes("Coming after review")) errors.push("next adventure must remain gated behind review");
 if (!index.includes("12 pregens")) errors.push("homepage must say 12 pregens");
 if (!index.includes("og:image")) errors.push("homepage missing Open Graph image");
 
