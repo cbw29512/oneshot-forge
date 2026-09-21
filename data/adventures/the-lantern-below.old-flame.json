@@ -18,6 +18,12 @@
     "At three successes, the Emberglass flashes white-hot and the Pale Guest is pulled back into the old lantern-seal. End initiative immediately.",
     "At two failures, the old pattern collapses. The Emberglass remains intact, but Restore the Old Flame can no longer be attempted this scene. The party must use the replacement binding, bargain, or combat solution."
   ],
+  "stageCardGmNotes": [
+    "Fourth legal victory — Restore the Old Flame: requires the intact Emberglass. Get three successes before two failures. During initiative, one character may spend their action on one attempt; the Pale Guest otherwise acts normally.",
+    "Old Flame checks: DC 13 Arcana, Religion, Athletics, or Persuasion when the approach fits. A different proficient skill is DC 14 with a concrete fictional approach. No character makes more than one attempt per round.",
+    "Old Flame pressure: on a failed attempt, the acting character takes 1d6 psychic damage and the Pale Guest immediately uses Whispering Theft against that character if able. If Caldus is allied and conscious, once during this challenge he may spend his action to grant advantage on one attempt.",
+    "Old Flame result: at three successes, the Guest is pulled back into the old lantern-seal and initiative ends. At two failures, this option closes for the scene but binding, bargaining, and combat remain available. Caldus warns the repaired seal will fail within roughly one season."
+  ],
   "success": {
     "endingId": "ending-old-flame",
     "result": "The village lantern burns again and the Pale Guest is contained, but Caldus states plainly that the repaired seal will fail within roughly one season.",
@@ -38,5 +44,5 @@
     "grant advantage",
     "one season"
   ],
-  "integrationStatus": "Authored and ready to merge into the authoritative Adventure Package; not yet authoritative until scene-final contains this procedure."
+  "integrationStatus": "Exact Stage Card GM-note copy is authored in stageCardGmNotes; still not authoritative until those notes are embedded in scene-final."
 }
