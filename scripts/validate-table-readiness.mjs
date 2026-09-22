@@ -1,0 +1,59 @@
+#!/usr/bin/env node
+import fs from "node:fs";
+
+function fail(message) {
+  console.error(`TABLE-READINESS: ${message}`);
+  process.exitCode = 1;
+}
+
+try {
+  const file = process.argv[2];
+  if (!file) throw new Error("usage: node scripts/validate-table-readiness.mjs <adventure.json>");
+  const adventure = JSON.parse(fs.readFileSync(file, "utf8"));
+  const npcs = new Map((adventure.npcs || []).map(npc => [npc.id, npc]));
+  const clues = new Map((adventure.clues || []).map(clue => [clue.id, clue]));
+  const encounters = new Map((adventure.encounters || []).map(encounter => [encounter.id, encounter]));
+
+  for (const scene of adventure.scenes || []) {
+    const label = `${scene.id} (${scene.title})`;
+    if (!scene.readAloud?.trim()) fail(`${label} has no read-aloud.`);
+    if (!scene.gmNotes?.length) fail(`${label} has no immediate GM notes.`);
+    if (!scene.purpose?.trim()) fail(`${label} has no stage objective/purpose.`);
+    if (!Number.isInteger(scene.estimatedMinutes) || scene.estimatedMinutes < 1) fail(`${label} has no usable pacing estimate.`);
+
+    for (const npcId of scene.npcIds || []) {
+      const npc = npcs.get(npcId);
+      if (!npc) { fail(`${label} references missing NPC ${npcId}.`); continue; }
+      if (!npc.role?.trim()) fail(`${npc.name} has no quick-use role.`);
+      if (!npc.personality?.length) fail(`${npc.name} has no personality cues.`);
+      if (!npc.wants?.length) fail(`${npc.name} has no motive/wants.`);
+      if (!npc.voiceCues?.length) fail(`${npc.name} has no dialogue/voice cues.`);
+    }
+
+    for (const clueId of scene.clueIds || []) {
+      if (!clues.has(clueId)) fail(`${label} references missing clue ${clueId}.`);
+    }
+    for (const encounterId of scene.encounterIds || []) {
+      if (!encounters.has(encounterId)) fail(`${label} references missing encounter ${encounterId}.`);
+    }
+  }
+
+  for (const clue of adventure.clues || []) {
+    if (clue.required && (clue.sources || []).length < 2) {
+      fail(`required clue ${clue.id} has fewer than two delivery sources.`);
+    }
+  }
+
+  const finale = (adventure.scenes || []).at(-1);
+  if (!finale) fail("adventure has no scenes.");
+  else if (!/(final|resolution|ending|choice|guest|ritual)/i.test(`${finale.title} ${finale.purpose}`)) {
+    fail(`last stage ${finale.id} does not read as a clear finale/resolution stage.`);
+  }
+
+  if (!process.exitCode) {
+    console.log(`Table-readiness OK: ${adventure.metadata?.title || file} — ${(adventure.scenes || []).length} stages, ${npcs.size} NPCs, ${clues.size} clues.`);
+  }
+} catch (error) {
+  console.error(`TABLE-READINESS ERROR: ${error.message}`);
+  process.exit(1);
+}
