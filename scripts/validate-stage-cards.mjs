@@ -37,7 +37,6 @@ try {
 
   const checksByScene = new Map();
   const hazardsByScene = new Map();
-  const mapsByScene = new Map();
   for (const check of quickrun?.checks ?? []) {
     if (!checksByScene.has(check.sceneId)) checksByScene.set(check.sceneId, []);
     checksByScene.get(check.sceneId).push(check);
@@ -52,8 +51,6 @@ try {
     hazardsByScene.get(hazard.sceneId).push(hazard);
   }
   for (const map of quickrun?.mapNotes ?? []) {
-    if (!mapsByScene.has(map.sceneId)) mapsByScene.set(map.sceneId, []);
-    mapsByScene.get(map.sceneId).push(map);
     requireText(map.dimensions, `map callout for ${map.sceneId}.dimensions`);
     if (!Array.isArray(map.features) || !map.features.length) fail(`map callout for ${map.sceneId}: missing tactical features`);
   }
@@ -96,9 +93,11 @@ try {
       if (!hasText(check.success) || !hasText(check.failure)) fail(`${label}: check ${check.id} must show both success and failure consequences on the stage`);
     }
     for (const hazard of hazardsByScene.get(scene.id) ?? []) {
-      requireText(hazard.name ?? hazard.label, `${label} hazard ${hazard.id}.name`);
       requireText(hazard.trigger, `${label} hazard ${hazard.id}.trigger`);
-      requireText(hazard.effect, `${label} hazard ${hazard.id}.effect`);
+      requireText(hazard.save, `${label} hazard ${hazard.id}.save`);
+      requireText(hazard.failure, `${label} hazard ${hazard.id}.failure`);
+      requireText(hazard.success, `${label} hazard ${hazard.id}.success`);
+      requireText(hazard.failForward, `${label} hazard ${hazard.id}.failForward`);
     }
   }
 
