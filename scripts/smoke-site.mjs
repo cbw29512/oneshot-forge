@@ -51,6 +51,20 @@ const catalog = read("catalog.js");
 if (!catalog.includes("checkoutConfigured")) errors.push("catalog hydration must enforce checkout gate");
 if (!catalog.includes("gate.approved")) errors.push("catalog hydration must enforce approval gate");
 
+const entitlement = read("docs/ENTITLEMENT_API.md");
+for (const required of [
+  "GET /api/entitlements/{productId}",
+  '"owned": true',
+  "401",
+  "404",
+  "503",
+  "fail closed",
+  "Price is never trusted from browser input",
+  "localStorage"
+]) {
+  if (!entitlement.includes(required)) errors.push("entitlement contract missing: " + required);
+}
+
 const run = read("run.html");
 for (const id of ["read-aloud", "dm-box", "monster-box", "stage-progress", "scene-exits", "prev-scene", "next-scene"]) {
   if (!run.includes('id="' + id + '"')) errors.push("run.html missing #" + id);
