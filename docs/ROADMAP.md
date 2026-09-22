@@ -4,7 +4,7 @@
 - [x] Define product boundary.
 - [x] Define initial Adventure Package schema.
 - [x] Create one complete reference adventure package.
-- [ ] Validate required-clue redundancy.
+- [x] Validate required-clue redundancy.
 - [ ] Validate NPC knowledge boundaries.
 - [ ] Validate fresh initial game state.
 - [ ] Define asset manifest for maps/portraits/handouts.
