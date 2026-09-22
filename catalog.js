@@ -17,6 +17,27 @@
     );
   }
 
+  function checkoutReturnProductId() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("checkout_return") || "";
+    } catch (error) {
+      console.error("One-Shot Forge could not inspect checkout return", error);
+      return "";
+    }
+  }
+
+  function clearCheckoutReturn() {
+    try {
+      const url = new URL(window.location.href);
+      if (!url.searchParams.has("checkout_return")) return;
+      url.searchParams.delete("checkout_return");
+      window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`);
+    } catch (error) {
+      console.error("One-Shot Forge could not clear checkout return", error);
+    }
+  }
+
   function labelFor(product, entitlement) {
     if (entitlement === "owned") return "Owned · Ready to run";
     if (releaseGate(product)) return `${money.format(product.priceCents / 100)} · Ready to buy`;
@@ -77,7 +98,16 @@
       if (!response.ok) throw new Error(`product contract HTTP ${response.status}`);
       const contract = await response.json();
       if (!Array.isArray(contract.products)) throw new Error("product contract has no products array");
-      await Promise.all(contract.products.map(async (product) => applyProduct(product, await verifiedEntitlement(product))));
+
+      const returnedProductId = checkoutReturnProductId();
+      await Promise.all(contract.products.map(async (product) => {
+        const entitlement = await verifiedEntitlement(product);
+        applyProduct(product, entitlement);
+        if (returnedProductId === product.id && entitlement !== "owned") {
+          console.warn(`One-Shot Forge checkout returned before ownership was verified for ${product.id}`);
+        }
+      }));
+      clearCheckoutReturn();
     } catch (error) {
       // Fail closed: static markup remains preview/run UI and never becomes purchase UI.
       console.error("One-Shot Forge catalog hydration failed", error);
