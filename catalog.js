@@ -1,14 +1,20 @@
 (() => {
   "use strict";
 
-  const money = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD"
-  });
+  const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+
+  function commerceFor(product) {
+    return product.commerce || {};
+  }
 
   function releaseGate(product) {
     const gate = product.releaseGate || {};
-    return Boolean(product.sellable && gate.approved && gate.checkoutConfigured);
+    const commerce = commerceFor(product);
+    return Boolean(
+      product.sellable && gate.approved && gate.checkoutConfigured &&
+      commerce.provider && commerce.checkoutUrl &&
+      commerce.entitlementMode === "server-verified" && commerce.entitlementVerificationUrl
+    );
   }
 
   function labelFor(product, entitlement) {
@@ -18,33 +24,44 @@
     return "Coming after review";
   }
 
-  function applyProduct(product, entitlement = "none") {
-    const card = document.querySelector(`[data-product-id="${CSS.escape(product.id)}"]`);
-    if (!card) return;
-
-    const status = card.querySelector("[data-product-status]");
-    if (status) status.textContent = labelFor(product, entitlement);
-
-    const action = card.querySelector("[data-product-action]");
-    if (!action) return;
-
+  function configureAction(action, product, entitlement) {
     const owned = entitlement === "owned";
     const canSell = releaseGate(product) && !owned;
     action.textContent = owned ? "Start adventure" : canSell ? `Buy ${money.format(product.priceCents / 100)}` : "Start adventure";
     action.dataset.commercialState = owned ? "owned" : canSell ? "sellable" : "preview";
+
+    if (canSell) {
+      const checkoutUrl = commerceFor(product).checkoutUrl;
+      action.dataset.checkoutUrl = checkoutUrl;
+      action.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        try {
+          const target = new URL(checkoutUrl, window.location.href);
+          if (target.protocol !== "https:") throw new Error("checkout URL must use HTTPS");
+          window.location.assign(target.href);
+        } catch (error) {
+          console.error(`One-Shot Forge checkout blocked for ${product.id}`, error);
+        }
+      });
+    }
+  }
+
+  function applyProduct(product, entitlement = "none") {
+    const card = document.querySelector(`[data-product-id="${CSS.escape(product.id)}"]`);
+    if (!card) return;
+    const status = card.querySelector("[data-product-status]");
+    if (status) status.textContent = labelFor(product, entitlement);
+    const action = card.querySelector("[data-product-action]");
+    if (action) configureAction(action, product, entitlement);
   }
 
   async function verifiedEntitlement(product) {
-    const endpoint = product.entitlementVerificationUrl;
+    const endpoint = commerceFor(product).entitlementVerificationUrl || product.entitlementVerificationUrl;
     if (!endpoint) return "none";
-
     try {
       const url = endpoint.replace("{productId}", encodeURIComponent(product.id));
-      const response = await fetch(url, {
-        cache: "no-store",
-        credentials: "include",
-        headers: { Accept: "application/json" }
-      });
+      const response = await fetch(url, { cache: "no-store", credentials: "include", headers: { Accept: "application/json" } });
       if (!response.ok) return "none";
       const result = await response.json();
       return result && result.productId === product.id && result.access === "owned" ? "owned" : "none";
@@ -60,14 +77,9 @@
       if (!response.ok) throw new Error(`product contract HTTP ${response.status}`);
       const contract = await response.json();
       if (!Array.isArray(contract.products)) throw new Error("product contract has no products array");
-
-      await Promise.all(contract.products.map(async (product) => {
-        const entitlement = await verifiedEntitlement(product);
-        applyProduct(product, entitlement);
-      }));
+      await Promise.all(contract.products.map(async (product) => applyProduct(product, await verifiedEntitlement(product))));
     } catch (error) {
-      // Fail closed: static markup remains a free-preview/run experience and
-      // never becomes a purchase UI when commercial state cannot be verified.
+      // Fail closed: static markup remains preview/run UI and never becomes purchase UI.
       console.error("One-Shot Forge catalog hydration failed", error);
     }
   }

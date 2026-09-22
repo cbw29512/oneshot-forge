@@ -6,10 +6,7 @@ const root = path.resolve(import.meta.dirname, "..");
 const errors = [];
 function read(rel) {
   const file = path.join(root, rel);
-  if (!fs.existsSync(file)) {
-    errors.push("missing " + rel);
-    return "";
-  }
+  if (!fs.existsSync(file)) { errors.push("missing " + rel); return ""; }
   return fs.readFileSync(file, "utf8");
 }
 
@@ -28,59 +25,31 @@ try {
   for (const product of contract.products) {
     const gate = product.releaseGate || {};
     const commerce = product.commerce || {};
-    const commerceReady = Boolean(
-      commerce.provider &&
-      commerce.checkoutUrl &&
-      commerce.entitlementMode === "server-verified" &&
-      commerce.entitlementVerificationUrl
-    );
+    const commerceReady = Boolean(commerce.provider && commerce.checkoutUrl && commerce.entitlementMode === "server-verified" && commerce.entitlementVerificationUrl);
     const gated = product.sellable && gate.approved && gate.checkoutConfigured && commerceReady;
-    if (gate.checkoutConfigured && !commerceReady) {
-      errors.push(`${product.id}: checkoutConfigured requires provider, checkout URL, and server-verified entitlement endpoint`);
-    }
+    if (gate.checkoutConfigured && !commerceReady) errors.push(`${product.id}: checkoutConfigured requires provider, checkout URL, and server-verified entitlement endpoint`);
     if (product.sellable && !gated) errors.push(`${product.id}: sellable product has incomplete release gate`);
-    if (!gated && index.includes(`data-product-id="${product.id}"`) && index.includes(`data-product-id="${product.id}" data-commercial-state="sellable"`)) {
-      errors.push(`${product.id}: homepage exposes Buy state before release gates pass`);
-    }
+    if (!gated && index.includes(`data-product-id="${product.id}" data-commercial-state="sellable"`)) errors.push(`${product.id}: homepage exposes Buy state before release gates pass`);
   }
-} catch (error) {
-  errors.push("invalid data/products.json: " + error.message);
-}
+} catch (error) { errors.push("invalid data/products.json: " + error.message); }
 
 const catalog = read("catalog.js");
-if (!catalog.includes("checkoutConfigured")) errors.push("catalog hydration must enforce checkout gate");
-if (!catalog.includes("gate.approved")) errors.push("catalog hydration must enforce approval gate");
+for (const required of ["checkoutConfigured", "gate.approved", "commerce.checkoutUrl", 'commerce.entitlementMode === "server-verified"', "commerce.entitlementVerificationUrl", "event.preventDefault()", 'target.protocol !== "https:"', "window.location.assign(target.href)"]) {
+  if (!catalog.includes(required)) errors.push("catalog checkout/entitlement gate missing: " + required);
+}
 
 const entitlement = read("docs/ENTITLEMENT_API.md");
-for (const required of [
-  "GET /api/entitlements/{productId}",
-  '"owned": true',
-  "401",
-  "404",
-  "503",
-  "fail closed",
-  "Price is never trusted from browser input",
-  "localStorage"
-]) {
+for (const required of ["GET /api/entitlements/{productId}", '"owned": true', "401", "404", "503", "fail closed", "Price is never trusted from browser input", "localStorage"]) {
   if (!entitlement.includes(required)) errors.push("entitlement contract missing: " + required);
 }
 
 const run = read("run.html");
-for (const id of ["read-aloud", "dm-box", "monster-box", "stage-progress", "scene-exits", "prev-scene", "next-scene"]) {
-  if (!run.includes('id="' + id + '"')) errors.push("run.html missing #" + id);
-}
+for (const id of ["read-aloud", "dm-box", "monster-box", "stage-progress", "scene-exits", "prev-scene", "next-scene"]) if (!run.includes('id="' + id + '"')) errors.push("run.html missing #" + id);
 if (/id="forge-random"/.test(run)) errors.push("customer runner still has New random");
 
 const lantern = read("adventures/the-lantern-below.html");
 if (!lantern.includes("Start adventure")) errors.push("adventure page missing Start adventure");
-
-for (const rel of [
-  "about.html", "privacy.html", "contact.html", "forge.html",
-  "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg",
-  "data/adventures/the-lantern-below.oneshot.json",
-  "data/adventures/the-well-that-would-not-dry.oneshot.json"
-]) read(rel);
-
+for (const rel of ["about.html", "privacy.html", "contact.html", "forge.html", "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg", "data/adventures/the-lantern-below.oneshot.json", "data/adventures/the-well-that-would-not-dry.oneshot.json"]) read(rel);
 if (!index.includes("the-lantern-below")) errors.push("homepage missing active Lantern card");
 if (index.includes("the-well-that-would-not-dry")) errors.push("homepage exposes an unapproved second adventure");
 
@@ -88,8 +57,7 @@ const hrefs = [...index.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
 for (const href of hrefs) {
   if (/^https?:|^mailto:|^#/.test(href)) continue;
   const clean = href.split("?")[0].split("#")[0];
-  if (!clean) continue;
-  if (!fs.existsSync(path.join(root, clean))) errors.push("broken homepage link " + href);
+  if (clean && !fs.existsSync(path.join(root, clean))) errors.push("broken homepage link " + href);
 }
 
 if (errors.length) {
