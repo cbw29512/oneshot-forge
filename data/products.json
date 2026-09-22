@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "currency": "USD",
   "products": [
     {
@@ -19,6 +19,12 @@
         "approved": false,
         "requiresCheckout": true,
         "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
       }
     }
   ]
