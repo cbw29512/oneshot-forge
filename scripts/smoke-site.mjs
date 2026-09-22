@@ -34,7 +34,11 @@ try {
 } catch (error) { errors.push("invalid data/products.json: " + error.message); }
 
 const catalog = read("catalog.js");
-for (const required of ["checkoutConfigured", "gate.approved", "commerce.checkoutUrl", 'commerce.entitlementMode === "server-verified"', "commerce.entitlementVerificationUrl", "event.preventDefault()", 'target.protocol !== "https:"', "window.location.assign(target.href)"]) {
+for (const required of [
+  "checkoutConfigured", "gate.approved", "commerce.checkoutUrl", 'commerce.entitlementMode === "server-verified"',
+  "commerce.entitlementVerificationUrl", "event.preventDefault()", 'target.protocol !== "https:"', "window.location.assign(target.href)",
+  'params.get("checkout_return")', "await verifiedEntitlement(product)", 'entitlement !== "owned"', "clearCheckoutReturn()", "window.history.replaceState"
+]) {
   if (!catalog.includes(required)) errors.push("catalog checkout/entitlement gate missing: " + required);
 }
 
