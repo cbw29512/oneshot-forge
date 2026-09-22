@@ -27,7 +27,17 @@ try {
   if (!Array.isArray(contract.products)) throw new Error("products must be an array");
   for (const product of contract.products) {
     const gate = product.releaseGate || {};
-    const gated = product.sellable && gate.approved && gate.checkoutConfigured;
+    const commerce = product.commerce || {};
+    const commerceReady = Boolean(
+      commerce.provider &&
+      commerce.checkoutUrl &&
+      commerce.entitlementMode === "server-verified" &&
+      commerce.entitlementVerificationUrl
+    );
+    const gated = product.sellable && gate.approved && gate.checkoutConfigured && commerceReady;
+    if (gate.checkoutConfigured && !commerceReady) {
+      errors.push(`${product.id}: checkoutConfigured requires provider, checkout URL, and server-verified entitlement endpoint`);
+    }
     if (product.sellable && !gated) errors.push(`${product.id}: sellable product has incomplete release gate`);
     if (!gated && index.includes(`data-product-id="${product.id}"`) && index.includes(`data-product-id="${product.id}" data-commercial-state="sellable"`)) {
       errors.push(`${product.id}: homepage exposes Buy state before release gates pass`);
