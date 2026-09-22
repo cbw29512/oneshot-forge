@@ -1,6 +1,8 @@
 import fs from "node:fs";
 
-const source = fs.readFileSync("app.js", "utf8");
+const appSource = fs.readFileSync("app.js", "utf8");
+const npcCueSource = fs.readFileSync("stage-npc-cues.js", "utf8");
+const source = appSource + "\n" + npcCueSource;
 const failures = [];
 
 const requireSource = (label, patterns) => {
@@ -26,7 +28,10 @@ requireSource("NPC cues", [
   'bits.npcs.length',
   'npc.role',
   'npc.voiceCues',
-  'npc.questFunction'
+  'npc.questFunction',
+  'npc.personality',
+  'npc.wants',
+  'Portrayal at a glance.'
 ]);
 requireSource("checks and consequences", [
   'tableChecksFor(scene.id)',
