@@ -31,6 +31,8 @@ jobs:
         run: |
           node scripts/validate-stage-cards.mjs data/adventures/the-lantern-below.oneshot.json
           node scripts/validate-stage-cards.mjs data/adventures/the-well-that-would-not-dry.oneshot.json
+      - name: Audit Lantern GM table readiness
+        run: node scripts/validate-table-readiness.mjs data/adventures/the-lantern-below.oneshot.json
       - name: Certify active stage-card rendering
         run: node scripts/validate-runner-zero-prep.mjs
       - name: Validate quick-run reference
