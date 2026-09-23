@@ -7,13 +7,13 @@
   <meta name="description" content="Stage cards for The Lantern Below. Read, run, choose the next card.">
   <link rel="canonical" href="https://cbw29512.github.io/oneshot-forge/run.html">
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260921a">
+  <link rel="stylesheet" href="styles.css?v=20260923b">
 </head>
 <body class="run">
   <a class="skip-link" href="#active-scene">Skip to stage card</a>
-  <header class="topbar">
-    <div><p class="eyebrow">One-Shot Forge</p><h1 id="adventure-title">The Lantern Below</h1><p id="adventure-meta" class="muted"></p></div>
-    <div class="top-actions"><span id="ruleset-host"></span><label for="party-size" class="tiny">Party <select id="party-size" aria-label="Party size"><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option><option value="6">6</option></select></label><nav class="night-switch" aria-label="Live nights"><a href="run.html?id=the-lantern-below">Night 1</a><a href="run.html?id=the-well-that-would-not-dry">Night 2</a></nav><a class="button secondary" href="sheets.html">Pregens</a><a class="button secondary" id="module-link" href="module.html">Print</a><button id="reset-state" class="button danger" type="button">Reset run</button></div>
+  <header class="topbar run-topbar">
+    <div><p class="eyebrow">One-Shot Forge · Run now</p><h1 id="adventure-title">The Lantern Below</h1><p id="adventure-meta" class="muted"></p></div>
+    <div class="top-actions run-actions"><span id="ruleset-host"></span><label for="party-size" class="tiny">Party <select id="party-size" aria-label="Party size"><option value="3">3</option><option value="4" selected>4</option><option value="5">5</option><option value="6">6</option></select></label><details class="run-tools"><summary class="button secondary small">Run tools</summary><div class="run-tools-menu"><nav class="night-switch" aria-label="Live nights"><a href="run.html?id=the-lantern-below">Night 1</a><a href="run.html?id=the-well-that-would-not-dry">Night 2</a></nav><a class="button secondary small" href="sheets.html">Pregens</a><a class="button secondary small" id="module-link" href="module.html">Print</a><button id="reset-state" class="button danger small" type="button">Reset run</button></div></details></div>
   </header>
   <main class="run-layout" id="active-scene" tabindex="-1">
     <article class="panel scene-panel stage-card" aria-label="Active stage card">
@@ -22,8 +22,8 @@
       <section id="stage-glance" class="stage-glance" aria-label="Stage at a glance" hidden></section>
       <section id="stage-flow" class="stage-glance" aria-label="Quick run status" hidden></section>
       <div class="module-page">
-        <section class="boxed-text"><div class="read-head"><p class="box-label">Read aloud</p><button id="copy-readaloud" class="button secondary small" type="button">Copy</button></div><blockquote id="read-aloud"></blockquote></section>
-        <section class="dm-box"><p class="box-label">Objective, checks & GM notes</p><div id="dm-box"></div></section>
+        <section class="boxed-text"><div class="read-head"><p class="box-label">Read this first</p><button id="copy-readaloud" class="button secondary small" type="button">Copy</button></div><blockquote id="read-aloud"></blockquote></section>
+        <section class="dm-box"><p class="box-label">Then run this · objective, checks & GM notes</p><div id="dm-box"></div></section>
         <section class="monster-box" id="monster-box-wrap" hidden><p class="box-label">Encounter / hazard</p><div id="monster-box"></div></section>
       </div>
       <section id="play-maps" class="play-maps" hidden aria-label="Tactical map"></section>
