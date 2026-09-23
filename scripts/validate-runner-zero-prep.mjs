@@ -2,7 +2,8 @@ import fs from "node:fs";
 
 const appSource = fs.readFileSync("app.js", "utf8");
 const npcCueSource = fs.readFileSync("stage-npc-cues.js", "utf8");
-const source = appSource + "\n" + npcCueSource;
+const rewardSource = fs.readFileSync("stage-rewards.js", "utf8");
+const source = appSource + "\n" + npcCueSource + "\n" + rewardSource;
 const failures = [];
 
 const requireSource = (label, patterns) => {
@@ -58,6 +59,13 @@ requireSource("clues and redundant delivery", [
   'scene.clueIds',
   'clue.sources',
   'Required revelation'
+]);
+requireSource("stage-local rewards", [
+  'reward?.sceneId === sceneId',
+  'scene-rewards-wrap',
+  'scene-rewards',
+  'reward.when',
+  'reward.reward'
 ]);
 requireSource("tactical callouts and maps", [
   'tableMapNote(scene.id)',
