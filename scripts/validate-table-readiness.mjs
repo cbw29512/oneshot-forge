@@ -10,7 +10,7 @@ function countWords(value) {
   try {
     return String(value || "").trim().split(/\s+/).filter(Boolean).length;
   } catch (error) {
-    console.error(`TABLE-READINESS: could not count read-aloud words: ${error.message}`);
+    console.error(`TABLE-READINESS: could not count words: ${error.message}`);
     return Number.POSITIVE_INFINITY;
   }
 }
@@ -23,6 +23,22 @@ try {
   const clues = new Map((adventure.clues || []).map(clue => [clue.id, clue]));
   const encounters = new Map((adventure.encounters || []).map(encounter => [encounter.id, encounter]));
   const maxReadAloudWords = 140;
+  const maxGmSetupWords = 130;
+
+  // A zero-prep GM must understand the product before scene one without reading the module.
+  if (!adventure.metadata?.title?.trim()) fail("adventure has no title.");
+  if (!Number.isInteger(adventure.metadata?.partyLevel) || adventure.metadata.partyLevel < 1) fail("adventure has no usable party level.");
+  if (!adventure.metadata?.partySizeRange?.trim()) fail("adventure has no supported party-size range.");
+  if (!Number.isInteger(adventure.metadata?.durationMinutes) || adventure.metadata.durationMinutes < 30) fail("adventure has no usable play-time estimate.");
+  if (!adventure.setup?.pitch?.trim()) fail("adventure has no player-facing pitch/hook.");
+  if (!adventure.setup?.gmSummary?.trim()) fail("adventure has no under-a-minute GM setup.");
+  const gmSetupWords = countWords(adventure.setup?.gmSummary);
+  if (gmSetupWords > maxGmSetupWords) {
+    fail(`GM setup is ${gmSetupWords} words; zero-prep setup must stay at or below ${maxGmSetupWords} words (about one minute). Move stage-specific detail to the relevant Stage Card.`);
+  }
+  if (!adventure.quest?.objective?.trim()) fail("adventure has no immediate quest objective.");
+  if (!adventure.quest?.stakes?.trim()) fail("adventure has no stated stakes.");
+  if (!adventure.quest?.deadline?.trim()) fail("adventure has no actionable deadline/pressure cue.");
 
   for (const scene of adventure.scenes || []) {
     const label = `${scene.id} (${scene.title})`;
@@ -65,7 +81,7 @@ try {
   }
 
   if (!process.exitCode) {
-    console.log(`Table-readiness OK: ${adventure.metadata?.title || file} — ${(adventure.scenes || []).length} stages, ${npcs.size} NPCs, ${clues.size} clues; read-aloud <= ${maxReadAloudWords} words/stage.`);
+    console.log(`Table-readiness OK: ${adventure.metadata?.title || file} — ${(adventure.scenes || []).length} stages, ${npcs.size} NPCs, ${clues.size} clues; GM setup <= ${maxGmSetupWords} words; read-aloud <= ${maxReadAloudWords} words/stage.`);
   }
 } catch (error) {
   console.error(`TABLE-READINESS ERROR: ${error.message}`);
