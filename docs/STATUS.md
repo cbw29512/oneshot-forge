@@ -20,11 +20,19 @@ Live: https://cbw29512.github.io/oneshot-forge/
   - Name-Drowned billed as CR 1/4 (Low); talk-out is the door
   - Cistern jobs print DC 13 / 15 / 13 / 15
 
+## Active review
+Night 3 — The Watch That Did Not Come Back — authored on `feat/night-3-watch`, draft PR #34.
+- Five stage cards: gate hook, old-road guardian, duty-tag puzzle/trap, four-route muster finale, return/revelation.
+- Required facts each have three authored sources and physical backup.
+- Quick-run sidecar includes all checks, combat numbers, tactics, hazard, rewards, and tactical dimensions.
+- CI sale gates now include Night 3 validation/stage-card/clue checks.
+- Current exact head `329bb83b2b99971dda2345b70fb29c8e137f2bb1` failed before workflow steps were reported (runner shows zero steps). Treat as infrastructure/workflow-start blocker until a subsequent run exposes a test failure or succeeds; do not merge.
+
 ## Next (in order)
-1. Author (tomorrow): Night 3 — The Watch That Did Not Come Back — one night only
-2. Auditor pass on Night 3 before Night 4
-3. Playwright CI when asked
-4. Checkout only after owner gives a payment account
+1. Auditor pass on Night 3; fix exact-head CI and rules/difficulty issues before merge.
+2. Get Chris review on Night 3; preserve sections marked LEAVE ALONE.
+3. Only after explicit approval, freeze Night 3 and begin Night 4.
+4. Checkout only after owner gives a payment account.
 
 ## Do not
 - Mix non-D&D
@@ -34,4 +42,4 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Write two nights in one day
 
 ## Last session
-2026-09-20 — Product pass, not Night 3: Well cover, maps actually render (`src` vs `asset`), print module honors `?id=`, dusk/moonrise on the stage card, sticky Next/Back, Night 1/2 switcher. Author still waits for tomorrow for the Watch.
+2026-09-23 — Authored Night 3 and its quick-run reference on a dedicated branch; opened draft PR #34; expanded CI sale gates to cover Night 3. Exact-head Actions run 147 failed before any workflow steps were exposed, so the branch is not merge-ready. Next pass is audit + CI diagnosis, not Night 4.
