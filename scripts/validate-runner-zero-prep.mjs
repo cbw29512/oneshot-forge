@@ -2,7 +2,9 @@ import fs from "node:fs";
 
 const appSource = fs.readFileSync("app.js", "utf8");
 const npcCueSource = fs.readFileSync("stage-npc-cues.js", "utf8");
-const source = appSource + "\n" + npcCueSource;
+const rewardSource = fs.readFileSync("stage-rewards.js", "utf8");
+const flowSource = fs.readFileSync("stage-flow.js", "utf8");
+const source = appSource + "\n" + npcCueSource + "\n" + rewardSource + "\n" + flowSource;
 const failures = [];
 
 const requireSource = (label, patterns) => {
@@ -31,6 +33,9 @@ requireSource("NPC cues", [
   'npc.questFunction',
   'npc.personality',
   'npc.wants',
+  'npc.fears',
+  'npc.revealRules',
+  'Reveal cue:',
   'Portrayal at a glance.'
 ]);
 requireSource("checks and consequences", [
@@ -59,17 +64,36 @@ requireSource("clues and redundant delivery", [
   'clue.sources',
   'Required revelation'
 ]);
-requireSource("tactical callouts and maps", [
+requireSource("stage-local rewards", [
+  'reward?.sceneId === sceneId',
+  'scene-rewards-wrap',
+  'scene-rewards',
+  'reward.when',
+  'reward.reward'
+]);
+requireSource("tactical callouts, combat maps, and player handouts", [
   'tableMapNote(scene.id)',
   'note.dimensions',
   'note.features',
-  'renderPlayMaps(scene)'
+  'renderPlayMaps(scene)',
+  'm.kind === "handout"',
+  'Player handout',
+  'm.sceneIds',
+  'm.asset || m.src'
 ]);
 requireSource("ordered branching transitions", [
   'renderSceneExits(scene)',
   'scene.exits',
   'Choose a path',
   'goToScene(exitScene.id)'
+]);
+requireSource("quick-reference flow recovery", [
+  'stage-flow',
+  'state.currentSceneId',
+  'state.discoveredClueIds',
+  'clue.required',
+  'Reconverges on:',
+  'Route forward'
 ]);
 
 if (failures.length) {
