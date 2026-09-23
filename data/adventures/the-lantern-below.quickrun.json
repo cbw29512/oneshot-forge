@@ -1,6 +1,6 @@
 {
   "adventureId": "the-lantern-below",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "target": {"level": 4, "partySize": 4},
   "checks": [
     {"id":"check-mara","sceneId":"scene-hook","label":"Press Mara for the truth","dc":12,"ability":"Wisdom (Insight) or Charisma (Persuasion)","success":"Mara admits the Emberglass is part of a protective seal and identifies Bellweather Priory.","failure":"She still names the priory but withholds the seal's purpose; Tamsin can reveal the alternate route."},
@@ -17,11 +17,11 @@
   ],
   "hazards": [{"id":"trap-memory-bell","sceneId":"scene-chapel","trigger":"A character rings the hanging handbell.","save":"DC 13 Wisdom","failure":"Take 2d6 psychic damage and forget the last minute until finishing a short rest; the player still retains all discovered clues and game information.","success":"Half damage and no memory loss.","failForward":"The crypt stair opens either way."}],
   "rewards": [
-    {"id":"reward-mara","when":"Briar Glen survives the crisis.","reward":"Mara pays the promised 200 gp total even if the Emberglass is not returned."},
-    {"id":"reward-bell-silver","when":"The party searches the crypt after resolving the finale.","reward":"A hidden votive box contains 80 gp in old silver and two 50 gp moonstones."},
-    {"id":"reward-ember-blessing","when":"The party completes the new binding without destroying the Emberglass.","reward":"Each surviving character gains Ember's Resolve: once before the next long rest, add 1d4 to a failed Wisdom saving throw, then the blessing ends."},
-    {"id":"reward-quiet-purse","when":"Prepared: Mara alive and not publicly denounced.","reward":"After the crowd leaves, she presses a 50 gp purse into someone's hand. 'For not making a speech.'"},
-    {"id":"reward-healer-kit","when":"Prepared: they spoke with Tamsin before leaving the square.","reward":"She slips them a healer's kit and a loaf. 'If you die on that road I have to look at your horse.'"}
+    {"id":"reward-mara","sceneId":"scene-resolution","when":"Briar Glen survives the crisis.","reward":"Mara pays the promised 200 gp total even if the Emberglass is not returned."},
+    {"id":"reward-bell-silver","sceneId":"scene-resolution","when":"The party searches the crypt after resolving the finale.","reward":"A hidden votive box contains 80 gp in old silver and two 50 gp moonstones."},
+    {"id":"reward-ember-blessing","sceneId":"scene-resolution","when":"The party completes the new binding without destroying the Emberglass.","reward":"Each surviving character gains Ember's Resolve: once before the next long rest, add 1d4 to a failed Wisdom saving throw, then the blessing ends."},
+    {"id":"reward-quiet-purse","sceneId":"scene-resolution","when":"Prepared: Mara alive and not publicly denounced.","reward":"After the crowd leaves, she presses a 50 gp purse into someone's hand. 'For not making a speech.'"},
+    {"id":"reward-healer-kit","sceneId":"scene-hook","when":"Prepared: they spoke with Tamsin before leaving the square.","reward":"She slips them a healer's kit and a loaf. 'If you die on that road I have to look at your horse.'"}
   ],
   "mapNotes": [
     {"sceneId":"scene-priory-gate","dimensions":"60 x 50 ft.","features":["chapel doors on north edge","four graves spaced 15 ft. apart","thorn patches are difficult terrain","culvert entrance outside east wall if discovered"]},
