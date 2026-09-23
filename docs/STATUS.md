@@ -25,14 +25,17 @@ Night 3 — The Watch That Did Not Come Back — authored on `feat/night-3-watch
 - Five stage cards: gate hook, old-road guardian, duty-tag puzzle/trap, four-route muster finale, return/revelation.
 - Required facts each have three authored sources and physical backup.
 - Quick-run sidecar includes all checks, combat numbers, tactics, hazard, rewards, and tactical dimensions.
-- CI sale gates now include Night 3 validation/stage-card/clue checks.
-- Current exact head `329bb83b2b99971dda2345b70fb29c8e137f2bb1` failed before workflow steps were reported (runner shows zero steps). Treat as infrastructure/workflow-start blocker until a subsequent run exposes a test failure or succeeds; do not merge.
+- CI sale gates include Night 3 validation/stage-card/clue checks.
+- `quickrun.js` now recognizes Night 3 by package id, removing one review-path gap.
+- Runner/module authored-package registries still need Night 3 registration before the webpage can be called zero-prep runnable end-to-end.
+- The prior exact-head Actions run failed before workflow steps were reported (runner showed zero steps). Treat as infrastructure/workflow-start blocker until a subsequent run exposes a test failure or succeeds; do not merge.
 
 ## Next (in order)
-1. Auditor pass on Night 3; fix exact-head CI and rules/difficulty issues before merge.
-2. Get Chris review on Night 3; preserve sections marked LEAVE ALONE.
-3. Only after explicit approval, freeze Night 3 and begin Night 4.
-4. Checkout only after owner gives a payment account.
+1. Register Night 3 in the main runner/module package maps, then run the exact-head CI gates.
+2. Auditor pass on Night 3; fix any rules/difficulty or table-readiness issues.
+3. Get Chris review on Night 3; preserve sections marked LEAVE ALONE.
+4. Only after explicit approval, freeze Night 3 and begin Night 4.
+5. Checkout only after owner gives a payment account.
 
 ## Do not
 - Mix non-D&D
@@ -42,4 +45,4 @@ Night 3 — The Watch That Did Not Come Back — authored on `feat/night-3-watch
 - Write two nights in one day
 
 ## Last session
-2026-09-23 — Authored Night 3 and its quick-run reference on a dedicated branch; opened draft PR #34; expanded CI sale gates to cover Night 3. Exact-head Actions run 147 failed before any workflow steps were exposed, so the branch is not merge-ready. Next pass is audit + CI diagnosis, not Night 4.
+2026-09-23 — Continued Night 3 rather than starting a new adventure. Registered its package in the quick-run loader and re-audited the delivery path. The authored package/sidecar and CI sale gates exist in draft PR #34, but the main runner/module registries still need Night 3 before end-to-end webpage review is complete. Prior Actions failure exposed zero workflow steps, so no code test failure has yet been identified.
