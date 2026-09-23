@@ -1,0 +1,55 @@
+{
+  "adventureId": "the-lantern-below",
+  "sceneId": "scene-finale",
+  "encounterId": "enc-pale-guest",
+  "designRule": "Preserve the Pale Guest's identity, AC, core actions, and multiple victory methods. Scale action-economy pressure and ritual assistance, not arbitrary boss HP.",
+  "baseline": {
+    "partyLevel": 4,
+    "partySize": 4,
+    "bossAC": 14,
+    "bossHP": 88
+  },
+  "partyScaling": [
+    {
+      "partySize": 3,
+      "bossHP": 88,
+      "adjustments": [
+        "Caldus can assist the binding if alive and not hostile: once per round he may use his action to count as one successful ritual contribution instead of attacking.",
+        "The first failed ritual check each round does not advance Unstable Binding; later failures that round work normally.",
+        "Do not add extra enemies."
+      ],
+      "gmCue": "Small party: preserve the boss, give the heroes breathing room to use the non-damage victory routes."
+    },
+    {
+      "partySize": 4,
+      "bossHP": 88,
+      "adjustments": [
+        "Run the encounter exactly as written in the Adventure Package."
+      ],
+      "gmCue": "Baseline party."
+    },
+    {
+      "partySize": 5,
+      "bossHP": 88,
+      "adjustments": [
+        "At initiative count 20, after the first round, one unoccupied ritual sigil flares. One creature within 10 feet of that sigil must succeed on a DC 12 Dexterity save or take 1d6 force damage and be pushed 5 feet.",
+        "A character adjacent to the sigil can use an action to suppress that flare until the next round with a DC 12 Arcana or Religion check."
+      ],
+      "gmCue": "Large party: add positional pressure, not hit points."
+    },
+    {
+      "partySize": 6,
+      "bossHP": 88,
+      "adjustments": [
+        "Use the 5-player sigil flare rule.",
+        "At initiative count 20, a second different unoccupied sigil flares. Resolve each flare separately; a creature can be affected by only one flare per round.",
+        "If the party has already completed the new binding, stop all sigil flares immediately."
+      ],
+      "gmCue": "Six heroes get more simultaneous battlefield problems, never an HP sponge."
+    }
+  ],
+  "routePressure": {
+    "graveyardRoute": "If the party reaches the finale visibly depleted, do not add punishment beyond the party-size rule. Preserve the non-damage victory routes and Caldus assistance where earned.",
+    "culvertRoute": "The shortcut intentionally preserves more resources. Do not compensate by secretly increasing boss statistics; the players earned that advantage by finding and using the route."
+  }
+}
