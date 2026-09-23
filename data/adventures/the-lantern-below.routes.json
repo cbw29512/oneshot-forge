@@ -10,31 +10,38 @@
     {
       "id": "normal-graveyard",
       "label": "North trail through the priory yard and chapel",
-      "sceneIds": [
-        "scene-hook",
-        "scene-road",
-        "scene-priory-gate",
-        "scene-chapel",
-        "scene-crypt",
-        "scene-final",
-        "scene-resolution"
-      ],
+      "sceneIds": ["scene-hook", "scene-road", "scene-priory-gate", "scene-chapel", "scene-crypt", "scene-final", "scene-resolution"],
       "recoveryRouteIds": []
     },
     {
       "id": "culvert-bypass",
       "label": "North trail through Tamsin's culvert, bypassing the yard",
-      "sceneIds": [
-        "scene-hook",
-        "scene-road",
-        "scene-culvert",
-        "scene-crypt",
-        "scene-final",
-        "scene-resolution"
-      ],
-      "recoveryRouteIds": [
-        "recover-skip-chapel"
-      ]
+      "sceneIds": ["scene-hook", "scene-road", "scene-culvert", "scene-crypt", "scene-final", "scene-resolution"],
+      "recoveryRouteIds": ["recover-skip-chapel"]
+    },
+    {
+      "id": "skip-north-trail",
+      "label": "Party acts on the priory clue immediately and cuts the optional road scene",
+      "sceneIds": ["scene-hook", "scene-priory-gate", "scene-chapel", "scene-crypt", "scene-final", "scene-resolution"],
+      "recoveryRouteIds": []
+    },
+    {
+      "id": "hostile-caldus",
+      "label": "Party reaches Caldus normally but attacks before hearing him out",
+      "sceneIds": ["scene-hook", "scene-road", "scene-priory-gate", "scene-chapel", "scene-crypt", "scene-final", "scene-resolution"],
+      "recoveryRouteIds": ["recover-attack-caldus"]
+    },
+    {
+      "id": "culvert-hostile-caldus",
+      "label": "Party bypasses the chapel through the culvert and attacks Caldus immediately",
+      "sceneIds": ["scene-hook", "scene-road", "scene-culvert", "scene-crypt", "scene-final", "scene-resolution"],
+      "recoveryRouteIds": ["recover-skip-chapel", "recover-attack-caldus"]
+    },
+    {
+      "id": "silent-dead-caldus",
+      "label": "Party avoids exposition and cannot receive live information from Caldus",
+      "sceneIds": ["scene-hook", "scene-priory-gate", "scene-chapel", "scene-crypt", "scene-final", "scene-resolution"],
+      "recoveryRouteIds": ["recover-silent-run", "recover-attack-caldus"]
     }
   ]
 }
