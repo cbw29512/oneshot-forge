@@ -39,6 +39,8 @@ try {
   if (!adventure.quest?.objective?.trim()) fail("adventure has no immediate quest objective.");
   if (!adventure.quest?.stakes?.trim()) fail("adventure has no stated stakes.");
   if (!adventure.quest?.deadline?.trim()) fail("adventure has no actionable deadline/pressure cue.");
+  if (!adventure.quest?.successConditions?.length) fail("adventure has no explicit success conditions for closing the session.");
+  if (!adventure.quest?.failureConditions?.length) fail("adventure has no explicit failure conditions for closing the session.");
 
   for (const scene of adventure.scenes || []) {
     const label = `${scene.id} (${scene.title})`;
@@ -76,12 +78,21 @@ try {
 
   const finale = (adventure.scenes || []).at(-1);
   if (!finale) fail("adventure has no scenes.");
-  else if (!/(final|resolution|ending|choice|guest|ritual)/i.test(`${finale.title} ${finale.purpose}`)) {
-    fail(`last stage ${finale.id} does not read as a clear finale/resolution stage.`);
+  else {
+    if (!/(final|resolution|ending|choice|guest|ritual)/i.test(`${finale.title} ${finale.purpose}`)) {
+      fail(`last stage ${finale.id} does not read as a clear finale/resolution stage.`);
+    }
+    if ((finale.exits || []).length) {
+      fail(`last stage ${finale.id} still has scene exits; a zero-prep adventure must end with an explicit closure stage, not an unresolved transition.`);
+    }
+    const closureText = `${finale.purpose || ""} ${(finale.gmNotes || []).join(" ")}`;
+    if (!/(end|ending|resolve|resolution|return|surviv|reward|pay|aftermath|consequence)/i.test(closureText)) {
+      fail(`last stage ${finale.id} lacks an explicit aftermath/closure cue for the GM.`);
+    }
   }
 
   if (!process.exitCode) {
-    console.log(`Table-readiness OK: ${adventure.metadata?.title || file} — ${(adventure.scenes || []).length} stages, ${npcs.size} NPCs, ${clues.size} clues; GM setup <= ${maxGmSetupWords} words; read-aloud <= ${maxReadAloudWords} words/stage.`);
+    console.log(`Table-readiness OK: ${adventure.metadata?.title || file} — ${(adventure.scenes || []).length} stages, ${npcs.size} NPCs, ${clues.size} clues; explicit success/failure closure; GM setup <= ${maxGmSetupWords} words; read-aloud <= ${maxReadAloudWords} words/stage.`);
   }
 } catch (error) {
   console.error(`TABLE-READINESS ERROR: ${error.message}`);
