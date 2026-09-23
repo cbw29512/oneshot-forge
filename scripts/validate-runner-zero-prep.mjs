@@ -3,7 +3,8 @@ import fs from "node:fs";
 const appSource = fs.readFileSync("app.js", "utf8");
 const npcCueSource = fs.readFileSync("stage-npc-cues.js", "utf8");
 const rewardSource = fs.readFileSync("stage-rewards.js", "utf8");
-const source = appSource + "\n" + npcCueSource + "\n" + rewardSource;
+const flowSource = fs.readFileSync("stage-flow.js", "utf8");
+const source = appSource + "\n" + npcCueSource + "\n" + rewardSource + "\n" + flowSource;
 const failures = [];
 
 const requireSource = (label, patterns) => {
@@ -85,6 +86,14 @@ requireSource("ordered branching transitions", [
   'scene.exits',
   'Choose a path',
   'goToScene(exitScene.id)'
+]);
+requireSource("quick-reference flow recovery", [
+  'stage-flow',
+  'state.currentSceneId',
+  'state.discoveredClueIds',
+  'clue.required',
+  'Reconverges on:',
+  'Route forward'
 ]);
 
 if (failures.length) {
