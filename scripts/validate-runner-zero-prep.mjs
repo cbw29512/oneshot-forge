@@ -32,6 +32,9 @@ requireSource("NPC cues", [
   'npc.questFunction',
   'npc.personality',
   'npc.wants',
+  'npc.fears',
+  'npc.revealRules',
+  'Reveal cue:',
   'Portrayal at a glance.'
 ]);
 requireSource("checks and consequences", [
@@ -67,11 +70,15 @@ requireSource("stage-local rewards", [
   'reward.when',
   'reward.reward'
 ]);
-requireSource("tactical callouts and maps", [
+requireSource("tactical callouts, combat maps, and player handouts", [
   'tableMapNote(scene.id)',
   'note.dimensions',
   'note.features',
-  'renderPlayMaps(scene)'
+  'renderPlayMaps(scene)',
+  'm.kind === "handout"',
+  'Player handout',
+  'm.sceneIds',
+  'm.asset || m.src'
 ]);
 requireSource("ordered branching transitions", [
   'renderSceneExits(scene)',
