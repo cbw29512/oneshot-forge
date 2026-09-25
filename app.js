@@ -495,10 +495,23 @@ function renderScene() {
 
 function dmBoxHtml(scene, bits) {
   const chunks = [];
-  if (scene.purpose) chunks.push("<p><b>This room.</b> " + escapeHtml(scene.purpose) + "</p>");
-  if (scene.gmNotes && scene.gmNotes.length) {
+  const gmNotes = Array.isArray(scene.gmNotes) ? scene.gmNotes : [];
+  const objectiveIndex = gmNotes.findIndex(note => /^Objective:\\s*/i.test(String(note)));
+  const objective = objectiveIndex >= 0
+    ? String(gmNotes[objectiveIndex]).replace(/^Objective:\\s*/i, "").trim()
+    : String(scene.purpose || "").trim();
+  const supportingNotes = objectiveIndex >= 0
+    ? gmNotes.filter((_, index) => index !== objectiveIndex)
+    : gmNotes;
+
+  if (objective) {
+    chunks.push('<div class="quick-block run-now"><p class="eyebrow">RUN NOW</p><p><b>' +
+      escapeHtml(objective) + "</b></p></div>");
+  }
+  if (scene.purpose && objectiveIndex >= 0) chunks.push("<p><b>This room.</b> " + escapeHtml(scene.purpose) + "</p>");
+  if (supportingNotes.length) {
     chunks.push("<p><b>What you know.</b></p><ul>" +
-      scene.gmNotes.map(note => "<li>" + escapeHtml(note) + "</li>").join("") + "</ul>");
+      supportingNotes.map(note => "<li>" + escapeHtml(note) + "</li>").join("") + "</ul>");
   }
   if (bits.npcs.length) {
     chunks.push("<p><b>NPCs here.</b></p>" + bits.npcs.map(npc =>
