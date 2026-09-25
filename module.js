@@ -2,7 +2,8 @@ const PACKAGE_PREFIX = "oneshot-forge:package:";
 const LAST_ADVENTURE_KEY = "oneshot-forge:last-adventure";
 const ADVENTURE_PACKS = {
   "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
-  "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json"
+  "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json",
+  "the-watch-that-did-not-come-back": "data/adventures/the-watch-that-did-not-come-back.oneshot.json"
 };
 const DEFAULT_ADVENTURE = ADVENTURE_PACKS["the-lantern-below"];
 
@@ -63,11 +64,8 @@ function renderMeta(adventure) {
 
   el("adventure-summary").textContent = adventure.setup?.gmSummary || adventure.quest.objective;
   const truth = (adventure.truth?.facts || []).map(fact => fact.text).join(" ");
-  el("adventure-background").textContent =
-    truth || "The adventure's background is established by its central quest, NPC motives, and hidden truths.";
-
-  el("running-notes").innerHTML =
-    '<div class="gm-box"><ul>' +
+  el("adventure-background").textContent = truth || "The adventure's background is established by its central quest, NPC motives, and hidden truths.";
+  el("running-notes").innerHTML = '<div class="gm-box"><ul>' +
     '<li>Keep the deadline visible: <b>' + esc(adventure.quest.deadline) + '</b>.</li>' +
     '<li>Required revelations have backup delivery sources. Never stall the adventure because one clue source was missed.</li>' +
     '<li>Reward clever bypasses. Preserve established facts, not a predetermined route.</li>' +
@@ -76,8 +74,7 @@ function renderMeta(adventure) {
 }
 
 function renderNpcs(adventure) {
-  el("npc-appendix").innerHTML = adventure.npcs.map(npc =>
-    '<article class="npc-card">' +
+  el("npc-appendix").innerHTML = adventure.npcs.map(npc => '<article class="npc-card">' +
     '<h3>' + esc(npc.name) + '</h3>' +
     '<p><span class="label">Role.</span> ' + esc(npc.role) + '</p>' +
     '<p><span class="label">Personality.</span> ' + esc((npc.personality || []).join(", ")) + '</p>' +
@@ -85,8 +82,7 @@ function renderNpcs(adventure) {
     '<p><span class="label">Knows.</span> ' + esc((npc.knows || []).join("; ")) + '</p>' +
     '<p><span class="label">Secrets.</span> ' + esc((npc.secrets || []).join("; ")) + '</p>' +
     '<p><span class="label">Use in play.</span> ' + esc(npc.questFunction || npc.role) + '</p>' +
-    '</article>'
-  ).join("");
+    '</article>').join("");
 }
 
 function renderFlow(adventure) {
@@ -100,105 +96,60 @@ function renderFlow(adventure) {
 
 function encounterBlock(encounter) {
   const m = encounter.mechanics;
-  const stats = m ? (
-    '<div class="statline">' +
+  const stats = m ? ('<div class="statline">' +
       '<div><span>Count</span><b>' + esc(m.count) + '</b></div>' +
       '<div><span>AC</span><b>' + esc(m.ac) + '</b></div>' +
       '<div><span>HP</span><b>' + esc(m.hpEach) + '</b></div>' +
       '<div><span>Save DC</span><b>' + esc(m.saveDC) + '</b></div>' +
-    '</div>' +
-    '<p><span class="label">Attack.</span> ' + esc(m.basicAttack) + '</p>' +
+    '</div>' + '<p><span class="label">Attack.</span> ' + esc(m.basicAttack) + '</p>' +
     (m.attacksPerTurn > 1 ? '<p><span class="label">Multiattack.</span> ' + esc(m.attacksPerTurn) + ' attacks per turn.</p>' : '') +
-    '<p><span class="label">Signature.</span> ' + esc(m.signature) + '</p>'
-  ) : "";
-  return '<div class="encounter-block">' +
-    '<h3>' + esc(encounter.name) + '</h3>' +
-    '<p><span class="label">' + esc(encounter.type || "Encounter") + '.</span> ' + esc(encounter.summary || "") + '</p>' +
-    stats +
-    '<p><span class="label">Resolution.</span> ' + esc(encounter.resolution || "") + '</p>' +
-    '</div>';
+    '<p><span class="label">Signature.</span> ' + esc(m.signature) + '</p>') : "";
+  return '<div class="encounter-block"><h3>' + esc(encounter.name) + '</h3>' +
+    '<p><span class="label">' + esc(encounter.type || "Encounter") + '.</span> ' + esc(encounter.summary || "") + '</p>' + stats +
+    '<p><span class="label">Resolution.</span> ' + esc(encounter.resolution || "") + '</p></div>';
 }
 
 function renderScenes(adventure) {
   el("scene-chapters").innerHTML = adventure.scenes.map((scene,index) => {
     const location = adventure.locations.find(item => item.id === scene.locationId);
-    const encounters = (scene.encounterIds || [])
-      .map(id => adventure.encounters.find(item => item.id === id))
-      .filter(Boolean);
-    const clues = (scene.clueIds || [])
-      .map(id => adventure.clues.find(item => item.id === id))
-      .filter(Boolean);
+    const encounters = (scene.encounterIds || []).map(id => adventure.encounters.find(item => item.id === id)).filter(Boolean);
+    const clues = (scene.clueIds || []).map(id => adventure.clues.find(item => item.id === id)).filter(Boolean);
     const puzzles = (adventure.puzzles || []).filter(item => item.locationId === scene.locationId);
-    const exits = (scene.exits || [])
-      .map(id => adventure.scenes.find(item => item.id === id)?.title)
-      .filter(Boolean);
-
+    const exits = (scene.exits || []).map(id => adventure.scenes.find(item => item.id === id)?.title).filter(Boolean);
     return '<article class="scene-chapter">' +
-      '<div class="scene-headline"><div>' +
-        '<div class="scene-number">Scene ' + (index+1) + '</div>' +
-        '<h2>' + esc(scene.title) + '</h2>' +
-      '</div><div class="scene-meta">' + esc(scene.estimatedMinutes || "?") + ' min • ' + esc(scene.pacingClass || "core") + '</div></div>' +
+      '<div class="scene-headline"><div><div class="scene-number">Scene ' + (index+1) + '</div><h2>' + esc(scene.title) + '</h2></div>' +
+      '<div class="scene-meta">' + esc(scene.estimatedMinutes || "?") + ' min • ' + esc(scene.pacingClass || "core") + '</div></div>' +
       '<p><span class="label">Location.</span> ' + esc(location?.name || "Unspecified") + '</p>' +
       '<p><span class="label">Purpose.</span> ' + esc(scene.purpose || "") + '</p>' +
-      '<h3>Read Aloud</h3>' +
-      '<div class="boxed-text">' + esc(scene.readAloud || "No boxed text.") + '</div>' +
-      '<h3>GM Guidance</h3>' +
-      '<div class="gm-box"><ul>' + list(scene.gmNotes || []) + '</ul></div>' +
-      (clues.length ? '<h3>Revelations</h3>' + clues.map(clue =>
-        '<div class="clue-card"><b>' + esc(clue.revelation) + '</b><ul>' + list(clue.sources) + '</ul></div>'
-      ).join("") : '') +
-      (puzzles.length ? '<h3>Puzzle</h3>' + puzzles.map(puzzle =>
-        '<div class="gm-box"><p><b>' + esc(puzzle.name) + '</b></p><p>' + esc(puzzle.prompt) + '</p><p><span class="label">Solution.</span> ' + esc(puzzle.solution) + '</p><p><span class="label">Fail forward.</span> ' + esc(puzzle.failForward) + '</p></div>'
-      ).join("") : '') +
+      '<h3>Read Aloud</h3><div class="boxed-text">' + esc(scene.readAloud || "No boxed text.") + '</div>' +
+      '<h3>GM Guidance</h3><div class="gm-box"><ul>' + list(scene.gmNotes || []) + '</ul></div>' +
+      (clues.length ? '<h3>Revelations</h3>' + clues.map(clue => '<div class="clue-card"><b>' + esc(clue.revelation) + '</b><ul>' + list(clue.sources) + '</ul></div>').join("") : '') +
+      (puzzles.length ? '<h3>Puzzle</h3>' + puzzles.map(puzzle => '<div class="gm-box"><p><b>' + esc(puzzle.name) + '</b></p><p>' + esc(puzzle.prompt) + '</p><p><span class="label">Solution.</span> ' + esc(puzzle.solution) + '</p><p><span class="label">Fail forward.</span> ' + esc(puzzle.failForward) + '</p></div>').join("") : '') +
       (encounters.length ? '<h3>Encounters</h3>' + encounters.map(encounterBlock).join("") : '') +
-      (exits.length ? '<h3>Development</h3><p>From here, the party can continue to ' + esc(exits.join(" or ")) + '.</p>' : '<h3>Development</h3><p>This scene concludes the adventure.</p>') +
-      '</article>';
+      (exits.length ? '<h3>Development</h3><p>From here, the party can continue to ' + esc(exits.join(" or ")) + '.</p>' : '<h3>Development</h3><p>This scene concludes the adventure.</p>') + '</article>';
   }).join("");
 }
 
 function renderClues(adventure) {
-  el("clue-matrix").innerHTML = '<div class="clue-grid">' + adventure.clues.map(clue =>
-    '<article class="clue-card">' +
-      '<h3>' + esc(clue.required ? "Required Revelation" : "Optional Revelation") + '</h3>' +
-      '<p><b>' + esc(clue.revelation) + '</b></p>' +
-      '<p class="label">Available from:</p><ul>' + list(clue.sources) + '</ul>' +
-    '</article>'
-  ).join("") + '</div>';
+  el("clue-matrix").innerHTML = '<div class="clue-grid">' + adventure.clues.map(clue => '<article class="clue-card"><h3>' +
+    esc(clue.required ? "Required Revelation" : "Optional Revelation") + '</h3><p><b>' + esc(clue.revelation) + '</b></p>' +
+    '<p class="label">Available from:</p><ul>' + list(clue.sources) + '</ul></article>').join("") + '</div>';
 }
 
 function renderEndings(adventure) {
-  el("ending-list").innerHTML = adventure.endings.map(ending =>
-    '<article class="ending-card">' +
-      '<h3>' + esc(ending.name) + '</h3>' +
-      '<p><span class="label">Trigger.</span> ' + esc(ending.condition) + '</p>' +
-      '<p><span class="label">Result.</span> ' + esc(ending.result) + '</p>' +
-    '</article>'
-  ).join("");
+  el("ending-list").innerHTML = adventure.endings.map(ending => '<article class="ending-card"><h3>' + esc(ending.name) + '</h3>' +
+    '<p><span class="label">Trigger.</span> ' + esc(ending.condition) + '</p><p><span class="label">Result.</span> ' + esc(ending.result) + '</p></article>').join("");
 }
 
 function renderRecovery(adventure) {
-  el("recovery-guide").innerHTML = adventure.recovery.routes.map(route =>
-    '<article class="recovery-card">' +
-      '<h3>' + esc(route.trigger) + '</h3>' +
-      '<p>' + esc(route.response) + '</p>' +
-      '<p><span class="label">State change.</span> ' + esc((route.stateChanges || []).join(" ")) + '</p>' +
-    '</article>'
-  ).join("");
+  el("recovery-guide").innerHTML = adventure.recovery.routes.map(route => '<article class="recovery-card"><h3>' + esc(route.trigger) + '</h3>' +
+    '<p>' + esc(route.response) + '</p><p><span class="label">State change.</span> ' + esc((route.stateChanges || []).join(" ")) + '</p></article>').join("");
 }
 
 async function render() {
   const adventure = await loadAdventure();
-  renderMeta(adventure);
-  renderNpcs(adventure);
-  renderFlow(adventure);
-  renderScenes(adventure);
-  renderClues(adventure);
-  renderEndings(adventure);
-  renderRecovery(adventure);
+  renderMeta(adventure); renderNpcs(adventure); renderFlow(adventure); renderScenes(adventure); renderClues(adventure); renderEndings(adventure); renderRecovery(adventure);
 }
 
 el("print-module").addEventListener("click", () => window.print());
-
-render().catch(error => {
-  el("module").innerHTML = '<section class="module-section"><h1>Could not render module</h1><p>' + esc(error.message) + '</p></section>';
-});
+render().catch(error => { el("module").innerHTML = '<section class="module-section"><h1>Could not render module</h1><p>' + esc(error.message) + '</p></section>'; });

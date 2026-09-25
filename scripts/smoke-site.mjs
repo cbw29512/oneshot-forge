@@ -48,7 +48,14 @@ for (const required of ["GET /api/entitlements/{productId}", '"owned": true', "4
 }
 
 const run = read("run.html");
-for (const id of ["read-aloud", "dm-box", "monster-box", "stage-progress", "scene-exits", "prev-scene", "next-scene"]) if (!run.includes('id="' + id + '"')) errors.push("run.html missing #" + id);
+const app = read("app.js");
+const runnerIds = [...run.matchAll(/run\\.html\\?id=([a-z0-9-]+)/g)].map(match => match[1]);
+for (const id of new Set(runnerIds)) {
+  const registration = `"${id}": "data/adventures/${id}.oneshot.json"`;
+  if (!app.includes(registration)) errors.push(`${id}: runner link is not registered before app bootstrap`);
+  read(`data/adventures/${id}.oneshot.json`);
+}
+for (const id of ["read-aloud", "dm-box", "monster-box", "scene-mapnote", "scene-clues", "stage-progress", "scene-exits", "prev-scene", "next-scene"]) if (!run.includes('id="' + id + '"')) errors.push("run.html missing #" + id);
 if (/id="forge-random"/.test(run)) errors.push("customer runner still has New random");
 
 const lantern = read("adventures/the-lantern-below.html");
