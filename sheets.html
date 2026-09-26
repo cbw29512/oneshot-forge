@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260926-sheet5">
+  <link rel="stylesheet" href="styles.css?v=20260926-fixed2">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -269,6 +269,19 @@
       else steps.push("Choose your strongest legal action.", "Use bonus actions and reactions when their triggers appear.", "Track limited resources.", "Reposition before ending your turn.");
       return '<ol class="pr-quickturn">' + steps.map(s => '<li>' + esc(s) + '</li>').join("") + '</ol>';
     }
+    function passiveSkill(pc, name) {
+      const skill = pc.skillsMap?.[name];
+      return skill && typeof skill.bonus === "number" ? 10 + skill.bonus : "—";
+    }
+    function classSaveDC(pc) {
+      if (pc.spellcasting?.saveDC != null) return pc.spellcasting.saveDC;
+      const featureText = (pc.featureList || []).map(f => (f.name || "") + " " + (f.text || "")).join(" ");
+      const m = featureText.match(/\b(?:Str|Dex|Con|Int|Wis|Cha)?\s*DC\s*(\d+)\b/i);
+      return m ? m[1] : "—";
+    }
+    function standardActionLine() {
+      return "Attack · Dash · Disengage · Dodge · Help · Hide · Ready · Search · Use an Object";
+    }
     function spellRole(spell) {
       const text = ((spell.name || "") + " " + (spell.effect || "")).toLowerCase();
       if (/heal|restore|hit points|stabil/.test(text)) return "Healing";
@@ -331,12 +344,15 @@
       const img = pc.portrait
         ? '<img class="pr-port" src="' + esc(pc.portrait) + '" alt="Portrait of ' + esc(pc.name) + '">'
         : '<div class="pr-port ph"></div>';
-      return '<article class="print-only pr-page pr-main-page">' +
+      const bonus = pc.bonusActions?.length ? compactList(pc.bonusActions) : '<div class="pr-line">No special bonus action.</div>';
+      const reactions = pc.reactions?.length ? compactList(pc.reactions) : '<div class="pr-line">Opportunity Attack when triggered.</div>';
+      return '<article class="print-only pr-page pr-main-page pr-fixed-sheet">' +
         '<header class="pr-head">' + img +
           '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
             '<h2>' + esc(pc.name) + '</h2>' +
             '<p><b>' + esc(characterClass(pc)) + ' 4</b> · ' + esc(pc.race) + ' · ' +
               esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
+            '<p class="pr-subid">' + esc(pc.rules || "5E") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
             '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
           '<div class="pr-vitals">' +
             '<span><small>AC</small><b>' + esc(pc.ac) + '</b></span>' +
@@ -347,54 +363,64 @@
             '<span><small>Passive Per</small><b>' + esc(pc.passivePerception) + '</b></span>' +
           '</div>' +
         '</header>' +
-        '<div class="pr-body">' +
-          '<aside class="pr-left">' +
-            '<section><h3>Abilities</h3><div class="pr-abilities">' + scoreCol(pc) + '</div></section>' +
-            '<section><h3>Saving Throws — All Six</h3><div class="pr-saves">' + fullSaveRows(pc) + '</div></section>' +
-            '<section><h3>Skills</h3>' + skillRows(pc.skillsMap) + '</section>' +
-          '</aside>' +
-          '<main class="pr-center">' +
-            '<section class="pr-combat-track"><h3>Combat Tracker</h3>' +
-              '<div class="pr-hp-grid">' +
-                '<div class="pr-writebox pr-current-hp"><small>Current HP</small><b></b></div>' +
-                '<div class="pr-writebox pr-temp-hp"><small>Temp HP</small><b></b></div>' +
-                '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: □ □ □ □</span></div>' +
-                '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
-              '</div>' +
-              '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
-              '<p class="pr-ac-note"><b>AC:</b> ' + esc(pc.ac) + (pc.acNotes ? ' — ' + esc(pc.acNotes) : '') + '</p>' +
-            '</section>' +
-            '<section><h3>Attacks & Combat Cantrips</h3>' + printAttackTable(pc.attackList) + '</section>' +
-            (pc.spellcasting ? '<section class="pr-casting-summary"><h3>Combat Spellcasting</h3><div class="pr-casting-grid">' +
-              '<span><small>Ability</small><b>' + esc(pc.spellcasting.ability || "—") + '</b></span>' +
+        '<div class="pr-fixed-grid">' +
+          '<section class="pr-zone pr-zone-abilities"><h3>Abilities</h3><div class="pr-abilities">' + scoreCol(pc) + '</div></section>' +
+          '<section class="pr-zone pr-zone-saves"><h3>Saving Throws — All Six</h3><div class="pr-saves">' + fullSaveRows(pc) + '</div></section>' +
+          '<section class="pr-zone pr-zone-skills"><h3>Skills</h3><div class="pr-skill-list">' + skillRows(pc.skillsMap) + '</div></section>' +
+
+          '<section class="pr-zone pr-zone-tracker"><h3>Combat Tracker</h3>' +
+            '<div class="pr-hp-grid">' +
+              '<div class="pr-writebox pr-current-hp"><small>Current HP</small><b></b></div>' +
+              '<div class="pr-writebox pr-temp-hp"><small>Temp HP</small><b></b></div>' +
+              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: □ □ □ □</span></div>' +
+              '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
+            '</div>' +
+            '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
+            '<div class="pr-mini-stats">' +
+              '<span><small>Heroic Inspiration</small><b>○</b></span>' +
+              '<span><small>Class / Spell Save DC</small><b>' + esc(classSaveDC(pc)) + '</b></span>' +
+            '</div>' +
+            '<p class="pr-ac-note"><b>AC:</b> ' + esc(pc.ac) + (pc.acNotes ? ' — ' + esc(pc.acNotes) : '') + '</p>' +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-attacks"><h3>Attacks & Combat Cantrips</h3>' + printAttackTable(pc.attackList) +
+            (pc.spellcasting ? '<div class="pr-casting-grid pr-inline-casting">' +
+              '<span><small>Spell Ability</small><b>' + esc(pc.spellcasting.ability || "—") + '</b></span>' +
               '<span><small>Save DC</small><b>' + esc(pc.spellcasting.saveDC ?? "—") + '</b></span>' +
               '<span><small>Spell Attack</small><b>' + signed(pc.spellcasting.attack) + '</b></span>' +
-              '</div></section>' : '') +
-            (pc.bonusActions?.length ? '<section><h3>Bonus Actions</h3>' + compactList(pc.bonusActions) + '</section>' : '') +
-            (pc.reactions?.length ? '<section><h3>Reactions</h3>' + compactList(pc.reactions) + '</section>' : '') +
-            '<section><h3>Limited-Use Resources</h3><div class="pr-resources">' + limitedUseRows(pc) + '</div></section>' +
-            '<section><h3>Combat Defenses</h3><div class="pr-defenses">' + combatDefenseRows(pc) + '</div></section>' +
-            '<section><h3>Quick Turn</h3>' + quickTurn(pc) + '</section>' +
-            '<section><h3>Features & Traits</h3><div class="pr-features">' + printFeatureRows(pc) + '</div></section>' +
-          '</main>' +
-          '<aside class="pr-right">' +
-            '<section><h3>Senses & Passives</h3><p><b>Darkvision</b> ' + esc(pc.darkvision || 0) + ' ft.</p>' +
-              '<p><b>Passive Perception</b> ' + esc(pc.passivePerception ?? "—") + '</p>' +
-              '<p><b>Passive Insight</b> ' + esc(pc.passiveInsight ?? "—") + '</p></section>' +
-            '<section><h3>Proficiencies</h3>' +
-              '<p><b>Armor</b> ' + esc((prof.armor || []).join(", ") || "none") + '</p>' +
-              '<p><b>Weapons</b> ' + esc((prof.weapons || []).join(", ") || "none") + '</p>' +
-              '<p><b>Tools</b> ' + esc((prof.tools || []).join(", ") || "—") + '</p>' +
-              '<p><b>Languages</b> ' + esc((prof.languages || []).join(", ") || "—") + '</p></section>' +
-            '<section><h3>Equipment</h3><p>' + esc(pc.gear || "—") + '</p></section>' +
-            '<section><h3>Character</h3>' +
-              '<p><b>Trait</b> ' + esc(pers.trait || "—") + '</p>' +
-              '<p><b>Ideal</b> ' + esc(pers.ideal || "—") + '</p>' +
-              '<p><b>Bond</b> ' + esc(pers.bond || "—") + '</p>' +
-              '<p><b>Flaw</b> ' + esc(pers.flaw || "—") + '</p>' +
-              (pc.appearance ? '<p class="pr-appearance">' + esc(pc.appearance) + '</p>' : '') +
-            '</section>' +
-          '</aside>' +
+            '</div>' : '') +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-actions"><h3>Action Economy</h3>' +
+            '<div class="pr-standard-actions"><b>Standard Actions</b> ' + esc(standardActionLine()) + '</div>' +
+            '<div class="pr-action-split"><div><h4>Bonus Actions</h4>' + bonus + '</div><div><h4>Reactions</h4>' + reactions + '</div></div>' +
+            '<h4>Quick Turn</h4>' + quickTurn(pc) +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-resources"><h3>Resources & Defenses</h3>' +
+            '<div class="pr-resource-columns"><div>' + limitedUseRows(pc) + '</div><div>' + combatDefenseRows(pc) + '</div></div>' +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-side"><h3>Senses / Training / Gear</h3>' +
+            '<p><b>Senses</b> Darkvision ' + esc(pc.darkvision || 0) + ' ft.</p>' +
+            '<p><b>Passive Perception</b> ' + esc(pc.passivePerception ?? "—") + '</p>' +
+            '<p><b>Passive Insight</b> ' + esc(pc.passiveInsight ?? passiveSkill(pc,"insight")) + '</p>' +
+            '<p><b>Passive Investigation</b> ' + esc(passiveSkill(pc,"investigation")) + '</p>' +
+            '<p><b>Armor</b> ' + esc((prof.armor || []).join(", ") || "none") + '</p>' +
+            '<p><b>Weapons</b> ' + esc((prof.weapons || []).join(", ") || "none") + '</p>' +
+            '<p><b>Tools</b> ' + esc((prof.tools || []).join(", ") || "—") + '</p>' +
+            '<p><b>Languages</b> ' + esc((prof.languages || []).join(", ") || "—") + '</p>' +
+            '<p><b>Equipment</b> ' + esc(pc.gear || "—") + '</p>' +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-character"><h3>Character</h3>' +
+            '<p><b>Trait</b> ' + esc(pers.trait || "—") + '</p>' +
+            '<p><b>Ideal</b> ' + esc(pers.ideal || "—") + '</p>' +
+            '<p><b>Bond</b> ' + esc(pers.bond || "—") + '</p>' +
+            '<p><b>Flaw</b> ' + esc(pers.flaw || "—") + '</p>' +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-features"><h3>Features & Traits</h3><div class="pr-features">' + printFeatureRows(pc) + '</div></section>' +
         '</div>' +
       '</article>';
     }
