@@ -18,8 +18,8 @@
   "setup": {
     "pitch": "Briar Hollow is starving. A viable owlbear egg sits in the mayor’s bakehouse while half the village argues that it should be protected and the other half wants the largest omelet of their lives. Before the party can settle the vote, a gaunt male owlbear crashes into town in a hunger-mad rampage.",
     "openingLocation": "Briar Hollow",
-    "gmSummary": "The village has roughly two and a half days of food left and no relief wagon is guaranteed. The owlbear egg is alive and close to hatching. The father is not hunting people; he is starving and feverish after eating tainted carrion. The party’s pooled one-day travel rations are enough to make him stop, eat, and wander back into the woods with no check. If the party kills him, his meat is visibly unsafe and useless, and a mother owlbear roughly twice his bulk screams from the ridge. The final choice is about the egg: cook it, spare it to hatch under village care, return it to the wild, or accept another cost. No choice is consequence-free.",
-    "background": "Three failed harvests and a washed-out bridge have left Briar Hollow on ration marks. Yesterday a charcoal burner found a warm owlbear egg in an abandoned poacher cart and carried it into town. The poachers are gone; the parent owlbears are not. The male has been scavenging because prey is scarce and recently ate from a diseased boar carcass. He follows food smell into the village, not malice."
+    "gmSummary": "Briar Hollow has roughly two and a half days of food left. The owlbear egg is alive and close to hatching. The father is starving and feverish; the party’s pooled one-day travel rations end his rampage immediately. If killed, his sick meat is useless and a mother roughly twice his bulk screams from the ridge. A self-proclaimed druid, Elmorrow Reed, argues passionately that the egg must be saved, but he is actually a beast broker for the Moonpetal Traveling Menagerie. Torren looks guilty first because he lied about finding the egg and used blankets and rope to move it, making him the red herring. A puzzle in Elmorrow’s wagon can expose the circus scheme before the final egg decision. If the egg survives, it hatches by the end and imprints on one player character.",
+    "background": "Three failed harvests and a washed-out bridge have left Briar Hollow on ration marks. Yesterday a charcoal burner found a warm owlbear egg in an abandoned poacher cart and carried it into town. The poachers are gone; the parent owlbears are not. The male has been scavenging because prey is scarce and recently ate from a diseased boar carcass. He follows food smell into the village, not malice. A traveler calling himself Elmorrow Reed arrived after hearing about the egg and presents himself as a druid. He is not one. He is a trained animal handler and broker for the Moonpetal Traveling Menagerie, hoping to obtain a live owlbear hatchling for profit."
   },
   "quest": {
     "type": "moral choice / protect village",
@@ -61,6 +61,14 @@
       {
         "id": "fact-mother-huge",
         "text": "A mother owlbear roughly twice the father’s bulk is nearby."
+      },
+      {
+        "id": "fact-elmorrow-fake",
+        "text": "Elmorrow Reed is not a druid; he is a beast broker for the Moonpetal Traveling Menagerie."
+      },
+      {
+        "id": "fact-baby-imprints",
+        "text": "If the egg survives to hatch, the baby owlbear rapidly imprints on a nearby protector and follows that character."
       }
     ],
     "secrets": [
@@ -73,6 +81,11 @@
         "id": "secret-torren-poachers",
         "text": "Torren found the egg in a poacher cart, not an abandoned nest. Someone stole it before the village ever saw it.",
         "revealCondition": "Track the egg’s origin or get Torren talking privately."
+      },
+      {
+        "id": "secret-elmorrow-menagerie",
+        "text": "Elmorrow carries a signed acquisition contract for one live juvenile owlbear and intends to sell or exhibit the hatchling.",
+        "revealCondition": "Solve the wagon lock puzzle, find the hidden beast crate, expose his handler kit, or catch him trying to take the egg."
       }
     ]
   },
@@ -215,6 +228,65 @@
         }
       ],
       "questFunction": "Makes the pro-omelet position morally serious instead of villainous."
+    },
+    {
+      "id": "npc-elmorrow-reed",
+      "name": "Elmorrow Reed",
+      "role": "fake druid, animal handler, and hidden circus beast broker",
+      "personality": [
+        "calm",
+        "performatively wise",
+        "opportunistic"
+      ],
+      "voiceCues": [
+        "speaks in rehearsed nature aphorisms",
+        "calls ownership stewardship",
+        "becomes precise and commercial when cornered"
+      ],
+      "wants": [
+        "Leave Briar Hollow with the egg alive",
+        "Convince the party that only he can protect the hatchling",
+        "Avoid revealing the Moonpetal Traveling Menagerie contract"
+      ],
+      "fears": [
+        "The party opening his locked strongbox",
+        "The mother owlbear reaching the village before he leaves",
+        "Being exposed publicly as a fraud"
+      ],
+      "knows": [
+        "Young owlbears can imprint quickly",
+        "A live hatchling is worth far more than an egg",
+        "Basic animal handling and sedative dosing"
+      ],
+      "believes": [
+        "Desperate villagers are easy to manipulate with the language of nature",
+        "A trained owlbear act would make him wealthy"
+      ],
+      "secrets": [
+        "He is not a druid",
+        "He has a reinforced beast crate hidden in his wagon",
+        "His strongbox contains a contract for one live juvenile owlbear"
+      ],
+      "lies": [
+        "Claims a nearby druid circle sent him",
+        "Claims he intends to return the hatchling to a protected grove",
+        "Calls his sedatives healing herbs"
+      ],
+      "cannotKnow": [
+        "Whether the father will accept the party’s rations until it happens",
+        "Which player the baby will imprint on"
+      ],
+      "revealRules": [
+        {
+          "fact": "He is not a druid.",
+          "when": "His wagon evidence is found, a character catches contradictions with Nature, or he is caught trying to take the egg."
+        },
+        {
+          "fact": "He works for a circus/menagerie.",
+          "when": "The Moonpetal contract, beast crate stamp, or brass handler token is exposed."
+        }
+      ],
+      "questFunction": "Acts as the apparently compassionate option, then becomes the human twist when the party discovers he wants the owlbear for a traveling menagerie."
     }
   ],
   "locations": [
@@ -260,6 +332,15 @@
       "connections": [
         "loc-square"
       ]
+    },
+    {
+      "id": "loc-elmorrow-wagon",
+      "name": "Elmorrow’s Green Wagon",
+      "description": "A tidy green-painted wagon parked beyond the bakehouse. Bundles of herbs hang outside; beneath the tarp are reinforced cage fittings, a collapsible beast crate, and a brass-locked strongbox.",
+      "connections": [
+        "loc-square",
+        "loc-bakehouse"
+      ]
     }
   ],
   "scenes": [
@@ -270,17 +351,19 @@
       "locationId": "loc-square",
       "pacingClass": "core",
       "estimatedMinutes": 25,
-      "readAloud": "Briar Hollow smells like wet ash and thin soup. Forty-odd villagers crowd the square around a wooden bread trough padded with blankets. Inside it rests an egg larger than a keg, mottled brown and cream, warm enough to steam in the cold air.\n\nMayor Sella Vane raises both hands. “We have enough grain for days, not weeks. Mara says this is food. Torren says it is a child. I say we decide before hunger decides for us.”\n\nFrom inside the egg comes one slow, heavy knock.",
+      "readAloud": "Briar Hollow smells like wet ash and thin soup. Forty-odd villagers crowd the square around a wooden bread trough padded with blankets. Inside it rests an egg larger than a keg, mottled brown and cream, warm enough to steam in the cold air.\n\nMayor Sella Vane raises both hands. “We have enough grain for days, not weeks. Mara says this is food. Torren says it is a child. I say we decide before hunger decides for us.”\n\nFrom inside the egg comes one slow, heavy knock.\n\nAt the edge of the crowd, a moss-cloaked stranger raises a carved staff. “The old balance is plain,” he says softly. “The hatchling belongs with one who understands the wild.”",
       "gmNotes": [
         "Do not make either side foolish. Mara wants to feed hungry children; Torren knows the egg was stolen from the wild.",
         "Sella asks the party to investigate for one hour and then help the village choose.",
         "The party can inspect the granary or follow Torren’s trail first. Both routes reconverge when the father attacks.",
-        "If they immediately vote to cook or spare it, Sella asks them to wait until the hour ends; the attack interrupts before the decision is carried out."
+        "If they immediately vote to cook or spare it, Sella asks them to wait until the hour ends; the attack interrupts before the decision is carried out.",
+        "Elmorrow Reed introduces himself as a traveling druid. He is convincing but slightly too polished. Nature DC 12 notices his language is generic rather than technically druidic; this is suspicion, not proof."
       ],
       "npcIds": [
         "npc-sella-vane",
         "npc-torren-vale",
-        "npc-mara-dell"
+        "npc-mara-dell",
+        "npc-elmorrow-reed"
       ],
       "clueIds": [
         "clue-hunger",
@@ -331,7 +414,8 @@
         "Nature or Survival DC 12: the smaller adult fed here recently and is moving badly, as if sick or starving.",
         "The huge tracks belong to the mother and are roughly twice the father’s bulk. Do not stage her as a fair combat encounter.",
         "Torren admits the egg was already in the poacher cart; the village did not steal it from a nest directly, but keeping it still keeps stolen property.",
-        "A hunter’s snare crosses the return path. Resolve the hazard, then the village bell rings three times: attack."
+        "A hunter’s snare crosses the return path. Resolve the hazard, then the village bell rings three times: attack.",
+        "RED HERRING: Torren’s bundle contains cut rope, stained blankets, and a hooked woods knife. It looks like poaching gear, but it is exactly what he used to carry the egg from the wreck. Insight DC 12: his guilt is about bringing the egg home, not selling it."
       ],
       "npcIds": [
         "npc-torren-vale"
@@ -339,7 +423,8 @@
       "clueIds": [
         "clue-father",
         "clue-mother",
-        "clue-stolen"
+        "clue-stolen",
+        "clue-torren-red-herring"
       ],
       "encounterIds": [],
       "exits": [
@@ -360,12 +445,14 @@
         "If they fight, use the Owlbear Father quick-run block. He fights in panic until dropped or fed.",
         "If killed: Medicine or Nature DC 10 shows fever, gut lesions, and black bile. The carcass is unsafe; the meat cannot feed the village.",
         "If killed, immediately read the mother consequence: from the ridge comes a deeper answering scream, and birds rise from trees around something twice his bulk.",
-        "If fed, villagers see the same animal they called a monster choose food over blood. That should affect the final debate, but not dictate it."
+        "If fed, villagers see the same animal they called a monster choose food over blood. That should affect the final debate, but not dictate it.",
+        "Elmorrow urges the party not to kill the father because a surviving parent makes the egg easier to market as a 'rescued family story.' He never admits that reason."
       ],
       "npcIds": [
         "npc-sella-vane",
         "npc-torren-vale",
-        "npc-mara-dell"
+        "npc-mara-dell",
+        "npc-elmorrow-reed"
       ],
       "clueIds": [
         "clue-father",
@@ -374,6 +461,35 @@
       "encounterIds": [
         "enc-father"
       ],
+      "exits": [
+        "scene-wagon"
+      ]
+    },
+    {
+      "id": "scene-wagon",
+      "title": "The Druid’s Locked Wagon",
+      "purpose": "Pay off the Torren red herring, give the table a real puzzle, and expose Elmorrow’s circus scheme before the final decision.",
+      "locationId": "loc-elmorrow-wagon",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "readAloud": "Elmorrow’s green wagon smells of mint, cedar oil, and something medicinal. The outside looks like a traveling healer’s cart. Under the rear tarp, however, iron anchor rings are bolted through the floor.\n\nA brass strongbox sits beneath the bench. Its lid has four sliding picture tiles: an egg, a chain, a striped circus tent, and a silver coin. Scratched into the lid is a sing-song couplet:\n\n“Shell before shackle, shackle before show; show before silver — that’s how fortunes grow.”",
+      "gmNotes": [
+        "This is a player puzzle first, not a roll. Correct order: EGG → CHAIN → TENT → COIN.",
+        "Solving it opens the strongbox and reveals a Moonpetal Traveling Menagerie contract purchasing one live juvenile owlbear, a brass handler token, and measured sedative packets.",
+        "The contract proves Elmorrow is not a druid. It names him as an animal acquisition agent.",
+        "If players force the box instead: thieves’ tools DC 13 or Strength DC 14. Failure makes noise and brings Elmorrow running, but the evidence remains obtainable.",
+        "Torren’s rope and blankets do not match the wagon hardware. This is where the red herring cleanly collapses.",
+        "If confronted, Elmorrow tries to talk his way out, then flee. He is not intended as a boss fight."
+      ],
+      "npcIds": [
+        "npc-elmorrow-reed",
+        "npc-torren-vale"
+      ],
+      "clueIds": [
+        "clue-elmorrow-fake",
+        "clue-torren-red-herring"
+      ],
+      "encounterIds": [],
       "exits": [
         "scene-choice"
       ]
@@ -385,23 +501,27 @@
       "locationId": "loc-bakehouse",
       "pacingClass": "core",
       "estimatedMinutes": 45,
-      "readAloud": "The egg knocks again from inside the blanket trough. This time a hairline crack runs across one end.\n\nMara has a cleaver on the table, not in her hand. Torren has a carrying sling ready, also untouched. Mayor Sella looks at you instead of either of them.\n\n“Now we know what it costs,” she says. “So choose what we are willing to pay.”",
+      "readAloud": "The egg knocks again from inside the blanket trough. This time a hairline crack runs across one end.\n\nMara has a cleaver on the table, not in her hand. Torren has a carrying sling ready. Elmorrow stands beside the door with his green wagon already hitched.\n\nMayor Sella looks at you instead of any of them. “Now we know what it costs,” she says. “And now we know who has been lying. Choose what we are willing to pay.”",
       "gmNotes": [
         "Cook it: one full village meal tonight and broth tomorrow morning. The mother will still be searching. No one gets to pretend the meal solved the famine.",
         "Let it hatch: Mara agrees only if the hatchling is kept outside the houses. It will need scarce food immediately. The village accepts that cost because the party chose it.",
         "Return it to the wild: Torren knows a sheltered ravine near the poacher cart. If the father was fed, his tracks lead that way. If he was killed, the mother’s scream makes the trip frightening but still possible; do not force a boss fight.",
         "Any creative solution is legal if it accepts both halves of the problem: hungry people and a dangerous living animal.",
-        "The egg begins hatching during the debate if the table stalls; this creates urgency, not a forced answer."
+        "The egg begins hatching during the debate if the table stalls; this creates urgency, not a forced answer.",
+        "If Elmorrow was not exposed in the wagon, he makes one final push to take custody. A character who challenges him can notice the reinforced crate, sedative kit, or circus token without solving the puzzle; the twist should not be permanently missable.",
+        "If the egg survives this scene, it begins hatching before the resolution. The baby imprints on the character holding, feeding, protecting, or soothing it. If no one clearly qualifies, randomly select one player character."
       ],
       "npcIds": [
         "npc-sella-vane",
         "npc-torren-vale",
-        "npc-mara-dell"
+        "npc-mara-dell",
+        "npc-elmorrow-reed"
       ],
       "clueIds": [
         "clue-hunger",
         "clue-egg-live",
-        "clue-mother"
+        "clue-mother",
+        "clue-elmorrow-fake"
       ],
       "encounterIds": [],
       "exits": [
@@ -420,12 +540,15 @@
         "Pick the ending matching the table’s actual choice. Do not declare a moral winner.",
         "If the father died, include the mother’s distant scream in every ending. The threat is a consequence, not an automatic sequel fight.",
         "If the father lived, Torren can follow his tracks at dawn. This may make returning the egg easier later.",
-        "Reward practical help: Sella pays what little coin the village can spare and gives a community favor rather than treasure that would trivialize the hunger."
+        "Reward practical help: Sella pays what little coin the village can spare and gives a community favor rather than treasure that would trivialize the hunger.",
+        "BABY OWLBEAR END BEAT: if the egg survived, hatch it now. Imprint on the PC who most clearly protected/fed/soothed it; if unclear, roll randomly among the PCs. The bond is not magical.",
+        "If Elmorrow escaped, he can remain a future nuisance; do not let him steal the baby off-screen after the players earned the ending."
       ],
       "npcIds": [
         "npc-sella-vane",
         "npc-torren-vale",
-        "npc-mara-dell"
+        "npc-mara-dell",
+        "npc-elmorrow-reed"
       ],
       "clueIds": [],
       "encounterIds": [],
@@ -504,6 +627,30 @@
       ],
       "canMove": true,
       "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-elmorrow-fake",
+      "revelation": "Elmorrow Reed is not a druid; he is acquiring the owlbear for the Moonpetal Traveling Menagerie.",
+      "required": true,
+      "sources": [
+        "the strongbox contract names Elmorrow as an animal acquisition agent buying one live juvenile owlbear",
+        "the reinforced beast crate under the wagon tarp is stamped MOONPETAL TRAVELING MENAGERIE",
+        "the brass handler token and measured sedative packets match circus-animal transport gear"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-torren-red-herring",
+      "revelation": "Torren looks like a poacher because of his rope, blankets, and hooked knife, but he used them only to move the egg after finding the wreck.",
+      "required": false,
+      "sources": [
+        "Torren’s stained blankets match the egg cradle but not the wagon cage fittings",
+        "his rope carries charcoal dust and fresh road mud rather than the tar used on the poacher restraints",
+        "the Moonpetal contract names Elmorrow, not Torren, as the intended buyer"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
     }
   ],
   "encounters": [
@@ -527,6 +674,14 @@
       "prompt": "Twelve clay stones once hung over the ledger. Five remain on the left peg. A chalk note says: ONE STONE = ONE HALF-DAY FOR ALL FORTY-TWO.",
       "solution": "Five stones equal two and a half days of village food at current rationing. The egg adds roughly one communal meal, not a lasting solution.",
       "failForward": "If the players do not solve or care about the count, Mara explains it plainly. The moral choice continues with the same facts."
+    },
+    {
+      "id": "puzzle-menagerie-lock",
+      "name": "Shell Before Shackle",
+      "locationId": "loc-elmorrow-wagon",
+      "prompt": "Four sliding tiles on the brass strongbox show an EGG, a CHAIN, a CIRCUS TENT, and a SILVER COIN. The scratched rhyme reads: “Shell before shackle, shackle before show; show before silver — that’s how fortunes grow.” Arrange the four tiles.",
+      "solution": "EGG → CHAIN → TENT → COIN. The lock clicks open, revealing the Moonpetal Traveling Menagerie acquisition contract, handler token, and sedatives.",
+      "failForward": "Thieves’ tools DC 13 or Strength DC 14 opens the box. On a failed attempt Elmorrow arrives and tries to stop them, exposing enough of the crate and paperwork that the investigation still moves forward."
     }
   ],
   "traps": [
@@ -636,6 +791,11 @@
       "id": "event-mother-cry",
       "name": "The Mother Answers",
       "effect": "If the father dies, a deeper owlbear scream rolls from the ridge and something roughly twice his bulk moves behind the tree line."
+    },
+    {
+      "id": "event-baby-imprint",
+      "name": "The Baby Chooses",
+      "effect": "If the egg survives to hatch, the baby owlbear imprints on the player character who most directly held, fed, protected, or soothed it. If that is unclear, randomly select one player character. The bond is behavioral, not magical."
     }
   ],
   "endings": [
@@ -649,19 +809,19 @@
       "id": "ending-hatch",
       "name": "Let It Hatch",
       "condition": "The village keeps the egg warm and accepts the hatchling.",
-      "result": "A hatchling emerges outside the houses. Feeding it immediately costs scarce food. Torren takes responsibility for moving it away from homes as soon as it can travel. The village remembers that the party chose a life they did not create."
+      "result": "A hatchling emerges outside the houses. Feeding it immediately costs scarce food. Torren takes responsibility for moving it away from homes as soon as it can travel. The village remembers that the party chose a life they did not create. Before the scene closes, the egg hatches. The baby owlbear imprints on the PC who most directly protected or soothed it; if unclear, choose a random PC. It follows that character, cries when separated, and treats them as its parent."
     },
     {
       "id": "ending-return",
       "name": "Back to the Ridge",
       "condition": "The party carries the egg to the sheltered ravine near the poacher cart.",
-      "result": "The egg leaves the village food supply untouched. If the father was fed, his tracks eventually join the route. If he was killed, the mother’s distant cry follows the party but no forced boss fight occurs. The village stays hungry but ends the night without owning the egg."
+      "result": "The egg leaves the village food supply untouched. If the father was fed, his tracks eventually join the route. If he was killed, the mother’s distant cry follows the party but no forced boss fight occurs. The village stays hungry but ends the night without owning the egg. Before the scene closes, the egg hatches. The baby owlbear imprints on the PC who most directly protected or soothed it; if unclear, choose a random PC. It follows that character, cries when separated, and treats them as its parent."
     },
     {
       "id": "ending-take-it",
       "name": "Not the Village’s Choice",
       "condition": "The party takes responsibility for the egg and leaves with it.",
-      "result": "Briar Hollow neither eats nor raises it. The party inherits the problem: a near-hatching owlbear egg, a hungry road, and perhaps a mother searching behind them."
+      "result": "Briar Hollow neither eats nor raises it. The party inherits the problem: a near-hatching owlbear egg, a hungry road, and perhaps a mother searching behind them. Before the scene closes, the egg hatches. The baby owlbear imprints on the PC who most directly protected or soothed it; if unclear, choose a random PC. It follows that character, cries when separated, and treats them as its parent."
     },
     {
       "id": "ending-chaos",
@@ -713,6 +873,15 @@
           "scene-father relocates",
           "egg choice remains open"
         ]
+      },
+      {
+        "id": "rec-elmorrow-skipped",
+        "trigger": "The party skips or bypasses Elmorrow’s wagon puzzle",
+        "response": "At the final egg debate Elmorrow’s reinforced beast crate, Moonpetal token, and sedatives become visible when he rushes to take custody. The same truth is delivered without requiring the puzzle.",
+        "stateChanges": [
+          "clue-elmorrow-fake remains discoverable",
+          "scene-choice still exposes the twist"
+        ]
       }
     ]
   },
@@ -726,6 +895,10 @@
       {
         "when": "They inspect the poacher cart",
         "payoff": "They know the father is sick and the mother is enormous before the attack; Nature/Medicine checks on the father have advantage."
+      },
+      {
+        "when": "They solve Elmorrow’s wagon puzzle",
+        "payoff": "They enter the final debate knowing the self-proclaimed druid is a circus broker and can prevent him from manipulating the village."
       }
     ],
     "rushed": [
@@ -736,6 +909,10 @@
       {
         "when": "They kill the father immediately",
         "cost": "The carcass is unusable and the mother’s scream becomes an immediate consequence before the egg decision."
+      },
+      {
+        "when": "They trust Elmorrow without checking his wagon",
+        "cost": "He reaches the final debate with social credibility and tries to take immediate custody of the hatching owlbear."
       }
     ],
     "notDeviation": [
@@ -766,12 +943,17 @@
         "note": "Feed or fight"
       },
       {
-        "beat": "4 Choice",
+        "beat": "4 Puzzle / Twist",
+        "scene": "scene-wagon",
+        "note": "Shell → chain → tent → coin exposes the fake druid"
+      },
+      {
+        "beat": "5 Choice",
         "scene": "scene-choice",
         "note": "Cook, hatch, return, or carry"
       },
       {
-        "beat": "5 Consequence",
+        "beat": "6 Consequence",
         "scene": "scene-resolution",
         "note": "State the cost without judging it"
       }
@@ -779,7 +961,7 @@
   },
   "pacing": {
     "targetMinutes": 240,
-    "plannedMinutes": 220,
+    "plannedMinutes": 250,
     "bossReserveMinutes": 45,
     "cutOrder": [],
     "optionalOrder": [
@@ -804,6 +986,10 @@
       "npc-mara-dell": {
         "status": "alive",
         "attitude": "blunt"
+      },
+      "npc-elmorrow-reed": {
+        "status": "alive",
+        "attitude": "helpful"
       }
     },
     "locationState": {},
@@ -812,7 +998,8 @@
       "item-rations": "available"
     },
     "eventState": {
-      "event-mother-cry": "pending"
+      "event-mother-cry": "pending",
+      "event-baby-imprint": "pending"
     },
     "sceneHistory": []
   },
@@ -950,5 +1137,117 @@
         ]
       }
     ]
-  }
+  },
+  "cards": [
+    {
+      "id": "card-baby-owlbear",
+      "type": "creature",
+      "title": "Baby Owlbear",
+      "front": "A damp, oversized owlbear hatchling with too-big paws, a snapping beak, and enormous yellow eyes.",
+      "back": {
+        "role": "Ending companion / consequence",
+        "stats": "AC 11 · HP 9 · Speed 20 ft.",
+        "rules": [
+          "Tiny Beak: +3 to hit, 1 piercing damage.",
+          "Imprint: when it hatches, it bonds to the PC who most clearly held, fed, protected, or soothed it. If unclear, choose a random PC.",
+          "The bond is not magical. It follows that PC, cries when separated, steals food, and snaps at obvious threats.",
+          "Animal Handling DC 12 calms it for 1 hour."
+        ]
+      }
+    },
+    {
+      "id": "card-father-owlbear",
+      "type": "creature",
+      "title": "Starving Owlbear Father",
+      "front": "A gaunt adult owlbear with exposed ribs, ragged feathers, and foam around its beak.",
+      "back": {
+        "role": "Main feed-or-fight encounter",
+        "stats": "AC 13 · HP 59 · Speed 40 ft.",
+        "rules": [
+          "Multiattack: Beak +7, 1d10+5 piercing; Claws +7, 2d8+5 slashing.",
+          "Feverish Hunger: offer the party’s pooled one-day rations and he immediately stops attacking, eats, and leaves.",
+          "If killed, the meat is unsafe and useless.",
+          "His death triggers the distant scream of the mother owlbear."
+        ]
+      }
+    },
+    {
+      "id": "card-mother-owlbear",
+      "type": "creature",
+      "title": "Mother Owlbear",
+      "front": "A scarred owlbear roughly twice the father’s bulk, visible only in pieces between the ridge trees.",
+      "back": {
+        "role": "Consequence / overwhelming parental threat",
+        "stats": "AC 14 · HP 95 · Speed 40 ft.",
+        "rules": [
+          "Multiattack: Beak +8, 1d10+5 piercing; two Claws +8, 2d8+5 slashing each.",
+          "Protect the Egg: she prioritizes reclaiming the egg or hatchling over killing characters.",
+          "Terrifying Charge: after moving 20 ft. straight toward a creature, DC 13 Wisdom or frightened until end of its next turn.",
+          "Use her as pressure, not a mandatory fair boss fight."
+        ]
+      }
+    },
+    {
+      "id": "card-sella",
+      "type": "npc",
+      "title": "Mayor Sella Vane",
+      "front": "A sleepless mayor gripping a ration ledger hard enough to bend its cover.",
+      "back": {
+        "role": "Quest giver / honest survival authority",
+        "rules": [
+          "Wants the village alive and the decision made honestly.",
+          "Knows the true ration count.",
+          "Secret: her own household has already gone to half-rations.",
+          "Voice: practical, counts before answering."
+        ]
+      }
+    },
+    {
+      "id": "card-mara",
+      "type": "npc",
+      "title": "Mara Dell",
+      "front": "A flour-dusted baker with a cleaver on the table and hungry children on her mind.",
+      "back": {
+        "role": "Serious pro-omelet argument",
+        "rules": [
+          "Wants one full meal for the village tonight.",
+          "Knows cooking the egg does not solve the famine.",
+          "Not cruel; she simply ranks hungry people first.",
+          "Voice: blunt, uses kitchen measures."
+        ]
+      }
+    },
+    {
+      "id": "card-torren",
+      "type": "npc",
+      "title": "Torren Vale",
+      "front": "A soot-stained woodsman with cut rope, stained blankets, and exactly the wrong-looking knife.",
+      "back": {
+        "role": "Red herring / trail guide",
+        "rules": [
+          "Looks like the poacher or seller.",
+          "Actually used the suspicious gear to carry the egg from the wreck.",
+          "Lied about where he found it because he knows bringing it home was reckless.",
+          "Insight DC 12: guilt, not greed."
+        ]
+      }
+    },
+    {
+      "id": "card-elmorrow",
+      "type": "npc",
+      "title": "Elmorrow Reed",
+      "front": "A moss-cloaked 'druid' with polished nature sayings and a green wagon parked too close to the egg.",
+      "back": {
+        "role": "Fake druid / hidden circus broker",
+        "stats": "AC 12 · HP 18 · Dagger +4, 1d4+2",
+        "rules": [
+          "Not a druid. Works for the Moonpetal Traveling Menagerie.",
+          "Wants the hatchling alive for exhibition and sale.",
+          "Nature DC 12: his druid lore is shallow and rehearsed.",
+          "His wagon contains a beast crate, sedatives, handler token, and acquisition contract.",
+          "If exposed, he bluffs, then flees rather than fight."
+        ]
+      }
+    }
+  ]
 }
