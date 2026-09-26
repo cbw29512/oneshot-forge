@@ -1164,7 +1164,7 @@
           "The baby is a responsibility, not a combat reward."
         ]
       },
-      "image": "assets/cards/owlbear/baby-owlbear.jpg",
+      "image": "assets/cards/owlbear/baby-owlbear.svg",
       "imageAlt": "Newly hatched baby owlbear with oversized paws, soft brown feathers, and bright yellow eyes.",
       "frontLabel": "Creature · Hatchling"
     },
@@ -1192,7 +1192,7 @@
           "Never turn the sick carcass into a food reward; that undercuts the dilemma."
         ]
       },
-      "image": "assets/cards/owlbear/father-owlbear.jpg",
+      "image": "assets/cards/owlbear/father-owlbear.svg",
       "imageAlt": "Gaunt feverish adult male owlbear with ragged feathers, visible ribs, and foam at the beak.",
       "frontLabel": "Creature · Father"
     },
@@ -1220,7 +1220,7 @@
           "If the father was killed, begin her reactions one step more hostile, but keep a noncombat exit open."
         ]
       },
-      "image": "assets/cards/owlbear/mother-owlbear.jpg",
+      "image": "assets/cards/owlbear/mother-owlbear.svg",
       "imageAlt": "Enormous scarred mother owlbear on a dark forest ridge, nearly twice the father’s bulk.",
       "frontLabel": "Creature · Mother"
     },
@@ -1248,7 +1248,7 @@
           "Never use her to declare which moral choice is correct."
         ]
       },
-      "image": "assets/cards/owlbear/sella-vane.jpg",
+      "image": "assets/cards/owlbear/sella-vane.svg",
       "imageAlt": "Exhausted village mayor holding a worn ration ledger in both hands.",
       "frontLabel": "NPC · Mayor"
     },
@@ -1276,7 +1276,7 @@
           "Her strongest scenes are short, practical statements rather than speeches."
         ]
       },
-      "image": "assets/cards/owlbear/mara-dell.jpg",
+      "image": "assets/cards/owlbear/mara-dell.svg",
       "imageAlt": "Flour-dusted village baker beside a worktable, with a cleaver resting flat rather than raised.",
       "frontLabel": "NPC · Baker"
     },
@@ -1304,7 +1304,7 @@
           "His gear does not match Elmorrow’s cage fittings or Moonpetal hardware."
         ]
       },
-      "image": "assets/cards/owlbear/torren-vale.jpg",
+      "image": "assets/cards/owlbear/torren-vale.svg",
       "imageAlt": "Soot-stained charcoal burner carrying cut rope, stained blankets, and a hooked woods knife.",
       "frontLabel": "NPC · Red Herring"
     },
@@ -1334,7 +1334,7 @@
           "Do not reveal the circus connection from a single vague suspicion; physical evidence should clinch it."
         ]
       },
-      "image": "assets/cards/owlbear/elmorrow-reed.jpg",
+      "image": "assets/cards/owlbear/elmorrow-reed.svg",
       "imageAlt": "Moss-cloaked false druid with a polished wooden staff beside a green animal-handler wagon.",
       "frontLabel": "NPC · “Druid”"
     }
