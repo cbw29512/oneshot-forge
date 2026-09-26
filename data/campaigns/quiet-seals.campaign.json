@@ -164,8 +164,8 @@
       "number": 3,
       "title": "The Watch That Did Not Come Back",
       "giver": "npc-brune-holt",
-      "status": "coming",
-      "price": "$0.99",
+      "status": "live",
+      "price": "free",
       "image": "Six watchmen went up the ridge. Their lanterns are still moving.",
       "clock": "Dawn, when the lanterns turn around.",
       "fork": "Bring them home, cut the strings, or take their post.",
@@ -173,7 +173,9 @@
       "tale": "Wild Hunt / dead company",
       "trap": "Lanterns that mark you as the next post",
       "puzzle": "Which lantern is still living",
-      "talkOut": "The captain of the missing watch can be ordered home"
+      "talkOut": "The captain of the missing watch can be ordered home",
+      "href": "run.html?id=the-watch-that-did-not-come-back",
+      "pack": "data/adventures/the-watch-that-did-not-come-back.oneshot.json"
     },
     {
       "id": "episode-class",

@@ -28,6 +28,31 @@
       }
     },
     {
+      "id": "the-watch-that-did-not-come-back",
+      "title": "The Watch That Did Not Come Back",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-watch-that-did-not-come-back",
+      "productUrl": "adventures/the-watch-that-did-not-come-back.html",
+      "level": 4,
+      "party": "3–6 players",
+      "playTime": "about 4 hours",
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
       "id": "the-owlbear-egg",
       "title": "The Owlbear Egg",
       "status": "review",
