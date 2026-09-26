@@ -5,35 +5,73 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Adventure Cards — One-Shot Forge</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260926b">
+  <link rel="stylesheet" href="styles.css?v=20260926c">
   <style>
     body.cards-page{background:#eee9df;color:#17130f}
-    .cards-toolbar{position:sticky;top:0;z-index:5;display:flex;gap:.75rem;align-items:center;padding:.75rem 1rem;background:#17130f;color:#fff;border-bottom:1px solid #444}
+    .cards-toolbar{position:sticky;top:0;z-index:20;display:flex;gap:.55rem;align-items:center;flex-wrap:wrap;padding:.7rem 1rem;background:#17130f;color:#fff;border-bottom:1px solid #444}
     .cards-toolbar h1{font-size:1rem;margin:0 auto 0 0}
-    .cards-shell{max-width:1200px;margin:0 auto;padding:1.25rem}
-    .card-pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:1rem}
-    .print-card{background:#fffdf7;color:#17130f;border:2px solid #2c2418;border-radius:14px;min-height:4.75in;aspect-ratio:2.75/4.75;padding:.22in;display:flex;flex-direction:column;box-shadow:0 8px 24px #0002}
-    .print-card .eyebrow{color:#7d351b}.print-card h2{font-size:1.55rem;margin:.05in 0 .12in}.print-card h3{margin:.08in 0;font-size:.9rem;text-transform:uppercase;letter-spacing:.06em}
-    .front-art{flex:1;display:grid;place-items:center;border:1px solid #b9aa92;border-radius:10px;padding:.18in;text-align:center;font-family:Georgia,serif;font-size:1.1rem;background:#f5eddf}
-    .back-list{padding-left:.18in;margin:.05in 0}.back-list li{margin:.06in 0;line-height:1.25}.statline-card{font-weight:800;border-top:2px solid #2c2418;border-bottom:2px solid #2c2418;padding:.07in 0;margin:.08in 0}
-    .pair-label{grid-column:1/-1;font-weight:800;margin-top:.5rem}
+    .cards-shell{max-width:1180px;margin:0 auto;padding:1.2rem}
+    .cards-note{max-width:780px;line-height:1.45}
+    .screen-deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem;align-items:start}
+    .flip-card{border:0;background:transparent;padding:0;perspective:1200px;min-height:465px;cursor:pointer;text-align:left}
+    .flip-card:focus-visible{outline:3px solid #7d351b;outline-offset:4px;border-radius:15px}
+    .flip-inner{position:relative;width:100%;height:465px;transition:transform .25s ease;transform-style:preserve-3d}
+    .flip-card[data-flipped="true"] .flip-inner{transform:rotateY(180deg)}
+    .card-face{position:absolute;inset:0;backface-visibility:hidden;border:2px solid #2c2418;border-radius:15px;overflow:hidden;background:#fffdf7;color:#17130f;box-shadow:0 8px 24px #0002}
+    .card-face.back{transform:rotateY(180deg);padding:.16in;display:flex;flex-direction:column;gap:.055in}
+    .card-face.front{display:flex;flex-direction:column}
+    .front-image{width:100%;height:100%;object-fit:cover;background:#d8c9b4}
+    .front-fallback{height:100%;display:grid;place-items:center;padding:.25in;text-align:center;font-family:Georgia,serif;font-size:1.05rem;background:#e9dfcf}
+    .front-banner{position:absolute;left:0;right:0;bottom:0;padding:.16in .18in;background:linear-gradient(transparent,rgba(0,0,0,.9) 36%);color:#fff;padding-top:.55in}
+    .front-banner small{display:block;text-transform:uppercase;letter-spacing:.09em;font-weight:800;font-size:.67rem}
+    .front-banner strong{display:block;font-family:Georgia,serif;font-size:1.3rem;line-height:1.05}
+    .back h2{font-size:1.18rem;margin:0;line-height:1.05}
+    .back-kicker{font-size:.64rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#7d351b}
+    .back-block{border-top:1px solid #baaa92;padding-top:.045in}
+    .back-block h3{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 .025in;color:#6c321d}
+    .back-block p,.back-block li{font-size:.72rem;line-height:1.24;margin:.018in 0}
+    .back-list{padding-left:.15in;margin:0}
+    .statline-card{font-size:.72rem;font-weight:850;border:1px solid #2c2418;padding:.045in .06in;background:#f1e4cf}
+    .flip-hint{font-size:.7rem;color:#5f554b;text-align:center;margin:.08rem 0 1rem}
+    .print-deck{display:none}
+    @media (prefers-reduced-motion:reduce){.flip-inner{transition:none}}
+    @page{size:letter;margin:.35in}
     @media print{
-      .cards-toolbar{display:none!important}.cards-shell{max-width:none;padding:0}.card-pairs{display:grid;grid-template-columns:2.75in 2.75in;gap:.18in;justify-content:center}
-      .print-card{width:2.75in;height:4.75in;min-height:0;box-shadow:none;break-inside:avoid;page-break-inside:avoid}
-      .pair-label{display:none}body.cards-page{background:#fff}
+      body.cards-page{background:#fff}.cards-toolbar,.cards-shell>.cards-note,.screen-deck,.flip-hint{display:none!important}
+      .cards-shell{max-width:none;padding:0}.print-deck{display:block}
+      .print-sheet{width:7.6in;min-height:10.1in;margin:0 auto;display:grid;grid-template-columns:2.75in 2.75in;grid-template-rows:4.75in 4.75in;gap:.28in .35in;justify-content:center;align-content:center;page-break-after:always}
+      .print-sheet:last-child{page-break-after:auto}
+      .print-card{width:2.75in;height:4.75in;box-sizing:border-box;border:1.5pt solid #1c1813;border-radius:.11in;overflow:hidden;background:#fffdf7;color:#17130f;position:relative}
+      .print-card.front{display:flex;flex-direction:column}
+      .print-card.front img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+      .print-card.front .front-fallback{position:absolute;inset:0}
+      .print-card.front .front-banner{z-index:2}
+      .print-card.back{padding:.14in;display:flex;flex-direction:column;gap:.045in}
+      .print-card.back h2{font-size:12.5pt;margin:0;line-height:1.02}
+      .print-card.back .back-kicker{font-size:6.5pt}
+      .print-card.back .back-block h3{font-size:6.7pt}
+      .print-card.back .back-block p,.print-card.back .back-block li,.print-card.back .statline-card{font-size:7.35pt;line-height:1.16}
+      .print-card.back .back-list{padding-left:.14in}
+      body.print-fronts .back-sheet{display:none!important}
+      body.print-backs .front-sheet{display:none!important}
+      body.print-pairs .print-sheet{display:grid}
     }
   </style>
 </head>
-<body class="cards-page">
+<body class="cards-page print-pairs">
   <header class="cards-toolbar">
     <h1 id="cards-title">Adventure Cards</h1>
     <a class="button secondary small" id="back-link" href="run.html">GM table</a>
-    <button class="button small" id="print-cards" type="button">Print cards</button>
+    <button class="button secondary small" id="print-fronts" type="button">Print fronts</button>
+    <button class="button secondary small" id="print-backs" type="button">Print mirrored backs</button>
+    <button class="button small" id="print-all" type="button">Print all sheets</button>
   </header>
   <main class="cards-shell">
-    <p id="cards-meta"></p>
-    <div id="card-pairs" class="card-pairs" aria-live="polite"></div>
+    <p id="cards-meta" class="cards-note"></p>
+    <p class="flip-hint">Click any card to flip between player-facing art and the DM back.</p>
+    <section id="screen-deck" class="screen-deck" aria-live="polite"></section>
+    <section id="print-deck" class="print-deck" aria-hidden="true"></section>
   </main>
-  <script src="cards.js?v=20260926b"></script>
+  <script src="cards.js?v=20260926c"></script>
 </body>
 </html>
