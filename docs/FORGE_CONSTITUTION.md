@@ -288,6 +288,60 @@ These are abstract craft lessons only.
 
 No Forge output may reproduce its birthday-cake theft plot, named characters, distinctive creatures, puzzle sequence, item text, room sequence, dialogue, or wording.
 
+### Reference #2 — 100 Rounds
+
+Approved lesson set only:
+- a visible countdown can define the entire adventure's urgency;
+- the clock should create changing room states and consequences, not just display a number;
+- time pressure can coexist with player route choice;
+- major clock thresholds should trigger concrete world changes;
+- maps can function as decision spaces instead of a linear room list;
+- encounter rooms should have tactical identities, environmental interaction, and bypasses where appropriate;
+- rewards and consequences can be tied directly to who or what the party saves;
+- a short final encounter can provide a strong finish after resource attrition;
+- the DM should be told how to preserve tension without forcing slow initiative procedure outside combat.
+
+These are abstract craft lessons only.
+
+No Forge output may reproduce its city-hall siege plot, named characters, room layout, goblin encounter sequence, countdown events, dialogue, map, or wording.
+
+### Reference #3 — The Drowned Reliquary
+
+Approved lesson set only:
+- begin with an at-a-glance page that states party assumptions, objective, pressure, and full adventure flow;
+- show expected table time and per-section pacing targets;
+- make the clock visible and define exactly what actions consume time;
+- failed checks should cost time, damage, position, or complications rather than stop progress;
+- random events should create motion, pressure, information, resources, or complications and should not default to fights;
+- late-adventure random events should yield to the finale rather than distract from it;
+- reveal tactical maps as the party reaches them while keeping the full keyed overview for the GM;
+- scene pages should state the scene's job before prose;
+- important NPCs benefit from compact fields for role, demeanor, wants, fears, hidden information, and voice;
+- anticipated player questions and concise prepared answers improve zero-prep usability;
+- provide explicit cut guidance when table time is running long.
+
+These are abstract craft lessons only.
+
+No Forge output may reproduce its Sunstone/Tideborn plot, named characters, temple layout, tide-event sequence, custom creatures, dialogue, map, room sequence, or wording.
+
+### Reference #4 — The Night Land
+
+Approved lesson set only:
+- establish expected runtime and divide a longer one-shot into clearly timed parts;
+- a hub can present several distinct quest options without making the GM search for the hooks;
+- each quest or part should advertise its job in one sentence before detailed text;
+- NPC presentation is stronger when personality information is compressed into motivation, mannerism, and a representative voice cue;
+- boxed text should be separated from adjudication and checks;
+- scene difficulty can include explicit adjustment guidance for weaker or stronger parties;
+- setting transitions deserve a concise, sensory arrival scene so travel changes the feel of play;
+- handouts can externalize player choices instead of burying them in GM prose;
+- optional player-created relationships can make a generic opening feel personal without changing the adventure's mechanics;
+- multiple jobs/branches can share a hub while remaining independently runnable.
+
+These are abstract craft lessons only.
+
+The Night Land is an official copyrighted D&D/Eberron adventure. No Forge output may reproduce its setting-specific lore, factions, proper names, locations, quest plots, handouts, dialogue, encounters, monsters, maps, campaign structure, trade dress, or wording.
+
 ### Adding future references
 
 A new reference may be added only after:
