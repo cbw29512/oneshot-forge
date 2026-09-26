@@ -21,8 +21,8 @@ Live: https://cbw29512.github.io/oneshot-forge/
   - Cistern jobs print DC 13 / 15 / 13 / 15
 
 ## Next (in order)
-1. Author (tomorrow): Night 3 — The Watch That Did Not Come Back — one night only
-2. Auditor pass on Night 3 before Night 4
+1. Auditor pass on Night 3 — The Watch That Did Not Come Back — before Night 4
+2. Author: Night 4 — The Class That Forgot (Maestra Vell) — one night only
 3. Playwright CI when asked
 4. Checkout only after owner gives a payment account
 
@@ -34,4 +34,5 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Write two nights in one day
 
 ## Last session
+2026-09-26 — Authored Night 3 — The Watch That Did Not Come Back (Captain Brune Holt). Realizes the campaign seed (image/clock/fork/trap/puzzle/talk-out): a dead company kept at six by a failing ridge seal, one living watchman (Corporal Wynn Ashford) to save, a desertion/bandit red herring (Riddick Vane), the boundary-oath twist, and the Lantern-Warden talk-out. Five clues (4 required, 3 sources each), five NPCs, six scenes, four endings (bring them home / cut the strings / take their post / the next post). Passes validate-adventure, stage-cards, table-readiness, clue-delivery, guided-flow; added to CI, campaign JSON (episode-watch → live), products.json, homepage, runner night-switch. Auditor pass is the next item.
 2026-09-20 — Product pass, not Night 3: Well cover, maps actually render (`src` vs `asset`), print module honors `?id=`, dusk/moonrise on the stage card, sticky Next/Back, Night 1/2 switcher. Author still waits for tomorrow for the Watch.

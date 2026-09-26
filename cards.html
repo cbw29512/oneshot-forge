@@ -13,9 +13,10 @@
     .cards-shell{max-width:1180px;margin:0 auto;padding:1.2rem}
     .cards-note{max-width:780px;line-height:1.45}
     .screen-deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem;align-items:start}
-    .flip-card{border:0;background:transparent;padding:0;perspective:1200px;min-height:465px;cursor:pointer;text-align:left}
+    .flip-card{display:block;width:100%;border:0;background:transparent;padding:0;perspective:1200px;min-height:465px;cursor:pointer;text-align:left}
     .flip-card:focus-visible{outline:3px solid #7d351b;outline-offset:4px;border-radius:15px}
-    .flip-inner{position:relative;width:100%;height:465px;transition:transform .25s ease;transform-style:preserve-3d}
+    .flip-inner{display:block;position:relative;width:100%;height:465px;transition:transform .25s ease;transform-style:preserve-3d}
+    .front-fallback[hidden]{display:none!important}
     .flip-card[data-flipped="true"] .flip-inner{transform:rotateY(180deg)}
     .card-face{position:absolute;inset:0;backface-visibility:hidden;border:2px solid #2c2418;border-radius:15px;overflow:hidden;background:#fffdf7;color:#17130f;box-shadow:0 8px 24px #0002}
     .card-face.back{transform:rotateY(180deg);padding:.16in;display:flex;flex-direction:column;gap:.055in}

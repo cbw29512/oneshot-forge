@@ -1,0 +1,1411 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-watch-that-did-not-come-back",
+    "title": "The Watch That Did Not Come Back",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 4,
+    "partySize": 4,
+    "partySizeRange": "3–6 players",
+    "durationMinutes": 240,
+    "tone": [
+      "classic warband",
+      "folk horror",
+      "duty and mercy"
+    ]
+  },
+  "series": {
+    "id": "quiet-seals",
+    "title": "The Quiet Seals",
+    "hub": "Hearthford",
+    "episode": 3,
+    "episodeTitle": "The Watch That Did Not Come Back",
+    "giver": "Captain Brune Holt",
+    "nextTitle": "Pick another notable — or keep Brune Trusted",
+    "campaign": "data/campaigns/quiet-seals.campaign.json"
+  },
+  "pregenPack": "data/pregens/quiet-seals-level-4-2014-srd.json",
+  "pregenPack2024": "data/pregens/quiet-seals-level-4-2024-srd.json",
+  "setup": {
+    "pitch": "Six watchmen went up the ridge on the dawn round. Three nights later their lanterns are still moving along the skyline — and not one man has come home.",
+    "gmSummary": "Captain Brune Holt of Hearthford sent six of his watch to walk the ridge boundary after the wells and blessings started failing (the Quiet Seals are cracking). The old boundary they patrol is a seal, and a seal that loses its living captain drafts a new company to keep the count. Five of the six are already dead and walking a round that never ends; their lanterns burn cold blue. One — Corporal Wynn Ashford — is still alive, sleepwalking the line, his lantern still warm gold. Every night the company marches out along the ridge; at dawn it turns and descends toward Hearthford, and the first living soul it reaches is counted in to keep the post at six. The party thinks they are rescuing six lost men. The truth: five can only be laid to rest, one can be saved, and the dead company is not a monster but a duty waiting to be relieved. A ridge trapper's talk of desertion and bandits is a red herring. The captain of the missing patrol, Sergeant Hale Corum, still salutes rank and can be ordered home. Present Brune's watch-seal and the countersign 'Hearthford holds,' cut the warden's tally, or take the post yourselves — before dawn turns the lanterns around.",
+    "openingLocation": "Hearthford"
+  },
+  "quest": {
+    "type": "rescue / lay-to-rest / hold the line",
+    "objective": "Find out what happened to the six-man ridge watch and settle it before dawn, when the lanterns turn back toward Hearthford.",
+    "stakes": "Five dead watchmen may finally rest or march forever; one living man may be saved or lost; and if no one settles the round by dawn, the company counts a new living soul into the watch and climbs the ridge seven lanterns strong.",
+    "deadline": "Dawn. Each turn of the round the lanterns climb one landmark higher; at first light they turn and descend toward the first living soul on the road.",
+    "successConditions": [
+      "The party learns the watch is a dead company kept at six by a failing boundary.",
+      "The party settles the round — orders the watch home, cuts the warden's tally, or takes the post.",
+      "The fate of the one living watchman is decided on purpose, not by accident."
+    ],
+    "failureConditions": [
+      "Dawn arrives with no decision and the company drafts a new living post.",
+      "The living watchman is lost in a fight no one meant to have."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-six-out",
+        "text": "Six named watchmen walked out on the dawn round three nights ago and none have signed back in."
+      },
+      {
+        "id": "fact-boundary-seal",
+        "text": "The ridge boundary the watch patrols is one of the old Quiet Seals, and it is failing."
+      },
+      {
+        "id": "fact-dead-company",
+        "text": "Five of the six watchmen are dead and walking a round that will not end; their lanterns burn cold blue."
+      },
+      {
+        "id": "fact-one-living",
+        "text": "Corporal Wynn Ashford is still alive, sleepwalking the line; his lantern still burns warm gold and still burns oil."
+      },
+      {
+        "id": "fact-count-of-six",
+        "text": "The seal keeps the watch at six. At dawn the company turns and counts the first living soul it reaches into the empty place."
+      },
+      {
+        "id": "fact-order-releases",
+        "text": "The watch are still soldiers. A lawful relief order from their captain's authority stands them down and lets the dead rest."
+      },
+      {
+        "id": "fact-tally-binds",
+        "text": "The Lantern-Warden keeps a re-carving tally-stick that holds the count. Break the tally and the binding fails."
+      },
+      {
+        "id": "fact-desertion-false",
+        "text": "There was no desertion and no bandit ambush; the ridge smuggler cache is years rotted and the blood on the found cloak is deer."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-wynn-alive",
+        "text": "One of the six is not dead yet and can still be pulled out of the line.",
+        "revealCondition": "The party identifies the warm gold lantern, reads fresh boot-tracks, or hears Wynn answer to his own name."
+      },
+      {
+        "id": "secret-take-post",
+        "text": "A living person can take the empty post in the dead men's place, releasing them but binding the volunteer to the ridge.",
+        "revealCondition": "The party reads the boundary oath in full, or the Lantern-Warden offers the trade at the muster."
+      },
+      {
+        "id": "secret-seal-feeds",
+        "text": "The boundary was never only a watch-post; something under the ridge is fed by every seal that still holds.",
+        "revealCondition": "The party reads the deepest line of the boundary inscription or presses the Warden about why the count must be kept."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-brune-holt",
+      "name": "Captain Brune Holt",
+      "role": "captain of the Hearthford watch and the quest giver",
+      "personality": [
+        "steady",
+        "plain-spoken",
+        "carries guilt he will not name"
+      ],
+      "voiceCues": [
+        "does not shout",
+        "repeats the last order until it is obeyed",
+        "counts his missing men by name, in order"
+      ],
+      "wants": [
+        "His patrol back, or the truth if they are not coming",
+        "To not have sent six men to die for a wall",
+        "Hearthford kept quiet and safe"
+      ],
+      "fears": [
+        "That the round is his fault for keeping the old watch",
+        "That the ridge will ask for six more"
+      ],
+      "knows": [
+        "The names and marching order of the six he sent out",
+        "The dawn round and the old boundary landmarks",
+        "The watch countersign of the night: 'Hearthford holds'"
+      ],
+      "believes": [
+        "His men may still be alive and lost",
+        "An honest order is owed to any soldier before a fight"
+      ],
+      "secrets": [
+        "He knew the boundary was failing before he sent them",
+        "He kept the old dawn round going after Reeve Oda warned him"
+      ],
+      "lies": [
+        "Says he sent a routine patrol when he suspected the ridge was wrong"
+      ],
+      "cannotKnow": [
+        "That five of his men are already dead",
+        "Which of the six is still alive"
+      ],
+      "revealRules": [
+        {
+          "fact": "He suspected the boundary was failing.",
+          "when": "Pressed with the boundary evidence, or asked why he kept an old dawn round."
+        }
+      ],
+      "questFunction": "Gives the quest, the watch-seal, and the countersign; his authority is the cleanest way to order the dead company home."
+    },
+    {
+      "id": "npc-hale-corum",
+      "name": "Sergeant Hale Corum",
+      "role": "leader of the missing patrol, now dead and marching at the head of the company",
+      "personality": [
+        "disciplined even in death",
+        "waiting to be relieved",
+        "gentle under the iron"
+      ],
+      "voiceCues": [
+        "gives the marching order in a flat cadence",
+        "salutes rank before he speaks",
+        "answers only to 'the watch' until his own name and orders reach him"
+      ],
+      "wants": [
+        "To hold the post as ordered",
+        "To be properly relieved so his people can stand down",
+        "To not let the young corporal fall in the line"
+      ],
+      "fears": [
+        "Being cut down like a monster before anyone gives the order",
+        "Marching another dawn with no relief"
+      ],
+      "knows": [
+        "The dawn round and every landmark on the ridge",
+        "That the count must be kept at six",
+        "That the corporal at the rear is not like the rest"
+      ],
+      "believes": [
+        "He is still on duty and will be until relieved",
+        "Orders from proper authority must be obeyed"
+      ],
+      "secrets": [
+        "He has been holding Wynn's place at the rear so the boy is drafted last",
+        "He knows the round no longer ends"
+      ],
+      "cannotKnow": [
+        "That Hearthford believes the watch simply vanished",
+        "Whether the party carries real authority until they show it"
+      ],
+      "revealRules": [
+        {
+          "fact": "He can be ordered home.",
+          "when": "The party presents the watch-seal or the countersign, or gives the relief order with real command."
+        }
+      ],
+      "questFunction": "The talk-out target: a soldier who will stand his company down the moment he is lawfully relieved."
+    },
+    {
+      "id": "npc-wynn-ashford",
+      "name": "Corporal Wynn Ashford",
+      "role": "the youngest watchman, still alive and sleepwalking the round",
+      "personality": [
+        "frightened under the trance",
+        "loyal to the sergeant",
+        "surfaces in flashes of himself"
+      ],
+      "voiceCues": [
+        "murmurs the round like a prayer",
+        "answers to his own name if it is said clearly",
+        "asks, once and small, whether it is nearly dawn"
+      ],
+      "wants": [
+        "To go home",
+        "To not leave the sergeant behind",
+        "To wake up"
+      ],
+      "fears": [
+        "Dawn, and what the turn will make of him",
+        "Being left in the line"
+      ],
+      "knows": [
+        "That the others do not breathe",
+        "That he is cold and getting colder each round"
+      ],
+      "believes": [
+        "If he keeps marching, morning will come and it will be over"
+      ],
+      "secrets": [
+        "He is the one living lantern and the one who can still be saved"
+      ],
+      "cannotKnow": [
+        "That he will die at dawn if he is not pulled out first"
+      ],
+      "revealRules": [
+        {
+          "fact": "He is alive.",
+          "when": "His warm lantern, his fresh tracks, or his own name reaches him."
+        }
+      ],
+      "questFunction": "The living one the puzzle identifies and the party can save; the survivor who carries the tale back to Hearthford."
+    },
+    {
+      "id": "npc-lantern-warden",
+      "name": "The Lantern-Warden",
+      "role": "the old sealed sentinel that keeps the watch at six",
+      "personality": [
+        "ancient and patient",
+        "not cruel, only accounting",
+        "speaks in the grammar of duty"
+      ],
+      "voiceCues": [
+        "its voice is the creak of a swinging lantern",
+        "states the count and what is owed",
+        "offers trades, never threats"
+      ],
+      "wants": [
+        "The count kept at six",
+        "The boundary walked until it is properly closed",
+        "To hand off its charge to any who will take it"
+      ],
+      "fears": [
+        "The tally broken before the boundary is closed",
+        "The seal failing with no watch at all"
+      ],
+      "knows": [
+        "Why the seals were raised and what they hold back",
+        "That a living post can replace a dead one",
+        "That its tally-stick is where the binding lives"
+      ],
+      "believes": [
+        "The debt of the watch must be paid by someone",
+        "A relief order or a willing replacement both settle the account"
+      ],
+      "secrets": [
+        "The boundary is a Quiet Seal and the thing beneath the ridge is fed while it holds",
+        "It would rather be relieved than keep drafting the living"
+      ],
+      "cannotKnow": [
+        "Whether the party will pay in order, in iron, or in a volunteer"
+      ],
+      "revealRules": [
+        {
+          "fact": "The count can be settled without a fight.",
+          "when": "The party parleys, presents authority, or offers to take the post."
+        }
+      ],
+      "questFunction": "The apparent antagonist that is really a duty; it can be ordered off, cut loose by breaking the tally, or satisfied by a volunteer."
+    },
+    {
+      "id": "npc-riddick-vane",
+      "name": "Riddick Vane",
+      "role": "ridge trapper and unwitting source of the desertion red herring",
+      "personality": [
+        "twitchy",
+        "certain of things he only half saw",
+        "means no harm"
+      ],
+      "voiceCues": [
+        "talks fast, then hedges",
+        "swears he saw bandits, then admits he saw lights",
+        "offers you tea he cannot really spare"
+      ],
+      "wants": [
+        "The lights on the ridge to stop passing his camp",
+        "To not be blamed for the smuggler cache the watch might find",
+        "To be believed about something, anything"
+      ],
+      "fears": [
+        "The lanterns turning down his path",
+        "Being taken for a smuggler"
+      ],
+      "knows": [
+        "The old smuggler cache above his camp is years abandoned",
+        "The lanterns climb every night and turn near dawn",
+        "The 'bloody cloak' he found came off a deer-killed snare"
+      ],
+      "believes": [
+        "Bandits took the watch, or the watch deserted to rob the Saltmere road"
+      ],
+      "secrets": [
+        "He wrote the 'desertion note' himself, half as a joke, half to feel sure"
+      ],
+      "lies": [
+        "Insists the note is genuine watch handwriting"
+      ],
+      "cannotKnow": [
+        "That the watch are dead, not deserters"
+      ],
+      "revealRules": [
+        {
+          "fact": "The desertion story is his own guess.",
+          "when": "His note is compared to the real muster signatures, or he is pressed kindly."
+        }
+      ],
+      "questFunction": "Red herring source: sends the theory toward bandits and desertion, then fails forward by pointing at the ridge where the lanterns turn."
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-barracks",
+      "name": "Hearthford Watch Barracks",
+      "description": "A low timber hall on the square. A muster board of hooked name-tags hangs by the door; six hooks are empty. From the wall-walk you can see the ridge and count the lights.",
+      "connections": ["loc-boundary-stone", "loc-trapper-camp"]
+    },
+    {
+      "id": "loc-boundary-stone",
+      "name": "The Boundary Stone",
+      "description": "A waist-high grey stone at the foot of the ridge path, carved with a watch-oath. The carving is fresh in places, as if re-cut, and a hairline crack runs through the old ward-mark.",
+      "connections": ["loc-barracks", "loc-ridge-path"]
+    },
+    {
+      "id": "loc-trapper-camp",
+      "name": "Riddick's Trapline Camp",
+      "description": "A lean-to and a cold firepit off the lower ridge path. A rotted smuggler cache sits under a deadfall above, and a blood-stiff cloak hangs on a snare-pole.",
+      "connections": ["loc-barracks", "loc-ridge-path"]
+    },
+    {
+      "id": "loc-ridge-path",
+      "name": "The Ridge Line",
+      "description": "A bare spine of rock and heather along the skyline, marked by three landmarks the round walks: the Boundary Stone, the Gallows Cairn, and the Turn. Six lanterns crawl along it in the dark.",
+      "connections": ["loc-boundary-stone", "loc-trapper-camp", "loc-gallows-cairn"]
+    },
+    {
+      "id": "loc-gallows-cairn",
+      "name": "The Gallows Cairn (The Turn)",
+      "description": "A heaped cairn where the ridge round turns. An old lantern-post leans here, and the Lantern-Warden keeps its re-carving tally on a stick driven into the stones. This is where the company musters before it descends at dawn.",
+      "connections": ["loc-ridge-path"]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-hook",
+      "title": "The Order at the Barracks",
+      "purpose": "Give the party the order, the seal, the countersign, and the dawn clock — and split them toward the ridge or the trapper's rumor.",
+      "locationId": "loc-barracks",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "readAloud": "The watch barracks smell of lamp-oil and wet wool. By the door hangs a board of name-hooks; six of them are empty. Captain Brune Holt stands at the wall-walk, looking north, and does not turn as you climb the stair.\n\n“Three nights ago I sent six up the ridge on the dawn round. Corum. Ashford. Bell. Fenner. Oak. Riss.” He says the names like counting coins. “None signed back. And every night since—” he lifts his chin at the dark skyline “—you can stand here and count six lanterns still walking the line.”\n\nHe sets a heavy iron seal in your hand, and a folded slip. “My seal. Tonight's countersign is written there: Hearthford holds. Bring them home, or bring me the truth. Be off the ridge before dawn. That is when the lights turn around.”",
+      "gmNotes": [
+        "Brune does not shout and repeats the last order if the party dithers: 'Off the ridge before dawn.'",
+        "He gives the party item-watch-seal and the countersign 'Hearthford holds' (clue-order-home). If they refuse the seal, it stays on the muster board where anyone can take it.",
+        "The muster record on the board shows six signed out, none back (clue-still-moving). Let them read the names and the marching order — Corum leads, Ashford is rearmost.",
+        "Establish the clock plainly: the lanterns climb one landmark each turn and turn back at dawn. This is the whole tension.",
+        "Do not reveal that five are dead. Brune believes his men may be alive and lost; that hope is the hook.",
+        "Split point: the fast Boundary Stone path (evidence) or the lower Trapper's path (a rumor of desertion/bandits). Either reaches the ridge."
+      ],
+      "npcIds": ["npc-brune-holt"],
+      "clueIds": ["clue-still-moving", "clue-order-home"],
+      "encounterIds": [],
+      "exits": ["scene-boundary", "scene-trapper"],
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "The order",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Land the six empty hooks, the named men, and the lanterns still moving on the ridge."
+        },
+        {
+          "title": "Give the tools and the clock",
+          "text": "Hand over the watch-seal and the countersign 'Hearthford holds.' Say plainly: be off the ridge before dawn, when the lights turn."
+        },
+        {
+          "title": "Let them read the muster",
+          "text": "The board shows six out, none back, Corum leading and Ashford rearmost. This is clue-still-moving."
+        },
+        {
+          "title": "Offer the split",
+          "text": "They can climb straight to the Boundary Stone, or drop to Riddick's trapline where the 'desertion' rumor started. They only need one."
+        }
+      ],
+      "advanceWhen": "The party takes (or refuses) the seal and chooses which way up the ridge.",
+      "exitChoices": [
+        {
+          "target": "scene-boundary",
+          "label": "Climb to the Boundary Stone",
+          "description": "Take the fast path and read the watch-oath carved at the foot of the ridge."
+        },
+        {
+          "target": "scene-trapper",
+          "label": "Follow the desertion rumor",
+          "description": "Drop to Riddick Vane's trapline, where talk of bandits and desertion started."
+        }
+      ]
+    },
+    {
+      "id": "scene-boundary",
+      "title": "The Boundary Stone",
+      "purpose": "Deliver the dead-company truth and the relief order through physical evidence, and confirm the round is real.",
+      "locationId": "loc-boundary-stone",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "readAloud": "The path ends at a grey stone worn smooth by hands. A watch-oath spirals around it, and here and there the letters are pale and sharp — re-cut, recently, over older grooves. A single crack runs through a faded mark at the base like a struck bell.\n\nIn the mud before the stone, boot-prints climb the ridge in a column of six. Not one set turns back down.\n\nThe last line of the oath, cut deepest, reads: THE WATCH STANDS UNTIL IT IS ORDERED DOWN.",
+      "gmNotes": [
+        "The inscription names a watch-oath and a cracked ward (clue-dead-company): this boundary is one of the Quiet Seals and it is failing (fact-boundary-seal).",
+        "The oath's last line is the talk-out in stone (clue-order-home): the watch will stand down only when ordered down by proper authority.",
+        "Boot-tracks: six sets climb, none descend (clue-still-moving). A Survival read (check-tracks) shows one set of prints is still sinking fresh — a living man among the dead (seed for clue-one-living).",
+        "Deepest line, if pressed with Religion/History (check-inscription): the boundary is a seal and something is kept out by it (secret-seal-feeds). Foreshadows the finale; do not over-explain.",
+        "If the party skipped this stone, move these facts to the ridge per recovery (rec-scene-skipped)."
+      ],
+      "npcIds": [],
+      "clueIds": ["clue-still-moving", "clue-dead-company", "clue-order-home"],
+      "encounterIds": [],
+      "exits": ["scene-ridge"],
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "The evidence",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Land the re-cut oath, the one-way column of boot-prints, and the cracked ward-mark."
+        },
+        {
+          "title": "Offer the two reads",
+          "text": "Survival (check-tracks) shows one set of prints still sinks fresh. Religion/History (check-inscription) reads the oath as a failing seal with a relief clause."
+        },
+        {
+          "title": "Point up the ridge",
+          "text": "The lanterns are climbing toward the Gallows Cairn. Advance the clock and send them up the line."
+        }
+      ],
+      "advanceWhen": "The party has read the oath and/or the tracks and turns up the ridge toward the lights.",
+      "exitChoices": [
+        {
+          "target": "scene-ridge",
+          "label": "Follow the boot-prints up the ridge",
+          "description": "Climb toward the six moving lanterns on the skyline."
+        }
+      ]
+    },
+    {
+      "id": "scene-trapper",
+      "title": "The Trapper's Story",
+      "purpose": "Offer a tempting mundane explanation — desertion and bandits — that is false, then fail forward to the ridge.",
+      "locationId": "loc-trapper-camp",
+      "pacingClass": "optional",
+      "estimatedMinutes": 25,
+      "readAloud": "A lean-to, a dead fire, and a man who is already talking before you reach him. Riddick Vane wipes his hands on his coat and points uphill with his chin.\n\n“Bandits. Or your watch turned bandit — took the Saltmere road money and lit out, I'd wager. I found their cache, and a cloak stiff with blood.” He shows you a folded note. “Even left this. Desertion, plain as day.”\n\nAbove the camp, under a deadfall, a smuggler's cache sits black with rot. On a snare-pole hangs a cloak, dark and crusted. And past it all, along the skyline, six small lights are climbing.",
+      "gmNotes": [
+        "This whole scene is the red herring (clue-desertion-false). Let it be convincing for a while.",
+        "The cache is years abandoned; the 'blood' on the cloak is deer from a snared kill; the 'desertion note' is in a hand that does not match the muster signatures.",
+        "Investigation (check-herring) or a kind press breaks the story: Riddick admits he only ever saw lights turn near dawn and guessed the rest. He wrote the note himself (secret of npc-riddick-vane).",
+        "Fail-forward: even fully fooled, Riddick points at where the lanterns turn — straight to the Gallows Cairn. The clock advances but the party still reaches the ridge.",
+        "Do not punish curiosity: chasing this costs time, not the ending (see pathPressure)."
+      ],
+      "npcIds": ["npc-riddick-vane"],
+      "clueIds": ["clue-desertion-false"],
+      "encounterIds": [],
+      "exits": ["scene-ridge"],
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "The red herring",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Sell the desertion/bandit theory through Riddick, the cache, the bloody cloak, and the note."
+        },
+        {
+          "title": "Let them test it",
+          "text": "Investigation (check-herring) or a gentle press exposes the note as Riddick's own and the cache and blood as old and animal."
+        },
+        {
+          "title": "Fail forward to the ridge",
+          "text": "However convinced they are, Riddick points at where the lights turn near dawn. Send them up to the Gallows Cairn."
+        }
+      ],
+      "advanceWhen": "The party accepts or debunks the desertion story and heads for the ridge where the lanterns turn.",
+      "exitChoices": [
+        {
+          "target": "scene-ridge",
+          "label": "Head for where the lanterns turn",
+          "description": "Leave the camp and climb to the moving lights on the skyline."
+        }
+      ]
+    },
+    {
+      "id": "scene-ridge",
+      "title": "The Six Lights",
+      "purpose": "Meet the marching company, run the living-lantern puzzle, and spring the marking trap without a forced fight.",
+      "locationId": "loc-ridge-path",
+      "pacingClass": "core",
+      "estimatedMinutes": 45,
+      "readAloud": "Up close, the round is worse than the rumor. Six watchmen march the ridge in step, lanterns swinging, faces slack. Five of the lanterns burn a cold, breathless blue. They do not turn to look at you. When you call a name, only one voice answers, flat and together: “The watch stands.”\n\nAt the rear, a young man stumbles half a pace behind the cadence. His lantern is warm and gold, and when he passes he whispers — not the round, but a question: “Is it nearly dawn?”\n\nThe sergeant at the head lifts his lantern toward you, an offering, a place in the line. Ahead, the lights are nearly at the Gallows Cairn.",
+      "gmNotes": [
+        "PUZZLE (puzzle-living-lantern): five lanterns burn cold blue, consume no oil, cast no breath-fog, and their bearers answer only to 'the watch'; one burns warm gold, drips real oil, fogs in the cold, and its bearer (Wynn) answers to his own name. Perception (check-living-lantern) or Survival on the still-fresh tracks finds him (clue-one-living).",
+        "TRAP (trap-marked-post / hazard): if a PC takes the offered lantern, accepts a handoff, or steps into the empty sixth place, they are marked as the next post. A refusal is a Wisdom save. The mark lifts the instant the company is ordered home or the tally is cut, so it raises stakes without dead-ending.",
+        "The company will not attack unprovoked; it marches. Sergeant Corum salutes if shown rank and answers to orders (clue-order-home).",
+        "Do NOT resolve the confrontation here. This stage is recognition: who is dead, who is alive, and what the lanterns want. The muster at the Turn is where it settles.",
+        "Advance the clock: the lights reach the Gallows Cairn. Push them to follow to the muster."
+      ],
+      "npcIds": ["npc-wynn-ashford", "npc-hale-corum", "npc-lantern-warden"],
+      "clueIds": ["clue-dead-company", "clue-one-living"],
+      "encounterIds": [],
+      "exits": ["scene-muster"],
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "The living lantern",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Land the marching company, the five cold lanterns, the one warm one, and the offered place in the line."
+        },
+        {
+          "title": "Run the living-lantern puzzle",
+          "text": "Let them work out which lantern is still alive — warm gold flame, real oil, breath-fog, a man who answers to his own name. That is Wynn (clue-one-living)."
+        },
+        {
+          "title": "Spring the marking trap carefully",
+          "text": "Anyone who takes a lantern or stands the sixth place is marked as the next post (Wisdom save to refuse a handoff). Make the danger clear; it lifts when the round is settled."
+        },
+        {
+          "title": "Follow the lights to the Turn",
+          "text": "The company reaches the Gallows Cairn. Move to the muster before dawn."
+        }
+      ],
+      "advanceWhen": "The party has recognized the living watchman and/or the dead company and follows the lights to the Gallows Cairn.",
+      "exitChoices": [
+        {
+          "target": "scene-muster",
+          "label": "Follow the company to the Gallows Cairn",
+          "description": "Climb to the Turn, where the round musters before it descends at dawn."
+        }
+      ]
+    },
+    {
+      "id": "scene-muster",
+      "title": "The Muster at the Turn",
+      "purpose": "The climax: face Sergeant Corum and the Lantern-Warden and settle the round — order them home, cut the tally, take the post, or fight.",
+      "locationId": "loc-gallows-cairn",
+      "pacingClass": "core",
+      "estimatedMinutes": 50,
+      "readAloud": "At the Gallows Cairn the company halts and forms a line facing downhill — toward Hearthford. A leaning lantern-post creaks in the wind, and from its shadow a taller shape unfolds: the Lantern-Warden, a sentinel of iron and cold light, a re-carving tally-stick in its fist.\n\n“The count is six,” the Warden says, in the creak of a swinging lamp. “At dawn the round descends and the six are kept. Pay the watch its due — in order, in iron, or in one who will stand.”\n\nSergeant Corum turns at the head of the line. His eyes find you, then the seal in your hand. Slowly, out of some old habit deeper than death, he straightens and salutes. In the east, the black is going grey.",
+      "gmNotes": [
+        "TALK-OUT (enc-dead-company, no fight required): present the watch-seal or say the countersign 'Hearthford holds' and give the relief order the way Brune would — 'Watch, stand down. Come home.' A Charisma check (check-relief-order) with real command releases the company; Corum repeats the order down the line and the dead lie down.",
+        "The Warden offers three settlements aloud, matching the endings: order them home (relief), cut the strings (break the tally), or take the post (a living volunteer stands the watch). It is not cruel; it is accounting.",
+        "Save Wynn: if the party identified him (clue-one-living), they can pull him out of the line before the round is settled; otherwise he cries his own name once near dawn for a last chance (fail-forward).",
+        "If attacked, the company defends as a warband and the Warden guards the tally, but they do not pursue past the cairn. Neutralizing without killing still settles the round; killing them all still frees Wynn's living lantern if it is pulled clear first.",
+        "Cutting the tally-stick (AC 15, 20 hp, or a contested Strength/tool check) breaks the binding: the dead fall still. Note this weakens the ridge seal — a consequence for the campaign finale (secret-seal-feeds).",
+        "The clock is now: settle before the greying sky becomes dawn, or the round turns downhill and drafts the first living soul (event-dawn-turn)."
+      ],
+      "npcIds": ["npc-hale-corum", "npc-lantern-warden", "npc-wynn-ashford"],
+      "clueIds": ["clue-order-home"],
+      "encounterIds": ["enc-dead-company"],
+      "exits": ["scene-resolution"],
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "The muster",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Land the line forming downhill, the Warden's demand for the count, and Corum's salute at the sight of the seal."
+        },
+        {
+          "title": "Offer the three settlements",
+          "text": "Order them home (relief order / countersign), cut the strings (break the tally-stick), or take the post (a living volunteer). The Warden accepts any."
+        },
+        {
+          "title": "Run the talk-out first",
+          "text": "The relief order (check-relief-order, DC 13) stands the company down with no fight. The seal or countersign makes it automatic."
+        },
+        {
+          "title": "Save the living one",
+          "text": "Let the party pull Wynn out of the line before the round settles. If they never found him, he calls his own name once at first light."
+        },
+        {
+          "title": "Fight only if chosen",
+          "text": "If they attack, run the dead company as a warband defending the tally; it is a job — hold and settle before dawn — not a kill count."
+        }
+      ],
+      "advanceWhen": "The round is settled — ordered home, cut loose, taken over, or fought to a stop — and Wynn's fate is decided.",
+      "exitChoices": [
+        {
+          "target": "scene-resolution",
+          "label": "Settle the round before dawn",
+          "description": "Order them home, cut the tally, take the post, or end the fight — then face what dawn counts."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution",
+      "title": "What Dawn Counts",
+      "purpose": "Give a clear resolution: state the cost of the chosen ending plainly and let the survivor carry the tale to Hearthford.",
+      "locationId": "loc-gallows-cairn",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "readAloud": "The east goes from grey to gold, and for the first morning in three nights the ridge is quiet.\n\nWhere six lanterns walked, there is only what you left: men laid down to rest, or a post newly stood, or a stick of tally broken in the heather. Down the slope, Hearthford's chimneys are just beginning to smoke.\n\nWhatever the count is now, it is the one you chose.",
+      "gmNotes": [
+        "Pick the ending that matches what the table actually did. Do not grade their morality.",
+        "If Wynn was pulled out, he lives and walks home — the survivor who tells Hearthford what the ridge is. If not, he goes down with the round; say it plainly, without cruelty.",
+        "Whatever ending, note the cost for the campaign: an emptied post, a broken seal, or a watcher who stays. This is the fact that follows them back to Hearthford and toward the finale.",
+        "Reward practical courage: Captain Brune pays what the watch can spare and owes the party a debt (reward-watch). A saved man is its own reward (reward-survivor).",
+        "Relationship: Brune becomes Helped, or Trusted if they brought his men home or told him the whole truth."
+      ],
+      "npcIds": ["npc-brune-holt", "npc-wynn-ashford"],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [],
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Let the quiet dawn land before you explain consequences."
+        },
+        {
+          "title": "Choose the matching ending",
+          "text": "Use the ending below that fits what the players actually did. Do not declare a moral winner."
+        },
+        {
+          "title": "Settle the living one and the cost",
+          "text": "Say whether Wynn came home, and name the cost the ridge kept: an empty post, a broken seal, or a watcher who stays."
+        },
+        {
+          "title": "Pay out and hook the campaign",
+          "text": "Brune pays and owes them; the survivor's story about the failing seal points toward the finale."
+        }
+      ],
+      "advanceWhen": "The ending, the fate of the living watchman, and the reward have all been resolved.",
+      "endingIds": ["ending-home", "ending-cut", "ending-take-post", "ending-next-post"],
+      "exitChoices": []
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-still-moving",
+      "revelation": "The six watchmen never came down; their lanterns are still walking the ridge.",
+      "required": true,
+      "sources": [
+        "Captain Brune Holt's muster record shows six names signed out and none signed back in.",
+        "From Hearthford's wall-walk you can count six lantern-lights crawling along the ridge each night.",
+        "Boot-tracks at the boundary stone climb the ridge in a column of six and not one set turns back down."
+      ]
+    },
+    {
+      "id": "clue-dead-company",
+      "revelation": "Five of the six are already dead and walking a round that will not end; this is a failing boundary, not bandits.",
+      "required": true,
+      "sources": [
+        "The boundary stone's inscription names a watch-oath over a ward-mark now cracked like a struck bell.",
+        "Five of the lanterns burn cold blue, cast no breath-fog, and their bearers answer only to 'the watch,' never their own names.",
+        "A re-carving tally at the old lantern-post keeps the count at six by itself, cutting fresh grooves over old ones."
+      ]
+    },
+    {
+      "id": "clue-one-living",
+      "revelation": "One watchman — Corporal Wynn Ashford — is still alive and can still be pulled out of the line.",
+      "required": true,
+      "sources": [
+        "Physical evidence at the line: one lantern burns warm gold and its oil is visibly still burning down.",
+        "One set of boot-tracks still sinks fresh into the mud, while the dead men leave no new prints at all.",
+        "The rearmost watchman answers to the name Wynn Ashford and still fogs the cold air when he breathes."
+      ]
+    },
+    {
+      "id": "clue-order-home",
+      "revelation": "The watch are still soldiers; the right authority can lawfully order them home and let the dead rest.",
+      "required": true,
+      "sources": [
+        "Captain Brune Holt gives the party his watch-seal and the night's countersign, 'Hearthford holds.'",
+        "The boundary stone's oath-inscription is cut deepest at the last line: 'The watch stands until it is ordered down.'",
+        "Sergeant Corum still salutes rank and repeats the last order, plainly waiting to be relieved."
+      ]
+    },
+    {
+      "id": "clue-desertion-false",
+      "revelation": "The desertion-and-bandits story is false; nothing on the trapline points to a crime.",
+      "required": false,
+      "sources": [
+        "The 'desertion note' is written in a hand that does not match Corum's signature on the muster.",
+        "The smuggler cache above the camp is years rotted and the blood on the found cloak is deer, not man.",
+        "Riddick Vane admits he only ever saw the lanterns turn near dawn and guessed the rest."
+      ]
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-dead-company",
+      "name": "The Dead Company and the Lantern-Warden",
+      "type": "combat or parley",
+      "difficulty": "moderate (avoidable)",
+      "crBudget": "Cold Watchmen CR 1 (200 XP) ×5 = 1,000; Lantern-Warden CR 3 (700 XP). Full fight ≈ 1,700 XP (moderate–high for four level-4 PCs). Neutralizing or relieving without killing still awards the XP.",
+      "summary": "A six-strong dead watch and the sentinel that keeps their count muster at the Turn before dawn.",
+      "resolution": "Order them home with the countersign, break the Warden's tally-stick, offer a living volunteer for the post, or fight the company to a stop.",
+      "talkOut": "Present the watch-seal or say 'Hearthford holds' and give the relief order — 'Watch, stand down. Come home.' Sergeant Corum obeys lawful authority and stands the company down without a fight.",
+      "bypass": "Cutting the re-carving tally-stick (AC 15, 20 hp) breaks the binding and the dead fall still; the living lantern must be pulled clear first to save Wynn.",
+      "special": "The company will not pursue past the cairn. If dawn breaks with the round unsettled, it turns downhill and counts the first living soul into the sixth place (event-dawn-turn)."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-living-lantern",
+      "name": "Which Lantern Is Still Living",
+      "locationId": "loc-ridge-path",
+      "prompt": "Six lanterns, six watchmen, marching in step and identical at a glance. Only one of the six is still alive, and dawn is coming. Which one — and how can you tell before the round turns?",
+      "solution": "The living lantern (Corporal Wynn Ashford, rearmost) burns warm gold, its oil visibly lowers, it fogs in the cold, and its bearer answers to his own name and breaks the cadence with a question. The five dead lanterns burn cold blue, never consume oil, cast no breath, and answer only to 'the watch.' Reading the still-fresh boot-tracks (only the living man leaves new prints) points to the same man.",
+      "failForward": "If the party cannot tell, near first light Wynn surfaces enough to cry his own name once, and the Lantern-Warden — if parleyed — will tap the one living lantern when asked what the count owes. They still get one clear chance to pull him out."
+    },
+    {
+      "id": "puzzle-relief-order",
+      "name": "The Words That Stand a Watch Down",
+      "locationId": "loc-gallows-cairn",
+      "prompt": "The oath says the watch stands until it is ordered down — but a scared shout is not an order. What gives a relief order the weight to be obeyed?",
+      "solution": "Authority plus the correct form: the captain's watch-seal or the night's countersign 'Hearthford holds,' spoken as a command to relieve — naming the watch, standing them down, and sending them home. Given that way, Sergeant Corum salutes and repeats it down the line and the company obeys.",
+      "failForward": "If the party lacks the seal or countersign, a genuine, well-argued relief order still works on a successful Charisma check (check-relief-order); on a failure, Corum hesitates but the Warden accepts a broken tally or a volunteer instead, so the round can still be settled."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-marked-post",
+      "name": "The Offered Lantern",
+      "locationId": "loc-ridge-path",
+      "trigger": "A character takes one of the cold lanterns, accepts a watchman's silent handoff, or steps into the empty sixth place in the line.",
+      "save": "Wisdom DC 13 to refuse a handoff already begun",
+      "dc": 13,
+      "effect": "On a failure, the character is marked as the next post: the lantern will not leave their hand, cold gnaws at them (disadvantage on saves against the round's chill), and at dawn the company will count them into the sixth place.",
+      "purpose": "Fail-forward: the mark is lifted the instant the round is settled — ordered home, tally cut, or post taken by another — so the trap raises the stakes and the clock without dead-ending anyone. The lantern can also be handed to the Warden during a relief."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-watch-seal",
+      "name": "Captain's Watch-Seal",
+      "description": "A heavy iron seal of the Hearthford watch. Proof of authority; presenting it lets a relief order be obeyed without a check."
+    },
+    {
+      "id": "item-countersign",
+      "name": "The Night's Countersign",
+      "description": "A folded slip: 'Hearthford holds.' The watchword that marks an order as coming from the captain."
+    },
+    {
+      "id": "item-tally-stick",
+      "name": "The Warden's Tally-Stick",
+      "description": "A driven stick that re-carves itself to keep the count at six. Breaking it cuts the binding that holds the dead company."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-ridge",
+      "name": "Hearthford and the Ridge Round",
+      "asset": null,
+      "regions": [
+        {
+          "id": "reg-barracks",
+          "label": "Watch Barracks",
+          "sceneId": "scene-hook",
+          "x": 44,
+          "y": 78,
+          "w": 16,
+          "h": 14
+        },
+        {
+          "id": "reg-boundary",
+          "label": "Boundary Stone",
+          "sceneId": "scene-boundary",
+          "x": 40,
+          "y": 56,
+          "w": 14,
+          "h": 12
+        },
+        {
+          "id": "reg-trapper",
+          "label": "Trapline Camp",
+          "sceneId": "scene-trapper",
+          "x": 20,
+          "y": 62,
+          "w": 15,
+          "h": 12
+        },
+        {
+          "id": "reg-ridge",
+          "label": "The Ridge Line",
+          "sceneId": "scene-ridge",
+          "x": 52,
+          "y": 34,
+          "w": 20,
+          "h": 12
+        },
+        {
+          "id": "reg-cairn",
+          "label": "Gallows Cairn (The Turn)",
+          "sceneId": "scene-muster",
+          "x": 70,
+          "y": 18,
+          "w": 16,
+          "h": 12
+        },
+        {
+          "id": "reg-dawn",
+          "label": "Dawn",
+          "sceneId": "scene-resolution",
+          "x": 78,
+          "y": 40,
+          "w": 14,
+          "h": 12
+        }
+      ]
+    }
+  ],
+  "playMaps": [
+    {
+      "id": "handout-ridge",
+      "kind": "handout",
+      "title": "The Ridge above Hearthford (player handout)",
+      "scale": "not to scale · no secrets",
+      "asset": "assets/maps/watch/ridge-handout.svg",
+      "sceneIds": ["scene-hook"],
+      "notes": [
+        "Hand this to the players at the barracks. It shows Hearthford, the ridge landmarks, and the moving lanterns — no dungeon secrets."
+      ]
+    },
+    {
+      "id": "combat-ridge-line",
+      "kind": "combat",
+      "title": "The Ridge Line",
+      "grid": "1 square = 5 ft.",
+      "asset": "assets/maps/watch/ridge-line.svg",
+      "sceneIds": ["scene-ridge"],
+      "notes": [
+        "The marching column: five cold-blue lanterns, one warm-gold at the rear (Wynn), and the empty sixth gap that marks whoever fills it."
+      ]
+    },
+    {
+      "id": "combat-gallows-cairn",
+      "kind": "combat",
+      "title": "The Gallows Cairn (The Turn)",
+      "grid": "1 square = 5 ft.",
+      "asset": "assets/maps/watch/gallows-cairn.svg",
+      "sceneIds": ["scene-muster"],
+      "notes": [
+        "The company forms on the downhill edge; the Warden and its tally are at the leaning post; the eastern sky brightens toward dawn."
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event-dawn-turn",
+      "name": "The Turn at Dawn",
+      "effect": "If the round is not settled by first light, the company turns downhill toward Hearthford and counts the first living soul it reaches into the sixth place. If a PC is marked, that is them; otherwise it is a sleeper on the road. Seven lanterns climb the next night."
+    },
+    {
+      "id": "event-marked",
+      "name": "Marked as the Next Post",
+      "effect": "A marked character cannot drop the cold lantern and takes disadvantage on saves against the round's chill until the watch is settled. The mark lifts the instant the company is ordered home, the tally is cut, or another takes the post."
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-home",
+      "name": "Bring Them Home",
+      "condition": "The party lawfully relieves the watch — the seal, the countersign, or a true relief order stands the company down.",
+      "result": "Sergeant Corum salutes, repeats the order down the line, and the five dead lie down to rest at last. If Wynn was pulled out, he walks home alive. The boundary is left standing but unmanned, and Hearthford must decide who walks the round now. Brune Holt owes the party a debt he will not forget."
+    },
+    {
+      "id": "ending-cut",
+      "name": "Cut the Strings",
+      "condition": "The party breaks the Warden's re-carving tally-stick.",
+      "result": "The binding fails; every lantern gutters out and the company falls still where it stands. Wynn lives only if he was pulled clear before the tally broke. The dead are freed — but the ridge seal is now cut, and whatever the boundary held back is one wall closer to Hearthford. A fast mercy with a long cost."
+    },
+    {
+      "id": "ending-take-post",
+      "name": "Take Their Post",
+      "condition": "A living volunteer — a marked PC, the whole party in turns, or a willing NPC — agrees to stand the watch in the dead men's place.",
+      "result": "The Warden accepts the trade. The five dead are released and Wynn can be sent home, but the ridge keeps its count of six: the volunteer now walks the round, or Hearthford must post a living watch that never sleeps. The seal holds. Someone stays."
+    },
+    {
+      "id": "ending-next-post",
+      "name": "The Next Post",
+      "condition": "Dawn breaks with the round unsettled and no decision made.",
+      "result": "The company turns downhill and counts a new living soul into the sixth place — a marked party member, or a sleeper on the Hearthford road. Say it plainly, without cruelty. Seven lanterns climb the ridge the next night, and the party carries home the knowledge of what they did not stop."
+    }
+  ],
+  "recovery": {
+    "principle": "No single NPC or scene is required. Preserve the truths — the watch is a dead company kept at six, one man still lives, and the round can be relieved — and change delivery, not fact.",
+    "policies": [
+      "Required facts may move to physical evidence or another source if a scene is skipped.",
+      "The relief option stays available until the round is settled or dawn turns it.",
+      "The ending is never locked by a failed check; the cost may rise, but the party still settles the round before dawn."
+    ],
+    "routes": [
+      {
+        "id": "rec-giver",
+        "trigger": "Captain Brune Holt refuses to help, is unavailable, missing, or dead",
+        "response": "His muster record and the watch-seal remain in the barracks strongbox, and the countersign 'Hearthford holds' is carved on the boundary stone. The relief option survives without him.",
+        "stateChanges": [
+          "clue-order-home remains available",
+          "item-watch-seal recoverable from the barracks"
+        ]
+      },
+      {
+        "id": "rec-company-attacked",
+        "trigger": "The party attacks the dead company before understanding it, or turns hostile at the muster",
+        "response": "The watch defends as a warband but does not pursue past the cairn; Corum and the Warden reveal the same truth in the fighting. Relieving still works afterward, and even if all are killed, Wynn's living lantern can be saved if it was pulled clear first.",
+        "stateChanges": [
+          "clue-dead-company delivered under fire",
+          "if the tally is destroyed, the company falls still"
+        ]
+      },
+      {
+        "id": "rec-scene-skipped",
+        "trigger": "The party bypasses or skips the boundary stone or the trapper camp",
+        "response": "Move the missing facts to the ridge: the cold-vs-warm lanterns and the re-carving tally show the dead-company truth at close range, and the oath is repeated by Corum when relief is attempted.",
+        "stateChanges": [
+          "required clues remain discoverable at the line",
+          "scene-ridge carries the evidence load"
+        ]
+      },
+      {
+        "id": "rec-red-herring",
+        "trigger": "The party commits to the desertion/bandit theory and leaves the trapline convinced",
+        "response": "The story fails forward: Riddick points to where the lanterns turn, and the ridge itself disproves the theory within minutes. The clock advances but they still arrive before dawn.",
+        "stateChanges": [
+          "time cost applied",
+          "party still reaches scene-ridge"
+        ]
+      },
+      {
+        "id": "rec-marked",
+        "trigger": "A character is marked as the next post",
+        "response": "The mark is a raised stake, not a death sentence: it lifts the instant the round is settled by any ending, and the marked lantern can be handed to the Warden during a relief.",
+        "stateChanges": [
+          "event-marked active",
+          "mark clears when the watch is settled"
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared pays. Rush costs. The ending is never locked; they still finish before dawn.",
+    "prepared": [
+      {
+        "when": "They read the muster and take the seal and countersign from Brune",
+        "payoff": "They can relieve the company automatically at the muster — no check, no fight — and know exactly which six they are looking for."
+      },
+      {
+        "when": "They read the boundary oath and the boot-tracks",
+        "payoff": "They reach the ridge already knowing the watch can be ordered down and that one man is still alive, so they can save Wynn cleanly."
+      },
+      {
+        "when": "They solve the living-lantern puzzle early",
+        "payoff": "They can pull Wynn out before the muster and settle the round with no risk to him."
+      }
+    ],
+    "rushed": [
+      {
+        "when": "They skip the barracks or the evidence and climb straight at the lights",
+        "payoff": "They reach the muster with no seal and no countersign and must talk the company down under the dawn clock (check-relief-order)."
+      },
+      {
+        "when": "They attack the company before understanding it",
+        "payoff": "The mark can spread in the melee and Wynn's living lantern is nearly lost among the falling dead."
+      },
+      {
+        "when": "They chase the desertion theory and ignore the clock",
+        "payoff": "Dawn is close when they reach the Turn; the round is one landmark from descending and the settlement must be fast."
+      }
+    ],
+    "notDeviation": [
+      "Ordering the watch home is not the only 'right' answer.",
+      "Cutting the tally is a real mercy, even with its cost.",
+      "Taking the post is a valid, hard choice, not a failure.",
+      "Any ending is legitimate if the table understands what it cost."
+    ]
+  },
+  "oneshotRecipe": {
+    "shape": "warband rescue / relief-in-place",
+    "genre": "classic warband folk horror",
+    "tale": "The Wild Hunt / the dead company that will not stand down",
+    "rooms": [
+      {
+        "beat": "1 Order",
+        "scene": "scene-hook",
+        "note": "Brune's charge, the seal, the countersign, the dawn clock"
+      },
+      {
+        "beat": "2 Evidence / Red herring",
+        "scene": "scene-boundary / scene-trapper",
+        "note": "The failing seal and one-way tracks, or the false desertion story"
+      },
+      {
+        "beat": "3 Puzzle",
+        "scene": "scene-ridge",
+        "note": "Which lantern is still living; the marking trap"
+      },
+      {
+        "beat": "4 Climax / Talk-out",
+        "scene": "scene-muster",
+        "note": "Order them home, cut the tally, take the post, or fight"
+      },
+      {
+        "beat": "5 Consequence",
+        "scene": "scene-resolution",
+        "note": "State the cost and send the survivor home"
+      }
+    ]
+  },
+  "rulesets": {
+    "2014": {
+      "notes": [
+        "Cold Watchmen use an SRD specter-style block (AC 12, HP 22, CR 1). The Lantern-Warden is an original CR 3 sentinel (AC 13, HP 52). Neutralizing or relieving without a kill still awards the listed XP.",
+        "The relief order is an authored social resolution, not a spell; the watch-seal makes it automatic and the countersign 'Hearthford holds' is the trigger."
+      ]
+    },
+    "2024": {
+      "notes": [
+        "Use the same encounter numbers, or a current SRD undead block of equal CR if the table prefers. The talk-out relief and the tally-cut bypass are unchanged.",
+        "Extra Attack is level 5; do not grant it to level-4 pregens. Keep features to the chosen edition."
+      ]
+    }
+  },
+  "pacing": {
+    "targetMinutes": 240,
+    "plannedMinutes": 210,
+    "bossReserveMinutes": 50,
+    "cutOrder": [],
+    "optionalOrder": ["scene-trapper"]
+  },
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-hook",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-brune-holt": {
+        "status": "alive",
+        "attitude": "grim"
+      },
+      "npc-hale-corum": {
+        "status": "dead-walking",
+        "attitude": "dutiful"
+      },
+      "npc-wynn-ashford": {
+        "status": "alive-entranced",
+        "attitude": "frightened"
+      },
+      "npc-lantern-warden": {
+        "status": "bound",
+        "attitude": "accounting"
+      },
+      "npc-riddick-vane": {
+        "status": "alive",
+        "attitude": "twitchy"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-watch-seal": "with-brune",
+      "item-countersign": "with-brune",
+      "item-tally-stick": "gallows-cairn"
+    },
+    "eventState": {
+      "event-dawn-turn": "pending",
+      "event-marked": "pending"
+    },
+    "sceneHistory": []
+  },
+  "quickrun": {
+    "adventureId": "the-watch-that-did-not-come-back",
+    "version": "1.0",
+    "target": {
+      "level": 4,
+      "partySize": 4
+    },
+    "requiredCheckIds": ["check-living-lantern", "check-relief-order"],
+    "checks": [
+      {
+        "id": "check-muster",
+        "sceneId": "scene-hook",
+        "label": "Read the muster board",
+        "dc": 12,
+        "ability": "Intelligence (Investigation)",
+        "success": "Confirm six signed out three nights ago, none back; Corum leads and Ashford is rearmost.",
+        "failure": "Brune reads you the names and order himself. No clue is lost."
+      },
+      {
+        "id": "check-tracks",
+        "sceneId": "scene-boundary",
+        "label": "Read the boot-tracks",
+        "dc": 12,
+        "ability": "Wisdom (Survival)",
+        "success": "Six sets climb, none descend — and one set is still sinking fresh, a living man among the dead.",
+        "failure": "You still see the one-way column; the fresh set is only noticed later, at the line."
+      },
+      {
+        "id": "check-inscription",
+        "sceneId": "scene-boundary",
+        "label": "Read the boundary oath",
+        "dc": 13,
+        "ability": "Intelligence (Religion)",
+        "success": "The oath is a watch-seal with a relief clause: the watch stands until ordered down. The ward-mark beneath is cracked.",
+        "failure": "You read the plain oath; the seal's deeper meaning waits for the muster or a second look."
+      },
+      {
+        "id": "check-herring",
+        "sceneId": "scene-trapper",
+        "label": "Test the desertion story",
+        "dc": 12,
+        "ability": "Intelligence (Investigation)",
+        "success": "The note's hand does not match the muster; the cache is years old and the blood is deer. The theory collapses.",
+        "failure": "The story still smells wrong, and Riddick points you to where the lanterns turn."
+      },
+      {
+        "id": "check-living-lantern",
+        "sceneId": "scene-ridge",
+        "label": "Find the living lantern",
+        "dc": 14,
+        "ability": "Wisdom (Perception)",
+        "success": "One lantern burns warm gold and its bearer fogs the air and answers to 'Wynn.' You can pull him out cleanly.",
+        "failure": "The lanterns blur together, but near dawn Wynn cries his own name once — a last chance to reach him."
+      },
+      {
+        "id": "check-relief-order",
+        "sceneId": "scene-muster",
+        "label": "Give the relief order",
+        "dc": 13,
+        "ability": "Charisma (Intimidation or Persuasion)",
+        "success": "Corum salutes, repeats 'Watch, stand down — come home,' and the company obeys. The seal or countersign makes this automatic.",
+        "failure": "Corum hesitates; the Warden will still accept a broken tally or a volunteer, so the round can still be settled."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-dead-company",
+        "objective": "Settle the round before dawn — relieve, cut, trade, or fight the watch to a stop — and save the living one.",
+        "start": "At the Gallows Cairn the six form a line facing downhill and the Lantern-Warden demands the count. Sergeant Corum salutes if he sees the seal.",
+        "bypass": "Present the watch-seal or say 'Hearthford holds' and give the relief order — the company stands down with no fight. Or cut the tally-stick (AC 15, 20 hp) to end the binding.",
+        "creatures": [
+          {
+            "name": "Cold Watchman (dead)",
+            "count": 5,
+            "cr": "1 (200 XP)",
+            "ac": 12,
+            "hp": 22,
+            "speed": "30 ft., hover",
+            "attack": "Chill Halberd +4 to hit, 2d6 cold damage; a target reduced to 0 hp this way is marked for the sixth post rather than killed.",
+            "trait": "Incorporeal drift; sunlight sensitivity at dawn. Bound Duty: obeys a lawful relief order and stops fighting the instant the watch is stood down.",
+            "tactics": "Holds the line and guards the Warden; does not pursue past the cairn and does not coup de grace the fallen. Stands down at once if relieved or if the tally breaks."
+          },
+          {
+            "name": "The Lantern-Warden",
+            "count": 1,
+            "cr": "3 (700 XP)",
+            "ac": 13,
+            "hp": 52,
+            "speed": "30 ft.",
+            "attack": "Warden's Lantern +5 to hit, 2d8 cold radiant; on a hit the target must save or be marked as the next post.",
+            "trait": "Keeper of the Tally: while the tally-stick stands, downed watchmen rise again at the start of its next turn. Offers trades, never threats.",
+            "tactics": "Shields the tally-stick and offers the three settlements aloud. Accepts a relief order, a broken tally, or a volunteer and ends the encounter without further violence."
+          }
+        ],
+        "end": "The watch is relieved, cut loose, replaced, or destroyed; Wynn is saved or lost; and dawn arrives with the round settled — or, if not, the company turns downhill to draft a new post."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "trap-marked-post",
+        "sceneId": "scene-ridge",
+        "trigger": "Take a cold lantern, accept a watchman's silent handoff, or step into the empty sixth place.",
+        "save": "DC 13 Wisdom",
+        "failure": "Marked as the next post: the lantern will not leave your hand and cold gnaws at you (disadvantage on saves vs the round's chill).",
+        "success": "You refuse the handoff and keep your name your own.",
+        "failForward": "The mark lifts the instant the round is settled — ordered home, tally cut, or post taken by another. The lantern can be handed to the Warden during a relief."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-ridge",
+        "dimensions": "open ridge line, roughly 120 ft. of skyline path, 15–25 ft. wide",
+        "features": [
+          "six lanterns marching in single file",
+          "heather and loose scree off both shoulders",
+          "the Boundary Stone downhill (south)",
+          "the Gallows Cairn uphill (north)",
+          "an empty sixth gap at the rear of the line"
+        ]
+      },
+      {
+        "sceneId": "scene-muster",
+        "dimensions": "the Gallows Cairn clearing, roughly 40 x 40 ft.",
+        "features": [
+          "heaped stone cairn at center",
+          "leaning lantern-post with the Warden's tally-stick",
+          "the company forming a line on the downhill (south) edge",
+          "narrow descent toward Hearthford",
+          "brightening eastern sky at the edge"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-watch",
+        "when": "The round is settled and the party reports to Hearthford.",
+        "reward": "Captain Brune Holt pays 40 gp from the watch chest and owes the party a standing debt: the Hearthford watch will vouch for them, open a gate, or stand at their back once when it matters."
+      },
+      {
+        "id": "reward-survivor",
+        "when": "Corporal Wynn Ashford is pulled out of the line before the round is settled.",
+        "reward": "A living witness who tells Hearthford what the ridge really is — and a young watchman who will remember who came for him."
+      }
+    ]
+  },
+  "cards": [
+    {
+      "id": "card-brune-holt",
+      "type": "npc",
+      "title": "Captain Brune Holt",
+      "front": "A grey-templed watch captain at the wall-walk, a heavy iron seal on his chest and the ridge lanterns burning behind him.",
+      "frontLabel": "NPC · Quest giver",
+      "image": "assets/cards/watch/brune-holt.svg",
+      "imageAlt": "A stern helmed watch captain with a round seal on his chest and six small lantern-lights on the dark ridge behind him.",
+      "back": {
+        "role": "Captain of the Hearthford watch; sent the six and now owns the guilt.",
+        "location": "Watch barracks on the Hearthford square (scene-hook).",
+        "stats": "Noble/veteran statline if needed: AC 16, HP 36. He does not go up the ridge.",
+        "dialogue": [
+          "\u201cCorum. Ashford. Bell. Fenner. Oak. Riss. None signed back.\u201d",
+          "\u201cMy seal. Tonight's countersign: Hearthford holds.\u201d",
+          "\u201cBe off the ridge before dawn. That is when the lights turn.\u201d"
+        ],
+        "rules": [
+          "Gives the party the watch-seal and countersign (clue-order-home).",
+          "His authority makes the relief order automatic — no check.",
+          "Pressed, admits he knew the boundary was failing."
+        ],
+        "dmNotes": [
+          "Does not shout; repeats the last order until obeyed.",
+          "He believes his men may be alive — that hope is the hook.",
+          "Relationship: Helped, or Trusted if you bring his men home."
+        ]
+      }
+    },
+    {
+      "id": "card-hale-corum",
+      "type": "npc",
+      "title": "Sergeant Hale Corum",
+      "front": "A dead sergeant at the head of the column, cold-blue lantern raised, still holding the salute.",
+      "frontLabel": "NPC · The talk-out",
+      "image": "assets/cards/watch/hale-corum.svg",
+      "imageAlt": "A helmed sergeant marching with a cold blue lantern, one hand rising in a salute.",
+      "back": {
+        "role": "Leader of the missing patrol; dead, still on duty, waiting to be relieved.",
+        "location": "At the head of the round (scene-ridge) and the muster (scene-muster).",
+        "stats": "As Cold Watchman (AC 12, HP 22) but never attacks first; stands down on a lawful order.",
+        "dialogue": [
+          "\u201cThe watch stands.\u201d",
+          "\u201cRelief the watch? \u2026 Aye. Say it proper.\u201d"
+        ],
+        "rules": [
+          "Salutes rank; obeys a lawful relief order (seal, countersign, or check-relief-order).",
+          "Holds Wynn's place at the rear so the boy is drafted last.",
+          "If ordered home, repeats the order down the line and the dead lie down."
+        ],
+        "dmNotes": [
+          "Play him as gentle under the iron, not a monster.",
+          "He is the cleanest route to a no-fight resolution."
+        ]
+      }
+    },
+    {
+      "id": "card-wynn-ashford",
+      "type": "npc",
+      "title": "Corporal Wynn Ashford",
+      "front": "The youngest watchman at the rear, warm-gold lantern in hand, breath fogging the cold air.",
+      "frontLabel": "NPC · Save him",
+      "image": "assets/cards/watch/wynn-ashford.svg",
+      "imageAlt": "A young watchman carrying a warm golden lantern, his breath fogging, half a step out of step with the march.",
+      "back": {
+        "role": "The one watchman still alive, sleepwalking the round.",
+        "location": "Rearmost in the column (scene-ridge); pulled out before the round is settled.",
+        "stats": "Commoner/guard: AC 14, HP 11, exhausted. Cannot fight until woken.",
+        "dialogue": [
+          "\u201cIs it \u2026 is it nearly dawn?\u201d",
+          "(his own name, said back to him, makes him surface)"
+        ],
+        "rules": [
+          "His warm lantern, fresh tracks, and own name mark him as living (clue-one-living / puzzle-living-lantern).",
+          "Pull him from the line before the round settles to save him.",
+          "If never found, he calls his own name once near dawn \u2014 one last chance."
+        ],
+        "dmNotes": [
+          "He dies at dawn if not pulled out first.",
+          "Saved, he is the survivor who carries the tale to Hearthford."
+        ]
+      }
+    },
+    {
+      "id": "card-lantern-warden",
+      "type": "creature",
+      "title": "The Lantern-Warden",
+      "front": "A tall sentinel of iron and cold light, a re-carving tally-stick in its fist, keeping the count at six.",
+      "frontLabel": "Creature · CR 3 (700 XP)",
+      "image": "assets/cards/watch/lantern-warden.svg",
+      "imageAlt": "A towering iron sentinel wreathed in cold blue light, holding a lantern and a notched tally-stick.",
+      "back": {
+        "role": "The old sealed sentinel that keeps the watch at six; not cruel, only accounting.",
+        "location": "The Gallows Cairn, guarding its tally (scene-muster).",
+        "stats": "AC 13, HP 52. Warden's Lantern +5, 2d8 cold-radiant; hit target saves or is marked as next post.",
+        "dialogue": [
+          "\u201cThe count is six.\u201d",
+          "\u201cPay the watch its due \u2014 in order, in iron, or in one who will stand.\u201d"
+        ],
+        "rules": [
+          "Keeper of the Tally: while the tally-stick stands (AC 15, 20 hp), downed watchmen rise next turn.",
+          "Offers trades, never threats; accepts a relief order, a broken tally, or a volunteer.",
+          "Cutting the tally frees the dead \u2014 but weakens the ridge seal."
+        ],
+        "dmNotes": [
+          "It would rather be relieved than keep drafting the living.",
+          "Ends the fight the moment the account is settled."
+        ]
+      }
+    },
+    {
+      "id": "card-cold-watchman",
+      "type": "creature",
+      "title": "Cold Watchman",
+      "front": "A spectral halberdier in watch grey, faceless but for two points of pale light, a cold lantern at his hip.",
+      "frontLabel": "Creature · CR 1 (200 XP) · ×5",
+      "image": "assets/cards/watch/cold-watchman.svg",
+      "imageAlt": "A translucent watchman with a halberd and a cold lantern, two pale lights where his eyes should be.",
+      "back": {
+        "role": "One of the five dead watchmen, bound to the round.",
+        "location": "The column on the ridge and the line at the muster.",
+        "stats": "AC 12, HP 22. Chill Halberd +4, 2d6 cold; a target dropped this way is marked for the sixth post, not killed.",
+        "dialogue": [
+          "\u201cThe watch stands.\u201d"
+        ],
+        "rules": [
+          "Incorporeal drift; sunlight sensitivity at dawn.",
+          "Bound Duty: stops fighting instantly if the watch is relieved or the tally breaks.",
+          "Holds the line; never pursues past the cairn or finishes the fallen."
+        ],
+        "dmNotes": [
+          "Five of these march; one bearer (Wynn) is not among them \u2014 he is alive.",
+          "Neutralizing without a kill still awards the XP."
+        ]
+      }
+    },
+    {
+      "id": "card-riddick-vane",
+      "type": "npc",
+      "title": "Riddick Vane",
+      "front": "A twitchy ridge trapper by a cold firepit, already talking, pointing uphill with his chin.",
+      "frontLabel": "NPC · Red herring",
+      "image": "assets/cards/watch/riddick-vane.svg",
+      "imageAlt": "A wiry trapper in a fur-trimmed coat gesturing uphill, ridge hills behind him at dusk.",
+      "back": {
+        "role": "Ridge trapper; source of the false desertion/bandit theory.",
+        "location": "Trapline camp on the lower ridge path (scene-trapper).",
+        "stats": "Commoner: AC 11, HP 8. Not a fighter; will not follow up the ridge.",
+        "dialogue": [
+          "\u201cBandits. Or your watch turned bandit and lit out.\u201d",
+          "\u201c\u2026 Alright. I only saw the lights turn. I wrote the note myself.\u201d"
+        ],
+        "rules": [
+          "His cache is years rotted; the bloody cloak is deer; the note is his hand, not Corum's (clue-desertion-false).",
+          "check-herring or a kind press breaks the story.",
+          "Fail-forward: he points to where the lanterns turn \u2014 the Gallows Cairn."
+        ],
+        "dmNotes": [
+          "Means no harm; do not make him a villain.",
+          "He is a time-sink, not a dead end."
+        ]
+      }
+    }
+  ]
+}

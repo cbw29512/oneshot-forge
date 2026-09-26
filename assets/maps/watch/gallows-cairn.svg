@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 480">
+<defs>
+<pattern id="grid-cairn" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 L0 0 0 40" fill="none" stroke="#2b241b33" stroke-width="1.5"/></pattern>
+<linearGradient id="dawn" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e7dcc3"/><stop offset="1" stop-color="#f6d99a"/></linearGradient>
+<radialGradient id="cold-c" cx="0.5" cy="0.5" r="0.5"><stop stop-color="#dcf0ff"/><stop offset="1" stop-color="#4a7fb5"/></radialGradient>
+</defs>
+<rect width="440" height="480" fill="url(#dawn)"/>
+<rect x="20" y="40" width="360" height="360" fill="#cdbe9c"/>
+<rect x="300" y="40" width="80" height="360" fill="#f4cf82" opacity="0.5"/>
+<text x="345" y="230" font-family="Georgia,serif" font-size="13" fill="#8a5a1e" text-anchor="middle" transform="rotate(90 345 230)">brightening east</text>
+<rect x="20" y="40" width="360" height="360" fill="url(#grid-cairn)"/>
+<rect x="20" y="40" width="360" height="360" fill="none" stroke="#2b241b" stroke-width="3"/>
+<circle cx="200" cy="210" r="46" fill="#9a8a67" stroke="#2b241b" stroke-width="3"/>
+<circle cx="188" cy="200" r="13" fill="#7d715420"/><circle cx="214" cy="206" r="11" fill="#7d715420"/><circle cx="200" cy="226" r="12" fill="#7d715420"/>
+<text x="200" y="214" font-family="Georgia,serif" font-size="13" fill="#2b241b" text-anchor="middle">cairn</text>
+<line x1="95" y1="150" x2="110" y2="95" stroke="#5b4a30" stroke-width="7"/>
+<rect x="86" y="80" width="26" height="34" rx="4" fill="url(#cold-c)" stroke="#2b241b" stroke-width="2"/>
+<line x1="120" y1="150" x2="126" y2="100" stroke="#8a6a2e" stroke-width="4"/>
+<text x="150" y="120" font-family="Georgia,serif" font-size="12" fill="#2b241b">post + tally</text>
+<g fill="url(#cold-c)" stroke="#2b241b" stroke-width="2">
+<circle cx="80" cy="350" r="12"/><circle cx="130" cy="352" r="12"/><circle cx="180" cy="350" r="12"/><circle cx="230" cy="352" r="12"/><circle cx="280" cy="350" r="12"/>
+</g>
+<text x="200" y="388" font-family="Georgia,serif" font-size="13" fill="#2b241b" text-anchor="middle">the company forms, facing downhill</text>
+<path d="M180 405 L200 440 L220 405" fill="none" stroke="#5b4a30" stroke-width="4"/>
+<text x="60" y="430" font-family="Georgia,serif" font-size="15" fill="#2b241b">S: descent to Hearthford</text>
+<text x="200" y="26" font-family="Georgia,serif" font-size="17" fill="#2b241b" text-anchor="middle" font-weight="bold">The Gallows Cairn - 1 square = 5 ft</text>
+</svg>
