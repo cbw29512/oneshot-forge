@@ -29,14 +29,13 @@ for (const card of cards) {
 for (const required of ["card-baby-owlbear","card-father-owlbear","card-mother-owlbear","card-sella","card-mara","card-torren","card-elmorrow"]) {
   if (!ids.has(required)) errors.push("missing required Owlbear Egg card " + required);
 }
+const renderer = fs.readFileSync("cards.js", "utf8");
+for (const required of ["mirrorFour", "print-fronts", "print-backs", "DM notes", "Dialogue / voice"]) {
+  if (!renderer.includes(required)) errors.push("card renderer missing " + required);
+}
 if (errors.length) {
   console.error("Card validation failed:");
   errors.forEach(error => console.error(" -", error));
   process.exit(1);
 }
 console.log("Adventure cards OK: " + cards.length + " cards in " + adventure.metadata.title);
-
-const renderer = fs.readFileSync("cards.js", "utf8");
-for (const required of ["mirrorFour", "print-fronts", "print-backs", "DM notes", "Dialogue / voice"]) {
-  if (!renderer.includes(required)) errors.push("card renderer missing " + required);
-}
