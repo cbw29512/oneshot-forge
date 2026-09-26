@@ -636,3 +636,28 @@ body.run { background: var(--bg) }
 .play-maps { margin-top: 0 }
 .refs { margin-top: 1rem }
 .refs > summary { font-weight: 700 }
+
+.run-sequence {
+  margin: 0 0 1rem;
+  padding: .9rem 1rem;
+  background: #fff8e9;
+  border: 2px solid #8c6a32;
+  border-radius: 8px;
+}
+.run-sequence > .box-label { color: #6b4d1f; margin-bottom: .55rem; }
+.run-sequence ol { margin: 0; padding-left: 1.55rem; display: grid; gap: .5rem; }
+.run-step { padding: .42rem .5rem; border-radius: 6px; }
+.run-step label { display: grid; grid-template-columns: auto 1fr; gap: .55rem; align-items: start; cursor: pointer; }
+.run-step input { width: 1.05rem; height: 1.05rem; margin-top: .16rem; accent-color: #7d351b; }
+.run-step.done { background: #e8eddc; }
+.run-step.done span { color: #4f5941; }
+.advance-when {
+  margin-top: .7rem;
+  padding: .55rem .65rem;
+  background: #e7d2a4;
+  border-left: 4px solid #7d351b;
+}
+.next-choice { text-align: left; display: grid; gap: .12rem; flex: 1 1 220px; }
+.next-choice small { display: block; color: inherit; opacity: .78; font-weight: 500; line-height: 1.3; }
+.ending-option { margin: .45rem 0; padding: .6rem .7rem; border: 1px solid #c4b48a; background: #f7ecd0; border-radius: 6px; }
+.ending-option p { margin-bottom: 0; }
