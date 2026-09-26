@@ -92,3 +92,7 @@ Any preview field may be locked before reroll:
 - random encounter 2
 
 Locked values are part of the seed input contract and must survive every reroll until unlocked.
+
+## Presentation gate
+
+After ForgeBones compile and before release, the presentation layer must satisfy `docs/PRESENTATION_STANDARD.md`. AI flesh is expected to supply table-ready dialogue, sensory descriptions, read-aloud, and transitions without altering authoritative bones. Generated pregens must satisfy `docs/PREGEN_PRINT_STANDARD.md` before they may be included in a released one-shot.

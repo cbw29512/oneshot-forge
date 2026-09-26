@@ -21,3 +21,9 @@ See `docs/ONESHOT_RECIPE.md` for the session shape (five rooms, trap, puzzle, ta
 
 ## Forge Farm note
 For generated adventures, `docs/FORGE_CONSTITUTION.md` is authoritative. This quality bar remains mandatory, but it must not be used to collapse the farm back into a hand-authored-only product.
+
+## Locked production standards
+
+- Pregens must satisfy `docs/PREGEN_PRINT_STANDARD.md`.
+- Read-aloud, NPC/monster cards, location descriptions, and scene transitions must satisfy `docs/PRESENTATION_STANDARD.md`.
+- These are release gates, not optional style guidance.

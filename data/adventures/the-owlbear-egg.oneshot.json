@@ -128,7 +128,19 @@
           "when": "The party asks what happens if they feed their food to the father."
         }
       ],
-      "questFunction": "Keeps the scene moving and forces the final choice without endorsing one."
+      "questFunction": "Keeps the scene moving and forces the final choice without endorsing one.",
+      "description": "A lean, sleepless woman in a patched wool coat, with ink on her fingers and a ration ledger tucked under one arm.",
+      "tableDialogue": [
+        "“If there were a good answer, we'd have found it before you got here.”",
+        "“Tell me what this choice costs tomorrow, not what it lets us feel tonight.”",
+        "“Choose it, then own it. That's all I can ask.”"
+      ],
+      "reactions": {
+        "agreement": "Nods once and immediately asks who is carrying out the decision.",
+        "refusal": "Does not argue; asks what alternative keeps the village alive.",
+        "accusation": "Meets it without flinching and opens the ration ledger.",
+        "danger": "Moves civilians first and gives short, practical orders."
+      }
     },
     {
       "id": "npc-torren-vale",
@@ -175,7 +187,19 @@
           "when": "Anyone asks directly about the scratch or succeeds on Insight DC 10."
         }
       ],
-      "questFunction": "Embodies the raise-it option and supplies the theft reveal."
+      "questFunction": "Embodies the raise-it option and supplies the theft reveal.",
+      "description": "A soot-stained hunter with a bandaged claw wound across his face, cut rope at his belt, and hands that will not stop shaking.",
+      "tableDialogue": [
+        "“I thought it was food until I felt it move.”",
+        "“I stole it. I know what that makes me.”",
+        "“If we crack it now, then all I brought home was another corpse.”"
+      ],
+      "reactions": {
+        "agreement": "Relief breaks through the shame; he volunteers to guard or carry the egg.",
+        "refusal": "Argues once, then goes quiet and stares at the shell.",
+        "accusation": "Touches the scratch and admits the theft if pressed.",
+        "danger": "Freezes for a beat, then tries to pull people away from the owlbear."
+      }
     },
     {
       "id": "npc-mara-dell",
@@ -216,7 +240,19 @@
           "when": "Anyone asks what the meal actually buys."
         }
       ],
-      "questFunction": "Embodies the eat-it option without being cruel."
+      "questFunction": "Embodies the eat-it option without being cruel.",
+      "description": "A broad-shouldered baker in a flour-white apron, with oven burns on both forearms and a cleaver resting flat beside the dough board.",
+      "tableDialogue": [
+        "“You can't feed a village with ideals.”",
+        "“One proper meal. Tomorrow we're hungry again. I know that.”",
+        "“Warm shell or not, I've got children chewing bark.”"
+      ],
+      "reactions": {
+        "agreement": "Immediately starts planning portions, broth, and who eats first.",
+        "refusal": "Accepts it with a hard look but demands a real replacement plan.",
+        "accusation": "Does not defend herself morally; points toward the empty bins.",
+        "danger": "Gets children and noncombatants into the bakehouse or out the rear lane."
+      }
     },
     {
       "id": "npc-elmorrow-reed",
@@ -271,14 +307,26 @@
           "when": "The strongbox contract or Moonpetal crate stamp is found."
         }
       ],
-      "questFunction": "Presents the apparently noble return-it option while secretly turning the owlbear into merchandise."
+      "questFunction": "Presents the apparently noble return-it option while secretly turning the owlbear into merchandise.",
+      "description": "A clean-bearded traveler in a moss-colored cloak, carrying a polished staff and speaking with the calm patience of someone rehearsing a role.",
+      "tableDialogue": [
+        "“The kindest thing is to return it to the wild.”",
+        "“Give it to me. I know where creatures like this belong.”",
+        "When exposed: “A cage is safer than a grave.”"
+      ],
+      "reactions": {
+        "agreement": "Moves quickly to take custody and get the wagon moving.",
+        "refusal": "Applies gentle pressure, calling delay dangerous and selfish.",
+        "accusation": "Deflects with nature language until hard evidence appears.",
+        "danger": "Protects himself and the wagon first; flees rather than fighting to the death."
+      }
     }
   ],
   "locations": [
     {
       "id": "loc-road",
       "name": "Road to Briar Hollow",
-      "description": "A hungry day's march from the nearest settlement, with scrub woods and a narrow bridge behind the party.",
+      "description": "A muddy two-rut road between thorn scrub and pine, exposed to cold wind and distant war sounds; Briar Hollow lies one hungry day east.",
       "connections": [
         "loc-square"
       ]
@@ -286,7 +334,7 @@
     {
       "id": "loc-square",
       "name": "Briar Hollow Square",
-      "description": "A poor village square beside a granary, bakehouse, stable, and small well.",
+      "description": "A roughly 60-foot village square boxed by a half-empty granary, low bakehouse, timber stable, well, and muddy lanes. Smoke and thin stew hang in the air; when danger starts, the stable wall and granary become obvious breakable terrain and the west/south lanes are the cleanest escape routes.",
       "connections": [
         "loc-bakehouse",
         "loc-elmorrow-wagon"
@@ -295,7 +343,7 @@
     {
       "id": "loc-bakehouse",
       "name": "Mara's Bakehouse",
-      "description": "The safest warm room in the village and the obvious place to cook or incubate the egg.",
+      "description": "A low, flour-dusted room warmed by a brick oven, crowded with worktables, sacks, blankets, hooks, and the smell of yeast. The egg dominates the central table; the rear door opens to a narrow lane while the front door faces the square.",
       "connections": [
         "loc-square"
       ]
@@ -303,7 +351,7 @@
     {
       "id": "loc-elmorrow-wagon",
       "name": "Elmorrow's Green Wagon",
-      "description": "A healer-looking wagon with a collapsible beast crate hidden beneath the tarp and a puzzle-locked strongbox.",
+      "description": "A polished green healer's wagon that smells of mint, leather, and bitter sedatives. Beneath the tarp are a collapsible iron beast crate, reinforced straps, a Moonpetal stamp, and a puzzle-locked strongbox; the driver's bench points toward the fastest road out of town.",
       "connections": [
         "loc-square"
       ]
@@ -311,7 +359,7 @@
     {
       "id": "loc-village-edge",
       "name": "Edge of Briar Hollow",
-      "description": "A low stone wall and open field between the village and the wooded ridge.",
+      "description": "A low stone wall and wet open field separating Briar Hollow from the dark ridge woods. The treeline begins 30–40 feet beyond the wall, giving the party clear sight lines, poor cover in the field, and two obvious retreat paths back toward the square.",
       "connections": [
         "loc-square"
       ]
@@ -328,7 +376,7 @@
       "flowStage": 1,
       "flowTotal": 6,
       "flowLabel": "Forced arrival",
-      "readAloud": "By midday, the last of your trail food feels painfully light in your packs. A weather-beaten sign points east: BRIAR HOLLOW — ONE DAY.\n\nThe road west is longer. The forest path north is unmarked. Whatever you choose, you will be choosing it hungry.",
+      "readAloud": "The road has narrowed to two muddy wheel-ruts between scrub pine and thorn, and the last crumbs in your packs smell more like leather than food. Ahead, a warped sign leans east beneath a circling crow: BRIAR HOLLOW — ONE DAY; west is longer, and the northern forest track disappears under black branches. Somewhere far off, axes or drums carry on the wind. Whatever road you choose, hunger is coming with you.",
       "gmNotes": [
         "The party has exactly one day of travel rations left between them for the purpose of this adventure.",
         "If they choose Briar Hollow, move on immediately.",
@@ -376,7 +424,7 @@
       "flowStage": 2,
       "flowTotal": 6,
       "flowLabel": "Egg reveal and debate",
-      "readAloud": "Briar Hollow does not look like a place with food to spare. The communal pot is thin enough to see the bottom, and the granary doors stand open on nearly empty bins.\n\nA shout rises at the south lane. Torren Vale, the village hunter, staggers into the square carrying an egg almost as large as his chest. A fresh claw mark runs from his temple to his jaw.\n\n“I found food,” he says, breathing hard.\n\nThe egg knocks once from the inside.",
+      "readAloud": "Briar Hollow smells of woodsmoke, damp wool, and a stew thin enough that you can see the bottom of the communal pot. The granary doors stand open on bins scraped nearly bare when Torren Vale staggers into the square with an egg almost as large as his chest and a fresh claw-mark from temple to jaw. “I found food,” he pants, while Mara the baker stares at the shell and Elmorrow Reed folds his moss-green cloak around himself like a priest at a funeral. The egg knocks once from the inside.",
       "gmNotes": [
         "Torren first says he found the egg. Anyone who asks about the scratch or succeeds on Insight DC 10 gets the truth: he stole it from an owlbear nest.",
         "Three positions: Mara says eat it. Torren says raise it. Elmorrow says let him return it to nature.",
@@ -440,7 +488,7 @@
       "flowStage": 3,
       "flowTotal": 6,
       "flowLabel": "Father owlbear attack",
-      "readAloud": "The argument ends with a roof beam exploding inward.\n\nA massive owlbear crashes through the side of the stable, feathers slick with mud and blood, ribs visible beneath a ragged hide. White foam ropes from one side of its beak. Two villagers snatch up boar spears and rush it. The first spear snaps. The owlbear swats one villager across the square and closes its beak around the second before anyone can shout a warning.\n\nThen it smells your food.",
+      "readAloud": "The argument ends when the stable wall bursts outward in a spray of splinters, straw, and frightened horses. A gaunt owlbear crashes into the square—mud-black feathers, ribs showing through its hide, foam stringing from its beak—and two villagers with boar spears rush it before anyone can stop them. One spear snaps; one villager hits the mud; the other disappears beneath beak and claws. Then the creature freezes, lifts its bloody head, and turns toward the smell of your remaining food.",
       "gmNotes": [
         "If the party does nothing, the father kills the spear villagers, smashes the granary and bakehouse, and destroys Briar Hollow. Take the village-destroyed branch.",
         "If the party throws its remaining rations, the father immediately stops attacking, devours them, and leaves. The party goes without food; the village cannot replace the rations.",
@@ -513,7 +561,7 @@
       "flowStage": 4,
       "flowTotal": 6,
       "flowLabel": "Fake druid reveal",
-      "readAloud": "As the village counts its wounded, Elmorrow is already hitching his green wagon.\n\n“We have seen what comes of keeping this creature here,” he says. “Give me the egg. I can return it before the mother comes.”\n\nUnder the wagon tarp, something heavy shifts with the metallic rattle of a cage.",
+      "readAloud": "Briar Hollow now smells of blood, wet feathers, smoke, and spilled grain, and the villagers move through the square in stunned silence. Elmorrow Reed is not helping the wounded; he is hitching his green wagon, where something beneath the tarp gives a heavy metallic rattle. “We have seen what comes of keeping this creature here,” he says, too smoothly. “Give me the egg. I can return it before the mother comes.”",
       "gmNotes": [
         "Point the party at the wagon. Do not require them to invent the investigation.",
         "The strongbox puzzle is player-facing. Correct order: EGG → CHAIN → TENT → COIN.",
@@ -576,7 +624,7 @@
       "flowStage": 5,
       "flowTotal": 6,
       "flowLabel": "Final egg choice",
-      "readAloud": "The egg sits in the middle of Mara's worktable, warm enough to fog the cold air. A new crack has appeared near the broad end.\n\nMara folds her arms. Torren touches the bandage across his face. Sella says nothing.\n\nOutside, somewhere beyond the dark ridge, an owlbear answers the night.",
+      "readAloud": "Mara's bakehouse is the warmest room in Briar Hollow, but nobody seems comfortable inside it. The egg rests on the flour-dusted worktable, warm enough to fog the cold air, its shell webbed with fresh cracks while Mara stands beside a cleaver, Torren touches the bandage on his face, and Sella watches all of you instead of the egg. From beyond the shuttered windows comes a deep owlbear call from the ridge. The shell moves again.",
       "gmNotes": [
         "VISIBLE CLOCK 4/4: the egg is hatching now. The party must choose what to do with it before dawn resolves the choice.",
         "There are three core choices now. Do not add another branch unless the players genuinely invent one.",
@@ -649,11 +697,11 @@
       "flowStage": 6,
       "flowTotal": 6,
       "flowLabel": "Ending — eat",
-      "readAloud": "For the first time in days, Briar Hollow smells like real food. The egg feeds every table in the village, and even your own empty stomachs stop aching.\n\nAt dawn, every dog in Briar Hollow begins barking at once.\n\nThe mother owlbear steps out of the mist at the edge of the square. Then she sees the shell fragments.",
+      "readAloud": "For the first time in days, Briar Hollow smells like real food: hot fat, browned bread, herbs, and steam rising from bowls held in shaking hands. The meal fills every stomach in the square, but at dawn every dog begins barking toward the ridge at once. A huge mother owlbear steps from the mist, scarred shoulders rolling beneath wet feathers, and the square goes silent when she lowers her head to the pile of broken shell. Her scream rattles shutters.",
       "gmNotes": [
         "Run the mother in Maternal Rage from the start.",
         "If the father was killed, describe her rage as even more personal, but do not stack a second mechanical rage.",
-        "Maternal Rage: advantage on Strength checks/saves, +2 Strength-melee damage, resistance to bludgeoning/piercing/slashing for 1 minute.",
+        "Maternal Rage: advantage on Strength checks/saves, +2 Strength-based melee damage, and resistance to all damage except psychic for 1 minute.",
         "This is the cost of the eat branch: they got the food, and now they must survive the mother."
       ],
       "runSteps": [
@@ -696,7 +744,7 @@
       "flowStage": 6,
       "flowTotal": 6,
       "flowLabel": "Ending — keep",
-      "readAloud": "Sometime after midnight, the egg splits with a wet crack.\n\nA beak pushes through first, then two oversized paws. The hatchling tumbles onto the blankets, shakes shell from its feathers, and stares at everyone in the room.\n\nThen it chooses.\n\nA moment later, a deep booming cry rolls down from the ridge.",
+      "readAloud": "After midnight the egg splits with a wet crack, spilling shell and warm fluid across Mara's blankets. A beak pushes free, then two oversized paws, and the hatchling tumbles into the room, blinking through damp feathers before fixing on one person and stumbling toward them with a hungry chirrup. Its first clumsy step is answered by a booming call from the ridge. The hatchling goes still and answers.",
       "gmNotes": [
         "Determine the imprint first. The hatchling bonds behaviorally to a present PC/NPC; it is not magical domination.",
         "The mother does NOT disappear from this ending. She comes for her surviving offspring before dawn.",
@@ -752,7 +800,7 @@
       "flowStage": 6,
       "flowTotal": 6,
       "flowLabel": "Ending — return",
-      "readAloud": "You leave the egg where the field meets the ridge woods and back away toward the village wall.\n\nThe mother appears without a sound. She circles the egg once, touches her beak to the shell, and pulls it close beneath one massive forelimb.\n\nThe shell cracks.\n\nA smaller head pushes free.",
+      "readAloud": "The field beyond Briar Hollow is silver with dew, and the low stone wall behind you feels much too small when the mother appears between the ridge trees. She circles the egg once, smelling shell, grass, and every footprint around it before drawing it beneath one massive forelimb. The shell cracks open under her chest and a damp, oversized head pushes into the cold air. From the ridge, another owlbear call answers only if the father still lives.",
       "gmNotes": [
         "If the father survived: this is the cleanest return. The mother gathers the hatchling, the father answers from the ridge, and the family withdraws. No combat.",
         "If the father was killed: the mother recognizes his scent on the party/village, enters Maternal Rage, and attacks after securing the hatchling behind her.",
@@ -805,7 +853,7 @@
       "flowStage": 6,
       "flowTotal": 6,
       "flowLabel": "Failure ending",
-      "readAloud": "Nobody stops it.\n\nThe owlbear tears through the square, then the granary, then the bakehouse. The villagers who can run scatter into the fields. By the time the creature finally disappears into the smoke, Briar Hollow is no longer a village — only burning roofs, broken grain bins, and bodies in the mud.",
+      "readAloud": "Nobody stops it. The father tears through the square, then the granary, then Mara's bakehouse, while smoke, flour, splintered wood, and frightened screams turn Briar Hollow into a choking blur. Those who can run scatter into the fields; those who cannot are left behind. When the owlbear finally disappears into the dark, there is no village left to save—only burning roofs, broken grain bins, and bodies in the mud.",
       "gmNotes": [
         "This is a real failure ending. Do not quietly reset the village so the egg debate can continue.",
         "Survivors blame Torren for the theft and the party for standing aside.",
@@ -1552,7 +1600,7 @@
       "id": "card-baby-owlbear",
       "type": "creature",
       "title": "Baby Owlbear",
-      "front": "A damp owlbear hatchling about half the mass and fighting power of a healthy adult, with oversized paws and enormous yellow eyes.",
+      "front": "A damp hatchling with oversized paws, soft brown feathers, huge yellow eyes, and the unsteady balance of something born hungry and dangerous.",
       "back": {
         "role": "Ending companion / living consequence",
         "location": "Mara’s Bakehouse at hatching; afterward wherever its bonded PC goes.",
@@ -1581,7 +1629,7 @@
       "id": "card-father-owlbear",
       "type": "creature",
       "title": "Ragged Father Owlbear",
-      "front": "A gaunt adult owlbear with exposed ribs, ragged feathers, shaking limbs, and foam around its beak.",
+      "front": "A gaunt adult owlbear with ribs showing through mud-black feathers, trembling legs, foam at the beak, and eyes that keep snapping toward food.",
       "back": {
         "role": "Main feed-or-fight encounter; a normal adult owlbear crippled by starvation and exhaustion",
         "location": "Briar Hollow Square, smashing through the smokehouse toward the food table.",
@@ -1609,7 +1657,7 @@
       "id": "card-mother-owlbear",
       "type": "creature",
       "title": "Enraged Mother Owlbear",
-      "front": "A scarred, massive mother owlbear looming between the ridge trees, grief and protective rage overriding caution.",
+      "front": "A scarred, massive mother owlbear emerging from the ridge mist, shoulders rolling beneath wet feathers as grief hardens into protective rage.",
       "back": {
         "role": "Overwhelming parental pressure / enraged family consequence",
         "location": "Ridge woods outside Briar Hollow; may approach only if the egg/hatchling is endangered or returned.",
@@ -1637,7 +1685,7 @@
       "id": "card-sella",
       "type": "npc",
       "title": "Mayor Sella Vane",
-      "front": "A sleepless mayor gripping a ration ledger hard enough to bend its cover.",
+      "front": "A lean, sleepless mayor with ink-stained fingers, a bent ration ledger, and the stare of someone counting tomorrow's dead before today's argument is over.",
       "back": {
         "role": "Quest giver / honest survival authority",
         "location": "Village Square, Granary, and final egg debate.",
@@ -1665,7 +1713,7 @@
       "id": "card-mara",
       "type": "npc",
       "title": "Mara Dell",
-      "front": "A flour-dusted baker with a cleaver on the table and hungry children on her mind.",
+      "front": "A flour-dusted baker with oven burns on both forearms, a cleaver resting flat on the table, and hungry children never far from her thoughts.",
       "back": {
         "role": "Strongest argument for cooking the egg",
         "location": "Bakehouse, Granary, and final debate.",
@@ -1693,7 +1741,7 @@
       "id": "card-torren",
       "type": "npc",
       "title": "Torren Vale",
-      "front": "A soot-stained woodsman with cut rope, stained blankets, and exactly the wrong-looking knife.",
+      "front": "A soot-stained hunter with a fresh claw wound across his face, cut rope at his belt, and hands that shake whenever the egg moves.",
       "back": {
         "role": "Hunter who stole the egg / advocates raising it",
         "location": "Village Square and final egg debate.",
@@ -1721,7 +1769,7 @@
       "id": "card-elmorrow",
       "type": "npc",
       "title": "Elmorrow Reed",
-      "front": "A moss-cloaked 'druid' with polished nature sayings and a green wagon parked too close to the egg.",
+      "front": "A clean-bearded man in a moss-green cloak with a polished staff, practiced compassion, and a healer's wagon that smells faintly of bitter sedatives.",
       "back": {
         "role": "Red-herring 'return it' advocate / hidden circus broker",
         "location": "Village Square, then his green wagon after the father attack.",
