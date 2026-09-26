@@ -1432,3 +1432,89 @@ body.run { background: var(--bg) }
   .pr-spell-title span { font-size:6.2pt; line-height:1.12; }
   .pr-spell p { font-size:6.8pt; line-height:1.16; }
 }
+
+/* 2026-09-26 player-usability print pass */
+@media print {
+  .pr-main-page .pr-body {
+    grid-template-columns: 1.82in minmax(0,1fr) 1.98in;
+    gap: .12in;
+    min-height: 8.55in;
+  }
+  .pr-hp-grid {
+    display:grid;
+    grid-template-columns: 1.35fr 1fr 1fr 1.2fr;
+    gap:.05in;
+  }
+  .pr-writebox {
+    border:1.2pt solid #777;
+    min-height:.78in;
+    padding:.05in;
+    background:#fff !important;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+  }
+  .pr-writebox small,
+  .pr-condition-box small {
+    font-size:6.2pt;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:#4a4038;
+  }
+  .pr-current-hp {
+    min-height:1.02in;
+  }
+  .pr-current-hp b,
+  .pr-temp-hp b {
+    width:100%;
+    flex:1;
+    border-bottom:1pt solid #aaa;
+  }
+  .pr-hit-dice b {
+    font:700 13pt/1 Georgia,serif;
+    margin:.08in 0 .06in;
+  }
+  .pr-hit-dice span,
+  .pr-death span {
+    font-size:7pt;
+    line-height:1.4;
+    white-space:nowrap;
+  }
+  .pr-condition-box {
+    margin-top:.06in;
+    border:1pt solid #aaa;
+    min-height:.62in;
+    padding:.05in;
+    background:#fff !important;
+  }
+  .pr-condition-box > div {
+    height:.22in;
+    border-bottom:.7pt solid #bbb;
+  }
+  .pr-condition-box > div:last-child { border-bottom:0; }
+
+  .pr-quickturn {
+    margin:.02in 0 0 .18in;
+    padding:0;
+    font-size:7.1pt;
+    line-height:1.18;
+  }
+  .pr-quickturn li {
+    margin:0 0 .025in;
+    padding-left:.02in;
+  }
+
+  .pr-resource em {
+    font-size:7.2pt;
+    letter-spacing:.09em;
+  }
+
+  .pr-spell-group h3::after {
+    content:" — quick reference";
+    font-weight:500;
+    letter-spacing:0;
+    text-transform:none;
+  }
+}

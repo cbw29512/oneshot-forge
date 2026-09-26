@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260926-sheet4">
+  <link rel="stylesheet" href="styles.css?v=20260926-sheet5">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -257,6 +257,26 @@
           '<b>' + k + '</b><strong>' + signed(s.bonus) + '</strong></div>';
       }).join("");
     }
+    function quickTurn(pc) {
+      const cls = characterClass(pc).toLowerCase();
+      const steps = [];
+      if (cls.includes("fighter")) steps.push("Move into position.", "Attack with your best weapon.", "Use Action Surge when a dangerous target must go down.", "Use Second Wind when badly hurt.");
+      else if (cls.includes("rogue")) steps.push("Get Sneak Attack by attacking from hiding or beside an ally.", "Attack once with rapier/shortbow.", "Use Cunning Action to Hide, Dash, or Disengage.", "Reposition before enemies pin you down.");
+      else if (cls.includes("cleric")) steps.push("Cast Bless early if several allies will attack or save.", "Use Spiritual Weapon for bonus-action damage.", "Use Sacred Flame or weapon attacks while concentrating.", "Keep Healing Word / Preserve Life for emergencies.");
+      else if (cls.includes("wizard")) steps.push("Use control/AoE when enemies cluster.", "Use Fire Bolt when conserving slots.", "Keep Shield available as your reaction.", "Use Misty Step if trapped or threatened.");
+      else if (cls.includes("ranger")) steps.push("Mark the priority target with Hunter’s Mark.", "Attack with longbow from range.", "Add Colossus Slayer once per turn when the target is wounded.", "Reposition to preserve range and cover.");
+      else if (cls.includes("paladin")) steps.push("Close to melee and attack with longsword.", "Use Divine Smite on an important hit.", "Use Lay on Hands for reliable emergency healing.", "Use Sacred Weapon before a longer fight.");
+      else steps.push("Choose your strongest legal action.", "Use bonus actions and reactions when their triggers appear.", "Track limited resources.", "Reposition before ending your turn.");
+      return '<ol class="pr-quickturn">' + steps.map(s => '<li>' + esc(s) + '</li>').join("") + '</ol>';
+    }
+    function spellRole(spell) {
+      const text = ((spell.name || "") + " " + (spell.effect || "")).toLowerCase();
+      if (/heal|restore|hit points|stabil/.test(text)) return "Healing";
+      if (/armor class|\+5 ac|sanctuary|protection|resistan|immune|disadvantage to hit|shield/.test(text)) return "Defense";
+      if (/paraly|turned|control|disadvantage|teleport|mark|bless|advantage|concentration/.test(text) && !/damage|d6|d8|d10|d12/.test(text)) return "Control";
+      if (/damage|d6|d8|d10|d12|radiant|fire|force|thunder|piercing|slashing/.test(text)) return "Damage";
+      return "Utility";
+    }
     function printSpellPage(pc) {
       const list = pc.spellList || [];
       if (!list.length) return "";
@@ -264,7 +284,7 @@
       const slots = sc.slots || {};
       const groups = {};
       list.forEach(spell => {
-        const key = Number(spell.level) === 0 ? "Cantrips" : "Level " + spell.level;
+        const key = spellRole(spell);
         (groups[key] = groups[key] || []).push(spell);
       });
       const slotLine = Object.keys(slots).map(level => "L" + level + " × " + slots[level]).join(" · ");
@@ -281,8 +301,9 @@
         '<div class="pr-slotbar"><b>Spell slots</b> ' + esc(slotLine || "None") +
           (sc.prepareCount ? ' · <b>Prepared/Known</b> ' + esc(sc.prepareCount) : '') + '</div>' +
         '<div class="pr-spell-columns">' +
-          Object.entries(groups).map(([group, spells]) =>
-            '<section class="pr-spell-group"><h3>' + esc(group) + '</h3>' +
+          ["Damage","Control","Healing","Defense","Utility"].filter(group => groups[group]?.length).map(group => {
+            const spells = groups[group];
+            return '<section class="pr-spell-group"><h3>' + esc(group) + '</h3>' +
             spells.map(spell => {
               const effect = String(spell.effect || "");
               const conc = /concentration/i.test(effect) ? "Concentration" : "";
@@ -299,8 +320,8 @@
                 '<div class="pr-spell-title"><b>' + esc(spell.name) + '</b><span>' + esc(meta) + '</span></div>' +
                 '<p>' + esc(effect) + '</p></div>';
             }).join("") +
-            '</section>'
-          ).join("") +
+            '</section>';
+          }).join("") +
         '</div>' +
       '</article>';
     }
@@ -334,12 +355,13 @@
           '</aside>' +
           '<main class="pr-center">' +
             '<section class="pr-combat-track"><h3>Combat Tracker</h3>' +
-              '<div class="pr-track-grid">' +
-                '<span><small>Current HP</small><b>________</b></span>' +
-                '<span><small>Temp HP</small><b>________</b></span>' +
-                '<span><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b></span>' +
-                '<span><small>Death Saves</small><b>✓ □□□  ✕ □□□</b></span>' +
+              '<div class="pr-hp-grid">' +
+                '<div class="pr-writebox pr-current-hp"><small>Current HP</small><b></b></div>' +
+                '<div class="pr-writebox pr-temp-hp"><small>Temp HP</small><b></b></div>' +
+                '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: □ □ □ □</span></div>' +
+                '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
               '</div>' +
+              '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
               '<p class="pr-ac-note"><b>AC:</b> ' + esc(pc.ac) + (pc.acNotes ? ' — ' + esc(pc.acNotes) : '') + '</p>' +
             '</section>' +
             '<section><h3>Attacks & Combat Cantrips</h3>' + printAttackTable(pc.attackList) + '</section>' +
@@ -352,6 +374,7 @@
             (pc.reactions?.length ? '<section><h3>Reactions</h3>' + compactList(pc.reactions) + '</section>' : '') +
             '<section><h3>Limited-Use Resources</h3><div class="pr-resources">' + limitedUseRows(pc) + '</div></section>' +
             '<section><h3>Combat Defenses</h3><div class="pr-defenses">' + combatDefenseRows(pc) + '</div></section>' +
+            '<section><h3>Quick Turn</h3>' + quickTurn(pc) + '</section>' +
             '<section><h3>Features & Traits</h3><div class="pr-features">' + printFeatureRows(pc) + '</div></section>' +
           '</main>' +
           '<aside class="pr-right">' +

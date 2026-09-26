@@ -33,7 +33,13 @@ for (const required of [
   "resourceBoxes(uses)",
   '"Cantrip" : "L" + spell.level',
   '"Concentration"',
-  "durationMatch"
+  "durationMatch",
+  "pr-hp-grid",
+  "pr-current-hp",
+  "Conditions / Concentration / Combat Notes",
+  "quickTurn(pc)",
+  "spellRole(spell)",
+  "Damage","Control","Healing","Defense","Utility"
 ]) {
   if (!sheets.includes(required)) errors.push("sheets.html missing " + required);
 }
@@ -47,7 +53,11 @@ for (const required of [
   ".pr-page",
   ".pr-spell-page",
   ".pr-port",
-  "object-fit:cover"
+  "object-fit:cover",
+  ".pr-writebox",
+  "min-height:1.02in",
+  ".pr-condition-box",
+  ".pr-quickturn"
 ]) {
   if (!css.includes(required)) errors.push("print CSS missing " + required);
 }
