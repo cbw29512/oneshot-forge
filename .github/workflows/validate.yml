@@ -41,6 +41,8 @@ jobs:
         run: node scripts/validate-table-readiness.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Audit Owlbear clue delivery
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-owlbear-egg.oneshot.json
+      - name: Validate Owlbear printable cards
+        run: node scripts/validate-cards.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Certify active stage-card rendering
         run: node scripts/validate-runner-zero-prep.mjs
       - name: Validate quick-run reference
