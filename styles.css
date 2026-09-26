@@ -1707,3 +1707,228 @@ body.run { background: var(--bg) }
     line-height:1.2 !important;
   }
 }
+
+/* Fixed printable pregen composition: same geometry for every class. */
+@media print {
+  .pr-fixed-sheet {
+    display:flex !important;
+    flex-direction:column;
+  }
+  .pr-fixed-sheet .pr-head { flex:0 0 auto; }
+
+  .pr-fixed-grid {
+    flex:1 1 auto;
+    min-height:0;
+    display:grid;
+    grid-template-columns: 1.82in minmax(0,1fr) 2.02in;
+    grid-template-rows: 1.46in .94in 1.38in 1.18in 1.42in 1.95in;
+    grid-template-areas:
+      "abilities tracker side"
+      "saves attacks side"
+      "skills attacks character"
+      "skills actions character"
+      "skills resources features"
+      "skills resources features";
+    gap:.075in .11in;
+  }
+  .pr-zone {
+    min-width:0;
+    min-height:0;
+    overflow:hidden;
+    border:1pt solid #9b9186;
+    background:#fff !important;
+    padding:.045in;
+    break-inside:avoid;
+  }
+  .pr-zone h3 {
+    margin:-.045in -.045in .04in !important;
+    padding:.045in .055in !important;
+    border-bottom:1pt solid #8b8177;
+    background:#f0eadf !important;
+    font-size:7.9pt !important;
+    line-height:1 !important;
+  }
+  .pr-zone h4 {
+    margin:.025in 0 .02in;
+    font-size:7pt;
+    line-height:1.05;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:#5c2e1a;
+  }
+
+  .pr-zone-abilities { grid-area:abilities; }
+  .pr-zone-saves { grid-area:saves; }
+  .pr-zone-skills { grid-area:skills; display:flex; flex-direction:column; }
+  .pr-zone-tracker { grid-area:tracker; }
+  .pr-zone-attacks { grid-area:attacks; }
+  .pr-zone-actions { grid-area:actions; }
+  .pr-zone-resources { grid-area:resources; }
+  .pr-zone-side { grid-area:side; }
+  .pr-zone-character { grid-area:character; }
+  .pr-zone-features { grid-area:features; display:flex; flex-direction:column; }
+
+  .pr-zone-skills .pr-skill-list {
+    flex:1 1 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:0;
+  }
+  .pr-zone-skills .sk {
+    flex:1 1 auto;
+    min-height:0;
+    display:grid;
+    align-items:center;
+    grid-template-columns:.15in .28in 1fr;
+    gap:.02in;
+    font-size:7.05pt !important;
+    line-height:1 !important;
+    padding:0 !important;
+  }
+  .pr-zone-skills .sk b { font-size:7.1pt !important; }
+
+  .pr-zone-abilities .pr-abilities {
+    height:calc(100% - .02in);
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(3,1fr);
+  }
+  .pr-zone-abilities .ab {
+    min-height:0 !important;
+    height:auto;
+    display:grid;
+    grid-template-columns:1fr;
+    align-content:center;
+    padding:.015in !important;
+  }
+  .pr-zone-abilities .ab span { font-size:5.8pt !important; }
+  .pr-zone-abilities .ab strong { font-size:13.5pt !important; }
+  .pr-zone-abilities .ab em { font-size:7.5pt !important; }
+
+  .pr-zone-saves .pr-saves {
+    height:calc(100% - .02in);
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(3,1fr);
+    gap:.02in;
+  }
+  .pr-zone-saves .pr-save {
+    min-height:0 !important;
+    padding:.01in .025in !important;
+    font-size:7.1pt !important;
+  }
+
+  .pr-zone-tracker .pr-hp-grid {
+    grid-template-columns: 1.35fr .9fr .95fr 1.15fr;
+    gap:.035in;
+  }
+  .pr-zone-tracker .pr-writebox {
+    min-height:.64in !important;
+    padding:.025in !important;
+  }
+  .pr-zone-tracker .pr-current-hp { min-height:.76in !important; }
+  .pr-zone-tracker .pr-condition-box {
+    min-height:.38in !important;
+    margin-top:.035in !important;
+    padding:.025in !important;
+  }
+  .pr-zone-tracker .pr-condition-box > div { height:.12in !important; }
+  .pr-zone-tracker .pr-ac-note {
+    margin:.02in 0 0 !important;
+    font-size:6.2pt !important;
+  }
+
+  .pr-zone-attacks .pr-atk {
+    width:100%;
+    font-size:8.3pt !important;
+    line-height:1.16 !important;
+  }
+  .pr-zone-attacks .pr-atk th {
+    font-size:6.8pt !important;
+    padding:.03in !important;
+  }
+  .pr-zone-attacks .pr-atk td {
+    padding:.055in .035in !important;
+  }
+  .pr-zone-attacks .pr-atk td:first-child b {
+    font-size:9pt !important;
+  }
+  .pr-zone-attacks .pr-atk .tiny {
+    font-size:6.8pt !important;
+    line-height:1.12 !important;
+  }
+  .pr-inline-casting {
+    margin-top:.04in;
+  }
+  .pr-inline-casting span {
+    min-height:.38in;
+    padding:.025in !important;
+  }
+
+  .pr-action-split {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:.07in;
+  }
+  .pr-zone-actions .pr-line {
+    font-size:6.8pt !important;
+    line-height:1.12 !important;
+    padding:.018in 0 !important;
+  }
+  .pr-zone-actions .pr-quickturn {
+    font-size:6.8pt !important;
+    line-height:1.14 !important;
+    margin:.015in 0 0 .18in !important;
+  }
+  .pr-zone-actions .pr-quickturn li {
+    margin-bottom:.018in !important;
+  }
+
+  .pr-resource-columns {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:.08in;
+    height:calc(100% - .02in);
+    align-content:start;
+  }
+  .pr-zone-resources .pr-resource,
+  .pr-zone-resources .pr-defense {
+    font-size:6.65pt !important;
+    line-height:1.14 !important;
+    padding:.025in 0 !important;
+  }
+  .pr-zone-resources .pr-resource em { font-size:7.1pt !important; }
+
+  .pr-zone-side,
+  .pr-zone-character {
+    font-size:6.9pt !important;
+    line-height:1.18 !important;
+  }
+  .pr-zone-side p,
+  .pr-zone-character p {
+    margin:.026in 0 !important;
+  }
+
+  .pr-zone-features .pr-features {
+    flex:1 1 auto;
+    min-height:0;
+    columns:2;
+    column-gap:.08in;
+    column-fill:auto;
+  }
+  .pr-zone-features .pr-feature {
+    font-size:6.4pt !important;
+    line-height:1.13 !important;
+    padding:.022in 0 .03in !important;
+    break-inside:avoid;
+  }
+  .pr-zone-features .pr-feature b { font-size:6.7pt !important; }
+  .pr-zone-features .pr-feature span { font-size:6.1pt !important; }
+
+  .pr-fixed-sheet .pr-port {
+    width:1.5in !important;
+    height:1.5in !important;
+  }
+  .pr-fixed-sheet .pr-id h2 {
+    font-size:22.5pt !important;
+  }
+}
