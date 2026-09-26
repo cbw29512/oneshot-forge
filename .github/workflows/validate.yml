@@ -19,6 +19,7 @@ jobs:
       - name: Check browser JavaScript syntax
         run: |
           node --check app.js
+          node --check cards.js
           node --check generator.js
           node --check module.js
           node --check quickrun.js
