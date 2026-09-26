@@ -1932,3 +1932,45 @@ body.run { background: var(--bg) }
     font-size:22.5pt !important;
   }
 }
+
+@media print {
+  .pr-subid {
+    margin-top:.025in !important;
+    font-size:6.4pt !important;
+    color:#5a5148;
+  }
+  .pr-mini-stats {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:.035in;
+    margin-top:.035in;
+  }
+  .pr-mini-stats span {
+    min-height:.34in;
+    border:1pt solid #aaa;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:.025in .04in;
+    background:#faf7f1 !important;
+  }
+  .pr-mini-stats small {
+    font-size:5.7pt;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+  }
+  .pr-mini-stats b {
+    font:700 9pt/1 Georgia,serif;
+  }
+  .pr-standard-actions {
+    padding:.025in 0 .035in;
+    font-size:6.5pt;
+    line-height:1.15;
+    border-bottom:.5pt solid #ccc;
+  }
+  .pr-standard-actions b {
+    color:#5c2e1a;
+    margin-right:.035in;
+  }
+}
