@@ -28,11 +28,18 @@ Live: https://cbw29512.github.io/oneshot-forge/
   - Fix (owner to confirm): no drawn grid battle map. Overview map `asset` is null and there are 0 playMaps; the square fight gives dimensions (60×60 ft) + features as text but no rendered grid. Recipe wants a grid for every fight.
   - Note: the clock is a resource/famine clock ("~2.5 days of food" + ration board), not a visible ticking time clock. Acceptable, but flagging against QUALITY bar #2.
 
+## Forge direction (locked 2026-09-26)
+- Random generation builds deterministic adventure bones first.
+- Bones own facts, mechanics, scene order, clues, twists, DCs, outcomes, finale type, aftermath, and exactly two random encounters.
+- AI adds dialogue, sensory description, read-aloud, and connective prose only. AI may not mutate authoritative bones.
+- Preview fields will support independent reroll + lock behavior.
+- Curated authored adventures remain valid examples/products; the runner consumes the same normalized package regardless of origin.
+
 ## Next (in order)
-1. Owner to confirm the two Owlbear fixes above (CR/XP on card + difficulty label; grid battle map). Then apply.
-2. Author: Night 3 — The Watch That Did Not Come Back — one night only (Quiet Seals campaign)
-3. Auditor pass on Night 3 before Night 4
-4. Playwright CI when asked
+1. Compile ForgeBones into the normal Adventure Package schema so the new bones become authoritative for random adventures.
+2. Add per-field reroll + lock controls to Forge Lab.
+3. Expand compatibility-tagged scene pools.
+4. Repair/audit Night 3 before merging it.
 5. Checkout only after owner gives a payment account
 
 ## Do not
@@ -45,3 +52,5 @@ Live: https://cbw29512.github.io/oneshot-forge/
 ## Last session
 2026-09-26 — Auditor pass on The Owlbear Egg (findings above) + confirmed it is a standalone, not a Quiet Seals night. Fixed a storefront oversight: The Well That Would Not Dry is authored and CI-clean but was missing from `data/products.json` and the homepage; added it as a live free-preview card (now three playable nights). No new night authored. The Watch still waits.
 2026-09-20 — Product pass, not Night 3: Well cover, maps actually render (`src` vs `asset`), print module honors `?id=`, dusk/moonrise on the stage card, sticky Next/Back, Night 1/2 switcher. Author still waits for tomorrow for the Watch.
+
+2026-09-26 — Began Forge v2 foundation: deterministic ForgeBones schema/generator, explicit AI flesh immutability contract, 250-seed smoke coverage, and a Forge Lab bones preview / AI brief.
