@@ -2372,3 +2372,22 @@ body.run { background: var(--bg) }
     font-size:7.8pt !important;
   }
 }
+
+/* 2026-09-26 print contrast cleanup: skill proficiency is shape, never faded text. */
+@media print {
+  .pr-zone-skills .sk,
+  .pr-zone-skills .sk *,
+  .pr-zone-skills .sk.on,
+  .pr-zone-skills .sk:not(.on) {
+    color:#111 !important;
+    opacity:1 !important;
+  }
+  .pr-zone-skills .sk i {
+    color:#111 !important;
+    font-weight:700 !important;
+  }
+  .pr-zone-skills .sk b {
+    color:#111 !important;
+    font-weight:700 !important;
+  }
+}

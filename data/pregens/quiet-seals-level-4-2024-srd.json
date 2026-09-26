@@ -200,7 +200,7 @@
           "bonus": 5,
           "damage": "1d8+3",
           "type": "slashing",
-          "notes": "versatile 1d10+3; one attack (Extra Attack is fighter 5)"
+          "notes": "versatile 1d10+3; one attack"
         },
         {
           "name": "Javelin",
@@ -245,7 +245,7 @@
         {
           "name": "Improved Critical",
           "source": "Champion 3",
-          "text": "Weapons and Unarmed Strikes crit on 19\u201320."
+          "text": "Weapons and Unarmed Strikes crit on 19–20."
         },
         {
           "name": "Remarkable Athlete",
@@ -255,7 +255,7 @@
         {
           "name": "Savage Attacker",
           "source": "Soldier origin feat",
-          "text": "Once per turn when you hit with a weapon, you can reroll the weapon\u2019s damage dice and use either total."
+          "text": "Once per turn when you hit with a weapon, you can reroll the weapon’s damage dice and use either total."
         },
         {
           "name": "Tough",
@@ -291,7 +291,7 @@
           "qty": 3
         },
         {
-          "name": "Explorer\u2019s pack",
+          "name": "Explorer’s pack",
           "qty": 1
         }
       ],
@@ -299,7 +299,7 @@
       "personality": {
         "trait": "Counts exits. Sleeps in the mail.",
         "ideal": "Hold the line so someone else gets home.",
-        "bond": "A dead sergeant\u2019s token in his pouch.",
+        "bond": "A dead sergeant’s token in his pouch.",
         "flaw": "Would rather take a hit than admit he was wrong."
       },
       "appearance": "Human man, early forties, iron-grey stubble, a pale scar along the jaw.",
@@ -322,17 +322,17 @@
         "Second Wind: Bonus Action, regain 1d10+4 HP. 3 uses. Regain one use on a Short Rest, all on a Long Rest.",
         "Tactical Mind: When you fail an ability check, expend a Second Wind (no HP) to add 1d10. If you still fail, you do not lose the use.",
         "Action Surge: Once per Short Rest, take one extra action on your turn. It cannot be the Magic action.",
-        "Improved Critical: Weapons and Unarmed Strikes crit on 19\u201320.",
+        "Improved Critical: Weapons and Unarmed Strikes crit on 19–20.",
         "Remarkable Athlete: Advantage on Initiative and Strength (Athletics). After you score a Critical Hit, move up to half your Speed without Opportunity Attacks.",
-        "Savage Attacker: Once per turn when you hit with a weapon, you can reroll the weapon\u2019s damage dice and use either total.",
+        "Savage Attacker: Once per turn when you hit with a weapon, you can reroll the weapon’s damage dice and use either total.",
         "Tough: +2 HP per character level (already included: 48 HP).",
         "Resourceful: After you finish a Long Rest, you gain Heroic Inspiration.",
         "Skillful: One extra skill proficiency (already on the sheet)."
       ],
-      "gear": "Chain mail, Shield, Longsword, 3\u00d7 Javelin, Explorer\u2019s pack, 12 gp",
+      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Explorer’s pack, 12 gp",
       "masteries": [
         "Longsword: Sap (hit: target has Disadvantage on its next attack before your next turn)",
-        "Javelin: Slow (hit and damage: target\u2019s Speed \u221210 ft. until your next turn)"
+        "Javelin: Slow (hit and damage: target’s Speed −10 ft. until your next turn)"
       ],
       "ruleset": "2024",
       "conversionNote": "2014 Champion rebuilt on 2024 Fighter 4 / Champion 3 / Human / Soldier. Extra Attack is still level 5."
@@ -512,7 +512,7 @@
           "warhammer (dwarf)"
         ],
         "tools": [
-          "smith\u2019s tools"
+          "smith’s tools"
         ],
         "languages": [
           "Common",
@@ -677,7 +677,7 @@
         {
           "name": "Disciple of Life",
           "source": "Life 3",
-          "text": "When a 1st-level or higher spell you cast restores HP, extra HP = 2 + the spell\u2019s level."
+          "text": "When a 1st-level or higher spell you cast restores HP, extra HP = 2 + the spell’s level."
         },
         {
           "name": "Channel Divinity",
@@ -720,10 +720,10 @@
           "name": "Holy symbol"
         },
         {
-          "name": "Healer\u2019s kit"
+          "name": "Healer’s kit"
         },
         {
-          "name": "Acolyte\u2019s vestments"
+          "name": "Acolyte’s vestments"
         }
       ],
       "gp": 15,
@@ -750,14 +750,14 @@
       "features": [
         "Divine Order: Protector: Martial weapons and Heavy armor (already using chain mail).",
         "Spellcasting: Wis DC 13, +5. Slots 4/3. Prepare Wis + level = 7, plus domain spells.",
-        "Disciple of Life: When a 1st-level or higher spell you cast restores HP, extra HP = 2 + the spell\u2019s level.",
+        "Disciple of Life: When a 1st-level or higher spell you cast restores HP, extra HP = 2 + the spell’s level.",
         "Channel Divinity: 2 uses. Regain 1 on a Short Rest, all on a Long Rest. Turn Undead or Preserve Life (restore 20 HP split, 30 ft., not undead/constructs, up to half max each).",
         "Dwarven Resilience: Resistance to Poison damage. Advantage on saves to avoid or end Poisoned. Darkvision 120 ft.",
         "Dwarven Toughness: +1 HP per level (already in 39). Speed 30.",
         "Magic Initiate (Cleric): One extra cleric cantrip (Guidance is covered). 1st-level Healing Word 1/Long Rest without a slot, and you can still spend slots on it.",
         "Stonecunning: Bonus Action: Tremorsense 60 ft. for 10 minutes, 1/Long Rest, on stone."
       ],
-      "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer\u2019s kit, Acolyte\u2019s vestments, 15 gp",
+      "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer’s kit, Acolyte’s vestments, 15 gp",
       "ruleset": "2024",
       "conversionNote": "2014 Life Cleric rebuilt on 2024 Cleric 4 (subclass at 3) / Dwarf / Acolyte. Channel Divinity is 2 uses."
     },
@@ -936,14 +936,14 @@
           "shortswords"
         ],
         "tools": [
-          "thieves\u2019 tools (expertise +7)",
+          "thieves’ tools (expertise +7)",
           "dice set",
           " forgery kit"
         ],
         "languages": [
           "Common",
           "Halfling",
-          "Thieves\u2019 Cant"
+          "Thieves’ Cant"
         ]
       },
       "attackList": [
@@ -952,7 +952,7 @@
           "bonus": 5,
           "damage": "1d8+3",
           "type": "piercing",
-          "notes": "finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don\u2019t have disadvantage"
+          "notes": "finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don’t have disadvantage"
         },
         {
           "name": "Shortbow",
@@ -964,7 +964,7 @@
       ],
       "bonusActions": [
         "Cunning Action: Dash, Disengage, or Hide.",
-        "Fast Hands: Cunning Action to Use an Object, thieves\u2019 tools (trap/lock), or Sleight of Hand."
+        "Fast Hands: Cunning Action to Use an Object, thieves’ tools (trap/lock), or Sleight of Hand."
       ],
       "reactions": [],
       "featureList": [
@@ -976,7 +976,7 @@
         {
           "name": "Sneak Attack",
           "source": "Rogue 1",
-          "text": "Once per turn +2d6 when you hit with a Finesse or Ranged weapon and have Advantage, or an ally is within 5 ft. of the target and you don\u2019t have Disadvantage."
+          "text": "Once per turn +2d6 when you hit with a Finesse or Ranged weapon and have Advantage, or an ally is within 5 ft. of the target and you don’t have Disadvantage."
         },
         {
           "name": "Cunning Action",
@@ -986,7 +986,7 @@
         {
           "name": "Fast Hands",
           "source": "Thief 3",
-          "text": "Cunning Action: Use an Object, Sleight of Hand, or thieves\u2019 tools on a lock or trap."
+          "text": "Cunning Action: Use an Object, Sleight of Hand, or thieves’ tools on a lock or trap."
         },
         {
           "name": "Second-Story Work",
@@ -1001,7 +1001,7 @@
         {
           "name": "Brave",
           "source": "Halfling",
-          "text": "Advantage on saves against Frightened. Advantage vs Frightened; you can also move through a larger creature\u2019s space."
+          "text": "Advantage on saves against Frightened. Advantage vs Frightened; you can also move through a larger creature’s space."
         },
         {
           "name": "Naturally Stealthy",
@@ -1029,7 +1029,7 @@
           "qty": 20
         },
         {
-          "name": "Thieves\u2019 tools"
+          "name": "Thieves’ tools"
         },
         {
           "name": "Crowbar"
@@ -1053,27 +1053,27 @@
       "saves": "Dex +5, Int +3",
       "speed": "25 ft.",
       "attacks": [
-        "Rapier. +5 to hit; 1d8+3 piercing; finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don\u2019t have disadvantage",
+        "Rapier. +5 to hit; 1d8+3 piercing; finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don’t have disadvantage",
         "Shortbow. +5 to hit; 1d6+3 piercing; range 80/320; same Sneak Attack rule"
       ],
       "features": [
         "Weapon Mastery: Rapier (Vex) and Shortbow (Slow). Vex: hit gives Advantage on your next attack against that creature before your next turn.",
-        "Sneak Attack: Once per turn +2d6 when you hit with a Finesse or Ranged weapon and have Advantage, or an ally is within 5 ft. of the target and you don\u2019t have Disadvantage.",
+        "Sneak Attack: Once per turn +2d6 when you hit with a Finesse or Ranged weapon and have Advantage, or an ally is within 5 ft. of the target and you don’t have Disadvantage.",
         "Cunning Action: Bonus Action: Dash, Disengage, or Hide.",
-        "Fast Hands: Cunning Action: Use an Object, Sleight of Hand, or thieves\u2019 tools on a lock or trap.",
+        "Fast Hands: Cunning Action: Use an Object, Sleight of Hand, or thieves’ tools on a lock or trap.",
         "Second-Story Work: Climbing costs no extra movement. Running jump + Dex modifier feet.",
         "Lucky: When you roll a 1 on a d20 test, reroll and use the new roll.",
-        "Brave: Advantage on saves against Frightened. Advantage vs Frightened; you can also move through a larger creature\u2019s space.",
+        "Brave: Advantage on saves against Frightened. Advantage vs Frightened; you can also move through a larger creature’s space.",
         "Naturally Stealthy: You can take Hide when you have merely Three-Quarters cover behind a creature at least one size larger.",
         "Alert: +5 Initiative (already 8). You cannot be surprised. Other creatures do not gain Advantage on you for being hidden from you."
       ],
-      "gear": "Studded leather, Rapier, Shortbow, 20\u00d7 Arrows, Thieves\u2019 tools, Crowbar, 18 gp",
+      "gear": "Studded leather, Rapier, Shortbow, 20× Arrows, Thieves’ tools, Crowbar, 18 gp",
       "masteries": [
         "Rapier: Vex",
         "Shortbow: Slow"
       ],
       "ruleset": "2024",
-      "conversionNote": "2014 Thief rebuilt on 2024 Rogue 4 / Thief 3 / Halfling / Criminal. Cunning Strike is level 5 \u2014 not on this sheet."
+      "conversionNote": "2014 Thief rebuilt on 2024 Rogue 4 / Thief 3 / Halfling / Criminal. Cunning Strike is level 5 — not on this sheet."
     },
     {
       "id": "pregen-ivo",
@@ -1402,7 +1402,7 @@
         },
         {
           "name": "Ritual Adept / Arcane Recovery",
-          "source": "Wizard 1\u20132",
+          "source": "Wizard 1–2",
           "text": "1/day after a Short Rest, recover slot levels totaling 2."
         },
         {
@@ -1423,7 +1423,7 @@
         {
           "name": "Keen Senses",
           "source": "Elf",
-          "text": "Proficiency in Insight, Perception, or Survival \u2014 Perception already listed."
+          "text": "Proficiency in Insight, Perception, or Survival — Perception already listed."
         }
       ],
       "equipment": [
@@ -1437,7 +1437,7 @@
           "name": "Arcane focus (crystal)"
         },
         {
-          "name": "Scholar\u2019s pack"
+          "name": "Scholar’s pack"
         },
         {
           "name": "Bottle of ink"
@@ -1446,11 +1446,11 @@
       "gp": 22,
       "personality": {
         "trait": "Writes the last word he heard before he forgets it. Habit. Not a joke.",
-        "ideal": "A seal that needs a village\u2019s silence is a bad seal.",
+        "ideal": "A seal that needs a village’s silence is a bad seal.",
         "bond": "The priory library still has a book he did not finish.",
         "flaw": "Will stop in a fight to read an inscription."
       },
-      "appearance": "High elf, ink on the fingers, scholar\u2019s coat gone to weather.",
+      "appearance": "High elf, ink on the fingers, scholar’s coat gone to weather.",
       "passivePerception": 11,
       "passiveInsight": 13,
       "level": 4,
@@ -1470,9 +1470,9 @@
         "Sculpt Spells: When you cast an Evocation with an area, choose 1 + spell level creatures. They auto-succeed and take no damage.",
         "Elven Lineage (High): Darkvision 60. Fey Ancestry. Trance 4 hours. Extra wizard cantrip (Minor Illusion) using Intelligence.",
         "Magic Initiate (Wizard): One extra wizard cantrip. Shield 1/Long Rest without a slot, and you can still spend slots on it.",
-        "Keen Senses: Proficiency in Insight, Perception, or Survival \u2014 Perception already listed."
+        "Keen Senses: Proficiency in Insight, Perception, or Survival — Perception already listed."
       ],
-      "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar\u2019s pack, Bottle of ink, 22 gp",
+      "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar’s pack, Bottle of ink, 22 gp",
       "ruleset": "2024",
       "conversionNote": "2014 Evoker rebuilt on 2024 Wizard 4 (subclass at 3) / Elf High / Sage. No Extra Attack. No 3rd-level slots."
     },
@@ -1662,7 +1662,7 @@
           "bonus": 7,
           "damage": "1d8+3",
           "type": "piercing",
-          "notes": "Archery included; range 150/600; two-handed. Extra Attack is ranger 5 \u2014 one shot."
+          "notes": "Archery included; range 150/600; two-handed"
         },
         {
           "name": "Shortsword",
@@ -1673,7 +1673,7 @@
         }
       ],
       "bonusActions": [
-        "Hunter\u2019s Mark (if a 1st-level slot remains): bonus, concentration 1 hour. +1d6 damage vs one target; advantage to track it."
+        "Hunter’s Mark (if a 1st-level slot remains): bonus, concentration 1 hour. +1d6 damage vs one target; advantage to track it."
       ],
       "reactions": [],
       "spellcasting": {
@@ -1684,10 +1684,10 @@
           "1": 3
         },
         "focus": "druidic focus (optional)",
-        "prepareCount": "Hunter\u2019s Mark always prepared. 3 first-level slots. 2 free Hunter\u2019s Mark / Long Rest.",
+        "prepareCount": "Hunter’s Mark always prepared. 3 first-level slots. 2 free Hunter’s Mark / Long Rest.",
         "cantrips": [],
         "prepared": [
-          "Hunter\u2019s Mark",
+          "Hunter’s Mark",
           "Goodberry",
           "Cure Wounds"
         ]
@@ -1695,7 +1695,7 @@
       "spellList": [
         {
           "level": 1,
-          "name": "Hunter\u2019s Mark",
+          "name": "Hunter’s Mark",
           "time": "bonus",
           "range": "90 ft.",
           "effect": "Concentration 1 hour. +1d6 damage vs the marked creature. Bonus action to move it when the target drops."
@@ -1724,7 +1724,7 @@
         {
           "name": "Favored Enemy",
           "source": "Ranger 1",
-          "text": "Hunter\u2019s Mark is always prepared. You can cast it twice per Long Rest without a slot (then with slots)."
+          "text": "Hunter’s Mark is always prepared. You can cast it twice per Long Rest without a slot (then with slots)."
         },
         {
           "name": "Weapon Mastery",
@@ -1734,7 +1734,7 @@
         {
           "name": "Deft Explorer",
           "source": "Ranger 2",
-          "text": "Expertise in one skill (Perception \u2014 already doubled on the 2014 sheet as proficiency only; 2024: Perception +6 expertise). Speed +10 while unencumbered is not granted; Wood Elf speed 35 remains."
+          "text": "Expertise in one skill (Perception — already doubled on the 2014 sheet as proficiency only; 2024: Perception +6 expertise). Speed +10 while unencumbered is not granted; Wood Elf speed 35 remains."
         },
         {
           "name": "Fighting Style: Archery",
@@ -1742,14 +1742,14 @@
           "text": "+2 to ranged attack rolls (already in +7)."
         },
         {
-          "name": "Hunter\u2019s Prey: Colossus Slayer",
+          "name": "Hunter’s Prey: Colossus Slayer",
           "source": "Hunter 3",
           "text": "Once per turn, when you hit a creature that is missing any HP, +1d8 damage."
         },
         {
-          "name": "Hunter\u2019s Lore",
+          "name": "Hunter’s Lore",
           "source": "Hunter 3",
-          "text": "While a creature is under your Hunter\u2019s Mark, you know its Immunities, Resistances, and Vulnerabilities."
+          "text": "While a creature is under your Hunter’s Mark, you know its Immunities, Resistances, and Vulnerabilities."
         },
         {
           "name": "Elven Lineage (Wood)",
@@ -1777,7 +1777,7 @@
           "name": "Shortsword"
         },
         {
-          "name": "Explorer\u2019s pack"
+          "name": "Explorer’s pack"
         }
       ],
       "gp": 11,
@@ -1798,21 +1798,21 @@
       "saves": "Str +3, Dex +5",
       "speed": "35 ft.",
       "attacks": [
-        "Longbow. +7 to hit; 1d8+3 piercing; Archery included; range 150/600; two-handed. Extra Attack is ranger 5 \u2014 one shot.",
+        "Longbow. +7 to hit; 1d8+3 piercing; Archery included; range 150/600; two-handed. Extra Attack is ranger 5 — one shot.",
         "Shortsword. +5 to hit; 1d6+3 piercing; finesse"
       ],
       "features": [
         "Spellcasting: Wis DC 12, +4. 3 first-level slots. Prepare 5. Druidic Focus allowed.",
-        "Favored Enemy: Hunter\u2019s Mark is always prepared. You can cast it twice per Long Rest without a slot (then with slots).",
+        "Favored Enemy: Hunter’s Mark is always prepared. You can cast it twice per Long Rest without a slot (then with slots).",
         "Weapon Mastery: Longbow (Slow) and Shortsword (Vex).",
-        "Deft Explorer: Expertise in one skill (Perception \u2014 already doubled on the 2014 sheet as proficiency only; 2024: Perception +6 expertise). Speed +10 while unencumbered is not granted; Wood Elf speed 35 remains.",
+        "Deft Explorer: Expertise in one skill (Perception — already doubled on the 2014 sheet as proficiency only; 2024: Perception +6 expertise). Speed +10 while unencumbered is not granted; Wood Elf speed 35 remains.",
         "Fighting Style: Archery: +2 to ranged attack rolls (already in +7).",
-        "Hunter\u2019s Prey: Colossus Slayer: Once per turn, when you hit a creature that is missing any HP, +1d8 damage.",
-        "Hunter\u2019s Lore: While a creature is under your Hunter\u2019s Mark, you know its Immunities, Resistances, and Vulnerabilities.",
+        "Hunter’s Prey: Colossus Slayer: Once per turn, when you hit a creature that is missing any HP, +1d8 damage.",
+        "Hunter’s Lore: While a creature is under your Hunter’s Mark, you know its Immunities, Resistances, and Vulnerabilities.",
         "Elven Lineage (Wood): Darkvision 60. Fey Ancestry. Trance. Speed 35. Mask of the Wild: Hide when only lightly obscured by nature.",
         "Magic Initiate (Druid): Druid cantrip Produce Flame. Goodberry 1/Long Rest without a slot."
       ],
-      "gear": "Scale mail, Longbow, 20\u00d7 Arrows, Shortsword, Explorer\u2019s pack, 11 gp",
+      "gear": "Scale mail, Longbow, 20× Arrows, Shortsword, Explorer’s pack, 11 gp",
       "masteries": [
         "Longbow: Slow",
         "Shortsword: Vex"
@@ -1993,7 +1993,7 @@
           "martial weapons"
         ],
         "tools": [
-          "smith\u2019s tools",
+          "smith’s tools",
           "land vehicles"
         ],
         "languages": [
@@ -2007,7 +2007,7 @@
           "bonus": 5,
           "damage": "1d8+5",
           "type": "slashing",
-          "notes": "Dueling +2 already in damage; versatile 1d10+5 without shield. One attack (Extra Attack is paladin 5). Smite on hit."
+          "notes": "Dueling +2 already in damage; versatile 1d10+5 without shield. Smite on hit."
         },
         {
           "name": "Javelin",
@@ -2068,7 +2068,7 @@
           "name": "Protection from Evil and Good",
           "time": "action",
           "range": "touch",
-          "effect": "Concentration 10 min. Aberrations, celestials, elementals, fey, fiends, undead: disadvantage to hit the target; target can\u2019t be charmed, frightened, or possessed by them. Oath."
+          "effect": "Concentration 10 min. Aberrations, celestials, elementals, fey, fiends, undead: disadvantage to hit the target; target can’t be charmed, frightened, or possessed by them. Oath."
         },
         {
           "level": 1,
@@ -2101,7 +2101,7 @@
           "text": "+2 damage with a melee weapon in one hand and no other weapon (already in 1d8+5)."
         },
         {
-          "name": "Paladin\u2019s Smite",
+          "name": "Paladin’s Smite",
           "source": "Paladin 2",
           "text": "Divine Smite is a spell, always prepared. Casting time: Bonus Action immediately after you hit with a melee weapon or Unarmed Strike. 2d8 Radiant (1st). You can cast it 1/Long Rest without a slot, then by spending slots."
         },
@@ -2154,7 +2154,7 @@
       "personality": {
         "trait": "Keeps her oaths short so she can keep them.",
         "ideal": "A village should not have to rent its safety from a secret.",
-        "bond": "The miller\u2019s family in her home hamlet still writes.",
+        "bond": "The miller’s family in her home hamlet still writes.",
         "flaw": "Will not lie even when a lie would keep someone alive."
       },
       "appearance": "Human woman, mid-thirties, cropped black hair, an iron lantern on a chain instead of a sunburst.",
@@ -2176,20 +2176,20 @@
         "Spellcasting: Cha DC 13, +5. 3 first-level slots. Prepare 5 plus oath spells.",
         "Weapon Mastery: Longsword (Sap) and Javelin (Slow).",
         "Fighting Style: Dueling: +2 damage with a melee weapon in one hand and no other weapon (already in 1d8+5).",
-        "Paladin\u2019s Smite: Divine Smite is a spell, always prepared. Casting time: Bonus Action immediately after you hit with a melee weapon or Unarmed Strike. 2d8 Radiant (1st). You can cast it 1/Long Rest without a slot, then by spending slots.",
+        "Paladin’s Smite: Divine Smite is a spell, always prepared. Casting time: Bonus Action immediately after you hit with a melee weapon or Unarmed Strike. 2d8 Radiant (1st). You can cast it 1/Long Rest without a slot, then by spending slots.",
         "Channel Divinity: 2 uses. Regain 1 on a Short Rest. Divine Sense (Bonus Action, 10 minutes: locate Celestials, Fiends, Undead, consecrated/desecrated within 60 ft.) or Sacred Weapon.",
         "Sacred Weapon: Channel Divinity. 10 minutes. Melee weapon: add Cha (+3) to attack rolls, deal Radiant if you choose, sheds light.",
         "Oath Spells: Always prepared: Protection from Evil and Good, Shield of Faith.",
         "Tough: +2 HP per level (already included: 44 HP).",
         "Resourceful: Heroic Inspiration after a Long Rest."
       ],
-      "gear": "Chain mail, Shield, Longsword, 3\u00d7 Javelin, Holy symbol (iron lantern), 14 gp",
+      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Holy symbol (iron lantern), 14 gp",
       "masteries": [
         "Longsword: Sap",
         "Javelin: Slow"
       ],
       "ruleset": "2024",
-      "conversionNote": "2014 Devotion Paladin rebuilt on 2024 Paladin 4. Smite is a spell. Extra Attack is level 5. Turn the Unholy is not the 2024 Channel option \u2014 Sacred Weapon and Divine Sense are."
+      "conversionNote": "2014 Devotion Paladin rebuilt on 2024 Paladin 4. Smite is a spell. Extra Attack is level 5. Turn the Unholy is not the 2024 Channel option — Sacred Weapon and Divine Sense are."
     }
   ]
 }

@@ -200,7 +200,7 @@
           "bonus": 5,
           "damage": "1d8+3",
           "type": "slashing",
-          "notes": "versatile 1d10+3; one attack (Extra Attack is fighter 5)"
+          "notes": "versatile 1d10+3; one attack"
         },
         {
           "name": "Javelin",
@@ -235,7 +235,7 @@
         {
           "name": "Improved Critical",
           "source": "Champion 3",
-          "text": "Weapon attacks crit on 19\u201320."
+          "text": "Weapon attacks crit on 19–20."
         },
         {
           "name": "Ability Score Improvement",
@@ -266,7 +266,7 @@
           "qty": 3
         },
         {
-          "name": "Explorer\u2019s pack",
+          "name": "Explorer’s pack",
           "qty": 1
         }
       ],
@@ -274,7 +274,7 @@
       "personality": {
         "trait": "Counts exits. Sleeps in the mail.",
         "ideal": "Hold the line so someone else gets home.",
-        "bond": "A dead sergeant\u2019s token in his pouch.",
+        "bond": "A dead sergeant’s token in his pouch.",
         "flaw": "Would rather take a hit than admit he was wrong."
       },
       "appearance": "Human man, early forties, iron-grey stubble, a pale scar along the jaw.",
@@ -295,11 +295,11 @@
         "Fighting Style: Defense: While wearing armor, +1 AC (already in 19).",
         "Second Wind: Bonus action, 1/rest: regain 1d10+4 HP.",
         "Action Surge: On your turn, take one additional action. 1/rest.",
-        "Improved Critical: Weapon attacks crit on 19\u201320.",
+        "Improved Critical: Weapon attacks crit on 19–20.",
         "Ability Score Improvement: Already applied in the scores on this sheet.",
         "Military Rank: Soldiers loyal to your former rank still recognize you. You can invoke that rank for food, lodging, or an audience with officers."
       ],
-      "gear": "Chain mail, Shield, Longsword, 3\u00d7 Javelin, Explorer\u2019s pack, 12 gp"
+      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Explorer’s pack, 12 gp"
     },
     {
       "id": "pregen-pell",
@@ -476,7 +476,7 @@
           "warhammer (dwarf)"
         ],
         "tools": [
-          "smith\u2019s tools"
+          "smith’s tools"
         ],
         "languages": [
           "Common",
@@ -630,7 +630,7 @@
         {
           "name": "Disciple of Life",
           "source": "Life 1",
-          "text": "When you restore HP with a 1st-level or higher spell, extra HP = 2 + the spell\u2019s level."
+          "text": "When you restore HP with a 1st-level or higher spell, extra HP = 2 + the spell’s level."
         },
         {
           "name": "Channel Divinity: Turn Undead",
@@ -679,10 +679,10 @@
           "name": "Holy symbol"
         },
         {
-          "name": "Healer\u2019s kit"
+          "name": "Healer’s kit"
         },
         {
-          "name": "Acolyte\u2019s vestments"
+          "name": "Acolyte’s vestments"
         }
       ],
       "gp": 15,
@@ -707,7 +707,7 @@
         "Sacred Flame. +0 to hit; 1d8 radiant; Dex DC 13; 60 ft.; cover does not help"
       ],
       "features": [
-        "Disciple of Life: When you restore HP with a 1st-level or higher spell, extra HP = 2 + the spell\u2019s level.",
+        "Disciple of Life: When you restore HP with a 1st-level or higher spell, extra HP = 2 + the spell’s level.",
         "Channel Divinity: Turn Undead: Action, 1/rest. Undead within 30 ft. that see/hear you: Wis DC 13 or turned 1 minute.",
         "Channel Divinity: Preserve Life: Action, 1/rest. Restore 20 HP split among creatures within 30 ft. (not undead/constructs), each up to half their HP max.",
         "Dwarven Resilience: Advantage on saves vs poison. Resistance to poison damage. Darkvision 60 ft. Speed 25 is not reduced by heavy armor.",
@@ -715,7 +715,7 @@
         "Shelter of the Faithful: You and companions can receive free healing and care at a temple of your faith.",
         "Spellcasting: Wis DC 13, +5 to hit. Slots 4/3. Prepare Wis mod + level = 7, plus domain spells."
       ],
-      "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer\u2019s kit, Acolyte\u2019s vestments, 15 gp"
+      "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer’s kit, Acolyte’s vestments, 15 gp"
     },
     {
       "id": "pregen-nyx",
@@ -892,14 +892,14 @@
           "shortswords"
         ],
         "tools": [
-          "thieves\u2019 tools (expertise +7)",
+          "thieves’ tools (expertise +7)",
           "dice set",
           " forgery kit"
         ],
         "languages": [
           "Common",
           "Halfling",
-          "Thieves\u2019 Cant"
+          "Thieves’ Cant"
         ]
       },
       "attackList": [
@@ -908,7 +908,7 @@
           "bonus": 5,
           "damage": "1d8+3",
           "type": "piercing",
-          "notes": "finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don\u2019t have disadvantage"
+          "notes": "finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don’t have disadvantage"
         },
         {
           "name": "Shortbow",
@@ -920,14 +920,14 @@
       ],
       "bonusActions": [
         "Cunning Action: Dash, Disengage, or Hide.",
-        "Fast Hands: Cunning Action to Use an Object, thieves\u2019 tools (trap/lock), or Sleight of Hand."
+        "Fast Hands: Cunning Action to Use an Object, thieves’ tools (trap/lock), or Sleight of Hand."
       ],
       "reactions": [],
       "featureList": [
         {
           "name": "Sneak Attack",
           "source": "Rogue 1",
-          "text": "Once per turn, +2d6 damage when you hit with a finesse or ranged weapon and have advantage, or an ally is within 5 ft. of the target and you don\u2019t have disadvantage."
+          "text": "Once per turn, +2d6 damage when you hit with a finesse or ranged weapon and have advantage, or an ally is within 5 ft. of the target and you don’t have disadvantage."
         },
         {
           "name": "Cunning Action",
@@ -937,7 +937,7 @@
         {
           "name": "Fast Hands",
           "source": "Thief 3",
-          "text": "Use Cunning Action for Use an Object, Dex (Sleight of Hand), or thieves\u2019 tools to pick a lock or disarm a trap."
+          "text": "Use Cunning Action for Use an Object, Dex (Sleight of Hand), or thieves’ tools to pick a lock or disarm a trap."
         },
         {
           "name": "Second-Story Work",
@@ -985,7 +985,7 @@
           "qty": 20
         },
         {
-          "name": "Thieves\u2019 tools"
+          "name": "Thieves’ tools"
         },
         {
           "name": "Crowbar"
@@ -1009,13 +1009,13 @@
       "saves": "Dex +5, Int +3",
       "speed": "25 ft.",
       "attacks": [
-        "Rapier. +5 to hit; 1d8+3 piercing; finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don\u2019t have disadvantage",
+        "Rapier. +5 to hit; 1d8+3 piercing; finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don’t have disadvantage",
         "Shortbow. +5 to hit; 1d6+3 piercing; range 80/320; same Sneak Attack rule"
       ],
       "features": [
-        "Sneak Attack: Once per turn, +2d6 damage when you hit with a finesse or ranged weapon and have advantage, or an ally is within 5 ft. of the target and you don\u2019t have disadvantage.",
+        "Sneak Attack: Once per turn, +2d6 damage when you hit with a finesse or ranged weapon and have advantage, or an ally is within 5 ft. of the target and you don’t have disadvantage.",
         "Cunning Action: Bonus action: Dash, Disengage, or Hide.",
-        "Fast Hands: Use Cunning Action for Use an Object, Dex (Sleight of Hand), or thieves\u2019 tools to pick a lock or disarm a trap.",
+        "Fast Hands: Use Cunning Action for Use an Object, Dex (Sleight of Hand), or thieves’ tools to pick a lock or disarm a trap.",
         "Second-Story Work: Climbing does not cost extra movement. Running jump distance +3 ft. (Dex mod).",
         "Lucky: When you roll a 1 on an attack, check, or save, reroll and use the new roll.",
         "Brave: Advantage on saves against being frightened.",
@@ -1023,7 +1023,7 @@
         "Naturally Stealthy: You can attempt to hide even when you are obscured only by a creature one size larger than you.",
         "Criminal Contact: You have a reliable contact who can pass messages through the criminal network."
       ],
-      "gear": "Studded leather, Rapier, Shortbow, 20\u00d7 Arrows, Thieves\u2019 tools, Crowbar, 18 gp"
+      "gear": "Studded leather, Rapier, Shortbow, 20× Arrows, Thieves’ tools, Crowbar, 18 gp"
     },
     {
       "id": "pregen-ivo",
@@ -1353,7 +1353,7 @@
         {
           "name": "Arcane Recovery",
           "source": "Wizard 1",
-          "text": "1/day after a short rest, recover slot levels totaling 2 (wizard level \u00f7 2).",
+          "text": "1/day after a short rest, recover slot levels totaling 2 (wizard level ÷ 2).",
           "uses": "1/day"
         },
         {
@@ -1383,7 +1383,7 @@
           "name": "Arcane focus (crystal)"
         },
         {
-          "name": "Scholar\u2019s pack"
+          "name": "Scholar’s pack"
         },
         {
           "name": "Bottle of ink"
@@ -1392,11 +1392,11 @@
       "gp": 22,
       "personality": {
         "trait": "Writes the last word he heard before he forgets it. Habit. Not a joke.",
-        "ideal": "A seal that needs a village\u2019s silence is a bad seal.",
+        "ideal": "A seal that needs a village’s silence is a bad seal.",
         "bond": "The priory library still has a book he did not finish.",
         "flaw": "Will stop in a fight to read an inscription."
       },
-      "appearance": "High elf, ink on the fingers, scholar\u2019s coat gone to weather.",
+      "appearance": "High elf, ink on the fingers, scholar’s coat gone to weather.",
       "passivePerception": 11,
       "passiveInsight": 13,
       "level": 4,
@@ -1412,12 +1412,12 @@
       ],
       "features": [
         "Spellcasting: Int DC 13, +5. Slots 4/3. Prepare 7 from the book. Rituals if in the book.",
-        "Arcane Recovery: 1/day after a short rest, recover slot levels totaling 2 (wizard level \u00f7 2).",
+        "Arcane Recovery: 1/day after a short rest, recover slot levels totaling 2 (wizard level ÷ 2).",
         "Sculpt Spells: When you cast an evocation that affects others you can see, choose 1 + spell level creatures. They auto-succeed the save and take no damage.",
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60 ft. Trance: 4 hours instead of sleep.",
         "Researcher: If you do not know a piece of lore, you usually know where to find it."
       ],
-      "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar\u2019s pack, Bottle of ink, 22 gp"
+      "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar’s pack, Bottle of ink, 22 gp"
     },
     {
       "id": "pregen-kael",
@@ -1605,7 +1605,7 @@
           "bonus": 7,
           "damage": "1d8+3",
           "type": "piercing",
-          "notes": "Archery included; range 150/600; two-handed. Extra Attack is ranger 5 \u2014 one shot."
+          "notes": "Archery included; range 150/600; two-handed"
         },
         {
           "name": "Shortsword",
@@ -1616,7 +1616,7 @@
         }
       ],
       "bonusActions": [
-        "Hunter\u2019s Mark (if a 1st-level slot remains): bonus, concentration 1 hour. +1d6 damage vs one target; advantage to track it."
+        "Hunter’s Mark (if a 1st-level slot remains): bonus, concentration 1 hour. +1d6 damage vs one target; advantage to track it."
       ],
       "reactions": [],
       "spellcasting": {
@@ -1630,7 +1630,7 @@
         "prepareCount": "Known ranger spells, not prepared: 3.",
         "cantrips": [],
         "prepared": [
-          "Hunter\u2019s Mark",
+          "Hunter’s Mark",
           "Goodberry",
           "Cure Wounds"
         ]
@@ -1638,7 +1638,7 @@
       "spellList": [
         {
           "level": 1,
-          "name": "Hunter\u2019s Mark",
+          "name": "Hunter’s Mark",
           "time": "bonus",
           "range": "90 ft.",
           "effect": "Concentration 1 hour. +1d6 damage vs the marked creature. Bonus action to move it when the target drops."
@@ -1667,7 +1667,7 @@
         {
           "name": "Natural Explorer: Forest",
           "source": "Ranger 1",
-          "text": "In forests: 2\u00d7 food, ignore difficult terrain (you), advantage on initiative if not incapacitated, travel benefits for the group."
+          "text": "In forests: 2× food, ignore difficult terrain (you), advantage on initiative if not incapacitated, travel benefits for the group."
         },
         {
           "name": "Fighting Style: Archery",
@@ -1716,7 +1716,7 @@
           "name": "Shortsword"
         },
         {
-          "name": "Explorer\u2019s pack"
+          "name": "Explorer’s pack"
         }
       ],
       "gp": 11,
@@ -1737,12 +1737,12 @@
       "saves": "Str +3, Dex +5",
       "speed": "35 ft.",
       "attacks": [
-        "Longbow. +7 to hit; 1d8+3 piercing; Archery included; range 150/600; two-handed. Extra Attack is ranger 5 \u2014 one shot.",
+        "Longbow. +7 to hit; 1d8+3 piercing; Archery included; range 150/600; two-handed. Extra Attack is ranger 5 — one shot.",
         "Shortsword. +5 to hit; 1d6+3 piercing; finesse"
       ],
       "features": [
         "Favored Enemy: Undead: Advantage on Survival to track undead and on Int checks to recall about them.",
-        "Natural Explorer: Forest: In forests: 2\u00d7 food, ignore difficult terrain (you), advantage on initiative if not incapacitated, travel benefits for the group.",
+        "Natural Explorer: Forest: In forests: 2× food, ignore difficult terrain (you), advantage on initiative if not incapacitated, travel benefits for the group.",
         "Fighting Style: Archery: +2 to attack rolls with ranged weapons (already in +7).",
         "Colossus Slayer: Once per turn, when you hit a creature below its HP maximum, +1d8 damage.",
         "Primeval Awareness: Expend a spell slot: for 1 minute per slot level, sense favored enemies within 1 mile (6 miles in your favored terrain).",
@@ -1750,7 +1750,7 @@
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. Trance 4 hours.",
         "Wanderer: You can always recall the layout of surrounding territory and find food and water for yourself and five others when the land can provide."
       ],
-      "gear": "Scale mail, Longbow, 20\u00d7 Arrows, Shortsword, Explorer\u2019s pack, 11 gp"
+      "gear": "Scale mail, Longbow, 20× Arrows, Shortsword, Explorer’s pack, 11 gp"
     },
     {
       "id": "pregen-hester",
@@ -1925,7 +1925,7 @@
           "martial weapons"
         ],
         "tools": [
-          "smith\u2019s tools",
+          "smith’s tools",
           "land vehicles"
         ],
         "languages": [
@@ -1939,7 +1939,7 @@
           "bonus": 5,
           "damage": "1d8+5",
           "type": "slashing",
-          "notes": "Dueling +2 already in damage; versatile 1d10+5 without shield. One attack (Extra Attack is paladin 5). Smite on hit."
+          "notes": "Dueling +2 already in damage; versatile 1d10+5 without shield. Smite on hit."
         },
         {
           "name": "Javelin",
@@ -1950,7 +1950,7 @@
         }
       ],
       "bonusActions": [
-        "Divine Smite is not a bonus \u2014 it is on hit. Sacred Weapon (Channel): bonus action, 1 minute, attacks with one weapon use +5 (Cha) instead of Str, and the weapon is magical."
+        "Divine Smite is not a bonus — it is on hit. Sacred Weapon (Channel): bonus action, 1 minute, attacks with one weapon use +5 (Cha) instead of Str, and the weapon is magical."
       ],
       "reactions": [],
       "spellcasting": {
@@ -1998,7 +1998,7 @@
           "name": "Protection from Evil and Good",
           "time": "action",
           "range": "touch",
-          "effect": "Concentration 10 min. Aberrations, celestials, elementals, fey, fiends, undead: disadvantage to hit the target; target can\u2019t be charmed, frightened, or possessed by them. Oath."
+          "effect": "Concentration 10 min. Aberrations, celestials, elementals, fey, fiends, undead: disadvantage to hit the target; target can’t be charmed, frightened, or possessed by them. Oath."
         },
         {
           "level": 1,
@@ -2039,7 +2039,7 @@
         {
           "name": "Channel Divinity: Sacred Weapon",
           "source": "Devotion 3",
-          "text": "Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better \u2014 +6 to hit), magical, sheds light.",
+          "text": "Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better — +6 to hit), magical, sheds light.",
           "uses": "1/rest shared"
         },
         {
@@ -2076,7 +2076,7 @@
       "personality": {
         "trait": "Keeps her oaths short so she can keep them.",
         "ideal": "A village should not have to rent its safety from a secret.",
-        "bond": "The miller\u2019s family in her home hamlet still writes.",
+        "bond": "The miller’s family in her home hamlet still writes.",
         "flaw": "Will not lie even when a lie would keep someone alive."
       },
       "appearance": "Human woman, mid-thirties, cropped black hair, an iron lantern on a chain instead of a sunburst.",
@@ -2099,11 +2099,11 @@
         "Fighting Style: Dueling: +2 damage with a melee weapon in one hand and no other weapon (already in 1d8+5).",
         "Divine Smite: When you hit with a melee weapon, expend a spell slot: +2d8 radiant (1st) or +3d8 (2nd). +1d8 vs undead or fiend. You have only 1st-level slots: +2d8, or +3d8 vs undead/fiend.",
         "Divine Health: Immune to disease.",
-        "Channel Divinity: Sacred Weapon: Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better \u2014 +6 to hit), magical, sheds light.",
+        "Channel Divinity: Sacred Weapon: Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better — +6 to hit), magical, sheds light.",
         "Channel Divinity: Turn the Unholy: Action, 1/rest. Fiends and undead within 30 ft. that see/hear you: Wis DC 13 or turned 1 minute.",
         "Rustic Hospitality: Common folk will hide you from the law or anyone searching, if you are not putting them in undue danger."
       ],
-      "gear": "Chain mail, Shield, Longsword, 3\u00d7 Javelin, Holy symbol (iron lantern), 14 gp"
+      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Holy symbol (iron lantern), 14 gp"
     },
     {
       "id": "pregen-rook",
@@ -2310,7 +2310,7 @@
         {
           "name": "Rage",
           "source": "Barbarian 1",
-          "text": "Bonus action, 3/long rest, 1 minute. Advantage on Str checks and saves; +2 melee Str damage; resistance to bludgeoning, piercing, slashing. Ends if you don\u2019t attack or take damage for a turn.",
+          "text": "Bonus action, 3/long rest, 1 minute. Advantage on Str checks and saves; +2 melee Str damage; resistance to bludgeoning, piercing, slashing. Ends if you don’t attack or take damage for a turn.",
           "uses": "3/long rest"
         },
         {
@@ -2336,7 +2336,7 @@
         {
           "name": "Relentless Endurance",
           "source": "Half-Orc",
-          "text": "1/long rest, when you drop to 0 HP and don\u2019t die outright, drop to 1 HP instead.",
+          "text": "1/long rest, when you drop to 0 HP and don’t die outright, drop to 1 HP instead.",
           "uses": "1/long rest"
         },
         {
@@ -2359,7 +2359,7 @@
           "qty": 4
         },
         {
-          "name": "Explorer\u2019s pack"
+          "name": "Explorer’s pack"
         }
       ],
       "gp": 9,
@@ -2384,16 +2384,16 @@
         "Javelin. +5 to hit; 1d6+3 piercing; thrown 30/120"
       ],
       "features": [
-        "Rage: Bonus action, 3/long rest, 1 minute. Advantage on Str checks and saves; +2 melee Str damage; resistance to bludgeoning, piercing, slashing. Ends if you don\u2019t attack or take damage for a turn.",
+        "Rage: Bonus action, 3/long rest, 1 minute. Advantage on Str checks and saves; +2 melee Str damage; resistance to bludgeoning, piercing, slashing. Ends if you don’t attack or take damage for a turn.",
         "Unarmored Defense: AC = 10 + Dex + Con while not wearing armor (15). Shield allowed; he is not using one.",
         "Reckless Attack: Advantage on melee Str attacks this turn; attacks against you have advantage until your next turn.",
         "Danger Sense: Advantage on Dex saves against effects you can see. Not if blinded, deafened, or incapacitated.",
         "Frenzy: When you rage, you can frenzy: bonus melee weapon attack each turn. When the rage ends, gain 1 exhaustion.",
-        "Relentless Endurance: 1/long rest, when you drop to 0 HP and don\u2019t die outright, drop to 1 HP instead.",
+        "Relentless Endurance: 1/long rest, when you drop to 0 HP and don’t die outright, drop to 1 HP instead.",
         "Savage Attacks: On a melee crit, roll one extra weapon damage die.",
         "Wanderer: Always know the surrounding territory; find food and water for six when the land allows."
       ],
-      "gear": "Greataxe, 4\u00d7 Javelin, Explorer\u2019s pack, 9 gp"
+      "gear": "Greataxe, 4× Javelin, Explorer’s pack, 9 gp"
     },
     {
       "id": "pregen-sable",
@@ -2710,7 +2710,7 @@
         {
           "name": "Jack of All Trades",
           "source": "Bard 2",
-          "text": "+1 (half proficiency) to any ability check that doesn\u2019t already include proficiency."
+          "text": "+1 (half proficiency) to any ability check that doesn’t already include proficiency."
         },
         {
           "name": "Song of Rest",
@@ -2754,7 +2754,7 @@
           "name": "Lute"
         },
         {
-          "name": "Diplomat\u2019s pack"
+          "name": "Diplomat’s pack"
         }
       ],
       "gp": 16,
@@ -2780,7 +2780,7 @@
       ],
       "features": [
         "Bardic Inspiration: Bonus action, 3/long rest (Cha). d6, 10 minutes, added to one check/save/attack.",
-        "Jack of All Trades: +1 (half proficiency) to any ability check that doesn\u2019t already include proficiency.",
+        "Jack of All Trades: +1 (half proficiency) to any ability check that doesn’t already include proficiency.",
         "Song of Rest: During a short rest, you and allies who hear you regain an extra 1d6 HP if they spend a hit die.",
         "Cutting Words: Reaction: spend inspiration to subtract 1d6 from an enemy attack, check, or damage within 60 ft.",
         "Bonus Proficiencies: Three extra skills (already on the sheet).",
@@ -2788,7 +2788,7 @@
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. +2 Cha / +1 Dex / +1 Con already in scores.",
         "By Popular Demand: You can always find a place to perform; free lodging at the inn where you perform."
       ],
-      "gear": "Studded leather, Rapier, Lute, Diplomat\u2019s pack, 16 gp"
+      "gear": "Studded leather, Rapier, Lute, Diplomat’s pack, 16 gp"
     },
     {
       "id": "pregen-bram",
@@ -3142,7 +3142,7 @@
         {
           "name": "Discovery",
           "source": "Hermit",
-          "text": "The quiet seclusion of your hermitage gave you a unique and powerful discovery \u2014 here: you can always find potable water if it exists within a mile."
+          "text": "The quiet seclusion of your hermitage gave you a unique and powerful discovery — here: you can always find potable water if it exists within a mile."
         }
       ],
       "equipment": [
@@ -3159,7 +3159,7 @@
           "name": "Druidic focus"
         },
         {
-          "name": "Explorer\u2019s pack"
+          "name": "Explorer’s pack"
         }
       ],
       "gp": 12,
@@ -3187,9 +3187,9 @@
         "Wild Shape: 2/short rest. Beast CR 1/2, no fly, up to 2 hours. You keep Wis/Int/Cha, gain beast HP/AC.",
         "Natural Recovery: 1/long rest, after a short rest, recover slot levels totaling 2.",
         "Circle Spells (Forest): Barkskin and Spider Climb always prepared, do not count against prepares.",
-        "Discovery: The quiet seclusion of your hermitage gave you a unique and powerful discovery \u2014 here: you can always find potable water if it exists within a mile."
+        "Discovery: The quiet seclusion of your hermitage gave you a unique and powerful discovery — here: you can always find potable water if it exists within a mile."
       ],
-      "gear": "Hide armor, Shield (wood), Quarterstaff, Druidic focus, Explorer\u2019s pack, 12 gp"
+      "gear": "Hide armor, Shield (wood), Quarterstaff, Druidic focus, Explorer’s pack, 12 gp"
     },
     {
       "id": "pregen-sora",
@@ -3427,7 +3427,7 @@
         {
           "name": "Slow Fall",
           "source": "Monk 4",
-          "text": "Reaction: reduce fall damage by 20 (5 \u00d7 monk level)."
+          "text": "Reaction: reduce fall damage by 20 (5 × monk level)."
         },
         {
           "name": "Discovery",
@@ -3441,7 +3441,7 @@
           "qty": 10
         },
         {
-          "name": "Explorer\u2019s pack"
+          "name": "Explorer’s pack"
         }
       ],
       "gp": 8,
@@ -3472,10 +3472,10 @@
         "Unarmored Movement: +10 ft. speed while unarmored (40).",
         "Deflect Missiles: Reaction: reduce ranged weapon damage by 1d10 + Dex + monk level (1d10+7).",
         "Open Hand Technique: When you hit with Flurry, choose: Dex DC 13 or prone; Str DC 13 or push 15 ft.; or it cannot take reactions until the end of your next turn.",
-        "Slow Fall: Reaction: reduce fall damage by 20 (5 \u00d7 monk level).",
+        "Slow Fall: Reaction: reduce fall damage by 20 (5 × monk level).",
         "Discovery: You know a quiet path into any walled town if you have a day to watch it."
       ],
-      "gear": "10\u00d7 Darts, Explorer\u2019s pack, 8 gp"
+      "gear": "10× Darts, Explorer’s pack, 8 gp"
     },
     {
       "id": "pregen-vexa",
@@ -3650,7 +3650,7 @@
           "light crossbows"
         ],
         "tools": [
-          "smith\u2019s tools",
+          "smith’s tools",
           "land vehicles"
         ],
         "languages": [
@@ -3778,12 +3778,12 @@
         {
           "name": "Dragon Ancestor (Red)",
           "source": "Draconic 1",
-          "text": "You speak Draconic. Fire is your element. (Elemental Affinity is level 6 \u2014 not yet.)"
+          "text": "You speak Draconic. Fire is your element. (Elemental Affinity is level 6 — not yet.)"
         },
         {
           "name": "Font of Magic",
           "source": "Sorcerer 2",
-          "text": "4 sorcery points. Convert points \u2194 slots (2 pts = 1st, 3 pts = 2nd).",
+          "text": "4 sorcery points. Convert points ↔ slots (2 pts = 1st, 3 pts = 2nd).",
           "uses": "4 points"
         },
         {
@@ -3818,7 +3818,7 @@
           "name": "Arcane focus (ember-glass shard)"
         },
         {
-          "name": "Dungeoneer\u2019s pack"
+          "name": "Dungeoneer’s pack"
         }
       ],
       "gp": 19,
@@ -3844,15 +3844,15 @@
       ],
       "features": [
         "Draconic Resilience: AC 13 + Dex when unarmored (15). +1 HP per sorcerer level (in 34).",
-        "Dragon Ancestor (Red): You speak Draconic. Fire is your element. (Elemental Affinity is level 6 \u2014 not yet.)",
-        "Font of Magic: 4 sorcery points. Convert points \u2194 slots (2 pts = 1st, 3 pts = 2nd).",
+        "Dragon Ancestor (Red): You speak Draconic. Fire is your element. (Elemental Affinity is level 6 — not yet.)",
+        "Font of Magic: 4 sorcery points. Convert points ↔ slots (2 pts = 1st, 3 pts = 2nd).",
         "Metamagic: Quickened Spell: 2 points: a 1-action spell becomes a bonus action.",
         "Metamagic: Twinned Spell: Points = spell level. Twin a single-target spell that does not target you.",
         "Breath Weapon: 1/short rest. 15-ft cone fire, Dex DC 13 (8+PB+Con), 2d6, half on success.",
         "Damage Resistance: Resistance to fire.",
         "Rustic Hospitality: Common folk hide you if you are not endangering them."
       ],
-      "gear": "Arcane focus (ember-glass shard), Dungeoneer\u2019s pack, 19 gp"
+      "gear": "Arcane focus (ember-glass shard), Dungeoneer’s pack, 19 gp"
     },
     {
       "id": "pregen-mael",
@@ -4053,7 +4053,7 @@
         "Hex (if a slot remains): bonus, concentration 1 hour. +1d6 necrotic vs one target; disadvantage on checks of one ability."
       ],
       "reactions": [
-        "Hellish Rebuke (slot or 1/day racial as 2nd-level): when you take damage, Dex DC 13, 3d10 fire (racial 2nd) or 2d10 if a 1st-equivalent \u2014 you only have 2nd-level slots: 3d10, half on success."
+        "Hellish Rebuke (slot or 1/day racial as 2nd-level): when you take damage, Dex DC 13, 3d10 fire (racial 2nd) or 2d10 if a 1st-equivalent — you only have 2nd-level slots: 3d10, half on success."
       ],
       "spellcasting": {
         "ability": "Charisma",
@@ -4174,14 +4174,14 @@
           "text": "2 slots of 2nd level. They return on a short rest. Cha DC 13, +5."
         },
         {
-          "name": "Dark One\u2019s Blessing",
+          "name": "Dark One’s Blessing",
           "source": "Fiend 1",
           "text": "When you reduce a hostile creature to 0 HP, gain temp HP = Cha mod + warlock level (7)."
         },
         {
           "name": "Eldritch Invocations (2 at level 4)",
           "source": "Warlock 2",
-          "text": "Agonizing Blast: add Cha to EB damage. Devil\u2019s Sight: 120 ft. vision in magical and nonmagical darkness. (Book of Ancient Secrets is a 5th-level invocation pick \u2014 not yet.)"
+          "text": "Agonizing Blast: add Cha to EB damage. Devil’s Sight: 120 ft. vision in magical and nonmagical darkness. (Book of Ancient Secrets is a 5th-level invocation pick — not yet.)"
         },
         {
           "name": "Pact of the Tome",
@@ -4199,7 +4199,7 @@
           "text": "You have a second identity with papers and acquaintances. You can forge documents as long as you have seen an example."
         },
         {
-          "name": "Not yet: Dark One\u2019s Own Luck",
+          "name": "Not yet: Dark One’s Own Luck",
           "source": "Fiend 6",
           "text": "You do not have this. It arrives at warlock 6. Do not use it."
         }
@@ -4241,12 +4241,12 @@
       ],
       "features": [
         "Pact Magic: 2 slots of 2nd level. They return on a short rest. Cha DC 13, +5.",
-        "Dark One\u2019s Blessing: When you reduce a hostile creature to 0 HP, gain temp HP = Cha mod + warlock level (7).",
-        "Eldritch Invocations (2 at level 4): Agonizing Blast: add Cha to EB damage. Devil\u2019s Sight: 120 ft. vision in magical and nonmagical darkness. (Book of Ancient Secrets is a 5th-level invocation pick \u2014 not yet.)",
+        "Dark One’s Blessing: When you reduce a hostile creature to 0 HP, gain temp HP = Cha mod + warlock level (7).",
+        "Eldritch Invocations (2 at level 4): Agonizing Blast: add Cha to EB damage. Devil’s Sight: 120 ft. vision in magical and nonmagical darkness. (Book of Ancient Secrets is a 5th-level invocation pick — not yet.)",
         "Pact of the Tome: Book of Shadows: three extra cantrips (Guidance, Mage Hand, Minor Illusion).",
         "Infernal Legacy: Thaumaturgy at will. Hellish Rebuke 1/day as a 2nd-level spell. Fire resistance. Darkvision 60.",
         "False Identity: You have a second identity with papers and acquaintances. You can forge documents as long as you have seen an example.",
-        "Not yet: Dark One\u2019s Own Luck: You do not have this. It arrives at warlock 6. Do not use it."
+        "Not yet: Dark One’s Own Luck: You do not have this. It arrives at warlock 6. Do not use it."
       ],
       "gear": "Leather armor, Dagger, Book of Shadows, Arcane focus, 20 gp"
     }

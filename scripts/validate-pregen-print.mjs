@@ -75,6 +75,8 @@ for (const required of [
   ".pr-mini-stats",
   ".pr-standard-actions",
   ".pr-resource-columns",
+  ".pr-zone-skills .sk *",
+  "color:#111 !important",
   "font-size:7.55pt",
   "Combat notes / ammunition / special attack riders",
   "font-size:11pt",
@@ -102,6 +104,9 @@ for (const packPath of [
     if (!pc.portrait) errors.push(pc.name + " missing portrait path");
     else if (!fs.existsSync(pc.portrait)) errors.push(pc.name + " portrait missing: " + pc.portrait);
     if (!pc.attackList?.length) errors.push(pc.name + " missing attacks");
+    for (const attack of (pc.attackList || [])) {
+      if (/Extra Attack is (?:fighter|ranger|paladin) 5/i.test(attack.notes || "")) errors.push(pc.name + " has future-level Extra Attack note on current sheet");
+    }
     if (!pc.featureList?.length) errors.push(pc.name + " missing features");
     for (const ability of ["STR","DEX","CON","INT","WIS","CHA"]) {
       if (pc.scores?.[ability] == null) errors.push(pc.name + " missing " + ability + " ability score");
