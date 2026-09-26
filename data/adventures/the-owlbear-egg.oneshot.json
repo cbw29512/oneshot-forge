@@ -1098,7 +1098,7 @@
     ]
   },
   "pathPressure": {
-    "principle": "The adventure is linear until the players make a choice that truly changes the outcome.",
+    "principle": "The adventure stays on one spine until a real consequence branch. The ending is never locked by a missed check; the players still finish the one-shot, but their choices can produce different terminal outcomes.",
     "prepared": [
       {
         "when": "They expose Elmorrow before choosing the egg",
