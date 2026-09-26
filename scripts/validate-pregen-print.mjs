@@ -57,7 +57,11 @@ for (const required of [
   ".pr-writebox",
   "min-height:1.02in",
   ".pr-condition-box",
-  ".pr-quickturn"
+  ".pr-quickturn",
+  ".pr-center .pr-atk",
+  "font-size:9.1pt",
+  "justify-content:space-between",
+  "font-size:7.75pt"
 ]) {
   if (!css.includes(required)) errors.push("print CSS missing " + required);
 }
