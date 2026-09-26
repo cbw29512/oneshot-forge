@@ -29,12 +29,74 @@
         <select id="forge-tone"><option value="random">Random</option><option value="horror">Horror</option><option value="heroic">Heroic</option></select>
         <label for="forge-seed">Seed</label>
         <input id="forge-seed" type="text">
-        <button id="forge-go" class="button ember" type="button">Forge and open</button>
+        <div class="card-actions">
+          <button id="bones-preview" class="button secondary" type="button">Preview bones</button>
+          <button id="copy-flesh" class="button secondary" type="button">Copy AI flesh brief</button>
+          <button id="forge-go" class="button ember" type="button">Forge and open</button>
+        </div>
       </div>
+      <section id="bones-panel" class="card" hidden style="max-width:52rem;margin-top:1rem">
+        <p class="eyebrow">Deterministic adventure bones</p>
+        <div id="bones-summary" class="stack"></div>
+      </section>
     </section>
   </main>
+  <script src="forge-bones.js?v=20260926a"></script>
+  <script src="forge-flesh.js?v=20260926a"></script>
   <script src="generator.js?v=20260920p"></script>
   <script>
+    function currentForgeOptions() {
+      return {
+        level: Number(document.getElementById("forge-level").value),
+        partySize: Number(document.getElementById("forge-party").value),
+        durationHours: Number(document.getElementById("forge-duration").value),
+        tone: document.getElementById("forge-tone").value,
+        seed: document.getElementById("forge-seed").value.trim() || "FORGE-PREVIEW"
+      };
+    }
+
+    function renderBonesPreview() {
+      try {
+        const bones = globalThis.ForgeBones.generateBones(currentForgeOptions());
+        const panel = document.getElementById("bones-panel");
+        const summary = document.getElementById("bones-summary");
+        summary.innerHTML = [
+          ["Preview", bones.preview.origin + " → " + bones.preview.destination],
+          ["Quest", bones.hook.objective],
+          ["Quest giver", bones.questGiver.role + " — wants to " + bones.questGiver.motive],
+          ["Red herring", bones.twist.apparentTruth],
+          ["Truth", bones.twist.actualTruth],
+          ["Trap / puzzle", bones.obstacle.kind + ": " + bones.obstacle.mechanic],
+          ["Travel", bones.travel.environment + " — " + bones.travel.pressure],
+          ["Finale", bones.finale.kind + ": " + bones.finale.subject],
+          ["Noncombat finale", bones.finale.noncombatResolution],
+          ["Aftermath", bones.aftermath.consequence],
+          ["Random encounter 1", bones.randomEncounters[0].prompt],
+          ["Random encounter 2", bones.randomEncounters[1].prompt]
+        ].map(([label,value]) => "<p><b>" + label + ":</b> " + value + "</p>").join("");
+        panel.hidden = false;
+        return bones;
+      } catch (error) {
+        console.error("Bones preview failed.", error);
+        alert("Could not build the bones preview.");
+        return null;
+      }
+    }
+
+    document.getElementById("bones-preview").addEventListener("click", renderBonesPreview);
+    document.getElementById("copy-flesh").addEventListener("click", async () => {
+      try {
+        const bones = renderBonesPreview();
+        if (!bones) return;
+        const request = globalThis.ForgeFlesh.createFleshRequest(bones);
+        await navigator.clipboard.writeText(JSON.stringify(request, null, 2));
+        alert("AI flesh brief copied.");
+      } catch (error) {
+        console.error("AI flesh brief copy failed.", error);
+        alert("Could not copy the AI flesh brief.");
+      }
+    });
+
     document.getElementById("forge-go").addEventListener("click", () => {
       const gen = globalThis.OneShotGenerator;
       if (!gen) return alert("Generator missing.");
