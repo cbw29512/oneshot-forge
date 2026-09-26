@@ -40,6 +40,15 @@ requireText(adventure.setup?.gmSummary, "setup.gmSummary");
 requireText(adventure.quest?.objective, "quest.objective");
 requireText(adventure.quest?.stakes, "quest.stakes");
 
+// Keep parity with what the GM runner (app.js) demands to open a package, so an
+// adventure cannot pass validation yet fail to load at the table.
+const runnerRequiredKeys = ["schemaVersion", "metadata", "quest", "truth", "npcs", "locations", "scenes", "clues", "encounters", "maps", "recovery", "pacing", "endings", "initialState"];
+for (const key of runnerRequiredKeys) {
+  if (adventure[key] === undefined || adventure[key] === null) {
+    errors.push(`top-level "${key}" is required so the GM runner can open the package`);
+  }
+}
+
 if (!adventure.initialState?.currentSceneId || !sceneIds.has(adventure.initialState.currentSceneId)) {
   errors.push("initialState.currentSceneId must reference a scene");
 }

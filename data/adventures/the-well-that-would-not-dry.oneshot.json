@@ -727,6 +727,12 @@
       ]
     }
   },
+  "pacing": {
+    "targetMinutes": 240,
+    "plannedMinutes": 195,
+    "cutOrder": [],
+    "optionalOrder": ["scene-jory"]
+  },
   "initialState": {
     "questStage": "offered",
     "currentSceneId": "scene-hook",
