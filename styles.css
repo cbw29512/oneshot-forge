@@ -2879,3 +2879,79 @@ body.run { background: var(--bg) }
     -webkit-text-fill-color:#111 !important;
   }
 }
+
+/* 2026-09-26 flex containment for abilities + saves */
+@media print {
+  .pr-zone-abilities,
+  .pr-zone-saves {
+    overflow:hidden !important;
+    min-height:0 !important;
+  }
+
+  .pr-zone-abilities .pr-abilities {
+    display:flex !important;
+    flex-direction:column !important;
+    gap:.025in !important;
+    height:100% !important;
+    min-height:0 !important;
+  }
+  .pr-zone-abilities .pr-abilities .ab {
+    display:flex !important;
+    flex:1 1 0 !important;
+    min-height:0 !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    padding:.015in .045in !important;
+    overflow:hidden !important;
+  }
+  .pr-zone-abilities .ab-name {
+    flex:0 0 auto !important;
+    text-align:left !important;
+  }
+  .pr-zone-abilities .ab-score {
+    flex:1 1 auto !important;
+    text-align:center !important;
+    min-width:0 !important;
+  }
+  .pr-zone-abilities .ab-mod {
+    flex:0 0 auto !important;
+    text-align:right !important;
+  }
+
+  .pr-zone-saves .pr-saves {
+    display:flex !important;
+    flex-direction:column !important;
+    gap:.025in !important;
+    height:100% !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+  }
+  .pr-zone-saves .pr-save {
+    display:flex !important;
+    flex:1 1 0 !important;
+    min-height:0 !important;
+    align-items:center !important;
+    padding:.018in .04in !important;
+    border:0 !important;
+    border-bottom:.6pt solid #d3cec8 !important;
+    overflow:hidden !important;
+    box-sizing:border-box !important;
+  }
+  .pr-zone-saves .pr-save:last-child {
+    border-bottom:0 !important;
+  }
+  .pr-zone-saves .pr-prof {
+    flex:0 0 .16in !important;
+    width:.16in !important;
+    text-align:left !important;
+  }
+  .pr-zone-saves .pr-save b {
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    text-align:left !important;
+  }
+  .pr-zone-saves .pr-save strong {
+    flex:0 0 auto !important;
+    text-align:right !important;
+  }
+}
