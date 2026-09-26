@@ -1147,3 +1147,153 @@ body.run { background: var(--bg) }
     line-height:1.1;
   }
 }
+
+@media print {
+  body.sheets-page {
+    font-size: 9.2pt;
+    line-height: 1.24;
+  }
+  .pr-page {
+    padding: .16in;
+  }
+  .pr-head {
+    grid-template-columns: 1.42in minmax(0,1fr) 2.65in;
+    gap: .13in;
+    padding-bottom: .1in;
+    margin-bottom: .1in;
+  }
+  .pr-port {
+    width:1.42in;
+    height:1.42in;
+  }
+  .pr-kicker { font-size:6.5pt; }
+  .pr-id h2, .pr-spell-head h2 { font-size:21pt; }
+  .pr-id p, .pr-spell-head p { font-size:8.3pt; line-height:1.25; }
+  .pr-role { font-size:7.2pt !important; }
+  .pr-vitals span, .pr-caster-stats span {
+    min-height:.58in;
+    padding:.04in;
+  }
+  .pr-vitals small, .pr-caster-stats small { font-size:6pt; }
+  .pr-vitals b, .pr-caster-stats b { font-size:14pt; }
+
+  .pr-body {
+    grid-template-columns:1.85in minmax(0,1fr) 2.05in;
+    gap:.13in;
+    height:auto;
+  }
+  .pr-page section { margin-bottom:.08in; }
+  .pr-page h3 {
+    margin:0 0 .04in;
+    padding:.04in .05in;
+    font-size:7.8pt;
+    letter-spacing:.08em;
+  }
+
+  .pr-abilities { gap:.04in; }
+  .pr-abilities .ab { padding:.045in .02in; }
+  .pr-abilities .ab span { font-size:6.2pt; }
+  .pr-abilities .ab strong { font-size:13.5pt; }
+  .pr-abilities .ab em { font-size:8.2pt; }
+
+  .pr-save {
+    padding:.03in .035in;
+    font-size:7.3pt;
+    line-height:1.05;
+  }
+  .pr-save .pr-prof { font-size:7.5pt; }
+  .pr-save b { font-size:7pt; }
+  .pr-save strong { font-size:8pt; }
+
+  .pr-left .sv, .pr-left .sk {
+    grid-template-columns:.15in .26in 1fr;
+    gap:.025in;
+    padding:.011in 0;
+    font-size:7.1pt;
+    line-height:1.1;
+  }
+  .pr-left .sv b, .pr-left .sk b { font-size:7.2pt; }
+
+  .pr-track-grid span {
+    min-height:.46in;
+    padding:.04in;
+  }
+  .pr-track-grid small { font-size:5.8pt; }
+  .pr-track-grid b { font-size:7.5pt; }
+  .pr-ac-note { font-size:6.6pt; }
+
+  .pr-center .atk {
+    font-size:7.6pt;
+    line-height:1.15;
+  }
+  .pr-center .atk th { font-size:6.2pt; padding:.03in; }
+  .pr-center .atk td { padding:.045in .03in; }
+  .pr-center .atk .tiny { font-size:6.3pt !important; line-height:1.1; }
+
+  .pr-line {
+    padding:.03in 0;
+    font-size:7pt;
+    line-height:1.18;
+  }
+  .pr-feature {
+    padding:.03in 0 .04in;
+    font-size:6.9pt;
+    line-height:1.16;
+  }
+  .pr-feature b { font-size:7.3pt; }
+
+  .pr-right {
+    font-size:7pt;
+    line-height:1.18;
+  }
+  .pr-right p { margin:.025in 0; }
+
+  .pr-resource {
+    padding:.025in 0;
+    font-size:6.8pt;
+    line-height:1.1;
+  }
+  .pr-defense {
+    padding:.025in 0 .035in;
+    font-size:6.7pt;
+    line-height:1.12;
+  }
+  .pr-defense b { font-size:7pt; }
+
+  .pr-casting-grid span { padding:.04in; }
+  .pr-casting-grid small { font-size:5.8pt; }
+  .pr-casting-grid b { font-size:8.5pt; }
+
+  .pr-spell-page {
+    padding:.18in;
+    font-size:8.6pt;
+  }
+  .pr-spell-head {
+    grid-template-columns:minmax(0,1fr) 2.75in;
+    gap:.16in;
+    padding-bottom:.1in;
+  }
+  .pr-slotbar {
+    margin:.08in 0;
+    padding:.06in .08in;
+    font-size:7.6pt;
+  }
+  .pr-spell-columns {
+    columns:2;
+    column-gap:.18in;
+    height:auto;
+  }
+  .pr-spell-group { margin-bottom:.1in !important; }
+  .pr-spell {
+    padding:.04in 0 .055in;
+    font-size:7.2pt;
+    line-height:1.17;
+  }
+  .pr-spell-title {
+    grid-template-columns:minmax(1.3in,auto) minmax(0,1fr);
+    gap:.08in;
+  }
+  .pr-spell-title b { font-size:7.8pt; }
+  .pr-spell-title span { font-size:6.4pt; line-height:1.12; }
+  .pr-spell p { font-size:7pt; line-height:1.16; margin:.02in 0 0; }
+}
