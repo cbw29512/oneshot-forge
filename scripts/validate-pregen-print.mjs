@@ -26,7 +26,11 @@ for (const required of [
   "Death Saves",
   "Limited-Use Resources",
   "Passive Perception",
-  "Passive Insight"
+  "Passive Insight",
+  "Combat Spellcasting",
+  "Combat Defenses",
+  "Roll / DC",
+  "resourceBoxes(uses)"
 ]) {
   if (!sheets.includes(required)) errors.push("sheets.html missing " + required);
 }
