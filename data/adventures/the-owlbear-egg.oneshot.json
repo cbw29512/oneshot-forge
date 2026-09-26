@@ -1617,15 +1617,13 @@
         "rules": [
           "Multiattack: Beak +8; two Claws +8.",
           "Maternal Rage (1/day, 1 minute): advantage on Strength checks/saves; +2 Strength-melee damage; resistance to bludgeoning, piercing, and slashing.",
-          "Eat branch: she attacks at dawn because the egg was destroyed.",
-          "Return branch: father alive = family withdraws peacefully; father dead = she secures the hatchling, then attacks in Maternal Rage.",
-          "Keep branch: she comes for the hatchling. Father alive + party yields = peaceful reunion; deliberate refusal can trigger combat. Father dead keeps her hostile even if she recovers the baby."
+          "Eat: attacks at dawn. Return: father alive = peaceful withdrawal; father dead = secure hatchling, then rage.",
+          "Keep: she comes for the hatchling. Father alive + party yields = peaceful reunion; refusing her or killing the father can trigger combat."
         ],
         "dmNotes": [
-          "Her behavior follows what the party actually did; do not force a fight after a genuine peaceful return.",
-          "The keep ending must still account for her. She is searching for her surviving offspring.",
-          "If the father died, his loss is what keeps her hostile.",
-          "Evacuation is always a legal alternative to standing and fighting."
+          "Her behavior follows what the party actually did; never force a fight after a genuine peaceful return.",
+          "The keep ending must still account for her; she is searching for her surviving offspring.",
+          "If the father died, grief keeps her hostile. Evacuation is always a legal alternative to fighting."
         ]
       },
       "image": "assets/cards/owlbear/mother-owlbear.svg",
