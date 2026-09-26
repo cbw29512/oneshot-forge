@@ -958,13 +958,13 @@
     {
       "id": "enc-mother-keep",
       "name": "Mother Comes for the Kept Hatchling",
-      "type": "conditional consequence confrontation",
+      "type": "conditional social / combat consequence",
       "difficulty": "social/tense if father alive; deadly if the party refuses or father died",
       "summary": "The mother comes for the hatchling after it imprints. The confrontation depends on the father's fate and whether the party yields the baby.",
       "resolution": "Yield the hatchling, back away and allow reunion, evacuate with the hatchling, or fight to keep it.",
       "talkOut": "Father alive: no roll is needed if the party visibly yields and backs away. Father dead: social checks cannot erase grief, but surrendering the hatchling may keep her focus on recovery rather than pursuit.",
       "bypass": "Do not stand between mother and hatchling; retreat and let the family reunite.",
-      "special": "The imprint is behavioral, not magical. It creates attachment but does not make the hatchling incapable of responding to its mother."
+      "special": "Father alive + visible surrender can end without combat. If the party refuses to yield the hatchling, or if the father was killed and the mother turns violent, use the mother/hatchling combat stats."
     }
   ],
   "puzzles": [
@@ -1453,6 +1453,35 @@
           }
         ],
         "end": "Father alive: family withdraws peacefully. Father dead: mother is driven off/defeated, or the village evacuates."
+      },
+      {
+        "id": "enc-mother-keep",
+        "objective": "Resolve whether the party yields the imprinted hatchling or stands between it and its mother.",
+        "start": "The hatchling has imprinted when the mother's booming call reaches Briar Hollow. Father alive: she approaches cautiously. Father dead: she arrives hostile.",
+        "bypass": "Yield the hatchling and back away. With the father alive, this ends peacefully without a roll.",
+        "creatures": [
+          {
+            "name": "Mother Owlbear",
+            "count": 1,
+            "ac": 14,
+            "hp": 95,
+            "speed": "40 ft.",
+            "attack": "Multiattack: Beak +8 to hit, 1d10+7 piercing while raging; two Claws +8 to hit, 2d8+7 slashing each while raging.",
+            "trait": "Maternal Rage (1/day, 1 minute): advantage on Strength checks/saves; +2 Strength-melee damage; resistance to bludgeoning, piercing, and slashing.",
+            "tactics": "Recover the hatchling first. If father alive, posture before attacking; if father dead, focus on threats associated with his death."
+          },
+          {
+            "name": "Owlbear Hatchling",
+            "count": 1,
+            "ac": 11,
+            "hp": 9,
+            "speed": "20 ft.",
+            "attack": "Beak +3 to hit, 1 piercing.",
+            "trait": "Imprinted: follows its chosen protector, but still responds to the mother's calls.",
+            "tactics": "Avoids serious fighting; moves toward bonded protector unless the mother physically gathers it."
+          }
+        ],
+        "end": "The hatchling remains with the party, reunites with its mother, the party evacuates with it, or the mother confrontation is resolved by combat."
       }
     ],
     "hazards": [],
@@ -1501,6 +1530,16 @@
           "ridge tree line",
           "egg placed 30–40 ft. outside wall",
           "mother approaches from woods"
+        ]
+      },
+      {
+        "sceneId": "scene-keep",
+        "dimensions": "Bakehouse and village lane, roughly 50 x 40 ft. if the mother confrontation becomes tactical.",
+        "features": [
+          "hatchling begins beside its imprinted protector",
+          "mother approaches from the ridge-side lane",
+          "open square provides a clear surrender path",
+          "rear lane allows evacuation with the hatchling"
         ]
       }
     ]
