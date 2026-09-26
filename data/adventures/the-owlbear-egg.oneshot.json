@@ -373,6 +373,40 @@
       "exits": [
         "scene-granary",
         "scene-trail"
+      ],
+      "flowStage": 1,
+      "flowTotal": 6,
+      "flowLabel": "Opening dilemma",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Put the starving village, living egg, and Elmorrow’s apparently compassionate position in front of the players."
+        },
+        {
+          "title": "Let the four voices speak",
+          "text": "Sella wants an honest decision. Mara argues for feeding people. Torren argues the egg is alive. Elmorrow claims a druid should take custody."
+        },
+        {
+          "title": "Answer questions without resolving the mystery",
+          "text": "Torren should look suspicious. Elmorrow should sound credible. Do not expose either twist yet."
+        },
+        {
+          "title": "Offer the investigation choice",
+          "text": "Sella gives the party one hour: inspect the granary or follow Torren’s trail. They only need one route; both lead to the father attack."
+        }
+      ],
+      "advanceWhen": "The party chooses which evidence trail to investigate.",
+      "exitChoices": [
+        {
+          "target": "scene-granary",
+          "label": "Inspect the food shortage",
+          "description": "Go to the granary and verify how desperate the village really is."
+        },
+        {
+          "target": "scene-trail",
+          "label": "Follow Torren’s trail",
+          "description": "Go to the broken poacher cart and learn what followed the egg to town."
+        }
       ]
     },
     {
@@ -400,6 +434,39 @@
       "encounterIds": [],
       "exits": [
         "scene-father"
+      ],
+      "flowStage": 2,
+      "flowTotal": 6,
+      "flowLabel": "Investigation — food",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Show the nearly empty good bins and the five remaining ration stones."
+        },
+        {
+          "title": "Run the ration-board puzzle",
+          "text": "Let the players work out that five half-day stones equal roughly two and a half days of food. If they stall, Mara explains it."
+        },
+        {
+          "title": "Offer the ledger check",
+          "text": "Investigation DC 12 confirms the count and reveals Sella’s household has taken less than its share."
+        },
+        {
+          "title": "Lock in the truth",
+          "text": "The egg could feed everyone once, but it does not solve the famine."
+        },
+        {
+          "title": "Trigger the crisis",
+          "text": "A crash and screaming from the square interrupts the investigation: the father owlbear has arrived."
+        }
+      ],
+      "advanceWhen": "The players understand the food shortage, or the fail-forward explanation has delivered it.",
+      "exitChoices": [
+        {
+          "target": "scene-father",
+          "label": "The father attacks the square",
+          "description": "Return to the square and run the feed-or-fight encounter."
+        }
       ]
     },
     {
@@ -429,6 +496,39 @@
       "encounterIds": [],
       "exits": [
         "scene-father"
+      ],
+      "flowStage": 2,
+      "flowTotal": 6,
+      "flowLabel": "Investigation — tracks",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Show the poacher cart, tainted boar, and two dramatically different sets of owlbear tracks."
+        },
+        {
+          "title": "Read the tracks",
+          "text": "Nature or Survival DC 12 reveals the smaller adult is staggering, scavenging, and likely sick or starving."
+        },
+        {
+          "title": "Plant the mother warning",
+          "text": "The second track set is enormous—roughly twice the father’s bulk. Do not present her as a fair boss fight."
+        },
+        {
+          "title": "Pay the Torren red herring forward",
+          "text": "His rope, blanket, and hooked knife look incriminating. He admits he moved the egg but still does not know Elmorrow’s real plan."
+        },
+        {
+          "title": "Run the snare, then ring the bell",
+          "text": "Resolve the poacher snare. Whether it catches someone or not, the village alarm sends the party back to the father attack."
+        }
+      ],
+      "advanceWhen": "The father’s condition and the huge second track set are established, even if checks fail.",
+      "exitChoices": [
+        {
+          "target": "scene-father",
+          "label": "The village bell rings — run back",
+          "description": "The starving father is attacking the food table."
+        }
       ]
     },
     {
@@ -463,6 +563,39 @@
       ],
       "exits": [
         "scene-wagon"
+      ],
+      "flowStage": 3,
+      "flowTotal": 6,
+      "flowLabel": "Crisis — feed or fight",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Put the father at the food table and make his starvation obvious."
+        },
+        {
+          "title": "Ask what the players do",
+          "text": "If they fight, roll initiative and use the quick combat block below. If they offer food, resolve that immediately."
+        },
+        {
+          "title": "Apply the ration solution exactly",
+          "text": "Their pooled one-day travel rations end the encounter with no check if thrown from 20 feet. Placing food beside him safely is Animal Handling DC 12."
+        },
+        {
+          "title": "Resolve death honestly",
+          "text": "If killed, Medicine or Nature DC 10 confirms the meat is unsafe. Then immediately trigger the mother’s deeper scream from the ridge."
+        },
+        {
+          "title": "Point toward Elmorrow’s wagon",
+          "text": "After the crisis, suspicious transport gear or Elmorrow’s behavior gives the party a reason to inspect his green wagon before deciding the egg’s fate."
+        }
+      ],
+      "advanceWhen": "The father has left, been driven off, or died, and the consequence is clear.",
+      "exitChoices": [
+        {
+          "target": "scene-wagon",
+          "label": "Inspect the false druid’s wagon",
+          "description": "Investigate Elmorrow before the final egg decision."
+        }
       ]
     },
     {
@@ -492,6 +625,39 @@
       "encounterIds": [],
       "exits": [
         "scene-choice"
+      ],
+      "flowStage": 4,
+      "flowTotal": 6,
+      "flowLabel": "Puzzle — expose the fake druid",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "The riddle and the four picture tiles are player-facing. Stop and let the players solve it."
+        },
+        {
+          "title": "Run the puzzle",
+          "text": "Correct order: EGG → CHAIN → TENT → COIN. Do not volunteer the solution unless using fail-forward."
+        },
+        {
+          "title": "Use the fail-forward if needed",
+          "text": "Thieves’ tools DC 13 or Strength DC 14 opens the box. A failed attempt brings Elmorrow running but does not erase the evidence."
+        },
+        {
+          "title": "Reveal the physical proof",
+          "text": "Inside: Moonpetal Traveling Menagerie contract, handler token, sedatives, and a reinforced beast crate. Elmorrow is not a druid."
+        },
+        {
+          "title": "Clear Torren",
+          "text": "Torren’s rope and blankets do not match the cage fittings or hardware. The red herring collapses here."
+        }
+      ],
+      "advanceWhen": "The party has enough physical evidence to understand Elmorrow’s circus/menagerie scheme.",
+      "exitChoices": [
+        {
+          "target": "scene-choice",
+          "label": "Return to the egg for the final choice",
+          "description": "Bring the truth back to Sella, Mara, Torren, and Elmorrow."
+        }
       ]
     },
     {
@@ -526,6 +692,46 @@
       "encounterIds": [],
       "exits": [
         "scene-resolution"
+      ],
+      "flowStage": 5,
+      "flowTotal": 6,
+      "flowLabel": "Final decision",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Put every cost back on the table: hunger, the living egg, the parent owlbears, and Elmorrow’s lie."
+        },
+        {
+          "title": "Let each side make one short case",
+          "text": "Mara argues for the village meal. Torren argues for the living egg. Sella asks for responsibility. Elmorrow tries to salvage custody if he can."
+        },
+        {
+          "title": "Force no preferred answer",
+          "text": "Valid choices include cook it, hatch it, return it to the ridge, take responsibility for it, or another solution that pays a real cost."
+        },
+        {
+          "title": "Lock the choice",
+          "text": "Once the players decide, do not reopen the debate unless their plan materially changes."
+        },
+        {
+          "title": "If the egg survives, start the hatch",
+          "text": "A crack spreads and the baby begins emerging. The imprint payoff happens in the resolution stage."
+        }
+      ],
+      "advanceWhen": "The party has made a deliberate final decision about the egg.",
+      "exitChoices": [
+        {
+          "target": "scene-resolution",
+          "label": "Resolve the consequences",
+          "description": "Choose the matching ending and finish with the baby imprint if the egg survived."
+        }
+      ],
+      "endingIds": [
+        "ending-omelet",
+        "ending-hatch",
+        "ending-return",
+        "ending-take-it",
+        "ending-chaos"
       ]
     },
     {
@@ -552,7 +758,41 @@
       ],
       "clueIds": [],
       "encounterIds": [],
-      "exits": []
+      "exits": [],
+      "flowStage": 6,
+      "flowTotal": 6,
+      "flowLabel": "Resolution",
+      "runSteps": [
+        {
+          "title": "Read the boxed text",
+          "text": "Let the quiet aftermath land before explaining consequences."
+        },
+        {
+          "title": "Choose the matching ending below",
+          "text": "Use the ending that matches what the players actually did. Do not grade their morality."
+        },
+        {
+          "title": "Apply the parent consequence",
+          "text": "If the father died, include the mother’s distant scream. If the egg was returned, keep a noncombat path open."
+        },
+        {
+          "title": "Pay off the baby owlbear",
+          "text": "If the egg survived, hatch it now. It imprints on the PC who most clearly held, fed, protected, or soothed it; if unclear, choose a random PC."
+        },
+        {
+          "title": "Close the adventure",
+          "text": "Award the village reward and end on the consequence the table chose, not on a lecture from an NPC."
+        }
+      ],
+      "advanceWhen": "The ending, reward, and baby imprint (if applicable) have all been resolved.",
+      "endingIds": [
+        "ending-omelet",
+        "ending-hatch",
+        "ending-return",
+        "ending-take-it",
+        "ending-chaos"
+      ],
+      "exitChoices": []
     }
   ],
   "clues": [
