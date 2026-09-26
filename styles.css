@@ -2391,3 +2391,47 @@ body.run { background: var(--bg) }
     font-weight:700 !important;
   }
 }
+
+/* 2026-09-26 left-rail readability pass */
+@media print {
+  .pr-zone-saves .pr-save,
+  .pr-zone-saves .pr-save *,
+  .pr-zone-skills .sk,
+  .pr-zone-skills .sk * {
+    color:#111 !important;
+    opacity:1 !important;
+  }
+
+  .pr-zone-saves .pr-save {
+    min-height:.255in !important;
+    padding:.02in .035in !important;
+    font-size:8.25pt !important;
+    line-height:1.02 !important;
+  }
+  .pr-zone-saves .pr-save b {
+    font-size:8.2pt !important;
+    font-weight:700 !important;
+  }
+  .pr-zone-saves .pr-save strong {
+    font-size:8.8pt !important;
+    font-weight:800 !important;
+  }
+
+  .pr-zone-skills .pr-skill-list {
+    grid-template-rows:repeat(18,minmax(.225in,1fr)) !important;
+  }
+  .pr-zone-skills .sk {
+    min-height:.225in !important;
+    padding:.006in 0 !important;
+    font-size:7.9pt !important;
+    line-height:1.02 !important;
+  }
+  .pr-zone-skills .sk b {
+    font-size:8.05pt !important;
+    font-weight:800 !important;
+  }
+  .pr-zone-skills .sk i {
+    font-size:7.9pt !important;
+    font-weight:700 !important;
+  }
+}
