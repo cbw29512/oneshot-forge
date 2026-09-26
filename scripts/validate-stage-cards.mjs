@@ -85,7 +85,8 @@ try {
     }
     for (const id of scene.exits ?? []) if (!sceneIds.has(id)) fail(`${label}: exit points to unknown scene ${id}`);
 
-    if (scene.pacingClass === 'core' && scene.id !== 'scene-resolution' && !(scene.exits ?? []).length) {
+    const declaredTerminal = new Set(adventure.flowContract?.terminalScenes || []).has(scene.id);
+    if (scene.pacingClass === 'core' && !declaredTerminal && !(scene.exits ?? []).length) {
       fail(`${label}: core stage has no next choice/transition`);
     }
 
