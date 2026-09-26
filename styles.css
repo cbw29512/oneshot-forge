@@ -1123,3 +1123,27 @@ body.run { background: var(--bg) }
   }
   .pr-atk td:nth-child(3), .pr-atk th:nth-child(3) { width:1.03in; }
 }
+
+@media print {
+  .pr-spell-title {
+    display:grid;
+    grid-template-columns:minmax(1.2in,auto) minmax(0,1fr);
+    gap:.06in;
+    align-items:baseline;
+  }
+  .pr-spell-title b {
+    font-size:6.35pt;
+    white-space:nowrap;
+  }
+  .pr-spell-title span {
+    font-size:5pt;
+    line-height:1.08;
+    color:#3f3a35;
+    text-align:right;
+  }
+  .pr-spell p {
+    margin:.012in 0 0;
+    font-size:5.55pt;
+    line-height:1.1;
+  }
+}
