@@ -1087,3 +1087,39 @@ body.run { background: var(--bg) }
     color:#333;
   }
 }
+
+@media print {
+  .pr-casting-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:.025in;
+  }
+  .pr-casting-grid span {
+    border:1pt solid #aaa;
+    padding:.025in;
+    text-align:center;
+    background:#f8f5ef !important;
+  }
+  .pr-casting-grid small {
+    display:block;
+    font-size:4.8pt;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+  }
+  .pr-casting-grid b { display:block; margin-top:.015in; font-size:7pt; }
+  .pr-defense {
+    padding:.015in 0 .022in;
+    border-bottom:.5pt solid #ddd;
+    font-size:5.35pt;
+    line-height:1.07;
+    break-inside:avoid;
+  }
+  .pr-defense b { font-size:5.6pt; }
+  .pr-defense p { margin:.008in 0 0; }
+  .pr-atk td:nth-child(2), .pr-atk th:nth-child(2) {
+    width:.62in;
+    text-align:center;
+    white-space:nowrap;
+  }
+  .pr-atk td:nth-child(3), .pr-atk th:nth-child(3) { width:1.03in; }
+}
