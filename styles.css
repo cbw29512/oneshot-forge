@@ -3098,3 +3098,93 @@ body.run { background: var(--bg) }
     -webkit-text-fill-color:#111 !important;
   }
 }
+
+/* 2026-09-26 final anti-clipping pass: saves + quick turn */
+@media print {
+  .pr-zone-saves {
+    display:flex !important;
+    flex-direction:column !important;
+    overflow:hidden !important;
+  }
+  .pr-zone-saves .pr-saves {
+    display:flex !important;
+    flex-flow:row wrap !important;
+    align-content:stretch !important;
+    gap:0 !important;
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    height:auto !important;
+    overflow:hidden !important;
+  }
+  .pr-zone-saves .pr-save {
+    flex:0 0 50% !important;
+    width:50% !important;
+    height:33.333% !important;
+    min-height:0 !important;
+    box-sizing:border-box !important;
+    display:flex !important;
+    align-items:center !important;
+    padding:.015in .035in !important;
+    border:0 !important;
+    border-bottom:.6pt solid #d3cec8 !important;
+    overflow:hidden !important;
+  }
+  .pr-zone-saves .pr-save:nth-child(odd) {
+    border-right:.6pt solid #d3cec8 !important;
+  }
+  .pr-zone-saves .pr-save:nth-child(5),
+  .pr-zone-saves .pr-save:nth-child(6) {
+    border-bottom:0 !important;
+  }
+  .pr-zone-saves .pr-prof {
+    flex:0 0 .15in !important;
+    width:.15in !important;
+  }
+  .pr-zone-saves .pr-save b {
+    flex:1 1 auto !important;
+    text-align:left !important;
+  }
+  .pr-zone-saves .pr-save strong {
+    flex:0 0 auto !important;
+    text-align:right !important;
+  }
+
+  .pr-zone-actions {
+    display:flex !important;
+    flex-direction:column !important;
+    overflow:hidden !important;
+  }
+  .pr-zone-actions .pr-standard-actions {
+    flex:0 0 auto !important;
+    margin:0 0 .025in !important;
+    padding:.015in 0 .025in !important;
+  }
+  .pr-zone-actions .pr-action-split {
+    flex:0 0 auto !important;
+    margin:0 0 .02in !important;
+  }
+  .pr-zone-actions > h4 {
+    flex:0 0 auto !important;
+    margin:.018in 0 .012in !important;
+  }
+  .pr-zone-actions .pr-quickturn {
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    grid-template-rows:1fr 1fr !important;
+    gap:.02in .12in !important;
+    margin:0 !important;
+    padding:0 !important;
+    list-style-position:inside !important;
+    font-size:7.15pt !important;
+    line-height:1.08 !important;
+    overflow:hidden !important;
+  }
+  .pr-zone-actions .pr-quickturn li {
+    min-width:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow:hidden !important;
+  }
+}
