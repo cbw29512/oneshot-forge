@@ -1554,7 +1554,18 @@
       },
       "image": "assets/cards/owlbear/mother-owlbear.svg",
       "imageAlt": "Enormous scarred mother owlbear on a dark forest ridge, nearly twice the father’s bulk.",
-      "frontLabel": "Creature · Mother"
+      "frontLabel": "Creature · Mother",
+      "rules": [
+        "Multiattack: Beak +8; two Claws +8.",
+        "Maternal Rage (1/day, 1 minute): advantage on Strength checks/saves; +2 Strength-melee damage; resistance to bludgeoning, piercing, and slashing.",
+        "Eat branch: she attacks at dawn because the egg was destroyed.",
+        "Return branch: father alive = family withdraws peacefully; father dead = she secures the hatchling, then attacks in Maternal Rage."
+      ],
+      "dmNotes": [
+        "Her behavior follows what the party actually did; do not force a fight after a genuine peaceful return.",
+        "If the father died, his loss is what makes the return branch violent.",
+        "Evacuation is always a legal alternative to standing and fighting."
+      ]
     },
     {
       "id": "card-sella",
