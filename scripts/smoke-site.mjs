@@ -57,7 +57,7 @@ if (/id="forge-random"/.test(run)) errors.push("customer runner still has New ra
 
 const lantern = read("adventures/the-lantern-below.html");
 if (!lantern.includes("Start adventure")) errors.push("adventure page missing Start adventure");
-for (const rel of ["about.html", "privacy.html", "contact.html", "forge.html", "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg", "data/adventures/the-lantern-below.oneshot.json", "data/adventures/the-well-that-would-not-dry.oneshot.json", "data/adventures/the-owlbear-egg.oneshot.json", "adventures/the-owlbear-egg.html"]) read(rel);
+for (const rel of ["about.html", "privacy.html", "contact.html", "forge.html", "cards.html", "cards.js", "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg", "data/adventures/the-lantern-below.oneshot.json", "data/adventures/the-well-that-would-not-dry.oneshot.json", "data/adventures/the-owlbear-egg.oneshot.json", "adventures/the-owlbear-egg.html"]) read(rel);
 if (!index.includes("the-lantern-below")) errors.push("homepage missing active Lantern card");
 if (!index.includes("the-owlbear-egg")) errors.push("homepage missing Owlbear Egg preview card");
 
@@ -67,6 +67,10 @@ for (const href of hrefs) {
   const clean = href.split("?")[0].split("#")[0];
   if (clean && !fs.existsSync(path.join(root, clean))) errors.push("broken homepage link " + href);
 }
+
+
+const owlbearPage = read("adventures/the-owlbear-egg.html");
+if (!owlbearPage.includes("cards.html?id=the-owlbear-egg")) errors.push("Owlbear page missing printable cards link");
 
 if (errors.length) {
   console.error("Smoke failed:");
