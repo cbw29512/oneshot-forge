@@ -841,7 +841,41 @@
       ]
     }
   ],
-  "playMaps": [],
+  "playMaps": [
+    {
+      "id": "handout-ridge",
+      "kind": "handout",
+      "title": "The Ridge above Hearthford (player handout)",
+      "scale": "not to scale · no secrets",
+      "asset": "assets/maps/watch/ridge-handout.svg",
+      "sceneIds": ["scene-hook"],
+      "notes": [
+        "Hand this to the players at the barracks. It shows Hearthford, the ridge landmarks, and the moving lanterns — no dungeon secrets."
+      ]
+    },
+    {
+      "id": "combat-ridge-line",
+      "kind": "combat",
+      "title": "The Ridge Line",
+      "grid": "1 square = 5 ft.",
+      "asset": "assets/maps/watch/ridge-line.svg",
+      "sceneIds": ["scene-ridge"],
+      "notes": [
+        "The marching column: five cold-blue lanterns, one warm-gold at the rear (Wynn), and the empty sixth gap that marks whoever fills it."
+      ]
+    },
+    {
+      "id": "combat-gallows-cairn",
+      "kind": "combat",
+      "title": "The Gallows Cairn (The Turn)",
+      "grid": "1 square = 5 ft.",
+      "asset": "assets/maps/watch/gallows-cairn.svg",
+      "sceneIds": ["scene-muster"],
+      "notes": [
+        "The company forms on the downhill edge; the Warden and its tally are at the leaning post; the eastern sky brightens toward dawn."
+      ]
+    }
+  ],
   "events": [
     {
       "id": "event-dawn-turn",
@@ -1208,5 +1242,170 @@
         "reward": "A living witness who tells Hearthford what the ridge really is — and a young watchman who will remember who came for him."
       }
     ]
-  }
+  },
+  "cards": [
+    {
+      "id": "card-brune-holt",
+      "type": "npc",
+      "title": "Captain Brune Holt",
+      "front": "A grey-templed watch captain at the wall-walk, a heavy iron seal on his chest and the ridge lanterns burning behind him.",
+      "frontLabel": "NPC · Quest giver",
+      "image": "assets/cards/watch/brune-holt.svg",
+      "imageAlt": "A stern helmed watch captain with a round seal on his chest and six small lantern-lights on the dark ridge behind him.",
+      "back": {
+        "role": "Captain of the Hearthford watch; sent the six and now owns the guilt.",
+        "location": "Watch barracks on the Hearthford square (scene-hook).",
+        "stats": "Noble/veteran statline if needed: AC 16, HP 36. He does not go up the ridge.",
+        "dialogue": [
+          "\u201cCorum. Ashford. Bell. Fenner. Oak. Riss. None signed back.\u201d",
+          "\u201cMy seal. Tonight's countersign: Hearthford holds.\u201d",
+          "\u201cBe off the ridge before dawn. That is when the lights turn.\u201d"
+        ],
+        "rules": [
+          "Gives the party the watch-seal and countersign (clue-order-home).",
+          "His authority makes the relief order automatic — no check.",
+          "Pressed, admits he knew the boundary was failing."
+        ],
+        "dmNotes": [
+          "Does not shout; repeats the last order until obeyed.",
+          "He believes his men may be alive — that hope is the hook.",
+          "Relationship: Helped, or Trusted if you bring his men home."
+        ]
+      }
+    },
+    {
+      "id": "card-hale-corum",
+      "type": "npc",
+      "title": "Sergeant Hale Corum",
+      "front": "A dead sergeant at the head of the column, cold-blue lantern raised, still holding the salute.",
+      "frontLabel": "NPC · The talk-out",
+      "image": "assets/cards/watch/hale-corum.svg",
+      "imageAlt": "A helmed sergeant marching with a cold blue lantern, one hand rising in a salute.",
+      "back": {
+        "role": "Leader of the missing patrol; dead, still on duty, waiting to be relieved.",
+        "location": "At the head of the round (scene-ridge) and the muster (scene-muster).",
+        "stats": "As Cold Watchman (AC 12, HP 22) but never attacks first; stands down on a lawful order.",
+        "dialogue": [
+          "\u201cThe watch stands.\u201d",
+          "\u201cRelief the watch? \u2026 Aye. Say it proper.\u201d"
+        ],
+        "rules": [
+          "Salutes rank; obeys a lawful relief order (seal, countersign, or check-relief-order).",
+          "Holds Wynn's place at the rear so the boy is drafted last.",
+          "If ordered home, repeats the order down the line and the dead lie down."
+        ],
+        "dmNotes": [
+          "Play him as gentle under the iron, not a monster.",
+          "He is the cleanest route to a no-fight resolution."
+        ]
+      }
+    },
+    {
+      "id": "card-wynn-ashford",
+      "type": "npc",
+      "title": "Corporal Wynn Ashford",
+      "front": "The youngest watchman at the rear, warm-gold lantern in hand, breath fogging the cold air.",
+      "frontLabel": "NPC · Save him",
+      "image": "assets/cards/watch/wynn-ashford.svg",
+      "imageAlt": "A young watchman carrying a warm golden lantern, his breath fogging, half a step out of step with the march.",
+      "back": {
+        "role": "The one watchman still alive, sleepwalking the round.",
+        "location": "Rearmost in the column (scene-ridge); pulled out before the round is settled.",
+        "stats": "Commoner/guard: AC 14, HP 11, exhausted. Cannot fight until woken.",
+        "dialogue": [
+          "\u201cIs it \u2026 is it nearly dawn?\u201d",
+          "(his own name, said back to him, makes him surface)"
+        ],
+        "rules": [
+          "His warm lantern, fresh tracks, and own name mark him as living (clue-one-living / puzzle-living-lantern).",
+          "Pull him from the line before the round settles to save him.",
+          "If never found, he calls his own name once near dawn \u2014 one last chance."
+        ],
+        "dmNotes": [
+          "He dies at dawn if not pulled out first.",
+          "Saved, he is the survivor who carries the tale to Hearthford."
+        ]
+      }
+    },
+    {
+      "id": "card-lantern-warden",
+      "type": "creature",
+      "title": "The Lantern-Warden",
+      "front": "A tall sentinel of iron and cold light, a re-carving tally-stick in its fist, keeping the count at six.",
+      "frontLabel": "Creature · CR 3 (700 XP)",
+      "image": "assets/cards/watch/lantern-warden.svg",
+      "imageAlt": "A towering iron sentinel wreathed in cold blue light, holding a lantern and a notched tally-stick.",
+      "back": {
+        "role": "The old sealed sentinel that keeps the watch at six; not cruel, only accounting.",
+        "location": "The Gallows Cairn, guarding its tally (scene-muster).",
+        "stats": "AC 13, HP 52. Warden's Lantern +5, 2d8 cold-radiant; hit target saves or is marked as next post.",
+        "dialogue": [
+          "\u201cThe count is six.\u201d",
+          "\u201cPay the watch its due \u2014 in order, in iron, or in one who will stand.\u201d"
+        ],
+        "rules": [
+          "Keeper of the Tally: while the tally-stick stands (AC 15, 20 hp), downed watchmen rise next turn.",
+          "Offers trades, never threats; accepts a relief order, a broken tally, or a volunteer.",
+          "Cutting the tally frees the dead \u2014 but weakens the ridge seal."
+        ],
+        "dmNotes": [
+          "It would rather be relieved than keep drafting the living.",
+          "Ends the fight the moment the account is settled."
+        ]
+      }
+    },
+    {
+      "id": "card-cold-watchman",
+      "type": "creature",
+      "title": "Cold Watchman",
+      "front": "A spectral halberdier in watch grey, faceless but for two points of pale light, a cold lantern at his hip.",
+      "frontLabel": "Creature · CR 1 (200 XP) · ×5",
+      "image": "assets/cards/watch/cold-watchman.svg",
+      "imageAlt": "A translucent watchman with a halberd and a cold lantern, two pale lights where his eyes should be.",
+      "back": {
+        "role": "One of the five dead watchmen, bound to the round.",
+        "location": "The column on the ridge and the line at the muster.",
+        "stats": "AC 12, HP 22. Chill Halberd +4, 2d6 cold; a target dropped this way is marked for the sixth post, not killed.",
+        "dialogue": [
+          "\u201cThe watch stands.\u201d"
+        ],
+        "rules": [
+          "Incorporeal drift; sunlight sensitivity at dawn.",
+          "Bound Duty: stops fighting instantly if the watch is relieved or the tally breaks.",
+          "Holds the line; never pursues past the cairn or finishes the fallen."
+        ],
+        "dmNotes": [
+          "Five of these march; one bearer (Wynn) is not among them \u2014 he is alive.",
+          "Neutralizing without a kill still awards the XP."
+        ]
+      }
+    },
+    {
+      "id": "card-riddick-vane",
+      "type": "npc",
+      "title": "Riddick Vane",
+      "front": "A twitchy ridge trapper by a cold firepit, already talking, pointing uphill with his chin.",
+      "frontLabel": "NPC · Red herring",
+      "image": "assets/cards/watch/riddick-vane.svg",
+      "imageAlt": "A wiry trapper in a fur-trimmed coat gesturing uphill, ridge hills behind him at dusk.",
+      "back": {
+        "role": "Ridge trapper; source of the false desertion/bandit theory.",
+        "location": "Trapline camp on the lower ridge path (scene-trapper).",
+        "stats": "Commoner: AC 11, HP 8. Not a fighter; will not follow up the ridge.",
+        "dialogue": [
+          "\u201cBandits. Or your watch turned bandit and lit out.\u201d",
+          "\u201c\u2026 Alright. I only saw the lights turn. I wrote the note myself.\u201d"
+        ],
+        "rules": [
+          "His cache is years rotted; the bloody cloak is deer; the note is his hand, not Corum's (clue-desertion-false).",
+          "check-herring or a kind press breaks the story.",
+          "Fail-forward: he points to where the lanterns turn \u2014 the Gallows Cairn."
+        ],
+        "dmNotes": [
+          "Means no harm; do not make him a villain.",
+          "He is a time-sink, not a dead end."
+        ]
+      }
+    }
+  ]
 }

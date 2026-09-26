@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520">
+<defs><linearGradient id="ho-sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e7dcc3"/><stop offset="1" stop-color="#d3c4a2"/></linearGradient></defs>
+<rect width="700" height="520" fill="url(#ho-sky)"/>
+<rect x="10" y="10" width="680" height="500" fill="none" stroke="#2b241b" stroke-width="3"/>
+<path d="M40 210 L150 120 L250 200 L360 110 L470 190 L590 100 L660 180" fill="none" stroke="#6b5c3e" stroke-width="6"/>
+<path d="M40 250 L660 250" fill="none" stroke="#7a6a4a" stroke-width="4" stroke-dasharray="6 8"/>
+<g fill="#e8a02c" stroke="#2b241b" stroke-width="1.5"><circle cx="150" cy="150" r="6"/><circle cx="250" cy="175" r="6"/><circle cx="360" cy="140" r="6"/><circle cx="470" cy="165" r="6"/><circle cx="560" cy="130" r="6"/><circle cx="120" cy="165" r="6"/></g>
+<rect x="180" y="230" width="30" height="34" rx="4" fill="#9a8a67" stroke="#2b241b" stroke-width="2"/>
+<text x="195" y="292" font-family="Georgia,serif" font-size="15" fill="#2b241b" text-anchor="middle">Boundary Stone</text>
+<path d="M470 300 l30 -34 l30 34Z" fill="#5f5235" stroke="#2b241b" stroke-width="2"/>
+<text x="500" y="322" font-family="Georgia,serif" font-size="15" fill="#2b241b" text-anchor="middle">Trapline Camp</text>
+<circle cx="560" cy="120" r="16" fill="#9a8a67" stroke="#2b241b" stroke-width="2"/>
+<text x="560" y="96" font-family="Georgia,serif" font-size="15" fill="#2b241b" text-anchor="middle">Gallows Cairn (The Turn)</text>
+<g stroke="#2b241b" stroke-width="2" fill="#b98d5a"><rect x="300" y="410" width="40" height="40"/><rect x="350" y="415" width="34" height="35"/><rect x="270" y="418" width="30" height="32"/></g>
+<path d="M300 410 l20 -20 l20 20Z" fill="#7d4a2c" stroke="#2b241b" stroke-width="2"/>
+<text x="330" y="475" font-family="Georgia,serif" font-size="17" fill="#2b241b" text-anchor="middle" font-weight="bold">Hearthford</text>
+<g transform="translate(640,60)"><path d="M0 -28 L8 8 L0 0 L-8 8Z" fill="#2b241b"/><text x="0" y="-34" font-family="Georgia,serif" font-size="14" fill="#2b241b" text-anchor="middle">N</text></g>
+<text x="350" y="40" font-family="Georgia,serif" font-size="20" fill="#2b241b" text-anchor="middle" font-weight="bold">The Ridge above Hearthford - player handout (not to scale)</text>
+</svg>
