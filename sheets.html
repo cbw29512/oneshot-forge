@@ -315,7 +315,8 @@
         const params = new URLSearchParams(location.search);
         const printing = params.get("print") === "1";
         const requestedPc = params.get("pc");
-        const selected = requestedPc ? rec.filter(pc => pc.id === requestedPc) : rec;
+        const allCharacters = pack.characters || [];
+        const selected = requestedPc ? allCharacters.filter(pc => pc.id === requestedPc) : rec;
         if (requestedPc && !selected.length) throw new Error("Unknown pregen: " + requestedPc);
         const screenHtml =
           rec.map(sheetHtml).join("") +
