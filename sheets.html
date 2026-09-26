@@ -283,11 +283,22 @@
         '<div class="pr-spell-columns">' +
           Object.entries(groups).map(([group, spells]) =>
             '<section class="pr-spell-group"><h3>' + esc(group) + '</h3>' +
-            spells.map(spell => '<div class="pr-spell">' +
-              '<div class="pr-spell-title"><b>' + esc(spell.name) + '</b><span>' +
-                esc(spell.time || "") + (spell.range ? ' · ' + esc(spell.range) : '') +
-                (spell.save ? ' · ' + esc(spell.save) : '') + '</span></div>' +
-              '<p>' + esc(spell.effect || "") + '</p></div>').join("") +
+            spells.map(spell => {
+              const effect = String(spell.effect || "");
+              const conc = /concentration/i.test(effect) ? "Concentration" : "";
+              const durationMatch = effect.match(/\b(?:1 minute|10 minutes|1 hour|8 hours|24 hours|until your next turn|until the start of your next turn)\b/i);
+              const meta = [
+                Number(spell.level) === 0 ? "Cantrip" : "L" + spell.level,
+                spell.time || "",
+                spell.range || "",
+                spell.save || "",
+                conc,
+                durationMatch ? durationMatch[0] : ""
+              ].filter(Boolean).join(" · ");
+              return '<div class="pr-spell">' +
+                '<div class="pr-spell-title"><b>' + esc(spell.name) + '</b><span>' + esc(meta) + '</span></div>' +
+                '<p>' + esc(effect) + '</p></div>';
+            }).join("") +
             '</section>'
           ).join("") +
         '</div>' +
