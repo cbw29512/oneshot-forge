@@ -26,10 +26,11 @@ Live: https://cbw29512.github.io/oneshot-forge/
   - Name-Drowned billed as CR 1/4 (Low); talk-out is the door
   - Cistern jobs print DC 13 / 15 / 13 / 15
 - Auditor pass: The Owlbear Egg (standalone) — 2026-09-26
-  - Solid: moral-fork recipe hits all six beats; 5 required clues each have 3 authored sources; 4 legal endings; talk-out is feeding the father (no mandatory BBEG); snare trap has fail-forward (alarm bell); two puzzles both fail-forward; 2014 + 2024 rulesets noted; both pregen packs exist.
-  - Fix (owner to confirm): father fight is the SRD owlbear (AC 13 / HP 59 = CR 3 / 700 XP) but the encounter never states CR or XP budget. 700 XP is under the recipe's Low (1,000) budget for 4×L4, yet the block reads "medium." Print CR/XP on the card and reconcile the difficulty label.
-  - Fix (owner to confirm): no drawn grid battle map. Overview map `asset` is null and there are 0 playMaps; the square fight gives dimensions (60×60 ft) + features as text but no rendered grid. Recipe wants a grid for every fight.
-  - Note: the clock is a resource/famine clock ("~2.5 days of food" + ration board), not a visible ticking time clock. Acceptable, but flagging against QUALITY bar #2.
+  - Current package: 9 scenes across 6 logical stages, 4 NPCs, 5 clues, 1 fail-forward strongbox puzzle, 4 endings, 2 grid battle maps, 7 printable tarot cards, 2014/2024 pregen packs.
+  - Father encounter is explicitly CR 3 / 700 XP and labeled Low by XP for four level-4 characters; its danger comes from village consequences rather than inflated encounter math.
+  - Visible physical clock: the egg hatches at dawn. Its state advances on-screen as intact → knock → hairline crack → spreading crack → hatching.
+  - Return ending is stateful: if the father survived, returning the egg can end peacefully; if the party killed him, the mother retrieves the hatchling and attacks in Maternal Rage.
+  - The standalone is not required to inherit Quiet Seals' mandatory trap beat; no filler trap is added just to satisfy stale campaign-specific notes.
 
 ## Forge direction (locked 2026-09-26)
 - Random generation builds deterministic adventure bones first.
@@ -62,3 +63,5 @@ Live: https://cbw29512.github.io/oneshot-forge/
 2026-09-26 — Began Forge v2 foundation: deterministic ForgeBones schema/generator, explicit AI flesh immutability contract, 250-seed smoke coverage, and a Forge Lab bones preview / AI brief.
 
 2026-09-26 — Added locked `docs/FORGE_CONSTITUTION.md` as the highest-priority project contract. Separated curated cadence from Forge Farm batch production and registered The Wishing Cake as Reference #1 for abstract craft lessons only.
+
+2026-09-26 — Owlbear tonight polish: added a visible dawn/hatching clock, made the return ending depend on the father's fate, synchronized the mother card, and added actionable pacing cuts without removing core consequences.
