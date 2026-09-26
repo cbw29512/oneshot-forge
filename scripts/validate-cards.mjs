@@ -18,8 +18,13 @@ for (const card of cards) {
   if (!card.title) errors.push((card.id || "card") + " missing title");
   if (!card.type) errors.push((card.id || "card") + " missing type");
   if (!card.front) errors.push((card.id || "card") + " missing front");
+  if (!card.image) errors.push((card.id || "card") + " missing image path");
+  if (!card.imageAlt) errors.push((card.id || "card") + " missing imageAlt");
   if (!card.back?.role) errors.push((card.id || "card") + " missing back.role");
+  if (!card.back?.location) errors.push((card.id || "card") + " missing back.location");
+  if (!Array.isArray(card.back?.dialogue) || !card.back.dialogue.length) errors.push((card.id || "card") + " missing back.dialogue[]");
   if (!Array.isArray(card.back?.rules) || !card.back.rules.length) errors.push((card.id || "card") + " missing back.rules[]");
+  if (!Array.isArray(card.back?.dmNotes) || !card.back.dmNotes.length) errors.push((card.id || "card") + " missing back.dmNotes[]");
 }
 for (const required of ["card-baby-owlbear","card-father-owlbear","card-mother-owlbear","card-sella","card-mara","card-torren","card-elmorrow"]) {
   if (!ids.has(required)) errors.push("missing required Owlbear Egg card " + required);
@@ -30,3 +35,8 @@ if (errors.length) {
   process.exit(1);
 }
 console.log("Adventure cards OK: " + cards.length + " cards in " + adventure.metadata.title);
+
+const renderer = fs.readFileSync("cards.js", "utf8");
+for (const required of ["mirrorFour", "print-fronts", "print-backs", "DM notes", "Dialogue / voice"]) {
+  if (!renderer.includes(required)) errors.push("card renderer missing " + required);
+}
