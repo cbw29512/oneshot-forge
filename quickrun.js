@@ -1,6 +1,7 @@
 const QUICKRUN_PACKS = {
   "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
-  "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json"
+  "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json",
+  "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json"
 };
 const QUICKRUN_DEFAULT = QUICKRUN_PACKS["the-lantern-below"];
 const PACKAGE_DEFAULT = QUICKRUN_DEFAULT;
