@@ -334,6 +334,7 @@ function renderAll() {
   }
   renderSavedAdventures();
   renderSceneList();
+  renderSceneJump();
   renderScene();
   renderMap();
   renderNpcs();
@@ -438,6 +439,16 @@ function renderSceneList() {
     button.addEventListener("click", () => goToScene(scene.id));
     list.appendChild(button);
   });
+}
+
+function renderSceneJump() {
+  const jump = el("scene-jump");
+  if (!jump) return;
+  jump.innerHTML = adventure.scenes.map((scene, index) => {
+    const label = (index + 1) + ". " + scene.title;
+    return '<option value="' + escapeHtml(scene.id) + '">' + escapeHtml(label) + "</option>";
+  }).join("");
+  jump.value = state.currentSceneId;
 }
 
 function renderScene() {
@@ -1067,6 +1078,9 @@ el("prev-scene")?.addEventListener("click", goBackScene);
 el("next-scene")?.addEventListener("click", () => {
   const target = el("next-scene").dataset.target;
   if (target) goToScene(target);
+});
+el("scene-jump")?.addEventListener("change", event => {
+  goToScene(event.target.value);
 });
 el("quest-stage")?.addEventListener("change", event => {
   state.questStage = event.target.value;
