@@ -876,7 +876,7 @@
       "id": "enc-father",
       "name": "Enraged Owlbear Father",
       "type": "combat / sacrifice choice",
-      "difficulty": "dangerous",
+      "difficulty": "Low by XP (700 XP); high consequence if ignored",
       "summary": "The father tracks the stolen egg into town and tears through anyone between him and it.",
       "resolution": "Feed him the party's remaining rations, kill him, drive him off creatively, or refuse to intervene.",
       "talkOut": "He cannot be reasoned with, but food overrides his rage.",
@@ -1008,7 +1008,45 @@
       ]
     }
   ],
-  "playMaps": [],
+  "playMaps": [
+    {
+      "sceneIds": [
+        "scene-father",
+        "scene-eat"
+      ],
+      "title": "Briar Hollow Square — 60×60 ft.",
+      "kind": "combat",
+      "src": "assets/maps/owlbear/briar-hollow-square-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Village square battle map. Father enters from the stable lane; mother enters from the ridge lane at dawn.",
+      "notes": [
+        "Granary on north edge",
+        "Bakehouse on east edge",
+        "Stable lane on west edge",
+        "Food table near center",
+        "Ridge lane exits northeast"
+      ]
+    },
+    {
+      "sceneIds": [
+        "scene-return"
+      ],
+      "title": "Briar Hollow Edge — 80×60 ft.",
+      "kind": "combat",
+      "src": "assets/maps/owlbear/briar-hollow-edge-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Village edge and ridge field for the returned-egg assault.",
+      "notes": [
+        "Low stone wall across west side",
+        "Egg starts 35 ft outside the wall",
+        "Tree line on east edge",
+        "Mother approaches from the woods",
+        "Evacuation routes lead south and west"
+      ]
+    }
+  ],
   "events": [
     {
       "id": "event-mother-cry",
@@ -1292,7 +1330,9 @@
             "speed": "40 ft.",
             "attack": "Multiattack: Beak +7 to hit, 1d10+5 piercing; Claws +7 to hit, 2d8+5 slashing.",
             "trait": "Food Overrides Rage: if the party offers all remaining rations, he stops attacking immediately.",
-            "tactics": "Attack anyone blocking the egg or food. Smash structures if ignored."
+            "tactics": "Attack anyone blocking the egg or food. Smash structures if ignored.",
+            "cr": 3,
+            "xp": 700
           }
         ],
         "end": "Father leaves alive, dies, or the village is destroyed."
@@ -1437,7 +1477,7 @@
         "dialogue": [
           "No speech. Ragged hoots, wet beak-snaps, and desperate growls whenever food moves."
         ],
-        "stats": "AC 13 · HP 59 · Speed 40 ft.",
+        "stats": "CR 3 · 700 XP · AC 13 · HP 59 · Speed 40 ft.",
         "rules": [
           "Multiattack: Beak +7, 1d10+5 piercing; Claws +7, 2d8+5 slashing.",
           "Feverish Hunger: offer the party’s pooled one-day rations and he immediately stops attacking, eats, and leaves.",
