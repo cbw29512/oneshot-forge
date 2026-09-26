@@ -736,7 +736,9 @@
         "npc-elmorrow-reed"
       ],
       "clueIds": [],
-      "encounterIds": [],
+      "encounterIds": [
+        "enc-mother-keep"
+      ],
       "exits": [],
       "exitChoices": []
     },
@@ -1073,14 +1075,15 @@
     {
       "sceneIds": [
         "scene-father",
-        "scene-eat"
+        "scene-eat",
+        "scene-keep"
       ],
       "title": "Briar Hollow Square — 60×60 ft.",
       "kind": "combat",
       "src": "assets/maps/owlbear/briar-hollow-square-grid.svg",
       "grid": "5 ft",
       "playerSafe": true,
-      "caption": "Village square battle map. Father enters from the stable lane; mother enters from the ridge lane at dawn.",
+      "caption": "Village square battle map. Use for the father attack, dawn mother assault, or a KEEP-branch confrontation if the party refuses to yield the hatchling.",
       "notes": [
         "Granary on north edge",
         "Bakehouse on east edge",
