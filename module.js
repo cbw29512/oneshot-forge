@@ -187,6 +187,18 @@ function renderRecovery(adventure) {
   ).join("");
 }
 
+function waitImagesThenPrint(root) {
+  const imgs = [...(root || document).querySelectorAll("img")];
+  const pending = imgs.filter(i => !i.complete);
+  let done = false;
+  const go = () => { if (done) return; done = true; window.print(); };
+  if (!pending.length) { setTimeout(go, 200); return; }
+  let n = pending.length;
+  const tick = () => { if (--n <= 0) go(); };
+  pending.forEach(i => { i.addEventListener("load", tick); i.addEventListener("error", tick); });
+  setTimeout(go, 3000);
+}
+
 async function render() {
   const adventure = await loadAdventure();
   renderMeta(adventure);
@@ -200,6 +212,8 @@ async function render() {
 
 el("print-module").addEventListener("click", () => window.print());
 
-render().catch(error => {
+render().then(() => {
+  if (new URLSearchParams(location.search).get("print") === "1") waitImagesThenPrint();
+}).catch(error => {
   el("module").innerHTML = '<section class="module-section"><h1>Could not render module</h1><p>' + esc(error.message) + '</p></section>';
 });

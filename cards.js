@@ -4,6 +4,18 @@ const CARD_PACKS = {
   "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json"
 };
 
+function waitImagesThenPrint(root) {
+  const imgs = [...(root || document).querySelectorAll("img")];
+  const pending = imgs.filter(i => !i.complete);
+  let done = false;
+  const go = () => { if (done) return; done = true; window.print(); };
+  if (!pending.length) { setTimeout(go, 250); return; }
+  let n = pending.length;
+  const tick = () => { if (--n <= 0) go(); };
+  pending.forEach(i => { i.addEventListener("load", tick); i.addEventListener("error", tick); });
+  setTimeout(go, 3000);
+}
+
 const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
   "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
 }[char]));
@@ -103,6 +115,8 @@ document.getElementById("print-fronts").addEventListener("click", () => printMod
 document.getElementById("print-backs").addEventListener("click", () => printMode("print-backs"));
 document.getElementById("print-all").addEventListener("click", () => printMode("print-pairs"));
 
-loadCards().catch(error => {
+loadCards().then(() => {
+  if (new URLSearchParams(location.search).get("print") === "1") waitImagesThenPrint();
+}).catch(error => {
   document.getElementById("screen-deck").innerHTML = '<div class="card"><b>Could not load cards.</b><p>' + esc(error.message) + '</p></div>';
 });
