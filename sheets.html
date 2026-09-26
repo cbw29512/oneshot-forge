@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260926-fixed2">
+  <link rel="stylesheet" href="styles.css?v=20260926-parity1">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -138,64 +138,94 @@
       ].filter(Boolean).join("\n");
     }
     function sheetHtml(pc) {
-      const className = characterClass(pc);
-      const img = pc.portrait
-        ? '<img class="cs-port" src="' + esc(pc.portrait) + '" alt="Portrait of ' + esc(pc.name) + '">'
-        : '<div class="cs-port ph" aria-hidden="true"></div>';
       const prof = pc.proficiencies || {};
       const pers = pc.personality || {};
+      const img = pc.portrait
+        ? '<img class="pr-port" src="' + esc(pc.portrait) + '" alt="Portrait of ' + esc(pc.name) + '">'
+        : '<div class="pr-port ph" aria-hidden="true"></div>';
       const printHref = "sheets.html?rules=" + encodeURIComponent(edition) + "&print=1&pc=" + encodeURIComponent(pc.id);
-      return '<article class="cs screen-sheet" id="' + esc(pc.id) + '">' +
+      const bonus = pc.bonusActions?.length ? compactList(pc.bonusActions) : '<div class="pr-line">No special bonus action.</div>';
+      const reactions = pc.reactions?.length ? compactList(pc.reactions) : '<div class="pr-line">Opportunity Attack when triggered.</div>';
+      return '<article class="screen-sheet web-fixed-sheet" id="' + esc(pc.id) + '">' +
         '<div class="cs-screen-actions print-hide"><a class="button small secondary" href="' + printHref + '">Print this character</a></div>' +
-        '<div class="cs-print-mark" aria-hidden="true"><span>ONE-SHOT FORGE</span><span>PLAYER CHARACTER</span></div>' +
-        '<header class="cs-top">' + img +
-        '<div class="cs-id">' +
-          '<p class="eyebrow">' + esc(pc.rules || "5E 2014 SRD") + " · Level 4 · XP " + esc(pc.xp || 2700) + "</p>" +
-          "<h2>" + esc(pc.name) + "</h2>" +
-          "<p><b>" + esc(className) + " 4</b> · " + esc(pc.race) + " · " + esc(pc.background || "") +
-          " · " + esc(pc.alignment || "") + "</p>" +
-          (pc.role ? '<p class="cs-role">' + esc(pc.role) + '</p>' : '') +
-        "</div>" +
-        '<div class="cs-combat">' +
-          '<div><span>Armor Class</span><b>' + esc(pc.ac) + "</b><small>" + esc(pc.acNotes || "") + "</small></div>" +
-          '<div><span>Initiative</span><b>' + signed(pc.initiative) + "</b></div>" +
-          '<div><span>Speed</span><b>' + esc(pc.speedFt || pc.speed) + "</b></div>" +
-          '<div><span>Hit Points</span><b>' + esc(pc.hp) + "</b><small>" + esc(pc.hitDice || "") + "</small></div>" +
-          '<div><span>Proficiency</span><b>+' + esc(pc.proficiency || 2) + "</b></div>" +
-          '<div><span>Passive Wis (Per)</span><b>' + esc(pc.passivePerception) + "</b></div>" +
-        "</div></header>" +
-        '<div class="cs-grid">' +
-          '<section><h3>Abilities</h3><div class="ab-row">' + scoreCol(pc) + "</div>" +
-            "<h3>Saves</h3>" + saveRows(pc.saveMap, pc.scores) +
-            "<h3>Skills</h3>" + skillRows(pc.skillsMap) +
-          "</section>" +
-          "<section><h3>Attacks</h3>" + attackTable(pc.attackList) +
-            listBlock("Bonus actions", pc.bonusActions) +
-            listBlock("Reactions", pc.reactions) +
-            "<h3>Senses & proficiencies</h3>" +
-            "<p>Darkvision " + esc(pc.darkvision || 0) + " ft. · Passive Insight " + esc(pc.passiveInsight) + "</p>" +
-            "<p><b>Armor.</b> " + esc((prof.armor||[]).join(", ") || "none") + "</p>" +
-            "<p><b>Weapons.</b> " + esc((prof.weapons||[]).join(", ")) + "</p>" +
-            "<p><b>Tools.</b> " + esc((prof.tools||[]).join(", ") || "—") + "</p>" +
-            "<p><b>Languages.</b> " + esc((prof.languages||[]).join(", ")) + "</p>" +
-          "</section>" +
-          "<section><h3>Personality</h3>" +
-            "<p><b>Trait.</b> " + esc(pers.trait || "") + "</p>" +
-            "<p><b>Ideal.</b> " + esc(pers.ideal || "") + "</p>" +
-            "<p><b>Bond.</b> " + esc(pers.bond || "") + "</p>" +
-            "<p><b>Flaw.</b> " + esc(pers.flaw || "") + "</p>" +
-            "<p class='tiny'>" + esc(pc.appearance || "") + "</p>" +
-            "<h3>Equipment</h3><p>" + esc(pc.gear || "") + "</p>" +
-          "</section>" +
-        "</div>" +
-        '<section class="cs-feat"><h3>Features & traits</h3>' +
-          (pc.featureList||[]).map(f => '<div class="ft"><b>' + esc(f.name) +
-            "</b> <span>" + esc(f.source) + (f.uses ? " · " + esc(f.uses) : "") +
-            "</span><p>" + esc(f.text) + "</p></div>").join("") +
-        "</section>" +
-        spellBlock(pc) +
-        '<pre class="beyond-check print-hide">' + esc(beyondList(pc)) + "</pre>" +
-      "</article>";
+        '<header class="pr-head">' + img +
+          '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
+            '<h2>' + esc(pc.name) + '</h2>' +
+            '<p><b>' + esc(characterClass(pc)) + ' 4</b> · ' + esc(pc.race) + ' · ' +
+              esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
+            '<p class="pr-subid">' + esc(pc.rules || "5E") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
+            '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
+          '<div class="pr-vitals">' +
+            '<span><small>AC</small><b>' + esc(pc.ac) + '</b></span>' +
+            '<span><small>Max HP</small><b>' + esc(pc.hp) + '</b></span>' +
+            '<span><small>Init</small><b>' + signed(pc.initiative) + '</b></span>' +
+            '<span><small>Speed</small><b>' + esc(pc.speedFt || pc.speed) + '</b></span>' +
+            '<span><small>Prof</small><b>+' + esc(pc.proficiency || 2) + '</b></span>' +
+            '<span><small>Passive Per</small><b>' + esc(pc.passivePerception) + '</b></span>' +
+          '</div>' +
+        '</header>' +
+        '<div class="pr-fixed-grid">' +
+          '<section class="pr-zone pr-zone-abilities"><h3>Abilities</h3><div class="pr-abilities">' + scoreCol(pc) + '</div></section>' +
+          '<section class="pr-zone pr-zone-saves"><h3>Saving Throws — All Six</h3><div class="pr-saves">' + fullSaveRows(pc) + '</div></section>' +
+          '<section class="pr-zone pr-zone-skills"><h3>Skills</h3><div class="pr-skill-list">' + skillRows(pc.skillsMap) + '</div></section>' +
+
+          '<section class="pr-zone pr-zone-tracker"><h3>Combat Tracker</h3>' +
+            '<div class="pr-hp-grid">' +
+              '<div class="pr-writebox pr-current-hp"><small>Current HP</small><b></b></div>' +
+              '<div class="pr-writebox pr-temp-hp"><small>Temp HP</small><b></b></div>' +
+              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: □ □ □ □</span></div>' +
+              '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
+            '</div>' +
+            '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
+            '<div class="pr-mini-stats">' +
+              '<span><small>Heroic Inspiration</small><b>○</b></span>' +
+              '<span><small>Class / Spell Save DC</small><b>' + esc(classSaveDC(pc)) + '</b></span>' +
+            '</div>' +
+            '<p class="pr-ac-note"><b>AC:</b> ' + esc(pc.ac) + (pc.acNotes ? ' — ' + esc(pc.acNotes) : '') + '</p>' +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-attacks"><h3>Attacks & Combat Cantrips</h3>' + printAttackTable(pc.attackList) +
+            (pc.spellcasting ? '<div class="pr-casting-grid pr-inline-casting">' +
+              '<span><small>Spell Ability</small><b>' + esc(pc.spellcasting.ability || "—") + '</b></span>' +
+              '<span><small>Save DC</small><b>' + esc(pc.spellcasting.saveDC ?? "—") + '</b></span>' +
+              '<span><small>Spell Attack</small><b>' + signed(pc.spellcasting.attack) + '</b></span>' +
+            '</div>' : '') +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-actions"><h3>Action Economy</h3>' +
+            '<div class="pr-standard-actions"><b>Standard Actions</b> ' + esc(standardActionLine()) + '</div>' +
+            '<div class="pr-action-split"><div><h4>Bonus Actions</h4>' + bonus + '</div><div><h4>Reactions</h4>' + reactions + '</div></div>' +
+            '<h4>Quick Turn</h4>' + quickTurn(pc) +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-resources"><h3>Resources & Defenses</h3>' +
+            '<div class="pr-resource-columns"><div>' + limitedUseRows(pc) + '</div><div>' + combatDefenseRows(pc) + '</div></div>' +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-side"><h3>Senses / Training / Gear</h3>' +
+            '<p><b>Senses</b> Darkvision ' + esc(pc.darkvision || 0) + ' ft.</p>' +
+            '<p><b>Passive Perception</b> ' + esc(pc.passivePerception ?? "—") + '</p>' +
+            '<p><b>Passive Insight</b> ' + esc(pc.passiveInsight ?? passiveSkill(pc,"insight")) + '</p>' +
+            '<p><b>Passive Investigation</b> ' + esc(passiveSkill(pc,"investigation")) + '</p>' +
+            '<p><b>Armor</b> ' + esc((prof.armor || []).join(", ") || "none") + '</p>' +
+            '<p><b>Weapons</b> ' + esc((prof.weapons || []).join(", ") || "none") + '</p>' +
+            '<p><b>Tools</b> ' + esc((prof.tools || []).join(", ") || "—") + '</p>' +
+            '<p><b>Languages</b> ' + esc((prof.languages || []).join(", ") || "—") + '</p>' +
+            '<p><b>Equipment</b> ' + esc(pc.gear || "—") + '</p>' +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-character"><h3>Character</h3>' +
+            '<p><b>Trait</b> ' + esc(pers.trait || "—") + '</p>' +
+            '<p><b>Ideal</b> ' + esc(pers.ideal || "—") + '</p>' +
+            '<p><b>Bond</b> ' + esc(pers.bond || "—") + '</p>' +
+            '<p><b>Flaw</b> ' + esc(pers.flaw || "—") + '</p>' +
+          '</section>' +
+
+          '<section class="pr-zone pr-zone-features"><h3>Features & Traits</h3><div class="pr-features">' + printFeatureRows(pc) + '</div></section>' +
+        '</div>' +
+        '<div class="web-spells">' + spellBlock(pc) + '</div>' +
+        '<pre class="beyond-check print-hide">' + esc(beyondList(pc)) + '</pre>' +
+      '</article>';
     }
 
     function compactList(arr) {
