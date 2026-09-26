@@ -2165,3 +2165,210 @@ body.run { background: var(--bg) }
     padding:.018in 0 .024in !important;
   }
 }
+
+/* 2026-09-26 screenshot-driven final balance pass */
+@media print {
+  /* Reallocate vertical space by importance: saves/skills/actions/attacks first. */
+  .pr-fixed-grid {
+    grid-template-columns: 1.88in minmax(0,1fr) 1.92in !important;
+    grid-template-rows: 1.22in 1.22in 1.62in 1.62in 1.58in 1.20in !important;
+    grid-template-areas:
+      "abilities tracker side"
+      "saves tracker side"
+      "skills attacks character"
+      "skills attacks character"
+      "skills actions features"
+      "skills resources features" !important;
+    gap:.07in .105in !important;
+  }
+
+  /* Left rail: all data must fit, no clipping. */
+  .pr-zone-abilities .pr-abilities {
+    grid-template-rows:repeat(3,1fr) !important;
+  }
+  .pr-zone-abilities .ab {
+    min-height:0 !important;
+    padding:.008in !important;
+  }
+  .pr-zone-abilities .ab strong { font-size:13pt !important; }
+  .pr-zone-abilities .ab em { font-size:7.4pt !important; }
+
+  .pr-zone-saves {
+    overflow:visible !important;
+  }
+  .pr-zone-saves .pr-saves {
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-rows:repeat(3,minmax(.23in,1fr)) !important;
+    gap:.025in !important;
+    height:auto !important;
+  }
+  .pr-zone-saves .pr-save {
+    display:grid !important;
+    grid-template-columns:.15in .32in 1fr !important;
+    min-height:.24in !important;
+    padding:.018in .03in !important;
+    font-size:8pt !important;
+    overflow:visible !important;
+  }
+
+  .pr-zone-skills {
+    overflow:visible !important;
+  }
+  .pr-zone-skills .pr-skill-list {
+    display:grid !important;
+    grid-template-rows:repeat(18,minmax(.22in,1fr)) !important;
+    gap:0 !important;
+    min-height:0 !important;
+    height:100% !important;
+  }
+  .pr-zone-skills .sk {
+    min-height:.22in !important;
+    padding:.004in 0 !important;
+    font-size:7.35pt !important;
+    line-height:1 !important;
+    overflow:visible !important;
+  }
+  .pr-zone-skills .sk b {
+    font-size:7.45pt !important;
+  }
+
+  /* Make weapons one of the most readable areas on the sheet. */
+  .pr-zone-attacks {
+    display:flex !important;
+    flex-direction:column !important;
+  }
+  .pr-zone-attacks .pr-atk {
+    flex:0 0 auto;
+    width:100% !important;
+    font-size:9.6pt !important;
+    line-height:1.22 !important;
+  }
+  .pr-zone-attacks .pr-atk th {
+    font-size:7.8pt !important;
+    padding:.055in .045in !important;
+  }
+  .pr-zone-attacks .pr-atk td {
+    padding:.095in .05in !important;
+    font-size:9.4pt !important;
+    line-height:1.2 !important;
+  }
+  .pr-zone-attacks .pr-atk td:first-child b {
+    font-size:11pt !important;
+    line-height:1.05 !important;
+  }
+  .pr-zone-attacks .pr-atk .tiny {
+    font-size:7.9pt !important;
+    line-height:1.18 !important;
+    margin-top:.03in !important;
+  }
+  .pr-zone-attacks .pr-atk td:nth-child(2),
+  .pr-zone-attacks .pr-atk th:nth-child(2) {
+    width:.78in !important;
+    font-size:9.2pt !important;
+  }
+  .pr-zone-attacks .pr-atk td:nth-child(3),
+  .pr-zone-attacks .pr-atk th:nth-child(3) {
+    width:1.22in !important;
+    font-size:9.1pt !important;
+  }
+
+  /* Let unused attack-space become useful writable combat space. */
+  .pr-zone-attacks::after {
+    content:"Combat notes / ammunition / special attack riders";
+    display:block;
+    flex:1 1 auto;
+    min-height:.42in;
+    margin-top:.06in;
+    padding:.04in;
+    border:1pt solid #c8c0b7;
+    font-size:6.6pt;
+    color:#6a625b;
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        #fff 0,
+        #fff .22in,
+        #d6d0c8 .225in,
+        #fff .23in
+      ) !important;
+  }
+
+  /* Action Economy gets enough room to be genuinely instructional. */
+  .pr-zone-actions {
+    overflow:visible !important;
+  }
+  .pr-zone-actions .pr-standard-actions {
+    font-size:7.35pt !important;
+    line-height:1.18 !important;
+    padding:.03in 0 .04in !important;
+    white-space:normal !important;
+  }
+  .pr-zone-actions .pr-action-split {
+    grid-template-columns:1fr 1fr !important;
+    gap:.09in !important;
+  }
+  .pr-zone-actions h4 {
+    font-size:7.6pt !important;
+    margin:.035in 0 .02in !important;
+  }
+  .pr-zone-actions .pr-line {
+    font-size:7.4pt !important;
+    line-height:1.16 !important;
+    padding:.018in 0 !important;
+  }
+  .pr-zone-actions .pr-quickturn {
+    font-size:7.55pt !important;
+    line-height:1.18 !important;
+    margin:.02in 0 0 .2in !important;
+  }
+  .pr-zone-actions .pr-quickturn li {
+    margin-bottom:.02in !important;
+  }
+
+  /* Resources remain readable; use blank room for tracking rather than dead space. */
+  .pr-zone-resources .pr-resource,
+  .pr-zone-resources .pr-defense {
+    font-size:7pt !important;
+    line-height:1.16 !important;
+  }
+  .pr-zone-resources .pr-resource em {
+    font-size:7.8pt !important;
+  }
+
+  /* Personality is useful but subordinate to combat. */
+  .pr-zone-character {
+    font-size:6.45pt !important;
+    line-height:1.1 !important;
+  }
+  .pr-zone-character p {
+    margin:.015in 0 !important;
+  }
+
+  /* Features become easier to read and consume the lower-right area. */
+  .pr-zone-features .pr-features {
+    columns:1 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:space-between !important;
+  }
+  .pr-zone-features .pr-feature {
+    font-size:6.9pt !important;
+    line-height:1.15 !important;
+    padding:.026in 0 .035in !important;
+  }
+  .pr-zone-features .pr-feature b {
+    font-size:7.3pt !important;
+  }
+
+  /* Writable combat tracking gets priority over decorative whitespace. */
+  .pr-zone-tracker .pr-current-hp {
+    min-height:1.02in !important;
+  }
+  .pr-zone-tracker .pr-temp-hp {
+    min-height:.78in !important;
+  }
+  .pr-zone-tracker .pr-death span {
+    font-size:7.8pt !important;
+  }
+}
