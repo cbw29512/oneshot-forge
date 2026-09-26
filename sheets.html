@@ -403,9 +403,9 @@
 
           '<section class="pr-zone pr-zone-side"><h3>Senses / Training / Gear</h3>' +
             '<p><b>Senses</b> Darkvision ' + esc(pc.darkvision || 0) + ' ft.</p>' +
-            '<p><b>Passives</b> Perception ' + esc(pc.passivePerception ?? "—") +
-              ' · Insight ' + esc(pc.passiveInsight ?? passiveSkill(pc,"insight")) +
-              ' · Investigation ' + esc(passiveSkill(pc,"investigation")) + '</p>' +
+            '<p><b>Passive Perception</b> ' + esc(pc.passivePerception ?? "—") + '</p>' +
+            '<p><b>Passive Insight</b> ' + esc(pc.passiveInsight ?? passiveSkill(pc,"insight")) + '</p>' +
+            '<p><b>Passive Investigation</b> ' + esc(passiveSkill(pc,"investigation")) + '</p>' +
             '<p><b>Armor</b> ' + esc((prof.armor || []).join(", ") || "none") + '</p>' +
             '<p><b>Weapons</b> ' + esc((prof.weapons || []).join(", ") || "none") + '</p>' +
             '<p><b>Tools</b> ' + esc((prof.tools || []).join(", ") || "—") + '</p>' +
