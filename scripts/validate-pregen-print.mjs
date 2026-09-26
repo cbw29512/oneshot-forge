@@ -19,7 +19,21 @@ for (const required of [
   "selected.map(printPacket)",
   "allCharacters.filter",
   "Print this character",
-  "Print all"
+  "Print all",
+  "Saving Throws — All Six",
+  "Current HP",
+  "Temp HP",
+  "Death Saves",
+  "Limited-Use Resources",
+  "Passive Perception",
+  "Passive Insight",
+  "Combat Spellcasting",
+  "Combat Defenses",
+  "Roll / DC",
+  "resourceBoxes(uses)",
+  '"Cantrip" : "L" + spell.level',
+  '"Concentration"',
+  "durationMatch"
 ]) {
   if (!sheets.includes(required)) errors.push("sheets.html missing " + required);
 }
@@ -54,6 +68,20 @@ for (const packPath of [
     else if (!fs.existsSync(pc.portrait)) errors.push(pc.name + " portrait missing: " + pc.portrait);
     if (!pc.attackList?.length) errors.push(pc.name + " missing attacks");
     if (!pc.featureList?.length) errors.push(pc.name + " missing features");
+    for (const ability of ["STR","DEX","CON","INT","WIS","CHA"]) {
+      if (pc.scores?.[ability] == null) errors.push(pc.name + " missing " + ability + " ability score");
+      if (!pc.saveMap?.[ability] || typeof pc.saveMap[ability].bonus !== "number") errors.push(pc.name + " missing " + ability + " saving throw");
+    }
+    for (const skill of ["acrobatics","animal handling","arcana","athletics","deception","history","insight","intimidation","investigation","medicine","nature","perception","performance","persuasion","religion","sleight of hand","stealth","survival"]) {
+      if (!pc.skillsMap?.[skill] || typeof pc.skillsMap[skill].bonus !== "number") errors.push(pc.name + " missing skill " + skill);
+    }
+    if (pc.ac == null || pc.hp == null || pc.initiative == null || !(pc.speedFt || pc.speed)) errors.push(pc.name + " missing core combat stat");
+    if (!pc.hitDice) errors.push(pc.name + " missing hit dice");
+    if (pc.passivePerception == null || pc.passiveInsight == null) errors.push(pc.name + " missing passive score");
+    if (pc.spellList?.length) {
+      if (!pc.spellcasting?.ability || pc.spellcasting.saveDC == null || pc.spellcasting.attack == null) errors.push(pc.name + " missing spellcasting stats");
+      if (!pc.spellcasting?.slots) errors.push(pc.name + " missing spell slots");
+    }
   }
 }
 
