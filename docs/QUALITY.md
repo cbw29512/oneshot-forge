@@ -14,7 +14,10 @@ Not more adventures. One night a stranger can run without rewriting it.
 9. **Maps for every fight.** Grid and distances. A player handout of the town with no secrets on it.
 10. **Both legal editions.** 2014 SRD and 2024 SRD 5.2.1, same night, one toggle. Do not mix features across editions.
 11. **Specifics.** Named people, distances, what the room smells like. Cut generic “guards.”
-12. **Cut 20%.** Then stop. One authored episode beats a generator.
+12. **Cut 20%.** Then stop. In the curated lane, one strong authored episode beats rushed filler. In the Forge Farm lane, generation volume is allowed, but only candidates that clear the constitution's release gates may ship.
 
 ## This product
 See `docs/ONESHOT_RECIPE.md` for the session shape (five rooms, trap, puzzle, talk-out, SRD XP budget). That file is mandatory for every authored night.
+
+## Forge Farm note
+For generated adventures, `docs/FORGE_CONSTITUTION.md` is authoritative. This quality bar remains mandatory, but it must not be used to collapse the farm back into a hand-authored-only product.
