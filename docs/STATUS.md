@@ -1,7 +1,8 @@
 # One-Shot Forge status
 
-Read this file before doing any work. Update it at the end of every session.
-Quality over quantity. See docs/QUALITY.md, docs/ONESHOT_RECIPE.md, docs/WORKERS.md.
+Read `docs/FORGE_CONSTITUTION.md` before this file. The constitution is the locked project contract.
+Update this file at the end of every session.
+Quality over quantity. See docs/FORGE_CONSTITUTION.md, docs/QUALITY.md, docs/ONESHOT_RECIPE.md, docs/WORKERS.md.
 
 ## Product
 Pick a card. Run stage cards. GitHub Pages. No ads. No WotC IP. Do not touch Iron Pit.
@@ -9,7 +10,9 @@ Pick a card. Run stage cards. GitHub Pages. No ads. No WotC IP. Do not touch Iro
 Live: https://cbw29512.github.io/oneshot-forge/
 
 ## Cadence
-**One authored night per day, then an auditor pass.** If it starts to feel like slop, skip a day. Never two nights in one run.
+**Curated lane:** one authored Quiet Seals night per day, then an auditor pass. If it starts to feel like slop, skip a day.
+
+**Forge Farm lane:** batch generation is allowed. There is no daily quantity target. Candidates may be generated in volume, but only constitution-compliant, audited candidates may become release-ready.
 
 ## Standalone one-shots (outside The Quiet Seals)
 - The Owlbear Egg — standalone one-shot, NOT a Quiet Seals night. Owner confirmed 2026-09-26. Do not fold it into `data/campaigns/quiet-seals.campaign.json` or the recipe night list. Reuses the shared level-4 pregens.
@@ -43,14 +46,19 @@ Live: https://cbw29512.github.io/oneshot-forge/
 5. Checkout only after owner gives a payment account
 
 ## Do not
+- Violate `docs/FORGE_CONSTITUTION.md`
+- Let AI mutate ForgeBones
+- Use reference adventures as plot/content banks
 - Mix non-D&D
 - Fake Beyond upload
 - Call unwritten nights available
 - Invent payment
-- Write two nights in one day
+- Write two curated Quiet Seals nights in one day
 
 ## Last session
 2026-09-26 — Auditor pass on The Owlbear Egg (findings above) + confirmed it is a standalone, not a Quiet Seals night. Fixed a storefront oversight: The Well That Would Not Dry is authored and CI-clean but was missing from `data/products.json` and the homepage; added it as a live free-preview card (now three playable nights). No new night authored. The Watch still waits.
 2026-09-20 — Product pass, not Night 3: Well cover, maps actually render (`src` vs `asset`), print module honors `?id=`, dusk/moonrise on the stage card, sticky Next/Back, Night 1/2 switcher. Author still waits for tomorrow for the Watch.
 
 2026-09-26 — Began Forge v2 foundation: deterministic ForgeBones schema/generator, explicit AI flesh immutability contract, 250-seed smoke coverage, and a Forge Lab bones preview / AI brief.
+
+2026-09-26 — Added locked `docs/FORGE_CONSTITUTION.md` as the highest-priority project contract. Separated curated cadence from Forge Farm batch production and registered The Wishing Cake as Reference #1 for abstract craft lessons only.
