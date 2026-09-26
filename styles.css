@@ -452,6 +452,16 @@ ol.steps b { color: var(--fg) }
   break-inside: avoid;
   box-shadow: 0 20px 50px rgba(0,0,0,.35);
 }
+.cs-print-mark {
+  display: none;
+}
+.cs-role {
+  margin-top: .35rem !important;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
 .cs-top {
   display: grid;
   grid-template-columns: 120px minmax(0,1.2fr) minmax(0,1.4fr);
@@ -517,13 +527,137 @@ ol.steps b { color: var(--fg) }
   .cs-top, .cs-grid { grid-template-columns: 1fr }
   .cs-combat { grid-template-columns: repeat(2,1fr) }
 }
+@page {
+  size: Letter portrait;
+  margin: 0.38in;
+}
 @media print {
+  html, body { background: #fff !important }
+  body.sheets-page {
+    color: #17120d;
+    font-size: 9.25pt;
+    line-height: 1.28;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
   .print-hide, .land-bar { display: none !important }
-  body.sheets-page { background: white; color: #1a140f }
-  .cs { break-inside: avoid; border-color: #bbb; background: white; box-shadow: none; color: #1a140f }
-  .cs-combat div, .ab { background: #f6f1e8; border-color: #ccc }
-  .cs-id p, .ft p, .spl p, .cs-slot, .sv, .sk { color: #333 }
-  .cs-grid h3, .cs-feat h3, .cs-spells h3, .ab em, .sv i, .sk i { color: #9a3a1c }
+  .sheets-wrap { max-width: none; margin: 0; padding: 0 }
+  #sheets { display: block }
+  .cs {
+    width: 100%;
+    margin: 0;
+    padding: 0.18in 0.2in 0.16in;
+    border: 1.25pt solid #5b5044;
+    border-radius: 0;
+    background: #fff;
+    color: #17120d;
+    box-shadow: none;
+    break-inside: auto;
+    page-break-inside: auto;
+    break-after: page;
+    page-break-after: always;
+    overflow: visible;
+  }
+  .cs:last-child { break-after: auto; page-break-after: auto }
+  .cs-print-mark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -0.18in -0.2in 0.12in;
+    padding: 0.07in 0.12in;
+    border-bottom: 1pt solid #5b5044;
+    background: #efe7d7 !important;
+    color: #30271f;
+    font: 700 6.8pt/1.1 var(--font-body);
+    letter-spacing: .14em;
+  }
+  .cs-top {
+    grid-template-columns: 1.12in minmax(0,1fr) 2.45in;
+    gap: .13in;
+    margin-bottom: .1in;
+    padding-bottom: .1in;
+    border-bottom-color: #8e8275;
+    break-inside: avoid;
+  }
+  .cs-port {
+    width: 1.12in;
+    height: 1.12in;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: 3pt;
+    border: 1pt solid #6c6258;
+    filter: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cs-id h2 { margin: .02in 0 .025in; font-size: 18pt; line-height: 1 }
+  .cs-id p { color: #38312b; font-size: 8pt; line-height: 1.25 }
+  .cs-id .eyebrow { font-size: 6.5pt; color: #6f3b26 }
+  .cs-role { color: #6f3b26 !important; font-size: 6.8pt !important }
+  .cs-combat { gap: .035in }
+  .cs-combat div {
+    min-height: .48in;
+    padding: .035in .04in;
+    background: #f4efe5 !important;
+    border-color: #978b7f;
+    border-radius: 3pt;
+    break-inside: avoid;
+  }
+  .cs-combat span { font-size: 5.7pt; color: #4f463e }
+  .cs-combat b { font-size: 13.5pt }
+  .cs-combat small { font-size: 5.6pt; color: #554d45 }
+  .cs-grid {
+    grid-template-columns: 1.62in minmax(0,1fr) 1.86in;
+    gap: .12in;
+    break-inside: avoid;
+  }
+  .cs-grid section { min-width: 0 }
+  .cs-grid h3, .cs-feat h3, .cs-spells h3 {
+    color: #7b3c22;
+    font-size: 6.9pt;
+    margin: .045in 0 .035in;
+    letter-spacing: .11em;
+  }
+  .ab-row { gap: .025in; margin-bottom: .05in }
+  .ab {
+    padding: .025in .012in;
+    background: #f4efe5 !important;
+    border-color: #a79c90;
+    border-radius: 3pt;
+    break-inside: avoid;
+  }
+  .ab span { font-size: 5.6pt; color: #51483f }
+  .ab strong { font-size: 11.2pt; line-height: 1.05 }
+  .ab em { color: #7b3c22; font-size: 7.2pt }
+  .sv, .sk {
+    grid-template-columns: .15in .23in 1fr;
+    gap: .025in;
+    font-size: 6.6pt;
+    line-height: 1.12;
+    padding: .012in 0;
+    color: #28231f;
+  }
+  .sv i, .sk i { color: #7b3c22 }
+  .atk { font-size: 7.2pt; break-inside: avoid }
+  .atk th { font-size: 5.9pt; color: #4d443c; padding: .025in }
+  .atk td { padding: .035in .025in; border-color: #b0a69b }
+  .tiny { font-size: 6pt !important; color: #4a433d !important }
+  .cs p, .cs li { orphans: 2; widows: 2 }
+  .cs ul { margin: .025in 0 .045in; padding-left: .14in }
+  .cs li { margin: 0 0 .018in }
+  .cs-feat, .cs-spells { margin-top: .09in }
+  .ft, .spl {
+    padding: .035in 0;
+    border-color: #b7ada2;
+    break-inside: avoid;
+  }
+  .ft b, .spl b { font-size: 7.4pt }
+  .ft span, .spl span { color: #49413a; font-size: 6.4pt }
+  .ft p, .spl p, .cs-slot { margin: .015in 0 0; color: #2d2824; font-size: 6.8pt; line-height: 1.22 }
+  .cs h4 { margin: .05in 0 .025in; font-size: 7.2pt; color: #4f463f; break-after: avoid }
+  .cs-feat, .cs-spells, .atk, .cs-grid section { page-break-inside: auto }
+  .ft, .spl, .atk tr, .ab-row, .cs-combat, .cs-top { page-break-inside: avoid; break-inside: avoid }
+  img { max-width: 100% }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -569,7 +703,7 @@ ol.steps b { color: var(--fg) }
   body { background: white; color: #1a140f }
   .sheet { break-inside: avoid; border-color: #ccc; background: white; color: #1a140f }
   .muted, .tiny, .beyond-check { color: #444 }
-  .cs { break-inside: avoid; border-color: #bbb; background: white; box-shadow: none; color: #1a140f }
+  .cs { border-color: #5b5044; background: white; box-shadow: none; color: #1a140f }
 }
 
 .rules-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden }
