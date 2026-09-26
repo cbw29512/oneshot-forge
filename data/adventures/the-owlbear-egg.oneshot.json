@@ -1562,11 +1562,9 @@
         ],
         "stats": "AC 12 · HP 30 · Speed 30 ft.",
         "rules": [
-          "Half-Grown Profile: use roughly half a healthy adult owlbear's combat output and durability.",
-          "Beak: +4 to hit, 1d6+2 piercing.",
-          "Claws: +4 to hit, 1d8+2 slashing.",
-          "Imprint: bonds to the PC who most clearly held, fed, protected, or soothed it. If unclear, randomly select one PC.",
-          "The bond is behavioral, not magical. It follows that PC, cries when separated, steals food, and snaps at obvious threats.",
+          "Half-Grown Profile: AC 12, HP 30, Speed 30 ft.; roughly half an adult owlbear's durability/output.",
+          "Beak +4, 1d6+2 piercing; Claws +4, 1d8+2 slashing.",
+          "Imprint: bonds behaviorally to the PC who most clearly held, fed, protected, or soothed it.",
           "Animal Handling DC 12 calms it for 1 hour."
         ],
         "dmNotes": [
@@ -1593,10 +1591,9 @@
         "stats": "CR 3 base · AC 13 · HP 59 · Speed 40 ft. · Ragged Exhaustion",
         "rules": [
           "Multiattack: Beak +7, 1d10+5 piercing; Claws +7, 2d8+5 slashing.",
-          "Ragged Exhaustion: Disadvantage on attack rolls, ability checks, and saving throws. Initiative is also made with Disadvantage because it is a Dexterity check.",
-          "Feverish Hunger: offer the party’s pooled one-day rations and he immediately stops attacking, eats, and leaves.",
-          "Throwing the rations from 20 ft. works automatically. Placing them beside him safely: Animal Handling DC 12.",
-          "If killed, the carcass is visibly sick and the meat is unsafe."
+          "Ragged Exhaustion: Disadvantage on attack rolls, ability checks, and saving throws; Initiative also at Disadvantage.",
+          "Feverish Hunger: giving the party's pooled one-day rations ends the attack; throwing them from 20 ft. works automatically.",
+          "If killed, the carcass is visibly sick and unsafe to eat."
         ],
         "dmNotes": [
           "He is starving, not evil. He prioritizes visible food over creatures whenever possible.",
@@ -1622,10 +1619,9 @@
         "stats": "AC 14 · HP 95 · Speed 40 ft. · Maternal Rage",
         "rules": [
           "Multiattack: Beak +8; two Claws +8.",
-          "Maternal Rage (1/day, 1 minute): Advantage on Strength checks and Strength saving throws; +2 damage on Strength-based melee attacks.",
-          "Bear-Rage Resistance: while Maternal Rage lasts, she has resistance to every damage type except psychic.",
-          "Eat: attacks at dawn. Return: father alive = peaceful withdrawal; father dead = secure hatchling, then rage.",
-          "Keep: she comes for the hatchling. Father alive + party yields = peaceful reunion; refusing her or killing the father can trigger combat."
+          "Maternal Rage (1/day, 1 minute): Advantage on Strength checks/saves; +2 Strength-melee damage.",
+          "Bear-Rage Resistance: resistance to all damage except psychic while raging.",
+          "Return/Keep outcomes depend on father's fate; a genuine peaceful reunion remains possible if he survived."
         ],
         "dmNotes": [
           "Her behavior follows what the party actually did; never force a fight after a genuine peaceful return.",
