@@ -120,6 +120,9 @@
       }
       return html + "</section>";
     }
+    function characterClass(pc) {
+      return pc.className || pc.class || "Adventurer";
+    }
     function beyondList(pc) {
       const sk = pc.skillsMap || {};
       const profSkills = Object.keys(sk).filter(k => sk[k].proficient).join(", ");
@@ -127,7 +130,7 @@
       return [
         "D&D Beyond has no character import. Type this by hand if you must.",
         "Species: " + (pc.race || ""),
-        "Class: " + (pc.class || "") + " 4",
+        "Class: " + characterClass(pc) + " 4",
         "Background: " + (pc.background || ""),
         "Scores: " + ABIL.map(k => k + " " + (pc.scores||{})[k]).join(", "),
         "Skills: " + profSkills,
@@ -135,16 +138,21 @@
       ].filter(Boolean).join("\n");
     }
     function sheetHtml(pc) {
-      const img = pc.portrait ? '<img class="cs-port" src="' + esc(pc.portrait) + '" alt="">' : '<div class="cs-port ph"></div>';
+      const className = characterClass(pc);
+      const img = pc.portrait
+        ? '<img class="cs-port" src="' + esc(pc.portrait) + '" alt="Portrait of ' + esc(pc.name) + '">'
+        : '<div class="cs-port ph" aria-hidden="true"></div>';
       const prof = pc.proficiencies || {};
       const pers = pc.personality || {};
       return '<article class="cs" id="' + esc(pc.id) + '">' +
+        '<div class="cs-print-mark" aria-hidden="true"><span>ONE-SHOT FORGE</span><span>PLAYER CHARACTER</span></div>' +
         '<header class="cs-top">' + img +
         '<div class="cs-id">' +
-          '<p class="eyebrow">' + esc(pc.rules || "5E 2014 SRD") + " · XP " + esc(pc.xp || 2700) + "</p>" +
+          '<p class="eyebrow">' + esc(pc.rules || "5E 2014 SRD") + " · Level 4 · XP " + esc(pc.xp || 2700) + "</p>" +
           "<h2>" + esc(pc.name) + "</h2>" +
-          "<p>" + esc(pc.class) + " 4 · " + esc(pc.race) + " · " + esc(pc.background || "") +
+          "<p><b>" + esc(className) + " 4</b> · " + esc(pc.race) + " · " + esc(pc.background || "") +
           " · " + esc(pc.alignment || "") + "</p>" +
+          (pc.role ? '<p class="cs-role">' + esc(pc.role) + '</p>' : '') +
         "</div>" +
         '<div class="cs-combat">' +
           '<div><span>Armor Class</span><b>' + esc(pc.ac) + "</b><small>" + esc(pc.acNotes || "") + "</small></div>" +
