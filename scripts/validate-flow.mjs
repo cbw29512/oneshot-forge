@@ -1,4 +1,4 @@
-export function validateAdventureFlow(scenes, initialSceneId) {
+export function validateAdventureFlow(scenes, initialSceneId, flowContract = null) {
   const errors = [];
   const scenesById = new Map((scenes || []).map(scene => [scene.id, scene]));
 
@@ -39,12 +39,23 @@ export function validateAdventureFlow(scenes, initialSceneId) {
   const branchScenes = (scenes || []).filter(scene => (scene.exits || []).length > 1);
   if (!branchScenes.length) errors.push("adventure requires at least one meaningful branch with multiple paths");
 
+  const allowedTerminalBranches = new Set(flowContract?.allowedBranchScenes || []);
+  const declaredTerminals = new Set(flowContract?.terminalScenes || []);
+
   for (const scene of branchScenes) {
     const terminalSets = scene.exits.map(reachableTerminals);
     const shared = terminalSets.length
       ? [...terminalSets[0]].filter(id => terminalSets.every(set => set.has(id)))
       : [];
-    if (!shared.length) errors.push(`branching scene ${scene.id} has paths that never reconverge on a shared ending`);
+    if (shared.length) continue;
+
+    const allTerminateInDeclaredEndings =
+      allowedTerminalBranches.has(scene.id) &&
+      terminalSets.every(set => set.size > 0 && [...set].every(id => declaredTerminals.has(id)));
+
+    if (!allTerminateInDeclaredEndings) {
+      errors.push(`branching scene ${scene.id} has paths that never reconverge on a shared ending`);
+    }
   }
 
   return errors;
