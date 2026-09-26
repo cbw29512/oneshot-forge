@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+<title id="title">Briar Hollow village edge battle map</title>
+<desc id="desc">A sixteen by twelve five-foot grid with a low stone wall, open field, egg position, ridge tree line, and evacuation routes.</desc>
+<defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#87907d" stroke-width="1"/></pattern></defs>
+<rect width="960" height="720" fill="#e7e0c8"/>
+<rect x="1" y="1" width="958" height="718" fill="url(#grid)" stroke="#2e281f" stroke-width="2"/>
+<rect x="120" y="0" width="38" height="720" fill="#9c9588" stroke="#3b382f" stroke-width="2"/>
+<text x="140" y="350" text-anchor="middle" font-family="serif" font-size="24" transform="rotate(-90 140 350)">LOW STONE WALL</text>
+<rect x="820" y="0" width="140" height="720" fill="#80906a"/>
+<g fill="#506145"><circle cx="860" cy="70" r="38"/><circle cx="920" cy="145" r="45"/><circle cx="855" cy="235" r="42"/><circle cx="920" cy="330" r="48"/><circle cx="855" cy="450" r="45"/><circle cx="920" cy="560" r="50"/><circle cx="850" cy="660" r="42"/></g>
+<text x="885" y="365" text-anchor="middle" font-family="serif" font-size="26" fill="#fff">RIDGE WOODS</text>
+<ellipse cx="575" cy="350" rx="34" ry="44" fill="#efe9d5" stroke="#2e281f" stroke-width="3"/>
+<text x="575" y="355" text-anchor="middle" font-family="sans-serif" font-size="18">EGG</text>
+<path d="M160 620 H0" stroke="#7d684a" stroke-width="26"/><text x="82" y="603" text-anchor="middle" font-family="sans-serif" font-size="17">EVACUATE</text>
+<path d="M260 720 V600" stroke="#7d684a" stroke-width="26"/><text x="300" y="665" font-family="sans-serif" font-size="17">SOUTH ROAD</text>
+<text x="480" y="690" text-anchor="middle" font-family="sans-serif" font-size="18">Each square = 5 ft. · Egg starts 35 ft. beyond the wall</text>
+</svg>
