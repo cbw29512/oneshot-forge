@@ -1974,3 +1974,194 @@ body.run { background: var(--bg) }
     margin-right:.035in;
   }
 }
+
+/* 2026-09-26 priority rebalance: combat/readability before flavor. */
+@media print {
+  .pr-fixed-grid {
+    grid-template-columns: 1.84in minmax(0,1fr) 1.98in !important;
+    grid-template-rows: 1.35in 1.05in 1.50in 1.55in 1.45in 1.43in !important;
+    grid-template-areas:
+      "abilities tracker side"
+      "saves tracker side"
+      "skills attacks character"
+      "skills attacks character"
+      "skills actions features"
+      "skills resources features" !important;
+    gap:.075in .11in !important;
+  }
+
+  .pr-zone-tracker {
+    grid-area:tracker;
+    overflow:hidden;
+  }
+  .pr-zone-attacks {
+    grid-area:attacks;
+    overflow:hidden;
+  }
+  .pr-zone-actions {
+    grid-area:actions;
+    overflow:hidden;
+  }
+  .pr-zone-resources {
+    grid-area:resources;
+    overflow:hidden;
+  }
+  .pr-zone-side {
+    grid-area:side;
+    overflow:hidden;
+  }
+  .pr-zone-character {
+    grid-area:character;
+    overflow:hidden;
+  }
+  .pr-zone-features {
+    grid-area:features;
+    overflow:hidden;
+  }
+
+  /* All six saves must remain visually distinct and readable. */
+  .pr-zone-saves .pr-saves {
+    grid-template-columns:repeat(2,1fr) !important;
+    grid-template-rows:repeat(3,1fr) !important;
+    gap:.025in !important;
+  }
+  .pr-zone-saves .pr-save {
+    min-height:.24in !important;
+    padding:.018in .03in !important;
+    font-size:7.8pt !important;
+    line-height:1 !important;
+  }
+  .pr-zone-saves .pr-save b {
+    font-size:7.8pt !important;
+  }
+  .pr-zone-saves .pr-save strong {
+    font-size:8.5pt !important;
+  }
+
+  /* All 18 skills get the full left-column remainder. */
+  .pr-zone-skills .pr-skill-list {
+    display:grid !important;
+    grid-template-rows:repeat(18,1fr) !important;
+    gap:0 !important;
+    flex:1 1 auto !important;
+    min-height:0 !important;
+  }
+  .pr-zone-skills .sk {
+    min-height:0 !important;
+    padding:.006in 0 !important;
+    font-size:7.25pt !important;
+    line-height:1 !important;
+    align-items:center !important;
+  }
+  .pr-zone-skills .sk b {
+    font-size:7.35pt !important;
+  }
+
+  /* Give the combat tracker two full rows. */
+  .pr-zone-tracker .pr-hp-grid {
+    grid-template-columns:1.25fr .9fr .95fr 1.1fr !important;
+    gap:.045in !important;
+  }
+  .pr-zone-tracker .pr-writebox {
+    min-height:.72in !important;
+    padding:.035in !important;
+  }
+  .pr-zone-tracker .pr-current-hp {
+    min-height:.92in !important;
+  }
+  .pr-zone-tracker .pr-condition-box {
+    min-height:.48in !important;
+    margin-top:.05in !important;
+    padding:.035in !important;
+  }
+  .pr-zone-tracker .pr-condition-box > div {
+    height:.16in !important;
+  }
+  .pr-zone-tracker .pr-mini-stats {
+    margin-top:.045in !important;
+  }
+  .pr-zone-tracker .pr-mini-stats span {
+    min-height:.38in !important;
+  }
+
+  /* Attacks are primary combat text: keep them comfortably readable. */
+  .pr-zone-attacks .pr-atk {
+    font-size:9pt !important;
+    line-height:1.2 !important;
+  }
+  .pr-zone-attacks .pr-atk th {
+    font-size:7.4pt !important;
+    padding:.045in .04in !important;
+  }
+  .pr-zone-attacks .pr-atk td {
+    padding:.075in .045in !important;
+    font-size:8.8pt !important;
+    line-height:1.18 !important;
+  }
+  .pr-zone-attacks .pr-atk td:first-child b {
+    font-size:10.2pt !important;
+    line-height:1.05 !important;
+  }
+  .pr-zone-attacks .pr-atk .tiny {
+    font-size:7.5pt !important;
+    line-height:1.18 !important;
+    margin-top:.025in !important;
+  }
+  .pr-zone-attacks .pr-atk td:nth-child(2),
+  .pr-zone-attacks .pr-atk th:nth-child(2) {
+    width:.72in !important;
+    font-size:8.8pt !important;
+  }
+  .pr-zone-attacks .pr-atk td:nth-child(3),
+  .pr-zone-attacks .pr-atk th:nth-child(3) {
+    width:1.18in !important;
+    font-size:8.7pt !important;
+  }
+
+  /* Action Economy must never compete with hidden overflow. */
+  .pr-zone-actions .pr-standard-actions {
+    font-size:6.9pt !important;
+    line-height:1.15 !important;
+    padding:.025in 0 .035in !important;
+  }
+  .pr-zone-actions .pr-action-split {
+    gap:.08in !important;
+  }
+  .pr-zone-actions h4 {
+    font-size:7.1pt !important;
+    margin:.025in 0 .018in !important;
+  }
+  .pr-zone-actions .pr-line {
+    font-size:7pt !important;
+    line-height:1.12 !important;
+    padding:.014in 0 !important;
+  }
+  .pr-zone-actions .pr-quickturn {
+    font-size:7pt !important;
+    line-height:1.12 !important;
+    margin:.012in 0 0 .18in !important;
+  }
+  .pr-zone-actions .pr-quickturn li {
+    margin-bottom:.012in !important;
+  }
+
+  /* Flavor yields space before combat does. */
+  .pr-zone-character,
+  .pr-zone-side {
+    font-size:6.65pt !important;
+    line-height:1.13 !important;
+  }
+  .pr-zone-character p,
+  .pr-zone-side p {
+    margin:.02in 0 !important;
+  }
+  .pr-zone-features .pr-features {
+    columns:2 !important;
+    column-gap:.07in !important;
+  }
+  .pr-zone-features .pr-feature {
+    font-size:6.35pt !important;
+    line-height:1.1 !important;
+    padding:.018in 0 .024in !important;
+  }
+}

@@ -74,7 +74,11 @@ for (const required of [
   ".pr-zone-features",
   ".pr-mini-stats",
   ".pr-standard-actions",
-  ".pr-resource-columns"
+  ".pr-resource-columns",
+  "1.45in 1.43in",
+  "grid-template-rows:repeat(3,1fr)",
+  "font-size:10.2pt",
+  "grid-template-rows:repeat(18,1fr)"
 ]) {
   if (!css.includes(required)) errors.push("print CSS missing " + required);
 }
