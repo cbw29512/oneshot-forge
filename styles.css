@@ -612,6 +612,9 @@ ol.steps b { color: var(--fg) }
   padding: 0 0 1rem;
 }
 .adv-card img { width: 100%; aspect-ratio: 1; object-fit: cover }
+.adv-card.no-cover { padding: 1rem; background: linear-gradient(145deg, color-mix(in oklab, var(--ember) 13%, var(--bg-elevated)), var(--bg-elevated)); }
+.adv-card.no-cover > div { padding: 0; }
+.sample-split.no-cover { grid-template-columns: minmax(0, 1fr); max-width: 52rem; }
 .adv-card > div { padding: 0 1rem }
 .adv-card.soon { opacity: .72; padding: 1rem }
 .adv-card.live { border-color: color-mix(in oklab, var(--ember) 40%, var(--border)) }

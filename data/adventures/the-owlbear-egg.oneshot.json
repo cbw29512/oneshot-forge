@@ -1,0 +1,954 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-owlbear-egg",
+    "title": "The Owlbear Egg",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 4,
+    "partySize": 4,
+    "partySizeRange": "3–6 players",
+    "durationMinutes": 240,
+    "tone": [
+      "moral dilemma",
+      "folk fantasy",
+      "survival"
+    ]
+  },
+  "pregenPack": "data/pregens/quiet-seals-level-4-2014-srd.json",
+  "setup": {
+    "pitch": "Briar Hollow is starving. A viable owlbear egg sits in the mayor’s bakehouse while half the village argues that it should be protected and the other half wants the largest omelet of their lives. Before the party can settle the vote, a gaunt male owlbear crashes into town in a hunger-mad rampage.",
+    "openingLocation": "Briar Hollow",
+    "gmSummary": "The village has roughly two and a half days of food left and no relief wagon is guaranteed. The owlbear egg is alive and close to hatching. The father is not hunting people; he is starving and feverish after eating tainted carrion. The party’s pooled one-day travel rations are enough to make him stop, eat, and wander back into the woods with no check. If the party kills him, his meat is visibly unsafe and useless, and a mother owlbear roughly twice his bulk screams from the ridge. The final choice is about the egg: cook it, spare it to hatch under village care, return it to the wild, or accept another cost. No choice is consequence-free.",
+    "background": "Three failed harvests and a washed-out bridge have left Briar Hollow on ration marks. Yesterday a charcoal burner found a warm owlbear egg in an abandoned poacher cart and carried it into town. The poachers are gone; the parent owlbears are not. The male has been scavenging because prey is scarce and recently ate from a diseased boar carcass. He follows food smell into the village, not malice."
+  },
+  "quest": {
+    "type": "moral choice / protect village",
+    "objective": "Survive the father owlbear’s hunger-driven attack and decide the fate of the owlbear egg before nightfall.",
+    "stakes": "Briar Hollow may gain one communal meal, lose scarce food protecting a dangerous hatchling, provoke an enormous mother, or preserve a wild family at real cost to hungry people.",
+    "deadline": "Nightfall. The egg is close to hatching and the mother is moving somewhere beyond the ridge.",
+    "successConditions": [
+      "The immediate owlbear attack ends and the village survives.",
+      "The party makes or enables a deliberate choice about the egg.",
+      "The consequences of that choice are made clear before the adventure ends."
+    ],
+    "failureConditions": [
+      "The party abandons the village during the attack.",
+      "The egg is destroyed accidentally without anyone accepting responsibility for the consequence."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-hunger-real",
+        "text": "Briar Hollow is genuinely short of food; the ration ledger is not a political trick."
+      },
+      {
+        "id": "fact-egg-alive",
+        "text": "The owlbear egg is viable, warm, and close to hatching."
+      },
+      {
+        "id": "fact-father-starving",
+        "text": "The male owlbear is starving and feverish, not deliberately hunting villagers."
+      },
+      {
+        "id": "fact-rations-work",
+        "text": "The party’s pooled one-day travel rations are enough to stop the father’s rampage; he eats and wanders away."
+      },
+      {
+        "id": "fact-meat-useless",
+        "text": "If the father is killed, his illness makes the carcass unsafe to eat."
+      },
+      {
+        "id": "fact-mother-huge",
+        "text": "A mother owlbear roughly twice the father’s bulk is nearby."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-mayor-ration",
+        "text": "Mayor Sella has cut her own household to half-rations for six days.",
+        "revealCondition": "Inspect the ledger closely or confront Sella about favoritism."
+      },
+      {
+        "id": "secret-torren-poachers",
+        "text": "Torren found the egg in a poacher cart, not an abandoned nest. Someone stole it before the village ever saw it.",
+        "revealCondition": "Track the egg’s origin or get Torren talking privately."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-sella-vane",
+      "name": "Mayor Sella Vane",
+      "role": "mayor, ration keeper, and reluctant referee of the egg vote",
+      "personality": [
+        "practical",
+        "sleep-deprived",
+        "fair-minded under pressure"
+      ],
+      "voiceCues": [
+        "counts aloud before answering",
+        "uses plain words and avoids speeches"
+      ],
+      "wants": [
+        "Keep every villager alive until new food arrives",
+        "Prevent panic and hoarding",
+        "Make the egg decision without pretending it is painless"
+      ],
+      "fears": [
+        "Children going hungry first",
+        "A mob taking the egg",
+        "Being accused of saving her own household"
+      ],
+      "knows": [
+        "The village ration ledger",
+        "The egg was brought in yesterday",
+        "The egg is warm and occasionally moves"
+      ],
+      "believes": [
+        "Cooking the egg may buy one precious communal meal but will not solve the famine"
+      ],
+      "secrets": [
+        "Her own household has been eating half-rations"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "The father’s medical condition until examined",
+        "Exactly where the mother is"
+      ],
+      "revealRules": [
+        {
+          "fact": "The village has about two and a half days of rationed food left.",
+          "when": "Asked directly or when the ledger is inspected."
+        }
+      ],
+      "questFunction": "Frames the moral choice, provides the ration facts, and keeps the village from becoming a mob."
+    },
+    {
+      "id": "npc-torren-vale",
+      "name": "Torren Vale",
+      "role": "charcoal burner who brought the egg into town",
+      "personality": [
+        "ashamed",
+        "stubborn",
+        "good with tracks"
+      ],
+      "voiceCues": [
+        "answers too quickly when hiding something",
+        "uses animal comparisons"
+      ],
+      "wants": [
+        "Keep the egg alive",
+        "Avoid admitting he disturbed a wild family",
+        "Get the village through the week"
+      ],
+      "fears": [
+        "The mother finding the village",
+        "Being blamed for the attack"
+      ],
+      "knows": [
+        "The egg came from a broken poacher cart",
+        "There were two sizes of owlbear tracks on the ridge",
+        "The smaller adult’s tracks wandered toward carrion pits"
+      ],
+      "believes": [
+        "The parents will keep searching until the egg is gone from town"
+      ],
+      "secrets": [
+        "He saw enormous tracks near the poacher cart and carried the egg away anyway"
+      ],
+      "lies": [
+        "At first he says he found the egg alone beside the road"
+      ],
+      "cannotKnow": [
+        "Whether the father is sick enough to make the meat unsafe",
+        "Whether the egg will hatch tonight"
+      ],
+      "revealRules": [
+        {
+          "fact": "The egg was stolen from the wild before Torren found it.",
+          "when": "The party follows the trail or presses him about the cart."
+        }
+      ],
+      "questFunction": "Supplies the wild-family clues and gives the party a route to return the egg."
+    },
+    {
+      "id": "npc-mara-dell",
+      "name": "Mara Dell",
+      "role": "baker and loudest voice for cooking the egg",
+      "personality": [
+        "blunt",
+        "protective",
+        "not cruel"
+      ],
+      "voiceCues": [
+        "talks in kitchen measures",
+        "never whispers when angry"
+      ],
+      "wants": [
+        "Feed the village children tonight",
+        "Keep the vote from becoming sentimental theater",
+        "Avoid wasting the only large source of food in town"
+      ],
+      "fears": [
+        "A child collapsing from hunger",
+        "An owlbear hatching inside the village"
+      ],
+      "knows": [
+        "How much food the bakehouse can stretch",
+        "The egg’s warmth has increased since dawn",
+        "The father smashed through her smokehouse before reaching the square"
+      ],
+      "believes": [
+        "A wild predator egg is not worth a child going hungry"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "What the mother will do later",
+        "Whether returning the egg will work"
+      ],
+      "revealRules": [
+        {
+          "fact": "Cooking the egg feeds the village once; it does not end the food shortage.",
+          "when": "Anyone asks how far the meal would actually stretch."
+        }
+      ],
+      "questFunction": "Makes the pro-omelet position morally serious instead of villainous."
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-square",
+      "name": "Briar Hollow Square",
+      "description": "A muddy square between the bakehouse, granary, well, and six tight lanes. The owlbear egg rests in a padded bread trough inside the bakehouse.",
+      "connections": [
+        "loc-granary",
+        "loc-ridge-trail",
+        "loc-bakehouse"
+      ]
+    },
+    {
+      "id": "loc-granary",
+      "name": "Village Granary",
+      "description": "Half-empty bins, ration stones on pegs, a locked salt chest, and a ledger with every household marked.",
+      "connections": [
+        "loc-square"
+      ]
+    },
+    {
+      "id": "loc-ridge-trail",
+      "name": "Ridge Trail",
+      "description": "A wet deer path climbing through scrub oak toward an abandoned poacher cart and two sets of owlbear tracks.",
+      "connections": [
+        "loc-square",
+        "loc-poacher-cart"
+      ]
+    },
+    {
+      "id": "loc-poacher-cart",
+      "name": "Broken Poacher Cart",
+      "description": "A collapsed axle, torn blankets, an empty egg cradle, old blood, and the remains of tainted boar bait.",
+      "connections": [
+        "loc-ridge-trail"
+      ]
+    },
+    {
+      "id": "loc-bakehouse",
+      "name": "Mara’s Bakehouse",
+      "description": "Warm brick ovens, long tables, and the owlbear egg nested in blankets beside a cold mixing trough.",
+      "connections": [
+        "loc-square"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-hook",
+      "title": "The Vote Before Supper",
+      "purpose": "Put the egg, the hunger, and the moral split on the table before violence decides the question for them.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "readAloud": "Briar Hollow smells like wet ash and thin soup. Forty-odd villagers crowd the square around a wooden bread trough padded with blankets. Inside it rests an egg larger than a keg, mottled brown and cream, warm enough to steam in the cold air.\n\nMayor Sella Vane raises both hands. “We have enough grain for days, not weeks. Mara says this is food. Torren says it is a child. I say we decide before hunger decides for us.”\n\nFrom inside the egg comes one slow, heavy knock.",
+      "gmNotes": [
+        "Do not make either side foolish. Mara wants to feed hungry children; Torren knows the egg was stolen from the wild.",
+        "Sella asks the party to investigate for one hour and then help the village choose.",
+        "The party can inspect the granary or follow Torren’s trail first. Both routes reconverge when the father attacks.",
+        "If they immediately vote to cook or spare it, Sella asks them to wait until the hour ends; the attack interrupts before the decision is carried out."
+      ],
+      "npcIds": [
+        "npc-sella-vane",
+        "npc-torren-vale",
+        "npc-mara-dell"
+      ],
+      "clueIds": [
+        "clue-hunger",
+        "clue-egg-live"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-granary",
+        "scene-trail"
+      ]
+    },
+    {
+      "id": "scene-granary",
+      "title": "Count What Is Left",
+      "purpose": "Prove the starvation is real and quantify what the egg would actually change.",
+      "locationId": "loc-granary",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "readAloud": "The granary looks full until Sella opens the good bins. Most are husks, seed grain, or mold-streaked sacks marked DO NOT EAT. A row of twelve clay ration stones hangs above the ledger. Only five remain on the left peg.\n\nMara taps the egg-weight column with one floury finger. “Cook it and everybody eats once. One proper meal. Tomorrow we are hungry again.”",
+      "gmNotes": [
+        "Puzzle: the ration board uses one stone per communal half-day. Five stones means about two and a half days at current rationing.",
+        "Investigation DC 12 verifies the ledger and reveals Sella’s household has taken less than its allotment, not more.",
+        "The egg could provide one full village meal plus broth; it cannot solve the famine.",
+        "A crash and screaming from the square ends this scene when the table is ready: the father has arrived."
+      ],
+      "npcIds": [
+        "npc-sella-vane",
+        "npc-mara-dell"
+      ],
+      "clueIds": [
+        "clue-hunger",
+        "clue-egg-live"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-father"
+      ]
+    },
+    {
+      "id": "scene-trail",
+      "title": "What Followed the Cart",
+      "purpose": "Reveal the egg was stolen, the father is scavenging, and a vastly larger mother is somewhere nearby.",
+      "locationId": "loc-poacher-cart",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "readAloud": "The trail ends at a cart with one wheel folded under it. A nest of torn blankets lies in the bed, still holding bits of shell-colored down. Around the wreck are two kinds of tracks: one broad as a dinner plate, the other so large your boot fits inside the pad without touching the edges.\n\nBeside the ditch, flies worry at a half-eaten boar carcass streaked with dark bile. The smaller owlbear tracks circle it again and again, then stagger downhill toward Briar Hollow.",
+      "gmNotes": [
+        "Nature or Survival DC 12: the smaller adult fed here recently and is moving badly, as if sick or starving.",
+        "The huge tracks belong to the mother and are roughly twice the father’s bulk. Do not stage her as a fair combat encounter.",
+        "Torren admits the egg was already in the poacher cart; the village did not steal it from a nest directly, but keeping it still keeps stolen property.",
+        "A hunter’s snare crosses the return path. Resolve the hazard, then the village bell rings three times: attack."
+      ],
+      "npcIds": [
+        "npc-torren-vale"
+      ],
+      "clueIds": [
+        "clue-father",
+        "clue-mother",
+        "clue-stolen"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-father"
+      ]
+    },
+    {
+      "id": "scene-father",
+      "title": "The Hungry Father",
+      "purpose": "Make the party choose between spending their own food and solving the immediate danger with violence.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 50,
+      "readAloud": "A wall of feathers and fur slams through the smokehouse door. The owlbear that stumbles into the square is huge, but it is not healthy. Its ribs show under patchy feathers. Foam ropes from its beak. It swats a rain barrel aside and wheels toward the smell of food.\n\nPeople scatter. The creature rears, shrieks, and charges the long table where the village’s supper — and your own travel packs — have been thrown together.",
+      "gmNotes": [
+        "The party has a simple noncombat answer: offer their pooled one-day travel rations. No check. The father stops attacking, eats everything offered, and wanders back toward the ridge.",
+        "If they need to move close enough safely, Animal Handling DC 12 lets one character place food without drawing an opportunity attack; throwing the food from 20 feet works automatically.",
+        "If they fight, use the Owlbear Father quick-run block. He fights in panic until dropped or fed.",
+        "If killed: Medicine or Nature DC 10 shows fever, gut lesions, and black bile. The carcass is unsafe; the meat cannot feed the village.",
+        "If killed, immediately read the mother consequence: from the ridge comes a deeper answering scream, and birds rise from trees around something twice his bulk.",
+        "If fed, villagers see the same animal they called a monster choose food over blood. That should affect the final debate, but not dictate it."
+      ],
+      "npcIds": [
+        "npc-sella-vane",
+        "npc-torren-vale",
+        "npc-mara-dell"
+      ],
+      "clueIds": [
+        "clue-father",
+        "clue-meat"
+      ],
+      "encounterIds": [
+        "enc-father"
+      ],
+      "exits": [
+        "scene-choice"
+      ]
+    },
+    {
+      "id": "scene-choice",
+      "title": "Egg, Oven, or Woods",
+      "purpose": "Force the actual moral decision after the easy assumptions have been stripped away.",
+      "locationId": "loc-bakehouse",
+      "pacingClass": "core",
+      "estimatedMinutes": 45,
+      "readAloud": "The egg knocks again from inside the blanket trough. This time a hairline crack runs across one end.\n\nMara has a cleaver on the table, not in her hand. Torren has a carrying sling ready, also untouched. Mayor Sella looks at you instead of either of them.\n\n“Now we know what it costs,” she says. “So choose what we are willing to pay.”",
+      "gmNotes": [
+        "Cook it: one full village meal tonight and broth tomorrow morning. The mother will still be searching. No one gets to pretend the meal solved the famine.",
+        "Let it hatch: Mara agrees only if the hatchling is kept outside the houses. It will need scarce food immediately. The village accepts that cost because the party chose it.",
+        "Return it to the wild: Torren knows a sheltered ravine near the poacher cart. If the father was fed, his tracks lead that way. If he was killed, the mother’s scream makes the trip frightening but still possible; do not force a boss fight.",
+        "Any creative solution is legal if it accepts both halves of the problem: hungry people and a dangerous living animal.",
+        "The egg begins hatching during the debate if the table stalls; this creates urgency, not a forced answer."
+      ],
+      "npcIds": [
+        "npc-sella-vane",
+        "npc-torren-vale",
+        "npc-mara-dell"
+      ],
+      "clueIds": [
+        "clue-hunger",
+        "clue-egg-live",
+        "clue-mother"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-resolution"
+      ]
+    },
+    {
+      "id": "scene-resolution",
+      "title": "What Hunger Remembers",
+      "purpose": "Give a clear finale/resolution, state the cost plainly, and leave the village changed rather than morally graded.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "readAloud": "Night settles over Briar Hollow. Somewhere beyond the ridge, something enormous calls once into the dark.\n\nIn the village, bowls are filled or left empty. A shell is cracked, carried, or kept warm. Nobody cheers. Nobody calls the choice easy.\n\nMayor Sella closes the ration ledger. “Tomorrow,” she says, “we live with what we decided tonight.”",
+      "gmNotes": [
+        "Pick the ending matching the table’s actual choice. Do not declare a moral winner.",
+        "If the father died, include the mother’s distant scream in every ending. The threat is a consequence, not an automatic sequel fight.",
+        "If the father lived, Torren can follow his tracks at dawn. This may make returning the egg easier later.",
+        "Reward practical help: Sella pays what little coin the village can spare and gives a community favor rather than treasure that would trivialize the hunger."
+      ],
+      "npcIds": [
+        "npc-sella-vane",
+        "npc-torren-vale",
+        "npc-mara-dell"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-hunger",
+      "revelation": "Briar Hollow truly has only about two and a half days of food at current rationing.",
+      "required": true,
+      "sources": [
+        "Sella’s ration record and ledger show five half-day stones remaining",
+        "the granary evidence shows the sound-food bins are almost empty",
+        "Mara’s bakehouse record lists forty-two mouths and five ration stones"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-egg-live",
+      "revelation": "The owlbear egg is alive and close to hatching.",
+      "required": true,
+      "sources": [
+        "the shell is warm and knocks from inside; direct physical evidence",
+        "fresh shell residue and hairline cracks spread at the broad end",
+        "Torren’s poacher-cart blanket holds fresh warm down and matching shell residue"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-father",
+      "revelation": "The male owlbear is starving and sick, not deliberately hunting villagers.",
+      "required": true,
+      "sources": [
+        "staggering tracks circle the tainted boar carcass before heading townward",
+        "Nature or Medicine examination shows fever, foam, and hunger wasting",
+        "the father abandons aggression immediately if offered the party’s travel rations"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-mother",
+      "revelation": "A mother owlbear roughly twice the father’s bulk is nearby.",
+      "required": true,
+      "sources": [
+        "enormous tracks at the poacher cart are nearly twice the adult male’s scale",
+        "deep claw-track evidence on the ridge oak sits far above the father’s reach",
+        "if the father dies, a much deeper owlbear scream answers from the ridge"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-stolen",
+      "revelation": "Poachers removed the egg from the wild before Torren found it.",
+      "required": false,
+      "sources": [
+        "the broken cart contains a padded egg cradle and cut nest-rope",
+        "Torren admits he found the egg in the cart, not a nest",
+        "a poacher record board is scratched with EGG beside a weight mark"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-meat",
+      "revelation": "If killed, the father owlbear’s carcass is unsafe to eat.",
+      "required": false,
+      "sources": [
+        "Medicine or Nature DC 10 finds gut lesions and black bile",
+        "the tainted boar carrion carries the same black bile and sour smell",
+        "Mara refuses the carcass after seeing the fevered organs"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-father",
+      "name": "Starving Owlbear Father",
+      "type": "combat or feed",
+      "difficulty": "medium",
+      "summary": "A gaunt feverish owlbear attacks the food table in a hunger-mad panic.",
+      "resolution": "Feed the party’s pooled one-day rations, drive him off, or defeat him.",
+      "talkOut": "No speech is needed. Offering the party’s pooled one-day rations ends the attack automatically: he eats and wanders into the woods.",
+      "bypass": "Throw the pooled rations 20 feet away from villagers. He follows the food and disengages from the fight.",
+      "special": "If killed, his meat is unsafe. His death triggers the distant scream of the mother owlbear, roughly twice his bulk."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-ration-board",
+      "name": "Five Stones on the Ration Board",
+      "locationId": "loc-granary",
+      "prompt": "Twelve clay stones once hung over the ledger. Five remain on the left peg. A chalk note says: ONE STONE = ONE HALF-DAY FOR ALL FORTY-TWO.",
+      "solution": "Five stones equal two and a half days of village food at current rationing. The egg adds roughly one communal meal, not a lasting solution.",
+      "failForward": "If the players do not solve or care about the count, Mara explains it plainly. The moral choice continues with the same facts."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-snare",
+      "name": "Poacher’s Leg Snare",
+      "locationId": "loc-ridge-trail",
+      "trigger": "A creature crosses the concealed wire on the return path from the poacher cart.",
+      "save": "Dexterity DC 13",
+      "dc": 13,
+      "effect": "On a failure, the creature is yanked prone and restrained 10 feet up by the ankle. Escape DC 12 Strength or Dexterity; cutting the rope also works.",
+      "purpose": "Fail-forward: the village alarm bell begins while the trapped character is being freed; the party still reaches the attack."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-egg",
+      "name": "Living Owlbear Egg",
+      "type": "moral objective",
+      "description": "A keg-sized warm mottled egg, close to hatching.",
+      "stateOptions": [
+        "bakehouse",
+        "cooked",
+        "hatching",
+        "returned-wild",
+        "carried-away"
+      ]
+    },
+    {
+      "id": "item-rations",
+      "name": "Party’s One-Day Travel Rations",
+      "type": "consumable choice",
+      "description": "The party’s pooled one-day travel food. Offering all of it to the father owlbear ends his attack with no check.",
+      "stateOptions": [
+        "available",
+        "fed-to-father",
+        "kept"
+      ]
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-briar-hollow",
+      "name": "Briar Hollow and Ridge",
+      "asset": null,
+      "regions": [
+        {
+          "id": "reg-square",
+          "label": "Village Square",
+          "sceneId": "scene-hook",
+          "x": 42,
+          "y": 58,
+          "w": 16,
+          "h": 16
+        },
+        {
+          "id": "reg-granary",
+          "label": "Granary",
+          "sceneId": "scene-granary",
+          "x": 23,
+          "y": 60,
+          "w": 13,
+          "h": 13
+        },
+        {
+          "id": "reg-trail",
+          "label": "Ridge Trail",
+          "sceneId": "scene-trail",
+          "x": 63,
+          "y": 32,
+          "w": 16,
+          "h": 16
+        },
+        {
+          "id": "reg-father",
+          "label": "Attack",
+          "sceneId": "scene-father",
+          "x": 44,
+          "y": 52,
+          "w": 12,
+          "h": 12
+        },
+        {
+          "id": "reg-choice",
+          "label": "Bakehouse",
+          "sceneId": "scene-choice",
+          "x": 54,
+          "y": 68,
+          "w": 14,
+          "h": 14
+        },
+        {
+          "id": "reg-resolution",
+          "label": "Nightfall",
+          "sceneId": "scene-resolution",
+          "x": 42,
+          "y": 76,
+          "w": 16,
+          "h": 12
+        }
+      ]
+    }
+  ],
+  "playMaps": [],
+  "events": [
+    {
+      "id": "event-mother-cry",
+      "name": "The Mother Answers",
+      "effect": "If the father dies, a deeper owlbear scream rolls from the ridge and something roughly twice his bulk moves behind the tree line."
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-omelet",
+      "name": "The Largest Omelet in Briar Hollow",
+      "condition": "The village cooks the viable egg.",
+      "result": "Everyone eats one full meal. The famine is not solved. If either parent lives, the wild family continues searching for the missing egg. The village remembers that the party chose people first."
+    },
+    {
+      "id": "ending-hatch",
+      "name": "Let It Hatch",
+      "condition": "The village keeps the egg warm and accepts the hatchling.",
+      "result": "A hatchling emerges outside the houses. Feeding it immediately costs scarce food. Torren takes responsibility for moving it away from homes as soon as it can travel. The village remembers that the party chose a life they did not create."
+    },
+    {
+      "id": "ending-return",
+      "name": "Back to the Ridge",
+      "condition": "The party carries the egg to the sheltered ravine near the poacher cart.",
+      "result": "The egg leaves the village food supply untouched. If the father was fed, his tracks eventually join the route. If he was killed, the mother’s distant cry follows the party but no forced boss fight occurs. The village stays hungry but ends the night without owning the egg."
+    },
+    {
+      "id": "ending-take-it",
+      "name": "Not the Village’s Choice",
+      "condition": "The party takes responsibility for the egg and leaves with it.",
+      "result": "Briar Hollow neither eats nor raises it. The party inherits the problem: a near-hatching owlbear egg, a hungry road, and perhaps a mother searching behind them."
+    },
+    {
+      "id": "ending-chaos",
+      "name": "Broken in the Panic",
+      "condition": "The egg is destroyed accidentally during violence or flight.",
+      "result": "Nobody gets a meal and no hatchling survives. Sella records the loss without pretending it was a choice. If the father died too, the mother’s cry is the last sound over the village."
+    }
+  ],
+  "recovery": {
+    "principle": "No single NPC or investigation scene is required. Preserve the hunger facts and the egg choice; change delivery, not truth.",
+    "policies": [
+      "Required facts may move to physical evidence or another NPC if a scene is skipped.",
+      "The father’s food solution remains available until he is dead.",
+      "The ending is never locked by a failed check; the cost may increase, but the table still chooses the egg’s fate."
+    ],
+    "routes": [
+      {
+        "id": "rec-mayor",
+        "trigger": "Sella refuses, is unavailable, missing, or dead",
+        "response": "Her ration ledger and five clay stones remain in the granary. Mara can call a village vote.",
+        "stateChanges": [
+          "clue-hunger remains available",
+          "scene-choice still occurs"
+        ]
+      },
+      {
+        "id": "rec-father-attacked",
+        "trigger": "The father is attacked or killed before anyone understands his hunger",
+        "response": "His emaciation, fever, black bile, and the tainted boar evidence reveal the same truth afterward. If alive, thrown rations can still end the fight.",
+        "stateChanges": [
+          "clue-father becomes physical evidence",
+          "if dead, trigger event-mother-cry"
+        ]
+      },
+      {
+        "id": "rec-investigation-skipped",
+        "trigger": "The party bypasses or skips the granary or ridge trail",
+        "response": "Move the missing required facts into the attack scene: villagers shout the ration count, and the father’s condition is obvious at close range. Huge mother tracks are found at the square edge afterward.",
+        "stateChanges": [
+          "required clues remain discoverable",
+          "scene-father proceeds"
+        ]
+      },
+      {
+        "id": "rec-egg-stolen",
+        "trigger": "The party leaves town with the egg before the attack",
+        "response": "The father follows the smell of their packs and egg on the ridge road instead of entering the square. Run scene-father there, then let them decide whether to return, hatch, or carry the egg onward.",
+        "stateChanges": [
+          "scene-father relocates",
+          "egg choice remains open"
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared pays. Rush costs. The ending is never locked; they still finish.",
+    "prepared": [
+      {
+        "when": "They verify the ration ledger",
+        "payoff": "They know exactly what cooking the egg buys and can stop false claims during the final debate."
+      },
+      {
+        "when": "They inspect the poacher cart",
+        "payoff": "They know the father is sick and the mother is enormous before the attack; Nature/Medicine checks on the father have advantage."
+      }
+    ],
+    "rushed": [
+      {
+        "when": "They skip both investigations",
+        "cost": "The father attack begins with villagers packed around the food table; the first round is chaotic and the party learns the truth under pressure."
+      },
+      {
+        "when": "They kill the father immediately",
+        "cost": "The carcass is unusable and the mother’s scream becomes an immediate consequence before the egg decision."
+      }
+    ],
+    "notDeviation": [
+      "Choosing violence is not failure.",
+      "Cooking the egg is not failure.",
+      "Sparing the egg is not success by itself.",
+      "Any ending is valid if the party understands the cost."
+    ]
+  },
+  "oneshotRecipe": {
+    "shape": "moral fork",
+    "genre": "folk survival fantasy",
+    "tale": "A starving village and a living egg",
+    "rooms": [
+      {
+        "beat": "1 Dilemma",
+        "scene": "scene-hook",
+        "note": "Egg vote and hunger"
+      },
+      {
+        "beat": "2 Evidence",
+        "scene": "scene-granary / scene-trail",
+        "note": "Starvation facts or wild-family facts"
+      },
+      {
+        "beat": "3 Crisis",
+        "scene": "scene-father",
+        "note": "Feed or fight"
+      },
+      {
+        "beat": "4 Choice",
+        "scene": "scene-choice",
+        "note": "Cook, hatch, return, or carry"
+      },
+      {
+        "beat": "5 Consequence",
+        "scene": "scene-resolution",
+        "note": "State the cost without judging it"
+      }
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 240,
+    "plannedMinutes": 220,
+    "bossReserveMinutes": 45,
+    "cutOrder": [],
+    "optionalOrder": [
+      "scene-granary",
+      "scene-trail"
+    ]
+  },
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-hook",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-sella-vane": {
+        "status": "alive",
+        "attitude": "measured"
+      },
+      "npc-torren-vale": {
+        "status": "alive",
+        "attitude": "ashamed"
+      },
+      "npc-mara-dell": {
+        "status": "alive",
+        "attitude": "blunt"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-egg": "bakehouse",
+      "item-rations": "available"
+    },
+    "eventState": {
+      "event-mother-cry": "pending"
+    },
+    "sceneHistory": []
+  },
+  "rulesets": {
+    "2014": {
+      "notes": [
+        "Use the SRD-style owlbear quick-run block supplied in this package. Feeding the pooled rations is an authored encounter resolution, not a spell or class feature."
+      ]
+    },
+    "2024": {
+      "notes": [
+        "Use the same encounter numbers for this adventure unless the table prefers a current SRD owlbear stat block. The authored feed-or-fight resolution is unchanged."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-owlbear-egg",
+    "version": "0.1.0",
+    "target": {
+      "level": 4,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-ledger",
+      "check-tracks",
+      "check-carcass"
+    ],
+    "checks": [
+      {
+        "id": "check-ledger",
+        "sceneId": "scene-granary",
+        "label": "Verify the ration ledger",
+        "dc": 12,
+        "ability": "Intelligence (Investigation)",
+        "success": "Confirm five half-day ration stones remain: about two and a half days of food. Sella’s family has taken less than its share.",
+        "failure": "Mara explains the arithmetic anyway. No clue is lost."
+      },
+      {
+        "id": "check-tracks",
+        "sceneId": "scene-trail",
+        "label": "Read the two owlbear track sets",
+        "dc": 12,
+        "ability": "Wisdom (Survival or Nature)",
+        "success": "The smaller adult is staggering and scavenging; the second adult is roughly twice his bulk.",
+        "failure": "The huge prints are still obvious. Torren identifies the smaller stagger as sickness or hunger."
+      },
+      {
+        "id": "check-carcass",
+        "sceneId": "scene-father",
+        "label": "Check the father’s carcass if he dies",
+        "dc": 10,
+        "ability": "Wisdom (Medicine or Nature)",
+        "success": "Gut lesions, fever, and black bile make the meat clearly unsafe.",
+        "failure": "Mara cuts once, smells the bile, and refuses to serve it. The meat is still unusable."
+      },
+      {
+        "id": "check-place-food",
+        "sceneId": "scene-father",
+        "label": "Place food beside the raging father without being swatted",
+        "dc": 12,
+        "ability": "Wisdom (Animal Handling)",
+        "success": "Place the food at his feet safely. He eats and leaves.",
+        "failure": "Take one claw attack, then the food still lands. He eats and leaves. Throwing the food from 20 feet needs no check."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-father",
+        "objective": "End the father owlbear’s rampage without losing villagers.",
+        "start": "He enters adjacent to the food table. Villagers flee; the party begins 20–30 feet away.",
+        "bypass": "Throw the party’s pooled one-day rations at least 20 feet away from villagers. No check. He eats and wanders off.",
+        "creatures": [
+          {
+            "name": "Starving Owlbear Father",
+            "count": 1,
+            "ac": 13,
+            "hp": 59,
+            "speed": "40 ft.",
+            "attack": "Multiattack: Beak +7 to hit, 1d10+5 piercing; Claws +7 to hit, 2d8+5 slashing.",
+            "trait": "Keen sight and smell. Feverish Hunger: when the pooled one-day rations are offered, he immediately stops attacking, eats, and leaves the encounter.",
+            "tactics": "Charges the nearest visible food before pursuing creatures. If attacked, defends himself normally. He does not coup de grace fallen villagers and will always choose offered food over another attack."
+          }
+        ],
+        "end": "He is fed and leaves, is driven away, or is reduced to 0 HP. If killed, the carcass is unsafe and the mother screams from the ridge."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "trap-snare",
+        "sceneId": "scene-trail",
+        "trigger": "Cross the concealed poacher wire on the return path.",
+        "save": "DC 13 Dexterity",
+        "failure": "Yanked prone and restrained 10 feet up by one ankle.",
+        "success": "Step over the wire and point it out to the others.",
+        "failForward": "Escape DC 12 Strength or Dexterity, or cut the rope. The village alarm bell starts while the party gets free."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-village",
+        "when": "The village survives the night and the party accepts responsibility for its decision.",
+        "reward": "Sella gives 35 gp from the emergency strongbox and a standing Briar Hollow favor: food, shelter, or testimony when the village can provide it."
+      },
+      {
+        "id": "reward-rations",
+        "when": "The party fed its own rations to the father.",
+        "reward": "Mara replaces half the spent trail food from the bakehouse despite the shortage; the village publicly records the sacrifice."
+      },
+      {
+        "id": "reward-trail",
+        "when": "The party returns the egg to the ridge.",
+        "reward": "Torren gives a carved ashwood tracking charm worth 20 gp and advantage on one future local Survival check at the GM’s discretion."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-father",
+        "dimensions": "village square roughly 60 x 60 ft.",
+        "features": [
+          "food table at center",
+          "bakehouse east",
+          "granary west",
+          "well south",
+          "two narrow lanes north toward ridge"
+        ]
+      },
+      {
+        "sceneId": "scene-trail",
+        "dimensions": "wooded ridge trail, 10–20 ft. wide",
+        "features": [
+          "broken poacher cart",
+          "tainted boar ditch",
+          "huge mother tracks",
+          "concealed snare on return path"
+        ]
+      }
+    ]
+  }
+}

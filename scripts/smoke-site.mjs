@@ -22,6 +22,10 @@ const productsText = read("data/products.json");
 try {
   const contract = JSON.parse(productsText);
   if (!Array.isArray(contract.products)) throw new Error("products must be an array");
+  const productIds = new Set(contract.products.map(product => product.id));
+  for (const cardId of [...index.matchAll(/data-product-id="([^"]+)"/g)].map(match => match[1])) {
+    if (!productIds.has(cardId)) errors.push(`homepage product card missing from product contract: ${cardId}`);
+  }
   for (const product of contract.products) {
     const gate = product.releaseGate || {};
     const commerce = product.commerce || {};
@@ -53,9 +57,9 @@ if (/id="forge-random"/.test(run)) errors.push("customer runner still has New ra
 
 const lantern = read("adventures/the-lantern-below.html");
 if (!lantern.includes("Start adventure")) errors.push("adventure page missing Start adventure");
-for (const rel of ["about.html", "privacy.html", "contact.html", "forge.html", "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg", "data/adventures/the-lantern-below.oneshot.json", "data/adventures/the-well-that-would-not-dry.oneshot.json"]) read(rel);
+for (const rel of ["about.html", "privacy.html", "contact.html", "forge.html", "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg", "data/adventures/the-lantern-below.oneshot.json", "data/adventures/the-well-that-would-not-dry.oneshot.json", "data/adventures/the-owlbear-egg.oneshot.json", "adventures/the-owlbear-egg.html"]) read(rel);
 if (!index.includes("the-lantern-below")) errors.push("homepage missing active Lantern card");
-if (index.includes("the-well-that-would-not-dry")) errors.push("homepage exposes an unapproved second adventure");
+if (!index.includes("the-owlbear-egg")) errors.push("homepage missing Owlbear Egg preview card");
 
 const hrefs = [...index.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
 for (const href of hrefs) {
