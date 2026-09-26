@@ -1145,15 +1145,28 @@
       "title": "Baby Owlbear",
       "front": "A damp, oversized owlbear hatchling with too-big paws, a snapping beak, and enormous yellow eyes.",
       "back": {
-        "role": "Ending companion / consequence",
+        "role": "Ending companion / living consequence",
+        "location": "Mara’s Bakehouse at hatching; afterward wherever its bonded PC goes.",
+        "dialogue": [
+          "Soft hungry chirrups and beak-clicks.",
+          "If separated from its bonded PC: a rising, panicked owl-like trill."
+        ],
         "stats": "AC 11 · HP 9 · Speed 20 ft.",
         "rules": [
           "Tiny Beak: +3 to hit, 1 piercing damage.",
-          "Imprint: when it hatches, it bonds to the PC who most clearly held, fed, protected, or soothed it. If unclear, choose a random PC.",
-          "The bond is not magical. It follows that PC, cries when separated, steals food, and snaps at obvious threats.",
+          "Imprint: bonds to the PC who most clearly held, fed, protected, or soothed it. If unclear, randomly select one PC.",
+          "The bond is behavioral, not magical. It follows that PC, cries when separated, steals food, and snaps at obvious threats.",
           "Animal Handling DC 12 calms it for 1 hour."
+        ],
+        "dmNotes": [
+          "Use the imprint as the final emotional beat if the egg survives.",
+          "Do not let Elmorrow steal the baby off-screen after the players earn this ending.",
+          "The baby is a responsibility, not a combat reward."
         ]
-      }
+      },
+      "image": "assets/cards/owlbear/baby-owlbear.jpg",
+      "imageAlt": "Newly hatched baby owlbear with oversized paws, soft brown feathers, and bright yellow eyes.",
+      "frontLabel": "Creature · Hatchling"
     },
     {
       "id": "card-father-owlbear",
@@ -1162,14 +1175,26 @@
       "front": "A gaunt adult owlbear with exposed ribs, ragged feathers, and foam around its beak.",
       "back": {
         "role": "Main feed-or-fight encounter",
+        "location": "Briar Hollow Square, smashing through the smokehouse toward the food table.",
+        "dialogue": [
+          "No speech. Ragged hoots, wet beak-snaps, and desperate growls whenever food moves."
+        ],
         "stats": "AC 13 · HP 59 · Speed 40 ft.",
         "rules": [
           "Multiattack: Beak +7, 1d10+5 piercing; Claws +7, 2d8+5 slashing.",
           "Feverish Hunger: offer the party’s pooled one-day rations and he immediately stops attacking, eats, and leaves.",
-          "If killed, the meat is unsafe and useless.",
-          "His death triggers the distant scream of the mother owlbear."
+          "Throwing the rations from 20 ft. works automatically. Placing them beside him safely: Animal Handling DC 12.",
+          "If killed, the carcass is visibly sick and the meat is unsafe."
+        ],
+        "dmNotes": [
+          "He is starving, not evil. He prioritizes visible food over creatures whenever possible.",
+          "If he dies, immediately trigger the mother’s distant scream.",
+          "Never turn the sick carcass into a food reward; that undercuts the dilemma."
         ]
-      }
+      },
+      "image": "assets/cards/owlbear/father-owlbear.jpg",
+      "imageAlt": "Gaunt feverish adult male owlbear with ragged feathers, visible ribs, and foam at the beak.",
+      "frontLabel": "Creature · Father"
     },
     {
       "id": "card-mother-owlbear",
@@ -1177,15 +1202,27 @@
       "title": "Mother Owlbear",
       "front": "A scarred owlbear roughly twice the father’s bulk, visible only in pieces between the ridge trees.",
       "back": {
-        "role": "Consequence / overwhelming parental threat",
+        "role": "Overwhelming parental pressure / consequence",
+        "location": "Ridge woods outside Briar Hollow; may approach only if the egg/hatchling is endangered or returned.",
+        "dialogue": [
+          "No speech. A deep booming scream that sends birds out of the trees."
+        ],
         "stats": "AC 14 · HP 95 · Speed 40 ft.",
         "rules": [
           "Multiattack: Beak +8, 1d10+5 piercing; two Claws +8, 2d8+5 slashing each.",
-          "Protect the Egg: she prioritizes reclaiming the egg or hatchling over killing characters.",
+          "Protect the Egg: prioritizes reclaiming the egg or hatchling over killing characters.",
           "Terrifying Charge: after moving 20 ft. straight toward a creature, DC 13 Wisdom or frightened until end of its next turn.",
-          "Use her as pressure, not a mandatory fair boss fight."
+          "Use her as pressure, not as a mandatory fair boss fight."
+        ],
+        "dmNotes": [
+          "She is roughly twice the father’s bulk. Show scale before numbers.",
+          "If the egg is returned, she can take it and leave rather than attack.",
+          "If the father was killed, begin her reactions one step more hostile, but keep a noncombat exit open."
         ]
-      }
+      },
+      "image": "assets/cards/owlbear/mother-owlbear.jpg",
+      "imageAlt": "Enormous scarred mother owlbear on a dark forest ridge, nearly twice the father’s bulk.",
+      "frontLabel": "Creature · Mother"
     },
     {
       "id": "card-sella",
@@ -1194,13 +1231,26 @@
       "front": "A sleepless mayor gripping a ration ledger hard enough to bend its cover.",
       "back": {
         "role": "Quest giver / honest survival authority",
+        "location": "Village Square, Granary, and final egg debate.",
+        "dialogue": [
+          "“If there were a good answer, we’d have found it before you got here.”",
+          "“I don’t need pretty. I need survivable.”",
+          "“Tomorrow, we live with what we decided tonight.”"
+        ],
         "rules": [
-          "Wants the village alive and the decision made honestly.",
-          "Knows the true ration count.",
-          "Secret: her own household has already gone to half-rations.",
-          "Voice: practical, counts before answering."
+          "Knows the true ration count: about 2½ days remain.",
+          "Investigation DC 12 on the ledger reveals her own household has taken less than its share.",
+          "She accepts any deliberate ending, even one she dislikes."
+        ],
+        "dmNotes": [
+          "Play her as fair, exhausted, and unsentimental—not cold.",
+          "She prevents the crowd from becoming a mob while the party investigates.",
+          "Never use her to declare which moral choice is correct."
         ]
-      }
+      },
+      "image": "assets/cards/owlbear/sella-vane.jpg",
+      "imageAlt": "Exhausted village mayor holding a worn ration ledger in both hands.",
+      "frontLabel": "NPC · Mayor"
     },
     {
       "id": "card-mara",
@@ -1208,14 +1258,27 @@
       "title": "Mara Dell",
       "front": "A flour-dusted baker with a cleaver on the table and hungry children on her mind.",
       "back": {
-        "role": "Serious pro-omelet argument",
+        "role": "Strongest argument for cooking the egg",
+        "location": "Bakehouse, Granary, and final debate.",
+        "dialogue": [
+          "“You can’t feed a village with ideals.”",
+          "“One proper meal. Tomorrow we are hungry again.”",
+          "“Warm shell or not, I’ve got children chewing bark.”"
+        ],
         "rules": [
-          "Wants one full meal for the village tonight.",
-          "Knows cooking the egg does not solve the famine.",
-          "Not cruel; she simply ranks hungry people first.",
-          "Voice: blunt, uses kitchen measures."
+          "Knows exactly how far the remaining food can stretch.",
+          "Confirms the father’s carcass is unusable if he dies.",
+          "Will cook the egg if the final decision goes that way, but will not seize it herself."
+        ],
+        "dmNotes": [
+          "Do not portray Mara as cruel. Her position should remain morally defensible.",
+          "She openly admits the omelet buys only one communal meal plus broth.",
+          "Her strongest scenes are short, practical statements rather than speeches."
         ]
-      }
+      },
+      "image": "assets/cards/owlbear/mara-dell.jpg",
+      "imageAlt": "Flour-dusted village baker beside a worktable, with a cleaver resting flat rather than raised.",
+      "frontLabel": "NPC · Baker"
     },
     {
       "id": "card-torren",
@@ -1223,14 +1286,27 @@
       "title": "Torren Vale",
       "front": "A soot-stained woodsman with cut rope, stained blankets, and exactly the wrong-looking knife.",
       "back": {
-        "role": "Red herring / trail guide",
+        "role": "Red herring / trail guide / guilty rescuer",
+        "location": "Village Square, Ridge Trail, Poacher Cart, Elmorrow’s Wagon.",
+        "dialogue": [
+          "“It was alive. I couldn’t leave it there.”",
+          "“Maybe I made it worse. Doesn’t mean we crack it now.”",
+          "“I found the cart. I didn’t make the cart.”"
+        ],
         "rules": [
-          "Looks like the poacher or seller.",
-          "Actually used the suspicious gear to carry the egg from the wreck.",
-          "Lied about where he found it because he knows bringing it home was reckless.",
-          "Insight DC 12: guilt, not greed."
+          "Insight DC 12: he is hiding guilt, not greed.",
+          "His rope, blankets, and hooked knife look like poaching gear but were used to carry the egg.",
+          "He can identify both sets of owlbear tracks and the sheltered ravine."
+        ],
+        "dmNotes": [
+          "Lean into suspicion early. He should look like the obvious seller/poacher.",
+          "The wagon puzzle is where the red herring cleanly collapses.",
+          "His gear does not match Elmorrow’s cage fittings or Moonpetal hardware."
         ]
-      }
+      },
+      "image": "assets/cards/owlbear/torren-vale.jpg",
+      "imageAlt": "Soot-stained charcoal burner carrying cut rope, stained blankets, and a hooked woods knife.",
+      "frontLabel": "NPC · Red Herring"
     },
     {
       "id": "card-elmorrow",
@@ -1238,16 +1314,29 @@
       "title": "Elmorrow Reed",
       "front": "A moss-cloaked 'druid' with polished nature sayings and a green wagon parked too close to the egg.",
       "back": {
-        "role": "Fake druid / hidden circus broker",
+        "role": "Fake druid / hidden circus beast broker",
+        "location": "Village Square, Green Wagon, Father attack, final egg debate.",
+        "dialogue": [
+          "“Civilized folk always confuse possession with stewardship.”",
+          "“Leave the hatchling to one who understands wild hearts.”",
+          "When exposed: “You call it a cage. I call it survival with an audience.”"
+        ],
         "stats": "AC 12 · HP 18 · Dagger +4, 1d4+2",
         "rules": [
-          "Not a druid. Works for the Moonpetal Traveling Menagerie.",
-          "Wants the hatchling alive for exhibition and sale.",
           "Nature DC 12: his druid lore is shallow and rehearsed.",
-          "His wagon contains a beast crate, sedatives, handler token, and acquisition contract.",
-          "If exposed, he bluffs, then flees rather than fight."
+          "Wagon evidence: reinforced beast crate, measured sedatives, brass Moonpetal handler token, signed acquisition contract.",
+          "Puzzle solution: EGG → CHAIN → TENT → COIN.",
+          "If exposed, he bluffs and then flees rather than fight."
+        ],
+        "dmNotes": [
+          "At first, make him sound like the compassionate expert so the reveal matters.",
+          "He wants the owlbear alive for exhibition and sale, not conservation.",
+          "Do not reveal the circus connection from a single vague suspicion; physical evidence should clinch it."
         ]
-      }
+      },
+      "image": "assets/cards/owlbear/elmorrow-reed.jpg",
+      "imageAlt": "Moss-cloaked false druid with a polished wooden staff beside a green animal-handler wagon.",
+      "frontLabel": "NPC · “Druid”"
     }
   ]
 }
