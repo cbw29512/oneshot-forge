@@ -30,7 +30,10 @@ for (const required of [
   "Combat Spellcasting",
   "Combat Defenses",
   "Roll / DC",
-  "resourceBoxes(uses)"
+  "resourceBoxes(uses)",
+  '"Cantrip" : "L" + spell.level',
+  '"Concentration"',
+  "durationMatch"
 ]) {
   if (!sheets.includes(required)) errors.push("sheets.html missing " + required);
 }
