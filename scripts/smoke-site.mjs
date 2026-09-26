@@ -68,6 +68,10 @@ for (const href of hrefs) {
   if (clean && !fs.existsSync(path.join(root, clean))) errors.push("broken homepage link " + href);
 }
 
+
+const owlbearPage = read("adventures/the-owlbear-egg.html");
+if (!owlbearPage.includes("cards.html?id=the-owlbear-egg")) errors.push("Owlbear page missing printable cards link");
+
 if (errors.length) {
   console.error("Smoke failed:");
   errors.forEach(e => console.error(" -", e));
