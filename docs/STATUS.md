@@ -65,3 +65,9 @@ Live: https://cbw29512.github.io/oneshot-forge/
 2026-09-26 — Added locked `docs/FORGE_CONSTITUTION.md` as the highest-priority project contract. Separated curated cadence from Forge Farm batch production and registered The Wishing Cake as Reference #1 for abstract craft lessons only.
 
 2026-09-26 — Owlbear tonight polish: added a visible dawn/hatching clock, made the return ending depend on the father's fate, synchronized the mother card, and added actionable pacing cuts without removing core consequences.
+
+## Locked standards — 2026-09-26
+
+- The clean-print fixed Letter pregen format is now canonical: see `docs/PREGEN_PRINT_STANDARD.md`.
+- Scene narration, location description, NPC voice, monster behavior, and printable cards are governed by `docs/PRESENTATION_STANDARD.md`.
+- Current polish target: bring The Owlbear Egg through the presentation gate without changing its approved consequence structure.
