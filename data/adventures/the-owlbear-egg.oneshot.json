@@ -18,8 +18,8 @@
   "setup": {
     "pitch": "Low on food and one day from the nearest village, the party reaches Briar Hollow just as a badly scratched hunter returns carrying a massive owlbear egg. Three villagers argue over whether to eat it, raise it, or return it. Before they can decide, the enraged father owlbear tears into the village.",
     "openingLocation": "The road to Briar Hollow",
-    "gmSummary": "The adventure has one spine: force the hungry party into Briar Hollow, reveal the stolen owlbear egg, let three NPCs argue three solutions, interrupt the debate with the father owlbear attack, expose the fake druid, then branch only when the party decides the egg's fate. If the party feeds the father their last rations, he leaves and they go hungry. If they kill him, the mother answers from the ridge and later enters a barbarian-like rage. If they refuse to intervene, the father destroys Briar Hollow. Eat the egg and the mother attacks at dawn. Keep the egg and it hatches and imprints on a random present PC/NPC. Return it or leave it at the village edge and the mother retrieves it. If the father survived, the family withdraws peacefully; if he was killed, the mother secures the hatchling and attacks in Maternal Rage.",
-    "background": "The party has only its final day of trail food left when the road points toward Briar Hollow, itself nearly out of food. Torren Vale, the village hunter, failed to find game and instead stole a huge owlbear egg from a nest. One parent raked his face as he escaped. Mara Dell wants to cook it. Torren, shaken by what he did, wants to raise the hatchling and make the theft mean something. Elmorrow Reed presents himself as a druid and argues that he should return the egg to nature, but he is actually an animal broker for the Moonpetal Traveling Menagerie. The father follows Torren's scent and the egg into town."
+    "gmSummary": "The adventure has one spine: force the hungry party into Briar Hollow, reveal the stolen owlbear egg, let three NPCs argue three solutions, interrupt the debate with the father owlbear attack, expose the fake druid, then branch only when the party decides the egg's fate. If the party feeds the father their last rations, he leaves and they go hungry. If they kill him, the carcass proves feverish and unsafe to eat; the mother answers from the ridge and later enters a barbarian-like rage. If they refuse to intervene, the father destroys Briar Hollow. Eat the egg and the mother attacks at dawn. Keep the egg and it hatches and imprints on a present PC/NPC, but the mother still comes for her surviving offspring. Return it or leave it at the village edge and the mother retrieves it. If the father survived, the family withdraws peacefully; if he was killed, the mother secures the hatchling and attacks in Maternal Rage.",
+    "background": "The party has only its final day of trail food left when the road points toward Briar Hollow, itself nearly out of food. Torren Vale, the village hunter, failed to find game and instead stole a huge owlbear egg from a nest. One parent raked his face as he escaped. Mara Dell wants to cook it. Torren, shaken by what he did, wants to raise the hatchling and make the theft mean something. Elmorrow Reed presents himself as a druid and argues that he should return the egg to nature, but he is actually an animal broker for the Moonpetal Traveling Menagerie. The father follows Torren's scent and the egg into town. He is gaunt, feverish, and starving; hunger has overwhelmed his normal protective behavior, which is why food can interrupt the attack."
   },
   "quest": {
     "type": "survival dilemma / consequence chain",
@@ -73,6 +73,10 @@
       {
         "id": "fact-return-depends-on-father",
         "text": "Returning the egg peacefully only works cleanly if the father survived. If the party killed him, the mother may recover the hatchling but still attacks in grief and rage."
+      },
+      {
+        "id": "fact-father-sick-meat",
+        "text": "The father is starving and feverish. If killed, his carcass is unsafe to eat and cannot solve the village's food shortage."
       }
     ],
     "secrets": [
@@ -429,18 +433,18 @@
     {
       "id": "scene-father",
       "title": "The Father Tears Through Briar Hollow",
-      "purpose": "Make the party spend its last food, fight, or accept the destruction of the village.",
+      "purpose": "Force a real choice: sacrifice the party's food, fight a starving feverish parent, or allow Briar Hollow to be destroyed.",
       "locationId": "loc-square",
       "pacingClass": "core",
       "estimatedMinutes": 45,
       "flowStage": 3,
       "flowTotal": 6,
       "flowLabel": "Father owlbear attack",
-      "readAloud": "The argument ends with a roof beam exploding inward.\n\nA massive owlbear crashes through the side of the stable, feathers slick with mud and blood. Two villagers snatch up boar spears and rush it. The first spear snaps. The owlbear swats one villager across the square and closes its beak around the second before anyone can shout a warning.\n\nThen it smells your food.",
+      "readAloud": "The argument ends with a roof beam exploding inward.\n\nA massive owlbear crashes through the side of the stable, feathers slick with mud and blood, ribs visible beneath a ragged hide. White foam ropes from one side of its beak. Two villagers snatch up boar spears and rush it. The first spear snaps. The owlbear swats one villager across the square and closes its beak around the second before anyone can shout a warning.\n\nThen it smells your food.",
       "gmNotes": [
         "If the party does nothing, the father kills the spear villagers, smashes the granary and bakehouse, and destroys Briar Hollow. Take the village-destroyed branch.",
         "If the party throws its remaining rations, the father immediately stops attacking, devours them, and leaves. The party goes without food; the village cannot replace the rations.",
-        "If the party kills the father, the meat is not the point. Immediately answer with the mother's scream from the ridge.",
+        "If the party kills the father, inspection makes the payoff explicit: he is feverish and diseased. Mara/Pell confirms the carcass is unsafe to eat, so killing him does not solve the food shortage. Immediately answer with the mother's scream from the ridge.",
         "Creative solutions are allowed, but resolve them back into one of three states: father leaves alive, father dies, or village is destroyed.",
         "Do not apply starvation exhaustion immediately just because the party skipped one meal; use normal food-deprivation rules if time extends beyond this adventure.",
         "VISIBLE CLOCK 2/4: when this scene ends, show a hairline crack in the shell whether the father lived or died."
@@ -460,7 +464,7 @@
         },
         {
           "title": "If they fight",
-          "text": "Run the father stat block below. If he dies, immediately play the mother's scream."
+          "text": "Run the father stat block. If he dies, immediately reveal the sick carcass is unsafe food, then play the mother's scream from the ridge."
         },
         {
           "title": "If they do nothing",
@@ -476,7 +480,8 @@
       ],
       "clueIds": [
         "clue-egg-stolen",
-        "clue-mother"
+        "clue-mother",
+        "clue-father-sick"
       ],
       "encounterIds": [
         "enc-father"
@@ -576,8 +581,8 @@
         "VISIBLE CLOCK 4/4: the egg is hatching now. The party must choose what to do with it before dawn resolves the choice.",
         "There are three core choices now. Do not add another branch unless the players genuinely invent one.",
         "EAT: Mara cooks the egg. The village and party get a full meal. At dawn, the mother attacks.",
-        "KEEP: the egg hatches overnight and imprints on a random present PC or named NPC.",
-        "RETURN / LEAVE AT EDGE: the mother retrieves the egg, it hatches, and mother plus hatchling attack Briar Hollow.",
+        "KEEP: the egg hatches and imprints on a present PC or named NPC. The mother still comes for the hatchling; the final consequence depends on the father's fate and whether the party yields or keeps the baby.",
+        "RETURN / LEAVE AT EDGE: the mother retrieves the egg. Father alive = family withdraws peacefully. Father dead = she secures the hatchling, then attacks in Maternal Rage.",
         "Elmorrow may still bargain or flee, but he no longer controls the structure."
       ],
       "runSteps": [
@@ -683,40 +688,47 @@
     },
     {
       "id": "scene-keep",
-      "title": "The Baby Chooses",
-      "purpose": "Resolve the keep-the-egg branch with the random imprint.",
+      "title": "The Baby Chooses — Then Mother Arrives",
+      "purpose": "Resolve the keep branch as both an emotional imprint and a real decision about standing between a mother and her surviving offspring.",
       "locationId": "loc-bakehouse",
       "pacingClass": "core",
       "estimatedMinutes": 25,
       "flowStage": 6,
       "flowTotal": 6,
       "flowLabel": "Ending — keep",
-      "readAloud": "Sometime after midnight, the egg splits with a wet crack.\n\nA beak pushes through first, then two oversized paws. The hatchling tumbles onto the blankets, shakes shell from its feathers, and stares at everyone in the room.\n\nThen it chooses.",
+      "readAloud": "Sometime after midnight, the egg splits with a wet crack.\n\nA beak pushes through first, then two oversized paws. The hatchling tumbles onto the blankets, shakes shell from its feathers, and stares at everyone in the room.\n\nThen it chooses.\n\nA moment later, a deep booming cry rolls down from the ridge.",
       "gmNotes": [
-        "Make a random list of all present player characters and named NPCs. Roll once. The hatchling imprints on that person.",
-        "If the players deliberately arranged for one specific caretaker to be alone with the egg, that person is the only valid result.",
-        "The imprint is behavioral, not magical: it follows, cries when separated, and treats the chosen creature as parent/protector.",
-        "Elmorrow may try to exploit the moment if still free, but do not let him erase the chosen ending off-screen."
+        "Determine the imprint first. The hatchling bonds behaviorally to a present PC/NPC; it is not magical domination.",
+        "The mother does NOT disappear from this ending. She comes for her surviving offspring before dawn.",
+        "If the father survived, the mother approaches cautiously rather than raging. The party may surrender the hatchling and get a peaceful family withdrawal.",
+        "If the party actively keeps the hatchling from her, she escalates to violence after clear warnings/posturing.",
+        "If the father died, the mother arrives already primed for Maternal Rage. Returning the hatchling may still let her secure the baby, but she remains hostile toward the killers/village.",
+        "The imprint creates emotional friction: the hatchling cries and follows its bonded protector, but instinctively responds to the mother's calls too.",
+        "The party can choose: surrender the hatchling, retreat and let the family reunite, evacuate with the hatchling, or fight to keep it. Do not dictate which is morally correct."
       ],
       "runSteps": [
         {
-          "title": "Read the boxed text",
-          "text": "Let the table enjoy the hatch before determining who it chooses."
+          "title": "Hatch and imprint",
+          "text": "Build the present-character list and determine the bonded protector."
         },
         {
-          "title": "Build the random list",
-          "text": "Include every present PC and named NPC unless the party deliberately isolated a caretaker."
+          "title": "Bring in the mother",
+          "text": "Her call comes from the ridge almost immediately; she is searching for her surviving offspring."
         },
         {
-          "title": "Roll the imprint",
-          "text": "The result is the hatchling's chosen parent/protector."
+          "title": "Check the father's state",
+          "text": "Father alive: mother starts cautious. Father dead: mother is grief-stricken and much more likely to rage."
         },
         {
-          "title": "Show the immediate consequence",
-          "text": "It follows that creature, cries when moved away, and starts looking for food."
+          "title": "Ask what the party actually does",
+          "text": "Yield the hatchling, back away and let the family reunite, flee/evacuate with it, or deliberately keep it."
+        },
+        {
+          "title": "Resolve the consequence",
+          "text": "Yielding with father alive can end peacefully. Deliberately keeping the hatchling can trigger the mother fight. Father dead keeps the mother's hostility in play even if she recovers the baby."
         }
       ],
-      "advanceWhen": "The imprint target is determined and the table understands the new responsibility.",
+      "advanceWhen": "The hatchling's long-term custody is decided and the mother's response is resolved.",
       "npcIds": [
         "npc-sella-vane",
         "npc-torren-vale",
@@ -884,6 +896,18 @@
       ],
       "canMove": true,
       "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-father-sick",
+      "revelation": "The father is feverish and his carcass is unsafe to eat.",
+      "required": false,
+      "sources": [
+        "physical evidence: foam at the beak, inflamed gums, foul-smelling lesions under the feathers",
+        "Medicine DC 10 identifies systemic sickness before or after death",
+        "Mara or Pell inspects the carcass after the fight and refuses to butcher it"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
     }
   ],
   "encounters": [
@@ -903,11 +927,11 @@
       "name": "Enraged Owlbear Father",
       "type": "combat / sacrifice choice",
       "difficulty": "Low by XP (700 XP); high consequence if ignored",
-      "summary": "The father tracks the stolen egg into town and tears through anyone between him and it.",
+      "summary": "The starving, feverish father tracks the stolen egg into town and tears through anyone between him, food, and the egg.",
       "resolution": "Feed him the party's remaining rations, kill him, drive him off creatively, or refuse to intervene.",
       "talkOut": "He cannot be reasoned with, but food overrides his rage.",
       "bypass": "Throw the party's remaining rations into the square. He devours them and leaves.",
-      "special": "If the party does nothing, two spear-bearing villagers are killed immediately and the father destroys Briar Hollow. If killed, the mother's scream answers from the ridge."
+      "special": "If the party does nothing, two spear-bearing villagers are killed immediately and the father destroys Briar Hollow. If killed, his feverish carcass is unsafe to eat and the mother's scream answers from the ridge."
     },
     {
       "id": "enc-mother-rage",
@@ -930,6 +954,17 @@
       "talkOut": "Father alive: no check is needed; the return succeeds. Father dead: once Maternal Rage begins, normal social checks do not end it.",
       "bypass": "Keep distance and allow the family to withdraw if the father survived; evacuate rather than defend if he died.",
       "special": "The hatchling is weak but follows and harasses; the mother is the real threat."
+    },
+    {
+      "id": "enc-mother-keep",
+      "name": "Mother Comes for the Kept Hatchling",
+      "type": "conditional consequence confrontation",
+      "difficulty": "social/tense if father alive; deadly if the party refuses or father died",
+      "summary": "The mother comes for the hatchling after it imprints. The confrontation depends on the father's fate and whether the party yields the baby.",
+      "resolution": "Yield the hatchling, back away and allow reunion, evacuate with the hatchling, or fight to keep it.",
+      "talkOut": "Father alive: no roll is needed if the party visibly yields and backs away. Father dead: social checks cannot erase grief, but surrendering the hatchling may keep her focus on recovery rather than pursuit.",
+      "bypass": "Do not stand between mother and hatchling; retreat and let the family reunite.",
+      "special": "The imprint is behavioral, not magical. It creates attachment but does not make the hatchling incapable of responding to its mother."
     }
   ],
   "puzzles": [
@@ -1096,7 +1131,7 @@
       "id": "ending-keep",
       "name": "Keep and Raise It",
       "condition": "The party keeps the egg.",
-      "result": "It hatches overnight and imprints on a random present PC or named NPC, creating a new responsibility."
+      "result": "The egg hatches and imprints on a present PC/NPC. The mother then comes for her offspring: father alive allows a peaceful reunion if the party yields; keeping the hatchling can provoke combat. If the father died, the mother's grief keeps the ending dangerous even if she recovers the baby."
     },
     {
       "id": "ending-return",
@@ -1234,7 +1269,7 @@
     "cutOrder": [
       "If 30+ minutes behind, resolve Elmorrow's strongbox with the crate stamp immediately after one failed attempt.",
       "If 20+ minutes behind at the final choice, summarize NPC arguments in one sentence each and ask for the decision.",
-      "Never cut the father consequence or the final egg consequence."
+      "Never cut the father consequence, sick-meat payoff, or the mother's response to the final egg choice."
     ],
     "optionalOrder": [
       "Extra NPC debate after each advocate has made one strong argument.",
@@ -1353,7 +1388,7 @@
       {
         "id": "enc-father",
         "objective": "Stop the father before he destroys Briar Hollow.",
-        "start": "He kills or mauls the first spear-bearing villagers and turns toward the party's food scent.",
+        "start": "The gaunt, feverish father crashes into Briar Hollow following Torren's scent and the egg.",
         "bypass": "Throw the party's remaining rations into the square; he eats them and leaves.",
         "creatures": [
           {
@@ -1369,7 +1404,7 @@
             "xp": 700
           }
         ],
-        "end": "Father leaves alive, dies, or the village is destroyed."
+        "end": "He leaves after eating the party's rations, dies (revealing unsafe meat and triggering the mother's scream), or destroys the village if ignored."
       },
       {
         "id": "enc-mother-rage",
@@ -1543,29 +1578,20 @@
         "rules": [
           "Multiattack: Beak +8; two Claws +8.",
           "Maternal Rage (1/day, 1 minute): advantage on Strength checks/saves; +2 Strength-melee damage; resistance to bludgeoning, piercing, and slashing.",
-          "Eat branch: she attacks at dawn.",
-          "Return branch: she retrieves the egg, it hatches, and she leads the hatchling back against the village."
+          "Eat branch: she attacks at dawn because the egg was destroyed.",
+          "Return branch: father alive = family withdraws peacefully; father dead = she secures the hatchling, then attacks in Maternal Rage.",
+          "Keep branch: she comes for the hatchling. Father alive + party yields = peaceful reunion; deliberate refusal can trigger combat. Father dead keeps her hostile even if she recovers the baby."
         ],
         "dmNotes": [
-          "She is the physical consequence of the egg choice, not an optional random encounter.",
-          "Keep her rage simple and equivalent to a 2014 barbarian's core Rage benefits.",
-          "Evacuation is a valid resolution when she attacks."
+          "Her behavior follows what the party actually did; do not force a fight after a genuine peaceful return.",
+          "The keep ending must still account for her. She is searching for her surviving offspring.",
+          "If the father died, his loss is what keeps her hostile.",
+          "Evacuation is always a legal alternative to standing and fighting."
         ]
       },
       "image": "assets/cards/owlbear/mother-owlbear.svg",
       "imageAlt": "Enormous scarred mother owlbear on a dark forest ridge, nearly twice the father’s bulk.",
-      "frontLabel": "Creature · Mother",
-      "rules": [
-        "Multiattack: Beak +8; two Claws +8.",
-        "Maternal Rage (1/day, 1 minute): advantage on Strength checks/saves; +2 Strength-melee damage; resistance to bludgeoning, piercing, and slashing.",
-        "Eat branch: she attacks at dawn because the egg was destroyed.",
-        "Return branch: father alive = family withdraws peacefully; father dead = she secures the hatchling, then attacks in Maternal Rage."
-      ],
-      "dmNotes": [
-        "Her behavior follows what the party actually did; do not force a fight after a genuine peaceful return.",
-        "If the father died, his loss is what makes the return branch violent.",
-        "Evacuation is always a legal alternative to standing and fighting."
-      ]
+      "frontLabel": "Creature · Mother"
     },
     {
       "id": "card-sella",
