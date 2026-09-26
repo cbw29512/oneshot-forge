@@ -163,6 +163,7 @@ function normalizeState(value) {
   next.locationState = next.locationState || {};
   next.itemState = next.itemState || {};
   next.eventState = next.eventState || {};
+  next.completedRunSteps = next.completedRunSteps || {};
   for (const loc of adventure.locations) {
     if (!next.locationState[loc.id]) next.locationState[loc.id] = {revealed:false};
   }
@@ -447,12 +448,14 @@ function renderScene() {
   if (el("scene-purpose")) el("scene-purpose").textContent = scene.purpose || "";
   el("scene-pacing").textContent = (scene.pacingClass || "core") + " • " + (scene.estimatedMinutes || "?") + " min";
   const idx = adventure.scenes.findIndex(s => s.id === scene.id);
-  const total = adventure.scenes.length;
+  const logicalStage = Number(scene.flowStage || (idx + 1));
+  const logicalTotal = Number(scene.flowTotal || adventure.scenes.length);
   if (el("stage-progress")) {
-    el("stage-progress").textContent = "Stage " + (idx + 1) + " of " + total + " — " + (scene.title || "");
+    const flowLabel = scene.flowLabel ? " — " + scene.flowLabel : " — " + (scene.title || "");
+    el("stage-progress").textContent = "Stage " + logicalStage + " of " + logicalTotal + flowLabel;
   }
   if (el("stage-bar")) {
-    el("stage-bar").style.width = Math.round(((idx + 1) / total) * 100) + "%";
+    el("stage-bar").style.width = Math.round((logicalStage / logicalTotal) * 100) + "%";
   }
   if (el("stage-clock")) {
     el("stage-clock").textContent = adventure.quest?.deadline || "";
@@ -470,7 +473,10 @@ function renderScene() {
     .map(id => adventure.npcs.find(npc => npc.id === id))
     .filter(Boolean);
 
-  if (el("dm-box")) el("dm-box").innerHTML = dmBoxHtml(scene, { npcs, checks, hazards, puzzles, traps, encounters });
+  if (el("dm-box")) {
+    el("dm-box").innerHTML = dmBoxHtml(scene, { npcs, checks, hazards, puzzles, traps, encounters });
+    bindRunStepControls(scene);
+  }
 
   const monsterHtml = encounters.map(encounterCardHtml).join("");
   if (el("monster-box-wrap")) {
@@ -497,8 +503,38 @@ function renderScene() {
   renderSceneExits(scene);
 }
 
+function runStepsHtml(scene) {
+  const steps = scene.runSteps || [];
+  if (!steps.length) return "";
+  const done = state.completedRunSteps?.[scene.id] || [];
+  return '<section class="run-sequence"><p class="box-label">Run this stage in order</p><ol>' +
+    steps.map((step, index) =>
+      '<li class="run-step' + (done[index] ? ' done' : '') + '">' +
+        '<label><input type="checkbox" data-run-step="' + index + '"' + (done[index] ? ' checked' : '') + '>' +
+        '<span><b>' + escapeHtml(step.title || ("Step " + (index + 1))) + '.</b> ' + escapeHtml(step.text || "") + '</span></label>' +
+      '</li>'
+    ).join("") + '</ol>' +
+    (scene.advanceWhen ? '<div class="advance-when"><b>Move on when:</b> ' + escapeHtml(scene.advanceWhen) + '</div>' : '') +
+    '</section>';
+}
+
+function bindRunStepControls(scene) {
+  if (!el("dm-box")) return;
+  el("dm-box").querySelectorAll("[data-run-step]").forEach(input => {
+    input.addEventListener("change", () => {
+      const index = Number(input.dataset.runStep);
+      if (!state.completedRunSteps[scene.id]) state.completedRunSteps[scene.id] = [];
+      state.completedRunSteps[scene.id][index] = input.checked;
+      saveState();
+      input.closest(".run-step")?.classList.toggle("done", input.checked);
+    });
+  });
+}
+
 function dmBoxHtml(scene, bits) {
   const chunks = [];
+  const runSteps = runStepsHtml(scene);
+  if (runSteps) chunks.push(runSteps);
   if (scene.purpose) chunks.push("<p><b>This room.</b> " + escapeHtml(scene.purpose) + "</p>");
   if (scene.gmNotes && scene.gmNotes.length) {
     chunks.push("<p><b>What you know.</b></p><ul>" +
@@ -536,6 +572,16 @@ function dmBoxHtml(scene, bits) {
     chunks.push("<p><b>Hazards.</b></p>" + bits.hazards.map(h =>
       "<p><b>" + escapeHtml(h.trigger) + ".</b> Save: " + escapeHtml(h.save) +
       " Failure: " + escapeHtml(h.failure) + " Success: " + escapeHtml(h.success) + "</p>"
+    ).join(""));
+  }
+  const endings = (scene.endingIds || [])
+    .map(id => adventure.endings.find(ending => ending.id === id))
+    .filter(Boolean);
+  if (endings.length) {
+    chunks.push("<p><b>Ending options.</b></p>" + endings.map(ending =>
+      '<div class="ending-option"><b>' + escapeHtml(ending.name) + '.</b> ' +
+      '<span class="muted">Use when: ' + escapeHtml(ending.condition) + '</span>' +
+      '<p>' + escapeHtml(ending.result) + '</p></div>'
     ).join(""));
   }
   const specials = bits.encounters.filter(enc => enc.talkOut || enc.bypass || enc.special);
@@ -677,16 +723,23 @@ function renderPlayMaps(scene) {
 }
 
 function renderSceneExits(scene) {
-  const exits = (scene.exits || []).map(id => adventure.scenes.find(item => item.id === id)).filter(Boolean);
+  const configured = Array.isArray(scene.exitChoices) && scene.exitChoices.length
+    ? scene.exitChoices
+    : (scene.exits || []).map(target => ({target}));
+  const exits = configured.map(choice => {
+    const sceneRef = adventure.scenes.find(item => item.id === choice.target);
+    return sceneRef ? {choice, scene:sceneRef} : null;
+  }).filter(Boolean);
   const wrap = el("scene-exits");
   wrap.innerHTML = "";
   el("scene-exits-wrap").hidden = !exits.length;
 
-  exits.forEach(exitScene => {
+  exits.forEach(({choice, scene:exitScene}) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "button secondary small";
-    button.textContent = exitScene.title + " →";
+    button.className = "button secondary next-choice";
+    button.innerHTML = "<b>" + escapeHtml(choice.label || exitScene.title) + " →</b>" +
+      (choice.description ? "<small>" + escapeHtml(choice.description) + "</small>" : "");
     button.addEventListener("click", () => goToScene(exitScene.id));
     wrap.appendChild(button);
   });
@@ -694,15 +747,15 @@ function renderSceneExits(scene) {
   el("prev-scene").disabled = !(state.sceneHistory && state.sceneHistory.length);
   if (exits.length === 1) {
     el("next-scene").disabled = false;
-    el("next-scene").textContent = "Next →";
-    el("next-scene").dataset.target = exits[0].id;
+    el("next-scene").textContent = (exits[0].choice.label || "Next") + " →";
+    el("next-scene").dataset.target = exits[0].scene.id;
   } else if (exits.length > 1) {
     el("next-scene").disabled = true;
-    el("next-scene").textContent = "Choose a path";
+    el("next-scene").textContent = "Choose one path above";
     delete el("next-scene").dataset.target;
   } else {
     el("next-scene").disabled = true;
-    el("next-scene").textContent = "End";
+    el("next-scene").textContent = "Adventure complete";
     delete el("next-scene").dataset.target;
   }
 }

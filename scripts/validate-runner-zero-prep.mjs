@@ -67,9 +67,18 @@ requireSource("tactical callouts and maps", [
 ]);
 requireSource("ordered branching transitions", [
   'renderSceneExits(scene)',
-  'scene.exits',
-  'Choose a path',
+  'scene.exitChoices',
+  'choice.label',
+  'choice.description',
+  'Choose one path above',
   'goToScene(exitScene.id)'
+]);
+requireSource("guided table sequence", [
+  'runStepsHtml(scene)',
+  'bindRunStepControls(scene)',
+  'scene.runSteps',
+  'scene.advanceWhen',
+  'state.completedRunSteps'
 ]);
 
 if (failures.length) {

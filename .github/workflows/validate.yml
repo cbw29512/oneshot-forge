@@ -46,6 +46,8 @@ jobs:
         run: node scripts/validate-cards.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Certify active stage-card rendering
         run: node scripts/validate-runner-zero-prep.mjs
+      - name: Certify guided Owlbear run flow
+        run: node scripts/validate-guided-flow.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Validate quick-run reference
         run: node -e "const fs=require('fs'); const q=JSON.parse(fs.readFileSync('data/adventures/the-lantern-below.quickrun.json','utf8')); if(q.adventureId!=='the-lantern-below'||!q.encounters?.length||!q.checks?.length||!q.rewards?.length||!q.mapNotes?.length) process.exit(1); console.log('Quick-run reference OK')"
       - name: Prevent embedded/sidecar quick-run drift
