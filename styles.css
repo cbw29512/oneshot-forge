@@ -1518,3 +1518,192 @@ body.run { background: var(--bg) }
     text-transform:none;
   }
 }
+
+/* 2026-09-26 full-page balance pass */
+@media print {
+  .pr-main-page {
+    display:flex !important;
+    flex-direction:column;
+  }
+  .pr-main-page .pr-head {
+    flex:0 0 auto;
+  }
+  .pr-main-page .pr-body {
+    flex:1 1 auto;
+    min-height:0;
+    height:auto;
+    align-items:stretch;
+    grid-template-columns:1.88in minmax(0,1fr) 2.05in;
+    gap:.14in;
+  }
+
+  .pr-left,
+  .pr-center,
+  .pr-right {
+    display:flex;
+    flex-direction:column;
+    min-height:0;
+  }
+  .pr-left > section,
+  .pr-center > section,
+  .pr-right > section {
+    flex:0 0 auto;
+  }
+  .pr-left > section:last-child,
+  .pr-center > section:last-child,
+  .pr-right > section:last-child {
+    flex:1 1 auto;
+  }
+
+  .pr-page h3 {
+    font-size:8.2pt !important;
+    padding:.052in .06in !important;
+    margin-bottom:.05in !important;
+  }
+
+  .pr-left .sk {
+    font-size:7.75pt !important;
+    line-height:1.18 !important;
+    padding:.018in 0 !important;
+  }
+  .pr-left .sk b { font-size:7.9pt !important; }
+  .pr-left > section:last-child {
+    display:flex;
+    flex-direction:column;
+  }
+  .pr-left > section:last-child .sk {
+    flex:1 1 auto;
+    align-items:center;
+  }
+
+  .pr-save {
+    min-height:.27in;
+    font-size:7.8pt !important;
+  }
+  .pr-save b { font-size:7.5pt !important; }
+  .pr-save strong { font-size:8.4pt !important; }
+
+  .pr-abilities .ab {
+    min-height:.58in;
+  }
+  .pr-abilities .ab span { font-size:6.6pt !important; }
+  .pr-abilities .ab strong { font-size:14pt !important; }
+  .pr-abilities .ab em { font-size:8.7pt !important; }
+
+  .pr-hp-grid { gap:.06in !important; }
+  .pr-writebox { min-height:.88in !important; }
+  .pr-current-hp { min-height:1.12in !important; }
+  .pr-writebox small,
+  .pr-condition-box small { font-size:6.8pt !important; }
+  .pr-hit-dice span,
+  .pr-death span { font-size:7.5pt !important; }
+
+  .pr-condition-box {
+    min-height:.72in !important;
+  }
+  .pr-condition-box > div { height:.26in !important; }
+
+  .pr-center .pr-atk {
+    font-size:8.6pt !important;
+    line-height:1.22 !important;
+  }
+  .pr-center .pr-atk th {
+    font-size:7pt !important;
+    padding:.045in .04in !important;
+  }
+  .pr-center .pr-atk td {
+    padding:.07in .04in !important;
+    vertical-align:top;
+  }
+  .pr-center .pr-atk td:first-child b {
+    font-size:9.1pt !important;
+    line-height:1.1;
+  }
+  .pr-center .pr-atk .tiny {
+    font-size:7.1pt !important;
+    line-height:1.18 !important;
+    margin-top:.02in;
+  }
+  .pr-atk td:nth-child(2), .pr-atk th:nth-child(2) {
+    width:.74in !important;
+    font-size:8.3pt !important;
+  }
+  .pr-atk td:nth-child(3), .pr-atk th:nth-child(3) {
+    width:1.15in !important;
+    font-size:8.2pt !important;
+  }
+
+  .pr-line {
+    font-size:7.7pt !important;
+    line-height:1.22 !important;
+    padding:.045in 0 !important;
+  }
+
+  .pr-resource {
+    font-size:7.35pt !important;
+    line-height:1.18 !important;
+    padding:.04in 0 !important;
+  }
+  .pr-resource b { font-size:7.6pt !important; }
+  .pr-resource em { font-size:8pt !important; }
+
+  .pr-defense {
+    font-size:7.3pt !important;
+    line-height:1.2 !important;
+    padding:.04in 0 .05in !important;
+  }
+  .pr-defense b { font-size:7.6pt !important; }
+
+  .pr-quickturn {
+    font-size:7.8pt !important;
+    line-height:1.24 !important;
+    margin-left:.22in !important;
+  }
+  .pr-quickturn li { margin-bottom:.045in !important; }
+
+  .pr-center > section:last-child {
+    display:flex;
+    flex-direction:column;
+  }
+  .pr-center > section:last-child .pr-features {
+    display:flex;
+    flex-direction:column;
+    flex:1 1 auto;
+    justify-content:space-between;
+  }
+  .pr-feature {
+    font-size:7.4pt !important;
+    line-height:1.2 !important;
+    padding:.045in 0 .055in !important;
+  }
+  .pr-feature b { font-size:7.8pt !important; }
+  .pr-feature span { font-size:7pt !important; }
+
+  .pr-right {
+    font-size:7.65pt !important;
+    line-height:1.22 !important;
+  }
+  .pr-right p { margin:.04in 0 !important; }
+  .pr-right > section:last-child {
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+  }
+  .pr-appearance {
+    margin-top:.06in !important;
+    font-size:7.15pt !important;
+  }
+
+  .pr-casting-grid small { font-size:6.2pt !important; }
+  .pr-casting-grid b { font-size:9.2pt !important; }
+
+  .pr-spell-page {
+    font-size:8pt !important;
+  }
+  .pr-spell-title b { font-size:8.2pt !important; }
+  .pr-spell-title span { font-size:6.7pt !important; }
+  .pr-spell p {
+    font-size:7.35pt !important;
+    line-height:1.2 !important;
+  }
+}
