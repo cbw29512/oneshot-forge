@@ -3188,3 +3188,19 @@ body.run { background: var(--bg) }
     overflow:hidden !important;
   }
 }
+
+/* Explicit print targeting: normal load never prints; buttons select packet(s). */
+@media print {
+  body:not([data-print-target]) .print-only {
+    display:none !important;
+  }
+  body[data-print-target="all"] .print-only {
+    display:block !important;
+  }
+  body[data-print-target]:not([data-print-target="all"]) .print-only {
+    display:none !important;
+  }
+  body[data-print-target]:not([data-print-target="all"]) .print-only[data-print-pc] {
+    display:none !important;
+  }
+}
