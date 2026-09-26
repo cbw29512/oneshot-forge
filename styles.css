@@ -808,3 +808,221 @@ body.run { background: var(--bg) }
 .next-choice small { display: block; color: inherit; opacity: .78; font-weight: 500; line-height: 1.3; }
 .ending-option { margin: .45rem 0; padding: .6rem .7rem; border: 1px solid #c4b48a; background: #f7ecd0; border-radius: 6px; }
 .ending-option p { margin-bottom: 0; }
+
+
+/* Dedicated D&D-style print packet: page 1 character, page 2 spells. */
+.print-only { display: none; }
+.cs-screen-actions { display:flex; justify-content:flex-end; margin:0 0 .55rem; }
+
+@media print {
+  .screen-sheet { display: none !important; }
+  .print-only { display: block !important; }
+
+  body.sheets-page {
+    margin: 0 !important;
+    font-family: Arial, "Segoe UI", sans-serif;
+    font-size: 7pt;
+    line-height: 1.16;
+    color: #111;
+    background: #fff !important;
+  }
+  .sheets-wrap, #sheets { margin:0 !important; padding:0 !important; max-width:none !important; }
+
+  .pr-page {
+    width: 7.85in;
+    height: 10.25in;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: .13in;
+    border: 1pt solid #555;
+    background: #fff !important;
+    color: #111;
+    overflow: hidden;
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .pr-page:last-child { break-after:auto; page-break-after:auto; }
+
+  .pr-head {
+    display:grid;
+    grid-template-columns: 1.08in minmax(0,1fr) 2.25in;
+    gap:.09in;
+    align-items:stretch;
+    padding-bottom:.07in;
+    margin-bottom:.07in;
+    border-bottom:1.2pt solid #555;
+  }
+  .pr-port {
+    width:1.08in;
+    height:1.08in;
+    object-fit:cover;
+    object-position:center 22%;
+    border:1pt solid #555;
+    border-radius:2pt;
+  }
+  .pr-id { align-self:center; min-width:0; }
+  .pr-kicker {
+    margin:0 0 .025in;
+    font-size:5.4pt;
+    line-height:1;
+    letter-spacing:.13em;
+    font-weight:800;
+    color:#70371e;
+  }
+  .pr-id h2, .pr-spell-head h2 {
+    margin:0 0 .025in;
+    font-family:Georgia,serif;
+    font-size:16pt;
+    line-height:1;
+  }
+  .pr-id p, .pr-spell-head p { margin:0; font-size:6.5pt; line-height:1.18; }
+  .pr-role {
+    margin-top:.04in !important;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+    color:#70371e;
+  }
+
+  .pr-vitals, .pr-caster-stats {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:.025in;
+  }
+  .pr-vitals span, .pr-caster-stats span {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:.47in;
+    padding:.02in;
+    border:1pt solid #999;
+    background:#f3efe7 !important;
+    text-align:center;
+  }
+  .pr-vitals small, .pr-caster-stats small {
+    font-size:5pt;
+    line-height:1;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+  }
+  .pr-vitals b, .pr-caster-stats b { font:700 11pt/1 Georgia,serif; margin-top:.015in; }
+
+  .pr-body {
+    display:grid;
+    grid-template-columns:1.56in minmax(0,1fr) 1.72in;
+    gap:.085in;
+    height:8.88in;
+  }
+  .pr-body > * { min-width:0; overflow:hidden; }
+  .pr-page section { margin:0 0 .05in; break-inside:avoid; }
+  .pr-page h3 {
+    margin:0 0 .025in;
+    padding:.024in .035in;
+    border-bottom:1pt solid #777;
+    font:800 6pt/1 Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.09em;
+    color:#6e321b;
+    background:#f4efe5 !important;
+  }
+  .pr-page p { margin:.012in 0; }
+
+  .pr-abilities { display:grid; grid-template-columns:repeat(2,1fr); gap:.022in; }
+  .pr-abilities .ab {
+    padding:.02in .01in;
+    border:1pt solid #aaa;
+    border-radius:2pt;
+    background:#fff !important;
+  }
+  .pr-abilities .ab span { font-size:5pt; color:#333; }
+  .pr-abilities .ab strong { font-size:10pt; line-height:1; }
+  .pr-abilities .ab em { font-size:6.2pt; color:#6e321b; }
+  .pr-left .sv, .pr-left .sk {
+    grid-template-columns:.12in .20in 1fr;
+    gap:.018in;
+    padding:.006in 0;
+    font-size:5.65pt;
+    line-height:1.05;
+  }
+  .pr-left .sv i, .pr-left .sk i { color:#6e321b; }
+  .pr-left .sv b, .pr-left .sk b { font-size:5.8pt; }
+
+  .pr-center .atk {
+    width:100%;
+    font-size:6pt;
+    line-height:1.08;
+  }
+  .pr-center .atk th { padding:.018in; font-size:5pt; color:#333; }
+  .pr-center .atk td { padding:.024in .018in; }
+  .pr-center .atk .tiny { font-size:5.1pt !important; line-height:1.05; }
+  .pr-line {
+    padding:.018in 0;
+    border-bottom:.5pt solid #ddd;
+    font-size:5.8pt;
+    line-height:1.12;
+  }
+  .pr-features { columns:2; column-gap:.07in; }
+  .pr-feature {
+    break-inside:avoid;
+    padding:.018in 0 .026in;
+    border-bottom:.5pt solid #ddd;
+    font-size:5.55pt;
+    line-height:1.08;
+  }
+  .pr-feature b { font-size:5.8pt; }
+  .pr-feature span { color:#555; }
+  .pr-feature p { margin:.008in 0 0; }
+
+  .pr-right { font-size:5.65pt; line-height:1.12; }
+  .pr-right p { margin:.014in 0; }
+  .pr-appearance { font-style:italic; color:#555; margin-top:.025in !important; }
+
+  .pr-spell-page { padding:.15in; }
+  .pr-spell-head {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 2.45in;
+    gap:.12in;
+    align-items:end;
+    padding-bottom:.07in;
+    border-bottom:1.2pt solid #555;
+  }
+  .pr-slotbar {
+    margin:.055in 0;
+    padding:.045in .07in;
+    border:1pt solid #999;
+    background:#f3efe7 !important;
+    font-size:6.4pt;
+  }
+  .pr-spell-columns {
+    columns:2;
+    column-gap:.12in;
+    height:8.9in;
+  }
+  .pr-spell-group {
+    break-inside:avoid-column;
+    margin-bottom:.07in !important;
+  }
+  .pr-spell {
+    break-inside:avoid;
+    padding:.025in 0 .035in;
+    border-bottom:.5pt solid #ccc;
+    font-size:5.8pt;
+    line-height:1.12;
+  }
+  .pr-spell-title {
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:.06in;
+  }
+  .pr-spell-title b { font-size:6.2pt; }
+  .pr-spell-title span { font-size:5.1pt; color:#444; text-align:right; }
+  .pr-spell p { margin:.012in 0 0; }
+
+  .dash { color:#777; }
+}
