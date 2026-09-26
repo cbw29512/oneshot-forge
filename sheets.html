@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260920n">
+  <link rel="stylesheet" href="styles.css?v=20260926-sheet2">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -18,7 +18,7 @@
       <a href="./">Home</a>
       <a href="campaign.html">Town</a>
       <a href="run.html">GM table</a>
-      <button class="button ember small" type="button" onclick="window.print()">Print</button>
+      <button class="button ember small" type="button" onclick="window.print()">Print all</button>
     </nav>
   </header>
   <main class="sheets-wrap">
@@ -144,7 +144,9 @@
         : '<div class="cs-port ph" aria-hidden="true"></div>';
       const prof = pc.proficiencies || {};
       const pers = pc.personality || {};
-      return '<article class="cs" id="' + esc(pc.id) + '">' +
+      const printHref = "sheets.html?rules=" + encodeURIComponent(edition) + "&print=1&pc=" + encodeURIComponent(pc.id);
+      return '<article class="cs screen-sheet" id="' + esc(pc.id) + '">' +
+        '<div class="cs-screen-actions print-hide"><a class="button small secondary" href="' + printHref + '">Print this character</a></div>' +
         '<div class="cs-print-mark" aria-hidden="true"><span>ONE-SHOT FORGE</span><span>PLAYER CHARACTER</span></div>' +
         '<header class="cs-top">' + img +
         '<div class="cs-id">' +
@@ -195,6 +197,112 @@
         '<pre class="beyond-check print-hide">' + esc(beyondList(pc)) + "</pre>" +
       "</article>";
     }
+
+    function compactList(arr) {
+      if (!arr || !arr.length) return '<span class="dash">—</span>';
+      return arr.map(x => '<div class="pr-line">' + esc(x) + '</div>').join("");
+    }
+    function printFeatureRows(pc) {
+      return (pc.featureList || []).map(f =>
+        '<div class="pr-feature"><b>' + esc(f.name) + '</b>' +
+        (f.uses ? '<span> · ' + esc(f.uses) + '</span>' : '') +
+        '<p>' + esc(f.text) + '</p></div>'
+      ).join("");
+    }
+    function printSpellPage(pc) {
+      const list = pc.spellList || [];
+      if (!list.length) return "";
+      const sc = pc.spellcasting || {};
+      const slots = sc.slots || {};
+      const groups = {};
+      list.forEach(spell => {
+        const key = Number(spell.level) === 0 ? "Cantrips" : "Level " + spell.level;
+        (groups[key] = groups[key] || []).push(spell);
+      });
+      const slotLine = Object.keys(slots).map(level => "L" + level + " × " + slots[level]).join(" · ");
+      return '<article class="print-only pr-page pr-spell-page">' +
+        '<header class="pr-spell-head">' +
+          '<div><p class="pr-kicker">ONE-SHOT FORGE · SPELLS</p><h2>' + esc(pc.name) + '</h2>' +
+          '<p>' + esc(characterClass(pc)) + ' 4 · ' + esc(pc.race) + '</p></div>' +
+          '<div class="pr-caster-stats">' +
+            '<span><small>Ability</small><b>' + esc(sc.ability || "—") + '</b></span>' +
+            '<span><small>Save DC</small><b>' + esc(sc.saveDC ?? "—") + '</b></span>' +
+            '<span><small>Attack</small><b>' + signed(sc.attack) + '</b></span>' +
+          '</div>' +
+        '</header>' +
+        '<div class="pr-slotbar"><b>Spell slots</b> ' + esc(slotLine || "None") +
+          (sc.prepareCount ? ' · <b>Prepared/Known</b> ' + esc(sc.prepareCount) : '') + '</div>' +
+        '<div class="pr-spell-columns">' +
+          Object.entries(groups).map(([group, spells]) =>
+            '<section class="pr-spell-group"><h3>' + esc(group) + '</h3>' +
+            spells.map(spell => '<div class="pr-spell">' +
+              '<div class="pr-spell-title"><b>' + esc(spell.name) + '</b><span>' +
+                esc(spell.time || "") + (spell.range ? ' · ' + esc(spell.range) : '') +
+                (spell.save ? ' · ' + esc(spell.save) : '') + '</span></div>' +
+              '<p>' + esc(spell.effect || "") + '</p></div>').join("") +
+            '</section>'
+          ).join("") +
+        '</div>' +
+      '</article>';
+    }
+    function printMainPage(pc) {
+      const prof = pc.proficiencies || {};
+      const pers = pc.personality || {};
+      const img = pc.portrait
+        ? '<img class="pr-port" src="' + esc(pc.portrait) + '" alt="Portrait of ' + esc(pc.name) + '">'
+        : '<div class="pr-port ph"></div>';
+      return '<article class="print-only pr-page pr-main-page">' +
+        '<header class="pr-head">' + img +
+          '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
+            '<h2>' + esc(pc.name) + '</h2>' +
+            '<p><b>' + esc(characterClass(pc)) + ' 4</b> · ' + esc(pc.race) + ' · ' +
+              esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
+            '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
+          '<div class="pr-vitals">' +
+            '<span><small>AC</small><b>' + esc(pc.ac) + '</b></span>' +
+            '<span><small>HP</small><b>' + esc(pc.hp) + '</b></span>' +
+            '<span><small>Init</small><b>' + signed(pc.initiative) + '</b></span>' +
+            '<span><small>Speed</small><b>' + esc(pc.speedFt || pc.speed) + '</b></span>' +
+            '<span><small>Prof</small><b>+' + esc(pc.proficiency || 2) + '</b></span>' +
+            '<span><small>Passive Per</small><b>' + esc(pc.passivePerception) + '</b></span>' +
+          '</div>' +
+        '</header>' +
+        '<div class="pr-body">' +
+          '<aside class="pr-left">' +
+            '<section><h3>Abilities</h3><div class="pr-abilities">' + scoreCol(pc) + '</div></section>' +
+            '<section><h3>Saving Throws</h3>' + saveRows(pc.saveMap, pc.scores) + '</section>' +
+            '<section><h3>Skills</h3>' + skillRows(pc.skillsMap) + '</section>' +
+          '</aside>' +
+          '<main class="pr-center">' +
+            '<section><h3>Attacks & Cantrips</h3>' + attackTable(pc.attackList) + '</section>' +
+            (pc.bonusActions?.length ? '<section><h3>Bonus Actions</h3>' + compactList(pc.bonusActions) + '</section>' : '') +
+            (pc.reactions?.length ? '<section><h3>Reactions</h3>' + compactList(pc.reactions) + '</section>' : '') +
+            '<section><h3>Features & Traits</h3><div class="pr-features">' + printFeatureRows(pc) + '</div></section>' +
+          '</main>' +
+          '<aside class="pr-right">' +
+            '<section><h3>Senses</h3><p><b>Darkvision</b> ' + esc(pc.darkvision || 0) + ' ft.</p>' +
+              '<p><b>Passive Insight</b> ' + esc(pc.passiveInsight ?? "—") + '</p></section>' +
+            '<section><h3>Proficiencies</h3>' +
+              '<p><b>Armor</b> ' + esc((prof.armor || []).join(", ") || "none") + '</p>' +
+              '<p><b>Weapons</b> ' + esc((prof.weapons || []).join(", ") || "none") + '</p>' +
+              '<p><b>Tools</b> ' + esc((prof.tools || []).join(", ") || "—") + '</p>' +
+              '<p><b>Languages</b> ' + esc((prof.languages || []).join(", ") || "—") + '</p></section>' +
+            '<section><h3>Equipment</h3><p>' + esc(pc.gear || "—") + '</p></section>' +
+            '<section><h3>Character</h3>' +
+              '<p><b>Trait</b> ' + esc(pers.trait || "—") + '</p>' +
+              '<p><b>Ideal</b> ' + esc(pers.ideal || "—") + '</p>' +
+              '<p><b>Bond</b> ' + esc(pers.bond || "—") + '</p>' +
+              '<p><b>Flaw</b> ' + esc(pers.flaw || "—") + '</p>' +
+              (pc.appearance ? '<p class="pr-appearance">' + esc(pc.appearance) + '</p>' : '') +
+            '</section>' +
+          '</aside>' +
+        '</div>' +
+      '</article>';
+    }
+    function printPacket(pc) {
+      return printMainPage(pc) + printSpellPage(pc);
+    }
+
     const edition = (typeof getRuleset === "function" && getRuleset() === "2024") ? "2024" : "2014";
     const packUrl = edition === "2024"
       ? "data/pregens/quiet-seals-level-4-2024-srd.json?v=m"
@@ -204,11 +312,20 @@
       .then(pack => {
         const rec = (pack.characters || []).filter(pc => pc.recommended);
         const rest = (pack.characters || []).filter(pc => !pc.recommended);
-        document.getElementById("sheets").innerHTML =
+        const params = new URLSearchParams(location.search);
+        const printing = params.get("print") === "1";
+        const requestedPc = params.get("pc");
+        const allCharacters = pack.characters || [];
+        const selected = requestedPc ? allCharacters.filter(pc => pc.id === requestedPc) : rec;
+        if (requestedPc && !selected.length) throw new Error("Unknown pregen: " + requestedPc);
+        const screenHtml =
           rec.map(sheetHtml).join("") +
           (edition === "2024"
             ? '<p class="print-hide" style="padding:1rem 1.5rem">The extra six classes are still 2014-only. Tonight’s table is these six.</p>'
             : '<h2 class="print-hide" style="padding:1rem 1.5rem 0">The other six, if you need them</h2>' + rest.map(sheetHtml).join(""));
+        const printHtml = selected.map(printPacket).join("");
+        document.getElementById("sheets").innerHTML = screenHtml + printHtml;
+        document.body.classList.toggle("printing-packet", printing);
         autoPrintIfRequested();
       })
       .catch(() => { document.getElementById("sheets").innerHTML = "<p>Could not load pregens.</p>"; });
