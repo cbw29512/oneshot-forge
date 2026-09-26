@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="720" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
+<title id="title">Briar Hollow Square battle map</title>
+<desc id="desc">A twelve by twelve five-foot grid showing the granary, bakehouse, stable lane, food table, well, and ridge lane.</desc>
+<defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#8a7b67" stroke-width="1"/></pattern></defs>
+<rect width="720" height="720" fill="#efe5cf"/>
+<rect x="1" y="1" width="718" height="718" fill="url(#grid)" stroke="#2e281f" stroke-width="2"/>
+<rect x="120" y="20" width="300" height="110" rx="8" fill="#d6c29b" stroke="#2e281f" stroke-width="3"/>
+<text x="270" y="82" text-anchor="middle" font-family="serif" font-size="28">GRANARY</text>
+<rect x="550" y="180" width="145" height="240" rx="8" fill="#d7b88a" stroke="#2e281f" stroke-width="3"/>
+<text x="622" y="300" text-anchor="middle" font-family="serif" font-size="25" transform="rotate(90 622 300)">BAKEHOUSE</text>
+<rect x="25" y="235" width="130" height="220" rx="8" fill="#c9b08a" stroke="#2e281f" stroke-width="3"/>
+<text x="90" y="350" text-anchor="middle" font-family="serif" font-size="24" transform="rotate(-90 90 350)">STABLE</text>
+<circle cx="360" cy="370" r="38" fill="#aab7b5" stroke="#2e281f" stroke-width="3"/>
+<text x="360" y="378" text-anchor="middle" font-family="sans-serif" font-size="20">WELL</text>
+<rect x="280" y="475" width="160" height="55" rx="8" fill="#b88655" stroke="#2e281f" stroke-width="3"/>
+<text x="360" y="510" text-anchor="middle" font-family="sans-serif" font-size="18">FOOD TABLE</text>
+<path d="M620 0 L720 100" stroke="#6d5d46" stroke-width="24"/>
+<text x="620" y="75" text-anchor="middle" font-family="sans-serif" font-size="18">RIDGE LANE</text>
+<path d="M0 585 H170" stroke="#6d5d46" stroke-width="28"/>
+<text x="88" y="570" text-anchor="middle" font-family="sans-serif" font-size="18">STABLE LANE</text>
+<text x="360" y="690" text-anchor="middle" font-family="sans-serif" font-size="18">Each square = 5 ft.</text>
+</svg>
