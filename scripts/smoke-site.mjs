@@ -78,6 +78,3 @@ if (errors.length) {
   process.exit(1);
 }
 console.log("Site smoke OK");
-
-const owlbearPage = read("adventures/the-owlbear-egg.html");
-if (!owlbearPage.includes("cards.html?id=the-owlbear-egg")) errors.push("Owlbear page missing printable cards link");
