@@ -2955,3 +2955,146 @@ body.run { background: var(--bg) }
     text-align:right !important;
   }
 }
+
+/* 2026-09-26 canonical Letter print composition.
+   This block is intentionally last so browser print does not shrink the sheet. */
+@page {
+  size: Letter portrait;
+  margin: 0;
+}
+@media print {
+  html,
+  body,
+  body.sheets-page {
+    width:8.5in !important;
+    min-width:8.5in !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+    background:#fff !important;
+  }
+
+  .sheets-wrap,
+  #sheets {
+    width:8.5in !important;
+    margin:0 !important;
+    padding:0 !important;
+    max-width:none !important;
+  }
+
+  .pr-page {
+    width:8.5in !important;
+    height:11in !important;
+    margin:0 !important;
+    padding:.24in .28in .22in !important;
+    border:0 !important;
+    box-shadow:inset 0 0 0 1pt #555 !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+    break-after:page !important;
+    page-break-after:always !important;
+    transform:none !important;
+    zoom:1 !important;
+  }
+  .pr-page:last-child {
+    break-after:auto !important;
+    page-break-after:auto !important;
+  }
+
+  /* Use the full safe printable canvas instead of a shrunken inner page. */
+  .pr-fixed-sheet .pr-head {
+    grid-template-columns:1.42in minmax(0,1fr) 2.38in !important;
+    gap:.12in !important;
+    margin-bottom:.09in !important;
+    padding-bottom:.08in !important;
+  }
+  .pr-fixed-sheet .pr-port {
+    width:1.42in !important;
+    height:1.42in !important;
+  }
+  .pr-fixed-sheet .pr-id h2 {
+    font-size:21.5pt !important;
+  }
+  .pr-fixed-sheet .pr-id p {
+    font-size:7.8pt !important;
+    line-height:1.18 !important;
+  }
+
+  .pr-fixed-grid {
+    height:8.96in !important;
+    min-height:8.96in !important;
+    grid-template-columns:1.94in minmax(0,1fr) 2.0in !important;
+    grid-template-rows:1.30in 1.20in 1.66in 1.66in 1.60in 1.26in !important;
+    gap:.075in .11in !important;
+  }
+
+  .pr-zone {
+    padding:.05in !important;
+    overflow:hidden !important;
+  }
+  .pr-zone h3 {
+    margin:-.05in -.05in .045in !important;
+    padding:.05in .06in !important;
+    font-size:8.15pt !important;
+  }
+
+  /* Dense like the screen version, but still handout-readable. */
+  .pr-zone-skills .sk {
+    font-size:8pt !important;
+    line-height:1.02 !important;
+  }
+  .pr-zone-skills .sk b {
+    font-size:8.15pt !important;
+  }
+  .pr-zone-saves .pr-save {
+    font-size:8.25pt !important;
+  }
+  .pr-zone-saves .pr-save strong {
+    font-size:8.9pt !important;
+  }
+
+  .pr-zone-attacks .pr-atk {
+    font-size:9.6pt !important;
+  }
+  .pr-zone-attacks .pr-atk td:first-child b {
+    font-size:11.2pt !important;
+  }
+  .pr-zone-attacks .pr-atk td {
+    padding:.075in .045in !important;
+  }
+  .pr-zone-attacks .pr-atk .tiny {
+    font-size:7.8pt !important;
+  }
+
+  .pr-zone-actions .pr-standard-actions,
+  .pr-zone-actions .pr-line,
+  .pr-zone-actions .pr-quickturn {
+    font-size:7.45pt !important;
+    line-height:1.14 !important;
+  }
+
+  .pr-zone-resources .pr-resource,
+  .pr-zone-resources .pr-defense,
+  .pr-zone-features .pr-feature {
+    font-size:7pt !important;
+    line-height:1.13 !important;
+  }
+
+  .pr-zone-side,
+  .pr-zone-character {
+    font-size:6.8pt !important;
+    line-height:1.14 !important;
+  }
+
+  /* Never let old muted/proficiency rules recolor print skills. */
+  .pr-zone-skills .sk,
+  .pr-zone-skills .sk *,
+  .pr-zone-skills .sk.on,
+  .pr-zone-skills .sk:not(.on) {
+    color:#111 !important;
+    opacity:1 !important;
+    filter:none !important;
+    text-shadow:none !important;
+    -webkit-text-fill-color:#111 !important;
+  }
+}
