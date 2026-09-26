@@ -17,6 +17,7 @@ for (const required of [
   "printPacket(pc)",
   'params.get("pc")',
   "selected.map(printPacket)",
+  "allCharacters.filter",
   "Print this character",
   "Print all"
 ]) {
@@ -30,7 +31,6 @@ for (const required of [
   ".screen-sheet { display: none !important; }",
   ".print-only { display: block !important; }",
   ".pr-page",
-  ".pr-main-page",
   ".pr-spell-page",
   ".pr-port",
   "object-fit:cover"
