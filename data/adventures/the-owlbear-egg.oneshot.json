@@ -56,7 +56,7 @@
       },
       {
         "id": "fact-father-rations",
-        "text": "The father owlbbear will stop the attack and leave if given the party's remaining rations."
+        "text": "The father owlbear will stop the attack and leave if given the party's remaining rations."
       },
       {
         "id": "fact-father-death",
@@ -395,7 +395,7 @@
         },
         {
           "title": "Interrupt with violence",
-          "text": "Before a final decision, the father owlbbear crashes into the village."
+          "text": "Before a final decision, the father owlbear crashes into the village."
         }
       ],
       "advanceWhen": "The three options are understood and the father attack interrupts the debate.",
@@ -506,7 +506,7 @@
       "gmNotes": [
         "Point the party at the wagon. Do not require them to invent the investigation.",
         "The strongbox puzzle is player-facing. Correct order: EGG → CHAIN → TENT → COIN.",
-        "Inside is the Moonpetal Traveling Menagerie contract for one live juvenile owlbbear, sedatives, and a handler token.",
+        "Inside is the Moonpetal Traveling Menagerie contract for one live juvenile owlbear, sedatives, and a handler token.",
         "If the party skips the puzzle, the crate stamp or Elmorrow's attempt to flee reveals enough truth. The fake druid twist must not be missable.",
         "If trusted despite evidence, Elmorrow can take the egg; treat that as the keep/lose-responsibility variant, not a fourth main moral option."
       ],
@@ -525,7 +525,7 @@
         },
         {
           "title": "Reveal the lie",
-          "text": "Elmorrow is not returning the owlbbear; he intends to sell it to the Moonpetal Traveling Menagerie."
+          "text": "Elmorrow is not returning the owlbear; he intends to sell it to the Moonpetal Traveling Menagerie."
         },
         {
           "title": "Return to the real choice",
@@ -636,7 +636,7 @@
       "flowStage": 6,
       "flowTotal": 6,
       "flowLabel": "Ending — eat",
-      "readAloud": "For the first time in days, Briar Hollow smells like real food. The egg feeds every table in the village, and even your own empty stomachs stop aching.\n\nAt dawn, every dog in Briar Hollow begins barking at once.\n\nThe mother owlbbear steps out of the mist at the edge of the square. Then she sees the shell fragments.",
+      "readAloud": "For the first time in days, Briar Hollow smells like real food. The egg feeds every table in the village, and even your own empty stomachs stop aching.\n\nAt dawn, every dog in Briar Hollow begins barking at once.\n\nThe mother owlbear steps out of the mist at the edge of the square. Then she sees the shell fragments.",
       "gmNotes": [
         "Run the mother in Maternal Rage from the start.",
         "If the father was killed, describe her rage as even more personal, but do not stack a second mechanical rage.",
@@ -1066,7 +1066,7 @@
       {
         "id": "rec-torren-lie",
         "trigger": "The party never confronts Torren about the scratch",
-        "response": "The father's arrival proves an adult owlbbear tracked him and the egg; Torren blurts out the theft during the attack.",
+        "response": "The father's arrival proves an adult owlbear tracked him and the egg; Torren blurts out the theft during the attack.",
         "stateChanges": [
           "clue-egg-stolen remains delivered"
         ]
@@ -1361,7 +1361,7 @@
       {
         "id": "reward-baby",
         "when": "The party keeps the egg.",
-        "reward": "The baby owlbbear imprints on a random present PC or named NPC; this is a responsibility/story reward, not a combat pet entitlement."
+        "reward": "The baby owlbear imprints on a random present PC or named NPC; this is a responsibility/story reward, not a combat pet entitlement."
       }
     ],
     "mapNotes": [
@@ -1552,7 +1552,7 @@
           "“If we crack it now, then all I brought home was another corpse.”"
         ],
         "rules": [
-          "Long fresh scratch across his face came from an adult owlbbear during the theft.",
+          "Long fresh scratch across his face came from an adult owlbear during the theft.",
           "Insight DC 10: his 'found it' story is false; he stole the egg from an active nest.",
           "His position is to keep and raise the hatchling."
         ],
@@ -1596,5 +1596,26 @@
       "imageAlt": "Moss-cloaked false druid with a polished wooden staff beside a green animal-handler wagon.",
       "frontLabel": "NPC · False Druid"
     }
-  ]
+  ],
+  "flowContract": {
+    "principle": "One linear spine. Branch only when a player choice creates a genuinely different consequence.",
+    "mainSpine": [
+      "scene-road",
+      "scene-egg-arrival",
+      "scene-father",
+      "scene-aftermath",
+      "scene-egg-choice"
+    ],
+    "allowedBranchScenes": [
+      "scene-father",
+      "scene-egg-choice"
+    ],
+    "terminalScenes": [
+      "scene-eat",
+      "scene-keep",
+      "scene-return",
+      "scene-village-destroyed"
+    ],
+    "stageCount": 6
+  }
 }
