@@ -43,7 +43,7 @@ requireText(adventure.quest?.stakes, "quest.stakes");
 if (!adventure.initialState?.currentSceneId || !sceneIds.has(adventure.initialState.currentSceneId)) {
   errors.push("initialState.currentSceneId must reference a scene");
 }
-errors.push(...validateAdventureFlow(adventure.scenes || [], adventure.initialState?.currentSceneId));
+errors.push(...validateAdventureFlow(adventure.scenes || [], adventure.initialState?.currentSceneId, adventure.flowContract));
 
 for (const clue of adventure.clues || []) {
   if (clue.required && (!Array.isArray(clue.sources) || clue.sources.length < 3)) {
@@ -156,16 +156,15 @@ if (quickrun) {
   if (!Array.isArray(quickrun.rewards) || !quickrun.rewards.length) errors.push("quickrun requires at least one reward");
 }
 
-if (!Array.isArray(adventure.puzzles) || adventure.puzzles.length < 1) {
-  errors.push("adventure needs at least one puzzle (prompt, solution, failForward)");
+const puzzleCount = Array.isArray(adventure.puzzles) ? adventure.puzzles.length : 0;
+const trapCount = Array.isArray(adventure.traps) ? adventure.traps.length : 0;
+if (puzzleCount + trapCount < 1) {
+  errors.push("adventure needs at least one puzzle or trap for an interactive noncombat obstacle");
 }
 for (const puzzle of adventure.puzzles || []) {
   requireText(puzzle.prompt, `puzzle ${puzzle.id}.prompt`);
   requireText(puzzle.solution, `puzzle ${puzzle.id}.solution`);
   requireText(puzzle.failForward, `puzzle ${puzzle.id}.failForward`);
-}
-if (!Array.isArray(adventure.traps) || adventure.traps.length < 1) {
-  errors.push("adventure needs at least one trap (trigger, effect, fail-forward purpose)");
 }
 for (const trap of adventure.traps || []) {
   requireText(trap.trigger, `trap ${trap.id}.trigger`);
