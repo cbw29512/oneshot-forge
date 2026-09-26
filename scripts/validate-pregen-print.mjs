@@ -10,9 +10,15 @@ const css = read("styles.css");
 for (const required of [
   "characterClass(pc)",
   "pc.className || pc.class",
-  "cs-print-mark",
   "Portrait of ",
-  "waitImagesThenPrint"
+  "waitImagesThenPrint",
+  "printMainPage(pc)",
+  "printSpellPage(pc)",
+  "printPacket(pc)",
+  'params.get("pc")',
+  "selected.map(printPacket)",
+  "Print this character",
+  "Print all"
 ]) {
   if (!sheets.includes(required)) errors.push("sheets.html missing " + required);
 }
@@ -21,9 +27,13 @@ for (const required of [
   "@page",
   "size: Letter portrait",
   "print-color-adjust: exact",
-  "page-break-after: always",
-  ".cs-port",
-  "object-fit: cover"
+  ".screen-sheet { display: none !important; }",
+  ".print-only { display: block !important; }",
+  ".pr-page",
+  ".pr-main-page",
+  ".pr-spell-page",
+  ".pr-port",
+  "object-fit:cover"
 ]) {
   if (!css.includes(required)) errors.push("print CSS missing " + required);
 }
@@ -52,4 +62,4 @@ if (errors.length) {
   errors.forEach(error => console.error(" - " + error));
   process.exit(1);
 }
-console.log("Pregen print packet OK: portraits, class headers, Letter print layout, and six recommended sheets per edition.");
+console.log("Pregen print packet OK: six recommended only, print-all + individual packets, one main page, optional spell page, portraits retained.");
