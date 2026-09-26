@@ -2806,3 +2806,76 @@ body.run { background: var(--bg) }
     grid-template-columns:1fr 1fr;
   }
 }
+
+/* 2026-09-26 ability-row alignment + hard skill contrast */
+.web-fixed-sheet .pr-abilities .ab {
+  display:grid !important;
+  grid-template-columns:auto 1fr auto !important;
+  align-items:center !important;
+  gap:.55rem !important;
+  text-align:left !important;
+}
+.web-fixed-sheet .pr-abilities .ab-name {
+  justify-self:start !important;
+  font-weight:800 !important;
+}
+.web-fixed-sheet .pr-abilities .ab-score {
+  justify-self:center !important;
+}
+.web-fixed-sheet .pr-abilities .ab-mod {
+  justify-self:end !important;
+  font-style:normal !important;
+  font-weight:800 !important;
+}
+.web-fixed-sheet .pr-skill-list .sk,
+.web-fixed-sheet .pr-skill-list .sk i,
+.web-fixed-sheet .pr-skill-list .sk b,
+.web-fixed-sheet .pr-skill-list .sk span {
+  color:var(--fg) !important;
+  opacity:1 !important;
+  filter:none !important;
+  -webkit-text-fill-color:currentColor !important;
+}
+
+@media print {
+  .pr-zone-abilities .pr-abilities .ab {
+    display:grid !important;
+    grid-template-columns:auto 1fr auto !important;
+    align-items:center !important;
+    gap:.035in !important;
+    text-align:left !important;
+    padding:.025in .04in !important;
+  }
+  .pr-zone-abilities .ab-name {
+    justify-self:start !important;
+    color:#111 !important;
+    font-size:7pt !important;
+    font-weight:800 !important;
+  }
+  .pr-zone-abilities .ab-score {
+    justify-self:center !important;
+    color:#111 !important;
+    font-size:12.5pt !important;
+    line-height:1 !important;
+  }
+  .pr-zone-abilities .ab-mod {
+    justify-self:end !important;
+    color:#111 !important;
+    font-size:8.5pt !important;
+    font-style:normal !important;
+    font-weight:800 !important;
+  }
+
+  .pr-zone-skills .sk,
+  .pr-zone-skills .sk.on,
+  .pr-zone-skills .sk:not(.on),
+  .pr-zone-skills .sk i,
+  .pr-zone-skills .sk b,
+  .pr-zone-skills .sk span {
+    color:#111 !important;
+    opacity:1 !important;
+    filter:none !important;
+    text-shadow:none !important;
+    -webkit-text-fill-color:#111 !important;
+  }
+}
