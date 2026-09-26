@@ -926,25 +926,25 @@
     },
     {
       "id": "enc-father",
-      "name": "Enraged Owlbear Father",
+      "name": "Ragged Father Owlbear",
       "type": "combat / sacrifice choice",
       "difficulty": "Low by XP (700 XP); high consequence if ignored",
       "summary": "The starving, feverish father tracks the stolen egg into town and tears through anyone between him, food, and the egg.",
       "resolution": "Feed him the party's remaining rations, kill him, drive him off creatively, or refuse to intervene.",
       "talkOut": "He cannot be reasoned with, but food overrides his rage.",
       "bypass": "Throw the party's remaining rations into the square. He devours them and leaves.",
-      "special": "If the party does nothing, two spear-bearing villagers are killed immediately and the father destroys Briar Hollow. If killed, his feverish carcass is unsafe to eat and the mother's scream answers from the ridge."
+      "special": "Ragged Exhaustion gives Disadvantage on attack rolls, ability checks, and saving throws. If the party does nothing, two spear-bearing villagers are killed immediately and the father destroys Briar Hollow. If killed, his feverish carcass is unsafe to eat and the mother's scream answers from the ridge."
     },
     {
       "id": "enc-mother-rage",
-      "name": "Mother Owlbear in Maternal Rage",
+      "name": "Enraged Mother Owlbear",
       "type": "boss combat",
       "difficulty": "deadly",
       "summary": "At dawn the mother arrives enraged over the destroyed or missing egg.",
       "resolution": "Survive, drive her off, or escape the village.",
       "talkOut": "No normal social check ends the rage once combat begins.",
       "bypass": "Only available before combat by abandoning the village and egg.",
-      "special": "Maternal Rage mirrors a 2014 barbarian's Rage: advantage on Strength checks and saves, +2 damage on Strength-based melee attacks, resistance to bludgeoning/piercing/slashing damage for 1 minute."
+      "special": "Maternal Rage: Advantage on Strength checks/saves, +2 Strength-melee damage, and resistance to all damage except psychic for 1 minute."
     },
     {
       "id": "enc-mother-baby",
@@ -955,7 +955,7 @@
       "resolution": "Father alive: no combat. Father dead: drive the mother away, survive until she withdraws, or evacuate the village.",
       "talkOut": "Father alive: no check is needed; the return succeeds. Father dead: once Maternal Rage begins, normal social checks do not end it.",
       "bypass": "Keep distance and allow the family to withdraw if the father survived; evacuate rather than defend if he died.",
-      "special": "The hatchling is weak but follows and harasses; the mother is the real threat."
+      "special": "The hatchling uses the half-grown profile. If the mother rages, she gains Advantage on Strength checks/saves, +2 Strength-melee damage, and resistance to all damage except psychic."
     },
     {
       "id": "enc-mother-keep",
@@ -966,7 +966,7 @@
       "resolution": "Yield the hatchling, back away and allow reunion, evacuate with the hatchling, or fight to keep it.",
       "talkOut": "Father alive: no roll is needed if the party visibly yields and backs away. Father dead: social checks cannot erase grief, but surrendering the hatchling may keep her focus on recovery rather than pursuit.",
       "bypass": "Do not stand between mother and hatchling; retreat and let the family reunite.",
-      "special": "Father alive + visible surrender can end without combat. If the party refuses to yield the hatchling, or if the father was killed and the mother turns violent, use the mother/hatchling combat stats."
+      "special": "Father alive + visible surrender can end without combat. If violence starts, the mother can enter Maternal Rage: Advantage on Strength checks/saves, +2 Strength-melee damage, resistance to all damage except psychic."
     }
   ],
   "puzzles": [
@@ -1391,17 +1391,17 @@
       {
         "id": "enc-father",
         "objective": "Stop the father before he destroys Briar Hollow.",
-        "start": "The gaunt, feverish father crashes into Briar Hollow following Torren's scent and the egg.",
+        "start": "The gaunt, feverish father crashes into Briar Hollow following Torren's scent and the egg. He is operating under Ragged Exhaustion.",
         "bypass": "Throw the party's remaining rations into the square; he eats them and leaves.",
         "creatures": [
           {
-            "name": "Owlbear Father",
+            "name": "Ragged Father Owlbear",
             "count": 1,
             "ac": 13,
             "hp": 59,
             "speed": "40 ft.",
             "attack": "Multiattack: Beak +7 to hit, 1d10+5 piercing; Claws +7 to hit, 2d8+5 slashing.",
-            "trait": "Food Overrides Rage: if the party offers all remaining rations, he stops attacking immediately.",
+            "trait": "Ragged Exhaustion: Disadvantage on attack rolls, ability checks, and saving throws. Initiative is made with Disadvantage.",
             "tactics": "Attack anyone blocking the egg or food. Smash structures if ignored.",
             "cr": 3,
             "xp": 700
@@ -1416,13 +1416,13 @@
         "bypass": "Evacuate rather than defend the village.",
         "creatures": [
           {
-            "name": "Mother Owlbear",
+            "name": "Enraged Mother Owlbear",
             "count": 1,
             "ac": 14,
             "hp": 95,
             "speed": "40 ft.",
             "attack": "Multiattack: Beak +8 to hit, 1d10+7 piercing while raging; two Claws +8 to hit, 2d8+7 slashing each while raging.",
-            "trait": "Maternal Rage (1/day, 1 minute): advantage on Strength checks and saves; +2 damage on Strength-based melee attacks; resistance to bludgeoning, piercing, and slashing damage.",
+            "trait": "Maternal Rage (1/day, 1 minute): Advantage on Strength checks/saves; +2 Strength-melee damage; resistance to all damage except psychic.",
             "tactics": "Prioritize creatures near shell remains, then anyone who damages her."
           }
         ],
@@ -1435,23 +1435,23 @@
         "bypass": "Father alive: no combat; give the family space to leave. Father dead: evacuate the village.",
         "creatures": [
           {
-            "name": "Mother Owlbear",
+            "name": "Enraged Mother Owlbear",
             "count": 1,
             "ac": 14,
             "hp": 95,
             "speed": "40 ft.",
             "attack": "Multiattack: Beak +8 to hit, 1d10+7 piercing while raging; two Claws +8 to hit, 2d8+7 slashing each while raging.",
-            "trait": "Maternal Rage (1/day, 1 minute): advantage on Strength checks and saves; +2 Strength-melee damage; resistance to bludgeoning, piercing, and slashing.",
+            "trait": "Maternal Rage (1/day, 1 minute): Advantage on Strength checks/saves; +2 Strength-melee damage; resistance to all damage except psychic.",
             "tactics": "Drive straight toward the village defenders while keeping the hatchling behind her."
           },
           {
             "name": "Owlbear Hatchling",
             "count": 1,
-            "ac": 11,
-            "hp": 9,
-            "speed": "20 ft.",
-            "attack": "Beak +3 to hit, 1 piercing.",
-            "trait": "Follow Mother: stays within 20 ft. of the mother when possible.",
+            "ac": 12,
+            "hp": 30,
+            "speed": "30 ft.",
+            "attack": "Beak +4 to hit, 1d6+2 piercing; Claws +4 to hit, 1d8+2 slashing.",
+            "trait": "Half-Grown Profile: roughly half a healthy adult owlbear's combat output and durability; imprints behaviorally.",
             "tactics": "Snaps at nearby legs and follows the mother's target; it is not a serious damage source."
           }
         ],
@@ -1464,23 +1464,23 @@
         "bypass": "Yield the hatchling and back away. With the father alive, this ends peacefully without a roll.",
         "creatures": [
           {
-            "name": "Mother Owlbear",
+            "name": "Enraged Mother Owlbear",
             "count": 1,
             "ac": 14,
             "hp": 95,
             "speed": "40 ft.",
             "attack": "Multiattack: Beak +8 to hit, 1d10+7 piercing while raging; two Claws +8 to hit, 2d8+7 slashing each while raging.",
-            "trait": "Maternal Rage (1/day, 1 minute): advantage on Strength checks/saves; +2 Strength-melee damage; resistance to bludgeoning, piercing, and slashing.",
+            "trait": "Maternal Rage (1/day, 1 minute): Advantage on Strength checks/saves; +2 Strength-melee damage; resistance to all damage except psychic.",
             "tactics": "Recover the hatchling first. If father alive, posture before attacking; if father dead, focus on threats associated with his death."
           },
           {
             "name": "Owlbear Hatchling",
             "count": 1,
-            "ac": 11,
-            "hp": 9,
-            "speed": "20 ft.",
-            "attack": "Beak +3 to hit, 1 piercing.",
-            "trait": "Imprinted: follows its chosen protector, but still responds to the mother's calls.",
+            "ac": 12,
+            "hp": 30,
+            "speed": "30 ft.",
+            "attack": "Beak +4 to hit, 1d6+2 piercing; Claws +4 to hit, 1d8+2 slashing.",
+            "trait": "Half-Grown Profile: roughly half a healthy adult owlbear's combat output and durability; imprints behaviorally.",
             "tactics": "Avoids serious fighting; moves toward bonded protector unless the mother physically gathers it."
           }
         ],
@@ -1552,7 +1552,7 @@
       "id": "card-baby-owlbear",
       "type": "creature",
       "title": "Baby Owlbear",
-      "front": "A damp, oversized owlbear hatchling with too-big paws, a snapping beak, and enormous yellow eyes.",
+      "front": "A damp owlbear hatchling about half the mass and fighting power of a healthy adult, with oversized paws and enormous yellow eyes.",
       "back": {
         "role": "Ending companion / living consequence",
         "location": "Mara’s Bakehouse at hatching; afterward wherever its bonded PC goes.",
@@ -1560,9 +1560,11 @@
           "Soft hungry chirrups and beak-clicks.",
           "If separated from its bonded PC: a rising, panicked owl-like trill."
         ],
-        "stats": "AC 11 · HP 9 · Speed 20 ft.",
+        "stats": "AC 12 · HP 30 · Speed 30 ft.",
         "rules": [
-          "Tiny Beak: +3 to hit, 1 piercing damage.",
+          "Half-Grown Profile: use roughly half a healthy adult owlbear's combat output and durability.",
+          "Beak: +4 to hit, 1d6+2 piercing.",
+          "Claws: +4 to hit, 1d8+2 slashing.",
           "Imprint: bonds to the PC who most clearly held, fed, protected, or soothed it. If unclear, randomly select one PC.",
           "The bond is behavioral, not magical. It follows that PC, cries when separated, steals food, and snaps at obvious threats.",
           "Animal Handling DC 12 calms it for 1 hour."
@@ -1580,17 +1582,18 @@
     {
       "id": "card-father-owlbear",
       "type": "creature",
-      "title": "Starving Owlbear Father",
-      "front": "A gaunt adult owlbear with exposed ribs, ragged feathers, and foam around its beak.",
+      "title": "Ragged Father Owlbear",
+      "front": "A gaunt adult owlbear with exposed ribs, ragged feathers, shaking limbs, and foam around its beak.",
       "back": {
-        "role": "Main feed-or-fight encounter",
+        "role": "Main feed-or-fight encounter; a normal adult owlbear crippled by starvation and exhaustion",
         "location": "Briar Hollow Square, smashing through the smokehouse toward the food table.",
         "dialogue": [
           "No speech. Ragged hoots, wet beak-snaps, and desperate growls whenever food moves."
         ],
-        "stats": "CR 3 · 700 XP · AC 13 · HP 59 · Speed 40 ft.",
+        "stats": "CR 3 base · AC 13 · HP 59 · Speed 40 ft. · Ragged Exhaustion",
         "rules": [
           "Multiattack: Beak +7, 1d10+5 piercing; Claws +7, 2d8+5 slashing.",
+          "Ragged Exhaustion: Disadvantage on attack rolls, ability checks, and saving throws. Initiative is also made with Disadvantage because it is a Dexterity check.",
           "Feverish Hunger: offer the party’s pooled one-day rations and he immediately stops attacking, eats, and leaves.",
           "Throwing the rations from 20 ft. works automatically. Placing them beside him safely: Animal Handling DC 12.",
           "If killed, the carcass is visibly sick and the meat is unsafe."
@@ -1608,18 +1611,19 @@
     {
       "id": "card-mother-owlbear",
       "type": "creature",
-      "title": "Mother Owlbear",
-      "front": "A scarred owlbear roughly twice the father’s bulk, visible only in pieces between the ridge trees.",
+      "title": "Enraged Mother Owlbear",
+      "front": "A scarred, massive mother owlbear looming between the ridge trees, grief and protective rage overriding caution.",
       "back": {
-        "role": "Overwhelming parental pressure / consequence",
+        "role": "Overwhelming parental pressure / enraged family consequence",
         "location": "Ridge woods outside Briar Hollow; may approach only if the egg/hatchling is endangered or returned.",
         "dialogue": [
           "No speech. A deep booming scream that sends birds out of the trees."
         ],
-        "stats": "AC 14 · HP 95 · Speed 40 ft.",
+        "stats": "AC 14 · HP 95 · Speed 40 ft. · Maternal Rage",
         "rules": [
           "Multiattack: Beak +8; two Claws +8.",
-          "Maternal Rage (1/day, 1 minute): advantage on Strength checks/saves; +2 Strength-melee damage; resistance to bludgeoning, piercing, and slashing.",
+          "Maternal Rage (1/day, 1 minute): Advantage on Strength checks and Strength saving throws; +2 damage on Strength-based melee attacks.",
+          "Bear-Rage Resistance: while Maternal Rage lasts, she has resistance to every damage type except psychic.",
           "Eat: attacks at dawn. Return: father alive = peaceful withdrawal; father dead = secure hatchling, then rage.",
           "Keep: she comes for the hatchling. Father alive + party yields = peaceful reunion; refusing her or killing the father can trigger combat."
         ],
