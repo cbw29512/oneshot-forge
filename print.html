@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Print center — One-Shot Forge</title>
+  <link rel="icon" href="assets/mark-lantern.jpg">
+  <link rel="stylesheet" href="styles.css?v=20260926c">
+  <style>
+    .print-hub{max-width:900px;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+    .print-hub .eyebrow{margin-bottom:.2rem}
+    .print-hub h1{margin:.1rem 0 .3rem}
+    .print-hub .lede{max-width:640px}
+    .ed-toggle{display:inline-flex;gap:.4rem;align-items:center;margin:.6rem 0 1.4rem;flex-wrap:wrap}
+    .ed-toggle .rules-toggle button{cursor:pointer}
+    .print-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+    .print-tile{display:flex;flex-direction:column;gap:.5rem;padding:1.1rem 1.2rem;background:#fffdf7;border:1px solid #cbbfa8;border-radius:14px;box-shadow:0 6px 18px #0001}
+    .print-tile h2{font-family:Georgia,serif;font-size:1.2rem;margin:.1rem 0 0}
+    .print-tile p{margin:0;color:#4a4034;font-size:.9rem;line-height:1.4;flex:1}
+    .print-tile .button{align-self:flex-start;margin-top:.3rem}
+    .print-tile.disabled{opacity:.55}
+    .print-tile.disabled .button{pointer-events:none;background:#b7ab97;border-color:#b7ab97}
+    .tile-icon{font-size:1.5rem;line-height:1}
+    .hub-tip{margin-top:1.5rem;font-size:.85rem;color:#5f554b}
+  </style>
+</head>
+<body>
+  <header class="land-bar">
+    <a class="brand" href="./">
+      <img src="assets/mark-lantern.jpg" alt="" width="36" height="36">
+      <span>One-Shot Forge</span>
+    </a>
+    <nav class="land-nav">
+      <span id="ruleset-host"></span>
+      <a href="./">Home</a>
+      <a id="runner-link" href="run.html">GM table</a>
+    </nav>
+  </header>
+  <main class="print-hub">
+    <p class="eyebrow ember">Print &amp; hand-outs</p>
+    <h1 id="hub-title">Print center</h1>
+    <p class="lede short">One click per print-out. Each opens a print-ready page and sends it straight to your printer or “Save as PDF.”</p>
+
+    <div class="ed-toggle">
+      <span class="tiny">Character-sheet edition:</span>
+      <span id="ed-host"></span>
+    </div>
+
+    <div class="print-grid" id="print-grid"></div>
+
+    <p class="hub-tip">Tip: in the print dialog choose “Save as PDF” to keep a file, or a printer for paper. Cards print two-sided (art fronts, DM backs) on mirrored sheets.</p>
+  </main>
+
+  <script src="rules.js?v=20260926c"></script>
+  <script>
+    const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+    }[ch]));
+
+    const ADVENTURES = {
+      "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
+      "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json",
+      "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json"
+    };
+
+    const id = new URLSearchParams(location.search).get("id") || "the-lantern-below";
+    const runnerLink = document.getElementById("runner-link");
+    if (runnerLink) runnerLink.href = "run.html?id=" + encodeURIComponent(id);
+
+    if (typeof mountRulesetToggle === "function") mountRulesetToggle(document.getElementById("ruleset-host"));
+
+    function currentEdition() {
+      return (typeof getRuleset === "function" && getRuleset() === "2024") ? "2024" : "2014";
+    }
+
+    function tile({ icon, title, desc, href, label, disabled }) {
+      const target = disabled ? "" : ' target="_blank" rel="noopener"';
+      const link = disabled
+        ? '<span class="button small">' + esc(label) + "</span>"
+        : '<a class="button ember small"' + target + ' href="' + esc(href) + '">' + esc(label) + "</a>";
+      return '<div class="print-tile' + (disabled ? " disabled" : "") + '">' +
+        '<span class="tile-icon" aria-hidden="true">' + icon + "</span>" +
+        "<h2>" + esc(title) + "</h2>" +
+        "<p>" + esc(desc) + "</p>" +
+        link + "</div>";
+    }
+
+    function mountEditionToggle(hasSheets, render) {
+      const host = document.getElementById("ed-host");
+      const current = currentEdition();
+      host.innerHTML =
+        '<div class="rules-toggle" role="group" aria-label="Sheet edition">' +
+        '<button type="button" data-ed="2014">2014 SRD</button>' +
+        '<button type="button" data-ed="2024">2024 SRD</button>' +
+        "</div>";
+      host.querySelectorAll("button").forEach(btn => {
+        const on = btn.getAttribute("data-ed") === current;
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+        if (on) btn.classList.add("on");
+        btn.addEventListener("click", () => {
+          if (typeof setRuleset === "function") { setRuleset(btn.getAttribute("data-ed")); return; }
+          render();
+        });
+      });
+    }
+
+    async function buildHub() {
+      const grid = document.getElementById("print-grid");
+      const url = ADVENTURES[id];
+      let adventure = null;
+      if (url) {
+        try {
+          const response = await fetch(url, { cache: "no-store" });
+          if (response.ok) adventure = await response.json();
+        } catch { /* keep going with defaults */ }
+      }
+      const title = adventure?.metadata?.title || "Adventure";
+      document.getElementById("hub-title").textContent = "Print center — " + title;
+      document.title = title + " — Print center";
+
+      const hasCards = !!(adventure && (adventure.cards || []).length);
+      const mapCount = adventure
+        ? new Set([...(adventure.playMaps || []), ...(adventure.maps || [])]
+            .map(m => m.asset || m.src).filter(Boolean)).size
+        : 0;
+
+      const ed = currentEdition();
+      const tiles = [
+        tile({
+          icon: "🧙",
+          title: "Character sheets",
+          desc: "All six recommended pregens, table-complete (" + ed + " SRD). Prints one sheet per character.",
+          href: "sheets.html?rules=" + ed + "&print=1",
+          label: "Print pregens"
+        }),
+        tile({
+          icon: "📖",
+          title: "Adventure module",
+          desc: "The full printable module: cover, scenes, NPCs, clue matrix, endings, and GM recovery.",
+          href: "module.html?id=" + encodeURIComponent(id) + "&print=1",
+          label: "Print adventure"
+        }),
+        tile({
+          icon: "🗺️",
+          title: "Maps & handouts",
+          desc: mapCount
+            ? mapCount + (mapCount === 1 ? " print-ready map/handout, one per page." : " print-ready maps/handouts, one per page.")
+            : "This adventure ships with a region map only — no print-ready battle map yet.",
+          href: "maps.html?id=" + encodeURIComponent(id) + "&print=1",
+          label: "Print maps",
+          disabled: !mapCount
+        }),
+        tile({
+          icon: "🃏",
+          title: "Cards",
+          desc: hasCards
+            ? "Tarot-size art fronts with DM backs, on mirrored sheets for two-sided printing."
+            : "This adventure has no printable card deck yet.",
+          href: "cards.html?id=" + encodeURIComponent(id) + "&print=1",
+          label: "Print cards",
+          disabled: !hasCards
+        })
+      ];
+      grid.innerHTML = tiles.join("");
+    }
+
+    mountEditionToggle(true, buildHub);
+    buildHub();
+  </script>
+</body>
+</html>

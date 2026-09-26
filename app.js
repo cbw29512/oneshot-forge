@@ -291,6 +291,7 @@ function renderAll() {
   el("adventure-title").textContent = meta.title;
   document.title = "Run — " + meta.title;
   if (el("module-link")) el("module-link").href = "module.html?id=" + encodeURIComponent(meta.id);
+  if (el("print-link")) el("print-link").href = "print.html?id=" + encodeURIComponent(meta.id);
   if (el("cards-link")) {
     el("cards-link").hidden = !(adventure.cards || []).length;
     el("cards-link").href = "cards.html?id=" + encodeURIComponent(meta.id);

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Maps — One-Shot Forge</title>
+  <link rel="icon" href="assets/mark-lantern.jpg">
+  <link rel="stylesheet" href="styles.css?v=20260926c">
+  <style>
+    body.maps-page{background:#eee9df;color:#17130f}
+    .maps-toolbar{position:sticky;top:0;z-index:20;display:flex;gap:.55rem;align-items:center;flex-wrap:wrap;padding:.7rem 1rem;background:#17130f;color:#fff;border-bottom:1px solid #444}
+    .maps-toolbar h1{font-size:1rem;margin:0 auto 0 0}
+    .maps-shell{max-width:1000px;margin:0 auto;padding:1.2rem}
+    .maps-note{max-width:780px;line-height:1.45;margin:0 0 1rem}
+    .map-figure{margin:0 0 1.6rem;background:#fffdf7;border:1px solid #cbbfa8;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px #0001}
+    .map-figure figcaption{display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap;padding:.6rem .9rem;border-bottom:1px solid #e3d8c2}
+    .map-figure figcaption strong{font-family:Georgia,serif;font-size:1.05rem}
+    .map-figure img{display:block;width:100%;height:auto;background:#d8c9b4}
+    .map-figure ul{margin:.4rem .9rem .8rem;padding-left:1.1rem;font-size:.85rem;color:#4a4034}
+    .maps-empty{padding:1.5rem;background:#fffdf7;border:1px dashed #b8a888;border-radius:12px}
+    @page{size:letter;margin:.4in}
+    @media print{
+      body.maps-page{background:#fff}
+      .maps-toolbar,.maps-note{display:none!important}
+      .maps-shell{max-width:none;padding:0}
+      .map-figure{border:0;box-shadow:none;border-radius:0;margin:0;page-break-after:always;display:flex;flex-direction:column;min-height:9.6in}
+      .map-figure:last-child{page-break-after:auto}
+      .map-figure figcaption{border-bottom:1px solid #999;padding:0 0 .12in}
+      .map-figure img{max-width:100%;max-height:8.9in;width:auto;height:auto;margin:.15in auto 0;object-fit:contain}
+      .map-figure ul{margin:.1in 0 0}
+    }
+  </style>
+</head>
+<body class="maps-page">
+  <header class="maps-toolbar print-hide">
+    <h1 id="maps-title">Maps</h1>
+    <a class="button secondary small" id="hub-link" href="print.html">Print center</a>
+    <a class="button secondary small" id="runner-link" href="run.html">GM table</a>
+    <button class="button small" id="print-maps" type="button">Print maps</button>
+  </header>
+  <main class="maps-shell">
+    <p id="maps-meta" class="maps-note print-hide"></p>
+    <div id="maps-deck" aria-live="polite"></div>
+  </main>
+  <script>
+    const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+    }[ch]));
+
+    const ADVENTURES = {
+      "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
+      "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json",
+      "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json"
+    };
+
+    function waitImagesThenPrint(root) {
+      const imgs = [...(root || document).querySelectorAll("img")];
+      const pending = imgs.filter(i => !i.complete);
+      let done = false;
+      const go = () => { if (done) return; done = true; window.print(); };
+      if (!pending.length) { setTimeout(go, 200); return; }
+      let n = pending.length;
+      const tick = () => { if (--n <= 0) go(); };
+      pending.forEach(i => { i.addEventListener("load", tick); i.addEventListener("error", tick); });
+      setTimeout(go, 3000);
+    }
+
+    function collectMaps(adventure) {
+      const out = [];
+      const seen = new Set();
+      const add = (asset, title, kind, scale, notes) => {
+        if (!asset || seen.has(asset)) return;
+        seen.add(asset);
+        out.push({ asset, title: title || "Map", kind: kind || "", scale: scale || "", notes: Array.isArray(notes) ? notes : [] });
+      };
+      for (const m of (adventure.playMaps || [])) add(m.asset || m.src, m.title, m.kind, m.scale || m.grid, m.notes);
+      for (const m of (adventure.maps || [])) add(m.asset || m.src, m.name || m.title, m.kind || "region", m.scale, m.notes);
+      return out;
+    }
+
+    function figure(map) {
+      const kind = map.kind ? '<span class="badge">' + esc(map.kind) + "</span>" : "";
+      const scale = map.scale ? '<span class="tiny">' + esc(map.scale) + "</span>" : "";
+      const notes = map.notes.length ? "<ul>" + map.notes.map(n => "<li>" + esc(n) + "</li>").join("") + "</ul>" : "";
+      return '<figure class="map-figure">' +
+        "<figcaption>" + kind + "<strong>" + esc(map.title) + "</strong>" + scale + "</figcaption>" +
+        '<img src="' + esc(map.asset) + '" alt="' + esc(map.title) + '">' +
+        notes + "</figure>";
+    }
+
+    async function loadMaps() {
+      const id = new URLSearchParams(location.search).get("id") || "the-lantern-below";
+      const url = ADVENTURES[id];
+      const hub = document.getElementById("hub-link");
+      const runner = document.getElementById("runner-link");
+      if (hub) hub.href = "print.html?id=" + encodeURIComponent(id);
+      if (runner) runner.href = "run.html?id=" + encodeURIComponent(id);
+      if (!url) throw new Error("Unknown adventure.");
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) throw new Error("Could not load adventure maps.");
+      const adventure = await response.json();
+      const title = adventure.metadata?.title || "Adventure";
+      document.title = title + " Maps — One-Shot Forge";
+      document.getElementById("maps-title").textContent = title + " — Maps";
+      const maps = collectMaps(adventure);
+      const deck = document.getElementById("maps-deck");
+      const meta = document.getElementById("maps-meta");
+      if (!maps.length) {
+        meta.textContent = "";
+        deck.innerHTML = '<div class="maps-empty"><b>No printable maps in this adventure.</b><p>This one ships with a semantic region map only, not a print-ready battle map or handout.</p></div>';
+        document.getElementById("print-maps").disabled = true;
+        return;
+      }
+      meta.textContent = maps.length + (maps.length === 1 ? " map · one per page for printing." : " maps · one per page for printing.");
+      deck.innerHTML = maps.map(figure).join("");
+      if (new URLSearchParams(location.search).get("print") === "1") waitImagesThenPrint(deck);
+    }
+
+    document.getElementById("print-maps").addEventListener("click", () => waitImagesThenPrint(document.getElementById("maps-deck")));
+
+    loadMaps().catch(error => {
+      document.getElementById("maps-deck").innerHTML = '<div class="maps-empty"><b>Could not load maps.</b><p>' + esc(error.message) + "</p></div>";
+    });
+  </script>
+</body>
+</html>

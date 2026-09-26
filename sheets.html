@@ -32,6 +32,20 @@
   <script src="rules.js?v=20260920n"></script>
   <script>mountRulesetToggle(document.getElementById("ruleset-host"));</script>
   <script>
+    function waitImagesThenPrint(root) {
+      const imgs = [...(root || document).querySelectorAll("img")];
+      const pending = imgs.filter(i => !i.complete);
+      let done = false;
+      const go = () => { if (done) return; done = true; window.print(); };
+      if (!pending.length) { setTimeout(go, 200); return; }
+      let n = pending.length;
+      const tick = () => { if (--n <= 0) go(); };
+      pending.forEach(i => { i.addEventListener("load", tick); i.addEventListener("error", tick); });
+      setTimeout(go, 3000);
+    }
+    function autoPrintIfRequested() {
+      if (new URLSearchParams(location.search).get("print") === "1") waitImagesThenPrint();
+    }
     const ABIL = ["STR","DEX","CON","INT","WIS","CHA"];
     const SKILL_ORDER = [
       "acrobatics","animal handling","arcana","athletics","deception","history",
@@ -187,6 +201,7 @@
           (edition === "2024"
             ? '<p class="print-hide" style="padding:1rem 1.5rem">The extra six classes are still 2014-only. Tonight’s table is these six.</p>'
             : '<h2 class="print-hide" style="padding:1rem 1.5rem 0">The other six, if you need them</h2>' + rest.map(sheetHtml).join(""));
+        autoPrintIfRequested();
       })
       .catch(() => { document.getElementById("sheets").innerHTML = "<p>Could not load pregens.</p>"; });
   </script>
