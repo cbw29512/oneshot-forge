@@ -209,6 +209,14 @@
         '<p>' + esc(f.text) + '</p></div>'
       ).join("");
     }
+    function resourceBoxes(uses) {
+      const text = String(uses || "");
+      const match = text.match(/\b([1-9])\s*(?:\/|uses?|points?|ki\b)/i);
+      if (match) return Array(Number(match[1])).fill("□").join(" ");
+      const pool = text.match(/\b(\d+)\s*(?:HP pool|points?)/i);
+      if (pool) return "Current ______ / " + pool[1];
+      return "□";
+    }
     function limitedUseRows(pc) {
       const seen = new Set();
       const rows = [];
@@ -218,9 +226,28 @@
         const key = feature.name + "|" + uses;
         if (seen.has(key)) continue;
         seen.add(key);
-        rows.push('<div class="pr-resource"><b>' + esc(feature.name) + '</b><span>' + esc(uses) + '</span><em>□ □ □ □ □</em></div>');
+        rows.push('<div class="pr-resource"><b>' + esc(feature.name) + '</b><span>' + esc(uses) + '</span><em>' + esc(resourceBoxes(uses)) + '</em></div>');
       }
       return rows.length ? rows.join("") : '<div class="pr-line">No limited-use class resource to track.</div>';
+    }
+    function combatDefenseRows(pc) {
+      const rx = /(resistan|immune|advantage on saves|disadvantage.*attack|reduce .*damage|drop to 1 hp|armor class|\bac\b|deflect|danger sense|brave|fey ancestry|relentless endurance|unarmored defense)/i;
+      const rows = (pc.featureList || []).filter(f => rx.test((f.name || "") + " " + (f.text || "")));
+      return rows.length
+        ? rows.map(f => '<div class="pr-defense"><b>' + esc(f.name) + '</b><p>' + esc(f.text) + '</p></div>').join("")
+        : '<div class="pr-line">No special combat defenses beyond AC and saving throws.</div>';
+    }
+    function printAttackTable(list) {
+      if (!list || !list.length) return '<div class="pr-line">No listed attacks.</div>';
+      return '<table class="atk pr-atk"><thead><tr><th>Attack</th><th>Roll / DC</th><th>Damage</th></tr></thead><tbody>' +
+        list.map(a => {
+          const notes = String(a.notes || "");
+          const dc = notes.match(/\b(?:Str|Dex|Con|Int|Wis|Cha)\s+DC\s+\d+/i);
+          const roll = dc ? dc[0] : signed(a.bonus);
+          return '<tr><td><b>' + esc(a.name) + '</b>' +
+            (notes ? '<div class="tiny">' + esc(notes) + '</div>' : '') +
+            '</td><td>' + esc(roll) + '</td><td>' + esc(a.damage) + ' ' + esc(a.type) + '</td></tr>';
+        }).join("") + '</tbody></table>';
     }
     function fullSaveRows(pc) {
       return ABIL.map(k => {
@@ -304,10 +331,16 @@
               '</div>' +
               '<p class="pr-ac-note"><b>AC:</b> ' + esc(pc.ac) + (pc.acNotes ? ' — ' + esc(pc.acNotes) : '') + '</p>' +
             '</section>' +
-            '<section><h3>Attacks & Cantrips</h3>' + attackTable(pc.attackList) + '</section>' +
+            '<section><h3>Attacks & Combat Cantrips</h3>' + printAttackTable(pc.attackList) + '</section>' +
+            (pc.spellcasting ? '<section class="pr-casting-summary"><h3>Combat Spellcasting</h3><div class="pr-casting-grid">' +
+              '<span><small>Ability</small><b>' + esc(pc.spellcasting.ability || "—") + '</b></span>' +
+              '<span><small>Save DC</small><b>' + esc(pc.spellcasting.saveDC ?? "—") + '</b></span>' +
+              '<span><small>Spell Attack</small><b>' + signed(pc.spellcasting.attack) + '</b></span>' +
+              '</div></section>' : '') +
             (pc.bonusActions?.length ? '<section><h3>Bonus Actions</h3>' + compactList(pc.bonusActions) + '</section>' : '') +
             (pc.reactions?.length ? '<section><h3>Reactions</h3>' + compactList(pc.reactions) + '</section>' : '') +
             '<section><h3>Limited-Use Resources</h3><div class="pr-resources">' + limitedUseRows(pc) + '</div></section>' +
+            '<section><h3>Combat Defenses</h3><div class="pr-defenses">' + combatDefenseRows(pc) + '</div></section>' +
             '<section><h3>Features & Traits</h3><div class="pr-features">' + printFeatureRows(pc) + '</div></section>' +
           '</main>' +
           '<aside class="pr-right">' +
