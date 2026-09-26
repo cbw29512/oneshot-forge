@@ -1018,6 +1018,13 @@
       ]
     }
   },
+  "pacing": {
+    "targetMinutes": 240,
+    "plannedMinutes": 210,
+    "bossReserveMinutes": 50,
+    "cutOrder": [],
+    "optionalOrder": ["scene-trapper"]
+  },
   "initialState": {
     "questStage": "offered",
     "currentSceneId": "scene-hook",
