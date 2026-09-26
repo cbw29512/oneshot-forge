@@ -18,14 +18,14 @@
   "setup": {
     "pitch": "Low on food and one day from the nearest village, the party reaches Briar Hollow just as a badly scratched hunter returns carrying a massive owlbear egg. Three villagers argue over whether to eat it, raise it, or return it. Before they can decide, the enraged father owlbear tears into the village.",
     "openingLocation": "The road to Briar Hollow",
-    "gmSummary": "The adventure has one spine: force the hungry party into Briar Hollow, reveal the stolen owlbear egg, let three NPCs argue three solutions, interrupt the debate with the father owlbear attack, expose the fake druid, then branch only when the party decides the egg's fate. If the party feeds the father their last rations, he leaves and they go hungry. If they kill him, the mother answers from the ridge and later enters a barbarian-like rage. If they refuse to intervene, the father destroys Briar Hollow. Eat the egg and the mother attacks at dawn. Keep the egg and it hatches and imprints on a random present PC/NPC. Return it or leave it at the village edge and the mother retrieves it; it hatches, then mother and hatchling attack the village.",
+    "gmSummary": "The adventure has one spine: force the hungry party into Briar Hollow, reveal the stolen owlbear egg, let three NPCs argue three solutions, interrupt the debate with the father owlbear attack, expose the fake druid, then branch only when the party decides the egg's fate. If the party feeds the father their last rations, he leaves and they go hungry. If they kill him, the mother answers from the ridge and later enters a barbarian-like rage. If they refuse to intervene, the father destroys Briar Hollow. Eat the egg and the mother attacks at dawn. Keep the egg and it hatches and imprints on a random present PC/NPC. Return it or leave it at the village edge and the mother retrieves it. If the father survived, the family withdraws peacefully; if he was killed, the mother secures the hatchling and attacks in Maternal Rage.",
     "background": "The party has only its final day of trail food left when the road points toward Briar Hollow, itself nearly out of food. Torren Vale, the village hunter, failed to find game and instead stole a huge owlbear egg from a nest. One parent raked his face as he escaped. Mara Dell wants to cook it. Torren, shaken by what he did, wants to raise the hatchling and make the theft mean something. Elmorrow Reed presents himself as a druid and argues that he should return the egg to nature, but he is actually an animal broker for the Moonpetal Traveling Menagerie. The father follows Torren's scent and the egg into town."
   },
   "quest": {
     "type": "survival dilemma / consequence chain",
     "objective": "Survive the owlbear family's response to the stolen egg and decide what Briar Hollow will do with it.",
     "stakes": "The party's remaining food, the survival of Briar Hollow, a living owlbear family, and the party's responsibility for whichever solution they choose.",
-    "deadline": "The father attacks during the village debate. The egg hatches by the following morning.",
+    "deadline": "DAWN: the egg hatches. Show the shell worsening after every major scene: knock → hairline crack → spreading crack → hatch.",
     "successConditions": [
       "The party responds to the father owlbear attack.",
       "The party learns enough to understand Elmorrow's real motive or knowingly accepts the risk of trusting him.",
@@ -64,11 +64,15 @@
       },
       {
         "id": "fact-mother-rage",
-        "text": "The mother enters a barbarian-like maternal rage when she attacks after the loss or theft of her family."
+        "text": "The mother enters a barbarian-like maternal rage if the egg is destroyed/stolen from her or if her mate is killed; a true return can calm the family if the father still lives."
       },
       {
         "id": "fact-baby-imprint",
         "text": "If the party keeps the egg, the hatchling imprints on a random present player character or named NPC."
+      },
+      {
+        "id": "fact-return-depends-on-father",
+        "text": "Returning the egg peacefully only works cleanly if the father survived. If the party killed him, the mother may recover the hatchling but still attacks in grief and rage."
       }
     ],
     "secrets": [
@@ -374,7 +378,8 @@
         "Three positions: Mara says eat it. Torren says raise it. Elmorrow says let him return it to nature.",
         "Elmorrow should initially sound like the cleanest moral answer.",
         "Sella moderates. She is not a fourth option.",
-        "Do not resolve the debate. The father attack interrupts it."
+        "Do not resolve the debate. The father attack interrupts it.",
+        "VISIBLE CLOCK 1/4: the egg knocks once from inside. Put 'HATCHES AT DAWN' in front of the players."
       ],
       "runSteps": [
         {
@@ -437,7 +442,8 @@
         "If the party throws its remaining rations, the father immediately stops attacking, devours them, and leaves. The party goes without food; the village cannot replace the rations.",
         "If the party kills the father, the meat is not the point. Immediately answer with the mother's scream from the ridge.",
         "Creative solutions are allowed, but resolve them back into one of three states: father leaves alive, father dies, or village is destroyed.",
-        "Do not apply starvation exhaustion immediately just because the party skipped one meal; use normal food-deprivation rules if time extends beyond this adventure."
+        "Do not apply starvation exhaustion immediately just because the party skipped one meal; use normal food-deprivation rules if time extends beyond this adventure.",
+        "VISIBLE CLOCK 2/4: when this scene ends, show a hairline crack in the shell whether the father lived or died."
       ],
       "runSteps": [
         {
@@ -508,7 +514,8 @@
         "The strongbox puzzle is player-facing. Correct order: EGG → CHAIN → TENT → COIN.",
         "Inside is the Moonpetal Traveling Menagerie contract for one live juvenile owlbear, sedatives, and a handler token.",
         "If the party skips the puzzle, the crate stamp or Elmorrow's attempt to flee reveals enough truth. The fake druid twist must not be missable.",
-        "If trusted despite evidence, Elmorrow can take the egg; treat that as the keep/lose-responsibility variant, not a fourth main moral option."
+        "If trusted despite evidence, Elmorrow can take the egg; treat that as the keep/lose-responsibility variant, not a fourth main moral option.",
+        "VISIBLE CLOCK 3/4: while Elmorrow stalls, the crack branches and the egg rocks. The players can see they do not have all night."
       ],
       "runSteps": [
         {
@@ -566,6 +573,7 @@
       "flowLabel": "Final egg choice",
       "readAloud": "The egg sits in the middle of Mara's worktable, warm enough to fog the cold air. A new crack has appeared near the broad end.\n\nMara folds her arms. Torren touches the bandage across his face. Sella says nothing.\n\nOutside, somewhere beyond the dark ridge, an owlbear answers the night.",
       "gmNotes": [
+        "VISIBLE CLOCK 4/4: the egg is hatching now. The party must choose what to do with it before dawn resolves the choice.",
         "There are three core choices now. Do not add another branch unless the players genuinely invent one.",
         "EAT: Mara cooks the egg. The village and party get a full meal. At dawn, the mother attacks.",
         "KEEP: the egg hatches overnight and imprints on a random present PC or named NPC.",
@@ -722,45 +730,51 @@
     },
     {
       "id": "scene-return",
-      "title": "The Mother Takes It Back",
-      "purpose": "Resolve the return/edge branch with the mother retrieving the egg and then assaulting Briar Hollow with the hatchling.",
+      "title": "The Mother Comes for Her Egg",
+      "purpose": "Resolve the return/edge branch according to the father's fate: peaceful family recovery if he lived, enraged assault if the party killed him.",
       "locationId": "loc-village-edge",
       "pacingClass": "core",
       "estimatedMinutes": 45,
       "flowStage": 6,
       "flowTotal": 6,
       "flowLabel": "Ending — return",
-      "readAloud": "You leave the egg where the field meets the ridge woods and back away toward the village wall.\n\nThe mother appears without a sound. She circles the egg once, touches her beak to the shell, and pulls it close beneath one massive forelimb.\n\nThe shell cracks.\n\nA smaller head pushes free. The mother lifts her face toward Briar Hollow and screams.",
+      "readAloud": "You leave the egg where the field meets the ridge woods and back away toward the village wall.\n\nThe mother appears without a sound. She circles the egg once, touches her beak to the shell, and pulls it close beneath one massive forelimb.\n\nThe shell cracks.\n\nA smaller head pushes free.",
       "gmNotes": [
-        "The mother retrieves the egg; returning it does not produce a clean escape from consequences.",
-        "The hatchling follows its mother toward the village. It is not the main damage dealer, but it participates in the assault.",
-        "Run the mother in Maternal Rage. The party can defend Briar Hollow or evacuate rather than stand and fight.",
-        "This branch demonstrates that 'give it back' was not a guaranteed peaceful solution."
+        "If the father survived: this is the cleanest return. The mother gathers the hatchling, the father answers from the ridge, and the family withdraws. No combat.",
+        "If the father was killed: the mother recognizes his scent on the party/village, enters Maternal Rage, and attacks after securing the hatchling behind her.",
+        "If the father's fate is ambiguous because of a creative solution, classify it honestly: father alive = peaceful return; father dead = rage; father driven away but alive = peaceful withdrawal after tense posturing.",
+        "Do not punish a genuine successful return with combat unless the party previously killed the father."
       ],
       "runSteps": [
         {
           "title": "Read the boxed text",
-          "text": "Let the players see the apparent success before the egg hatches."
+          "text": "Let the players see the mother recover the egg and the hatchling emerge."
         },
         {
-          "title": "Trigger the reversal",
-          "text": "The mother turns toward the village instead of leaving."
+          "title": "Check the father's state",
+          "text": "Father alive: the family withdraws. Father dead: the mother recognizes the loss and rages."
         },
         {
-          "title": "Run the assault",
-          "text": "Mother is the boss; hatchling follows and harasses. Evacuation is a valid resolution."
+          "title": "If father lived",
+          "text": "End without combat. Describe both adults calling to the hatchling from the ridge as the family disappears into the trees."
+        },
+        {
+          "title": "If father died",
+          "text": "Run the mother in Maternal Rage. Evacuation remains a valid resolution."
         },
         {
           "title": "Close on consequence",
-          "text": "The family has the egg back, but the village still pays for the original theft."
+          "text": "The ending reflects the party's earlier choice: mercy makes peaceful return possible; killing the father carries forward."
         }
       ],
-      "advanceWhen": "The village is defended, evacuated, or overrun.",
+      "advanceWhen": "The owlbear family withdraws peacefully, or the enraged mother is driven off/defeated and the village survives or evacuates.",
       "npcIds": [
         "npc-sella-vane",
         "npc-torren-vale"
       ],
-      "clueIds": [],
+      "clueIds": [
+        "clue-family-state"
+      ],
       "encounterIds": [
         "enc-mother-baby"
       ],
@@ -858,6 +872,18 @@
       ],
       "canMove": true,
       "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-family-state",
+      "revelation": "The mother reacts differently depending on whether her mate survived: returning the egg can end peacefully if the father lives, but not if the party killed him.",
+      "required": false,
+      "sources": [
+        "physical evidence: paired adult tracks converge on the ridge trail when the father survives",
+        "Torren recalls that two adults guarded the nest together",
+        "if the father dies, the mother's answering scream makes the loss unmistakable"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
     }
   ],
   "encounters": [
@@ -896,13 +922,13 @@
     },
     {
       "id": "enc-mother-baby",
-      "name": "Mother and Hatchling Assault",
-      "type": "consequence combat",
-      "difficulty": "deadly",
-      "summary": "The returned egg hatches in the mother's presence; instead of leaving, the mother charges Briar Hollow and the hatchling follows her aggression.",
-      "resolution": "Drive the mother away, survive until she withdraws, or evacuate the village.",
-      "talkOut": "Once the assault begins, the mother is in Maternal Rage.",
-      "bypass": "Evacuate rather than defend the village.",
+      "name": "Mother and Hatchling — Only if Father Died",
+      "type": "conditional consequence combat",
+      "difficulty": "deadly if triggered",
+      "summary": "On the return branch, this combat occurs only if the father was killed. If he survived, the mother retrieves the hatchling and the family leaves.",
+      "resolution": "Father alive: no combat. Father dead: drive the mother away, survive until she withdraws, or evacuate the village.",
+      "talkOut": "Father alive: no check is needed; the return succeeds. Father dead: once Maternal Rage begins, normal social checks do not end it.",
+      "bypass": "Keep distance and allow the family to withdraw if the father survived; evacuate rather than defend if he died.",
       "special": "The hatchling is weak but follows and harasses; the mother is the real threat."
     }
   ],
@@ -1076,7 +1102,7 @@
       "id": "ending-return",
       "name": "Return It / Leave It at the Edge",
       "condition": "The party returns the egg or leaves it for the mother.",
-      "result": "The mother retrieves it, it hatches, and mother plus hatchling assault Briar Hollow."
+      "result": "If the father survived, the mother retrieves the hatching egg and the family leaves peacefully. If the father was killed, she secures the hatchling and attacks in Maternal Rage."
     },
     {
       "id": "ending-destroyed",
@@ -1205,8 +1231,16 @@
     "targetMinutes": 240,
     "plannedMinutes": 200,
     "bossReserveMinutes": 45,
-    "cutOrder": [],
-    "optionalOrder": []
+    "cutOrder": [
+      "If 30+ minutes behind, resolve Elmorrow's strongbox with the crate stamp immediately after one failed attempt.",
+      "If 20+ minutes behind at the final choice, summarize NPC arguments in one sentence each and ask for the decision.",
+      "Never cut the father consequence or the final egg consequence."
+    ],
+    "optionalOrder": [
+      "Extra NPC debate after each advocate has made one strong argument.",
+      "Extended bargaining with Elmorrow after his lie is proven.",
+      "Detailed survivor roleplay after a terminal ending."
+    ]
   },
   "initialState": {
     "questStage": "offered",
@@ -1358,9 +1392,9 @@
       },
       {
         "id": "enc-mother-baby",
-        "objective": "Survive or evacuate when the returned egg hatches and the family attacks.",
-        "start": "The mother retrieves the egg, the hatchling emerges, and she turns back toward Briar Hollow.",
-        "bypass": "Evacuate the village.",
+        "objective": "Resolve the returned-egg consequence based on the father's fate.",
+        "start": "The mother retrieves the egg and it hatches. If the father survived, she withdraws with the hatchling. If he died, she recognizes the loss and turns on Briar Hollow.",
+        "bypass": "Father alive: no combat; give the family space to leave. Father dead: evacuate the village.",
         "creatures": [
           {
             "name": "Mother Owlbear",
@@ -1383,7 +1417,7 @@
             "tactics": "Snaps at nearby legs and follows the mother's target; it is not a serious damage source."
           }
         ],
-        "end": "The mother is driven off, the village evacuates, or Briar Hollow is overrun."
+        "end": "Father alive: family withdraws peacefully. Father dead: mother is driven off/defeated, or the village evacuates."
       }
     ],
     "hazards": [],
@@ -1657,5 +1691,37 @@
       "scene-village-destroyed"
     ],
     "stageCount": 6
+  },
+  "clock": {
+    "name": "The Egg Hatches at Dawn",
+    "type": "visible fiction clock",
+    "segments": [
+      {
+        "stage": 1,
+        "label": "Quiet",
+        "sign": "The egg is intact."
+      },
+      {
+        "stage": 2,
+        "label": "Knock",
+        "sign": "The egg knocks once from inside."
+      },
+      {
+        "stage": 3,
+        "label": "Hairline crack",
+        "sign": "After the father attack, a thin crack appears near the broad end."
+      },
+      {
+        "stage": 4,
+        "label": "Spreading crack",
+        "sign": "During the Elmorrow reveal, the crack branches and the shell rocks."
+      },
+      {
+        "stage": 5,
+        "label": "Hatching",
+        "sign": "At the final choice the shell is warm, moving, and visibly close to breaking."
+      }
+    ],
+    "rule": "Advance the fiction clock when the party finishes each core stage. It creates urgency but never deletes a legal ending."
   }
 }
