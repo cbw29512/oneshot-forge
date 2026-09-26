@@ -1,9 +1,11 @@
-# Two workers, one catalog
+# Workers and the Forge Farm
 
-Do not both write adventures. That is how nights get mushy.
+**FIRST READ:** `docs/FORGE_CONSTITUTION.md`. It is the highest-priority project contract. If this file conflicts with it, the constitution wins.
+
+Curated Author and Auditor must not both write the same adventure. Forge Farm workers may batch-generate candidates only through the constitution-defined bones → validation → AI flesh → audit pipeline.
 
 ## Author (`oneshot-author`)
-- Reads `docs/STATUS.md` first, then this file, then `docs/ONESHOT_RECIPE.md`.
+- Reads `docs/FORGE_CONSTITUTION.md` first, then `docs/STATUS.md`, this file, and `docs/ONESHOT_RECIPE.md`.
 - Writes **at most one** Quiet Seals night per run.
 - May start Night N+1 **only if** STATUS has `Auditor pass: Night N`.
 - If that line is missing, stop. Do not “just start the Watch.”
@@ -30,3 +32,16 @@ STATUS is the lock. If both would edit the same JSON, Auditor wins on numbers, A
 
 ## Cadence
 Daily. Quality. One night at a time. Chris circles back.
+
+
+## Forge Farm worker
+- Reads `docs/FORGE_CONSTITUTION.md` first.
+- May generate many candidates in one run.
+- MUST use ForgeBones as authoritative state.
+- MUST preserve deterministic seeds and locks.
+- MUST run compatibility validation before AI flesh.
+- MUST reject AI output that mutates bones.
+- MUST run structural, mechanical, duplication, and table-readiness gates before marking a candidate release-ready.
+- MUST NOT import plots, names, dialogue, distinctive encounters, maps, puzzles, monsters, items, or wording from reference adventures.
+- Reference adventures teach presentation quality only.
+- A failed candidate is regenerated/repaired; the gate is not weakened.
