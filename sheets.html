@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260926-fixed1">
+  <link rel="stylesheet" href="styles.css?v=20260926-fixed2">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -269,6 +269,19 @@
       else steps.push("Choose your strongest legal action.", "Use bonus actions and reactions when their triggers appear.", "Track limited resources.", "Reposition before ending your turn.");
       return '<ol class="pr-quickturn">' + steps.map(s => '<li>' + esc(s) + '</li>').join("") + '</ol>';
     }
+    function passiveSkill(pc, name) {
+      const skill = pc.skillsMap?.[name];
+      return skill && typeof skill.bonus === "number" ? 10 + skill.bonus : "—";
+    }
+    function classSaveDC(pc) {
+      if (pc.spellcasting?.saveDC != null) return pc.spellcasting.saveDC;
+      const featureText = (pc.featureList || []).map(f => (f.name || "") + " " + (f.text || "")).join(" ");
+      const m = featureText.match(/\b(?:Str|Dex|Con|Int|Wis|Cha)?\s*DC\s*(\d+)\b/i);
+      return m ? m[1] : "—";
+    }
+    function standardActionLine() {
+      return "Attack · Dash · Disengage · Dodge · Help · Hide · Ready · Search · Use an Object";
+    }
     function spellRole(spell) {
       const text = ((spell.name || "") + " " + (spell.effect || "")).toLowerCase();
       if (/heal|restore|hit points|stabil/.test(text)) return "Healing";
@@ -339,6 +352,7 @@
             '<h2>' + esc(pc.name) + '</h2>' +
             '<p><b>' + esc(characterClass(pc)) + ' 4</b> · ' + esc(pc.race) + ' · ' +
               esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
+            '<p class="pr-subid">' + esc(pc.rules || "5E") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
             '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
           '<div class="pr-vitals">' +
             '<span><small>AC</small><b>' + esc(pc.ac) + '</b></span>' +
@@ -362,6 +376,10 @@
               '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
             '</div>' +
             '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
+            '<div class="pr-mini-stats">' +
+              '<span><small>Heroic Inspiration</small><b>○</b></span>' +
+              '<span><small>Class / Spell Save DC</small><b>' + esc(classSaveDC(pc)) + '</b></span>' +
+            '</div>' +
             '<p class="pr-ac-note"><b>AC:</b> ' + esc(pc.ac) + (pc.acNotes ? ' — ' + esc(pc.acNotes) : '') + '</p>' +
           '</section>' +
 
@@ -374,6 +392,7 @@
           '</section>' +
 
           '<section class="pr-zone pr-zone-actions"><h3>Action Economy</h3>' +
+            '<div class="pr-standard-actions"><b>Standard Actions</b> ' + esc(standardActionLine()) + '</div>' +
             '<div class="pr-action-split"><div><h4>Bonus Actions</h4>' + bonus + '</div><div><h4>Reactions</h4>' + reactions + '</div></div>' +
             '<h4>Quick Turn</h4>' + quickTurn(pc) +
           '</section>' +
@@ -383,8 +402,10 @@
           '</section>' +
 
           '<section class="pr-zone pr-zone-side"><h3>Senses / Training / Gear</h3>' +
-            '<p><b>Senses</b> Darkvision ' + esc(pc.darkvision || 0) + ' ft. · Passive Perception ' + esc(pc.passivePerception ?? "—") +
-              ' · Passive Insight ' + esc(pc.passiveInsight ?? "—") + '</p>' +
+            '<p><b>Senses</b> Darkvision ' + esc(pc.darkvision || 0) + ' ft.</p>' +
+            '<p><b>Passives</b> Perception ' + esc(pc.passivePerception ?? "—") +
+              ' · Insight ' + esc(pc.passiveInsight ?? passiveSkill(pc,"insight")) +
+              ' · Investigation ' + esc(passiveSkill(pc,"investigation")) + '</p>' +
             '<p><b>Armor</b> ' + esc((prof.armor || []).join(", ") || "none") + '</p>' +
             '<p><b>Weapons</b> ' + esc((prof.weapons || []).join(", ") || "none") + '</p>' +
             '<p><b>Tools</b> ' + esc((prof.tools || []).join(", ") || "—") + '</p>' +
