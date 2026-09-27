@@ -3323,3 +3323,22 @@ body.run { background: var(--bg) }
     font-size:7.2pt !important;
   }
 }
+
+/* Balanced repeated-card contract: equal row heights, controls aligned at the bottom. */
+#npc-list.pack-grid {
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+}
+#npc-list.pack-grid > article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100%;
+}
+#npc-list.pack-grid > article > label {
+  margin-top: auto;
+  padding-top: .75rem;
+}
+#npc-list.pack-grid > article > select {
+  width: 100%;
+}
