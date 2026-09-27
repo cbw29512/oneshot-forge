@@ -16,7 +16,7 @@
     "locationProgression": {"type":"array","minItems":2,"items":{"type":"object","required":["role","job"],"properties":{"role":{"type":"string"},"job":{"type":"string"}},"additionalProperties":true}},
     "finale": {"type":"object","required":["kind","subject","objective","noncombatResolution","failure"],"properties":{"kind":{"enum":["monster","npc","artifact","ritual","environment","mixed"]},"subject":{"type":"string"},"objective":{"type":"string"},"noncombatResolution":{"type":"string"},"failure":{"type":"string"}},"additionalProperties":true},
     "aftermath": {"type":"object","required":["mode","consequence"],"properties":{"mode":{"enum":["return","continue","choice"]},"consequence":{"type":"string"}},"additionalProperties":true},
-    "randomEncounters": {"type":"array","minItems":2,"maxItems":2,"items":{"type":"object","required":["kind","prompt","questRelated"],"properties":{"kind":{"enum":["combat","social","hazard","discovery","merchant","wildlife","weird","treasure","moral","comic"]},"prompt":{"type":"string"},"questRelated":{"type":"boolean"}},"additionalProperties":true}
+    "randomEncounters": {"type":"array","minItems":2,"maxItems":2,"items":{"type":"object","required":["kind","prompt","questRelated"],"properties":{"kind":{"enum":["combat","social","hazard","discovery","merchant","wildlife","weird","treasure","moral","comic"]},"prompt":{"type":"string"},"questRelated":{"type":"boolean"}},"additionalProperties":true}}
   },
   "additionalProperties": false
 }
