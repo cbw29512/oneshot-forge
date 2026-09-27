@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260927-feature-fit1">
+  <link rel="stylesheet" href="styles.css?v=20260927-resource-fit1">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -392,6 +392,15 @@
     function isFeatureHeavy(pc) {
       return (pc.featureList || []).length >= 8 || featureWeight(pc) >= 950;
     }
+    function limitedUseCount(pc) {
+      return (pc.featureList || []).filter(feature => {
+        const uses = String(feature.uses || "").trim();
+        return uses && !/already applied|passive|at will/i.test(uses);
+      }).length;
+    }
+    function isResourceHeavy(pc) {
+      return limitedUseCount(pc) >= 4;
+    }
     function compactRoleplay(pc) {
       const p = pc.personality || {};
       return '<div class="pr-roleplay-compact">' +
@@ -411,7 +420,8 @@
       const bonus = pc.bonusActions?.length ? compactList(pc.bonusActions) : '<div class="pr-line">No special bonus action.</div>';
       const reactions = pc.reactions?.length ? compactList(pc.reactions) : '<div class="pr-line">Opportunity Attack when triggered.</div>';
       const heavyClass = isFeatureHeavy(pc) ? " pr-feature-heavy" : "";
-      return '<article class="print-only pr-page pr-main-page pr-fixed-sheet' + heavyClass + '" data-print-pc="' + esc(pc.id) + '">' +
+      const resourceClass = isResourceHeavy(pc) ? " pr-resource-heavy" : "";
+      return '<article class="print-only pr-page pr-main-page pr-fixed-sheet' + heavyClass + resourceClass + '" data-print-pc="' + esc(pc.id) + '">' +
         '<header class="pr-head">' + img +
           '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
             '<h2>' + esc(pc.name) + '</h2>' +

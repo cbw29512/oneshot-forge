@@ -3298,3 +3298,28 @@ body.run { background: var(--bg) }
     letter-spacing:.03em !important;
   }
 }
+
+/* Resource-heavy pregen protection: give trackers more room before clipping. */
+@media print {
+  .pr-resource-heavy .pr-fixed-grid {
+    grid-template-rows:1.30in 1.20in 1.58in 1.58in 1.40in 1.54in !important;
+  }
+  .pr-resource-heavy .pr-zone-resources {
+    min-height:0 !important;
+    overflow:hidden !important;
+  }
+  .pr-resource-heavy .pr-resource-columns {
+    height:100% !important;
+    min-height:0 !important;
+    align-content:start !important;
+  }
+  .pr-resource-heavy .pr-zone-resources .pr-resource,
+  .pr-resource-heavy .pr-zone-resources .pr-defense {
+    padding:.018in 0 !important;
+    font-size:6.8pt !important;
+    line-height:1.1 !important;
+  }
+  .pr-resource-heavy .pr-zone-resources .pr-resource em {
+    font-size:7.2pt !important;
+  }
+}
