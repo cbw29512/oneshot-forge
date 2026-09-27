@@ -41,6 +41,7 @@ function backBody(card) {
     (back.role ? '<div class="back-block"><h3>Role</h3><p>' + esc(back.role) + '</p></div>' : '') +
     (back.location ? '<div class="back-block"><h3>Where</h3><p>' + esc(back.location) + '</p></div>' : '') +
     (back.stats ? '<div class="statline-card">' + esc(back.stats) + '</div>' : '') +
+    (back.intent ? '<div class="back-block"><h3>Intent</h3><p>' + esc(back.intent) + '</p></div>' : '') +
     (back.dialogue?.length ? '<div class="back-block"><h3>Dialogue / voice</h3>' + list(back.dialogue) + '</div>' : '') +
     (back.rules?.length ? '<div class="back-block"><h3>Checks / rules</h3>' + list(back.rules) + '</div>' : '') +
     (back.dmNotes?.length ? '<div class="back-block"><h3>DM notes</h3>' + list(back.dmNotes) + '</div>' : '');
