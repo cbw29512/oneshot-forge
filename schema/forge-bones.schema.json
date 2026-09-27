@@ -3,7 +3,7 @@
   "$id": "https://oneshot-forge.local/schema/forge-bones.schema.json",
   "title": "One-Shot Forge Bones",
   "type": "object",
-  "required": ["version","seed","preview","hook","questGiver","twist","obstacle","travel","locationProgression","finale","aftermath","randomEncounters"],
+  "required": ["version","seed","preview","hook","questGiver","twist","requiredFacts","requiredClues","obstacle","travel","locationProgression","finale","aftermath","randomEncounters"],
   "properties": {
     "version": {"const":"0.1.0"},
     "seed": {"type":"string","minLength":1},
@@ -11,6 +11,8 @@
     "hook": {"type":"object","required":["type","objective","target"],"properties":{"type":{"type":"string"},"objective":{"type":"string"},"target":{"type":"string"}},"additionalProperties":true},
     "questGiver": {"type":"object","required":["role","motive"],"properties":{"role":{"type":"string"},"motive":{"type":"string"}},"additionalProperties":true},
     "twist": {"type":"object","required":["apparentTruth","actualTruth"],"properties":{"apparentTruth":{"type":"string"},"actualTruth":{"type":"string"}},"additionalProperties":true},
+    "requiredFacts": {"type":"array","minItems":2,"items":{"type":"object","required":["id","fact"],"properties":{"id":{"type":"string","minLength":1},"fact":{"type":"string","minLength":1}},"additionalProperties":false}},
+    "requiredClues": {"type":"array","minItems":2,"items":{"type":"object","required":["factId","sources"],"properties":{"factId":{"type":"string","minLength":1},"sources":{"type":"array","minItems":3,"items":{"type":"object","required":["kind","delivery"],"properties":{"kind":{"enum":["testimony","record","physical","environmental","injury","architecture","magical-residue"]},"delivery":{"type":"string","minLength":1}},"additionalProperties":false}}},"additionalProperties":false}},
     "obstacle": {"type":"object","required":["kind","mechanic","failForward"],"properties":{"kind":{"enum":["trap","puzzle","trap+puzzle"]},"mechanic":{"type":"string"},"dc":{"type":["integer","null"]},"failForward":{"type":"string"}},"additionalProperties":true},
     "travel": {"type":"object","required":["environment","pressure"],"properties":{"environment":{"type":"string"},"pressure":{"type":"string"}},"additionalProperties":true},
     "locationProgression": {"type":"array","minItems":2,"items":{"type":"object","required":["role","job"],"properties":{"role":{"type":"string"},"job":{"type":"string"}},"additionalProperties":true}},
