@@ -39,6 +39,8 @@ for (const required of [
   "quickTurn(pc)",
   "spellRole(spell)",
   "function isFeatureHeavy(pc)",
+  "pr-resource-heavy",
+  "function isResourceHeavy(pc)",
   "pr-roleplay-compact",
   "pr-feature-heavy",
   "Damage","Control","Healing","Defense","Utility"
