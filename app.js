@@ -486,7 +486,7 @@ function renderScene() {
     .filter(Boolean);
 
   if (el("dm-box")) {
-    el("dm-box").innerHTML = dmBoxHtml(scene, { npcs, checks, hazards, puzzles, traps, encounters });
+    el("dm-box").innerHTML = dmBoxHtml(scene, { location, npcs, checks, hazards, puzzles, traps, encounters });
     bindRunStepControls(scene);
   }
 
@@ -552,12 +552,31 @@ function dmBoxHtml(scene, bits) {
     chunks.push("<p><b>What you know.</b></p><ul>" +
       scene.gmNotes.map(note => "<li>" + escapeHtml(note) + "</li>").join("") + "</ul>");
   }
+  if (bits.location?.description) {
+    chunks.push('<section class="dm-spoken-layer"><p class="box-label">Describe the place</p><p>' +
+      escapeHtml(bits.location.description) + '</p></section>');
+  }
   if (bits.npcs.length) {
-    chunks.push("<p><b>NPCs here.</b></p>" + bits.npcs.map(npc =>
-      "<p><b>" + escapeHtml(npc.name) + ".</b> " + escapeHtml(npc.role || "") +
-      (npc.voiceCues && npc.voiceCues[0] ? " Voice: " + escapeHtml(npc.voiceCues[0]) + "." : "") +
-      (npc.questFunction ? " " + escapeHtml(npc.questFunction) : "") + "</p>"
-    ).join(""));
+    chunks.push('<section class="dm-spoken-layer"><p class="box-label">NPCs — play them like this</p>' +
+      bits.npcs.map(npc => {
+        const wants = (npc.wants || []).slice(0, 2);
+        const dialogue = (npc.tableDialogue || []).slice(0, 3);
+        const reactions = npc.reactions || {};
+        return '<div class="dm-npc">' +
+          '<p><b>' + escapeHtml(npc.name) + '.</b> ' + escapeHtml(npc.description || npc.role || '') + '</p>' +
+          (npc.role ? '<p><b>Role.</b> ' + escapeHtml(npc.role) + '</p>' : '') +
+          (npc.voiceCues?.length ? '<p><b>Voice.</b> ' + escapeHtml(npc.voiceCues.join('; ')) + '</p>' : '') +
+          (wants.length ? '<p><b>Wants now.</b> ' + escapeHtml(wants.join('; ')) + '</p>' : '') +
+          (dialogue.length ? '<div class="dm-dialogue"><b>Say:</b>' + dialogue.map(line =>
+            '<blockquote>' + escapeHtml(line) + '</blockquote>').join('') + '</div>' : '') +
+          ((reactions.agreement || reactions.refusal || reactions.danger) ?
+            '<p class="tiny"><b>React.</b> ' +
+              [reactions.agreement && ('Agree: ' + reactions.agreement),
+               reactions.refusal && ('Refuse: ' + reactions.refusal),
+               reactions.danger && ('Danger: ' + reactions.danger)]
+                .filter(Boolean).map(escapeHtml).join(' · ') + '</p>' : '') +
+        '</div>';
+      }).join('') + '</section>');
   }
   if (bits.checks.length) {
     chunks.push("<p><b>Checks.</b></p>" + bits.checks.map(check =>
@@ -603,6 +622,12 @@ function dmBoxHtml(scene, bits) {
       [enc.special, enc.talkOut && ("Talk-out: " + enc.talkOut), enc.bypass && ("Bypass: " + enc.bypass)]
         .filter(Boolean).map(escapeHtml).join(" ") + "</p>"
     ).join(""));
+  }
+  if (scene.exitChoices?.length) {
+    chunks.push('<section class="dm-spoken-layer dm-transition"><p class="box-label">Transition</p>' +
+      scene.exitChoices.map(choice =>
+        '<p><b>' + escapeHtml(choice.label || 'Continue') + '.</b> ' +
+        escapeHtml(choice.description || '') + '</p>').join('') + '</section>');
   }
   return chunks.join("") || "<p>Nothing hidden in this room beyond the boxed text.</p>";
 }
@@ -669,9 +694,9 @@ function encounterCardHtml(encounter) {
   let body = "";
   if (table) {
     body += "<p><b>Objective.</b> " + escapeHtml(table.objective) + "</p>";
-    body += "<p>" + escapeHtml(table.start) + "</p>";
+    body += '<p class="quick-block"><b>Opening beat.</b> ' + escapeHtml(table.start) + "</p>";
     body += (table.creatures || []).map(creatureBlockHtml).join("");
-    if (table.bypass) body += "<p><b>Bypass.</b> " + escapeHtml(table.bypass) + "</p>";
+    if (table.bypass) body += "<p><b>De-escalate / bypass.</b> " + escapeHtml(table.bypass) + "</p>";
     if (table.ritual) body += '<p class="quick-block"><b>Binding.</b> ' + escapeHtml(table.ritual) + "</p>";
     if (table.destroy) body += "<p><b>Destroy.</b> " + escapeHtml(table.destroy) + "</p>";
     if (table.bargain) body += "<p><b>Bargain.</b> " + escapeHtml(table.bargain) + "</p>";
