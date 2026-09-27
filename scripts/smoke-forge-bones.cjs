@@ -13,6 +13,13 @@ for(let i=0;i<250;i++){
   assert(["monster","npc","artifact","ritual","environment","mixed"].includes(a.finale.kind),"illegal finale kind");
   assert(a.finale.noncombatResolution,"finale needs noncombat resolution");
   assert(a.obstacle.failForward,"obstacle must fail forward");
+  assert(a.requiredFacts.length>0,"required facts missing");
+  for(const fact of a.requiredFacts){
+    const bundle=a.requiredClues.find((clue)=>clue.factId===fact.id);
+    assert(bundle,"required fact missing clue bundle");
+    assert(bundle.sources.length>=3,"required fact needs at least three clue sources");
+    assert(bundle.sources.some((source)=>["physical","environmental"].includes(source.kind)),"required fact needs physical/environmental evidence");
+  }
   const request=createFleshRequest(a);
   assert(request.bones.seed===a.seed,"AI request lost seed");
   assert(request.forbidden.length>=4,"AI guardrails missing");
@@ -35,4 +42,4 @@ let blocked=false;
 try{ assertBonesUnchanged(original,changed); }catch{ blocked=true; }
 assert(blocked,"AI mutation guard did not block changed bones");
 
-console.log("Validated 250 deterministic ForgeBones plus locks and AI immutability.");
+console.log("Validated 250 deterministic ForgeBones, three-source clue redundancy, locks, and AI immutability.");
