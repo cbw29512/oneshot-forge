@@ -23,40 +23,311 @@
     {
       "level": 1,
       "event": "acquired",
-      "items": ["Chain mail", "Shield", "Longsword", "3 Javelins", "Explorer's pack"]
+      "items": [
+        "Chain mail",
+        "Shield",
+        "Longsword",
+        "3 Javelins",
+        "Explorer's pack"
+      ]
     },
     {
       "level": 13,
       "event": "replaced",
-      "items": ["Longsword"],
-      "replacementItems": ["Longsword +1"]
+      "items": [
+        "Longsword"
+      ],
+      "replacementItems": [
+        "Longsword +1"
+      ]
     }
   ],
   "magicItemHistory": [
     {
       "level": 13,
       "event": "acquired",
-      "items": ["Longsword +1"],
+      "items": [
+        "Longsword +1"
+      ],
       "attunement": false,
       "note": "A modest veteran's reward earned after a long tier-2 career; it reinforces Brann's existing sword-and-shield identity."
     }
   ],
   "levels": [
-    {"level":1,"proficiency":2,"hp":13,"hitDice":"1d10","STR":14,"attacksPerAction":1,"magicItems":[],"gained":["Second Wind","Fighting Style: Defense"]},
-    {"level":2,"proficiency":2,"hp":22,"hitDice":"2d10","STR":14,"attacksPerAction":1,"magicItems":[],"gained":["Action Surge"]},
-    {"level":3,"proficiency":2,"hp":31,"hitDice":"3d10","STR":14,"attacksPerAction":1,"magicItems":[],"gained":["Champion","Improved Critical"]},
-    {"level":4,"proficiency":2,"hp":40,"hitDice":"4d10","STR":16,"attacksPerAction":1,"magicItems":[],"gained":["Ability Score Improvement: +2 STR"]},
-    {"level":5,"proficiency":3,"hp":49,"hitDice":"5d10","STR":16,"attacksPerAction":2,"magicItems":[],"gained":["Extra Attack"]},
-    {"level":6,"proficiency":3,"hp":58,"hitDice":"6d10","STR":18,"attacksPerAction":2,"magicItems":[],"gained":["Ability Score Improvement: +2 STR"]},
-    {"level":7,"proficiency":3,"hp":67,"hitDice":"7d10","STR":18,"attacksPerAction":2,"magicItems":[],"gained":["Remarkable Athlete"]},
-    {"level":8,"proficiency":3,"hp":76,"hitDice":"8d10","STR":20,"attacksPerAction":2,"magicItems":[],"gained":["Ability Score Improvement: +2 STR"]},
-    {"level":9,"proficiency":4,"hp":85,"hitDice":"9d10","STR":20,"attacksPerAction":2,"magicItems":[],"gained":["Indomitable (1 use)"]},
-    {"level":10,"proficiency":4,"hp":94,"hitDice":"10d10","STR":20,"attacksPerAction":2,"magicItems":[],"gained":["Additional Fighting Style: Dueling"]},
-    {"level":11,"proficiency":4,"hp":103,"hitDice":"11d10","STR":20,"attacksPerAction":3,"magicItems":[],"gained":["Extra Attack (2)"]},
-    {"level":12,"proficiency":4,"hp":124,"hitDice":"12d10","STR":20,"CON":18,"attacksPerAction":3,"magicItems":[],"gained":["Ability Score Improvement: +2 CON"]},
-    {"level":13,"proficiency":5,"hp":134,"hitDice":"13d10","STR":20,"CON":18,"attacksPerAction":3,"magicItems":["Longsword +1"],"gained":["Indomitable (2 uses)"]},
-    {"level":14,"proficiency":5,"hp":158,"hitDice":"14d10","STR":20,"CON":20,"attacksPerAction":3,"magicItems":["Longsword +1"],"gained":["Ability Score Improvement: +2 CON"]},
-    {"level":15,"proficiency":5,"hp":169,"hitDice":"15d10","STR":20,"CON":20,"attacksPerAction":3,"magicItems":["Longsword +1"],"gained":["Superior Critical"]},
-    {"level":16,"proficiency":5,"hp":180,"hitDice":"16d10","STR":20,"DEX":14,"CON":20,"attacksPerAction":3,"magicItems":["Longsword +1"],"gained":["Ability Score Improvement: +2 DEX"]}
+    {
+      "level": 1,
+      "proficiency": 2,
+      "hp": 13,
+      "hitDice": "1d10",
+      "STR": 14,
+      "attacksPerAction": 1,
+      "magicItems": [],
+      "gained": [
+        "Second Wind",
+        "Fighting Style: Defense"
+      ]
+    },
+    {
+      "level": 2,
+      "proficiency": 2,
+      "hp": 22,
+      "hitDice": "2d10",
+      "STR": 14,
+      "attacksPerAction": 1,
+      "magicItems": [],
+      "gained": [
+        "Action Surge"
+      ]
+    },
+    {
+      "level": 3,
+      "proficiency": 2,
+      "hp": 31,
+      "hitDice": "3d10",
+      "STR": 14,
+      "attacksPerAction": 1,
+      "magicItems": [],
+      "gained": [
+        "Champion",
+        "Improved Critical"
+      ]
+    },
+    {
+      "level": 4,
+      "proficiency": 2,
+      "hp": 40,
+      "hitDice": "4d10",
+      "STR": 16,
+      "attacksPerAction": 1,
+      "magicItems": [],
+      "gained": [
+        "Ability Score Improvement: +2 STR"
+      ]
+    },
+    {
+      "level": 5,
+      "proficiency": 3,
+      "hp": 49,
+      "hitDice": "5d10",
+      "STR": 16,
+      "attacksPerAction": 2,
+      "magicItems": [],
+      "gained": [
+        "Extra Attack"
+      ]
+    },
+    {
+      "level": 6,
+      "proficiency": 3,
+      "hp": 58,
+      "hitDice": "6d10",
+      "STR": 18,
+      "attacksPerAction": 2,
+      "magicItems": [],
+      "gained": [
+        "Ability Score Improvement: +2 STR"
+      ]
+    },
+    {
+      "level": 7,
+      "proficiency": 3,
+      "hp": 67,
+      "hitDice": "7d10",
+      "STR": 18,
+      "attacksPerAction": 2,
+      "magicItems": [],
+      "gained": [
+        "Remarkable Athlete"
+      ]
+    },
+    {
+      "level": 8,
+      "proficiency": 3,
+      "hp": 76,
+      "hitDice": "8d10",
+      "STR": 20,
+      "attacksPerAction": 2,
+      "magicItems": [],
+      "gained": [
+        "Ability Score Improvement: +2 STR"
+      ]
+    },
+    {
+      "level": 9,
+      "proficiency": 4,
+      "hp": 85,
+      "hitDice": "9d10",
+      "STR": 20,
+      "attacksPerAction": 2,
+      "magicItems": [],
+      "gained": [
+        "Indomitable (1 use)"
+      ]
+    },
+    {
+      "level": 10,
+      "proficiency": 4,
+      "hp": 94,
+      "hitDice": "10d10",
+      "STR": 20,
+      "attacksPerAction": 2,
+      "magicItems": [],
+      "gained": [
+        "Additional Fighting Style: Dueling"
+      ]
+    },
+    {
+      "level": 11,
+      "proficiency": 4,
+      "hp": 103,
+      "hitDice": "11d10",
+      "STR": 20,
+      "attacksPerAction": 3,
+      "magicItems": [],
+      "gained": [
+        "Extra Attack (2)"
+      ]
+    },
+    {
+      "level": 12,
+      "proficiency": 4,
+      "hp": 124,
+      "hitDice": "12d10",
+      "STR": 20,
+      "CON": 18,
+      "attacksPerAction": 3,
+      "magicItems": [],
+      "gained": [
+        "Ability Score Improvement: +2 CON"
+      ]
+    },
+    {
+      "level": 13,
+      "proficiency": 5,
+      "hp": 134,
+      "hitDice": "13d10",
+      "STR": 20,
+      "CON": 18,
+      "attacksPerAction": 3,
+      "magicItems": [
+        "Longsword +1"
+      ],
+      "gained": [
+        "Indomitable (2 uses)"
+      ]
+    },
+    {
+      "level": 14,
+      "proficiency": 5,
+      "hp": 158,
+      "hitDice": "14d10",
+      "STR": 20,
+      "CON": 20,
+      "attacksPerAction": 3,
+      "magicItems": [
+        "Longsword +1"
+      ],
+      "gained": [
+        "Ability Score Improvement: +2 CON"
+      ]
+    },
+    {
+      "level": 15,
+      "proficiency": 5,
+      "hp": 169,
+      "hitDice": "15d10",
+      "STR": 20,
+      "CON": 20,
+      "attacksPerAction": 3,
+      "magicItems": [
+        "Longsword +1"
+      ],
+      "gained": [
+        "Superior Critical"
+      ]
+    },
+    {
+      "level": 16,
+      "proficiency": 5,
+      "hp": 180,
+      "hitDice": "16d10",
+      "STR": 20,
+      "DEX": 14,
+      "CON": 20,
+      "attacksPerAction": 3,
+      "magicItems": [
+        "Longsword +1"
+      ],
+      "gained": [
+        "Ability Score Improvement: +2 DEX"
+      ]
+    },
+    {
+      "level": 17,
+      "proficiency": 6,
+      "hp": 191,
+      "hitDice": "17d10",
+      "STR": 20,
+      "DEX": 14,
+      "CON": 20,
+      "attacksPerAction": 3,
+      "magicItems": [
+        "Longsword +1"
+      ],
+      "gained": [
+        "Action Surge (2 uses)",
+        "Indomitable (3 uses)"
+      ]
+    },
+    {
+      "level": 18,
+      "proficiency": 6,
+      "hp": 202,
+      "hitDice": "18d10",
+      "STR": 20,
+      "DEX": 14,
+      "CON": 20,
+      "attacksPerAction": 3,
+      "magicItems": [
+        "Longsword +1"
+      ],
+      "gained": [
+        "Survivor"
+      ]
+    },
+    {
+      "level": 19,
+      "proficiency": 6,
+      "hp": 213,
+      "hitDice": "19d10",
+      "STR": 20,
+      "DEX": 14,
+      "CON": 20,
+      "WIS": 14,
+      "attacksPerAction": 3,
+      "magicItems": [
+        "Longsword +1"
+      ],
+      "gained": [
+        "Ability Score Improvement: +2 WIS"
+      ]
+    },
+    {
+      "level": 20,
+      "proficiency": 6,
+      "hp": 224,
+      "hitDice": "20d10",
+      "STR": 20,
+      "DEX": 14,
+      "CON": 20,
+      "WIS": 14,
+      "attacksPerAction": 4,
+      "magicItems": [
+        "Longsword +1"
+      ],
+      "gained": [
+        "Extra Attack (3)"
+      ]
+    }
   ]
 }
