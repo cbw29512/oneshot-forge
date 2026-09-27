@@ -1,0 +1,178 @@
+{
+  "schema": "oneshot-forge-pregen-progression/0.1",
+  "ruleset": "5e-2014-srd",
+  "characterId": "pregen-brann",
+  "anchorPack": "data/pregens/quiet-seals-level-4-2014-srd.json",
+  "anchorLevel": 4,
+  "identity": {
+    "name": "Brann Oakholt",
+    "className": "Fighter",
+    "subclass": "Champion",
+    "race": "Human",
+    "background": "Soldier",
+    "role": "Front line",
+    "alignment": "Lawful Neutral",
+    "portrait": "assets/pregens/brann.jpg"
+  },
+  "decisions": [
+    {
+      "level": 1,
+      "type": "fighting-style",
+      "choice": "Defense",
+      "permanent": true
+    },
+    {
+      "level": 3,
+      "type": "subclass",
+      "choice": "Champion",
+      "permanent": true
+    },
+    {
+      "level": 4,
+      "type": "asi",
+      "choice": {
+        "STR": 2
+      },
+      "note": "Reconstructed from the approved level-4 STR 16 anchor; levels 1-3 therefore use STR 14."
+    }
+  ],
+  "itemHistory": [],
+  "levels": [
+    {
+      "level": 1,
+      "proficiency": 2,
+      "scores": {
+        "STR": 14,
+        "DEX": 12,
+        "CON": 16,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 10
+      },
+      "hp": 13,
+      "hitDice": "1d10",
+      "features": [
+        "Fighting Style: Defense",
+        "Second Wind",
+        "Military Rank"
+      ],
+      "attacks": [
+        "Longsword",
+        "Javelin"
+      ],
+      "equipment": [
+        "Chain mail",
+        "Shield",
+        "Longsword",
+        "3× Javelin",
+        "Explorer’s pack"
+      ],
+      "magicItems": []
+    },
+    {
+      "level": 2,
+      "proficiency": 2,
+      "scores": {
+        "STR": 14,
+        "DEX": 12,
+        "CON": 16,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 10
+      },
+      "hp": 22,
+      "hitDice": "2d10",
+      "features": [
+        "Fighting Style: Defense",
+        "Second Wind",
+        "Action Surge",
+        "Military Rank"
+      ],
+      "attacks": [
+        "Longsword",
+        "Javelin"
+      ],
+      "equipment": [
+        "Chain mail",
+        "Shield",
+        "Longsword",
+        "3× Javelin",
+        "Explorer’s pack"
+      ],
+      "magicItems": []
+    },
+    {
+      "level": 3,
+      "proficiency": 2,
+      "scores": {
+        "STR": 14,
+        "DEX": 12,
+        "CON": 16,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 10
+      },
+      "hp": 31,
+      "hitDice": "3d10",
+      "features": [
+        "Fighting Style: Defense",
+        "Second Wind",
+        "Action Surge",
+        "Improved Critical",
+        "Military Rank"
+      ],
+      "attacks": [
+        "Longsword",
+        "Javelin"
+      ],
+      "equipment": [
+        "Chain mail",
+        "Shield",
+        "Longsword",
+        "3× Javelin",
+        "Explorer’s pack"
+      ],
+      "magicItems": []
+    },
+    {
+      "level": 4,
+      "proficiency": 2,
+      "scores": {
+        "STR": 16,
+        "DEX": 12,
+        "CON": 16,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 10
+      },
+      "hp": 40,
+      "hitDice": "4d10",
+      "features": [
+        "Fighting Style: Defense",
+        "Second Wind",
+        "Action Surge",
+        "Improved Critical",
+        "Ability Score Improvement",
+        "Military Rank"
+      ],
+      "attacks": [
+        "Longsword",
+        "Javelin"
+      ],
+      "equipment": [
+        "Chain mail",
+        "Shield",
+        "Longsword",
+        "3× Javelin",
+        "Explorer’s pack"
+      ],
+      "magicItems": [],
+      "anchor": true
+    }
+  ],
+  "validation": {
+    "futureLevelItemsForbidden": true,
+    "editionMixingForbidden": true,
+    "anchorMustMatch": true
+  }
+}
