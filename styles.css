@@ -3204,3 +3204,43 @@ body.run { background: var(--bg) }
     display:none !important;
   }
 }
+
+/* GM spoken layer: table-ready description, dialogue, reactions, transitions. */
+.dm-spoken-layer {
+  margin:.85rem 0;
+  padding:.8rem .9rem;
+  border:1px solid var(--border);
+  border-left:4px solid var(--ember);
+  border-radius:8px;
+  background:color-mix(in oklab, var(--bg-subtle) 88%, var(--ember) 12%);
+}
+.dm-spoken-layer > .box-label {
+  margin:0 0 .45rem;
+  color:var(--ember);
+}
+.dm-npc + .dm-npc {
+  margin-top:.8rem;
+  padding-top:.75rem;
+  border-top:1px solid var(--border);
+}
+.dm-npc p {
+  margin:.25rem 0;
+}
+.dm-dialogue {
+  margin:.4rem 0;
+}
+.dm-dialogue > b {
+  display:block;
+  margin-bottom:.25rem;
+}
+.dm-dialogue blockquote {
+  margin:.22rem 0;
+  padding:.32rem .55rem;
+  border-left:3px solid var(--ember);
+  background:var(--panel);
+  font-size:.96rem;
+  line-height:1.35;
+}
+.dm-transition {
+  border-left-color:#8c6a32;
+}
