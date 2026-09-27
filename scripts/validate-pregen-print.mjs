@@ -38,6 +38,9 @@ for (const required of [
   "Conditions / Concentration / Combat Notes",
   "quickTurn(pc)",
   "spellRole(spell)",
+  "function isFeatureHeavy(pc)",
+  "pr-roleplay-compact",
+  "pr-feature-heavy",
   "Damage","Control","Healing","Defense","Utility"
 ]) {
   if (!sheets.includes(required)) errors.push("sheets.html missing " + required);
@@ -75,7 +78,6 @@ for (const required of [
   "grid-template-areas:",
   "pr-roleplay-compact",
   "pr-feature-heavy",
-  "function isFeatureHeavy(pc)",
   "grid-template-rows:1fr 1fr",
   "grid-template-columns:1fr 1fr",
   "height:33.333%",
