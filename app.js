@@ -565,6 +565,7 @@ function dmBoxHtml(scene, bits) {
         return '<div class="dm-npc">' +
           '<p><b>' + escapeHtml(npc.name) + '.</b> ' + escapeHtml(npc.description || npc.role || '') + '</p>' +
           (npc.role ? '<p><b>Role.</b> ' + escapeHtml(npc.role) + '</p>' : '') +
+          (npc.questFunction ? '<p><b>Function.</b> ' + escapeHtml(npc.questFunction) + '</p>' : '') +
           (npc.voiceCues?.length ? '<p><b>Voice.</b> ' + escapeHtml(npc.voiceCues.join('; ')) + '</p>' : '') +
           (wants.length ? '<p><b>Wants now.</b> ' + escapeHtml(wants.join('; ')) + '</p>' : '') +
           (dialogue.length ? '<div class="dm-dialogue"><b>Say:</b>' + dialogue.map(line =>
