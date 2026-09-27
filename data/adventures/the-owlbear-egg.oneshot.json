@@ -1619,7 +1619,8 @@
           "Use the imprint as the final emotional beat if the egg survives.",
           "Do not let Elmorrow steal the baby off-screen after the players earn this ending.",
           "The baby is a responsibility, not a combat reward."
-        ]
+        ],
+        "intent": "Find warmth, food, and the person it has bonded to; avoid serious fighting."
       },
       "image": "assets/cards/owlbear/baby-owlbear.svg",
       "imageAlt": "Newly hatched baby owlbear with oversized paws, soft brown feathers, and bright yellow eyes.",
@@ -1647,7 +1648,8 @@
           "He is starving, not evil. He prioritizes visible food over creatures whenever possible.",
           "If he dies, immediately trigger the mother’s distant scream.",
           "Never turn the sick carcass into a food reward; that undercuts the dilemma."
-        ]
+        ],
+        "intent": "Reach food and the stolen egg. He attacks obstacles because starvation and fever have overwhelmed caution."
       },
       "image": "assets/cards/owlbear/father-owlbear.svg",
       "imageAlt": "Gaunt feverish adult male owlbear with ragged feathers, visible ribs, and foam at the beak.",
@@ -1675,7 +1677,8 @@
           "Her behavior follows what the party actually did; never force a fight after a genuine peaceful return.",
           "The keep ending must still account for her; she is searching for her surviving offspring.",
           "If the father died, grief keeps her hostile. Evacuation is always a legal alternative to fighting."
-        ]
+        ],
+        "intent": "Recover her egg or hatchling first. Threaten, drive off, or destroy anything that keeps her from it."
       },
       "image": "assets/cards/owlbear/mother-owlbear.svg",
       "imageAlt": "Enormous scarred mother owlbear on a dark forest ridge, nearly twice the father’s bulk.",
