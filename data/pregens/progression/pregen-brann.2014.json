@@ -1,0 +1,23 @@
+{
+  "schema": "oneshot-forge-pregen-progression/0.1",
+  "characterId": "pregen-brann",
+  "ruleset": "5e-2014-srd",
+  "anchorLevel": 4,
+  "continuity": {
+    "name": "Brann Oakholt",
+    "className": "Fighter",
+    "subclass": "Champion",
+    "race": "Human",
+    "background": "Soldier",
+    "role": "Front line",
+    "fightingStyle": "Defense"
+  },
+  "magicItemHistory": [],
+  "levels": [
+    {"level":1,"proficiency":2,"hp":13,"hitDice":"1d10","scores":{"STR":14,"DEX":12,"CON":16,"INT":10,"WIS":12,"CHA":10},"features":["Fighting Style: Defense","Second Wind"],"equipment":["Chain mail","Shield","Longsword","3 Javelins","Explorer’s pack"],"magicItems":[]},
+    {"level":2,"proficiency":2,"hp":22,"hitDice":"2d10","scores":{"STR":14,"DEX":12,"CON":16,"INT":10,"WIS":12,"CHA":10},"features":["Fighting Style: Defense","Second Wind","Action Surge"],"equipment":["Chain mail","Shield","Longsword","3 Javelins","Explorer’s pack"],"magicItems":[]},
+    {"level":3,"proficiency":2,"hp":31,"hitDice":"3d10","scores":{"STR":14,"DEX":12,"CON":16,"INT":10,"WIS":12,"CHA":10},"features":["Fighting Style: Defense","Second Wind","Action Surge","Improved Critical"],"equipment":["Chain mail","Shield","Longsword","3 Javelins","Explorer’s pack"],"magicItems":[]},
+    {"level":4,"proficiency":2,"hp":40,"hitDice":"4d10","scores":{"STR":16,"DEX":12,"CON":16,"INT":10,"WIS":12,"CHA":10},"decisions":[{"kind":"ASI","choice":"+2 STR"}],"features":["Fighting Style: Defense","Second Wind","Action Surge","Improved Critical","Ability Score Improvement"],"equipment":["Chain mail","Shield","Longsword","3 Javelins","Explorer’s pack"],"magicItems":[]},
+    {"level":5,"proficiency":3,"hp":49,"hitDice":"5d10","scores":{"STR":16,"DEX":12,"CON":16,"INT":10,"WIS":12,"CHA":10},"features":["Fighting Style: Defense","Second Wind","Action Surge","Improved Critical","Ability Score Improvement","Extra Attack"],"equipment":["Chain mail","Shield","Longsword","3 Javelins","Explorer’s pack"],"magicItems":[]}
+  ]
+}
