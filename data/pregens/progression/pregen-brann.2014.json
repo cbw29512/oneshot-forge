@@ -3,18 +3,171 @@
   "characterId": "pregen-brann",
   "ruleset": "5e-2014-srd",
   "anchorLevel": 4,
-  "identity": {"name":"Brann Oakholt","class":"Fighter","subclass":"Champion","race":"Human","background":"Soldier","role":"Front line"},
-  "fixed": {"DEX":12,"CON":16,"INT":10,"WIS":12,"CHA":10,"fightingStyle":"Defense"},
-  "equipmentHistory": [{"level":1,"event":"acquired","items":["Chain mail","Shield","Longsword","3 Javelins","Explorer's pack"]}],
+  "identity": {
+    "name": "Brann Oakholt",
+    "class": "Fighter",
+    "subclass": "Champion",
+    "race": "Human",
+    "background": "Soldier",
+    "role": "Front line"
+  },
+  "fixed": {
+    "DEX": 12,
+    "CON": 16,
+    "INT": 10,
+    "WIS": 12,
+    "CHA": 10,
+    "fightingStyle": "Defense"
+  },
+  "equipmentHistory": [
+    {
+      "level": 1,
+      "event": "acquired",
+      "items": [
+        "Chain mail",
+        "Shield",
+        "Longsword",
+        "3 Javelins",
+        "Explorer's pack"
+      ]
+    }
+  ],
   "magicItemHistory": [],
   "levels": [
-    {"level":1,"proficiency":2,"hp":13,"hitDice":"1d10","STR":14,"attacksPerAction":1,"gained":["Second Wind","Fighting Style: Defense"]},
-    {"level":2,"proficiency":2,"hp":22,"hitDice":"2d10","STR":14,"attacksPerAction":1,"gained":["Action Surge"]},
-    {"level":3,"proficiency":2,"hp":31,"hitDice":"3d10","STR":14,"attacksPerAction":1,"gained":["Champion","Improved Critical"]},
-    {"level":4,"proficiency":2,"hp":40,"hitDice":"4d10","STR":16,"attacksPerAction":1,"gained":["Ability Score Improvement: +2 STR"]},
-    {"level":5,"proficiency":3,"hp":49,"hitDice":"5d10","STR":16,"attacksPerAction":2,"gained":["Extra Attack"]},
-    {"level":6,"proficiency":3,"hp":58,"hitDice":"6d10","STR":18,"attacksPerAction":2,"gained":["Ability Score Improvement: +2 STR"]},
-    {"level":7,"proficiency":3,"hp":67,"hitDice":"7d10","STR":18,"attacksPerAction":2,"gained":["Remarkable Athlete"]},
-    {"level":8,"proficiency":3,"hp":76,"hitDice":"8d10","STR":20,"attacksPerAction":2,"gained":["Ability Score Improvement: +2 STR"]}
+    {
+      "level": 1,
+      "proficiency": 2,
+      "hp": 13,
+      "hitDice": "1d10",
+      "STR": 14,
+      "attacksPerAction": 1,
+      "gained": [
+        "Second Wind",
+        "Fighting Style: Defense"
+      ]
+    },
+    {
+      "level": 2,
+      "proficiency": 2,
+      "hp": 22,
+      "hitDice": "2d10",
+      "STR": 14,
+      "attacksPerAction": 1,
+      "gained": [
+        "Action Surge"
+      ]
+    },
+    {
+      "level": 3,
+      "proficiency": 2,
+      "hp": 31,
+      "hitDice": "3d10",
+      "STR": 14,
+      "attacksPerAction": 1,
+      "gained": [
+        "Champion",
+        "Improved Critical"
+      ]
+    },
+    {
+      "level": 4,
+      "proficiency": 2,
+      "hp": 40,
+      "hitDice": "4d10",
+      "STR": 16,
+      "attacksPerAction": 1,
+      "gained": [
+        "Ability Score Improvement: +2 STR"
+      ]
+    },
+    {
+      "level": 5,
+      "proficiency": 3,
+      "hp": 49,
+      "hitDice": "5d10",
+      "STR": 16,
+      "attacksPerAction": 2,
+      "gained": [
+        "Extra Attack"
+      ]
+    },
+    {
+      "level": 6,
+      "proficiency": 3,
+      "hp": 58,
+      "hitDice": "6d10",
+      "STR": 18,
+      "attacksPerAction": 2,
+      "gained": [
+        "Ability Score Improvement: +2 STR"
+      ]
+    },
+    {
+      "level": 7,
+      "proficiency": 3,
+      "hp": 67,
+      "hitDice": "7d10",
+      "STR": 18,
+      "attacksPerAction": 2,
+      "gained": [
+        "Remarkable Athlete"
+      ]
+    },
+    {
+      "level": 8,
+      "proficiency": 3,
+      "hp": 76,
+      "hitDice": "8d10",
+      "STR": 20,
+      "attacksPerAction": 2,
+      "gained": [
+        "Ability Score Improvement: +2 STR"
+      ]
+    },
+    {
+      "level": 9,
+      "proficiency": 4,
+      "hp": 85,
+      "hitDice": "9d10",
+      "STR": 20,
+      "attacksPerAction": 2,
+      "gained": [
+        "Indomitable (1 use)"
+      ]
+    },
+    {
+      "level": 10,
+      "proficiency": 4,
+      "hp": 94,
+      "hitDice": "10d10",
+      "STR": 20,
+      "attacksPerAction": 2,
+      "gained": [
+        "Additional Fighting Style: Dueling"
+      ]
+    },
+    {
+      "level": 11,
+      "proficiency": 4,
+      "hp": 103,
+      "hitDice": "11d10",
+      "STR": 20,
+      "attacksPerAction": 3,
+      "gained": [
+        "Extra Attack (2)"
+      ]
+    },
+    {
+      "level": 12,
+      "proficiency": 4,
+      "hp": 124,
+      "hitDice": "12d10",
+      "STR": 20,
+      "CON": 18,
+      "attacksPerAction": 3,
+      "gained": [
+        "Ability Score Improvement: +2 CON"
+      ]
+    }
   ]
 }
