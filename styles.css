@@ -3244,3 +3244,57 @@ body.run { background: var(--bg) }
 .dm-transition {
   border-left-color:#8c6a32;
 }
+
+/* Feature-heavy pregen protection: mechanics win space before personality prose. */
+@media print {
+  .pr-feature-heavy .pr-fixed-grid {
+    grid-template-areas:
+      "abilities tracker side"
+      "saves tracker side"
+      "skills attacks features"
+      "skills attacks features"
+      "skills actions features"
+      "skills resources features" !important;
+  }
+  .pr-feature-heavy .pr-zone-character {
+    display:none !important;
+  }
+  .pr-feature-heavy .pr-zone-features {
+    grid-area:features !important;
+    display:flex !important;
+    flex-direction:column !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+  }
+  .pr-feature-heavy .pr-zone-features .pr-features {
+    flex:1 1 auto !important;
+    min-height:0 !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-auto-rows:min-content !important;
+    align-content:start !important;
+    gap:0 !important;
+    overflow:hidden !important;
+  }
+  .pr-feature-heavy .pr-zone-features .pr-feature {
+    padding:.028in 0 .035in !important;
+    font-size:7.15pt !important;
+    line-height:1.13 !important;
+  }
+  .pr-feature-heavy .pr-zone-features .pr-feature b {
+    font-size:7.45pt !important;
+  }
+  .pr-roleplay-compact {
+    flex:0 0 auto !important;
+    margin-top:.035in !important;
+    padding-top:.035in !important;
+    border-top:.7pt solid #aaa !important;
+    font-size:6.25pt !important;
+    line-height:1.13 !important;
+  }
+  .pr-roleplay-compact > b {
+    color:#5c2e1a !important;
+    text-transform:uppercase !important;
+    letter-spacing:.03em !important;
+  }
+}

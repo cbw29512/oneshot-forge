@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20260926-print-controls1">
+  <link rel="stylesheet" href="styles.css?v=20260927-feature-fit1">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -236,7 +236,9 @@
             '<p><b>Flaw</b> ' + esc(pers.flaw || "—") + '</p>' +
           '</section>' +
 
-          '<section class="pr-zone pr-zone-features"><h3>Features & Traits</h3><div class="pr-features">' + printFeatureRows(pc) + '</div></section>' +
+          '<section class="pr-zone pr-zone-features"><h3>Features & Traits</h3><div class="pr-features">' + printFeatureRows(pc) + '</div>' +
+            (isFeatureHeavy(pc) ? compactRoleplay(pc) : '') +
+          '</section>' +
         '</div>' +
         '<div class="web-spells">' + spellBlock(pc) + '</div>' +
         '<pre class="beyond-check print-hide">' + esc(beyondList(pc)) + '</pre>' +
@@ -383,6 +385,23 @@
         '</div>' +
       '</article>';
     }
+    function featureWeight(pc) {
+      return (pc.featureList || []).reduce((sum, feature) =>
+        sum + String(feature.name || "").length + String(feature.text || "").length, 0);
+    }
+    function isFeatureHeavy(pc) {
+      return (pc.featureList || []).length >= 8 || featureWeight(pc) >= 950;
+    }
+    function compactRoleplay(pc) {
+      const p = pc.personality || {};
+      return '<div class="pr-roleplay-compact">' +
+        '<b>Roleplay</b> · ' +
+        '<span><strong>Trait:</strong> ' + esc(p.trait || "—") + '</span> · ' +
+        '<span><strong>Ideal:</strong> ' + esc(p.ideal || "—") + '</span> · ' +
+        '<span><strong>Bond:</strong> ' + esc(p.bond || "—") + '</span> · ' +
+        '<span><strong>Flaw:</strong> ' + esc(p.flaw || "—") + '</span>' +
+      '</div>';
+    }
     function printMainPage(pc) {
       const prof = pc.proficiencies || {};
       const pers = pc.personality || {};
@@ -391,7 +410,8 @@
         : '<div class="pr-port ph"></div>';
       const bonus = pc.bonusActions?.length ? compactList(pc.bonusActions) : '<div class="pr-line">No special bonus action.</div>';
       const reactions = pc.reactions?.length ? compactList(pc.reactions) : '<div class="pr-line">Opportunity Attack when triggered.</div>';
-      return '<article class="print-only pr-page pr-main-page pr-fixed-sheet" data-print-pc="' + esc(pc.id) + '">' +
+      const heavyClass = isFeatureHeavy(pc) ? " pr-feature-heavy" : "";
+      return '<article class="print-only pr-page pr-main-page pr-fixed-sheet' + heavyClass + '" data-print-pc="' + esc(pc.id) + '">' +
         '<header class="pr-head">' + img +
           '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
             '<h2>' + esc(pc.name) + '</h2>' +
