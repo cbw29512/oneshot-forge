@@ -80,5 +80,7 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Product pages now reuse the existing catalog gates; product-contract loading resolves from the script URL so nested pages load the root contract.
 - Added behavioral validation for preview, complete release gates, verified ownership, wrong-product ownership, failed requests, forged checkout returns, and HTTPS checkout navigation.
 - All 21 repository validation steps pass locally. Product prices and release flags are unchanged.
+- Browser checks pass at 1440, 390, and 320 pixels: catalog alignment, all three nested product pages, root-contract loading, optional support links, and no horizontal overflow.
+- GitHub Actions failed before any job steps started on this review branch; the connector returned no logs or error summary. The cause is unconfirmed, so CI remains a merge blocker.
 - Real paid sales remain blocked on adventure approval/freeze, a provider account, trusted verification, and protected paid delivery. See `docs/REVENUE_PATHS.md`.
 - Prepared for review only; no production publishing is authorized by this pass.
