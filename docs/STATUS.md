@@ -40,11 +40,10 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Curated authored adventures remain valid examples/products; the runner consumes the same normalized package regardless of origin.
 
 ## Next (in order)
-1. Compile ForgeBones into the normal Adventure Package schema so the new bones become authoritative for random adventures.
-2. Add per-field reroll + lock controls to Forge Lab.
-3. Expand compatibility-tagged scene pools.
-4. Repair/audit Night 3 before merging it.
-5. Checkout only after owner gives a payment account
+1. Add per-field reroll + lock controls to Forge Lab.
+2. Expand compatibility-tagged scene pools.
+3. Repair/audit Night 3 before merging it.
+4. Checkout only after owner gives a payment account
 
 ## Do not
 - Violate `docs/FORGE_CONSTITUTION.md`
@@ -55,19 +54,9 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Call unwritten nights available
 - Invent payment
 - Write two curated Quiet Seals nights in one day
+- Touch Iron Pit
 
 ## Last session
+2026-09-29 — STATUS item 1: compile ForgeBones into the Adventure Package schema. Bones now emit requiredFacts/requiredClues (3-source, one physical). `forge-compiler.js` builds a pre-flesh package (empty readAloud). Forge Lab "Forge and open" now saves the compiled package, not the old generator pack. 50-seed compiler smoke is in CI. Left Night 3 and Iron Pit alone.
+
 2026-09-26 — Auditor pass on The Owlbear Egg (findings above) + confirmed it is a standalone, not a Quiet Seals night. Fixed a storefront oversight: The Well That Would Not Dry is authored and CI-clean but was missing from `data/products.json` and the homepage; added it as a live free-preview card (now three playable nights). No new night authored. The Watch still waits.
-2026-09-20 — Product pass, not Night 3: Well cover, maps actually render (`src` vs `asset`), print module honors `?id=`, dusk/moonrise on the stage card, sticky Next/Back, Night 1/2 switcher. Author still waits for tomorrow for the Watch.
-
-2026-09-26 — Began Forge v2 foundation: deterministic ForgeBones schema/generator, explicit AI flesh immutability contract, 250-seed smoke coverage, and a Forge Lab bones preview / AI brief.
-
-2026-09-26 — Added locked `docs/FORGE_CONSTITUTION.md` as the highest-priority project contract. Separated curated cadence from Forge Farm batch production and registered The Wishing Cake as Reference #1 for abstract craft lessons only.
-
-2026-09-26 — Owlbear tonight polish: added a visible dawn/hatching clock, made the return ending depend on the father's fate, synchronized the mother card, and added actionable pacing cuts without removing core consequences.
-
-## Locked standards — 2026-09-26
-
-- The clean-print fixed Letter pregen format is now canonical: see `docs/PREGEN_PRINT_STANDARD.md`.
-- Scene narration, location description, NPC voice, monster behavior, and printable cards are governed by `docs/PRESENTATION_STANDARD.md`.
-- Current polish target: bring The Owlbear Egg through the presentation gate without changing its approved consequence structure.
