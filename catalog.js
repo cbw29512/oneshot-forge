@@ -2,6 +2,15 @@
   "use strict";
 
   const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+  let contractUrl;
+  try {
+    // Resolve from this script, so nested adventure pages use the same catalog.
+    // Capture currentScript before asynchronous work makes it unavailable.
+    contractUrl = new URL("data/products.json", document.currentScript?.src || window.location.href);
+  } catch (error) {
+    console.error("One-Shot Forge could not resolve its product contract", error);
+    return;
+  }
 
   function commerceFor(product) {
     return product.commerce || {};
@@ -94,7 +103,7 @@
 
   async function hydrateCatalog() {
     try {
-      const response = await fetch("data/products.json", { cache: "no-store" });
+      const response = await fetch(contractUrl.href, { cache: "no-store" });
       if (!response.ok) throw new Error(`product contract HTTP ${response.status}`);
       const contract = await response.json();
       if (!Array.isArray(contract.products)) throw new Error("product contract has no products array");
