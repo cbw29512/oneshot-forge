@@ -17,7 +17,7 @@
     <section class="land-section" style="border-top:0">
       <p class="eyebrow">Not the product</p>
       <h1>Forge Lab</h1>
-      <p class="lede short">This generates a random structural one-shot. It is a toy. The catalog is authored nights. If you forge something here it opens in the runner as a saved pack in this browser.</p>
+      <p class="lede short">This compiles deterministic ForgeBones into a pre-flesh Adventure Package. Read-aloud stays empty until AI flesh. The catalog is still authored nights.</p>
       <div class="forge-controls" style="max-width:28rem">
         <label for="forge-level">Party level</label>
         <select id="forge-level"><option>1</option><option>2</option><option>3</option><option selected>4</option><option>5</option></select>
@@ -41,31 +41,32 @@
       </section>
     </section>
   </main>
-  <script src="forge-bones.js?v=20260926a"></script>
+  <script src="forge-bones.js?v=20260929c"></script>
+  <script src="forge-compiler.js?v=20260929c"></script>
   <script src="forge-flesh.js?v=20260926a"></script>
-  <script src="generator.js?v=20260920p"></script>
   <script>
     function currentForgeOptions() {
       return {
-        level: Number(document.getElementById("forge-level").value),
+        partyLevel: Number(document.getElementById("forge-level").value),
         partySize: Number(document.getElementById("forge-party").value),
-        durationHours: Number(document.getElementById("forge-duration").value),
-        tone: document.getElementById("forge-tone").value,
         seed: document.getElementById("forge-seed").value.trim() || "FORGE-PREVIEW"
       };
     }
 
     function renderBonesPreview() {
       try {
-        const bones = globalThis.ForgeBones.generateBones(currentForgeOptions());
+        const options = currentForgeOptions();
+        const bones = globalThis.ForgeBones.generateBones({seed: options.seed});
         const panel = document.getElementById("bones-panel");
         const summary = document.getElementById("bones-summary");
+        const clue = bones.requiredClues[0];
         summary.innerHTML = [
           ["Preview", bones.preview.origin + " → " + bones.preview.destination],
           ["Quest", bones.hook.objective],
           ["Quest giver", bones.questGiver.role + " — wants to " + bones.questGiver.motive],
           ["Red herring", bones.twist.apparentTruth],
           ["Truth", bones.twist.actualTruth],
+          ["Required clue sources", clue.sources.map(s => s.kind).join(", ")],
           ["Trap / puzzle", bones.obstacle.kind + ": " + bones.obstacle.mechanic],
           ["Travel", bones.travel.environment + " — " + bones.travel.pressure],
           ["Finale", bones.finale.kind + ": " + bones.finale.subject],
@@ -98,19 +99,22 @@
     });
 
     document.getElementById("forge-go").addEventListener("click", () => {
-      const gen = globalThis.OneShotGenerator;
-      if (!gen) return alert("Generator missing.");
-      const seed = document.getElementById("forge-seed").value.trim() || gen.newSeed();
-      const pkg = gen.generate({
-        level: Number(document.getElementById("forge-level").value),
-        partySize: Number(document.getElementById("forge-party").value),
-        durationHours: Number(document.getElementById("forge-duration").value),
-        tone: document.getElementById("forge-tone").value,
-        seed
-      });
-      localStorage.setItem("oneshot-forge:package:" + pkg.metadata.id, JSON.stringify(pkg));
-      localStorage.setItem("oneshot-forge:last-adventure", pkg.metadata.id);
-      location.href = "run.html";
+      try {
+        if (!globalThis.ForgeBones || !globalThis.ForgeCompiler) return alert("Forge compiler missing.");
+        const options = currentForgeOptions();
+        const seed = document.getElementById("forge-seed").value.trim() || ("FORGE-" + Date.now().toString(36).toUpperCase());
+        const bones = globalThis.ForgeBones.generateBones({seed});
+        const pkg = globalThis.ForgeCompiler.compileBones(bones, {
+          partyLevel: options.partyLevel,
+          partySize: options.partySize
+        });
+        localStorage.setItem("oneshot-forge:package:" + pkg.metadata.id, JSON.stringify(pkg));
+        localStorage.setItem("oneshot-forge:last-adventure", pkg.metadata.id);
+        location.href = "run.html";
+      } catch (error) {
+        console.error("Forge compile-and-open failed.", error);
+        alert("Could not compile ForgeBones into a package.");
+      }
     });
   </script>
 </body>
