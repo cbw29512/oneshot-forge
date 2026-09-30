@@ -107,6 +107,16 @@
         hook:{type:quest[0],objective:quest[1],target:destination},
         questGiver:{role:giverRole,motive:giverMotive},
         twist:{apparentTruth:twist[0],actualTruth:twist[1]},
+        requiredFacts:[
+          {id:"fact-actual-truth",text:twist[1]}
+        ],
+        requiredClues:[
+          {factId:"fact-actual-truth",sources:[
+            {kind:"testimony",delivery:"A witness or involved actor can describe evidence consistent with the actual truth."},
+            {kind:"record",delivery:"An independent note, ledger, mark, or record corroborates the actual truth."},
+            {kind:"physical",delivery:"Physical evidence at the main location independently demonstrates the actual truth."}
+          ]}
+        ],
         obstacle:{kind:obstacle[0],mechanic:obstacle[1],dc:obstacle[2],failForward:obstacle[3]},
         travel:{environment:travel[0],pressure:travel[1]},
         locationProgression:[
