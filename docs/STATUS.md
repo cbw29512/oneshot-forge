@@ -71,3 +71,14 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - The clean-print fixed Letter pregen format is now canonical: see `docs/PREGEN_PRINT_STANDARD.md`.
 - Scene narration, location description, NPC voice, monster behavior, and printable cards are governed by `docs/PRESENTATION_STANDARD.md`.
 - Current polish target: bring The Owlbear Egg through the presentation gate without changing its approved consequence structure.
+
+## Revenue pass — 2026-09-29
+
+- Clarified homepage package contents, preview availability, and search/share metadata.
+- Added the owner's optional support URL to the homepage and all product pages.
+- Balanced catalog cards using a small storefront-only stylesheet.
+- Product pages now reuse the existing catalog gates; product-contract loading resolves from the script URL so nested pages load the root contract.
+- Added behavioral validation for preview, complete release gates, verified ownership, wrong-product ownership, failed requests, forged checkout returns, and HTTPS checkout navigation.
+- All 21 repository validation steps pass locally. Product prices and release flags are unchanged.
+- Real paid sales remain blocked on adventure approval/freeze, a provider account, trusted verification, and protected paid delivery. See `docs/REVENUE_PATHS.md`.
+- Prepared for review only; no production publishing is authorized by this pass.
