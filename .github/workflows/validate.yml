@@ -22,6 +22,8 @@ jobs:
           node --check cards.js
           node --check generator.js
           node --check forge-bones.js
+          node --check forge-compiler.js
+          node --check forge-candidate.js
           node --check forge-flesh.js
           node --check module.js
           node --check quickrun.js
@@ -66,6 +68,8 @@ jobs:
         run: node scripts/smoke-generator.cjs
       - name: Validate Forge bones and AI boundary
         run: node scripts/smoke-forge-bones.cjs
+      - name: Smoke-test Forge compiler
+        run: node scripts/smoke-forge-compiler.mjs
       - name: Smoke-test product pages and links
         run: node scripts/smoke-site.mjs
       - name: Contrast token
