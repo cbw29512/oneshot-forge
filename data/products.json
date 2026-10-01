@@ -76,6 +76,31 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "whispers-of-the-oakhaven-hollow",
+      "title": "Whispers of the Oakhaven Hollow",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=whispers-of-the-oakhaven-hollow",
+      "productUrl": "adventures/whispers-of-the-oakhaven-hollow.html",
+      "level": 3,
+      "party": "4 players",
+      "playTime": "2–3 hours",
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
-}
+}\n
