@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="840" viewBox="0 0 840 840" role="img" aria-labelledby="title desc">
+<title id="title">Heart Tree Chamber battle map</title>
+<desc id="desc">A seventy by seventy foot circular grove on a five foot grid, with a central Heart Tree Core, four root lanes, an inner ring of Gloom-Lilies, and a southern entrance.</desc>
+<rect width="840" height="840" fill="#f4f0e6"/>
+<g stroke="#b8b1a5" stroke-width="1">
+<line x1="0" y1="0" x2="0" y2="840"/><line x1="60" y1="0" x2="60" y2="840"/><line x1="120" y1="0" x2="120" y2="840"/><line x1="180" y1="0" x2="180" y2="840"/><line x1="240" y1="0" x2="240" y2="840"/><line x1="300" y1="0" x2="300" y2="840"/><line x1="360" y1="0" x2="360" y2="840"/><line x1="420" y1="0" x2="420" y2="840"/><line x1="480" y1="0" x2="480" y2="840"/><line x1="540" y1="0" x2="540" y2="840"/><line x1="600" y1="0" x2="600" y2="840"/><line x1="660" y1="0" x2="660" y2="840"/><line x1="720" y1="0" x2="720" y2="840"/><line x1="780" y1="0" x2="780" y2="840"/><line x1="840" y1="0" x2="840" y2="840"/>
+<line x1="0" y1="0" x2="840" y2="0"/><line x1="0" y1="60" x2="840" y2="60"/><line x1="0" y1="120" x2="840" y2="120"/><line x1="0" y1="180" x2="840" y2="180"/><line x1="0" y1="240" x2="840" y2="240"/><line x1="0" y1="300" x2="840" y2="300"/><line x1="0" y1="360" x2="840" y2="360"/><line x1="0" y1="420" x2="840" y2="420"/><line x1="0" y1="480" x2="840" y2="480"/><line x1="0" y1="540" x2="840" y2="540"/><line x1="0" y1="600" x2="840" y2="600"/><line x1="0" y1="660" x2="840" y2="660"/><line x1="0" y1="720" x2="840" y2="720"/><line x1="0" y1="780" x2="840" y2="780"/><line x1="0" y1="840" x2="840" y2="840"/>
+</g>
+<circle cx="420" cy="420" r="365" fill="none" stroke="#2b3327" stroke-width="14"/>
+<circle cx="420" cy="420" r="120" fill="none" stroke="#6a665e" stroke-width="18"/>
+<circle cx="420" cy="420" r="58" fill="#d8d2c7" stroke="#222" stroke-width="6"/>
+<g stroke="#5a5146" stroke-width="28" stroke-linecap="round" opacity=".75">
+<line x1="420" y1="300" x2="420" y2="110"/>
+<line x1="420" y1="540" x2="420" y2="700"/>
+<line x1="300" y1="420" x2="115" y2="420"/>
+<line x1="540" y1="420" x2="725" y2="420"/>
+</g>
+<path d="M365 785 H475" stroke="#f4f0e6" stroke-width="28"/>
+<text x="365" y="413" font-family="sans-serif" font-size="20" fill="#111">HEART TREE</text>
+<text x="383" y="438" font-family="sans-serif" font-size="20" fill="#111">CORE</text>
+<text x="312" y="250" font-family="sans-serif" font-size="18" fill="#111">GLOOM-LILY RING</text>
+<text x="345" y="820" font-family="sans-serif" font-size="22" fill="#111">PARTY ENTRY</text>
+<text x="35" y="38" font-family="sans-serif" font-size="18" fill="#111">Root lanes = difficult terrain</text>
+</svg>
