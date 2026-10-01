@@ -30,12 +30,12 @@ jobs:
         run: |
           node scripts/validate-adventure.mjs data/adventures/the-lantern-below.oneshot.json
           node scripts/validate-adventure.mjs data/adventures/the-well-that-would-not-dry.oneshot.json
-          node scripts/validate-adventure.mjs data/adventures/the-owlbear-egg.oneshot.json
+          node scripts/validate-adventure.mjs data/adventures/the-owlbear-egg.oneshot.json\n          node scripts/validate-adventure.mjs data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json
       - name: Certify zero-prep stage cards
         run: |
           node scripts/validate-stage-cards.mjs data/adventures/the-lantern-below.oneshot.json
           node scripts/validate-stage-cards.mjs data/adventures/the-well-that-would-not-dry.oneshot.json
-          node scripts/validate-stage-cards.mjs data/adventures/the-owlbear-egg.oneshot.json
+          node scripts/validate-stage-cards.mjs data/adventures/the-owlbear-egg.oneshot.json\n          node scripts/validate-stage-cards.mjs data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json
       - name: Audit Lantern GM table readiness
         run: node scripts/validate-table-readiness.mjs data/adventures/the-lantern-below.oneshot.json
       - name: Audit Lantern clue delivery
@@ -44,6 +44,12 @@ jobs:
         run: node scripts/validate-table-readiness.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Audit Owlbear clue delivery
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-owlbear-egg.oneshot.json
+      - name: Audit Oakhaven table readiness
+        run: node scripts/validate-table-readiness.mjs data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json
+      - name: Audit Oakhaven clue delivery
+        run: node scripts/validate-clue-delivery.mjs data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json
+      - name: Audit Oakhaven spoken presentation
+        run: node scripts/validate-presentation.mjs data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json
       - name: Audit Owlbear spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Validate Owlbear printable cards
