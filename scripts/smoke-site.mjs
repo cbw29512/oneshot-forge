@@ -59,7 +59,8 @@ const lantern = read("adventures/the-lantern-below.html");
 if (!lantern.includes("Start adventure")) errors.push("adventure page missing Start adventure");
 for (const rel of ["about.html", "privacy.html", "contact.html", "forge.html", "cards.html", "cards.js", "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg", "data/adventures/the-lantern-below.oneshot.json", "data/adventures/the-well-that-would-not-dry.oneshot.json", "data/adventures/the-owlbear-egg.oneshot.json", "data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json", "adventures/the-owlbear-egg.html", "adventures/whispers-of-the-oakhaven-hollow.html", "assets/maps/oakhaven/bramble-guard-grid.svg", "assets/maps/oakhaven/heart-tree-grid.svg"]) read(rel);
 if (!index.includes("the-lantern-below")) errors.push("homepage missing active Lantern card");
-if (!index.includes("the-owlbear-egg")) errors.push("homepage missing Owlbear Egg preview card");\nif (!index.includes("whispers-of-the-oakhaven-hollow")) errors.push("homepage missing Oakhaven Module 02 preview card");
+if (!index.includes("the-owlbear-egg")) errors.push("homepage missing Owlbear Egg preview card");
+if (!index.includes("whispers-of-the-oakhaven-hollow")) errors.push("homepage missing Oakhaven Module 02 preview card");
 
 const hrefs = [...index.matchAll(/href="([^"]+)"/g)].map(m => m[1]);
 for (const href of hrefs) {
