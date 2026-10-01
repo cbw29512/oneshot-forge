@@ -3,7 +3,8 @@ const LAST_ADVENTURE_KEY = "oneshot-forge:last-adventure";
 const ADVENTURE_PACKS = {
   "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
   "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json",
-  "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json"
+  "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json",
+  "whispers-of-the-oakhaven-hollow": "data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json"
 };
 const DEFAULT_ADVENTURE = ADVENTURE_PACKS["the-lantern-below"];
 

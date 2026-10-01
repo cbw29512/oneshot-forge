@@ -1,7 +1,8 @@
 const ADVENTURE_PACKS = {
   "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
   "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json",
-  "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json"
+  "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json",
+  "whispers-of-the-oakhaven-hollow": "data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json"
 };
 const DEFAULT_ADVENTURE = ADVENTURE_PACKS["the-lantern-below"];
 const PACKAGE_PREFIX = "oneshot-forge:package:";
@@ -259,10 +260,19 @@ async function activateAdventure(pkg, options={}) {
 async function refreshRulesetPregens() {
   rulesetPregens = null;
   if (typeof getRuleset !== "function" || getRuleset() !== "2024") return;
+
+  // Never leak the shared level-4 pack into a differently leveled adventure.
+  // A non-level-4 adventure must explicitly provide its own 2024 pregen pack.
+  const pack = adventure?.pregenPack2024 ||
+    (adventure?.metadata?.partyLevel === 4 ? "data/pregens/quiet-seals-level-4-2024-srd.json" : null);
+  if (!pack) return;
+
   try {
-    const res = await fetch(adventure?.pregenPack2024 || "data/pregens/quiet-seals-level-4-2024-srd.json");
+    const res = await fetch(pack);
     if (res.ok) rulesetPregens = (await res.json()).characters || [];
-  } catch { /* keep 2014 embedded pregens */ }
+  } catch (error) {
+    console.error("One-Shot Forge could not load the selected 2024 pregen pack", error);
+  }
 }
 
 function syncForgeControls() {

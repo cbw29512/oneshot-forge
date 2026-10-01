@@ -1,0 +1,1193 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "whispers-of-the-oakhaven-hollow",
+    "title": "Whispers of the Oakhaven Hollow",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 3,
+    "partySize": 4,
+    "partySizeRange": "4 players",
+    "durationMinutes": 150,
+    "tone": [
+      "dark woodland",
+      "corruption mystery",
+      "heroic cleansing"
+    ]
+  },
+  "series": {
+    "title": "Oakhaven Adventures",
+    "episode": 2,
+    "hub": "Oakhaven",
+    "giver": "Old Man Kaelen",
+    "nextTitle": "Beneath the Eastern Watchtower"
+  },
+  "setup": {
+    "pitch": "Oakhaven's apothecary sends the party into the Whispering Hollow for Gloom-Lily Nectar, but the ancient weaving grove is choking beneath a shadow blight and its druid guardian, Malakor, is bound to the corruption.",
+    "openingLocation": "Kaelen's Apothecary on Oakhaven's eastern lane",
+    "gmSummary": "Kaelen needs four vials of Gloom-Lily Nectar before the Hollow's shroud spoils the crop. The party crosses a razor-vine path guarded by blights and a corrupted bear, opens a sunken druidic shrine by restoring the cycle Decay → Balance → Growth, then enters the Heart Chamber. The Heart Tree Core shields Malakor until fire or radiant energy breaks it. The party can kill Malakor, or cleanse him through three successful cleansing actions before two failures once the core is exposed. The Shroud has three visible stages; rushing or repeated mistakes can make the grove a lasting dead zone even if Malakor falls.",
+    "background": "The Whispering Hollow is an old druidic weaving grove where roots, moonlight, and seasonal magic were once braided into healing plants. Weeks ago Malakor found a black splinter embedded in the Heart Tree and tried to draw the sickness into himself. The corruption instead used him as an anchor. Kaelen knows only that his Gloom-Lilies have stopped arriving and that the Hollow's birds no longer cross the eastern ridge.",
+    "pregenTieIns": [
+      "Fighter: hold narrow lanes, protect the cleansing attempt, and break the bear's thorn binding.",
+      "Rogue: cross razor-vines safely, inspect shrine mechanisms, and recover hidden offerings.",
+      "Cleric: radiant damage can expose the Heart Tree Core and Religion can drive the cleansing ritual.",
+      "Wizard or Sorcerer: area control helps against clustered blights; Arcana can operate the Moonstone Pillars."
+    ]
+  },
+  "quest": {
+    "type": "retrieve / cleanse",
+    "objective": "Recover four usable vials of Gloom-Lily Nectar and stop the shadow corruption spreading from the Heart Tree.",
+    "stakes": "If the shroud reaches its third stage before the corruption is broken, the Hollow becomes a lasting dead zone and most of the Gloom-Lilies spoil.",
+    "deadline": "SHROUD 0–3: mark one surge after the Bramble Guard; mark one for a failed/forced shrine solution; mark one if the party takes a long delay. At 3, the grove cannot fully recover tonight.",
+    "successConditions": [
+      "The Heart Tree Core is destroyed or purified.",
+      "Malakor is defeated or cleansed.",
+      "At least one usable Gloom-Lily harvest is recovered."
+    ],
+    "failureConditions": [
+      "The party leaves the Heart Tree corruption active.",
+      "The Shroud reaches 3 before the corruption is broken, causing the Hollow to remain a dead zone even after Malakor is stopped."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-malakors-bind",
+        "text": "Malakor did not create the blight deliberately; he tried to draw a black splinter's corruption out of the Heart Tree and became its living anchor."
+      },
+      {
+        "id": "fact-core-ward",
+        "text": "The Heart Tree Core is the source of Malakor's ward and can be harmed only by fire or radiant energy until exposed and broken."
+      },
+      {
+        "id": "fact-cleanse-possible",
+        "text": "Malakor can be cleansed alive once the Core is exposed; killing him is not required to end the corruption."
+      },
+      {
+        "id": "fact-shroud",
+        "text": "The Hollow's corruption is advancing in three visible Shroud stages. Reaching stage 3 makes the dead zone persist even if the immediate threat is stopped."
+      },
+      {
+        "id": "fact-watchtower-map",
+        "text": "Malakor carried a marked map pointing to caverns beneath Oakhaven's eastern watchtower."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-black-splinter",
+        "text": "The black splinter in the Heart Tree was placed from below through an old root fissure connected to deeper caverns.",
+        "revealCondition": "Inspect the exposed Heart Tree wound after the Core breaks or study Malakor's marked map."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-kaelen",
+      "name": "Old Man Kaelen",
+      "role": "Oakhaven apothecary and quest giver",
+      "personality": [
+        "dry",
+        "precise",
+        "worried beneath the grumbling"
+      ],
+      "voiceCues": [
+        "counts ingredients on his fingers",
+        "uses plant names instead of vague descriptions"
+      ],
+      "wants": [
+        "Four clean vials of Gloom-Lily Nectar",
+        "The Hollow saved if that can be done without losing the harvest"
+      ],
+      "fears": [
+        "The Gloom-Lily bed dying",
+        "Sending adventurers into a corruption he does not understand"
+      ],
+      "knows": [
+        "The lilies grow near the Heart Tree",
+        "The eastern birds stopped entering the Hollow three days ago",
+        "Malakor was once the Hollow's caretaker"
+      ],
+      "believes": [
+        "Malakor may be in trouble rather than simply hostile"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "What the black splinter is",
+        "Whether Malakor can still be cleansed"
+      ],
+      "revealRules": [
+        {
+          "fact": "Malakor was the Hollow's caretaker.",
+          "when": "The party asks who normally tends the grove."
+        },
+        {
+          "fact": "The nectar must be gathered after the corruption is broken.",
+          "when": "The party asks how to harvest safely."
+        }
+      ],
+      "questFunction": "Gives the objective, the harvesting jars, and the first reason not to assume Malakor is willingly evil.",
+      "description": "A stooped apothecary with silver hair tied in twine, stained fingertips, and four stoppered green-glass vials already lined up on the counter.",
+      "tableDialogue": [
+        "“Four vials. Clean nectar, not whatever black syrup the Hollow is making now.”",
+        "“Malakor tended that grove longer than I've tended this shop. If he's the problem, find out why before you make him the solution.”",
+        "“Bring me the nectar, and bring yourselves back with it.”"
+      ],
+      "reactions": {
+        "agreement": "Hands over four empty vials, a pruning knife, and a charcoal sketch of the Heart Tree trail.",
+        "refusal": "Offers half the bounty up front only if they will at least inspect the grove and report what changed.",
+        "accusation": "Admits he is withholding no cure; he genuinely does not know what poisoned the Hollow.",
+        "danger": "Bars his shutters, moves customers to the cellar, and tells the party which eastern lane stays clear."
+      }
+    },
+    {
+      "id": "npc-malakor",
+      "name": "Malakor the Blight-Touched",
+      "role": "corrupted druid guardian and finale antagonist",
+      "personality": [
+        "pain-wracked",
+        "protective",
+        "alternately lucid and hostile"
+      ],
+      "voiceCues": [
+        "speaks through clenched teeth when lucid",
+        "the corruption repeats the last word of his sentences in a second whisper"
+      ],
+      "wants": [
+        "Keep outsiders away from the Heart Tree",
+        "In lucid moments, sever himself from the corruption before it spreads"
+      ],
+      "fears": [
+        "The black splinter reaching Oakhaven's roots",
+        "Killing someone while under the shroud's control"
+      ],
+      "knows": [
+        "He tried to absorb the blight",
+        "Fire and radiant force tear open the shadow ward",
+        "The old shrine can focus cleansing energy"
+      ],
+      "believes": [
+        "If he dies before the Core breaks, the corruption may simply choose another anchor"
+      ],
+      "secrets": [
+        "A root fissure beneath the Heart Tree leads toward the eastern watchtower caverns"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Who placed the black splinter below the grove"
+      ],
+      "revealRules": [
+        {
+          "fact": "He can still be cleansed.",
+          "when": "The Core is exposed and a character reaches him with a successful cleansing action or direct appeal."
+        }
+      ],
+      "questFunction": "Provides a dangerous but optional-to-kill finale and the link to Module 03.",
+      "description": "A once-green-robed druid wrapped in black root filaments, with one hand fused to a crooked staff and pale light leaking through cracks in his bark-darkened skin.",
+      "tableDialogue": [
+        "“Stay back. It hears through the roots.”",
+        "“Burn the heart's wound—not the tree. Not the tree.”",
+        "“Below us. Something pushed the splinter up from below.”"
+      ],
+      "reactions": {
+        "agreement": "If the party begins a cleansing attempt, Malakor spends his lucid moments fighting the roots instead of the characters.",
+        "refusal": "The corruption takes control and he orders the grove to drive them out.",
+        "accusation": "He admits he touched the splinter willingly but insists he was trying to contain it.",
+        "danger": "He protects the Heart Tree first, even while the corruption uses him against the party."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-kaelen-shop",
+      "name": "Kaelen's Apothecary",
+      "description": "A narrow timber shop crowded with drying herbs, copper kettles, and glass jars; bitter lavender hangs in the warm air while rain ticks against the eastern shutters.",
+      "connections": [
+        "loc-bramble-path"
+      ]
+    },
+    {
+      "id": "loc-bramble-path",
+      "name": "The Bramble Guard",
+      "description": "A sixty-foot woodland lane twists between root walls and blackthorn thickets. Necrotic mist hugs the ground, needle clusters twitch overhead, and every exposed vine seems sharpened.",
+      "connections": [
+        "loc-kaelen-shop",
+        "loc-sunken-shrine"
+      ]
+    },
+    {
+      "id": "loc-sunken-shrine",
+      "name": "The Sunken Shrine",
+      "description": "Three moonstone pillars rise from a moss-filled depression beneath a broken stone canopy. Thin shafts of sunlight strike movable mirrors while cold water circles the floor.",
+      "connections": [
+        "loc-bramble-path",
+        "loc-heart-chamber"
+      ]
+    },
+    {
+      "id": "loc-heart-chamber",
+      "name": "The Heart Tree Chamber",
+      "description": "A vast hollow oak fills a circular grove seventy feet across. Black roots pulse beneath silver bark, Gloom-Lilies ring a split trunk, and Malakor stands inside a breathing veil of shadow.",
+      "connections": [
+        "loc-sunken-shrine"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-kaelen",
+      "title": "Four Empty Vials",
+      "purpose": "Give the objective, establish Malakor as a former caretaker, and put the Shroud clock on the table before the party leaves town.",
+      "locationId": "loc-kaelen-shop",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "Hook",
+      "readAloud": "Kaelen's shop smells of crushed mint, hot copper, and something medicinal enough to sting your eyes. Four empty green-glass vials stand in a perfect row beside an old map of Oakhaven's eastern woods. Kaelen taps the marked hollow with one stained fingernail. “The Gloom-Lilies are still in there. The people who tend them are not coming out.”",
+      "gmNotes": [
+        "Kaelen offers 150 gp total for four clean vials of Gloom-Lily Nectar.",
+        "He tells the party Malakor was the Hollow's caretaker; he does not know Malakor is corrupted.",
+        "Put three boxes labeled SHROUD on the table. The adventure starts at 0/3.",
+        "The nectar is safe to harvest only after the Heart Tree corruption is broken."
+      ],
+      "runSteps": [
+        {
+          "title": "Give the job",
+          "text": "State the 150 gp bounty, four-vial target, and 2–3 hour urgency."
+        },
+        {
+          "title": "Humanize Malakor",
+          "text": "If asked, Kaelen says Malakor protected the grove for years and may be a victim."
+        },
+        {
+          "title": "Show the clock",
+          "text": "Place three visible Shroud boxes in front of the players before they leave."
+        }
+      ],
+      "advanceWhen": "The party accepts the vials and heads into the Whispering Hollow.",
+      "npcIds": [
+        "npc-kaelen"
+      ],
+      "clueIds": [
+        "clue-malakor-victim"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-bramble"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-bramble",
+          "label": "Enter the Hollow",
+          "description": "Follow Kaelen's charcoal trail toward the ancient grove."
+        }
+      ]
+    },
+    {
+      "id": "scene-bramble",
+      "title": "The Bramble Guard",
+      "purpose": "Make the corrupted ecosystem visible, introduce the movement hazard, and let the party rescue or fight a thorn-bound bear while pushing toward the shrine.",
+      "locationId": "loc-bramble-path",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Guardian",
+      "readAloud": "The path narrows until the trees become walls. Razor vines drag across stone like fingernails, and gray mist curls around your boots without moving in the wind. Three twig-thin shapes unfold from the brambles as a larger bear lurches into view, its shoulders cinched by a collar of living black thorns. Above them, a needle-limbed blight draws back a spray of barbed spines.",
+      "gmNotes": [
+        "Mark SHROUD 1/3 when this encounter ends, whether the party fights, bypasses, or frees the bear.",
+        "Razor-Thorns: moving through thorn squares without taking the Cautious Passage action triggers DC 12 Dexterity save; failure deals 1d6 piercing.",
+        "Cautious Passage: spend an Action to move up to half speed through razor-vine terrain without making the hazard save.",
+        "The bear is bound, not naturally hostile. A character adjacent to it can use an Action and DC 12 Strength (Athletics), Dexterity (Sleight of Hand), or Wisdom (Animal Handling) to break/loosen the thorn collar; success removes the bear from the fight.",
+        "The party only needs to reach the shrine trail. Killing every blight is not required."
+      ],
+      "runSteps": [
+        {
+          "title": "Place the lane",
+          "text": "Use the 80 × 40 ft. battle map. Brambles line both sides; the shrine trail is 60 ft. ahead."
+        },
+        {
+          "title": "Run the job",
+          "text": "The goal is to reach the shrine or neutralize the corrupted guard. Offer the bear-collar solution when someone examines it."
+        },
+        {
+          "title": "Advance the Shroud",
+          "text": "When the party clears the scene, mark SHROUD 1/3 and describe the fog rising to knee height."
+        }
+      ],
+      "advanceWhen": "The party reaches the stone steps descending to the Sunken Shrine.",
+      "npcIds": [],
+      "clueIds": [
+        "clue-malakor-victim",
+        "clue-core-ward"
+      ],
+      "encounterIds": [
+        "enc-bramble-guard"
+      ],
+      "exits": [
+        "scene-shrine"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-shrine",
+          "label": "Descend to the shrine",
+          "description": "Follow the moonstone steps beneath the bramble canopy."
+        }
+      ]
+    },
+    {
+      "id": "scene-shrine",
+      "title": "Decay, Balance, Growth",
+      "purpose": "Give the party the clean route into the Heart Chamber, teach that cleansing is possible, and reward preparation with Moonstone Resonance.",
+      "locationId": "loc-sunken-shrine",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Puzzle",
+      "readAloud": "The path drops into a round stone basin where three moonstone pillars stand beneath a shattered roof. Their glyphs show a leaf unfurling, a leaf half green and half black, and a bare branch returning to soil. Three tarnished mirrors can be turned toward narrow shafts of sunlight. On the sealed door beyond them, roots have grown around one sentence: WHAT DIES FEEDS WHAT LIVES.",
+      "gmNotes": [
+        "The intended mirror order is Decay → Balance → Growth.",
+        "A character can identify the cycle with DC 12 Intelligence (Nature or Arcana). The inscription itself means failure never blocks the answer.",
+        "Instead of the mirrors, a character can channel magical/divine power with DC 13 Intelligence (Arcana) or Wisdom (Religion) to open the seal.",
+        "A wrong alignment triggers Moonstone Backlash. After one wrong attempt, mirror-scratches visibly show the correct sequence; the party can continue.",
+        "Solving without a backlash grants Moonstone Resonance: once in the finale, any one character can use an Action to deal 1d8 radiant damage directly to the Heart Tree Core.",
+        "The opened alcove contains a Potion of Healing, a Wand of Secrets with 3 charges, and 25 gp in ancient silver."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the three glyphs",
+          "text": "Name them Growth, Balance, and Decay. Let players turn the mirrors in any order."
+        },
+        {
+          "title": "Fail forward",
+          "text": "On a wrong order, resolve the backlash, mark one Shroud surge, then reveal the mirror-wear that makes Decay → Balance → Growth clear."
+        },
+        {
+          "title": "Pay preparation",
+          "text": "A clean solution grants Moonstone Resonance and opens the offering alcove before the Heart Chamber."
+        }
+      ],
+      "advanceWhen": "The Heart Chamber door opens and the party chooses to enter.",
+      "npcIds": [],
+      "clueIds": [
+        "clue-core-ward",
+        "clue-cleanse-possible"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-heart"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-heart",
+          "label": "Enter the Heart Chamber",
+          "description": "Carry the shrine's lesson into the corrupted grove."
+        }
+      ]
+    },
+    {
+      "id": "scene-heart",
+      "title": "The Heart Tree",
+      "purpose": "Break the Core's protection and choose whether Malakor is killed or cleansed before the Shroud permanently scars the grove.",
+      "locationId": "loc-heart-chamber",
+      "pacingClass": "core",
+      "estimatedMinutes": 50,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Finale",
+      "readAloud": "The Heart Tree fills the clearing like a cathedral column split by lightning. Silver bark peels back from a pulsing black wound, and a knot of shadow the size of a shield beats inside it. Malakor turns toward you with roots braided through his arms. His first word is his own voice; the echo beneath it is not. “Stay back,” he gasps. “It hears through the roots.”",
+      "gmNotes": [
+        "Heart Tree Core: AC 12, 20 HP. Only fire or radiant damage harms it. While it has HP, Malakor is shielded and cannot be reduced below 1 HP.",
+        "If the party earned Moonstone Resonance, one character can spend one Action once to deal 1d8 radiant damage directly to the Core.",
+        "At initiative count 20, roots burst from the ground. Creatures on the ground make DC 13 Strength saves or become Restrained. A restrained creature or adjacent ally can use an Action and DC 13 Strength (Athletics) to free it.",
+        "Once the Core reaches 0 HP, the party may finish Malakor by combat or cleanse him. Cleansing requires 3 successes before 2 failures; each attempt is an Action using DC 13 Intelligence (Arcana or Nature), Wisdom (Medicine or Religion), or Charisma (Persuasion) if the character directly appeals to Malakor.",
+        "On a successful cleansing action Malakor loses his next hostile action as he fights the corruption. Three successes ends the encounter with him alive.",
+        "If SHROUD reaches 3 before the Core breaks, the finale is still winnable, but the grove remains a dead zone and only two Gloom-Lily vials survive.",
+        "Malakor's thematic spell list is Entangle, Witch Bolt, and Shillelagh. If using full spell text, use the selected ruleset's SRD wording; the quick-run actions are complete without opening another book."
+      ],
+      "runSteps": [
+        {
+          "title": "Expose the job",
+          "text": "Tell the table immediately that attacks slide off Malakor while the black Core is beating; fire or radiant energy can hurt the Core."
+        },
+        {
+          "title": "Run the roots",
+          "text": "At initiative 20 each round, resolve the DC 13 root burst and keep the battlefield moving."
+        },
+        {
+          "title": "Offer the cleanse",
+          "text": "When the Core breaks, state that Malakor is lucid enough to save. Track 3 cleansing successes before 2 failures if the party chooses that route."
+        },
+        {
+          "title": "Choose the consequence",
+          "text": "Use the matching resolution card: Cleansed, Felled, or Shrouded if the clock reached 3 before the Core broke."
+        }
+      ],
+      "advanceWhen": "The Core is broken and Malakor is cleansed or defeated; choose the resolution that matches the Shroud state and Malakor's fate.",
+      "npcIds": [
+        "npc-malakor"
+      ],
+      "clueIds": [
+        "clue-malakor-victim",
+        "clue-core-ward",
+        "clue-cleanse-possible",
+        "clue-watchtower"
+      ],
+      "encounterIds": [
+        "enc-malakor"
+      ],
+      "exits": [
+        "scene-resolution-cleansed",
+        "scene-resolution-felled",
+        "scene-resolution-shrouded"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-cleansed",
+          "label": "Malakor cleansed",
+          "description": "The Core broke before SHROUD 3 and the party completed the cleansing ritual."
+        },
+        {
+          "target": "scene-resolution-felled",
+          "label": "Malakor defeated",
+          "description": "The Core broke before SHROUD 3 and Malakor died or was finished in combat."
+        },
+        {
+          "target": "scene-resolution-shrouded",
+          "label": "Shroud reached 3",
+          "description": "The immediate threat ends, but the Hollow remains a lasting dead zone."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-cleansed",
+      "title": "Resolution: The Hollow Breathes",
+      "purpose": "Close the adventure with Malakor alive, full harvest rewards, and the eastern-watchtower lead.",
+      "locationId": "loc-heart-chamber",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "The last black root snaps loose from Malakor's wrist. For a moment the entire Hollow goes silent; then water begins moving beneath the roots again, and pale Gloom-Lilies open one by one around the Heart Tree. Malakor sinks to his knees and pulls a mud-stained map from inside his robe. A charcoal mark circles Oakhaven's eastern watchtower, with a line drawn beneath it into the earth.",
+      "gmNotes": [
+        "The party can harvest four clean vials of Gloom-Lily Nectar.",
+        "Kaelen/Town Council pays 150 gp total and gives the Ring of Plant Protection.",
+        "Malakor confirms the black splinter came upward through a root fissure connected to caverns beneath the eastern watchtower.",
+        "This is the cleanest hook into Module 03, but do not force immediate travel."
+      ],
+      "runSteps": [
+        {
+          "title": "Harvest",
+          "text": "Give the party four usable vials of Gloom-Lily Nectar."
+        },
+        {
+          "title": "Pay the bounty",
+          "text": "On return to Oakhaven, award 150 gp total plus the Ring of Plant Protection."
+        },
+        {
+          "title": "Show the next map",
+          "text": "Hand over Malakor's marked watchtower map and end on the underground route."
+        }
+      ],
+      "advanceWhen": "Rewards are recorded and the party decides what to do with the eastern-watchtower map.",
+      "npcIds": [
+        "npc-malakor",
+        "npc-kaelen"
+      ],
+      "clueIds": [
+        "clue-watchtower"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-felled",
+      "title": "Resolution: Roots Without a Keeper",
+      "purpose": "Close the adventure after Malakor dies while preserving the full harvest if the Shroud was stopped in time.",
+      "locationId": "loc-heart-chamber",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "When Malakor falls, the black filaments across the Heart Tree recoil into the split trunk and turn to ash. The grove does not celebrate; it simply begins to live again. Beneath Malakor's staff lies a folded map stained with root sap. One charcoal circle marks Oakhaven's eastern watchtower, and beside it someone has written a single word: BELOW.",
+      "gmNotes": [
+        "If the Core broke before SHROUD 3, four clean Gloom-Lily vials survive.",
+        "Kaelen/Town Council still pays 150 gp total and grants the Ring of Plant Protection.",
+        "Malakor's marked map is found on his body or beneath his staff; Module 03 remains available even if he cannot explain it.",
+        "Kaelen is relieved the Hollow is saved but openly mourns the loss of its caretaker."
+      ],
+      "runSteps": [
+        {
+          "title": "Harvest",
+          "text": "Give the party four usable vials of Gloom-Lily Nectar if SHROUD stayed below 3."
+        },
+        {
+          "title": "Return",
+          "text": "Award 150 gp total and the Ring of Plant Protection in Oakhaven."
+        },
+        {
+          "title": "Reveal below",
+          "text": "Place the marked eastern-watchtower map in the party's hands."
+        }
+      ],
+      "advanceWhen": "Rewards are recorded and the party has the marked map.",
+      "npcIds": [
+        "npc-kaelen"
+      ],
+      "clueIds": [
+        "clue-watchtower"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-shrouded",
+      "title": "Resolution: The Dead Grove",
+      "purpose": "Let the adventure finish even after the clock is lost, with reduced harvest and a stronger reason to follow the corruption underground.",
+      "locationId": "loc-heart-chamber",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "The Core finally breaks, but the black fog does not leave. It settles into the lowest roots like ink soaking into cloth. Half the Gloom-Lilies collapse before your eyes; the rest close around beads of dark nectar. Near the split trunk, a root fissure exhales the same cold air as the corruption. Malakor's marked map—or the papers at his feet—points from that fissure toward Oakhaven's eastern watchtower.",
+      "gmNotes": [
+        "Only two usable Gloom-Lily vials survive. Kaelen pays 75 gp for the partial harvest and information.",
+        "Do not award the Ring of Plant Protection on this outcome; the Council reserves it for a restored grove.",
+        "The Hollow remains a dead zone until the deeper source beneath the eastern watchtower is addressed.",
+        "The adventure is complete; failure on the clock changes the world but does not block Module 03."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the cost",
+          "text": "Reduce the harvest to two vials and make the dead-zone consequence visible."
+        },
+        {
+          "title": "Partial payment",
+          "text": "Kaelen pays 75 gp for the surviving nectar and the party's report."
+        },
+        {
+          "title": "Point underground",
+          "text": "End on the root fissure and marked eastern-watchtower map."
+        }
+      ],
+      "advanceWhen": "The party understands the Hollow remains damaged and has the watchtower lead.",
+      "npcIds": [
+        "npc-kaelen"
+      ],
+      "clueIds": [
+        "clue-watchtower"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-malakor-victim",
+      "revelation": "Malakor is an anchor for the corruption, not its deliberate creator.",
+      "required": true,
+      "sources": [
+        "Kaelen's record of Malakor tending the Hollow peacefully for years.",
+        "The thorn-bound bear and blights carry the same black root residue wrapped through their bodies.",
+        "Malakor's lucid warning in the Heart Chamber tells the party that the roots are controlling him."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-core-ward",
+      "revelation": "Fire or radiant energy can break the Heart Tree Core that shields Malakor.",
+      "required": true,
+      "sources": [
+        "Scorched black-root residue on the Bramble Guard trail flakes away where old lantern fire touched it.",
+        "The Sunken Shrine inscription and moonstone mechanism describe light burning rot out of the living cycle.",
+        "Malakor's lucid words in the Heart Chamber explicitly direct the party to burn the tree's wound rather than the tree."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-cleanse-possible",
+      "revelation": "Once the Core is exposed, Malakor can be cleansed alive rather than killed.",
+      "required": true,
+      "sources": [
+        "The Sunken Shrine's Balance inscription depicts a blackened druid standing again after moonlight passes through three pillars.",
+        "A physical ritual record carved on the shrine plinth describes three harmonies restoring a corrupted keeper.",
+        "After the Core breaks, Malakor becomes lucid between root spasms and asks the party to sever the corruption from him."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-watchtower",
+      "revelation": "The corruption is connected to caverns beneath Oakhaven's eastern watchtower.",
+      "required": false,
+      "sources": [
+        "Malakor's marked map circles the eastern watchtower and draws a route below it.",
+        "The Heart Tree's exposed root fissure angles east beneath the grove.",
+        "If alive, Malakor says the black splinter was pushed upward from below."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": false
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-bramble-guard",
+      "name": "The Bramble Guard",
+      "type": "combat / bypass",
+      "difficulty": "introductory",
+      "summary": "Three Twig Blights and one Needle Blight guard a thorn-bound bear while razor-vines make careless movement dangerous.",
+      "objective": "Reach the shrine trail or neutralize the corruption without being trapped in the thorn lane.",
+      "resolution": "The scene ends when the party reaches the far steps, all hostile blights are neutralized, or the bear is freed and a safe route is opened.",
+      "talkOut": "The blights do not negotiate, but the bear can be freed rather than killed.",
+      "bypass": "Spend actions on Cautious Passage and move to the shrine steps; burning or cutting a 10-foot bramble section also creates a safe gap.",
+      "special": "Freeing the Bramble-Bound Bear removes it from combat immediately; it flees into the uncorrupted woods."
+    },
+    {
+      "id": "enc-malakor",
+      "name": "Malakor and the Heart Tree Core",
+      "type": "boss / cleansing ritual",
+      "difficulty": "climactic",
+      "summary": "The Core protects Malakor while animated roots control the battlefield. Fire or radiant energy breaks the Core; then the party chooses combat or a three-success cleansing.",
+      "objective": "Break the Core and end Malakor's connection to the shadow blight before the grove is permanently scarred.",
+      "resolution": "Core at 0 HP plus Malakor defeated or 3 cleansing successes. Two cleansing failures do not end the adventure; Malakor returns to full hostility and the party may keep fighting or try a new approach.",
+      "talkOut": "After the Core breaks, a character can use an Action and DC 13 Charisma (Persuasion) as one cleansing attempt by calling Malakor back to himself. Three total cleansing successes before two failures save him.",
+      "bypass": "Moonstone Resonance from a clean shrine solution supplies one guaranteed chance to damage the Core even if the party lacks fire or radiant spells.",
+      "special": "Initiative count 20 roots force DC 13 Strength saves or Restrained; an Action and DC 13 Athletics frees a restrained creature."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-moonstone-cycle",
+      "name": "The Three Moonstone Pillars",
+      "locationId": "loc-sunken-shrine",
+      "prompt": "Align the mirrors so sunlight strikes the pillars in the order that completes the grove's cycle. The glyphs are Growth, Balance, and Decay; the door reads WHAT DIES FEEDS WHAT LIVES.",
+      "solution": "Decay → Balance → Growth.",
+      "skillBypass": "DC 13 Intelligence (Arcana) or Wisdom (Religion) channels enough magical/divine energy through the pillars to open the seal without mirror alignment.",
+      "failForward": "A wrong order triggers Moonstone Backlash and marks one Shroud surge, but fresh mirror-scratches visibly reveal the correct order. The party can immediately try again."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-razor-thorns",
+      "name": "Razor-Thorns",
+      "locationId": "loc-bramble-path",
+      "trigger": "A creature moves through a razor-vine square without using Cautious Passage.",
+      "effect": "DC 12 Dexterity saving throw; on a failure take 1d6 piercing damage. Success avoids the damage and movement continues.",
+      "failForward": "Damage never stops movement or blocks the shrine. A character can use an Action for Cautious Passage to move up to half speed through the vines without another save that turn."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-gloom-lily",
+      "name": "Gloom-Lily Nectar",
+      "kind": "quest harvest",
+      "description": "Four clean vials on a full victory; two survive if SHROUD reaches 3 before the Core breaks.",
+      "effect": "Kaelen uses the nectar for rare antitoxins and restorative draughts."
+    },
+    {
+      "id": "item-healing-potion",
+      "name": "Potion of Healing",
+      "kind": "consumable",
+      "description": "Found in the Sunken Shrine offering alcove.",
+      "effect": "Use the selected 5E ruleset's normal healing potion rules."
+    },
+    {
+      "id": "item-wand-secrets",
+      "name": "Wand of Secrets",
+      "kind": "magic item",
+      "description": "An old shrine wand with 3 charges.",
+      "effect": "Use the selected ruleset's SRD wording for Wand of Secrets."
+    },
+    {
+      "id": "item-ring-plant-protection",
+      "name": "Ring of Plant Protection",
+      "kind": "original magic item",
+      "description": "Council reward for fully restoring the Hollow.",
+      "effect": "+1 AC against attacks made by Beasts and Plants while worn."
+    },
+    {
+      "id": "item-watchtower-map",
+      "name": "Marked Watchtower Map",
+      "kind": "story item",
+      "description": "A root-stained map pointing to caverns beneath Oakhaven's eastern watchtower.",
+      "effect": "Hooks Module 03."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-oakhaven-hollow",
+      "name": "Whispering Hollow Route",
+      "asset": null,
+      "regions": [
+        {
+          "id": "reg-kaelen",
+          "label": "Kaelen's Apothecary",
+          "sceneId": "scene-kaelen",
+          "x": 5,
+          "y": 72,
+          "w": 18,
+          "h": 12
+        },
+        {
+          "id": "reg-bramble",
+          "label": "Bramble Guard",
+          "sceneId": "scene-bramble",
+          "x": 28,
+          "y": 55,
+          "w": 22,
+          "h": 15
+        },
+        {
+          "id": "reg-shrine",
+          "label": "Sunken Shrine",
+          "sceneId": "scene-shrine",
+          "x": 52,
+          "y": 42,
+          "w": 18,
+          "h": 14
+        },
+        {
+          "id": "reg-heart",
+          "label": "Heart Tree",
+          "sceneId": "scene-heart",
+          "x": 72,
+          "y": 22,
+          "w": 20,
+          "h": 20
+        }
+      ]
+    }
+  ],
+  "playMaps": [
+    {
+      "sceneIds": [
+        "scene-bramble"
+      ],
+      "title": "Bramble Guard — 80 × 40 ft.",
+      "kind": "combat",
+      "src": "assets/maps/oakhaven/bramble-guard-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Razor-vine lane with shrine steps at the far end.",
+      "notes": [
+        "Party enters from west edge",
+        "Shrine steps are east",
+        "Bear begins near center",
+        "Needle Blight starts behind northern brambles",
+        "Thorn squares trigger Razor-Thorns unless crossed cautiously"
+      ]
+    },
+    {
+      "sceneIds": [
+        "scene-heart"
+      ],
+      "title": "Heart Tree Chamber — 70 × 70 ft.",
+      "kind": "combat",
+      "src": "assets/maps/oakhaven/heart-tree-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Circular grove with the Heart Tree Core at center and root lanes radiating outward.",
+      "notes": [
+        "Heart Tree/Core at center",
+        "Malakor begins adjacent to the Core",
+        "Gloom-Lilies form the inner ring",
+        "Four root lanes are difficult terrain",
+        "South opening is the party entry"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event-shroud-1",
+      "name": "Shroud Rises",
+      "trigger": "Bramble Guard scene ends",
+      "effect": "Mark SHROUD 1/3; fog rises to knee height."
+    },
+    {
+      "id": "event-shroud-mistake",
+      "name": "Moonstone Backlash",
+      "trigger": "First wrong shrine alignment or forced failure",
+      "effect": "Mark one Shroud surge, to a maximum of 3."
+    },
+    {
+      "id": "event-shroud-delay",
+      "name": "The Hollow Settles",
+      "trigger": "The party takes a long rest or spends an extended delay after entering the Hollow",
+      "effect": "Mark one Shroud surge, to a maximum of 3."
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-cleansed",
+      "name": "The Hollow Breathes",
+      "condition": "Core broken before SHROUD 3 and Malakor cleansed.",
+      "result": "Four nectar vials, 150 gp bounty, Ring of Plant Protection, Malakor survives, and the watchtower map points to Module 03."
+    },
+    {
+      "id": "ending-felled",
+      "name": "Roots Without a Keeper",
+      "condition": "Core broken before SHROUD 3 and Malakor dies.",
+      "result": "Four nectar vials, 150 gp bounty, Ring of Plant Protection, and Malakor's map still reveals the watchtower caverns."
+    },
+    {
+      "id": "ending-shrouded",
+      "name": "The Dead Grove",
+      "condition": "SHROUD reaches 3 before the Core breaks.",
+      "result": "Only two nectar vials survive, Kaelen pays 75 gp, the grove remains a dead zone, and the underground source becomes the next urgent lead."
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "Move required facts forward; do not make one NPC, one roll, or one damage type the only door to the finale.",
+      "Respect player solutions that break the Core or sever Malakor's bond without contradicting the authored facts.",
+      "Failure changes cost, clock, position, or reward but should not stop the adventure."
+    ],
+    "routes": [
+      {
+        "id": "rec-kaelen-refused",
+        "trigger": "Kaelen is refused, unavailable, missing, or dead before the job is accepted.",
+        "response": "His four labeled harvest vials, payment ledger, and charcoal Hollow map remain on the apothecary counter; a town runner asks the party to investigate the black fog moving toward Oakhaven.",
+        "stateChanges": [
+          "The quest can begin without Kaelen speaking.",
+          "clue-malakor-victim remains available from the grove."
+        ]
+      },
+      {
+        "id": "rec-malakor-attacked",
+        "trigger": "Malakor is attacked or treated as hostile before he can explain the corruption.",
+        "response": "The shrine inscription and the Heart Tree's black-root residue still reveal that the Core is the real anchor; when the Core breaks, Malakor's lucid interval exposes the cleanse option even if combat never pauses.",
+        "stateChanges": [
+          "clue-core-ward and clue-cleanse-possible remain deliverable.",
+          "Combat does not remove the nonlethal option."
+        ]
+      },
+      {
+        "id": "rec-shrine-bypassed",
+        "trigger": "The party bypasses or skips the Sunken Shrine.",
+        "response": "They can still enter through a cracked root tunnel. In the Heart Chamber Malakor's warning and visible fire-scarred root tissue reveal how to hurt the Core. The party loses Moonstone Resonance and the shrine loot.",
+        "stateChanges": [
+          "The finale remains reachable.",
+          "Prepared payoff is lost, but the ending is not locked."
+        ]
+      },
+      {
+        "id": "rec-no-fire-radiant",
+        "trigger": "The party reaches the Core with no practical fire or radiant damage.",
+        "response": "A broken moonstone shard at the chamber threshold can be pressed against the Core as an Action, dealing 1d6 radiant damage but forcing the user to make the root save immediately. This is slower and riskier than preparing at the shrine.",
+        "stateChanges": [
+          "The Core remains breakable.",
+          "Rushed parties pay a tactical cost rather than getting stuck."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared play earns safer positioning and stronger tools; rushed play costs hit points, time, or resources, but the ending is never locked and the party can still finish.",
+    "prepared": [
+      "Freeing the bear avoids its damage and demonstrates that corrupted creatures can be saved.",
+      "Solving the shrine cleanly grants Moonstone Resonance and the offering-alcove loot."
+    ],
+    "rushed": [
+      "Crashing through razor-vines costs Dexterity saves and piercing damage.",
+      "Bypassing or forcing the shrine loses Moonstone Resonance and may advance the Shroud."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 150,
+    "plannedMinutes": 140,
+    "bossReserveMinutes": 45,
+    "cutOrder": [
+      "If 20+ minutes behind, remove two Twig Blights from the Bramble Guard and start the bear adjacent to a character who can inspect its collar.",
+      "If 15+ minutes behind at the shrine, reveal the WHAT DIES FEEDS WHAT LIVES inscription immediately and allow one DC 13 bypass attempt.",
+      "Never cut the Core mechanic, the cleansing choice, or the eastern-watchtower reveal."
+    ],
+    "optionalOrder": [
+      "Extended questioning of Kaelen before departure.",
+      "Searching every shrine offering niche after the listed cache is found.",
+      "Post-fight discussion with Malakor beyond the Module 03 reveal."
+    ]
+  },
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-kaelen",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-kaelen": {
+        "status": "alive",
+        "attitude": "concerned"
+      },
+      "npc-malakor": {
+        "status": "alive",
+        "attitude": "corrupted"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-gloom-lily": "unharvested",
+      "item-healing-potion": "at-shrine",
+      "item-wand-secrets": "at-shrine",
+      "item-ring-plant-protection": "with-council",
+      "item-watchtower-map": "with-malakor"
+    },
+    "eventState": {
+      "shroud": 0,
+      "moonstoneResonance": false,
+      "coreHp": 20,
+      "cleansingSuccesses": 0,
+      "cleansingFailures": 0
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "The adventure's quick-run monster actions are self-contained and do not require a class build.",
+        "If you expand Malakor's named spells (Entangle, Witch Bolt, Shillelagh), use the 2014 SRD spell text."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "The adventure's quick-run monster actions are self-contained and do not import 2014 class mechanics.",
+        "If you expand Malakor's named spells (Entangle, Witch Bolt, Shillelagh), use the current SRD wording for the selected ruleset."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "whispers-of-the-oakhaven-hollow",
+    "version": "0.1.0",
+    "target": {
+      "level": 3,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-bear-collar",
+      "check-shrine-cycle",
+      "check-cleanse-malakor"
+    ],
+    "checks": [
+      {
+        "id": "check-bear-collar",
+        "sceneId": "scene-bramble",
+        "label": "Free the thorn-bound bear",
+        "dc": 12,
+        "ability": "Strength (Athletics), Dexterity (Sleight of Hand), or Wisdom (Animal Handling)",
+        "success": "The thorn collar breaks or loosens; the bear immediately flees and no longer acts as an enemy.",
+        "failure": "The bear remains bound this round, but the character learns where the collar is weakest and may try again next turn."
+      },
+      {
+        "id": "check-shrine-cycle",
+        "sceneId": "scene-shrine",
+        "label": "Read the moonstone cycle",
+        "dc": 12,
+        "ability": "Intelligence (Nature or Arcana)",
+        "success": "The glyphs clearly form Decay → Balance → Growth.",
+        "failure": "The inscription and mirror wear still point to the same order; no progress is blocked."
+      },
+      {
+        "id": "check-shrine-bypass",
+        "sceneId": "scene-shrine",
+        "label": "Channel the sealed pillars",
+        "dc": 13,
+        "ability": "Intelligence (Arcana) or Wisdom (Religion)",
+        "success": "The seal opens without aligning the mirrors.",
+        "failure": "Moonstone Backlash triggers, marks one Shroud surge, and the worn mirror tracks reveal the correct sequence."
+      },
+      {
+        "id": "check-cleanse-malakor",
+        "sceneId": "scene-heart",
+        "label": "Cleansing action after the Core breaks",
+        "dc": 13,
+        "ability": "Intelligence (Arcana or Nature), Wisdom (Medicine or Religion), or Charisma (Persuasion)",
+        "success": "Mark one cleansing success; Malakor loses his next hostile action while fighting the corruption.",
+        "failure": "Mark one cleansing failure. At two failures he returns to full hostility, but the party may continue combat or devise another cleansing approach."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-bramble-guard",
+        "objective": "Reach the shrine steps or neutralize the corrupted guard.",
+        "start": "Party enters the west edge of an 80 × 40 ft. razor-vine lane.",
+        "bypass": "Use Cautious Passage, open a gap, and reach the east shrine steps; freeing the bear removes it from combat.",
+        "creatures": [
+          {
+            "name": "Twig Blight",
+            "count": 3,
+            "ac": 13,
+            "hp": 4,
+            "speed": "20 ft.",
+            "attack": "Claw +3 to hit, 1d4+1 piercing.",
+            "trait": "False Stillness: while motionless among brush, it looks like dead twigs until closely inspected.",
+            "tactics": "Clump around the first creature slowed by razor-vines; do not chase beyond the shrine steps."
+          },
+          {
+            "name": "Needle Blight",
+            "count": 1,
+            "ac": 12,
+            "hp": 11,
+            "speed": "30 ft.",
+            "attack": "Claw +3 to hit, 2d4+1 piercing.",
+            "ranged": "Needles +3 to hit, 2d6+1 piercing, range 30/60 ft.",
+            "tactics": "Stay behind the northern brambles and fire at exposed targets; retreat if isolated."
+          },
+          {
+            "name": "Bramble-Bound Bear",
+            "count": 1,
+            "ac": 12,
+            "hp": 27,
+            "speed": "40 ft.",
+            "attack": "Bite +4 to hit, 1d8+2 piercing.",
+            "trait": "Thorn-Bound: a successful collar check removes the bear from the encounter without reducing it to 0 HP.",
+            "tactics": "Charge the nearest moving creature until freed; once the collar breaks, flee toward the west woods."
+          }
+        ],
+        "end": "The party reaches the shrine steps, defeats the blights, or otherwise opens a safe path."
+      },
+      {
+        "id": "enc-malakor",
+        "objective": "Break the Heart Tree Core, then defeat or cleanse Malakor.",
+        "start": "Core AC 12 / 20 HP at the center; Malakor begins adjacent to it. Only fire or radiant damage hurts the Core.",
+        "bypass": "A nonlethal cleanse is a full victory: after the Core breaks, score 3 DC 13 cleansing successes before 2 failures.",
+        "creatures": [
+          {
+            "name": "Heart Tree Core",
+            "count": 1,
+            "ac": 12,
+            "hp": 20,
+            "speed": "—",
+            "immunities": "All damage except fire and radiant.",
+            "trait": "Shadow Ward: while the Core has HP, Malakor cannot be reduced below 1 HP.",
+            "tactics": "The Core does not act; it powers the ward and root burst."
+          },
+          {
+            "name": "Malakor the Blight-Touched",
+            "count": 1,
+            "ac": 13,
+            "hp": 36,
+            "speed": "30 ft.",
+            "saves": "Wis +4, Con +3",
+            "attack": "Blight Staff +4 to hit, 1d8+2 bludgeoning plus 1d4 necrotic.",
+            "ranged": "Shadow Arc +4 to hit, range 60 ft., 1d10 lightning.",
+            "action": "Grasping Vines (Recharge 5–6): creatures in a 15-ft. square within 60 ft. make DC 12 Strength saves or become Restrained until the end of their next turns.",
+            "trait": "Prepared spell themes: Entangle, Witch Bolt, Shillelagh. Use the selected SRD wording only if replacing these quick-run actions with full spellcasting.",
+            "tactics": "Stay near the Core, restrain clustered intruders, then pressure whoever is dealing fire/radiant damage. After the Core breaks, lucid pauses make cleansing possible."
+          }
+        ],
+        "end": "Core at 0 HP and Malakor defeated, or three cleansing successes are completed."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-razor-thorns",
+        "sceneId": "scene-bramble",
+        "trigger": "Move through a razor-vine square without using Cautious Passage.",
+        "save": "DC 12 Dexterity saving throw.",
+        "failure": "Take 1d6 piercing damage.",
+        "success": "Take no damage and continue moving.",
+        "failForward": "The creature still moves; spending an Action for Cautious Passage avoids further saves that turn."
+      },
+      {
+        "id": "hazard-moonstone-backlash",
+        "sceneId": "scene-shrine",
+        "trigger": "Set the pillars in the wrong order or fail the channeling bypass.",
+        "save": "DC 12 Constitution saving throw for creatures within 10 ft. of a pillar.",
+        "failure": "Take 1d6 necrotic damage and mark one Shroud surge.",
+        "success": "Take no damage, but mark one Shroud surge.",
+        "failForward": "The backlash burns the correct Decay → Balance → Growth tracks into visible silver lines."
+      },
+      {
+        "id": "hazard-heart-roots",
+        "sceneId": "scene-heart",
+        "trigger": "Initiative count 20 each round while the Core remains active.",
+        "save": "DC 13 Strength saving throw for creatures on the ground.",
+        "failure": "Become Restrained.",
+        "success": "Remain free.",
+        "failForward": "A restrained creature or adjacent ally can spend an Action and succeed on DC 13 Strength (Athletics) to free it."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-shrine",
+        "when": "The party opens the Sunken Shrine alcove.",
+        "reward": "Potion of Healing, Wand of Secrets (3 charges), and 25 gp in ancient silver."
+      },
+      {
+        "id": "reward-full",
+        "when": "The Core breaks before SHROUD 3.",
+        "reward": "Four Gloom-Lily Nectar vials; 150 gp total bounty; Ring of Plant Protection (+1 AC against Beast and Plant attacks)."
+      },
+      {
+        "id": "reward-partial",
+        "when": "SHROUD reaches 3 before the Core breaks.",
+        "reward": "Two Gloom-Lily Nectar vials and 75 gp; the Ring is not awarded."
+      },
+      {
+        "id": "reward-hook",
+        "when": "The finale resolves.",
+        "reward": "Marked map pointing to caverns beneath Oakhaven's eastern watchtower."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-bramble",
+        "dimensions": "80 × 40 ft. woodland lane; 5-ft. grid.",
+        "features": [
+          "west party entry",
+          "east shrine steps",
+          "razor-vine squares along both edges",
+          "bear near center",
+          "Needle Blight firing position behind north brambles"
+        ]
+      },
+      {
+        "sceneId": "scene-heart",
+        "dimensions": "70 × 70 ft. circular grove; 5-ft. grid.",
+        "features": [
+          "Heart Tree/Core at center",
+          "Malakor adjacent to Core",
+          "four root lanes as difficult terrain",
+          "Gloom-Lily inner ring",
+          "south party entry"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One clear route to the Heart Tree; the finale branches only on outcome.",
+    "mainSpine": [
+      "scene-kaelen",
+      "scene-bramble",
+      "scene-shrine",
+      "scene-heart"
+    ],
+    "allowedBranchScenes": [
+      "scene-heart"
+    ],
+    "terminalScenes": [
+      "scene-resolution-cleansed",
+      "scene-resolution-felled",
+      "scene-resolution-shrouded"
+    ],
+    "stageCount": 5
+  },
+  "clock": {
+    "name": "The Shroud",
+    "max": 3,
+    "start": 0,
+    "states": [
+      "0 — mist at the roots; full recovery possible",
+      "1 — fog at knee height after the Bramble Guard",
+      "2 — black condensation on the Heart Tree; full recovery still possible",
+      "3 — corruption settles into the root bed; the grove becomes a lasting dead zone"
+    ]
+  }
+}
