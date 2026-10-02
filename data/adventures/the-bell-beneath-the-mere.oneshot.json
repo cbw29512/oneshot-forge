@@ -264,7 +264,7 @@
     {
       "id": "loc-reed-channel",
       "name": "The Silent Reeds",
-      "description": "A narrow channel winds through head-high reeds where black bubbles rise in straight lines from somewhere below.",
+      "description": "A narrow channel winds through head-high reeds that scrape the ferry hull like dry fingers. Black bubbles rise in straight lines from below, ferry markers lean toward a half-submerged stone roof, and every sound seems to vanish before it reaches the open Mere.",
       "connections": [
         "loc-landing",
         "loc-bell-house"
