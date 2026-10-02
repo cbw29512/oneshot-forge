@@ -10,7 +10,8 @@
     "criticalFailureNatural": 1,
     "failureFailsForward": true,
     "editionIsolation": true,
-    "note": "Natural 20/1 critical outcomes apply only to From Zero to Hero developmental checks, not ordinary Level 1–20 ability checks."
+    "note": "Developmental checks use normal 5E total-vs-DC success/failure. A natural 20 on a successful check or natural 1 on a failed check adds a Level-0-only narrative critical tier; it never overrides the total and never changes growth awarded.",
+    "naturalExtremesNeverOverrideTotal": true
   },
   "start": {
     "age": 12,
@@ -48,6 +49,38 @@
       "INT": "Study, reason, engineer, recall, or solve.",
       "WIS": "Notice, judge, empathize, track, or survive.",
       "CHA": "Persuade, inspire, deceive, perform, or lead."
+    },
+    "startingPointBuyCost": 6,
+    "finalPointBuyBudget": 27,
+    "growthPointsByOutcome": {
+      "criticalSuccess": 1,
+      "success": 1,
+      "failure": 1,
+      "criticalFailure": 1
+    },
+    "permanentBuildDeltaByOutcome": {
+      "criticalSuccess": 0,
+      "success": 0,
+      "failure": 0,
+      "criticalFailure": 0
+    },
+    "finalReflection": {
+      "enabled": true,
+      "purpose": "Convert any incomplete high-score development marks into the remainder of the earned 27-point base array without another roll.",
+      "requiresExactBudget": true,
+      "maxScore": 15
+    },
+    "rollImpactPolicy": {
+      "ordinary": "Changes immediate fictional outcome/cost only.",
+      "critical": "May improve or worsen the fictional consequence by one tier, but cannot alter permanent build power.",
+      "prohibited": [
+        "extra or lost Development Points",
+        "automatic proficiency",
+        "feat",
+        "spell or class feature",
+        "permanent magic-item property",
+        "graduation eligibility"
+      ]
     }
   },
   "village": {
@@ -917,7 +950,7 @@
             "CHA": "Command teams, negotiate cooperation, or keep a crowd moving."
           },
           "outcomes": {
-            "criticalSuccess": "Complete your job and create advantage/a reduced DC for another character's job.",
+            "criticalSuccess": "Complete your job and create one local edge: one other character may gain Advantage on one later Level-0 check in this chapter. No permanent build benefit.",
             "success": "Complete your job.",
             "failure": "Complete it with injury, lost gear, or a damaged relationship/location.",
             "criticalFailure": "Your job fails first, but a mentor/relationship earned earlier offers a costly recovery route."
@@ -978,9 +1011,18 @@
       ]
     },
     "originLegacy": {
-      "default": "Dormant/scaling heirloom or similarly bounded story benefit.",
+      "enabledByDefault": false,
+      "rawDefault": "Narrative heirloom/contact only. No extra feat, ASI, proficiency, class feature, spell, or magic property.",
+      "heroicLegacyOptional": "Optional house-rule campaign mode may add a bounded heirloom or other legacy after the GM explicitly enables it.",
       "bonusFeatDefault": false,
-      "mentor": "Persistent contact with bounded favors; never an unlimited solution engine."
+      "mentor": "Persistent narrative contact; no automatic numerical bonus in RAW mode."
+    },
+    "rawDefault": true,
+    "rawAudit": {
+      "abilityArray": "Final pre-origin array must equal exactly 27 point-buy points with every score 8–15; From Zero to Hero uses 9 as its visible childhood floor and a final no-roll Reflection step for incomplete development marks.",
+      "proficiencies": "Training/familiarity is narrative until a legal 2014 race/background/class or 2024 species/background/class choice grants the proficiency.",
+      "heirloom": "In RAW mode an heirloom is mundane/narrative unless the selected ruleset legally grants that item. Magical awakening is optional house-rule content only.",
+      "mentor": "Mentors are narrative contacts and grant no automatic numerical bonus in RAW mode."
     }
   }
 }
