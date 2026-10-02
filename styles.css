@@ -3911,3 +3911,13 @@ body.run { background: var(--bg) }
 @media screen and (max-width: 900px) {
   .adventure-cover-art { min-height: 300px }
 }
+
+.land-nav-note{
+  color:#d7c7b4;
+  font-size:var(--text-sm);
+  font-weight:700;
+  padding:.22rem .5rem;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:rgba(255,255,255,.03);
+}
