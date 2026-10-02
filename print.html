@@ -52,17 +52,13 @@
   </main>
 
   <script src="rules.js?v=20260926c"></script>
+  <script src="adventure-registry.js?v=20261001b"></script>
   <script>
     const esc = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
       "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
     }[ch]));
 
-    const ADVENTURES = {
-      "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
-      "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json",
-      "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json",
-      "whispers-of-the-oakhaven-hollow": "data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json"
-    };
+    const ADVENTURES = window.ONE_SHOT_ADVENTURES || {};
 
     const id = new URLSearchParams(location.search).get("id") || "the-lantern-below";
     const runnerLink = document.getElementById("runner-link");

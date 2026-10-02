@@ -1,8 +1,5 @@
-const CARD_PACKS = {
-  "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
-  "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json",
-  "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json"
-};
+const CARD_PACKS = window.ONE_SHOT_ADVENTURES;
+if (!CARD_PACKS) throw new Error("Adventure registry failed to load.");
 
 function waitImagesThenPrint(root) {
   const imgs = [...(root || document).querySelectorAll("img")];

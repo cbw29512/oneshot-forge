@@ -1,0 +1,1195 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "beneath-the-eastern-watchtower",
+    "title": "Beneath the Eastern Watchtower",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 3,
+    "partySize": 4,
+    "partySizeRange": "4 players",
+    "durationMinutes": 150,
+    "tone": [
+      "subterranean mystery",
+      "ancient civic machinery",
+      "pressure-cooker exploration"
+    ]
+  },
+  "series": {
+    "title": "Oakhaven Adventures",
+    "episode": 3,
+    "hub": "Oakhaven",
+    "giver": "Captain Edda Marr",
+    "nextTitle": "The Black Orchard"
+  },
+  "setup": {
+    "pitch": "The map recovered from the Whispering Hollow points beneath Oakhaven's eastern watchtower, where an ancient ward-engine is forcing black splinters up through the town's roots.",
+    "openingLocation": "Eastern Watchtower, Oakhaven",
+    "gmSummary": "A marked map leads beneath Oakhaven's eastern watchtower. Captain Edda Marr reports black resin seeping from old mortar and allows the party into a sealed sally tunnel. The party crosses a flooded undercroft, survives territorial sump crawlers, and reaches a maintenance vault where three pressure gauges reveal the old system's purpose. The apparent corruption source is actually a civic ward-engine called the Gloam Sluice: it was built to pull supernatural rot away from Oakhaven and bury it in a salt sink. The salt channel collapsed years ago, pressure rose, and the emergency root vent began firing black splinters upward. The finale is an environmental repair under pressure. The party can safely restore the sluice by completing three repair jobs, or smash its overflow core for a faster but destructive shutdown.",
+    "background": "Generations ago, Oakhaven's founders built a hidden ward beneath the eastern watchtower. The Gloam Sluice drew dangerous magical decay from the town's root network, carried it through carved stone channels, and neutralized it in a deep salt basin. The last bellkeeper died before training a successor. When a lower cavern shifted and crushed the salt outlet, the system kept operating without maintenance. Its emergency root vent eventually began driving hardened fragments of stored corruption upward—the same black splinters that poisoned the Whispering Hollow.",
+    "standaloneStart": "If Module 02 was not played, Kaelen discovers black resin beneath the eastern watchtower after comparing old apothecary records. Captain Marr still provides the same access and objective."
+  },
+  "quest": {
+    "type": "investigate / repair",
+    "objective": "Find what is producing the black splinters beneath the eastern watchtower and stop the corruption from reaching Oakhaven's root network.",
+    "stakes": "If the underground pressure reaches its third strain stage, the watchtower foundations begin collapsing and Oakhaven loses its eastern lookout even if the corruption is later contained.",
+    "deadline": "TOWER STRAIN 0–3: mark one after the flooded-tunnel encounter, one for a pressure-puzzle overload, and one for a long delay underground. At 3, the tower cannot be saved tonight.",
+    "successConditions": [
+      "The Gloam Sluice stops venting corruption into Oakhaven's roots.",
+      "The party escapes the underground chamber.",
+      "The source and purpose of the black splinters are identified."
+    ],
+    "failureConditions": [
+      "The party abandons the active sluice.",
+      "The party is trapped below during a total collapse."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-sluice-purpose",
+        "text": "The Gloam Sluice was built to protect Oakhaven by pulling magical decay out of the town's root network and carrying it to a salt sink."
+      },
+      {
+        "id": "fact-overflow-cause",
+        "text": "The salt outlet collapsed, so the full system began venting hardened corruption upward as black splinters."
+      },
+      {
+        "id": "fact-destroy-cost",
+        "text": "Destroying the overflow core stops the immediate venting but releases stored corruption and guarantees the eastern watchtower is lost."
+      },
+      {
+        "id": "fact-safe-repair",
+        "text": "A safe purge requires three repair jobs: open the Salt Gate, reconnect the Bell Ground, and clamp the Root Vent."
+      },
+      {
+        "id": "fact-orchard-lead",
+        "text": "A maintenance ledger names the Black Orchard north of Oakhaven as the original source of the sluice's wardstone."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-founder-coverup",
+        "text": "Oakhaven's founders deliberately erased the Gloam Sluice from later civic records after an early purge killed its first bellkeeper.",
+        "revealCondition": "Read the sealed maintenance ledger or question Bellkeeper Harn's echo after restoring the Bell Ground."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-edda-marr",
+      "name": "Captain Edda Marr",
+      "role": "commander of Oakhaven's eastern watch and access-giver",
+      "personality": [
+        "practical",
+        "unimpressed by superstition",
+        "protective of her watch"
+      ],
+      "voiceCues": [
+        "speaks in short orders",
+        "taps the tower wall when thinking"
+      ],
+      "wants": [
+        "The seepage stopped",
+        "Her watchtower left standing if possible"
+      ],
+      "fears": [
+        "A collapse during a night attack",
+        "The town blaming her guards for an ancient problem"
+      ],
+      "knows": [
+        "The cellar mortar began sweating black resin yesterday",
+        "An old iron hatch exists below the supply room",
+        "No current guard knows what is under it"
+      ],
+      "believes": [
+        "The buried chambers were once a smuggler tunnel"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The Gloam Sluice's original purpose",
+        "What caused the salt outlet to collapse"
+      ],
+      "revealRules": [
+        {
+          "fact": "The black seep began after the Hollow disturbance.",
+          "when": "The party asks about timing."
+        },
+        {
+          "fact": "The old hatch has not been opened in living memory.",
+          "when": "The party asks who has been below."
+        }
+      ],
+      "questFunction": "Provides legal access, a reason to protect the tower, and a standalone hook if the party never played Module 02.",
+      "description": "A broad-shouldered watch captain in a weather-dark cloak, with chalk dust on one glove and a fresh crack drawn across her tower map in red ink.",
+      "tableDialogue": [
+        "“Whatever is under my tower is now leaking through the mortar. That makes it my problem and, for the next few hours, yours.”",
+        "“Break what you must. I would prefer you not break the tower.”",
+        "“If the floor starts moving, shout before the roof does.”"
+      ],
+      "reactions": {
+        "agreement": "Unlocks the supply cellar, provides fifty feet of rope, and posts two guards at the surface hatch.",
+        "refusal": "Warns that she will seal the cellar at dusk; the party can still enter before then if they change their minds.",
+        "danger": "Orders the upper tower evacuated and keeps the stairwell clear for the party's return."
+      }
+    },
+    {
+      "id": "npc-harn-echo",
+      "name": "Bellkeeper Harn's Echo",
+      "role": "maintenance-memory bound to the old warning bell",
+      "personality": [
+        "formal",
+        "fragmented",
+        "dutiful even in death"
+      ],
+      "voiceCues": [
+        "speaks only after the bell vibrates",
+        "repeats maintenance phrases as if reading a checklist"
+      ],
+      "wants": [
+        "The sluice returned to safe pressure",
+        "Someone to record the maintenance truth aboveground"
+      ],
+      "fears": [
+        "The overflow core being smashed",
+        "The salt gate remaining sealed"
+      ],
+      "knows": [
+        "The sluice is protective, not malicious",
+        "The three repair jobs",
+        "The Black Orchard supplied the original wardstone"
+      ],
+      "believes": [
+        "Any living Oakhaven watch captain is entitled to the full maintenance record"
+      ],
+      "secrets": [
+        "The founders hid the system after the first bellkeeper died during an early purge"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "What currently lives beyond the collapsed salt outlet"
+      ],
+      "revealRules": [
+        {
+          "fact": "The three repairs can be done in any order.",
+          "when": "The party reaches the Gloam Sluice."
+        },
+        {
+          "fact": "Destroying the core will save the town but doom the tower.",
+          "when": "The party proposes smashing the machinery."
+        }
+      ],
+      "questFunction": "Turns the apparent dungeon threat into a repair problem and preserves the noncombat finale even if written records are missed.",
+      "description": "A pale figure appears only in the bronze reflection of the maintenance bell, wearing an old watch coat and holding a hammer that never quite touches the metal.",
+      "tableDialogue": [
+        "“Root pressure above tolerance. Salt channel unresponsive. Bell ground severed.”",
+        "“Do not break the heart. The heart is holding what you fear.”",
+        "“When this is done, write it down where the living can find it.”"
+      ],
+      "reactions": {
+        "agreement": "Provides one clear repair instruction each time the party completes a job.",
+        "refusal": "Falls silent until the bell is struck again, but the physical diagrams remain usable.",
+        "danger": "Warns which catwalk or pipe will fail one round before it collapses."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-watchtower",
+      "name": "Eastern Watchtower Cellar",
+      "description": "The tower's supply cellar is cramped with oil casks, spare spear shafts, and chalk marks around a new black stain spreading through the oldest foundation stones.",
+      "connections": [
+        "loc-flooded-tunnel"
+      ]
+    },
+    {
+      "id": "loc-flooded-tunnel",
+      "name": "Flooded Sally Tunnel",
+      "description": "A low military tunnel slopes beneath the tower into ankle-deep black water, where broken drainage grates and mineral crusts turn every footstep into a hollow echo.",
+      "connections": [
+        "loc-watchtower",
+        "loc-bell-vault"
+      ]
+    },
+    {
+      "id": "loc-bell-vault",
+      "name": "Bellkeeper Maintenance Vault",
+      "description": "A circular service room surrounds a bronze bell suspended over three brass pressure gauges labeled ROOT, STONE, and SALT, with pipe diagrams carved into every wall.",
+      "connections": [
+        "loc-flooded-tunnel",
+        "loc-sluice-chamber"
+      ]
+    },
+    {
+      "id": "loc-sluice-chamber",
+      "name": "The Gloam Sluice",
+      "description": "A cavern-sized machine bridges a natural chasm: black-glass pipes feed a pulsing overflow core while catwalks cross toward a jammed salt gate and a cracked grounding bell.",
+      "connections": [
+        "loc-bell-vault"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-watchtower",
+      "title": "The Hatch Under the Spears",
+      "purpose": "Connect the Hollow clue to the eastern watchtower, establish the Tower Strain clock, and give the party a reason to preserve the structure.",
+      "locationId": "loc-watchtower",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "Hook",
+      "readAloud": "The eastern watchtower should smell of lamp oil and wet stone. Instead, the supply cellar smells faintly of burned leaves. A black stain has spread across the oldest wall in branching lines, stopping at an iron hatch buried beneath spear racks. Captain Edda Marr has already cleared the room. She points to the stain, then to your marked map. “Your line ends under my tower.”",
+      "gmNotes": [
+        "Captain Marr offers 125 gp from the town emergency fund if the source is stopped.",
+        "If the party played Module 02, Malakor's marked map is the direct lead. Otherwise Kaelen's records supply the same location.",
+        "Place three boxes labeled TOWER STRAIN on the table. Start at 0/3.",
+        "Marr lends 50 ft. of rope and evacuates the upper watch if Strain reaches 3."
+      ],
+      "runSteps": [
+        {
+          "title": "Tie in the clue",
+          "text": "Put the marked watchtower location in front of the players and show the black seepage under the tower."
+        },
+        {
+          "title": "Set the stakes",
+          "text": "State the 125 gp reward and that Marr wants the corruption stopped without losing the watchtower."
+        },
+        {
+          "title": "Show the clock",
+          "text": "Place the three Tower Strain boxes where everyone can see them."
+        }
+      ],
+      "advanceWhen": "The iron hatch is opened and the party descends into the old sally tunnel.",
+      "npcIds": [
+        "npc-edda-marr"
+      ],
+      "clueIds": [
+        "clue-sluice-purpose"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-tunnel"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-tunnel",
+          "label": "Descend beneath the tower",
+          "description": "Open the sealed hatch and follow the old military tunnel downward."
+        }
+      ]
+    },
+    {
+      "id": "scene-tunnel",
+      "title": "Black Water, White Stone",
+      "purpose": "Deliver the first physical evidence that the system moves corruption away from Oakhaven while applying resource pressure through a mobile combat encounter.",
+      "locationId": "loc-flooded-tunnel",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Undercroft",
+      "readAloud": "The old tunnel drops until cold water covers your boots. White mineral ribs coat the walls, but every few yards a black vein cuts through them toward the depths instead of toward town. Something scrapes behind a collapsed drainage grate. Then two low, many-legged shapes pull themselves from the water, their stone-crusted backs clicking against the ceiling as they turn toward the vibration of your steps.",
+      "gmNotes": [
+        "Mark TOWER STRAIN 1/3 when this scene ends.",
+        "The black residue flows away from the tower in carved channels. This is the first strong clue that the buried system was protective.",
+        "Two Stone-Sump Crawlers defend feeding pools, not a lair. A character can bypass them by crossing the broken catwalk quietly or luring them toward the mineral runoff.",
+        "Every round after round 3, loose masonry falls on one random 10-ft. section: DC 12 Dexterity save or 1d6 bludgeoning. This ends when the party leaves the chamber."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the direction",
+          "text": "Point out that the black channels run away from Oakhaven and toward the lower caverns."
+        },
+        {
+          "title": "Run or bypass the crawlers",
+          "text": "Use the 70 × 40 ft. tunnel map. Fighting is optional; stealth or baiting the creatures away works."
+        },
+        {
+          "title": "Advance Strain",
+          "text": "When the party reaches the maintenance door, mark TOWER STRAIN 1/3 and describe dust falling from above."
+        }
+      ],
+      "advanceWhen": "The party reaches the bronze maintenance door beyond the flooded tunnel.",
+      "npcIds": [],
+      "clueIds": [
+        "clue-sluice-purpose",
+        "clue-overflow-cause"
+      ],
+      "encounterIds": [
+        "enc-sump-crawlers"
+      ],
+      "exits": [
+        "scene-vault"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-vault",
+          "label": "Enter the maintenance vault",
+          "description": "Follow the black channels to the bronze bell door."
+        }
+      ]
+    },
+    {
+      "id": "scene-vault",
+      "title": "Three Gauges, Nine Marks",
+      "purpose": "Reveal the Gloam Sluice's real function, teach the pressure system, and give careful parties a mechanical advantage in the finale.",
+      "locationId": "loc-bell-vault",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Pressure puzzle",
+      "readAloud": "A bronze bell hangs over three waist-high gauges. ROOT reads five. STONE reads three. SALT reads one. Two paired handwheels connect Root to Stone and Stone to Salt, and a maintenance inscription circles the floor: KEEP THE THREE LINES EQUAL BEFORE THE BELL IS STRUCK. Behind the gauges, a sealed cabinet bears the faded crest of Oakhaven's first watch.",
+      "gmNotes": [
+        "The puzzle starts Root 5 / Stone 3 / Salt 1. Each valve move transfers exactly 1 pressure between adjacent lines.",
+        "Goal: 3 / 3 / 3. Clean solution: move 2 from Root to Stone, then 2 from Stone to Salt. Equivalent legal move orders are valid.",
+        "If any gauge reaches 0 or 6, Pressure Backlash triggers: DC 12 Constitution save, 1d6 thunder on a failure, and mark one Tower Strain. The gauges reset to 5 / 3 / 1.",
+        "After the first backlash, Bellkeeper Harn's Echo appears and explicitly explains that equal pressure is required, so failure cannot brick the puzzle.",
+        "Solving cleanly grants Balanced Lines: in the finale, the first failed repair check can be rerolled immediately.",
+        "The cabinet contains a Potion of Healing, 35 gp in old watch pay, and the sealed maintenance ledger."
+      ],
+      "runSteps": [
+        {
+          "title": "Put the numbers on the table",
+          "text": "State Root 5, Stone 3, Salt 1 and explain that one valve move transfers one point between adjacent gauges."
+        },
+        {
+          "title": "Fail forward",
+          "text": "If a gauge hits 0 or 6, resolve the backlash, add Strain, reset the puzzle, and let Harn's Echo explain the equality goal."
+        },
+        {
+          "title": "Reward clean work",
+          "text": "A clean 3/3/3 solution grants Balanced Lines and opens the maintenance cabinet."
+        }
+      ],
+      "advanceWhen": "The gauges are balanced and the lower sluice door unlocks.",
+      "npcIds": [
+        "npc-harn-echo"
+      ],
+      "clueIds": [
+        "clue-sluice-purpose",
+        "clue-overflow-cause",
+        "clue-safe-repair",
+        "clue-destroy-cost"
+      ],
+      "encounterIds": [
+        "enc-harn-echo"
+      ],
+      "exits": [
+        "scene-sluice"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-sluice",
+          "label": "Descend to the Gloam Sluice",
+          "description": "Follow the maintenance stairs into the machine cavern."
+        }
+      ]
+    },
+    {
+      "id": "scene-sluice",
+      "title": "The Gloam Sluice",
+      "purpose": "Resolve the corruption source as an environmental repair problem with a destructive shortcut that carries a visible cost.",
+      "locationId": "loc-sluice-chamber",
+      "pacingClass": "core",
+      "estimatedMinutes": 50,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Finale",
+      "readAloud": "The stair opens onto a catwalk above a black chasm. An iron frame spans the cavern like the ribs of a ship, carrying glassy pipes toward a fist-sized core pulsing with trapped shadow. One pipe climbs toward Oakhaven. Another ends at a salt-encrusted gate crushed beneath fallen rock. With every pulse, the upward pipe shudders and spits a needle of black glass into the roots above.",
+      "gmNotes": [
+        "This is an artifact/environment finale, not a boss fight.",
+        "Safe purge requires all three repair jobs. Each is an Action and DC 13 check; different characters can work in parallel.",
+        "Open Salt Gate: DC 13 Strength (Athletics) or Dexterity with thieves' tools to free the jammed wheel.",
+        "Reconnect Bell Ground: DC 13 Intelligence (Arcana) or Wisdom (Religion) to reconnect the bronze grounding braid.",
+        "Clamp Root Vent: DC 13 Intelligence (Nature), Wisdom (Medicine), or Dexterity with thieves' tools to seal the upward vent.",
+        "Balanced Lines from the vault allows the first failed repair check to be rerolled immediately.",
+        "At initiative count 20 each round, Pressure Pulse: every creature on the catwalk makes DC 12 Constitution save; failure takes 1d6 necrotic and is pushed 5 ft. away from the core.",
+        "After all three repairs succeed, one character pulls the purge lever. The stored blight drains harmlessly into a newly opened salt basin.",
+        "Destructive shortcut: Overflow Core AC 13, 24 HP, immune poison and psychic. Destroying it ends the pulses but releases a 2d6 necrotic blast in 20 ft. (DC 12 Con half) and guarantees the watchtower collapses.",
+        "If TOWER STRAIN reaches 3 before the safe purge completes, the safe purge can still save the town but the watchtower is already lost."
+      ],
+      "runSteps": [
+        {
+          "title": "Name the three jobs",
+          "text": "Put Salt Gate, Bell Ground, and Root Vent in front of the players as separate repair targets."
+        },
+        {
+          "title": "Pulse the chamber",
+          "text": "At initiative 20, resolve the DC 12 Pressure Pulse while characters work the machinery."
+        },
+        {
+          "title": "Honor the shortcut",
+          "text": "If they attack the Overflow Core, let them. Make the destructive consequence explicit before the first damage roll."
+        },
+        {
+          "title": "Choose the consequence",
+          "text": "Use Safe Purge if all repairs finish below Strain 3, Tower Lost if Strain is 3, or Broken Heart if the Core is destroyed."
+        }
+      ],
+      "advanceWhen": "The sluice is safely purged or the overflow core is destroyed; choose the matching resolution.",
+      "npcIds": [
+        "npc-harn-echo"
+      ],
+      "clueIds": [
+        "clue-overflow-cause",
+        "clue-safe-repair",
+        "clue-destroy-cost",
+        "clue-orchard"
+      ],
+      "encounterIds": [
+        "enc-gloam-sluice"
+      ],
+      "exits": [
+        "scene-resolution-safe",
+        "scene-resolution-lost",
+        "scene-resolution-broken"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-safe",
+          "label": "Safe purge, tower standing",
+          "description": "All three repairs succeed before Tower Strain reaches 3."
+        },
+        {
+          "target": "scene-resolution-lost",
+          "label": "Safe purge, tower lost",
+          "description": "The repairs succeed, but Tower Strain has already reached 3."
+        },
+        {
+          "target": "scene-resolution-broken",
+          "label": "Destroy the overflow core",
+          "description": "The party chooses the fast shutdown and accepts the collapse."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-safe",
+      "title": "Resolution: Bell Above, Salt Below",
+      "purpose": "Reward the full repair, preserve the watchtower, and seed the next Oakhaven adventure through the maintenance ledger.",
+      "locationId": "loc-watchtower",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "The purge lever drops with a weight you feel through the catwalk. Black pressure vanishes from the pipes in a single rushing hiss, followed by the deep crackle of salt below. When you climb back into the tower cellar, the stain on the wall has already begun to gray. High overhead, the watch bell rings once in clear air. Captain Marr looks from the quiet stone to the ledger in your hands. “Tell me we get to keep the tower.”",
+      "gmNotes": [
+        "Captain Marr pays 125 gp total.",
+        "The party receives the Saltglass Brooch from the old maintenance cabinet: once per long rest when the wearer takes necrotic damage, reduce that damage by 1d6.",
+        "The sealed ledger identifies the Black Orchard north of Oakhaven as the source of the original wardstone.",
+        "The eastern watchtower remains operational."
+      ],
+      "runSteps": [
+        {
+          "title": "Pay the repair",
+          "text": "Award 125 gp total and the Saltglass Brooch."
+        },
+        {
+          "title": "Confirm the consequence",
+          "text": "The eastern watchtower remains standing and the root vent stops producing splinters."
+        },
+        {
+          "title": "Open Module 04",
+          "text": "Show the ledger entry naming the Black Orchard as the original wardstone source."
+        }
+      ],
+      "advanceWhen": "Rewards are recorded and the party decides whether to investigate the Black Orchard.",
+      "npcIds": [
+        "npc-edda-marr"
+      ],
+      "clueIds": [
+        "clue-orchard"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-lost",
+      "title": "Resolution: The Tower Comes Down",
+      "purpose": "Let a late safe repair still save Oakhaven while making the lost clock materially change the town.",
+      "locationId": "loc-watchtower",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "The corruption drains into the salt basin, but the stone above you answers with a long, descending groan. By the time you reach the cellar, Captain Marr is already driving her guards into the street. The eastern watchtower folds inward behind you in a cloud of pale dust. No black stain spreads from the rubble. Oakhaven is safe from the splinters, but its eastern skyline is suddenly missing a tooth.",
+      "gmNotes": [
+        "Captain Marr pays 100 gp total because the town must fund emergency rebuilding.",
+        "The party still receives the Saltglass Brooch; they fixed the corruption correctly.",
+        "The ledger survives and names the Black Orchard.",
+        "The town now lacks its eastern lookout until rebuilt, a persistent campaign consequence."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the saved town",
+          "text": "Make clear that the corruption is contained even though the tower is lost."
+        },
+        {
+          "title": "Apply the reduced reward",
+          "text": "Award 100 gp total plus the Saltglass Brooch."
+        },
+        {
+          "title": "Carry the clue forward",
+          "text": "The maintenance ledger still points to the Black Orchard."
+        }
+      ],
+      "advanceWhen": "The collapse is resolved and the party has the ledger.",
+      "npcIds": [
+        "npc-edda-marr"
+      ],
+      "clueIds": [
+        "clue-orchard"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-broken",
+      "title": "Resolution: Broken Heart",
+      "purpose": "Honor the destructive solution, save the immediate town, and leave a harsher consequence for the continuing Oakhaven series.",
+      "locationId": "loc-watchtower",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "The overflow core comes apart with a sound like a bell struck underwater. Black light fills the chamber, then rushes downward as the machine frame twists off its anchors. You reach the surface ahead of a rolling collapse. The eastern watchtower slumps across the street in a roar of stone, but the root-veins beneath it go dark. Among the debris, a maintenance ledger lies split open to a page headed BLACK ORCHARD — WARDSTONE QUARRY.",
+      "gmNotes": [
+        "The immediate splinter threat ends, but some stored blight escapes into the deeper caverns.",
+        "Captain Marr pays 75 gp total; the town is safe but the tower is destroyed and the old ward can no longer protect Oakhaven.",
+        "Do not award the Saltglass Brooch; it is shattered in the destructive purge.",
+        "The Black Orchard lead becomes more urgent because the town has lost its original underground ward."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the cost",
+          "text": "The watchtower is destroyed and the protective sluice is permanently gone."
+        },
+        {
+          "title": "Partial payment",
+          "text": "Award 75 gp total for stopping the immediate threat."
+        },
+        {
+          "title": "Point north",
+          "text": "End on the Black Orchard ledger entry and the knowledge that Oakhaven no longer has its old ward."
+        }
+      ],
+      "advanceWhen": "The party has escaped the collapse and understands the Black Orchard lead.",
+      "npcIds": [
+        "npc-edda-marr"
+      ],
+      "clueIds": [
+        "clue-orchard"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-sluice-purpose",
+      "revelation": "The buried machinery was built to pull corruption away from Oakhaven, not create it.",
+      "required": true,
+      "sources": [
+        "The flooded tunnel's carved residue channels visibly run away from the watchtower and toward the lower caverns.",
+        "A maintenance record in the Bellkeeper Vault labels the mechanism OAKHAVEN ROOT WARD — DRAIN LINE.",
+        "Bellkeeper Harn's echo identifies the machine as a protective ward when the bronze bell is struck."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-overflow-cause",
+      "revelation": "The salt outlet collapsed, forcing the full system to vent black splinters upward through the roots.",
+      "required": true,
+      "sources": [
+        "The SALT pressure gauge reads nearly empty while the ROOT line is overfull, physical evidence of a blocked drain.",
+        "A pipe diagram in the maintenance chamber shows the normal route ending in a deep salt basin.",
+        "In the Gloam Sluice chamber, the salt gate is visibly crushed under fallen stone while the upward emergency vent fires black glass."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-safe-repair",
+      "revelation": "The safe purge needs the Salt Gate opened, Bell Ground reconnected, and Root Vent clamped.",
+      "required": true,
+      "sources": [
+        "The maintenance ledger lists the three emergency jobs in a numbered shutdown record.",
+        "Three brass mechanism plates in the sluice chamber are labeled SALT GATE, BELL GROUND, and ROOT VENT.",
+        "Bellkeeper Harn's echo repeats the three-job ritual checklist when the party enters the final chamber."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-destroy-cost",
+      "revelation": "Smashing the overflow core will stop the venting but release stored blight and destroy the watchtower.",
+      "required": true,
+      "sources": [
+        "A red warning inscription on the core housing reads CORE BREACH = FOUNDATION LOSS.",
+        "The maintenance record describes an earlier core crack that killed the first bellkeeper and damaged the tower foundation.",
+        "Bellkeeper Harn's echo directly warns that breaking the core will save the town but doom the tower."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-orchard",
+      "revelation": "The Black Orchard north of Oakhaven supplied the original wardstone used in the Gloam Sluice.",
+      "required": false,
+      "sources": [
+        "The sealed maintenance ledger names BLACK ORCHARD — WARDSTONE QUARRY.",
+        "A shipping record lists stone deliveries from the north road under the orchard's old survey mark.",
+        "Harn's echo remembers the wardstone arriving on carts covered in black apple leaves."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": false
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-sump-crawlers",
+      "name": "Stone-Sump Crawlers",
+      "type": "combat / bypass",
+      "difficulty": "moderate",
+      "summary": "Two territorial mineral-armored crawlers occupy the flooded tunnel while loose masonry turns a static fight into a moving one.",
+      "objective": "Reach the Bellkeeper Vault without being trapped in the flooded undercroft.",
+      "resolution": "The encounter ends when the party reaches the bronze maintenance door, defeats the crawlers, or lures them away from the route.",
+      "talkOut": "The crawlers are beasts and do not negotiate, but they pursue vibration and food rather than defending the door itself.",
+      "bypass": "DC 12 group Dexterity (Stealth) using the broken catwalk, or sacrifice one ration to lure both crawlers toward the mineral runoff for 3 rounds.",
+      "special": "After round 3, one 10-ft. map section suffers falling masonry each round."
+    },
+    {
+      "id": "enc-harn-echo",
+      "name": "Bellkeeper Harn's Echo",
+      "type": "social / puzzle support",
+      "difficulty": "none",
+      "summary": "A maintenance-memory appears if the bell is struck or the gauges overload. It can explain the ward without solving player choices for them.",
+      "objective": "Learn enough to descend safely and understand the cost of destroying the buried machine.",
+      "resolution": "The echo gives its warnings, the vault opens, and the party can continue.",
+      "talkOut": "Speak with Harn, show Captain Marr's badge, or simply use the physical records. The echo is helpful and never requires combat.",
+      "bypass": "The party can ignore Harn entirely; the ledger, diagrams, and mechanism labels preserve every required fact."
+    },
+    {
+      "id": "enc-gloam-sluice",
+      "name": "The Gloam Sluice",
+      "type": "artifact / environmental finale",
+      "difficulty": "climactic",
+      "summary": "A failing civic ward vents corruption upward while pressure pulses threaten the catwalk. Repairing three systems produces the best outcome; destroying the core is faster but costly.",
+      "objective": "Stop the root vent and survive the machine chamber.",
+      "resolution": "Complete all three repair jobs and pull the purge lever, or destroy the Overflow Core and escape the collapse.",
+      "talkOut": "Bellkeeper Harn can guide the repair sequence and warn of consequences, but there is no creature that must be persuaded or killed.",
+      "bypass": "Destroying the Overflow Core ends the immediate threat at the cost of the watchtower and the old protective ward.",
+      "special": "At initiative count 20, Pressure Pulse forces DC 12 Constitution saves; failures take 1d6 necrotic and are pushed 5 ft."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-pressure-balance",
+      "name": "Three Gauges, Nine Marks",
+      "locationId": "loc-bell-vault",
+      "prompt": "ROOT begins at 5, STONE at 3, SALT at 1. Each valve move transfers exactly 1 pressure between adjacent lines. The inscription says KEEP THE THREE LINES EQUAL BEFORE THE BELL IS STRUCK.",
+      "solution": "Balance all three at 3 / 3 / 3. One clean path is Root → Stone twice, then Stone → Salt twice.",
+      "failForward": "If any gauge reaches 0 or 6, Pressure Backlash triggers and marks one Tower Strain, then the gauges reset to 5 / 3 / 1 and Harn's Echo explicitly explains that equal pressure is required."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-pressure-backlash",
+      "name": "Pressure Backlash",
+      "locationId": "loc-bell-vault",
+      "trigger": "A pressure gauge reaches 0 or 6 while the party manipulates the balancing valves.",
+      "effect": "Creatures within 10 ft. of the gauges make DC 12 Constitution saves; failure takes 1d6 thunder damage. Mark one Tower Strain, then reset the puzzle.",
+      "failForward": "Harn's Echo appears after the first backlash and states that all three gauges must be equal, allowing immediate another attempt."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-healing-potion",
+      "name": "Potion of Healing",
+      "kind": "consumable",
+      "description": "Stored in the Bellkeeper maintenance cabinet.",
+      "effect": "Use the selected 5E ruleset's normal healing potion rules."
+    },
+    {
+      "id": "item-watch-pay",
+      "name": "Old Watch Pay",
+      "kind": "treasure",
+      "description": "Thirty-five gold pieces in stamped Oakhaven coins.",
+      "effect": "Ordinary treasure."
+    },
+    {
+      "id": "item-saltglass-brooch",
+      "name": "Saltglass Brooch",
+      "kind": "original magic item",
+      "description": "A cloudy white brooch made from the old salt sink.",
+      "effect": "Once per long rest when the wearer takes necrotic damage, reduce that damage by 1d6."
+    },
+    {
+      "id": "item-maintenance-ledger",
+      "name": "Bellkeeper Maintenance Ledger",
+      "kind": "story item",
+      "description": "A sealed record describing the Gloam Sluice and its original wardstone source.",
+      "effect": "Reveals the Black Orchard lead for Module 04."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-eastern-watchtower-undercroft",
+      "name": "Eastern Watchtower Undercroft",
+      "asset": null,
+      "regions": [
+        {
+          "id": "reg-tower",
+          "label": "Watchtower Cellar",
+          "sceneId": "scene-watchtower",
+          "x": 5,
+          "y": 68,
+          "w": 20,
+          "h": 15
+        },
+        {
+          "id": "reg-tunnel",
+          "label": "Flooded Tunnel",
+          "sceneId": "scene-tunnel",
+          "x": 28,
+          "y": 53,
+          "w": 22,
+          "h": 15
+        },
+        {
+          "id": "reg-vault",
+          "label": "Bellkeeper Vault",
+          "sceneId": "scene-vault",
+          "x": 53,
+          "y": 38,
+          "w": 18,
+          "h": 15
+        },
+        {
+          "id": "reg-sluice",
+          "label": "Gloam Sluice",
+          "sceneId": "scene-sluice",
+          "x": 73,
+          "y": 16,
+          "w": 20,
+          "h": 20
+        }
+      ]
+    }
+  ],
+  "playMaps": [
+    {
+      "sceneIds": [
+        "scene-tunnel"
+      ],
+      "title": "Flooded Sally Tunnel — 70 × 40 ft.",
+      "kind": "combat",
+      "src": "assets/maps/oakhaven/flooded-sally-tunnel-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Flooded undercroft with broken catwalk, mineral runoff, and the bronze maintenance door.",
+      "notes": [
+        "Party enters from west",
+        "Maintenance door is east",
+        "Broken catwalk runs north side",
+        "Mineral runoff pool is southeast",
+        "Collapsed masonry pockets mark falling-debris zones"
+      ]
+    },
+    {
+      "sceneIds": [
+        "scene-sluice"
+      ],
+      "title": "Gloam Sluice — 70 × 70 ft.",
+      "kind": "combat",
+      "src": "assets/maps/oakhaven/gloam-sluice-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Environmental finale map with three repair stations around the overflow core.",
+      "notes": [
+        "Overflow Core at center",
+        "Salt Gate north",
+        "Bell Ground west",
+        "Root Vent east",
+        "Purge lever south",
+        "Catwalk gaps drop into the lower salt chasm"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event-strain-1",
+      "name": "Foundation Creak",
+      "trigger": "Flooded Sally Tunnel scene ends",
+      "effect": "Mark TOWER STRAIN 1/3."
+    },
+    {
+      "id": "event-strain-overload",
+      "name": "Pressure Overload",
+      "trigger": "A gauge reaches 0 or 6 during the vault puzzle",
+      "effect": "Mark one Tower Strain, maximum 3."
+    },
+    {
+      "id": "event-strain-delay",
+      "name": "Old Stone Settles",
+      "trigger": "The party takes a long rest or extended delay below the tower",
+      "effect": "Mark one Tower Strain, maximum 3."
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-safe",
+      "name": "Bell Above, Salt Below",
+      "condition": "All three repair jobs succeed and the purge lever is pulled before Tower Strain reaches 3.",
+      "result": "The splinters stop, the watchtower survives, the party earns 125 gp and the Saltglass Brooch, and the ledger points to the Black Orchard."
+    },
+    {
+      "id": "ending-lost",
+      "name": "The Tower Comes Down",
+      "condition": "The party safely purges the sluice after Tower Strain reaches 3.",
+      "result": "Oakhaven is protected but loses its eastern watchtower; the party earns 100 gp and the Saltglass Brooch."
+    },
+    {
+      "id": "ending-broken",
+      "name": "Broken Heart",
+      "condition": "The party destroys the Overflow Core.",
+      "result": "The immediate venting stops, the tower collapses, some stored blight escapes deeper underground, and the party earns 75 gp."
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "Required facts must survive missed NPCs and failed checks; move evidence forward instead of adding a new branch.",
+      "Treat creative engineering that accomplishes a listed repair job as that same job, using the same DC or an obviously equivalent resource cost.",
+      "Failure costs Strain, hit points, position, or rewards; it never makes the underground route impossible."
+    ],
+    "routes": [
+      {
+        "id": "rec-marr-unavailable",
+        "trigger": "Captain Marr is refused, missing, unavailable, or dead before the party enters the tower.",
+        "response": "Kaelen and the marked map still identify the eastern tower. The black seep is visible through a cracked cellar vent, and the iron hatch can be opened from the abandoned supply room.",
+        "stateChanges": [
+          "The adventure remains enterable.",
+          "The 125 gp civic reward is recorded in Marr's emergency ledger."
+        ]
+      },
+      {
+        "id": "rec-harn-attacked",
+        "trigger": "Harn's echo is attacked, treated as hostile, or the bell is destroyed before he explains the ward.",
+        "response": "The maintenance ledger, gauge labels, and physical mechanism plates deliver the same truths. Harn is never required for progression.",
+        "stateChanges": [
+          "Required clues remain available.",
+          "Balanced Lines can still be earned by solving the gauges."
+        ]
+      },
+      {
+        "id": "rec-vault-bypassed",
+        "trigger": "The party bypasses or skips the Bellkeeper Vault through a crack, spell, or excavation.",
+        "response": "They can still reach the sluice. The three repair stations are labeled in the final chamber, but the party loses the cabinet loot and Balanced Lines reroll.",
+        "stateChanges": [
+          "The finale remains solvable.",
+          "Rushed play loses preparation benefits but never locks the ending."
+        ]
+      },
+      {
+        "id": "rec-leave-underground",
+        "trigger": "The party leaves the underground complex after discovering the active sluice.",
+        "response": "Advance Tower Strain by one when they return. If it reaches 3, the upper watchtower is evacuated, but the repair finale remains available.",
+        "stateChanges": [
+          "The town consequence worsens.",
+          "The corruption source remains actionable."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared play earns information, loot, and a reroll; rushed play costs Strain or resources, but the ending is never locked and the party can still finish.",
+    "prepared": [
+      "Balancing the gauges cleanly grants Balanced Lines: reroll the first failed repair check in the finale.",
+      "Reading the maintenance ledger reveals both the destructive-core warning and the Black Orchard lead before the finale."
+    ],
+    "rushed": [
+      "Bypassing the vault loses Balanced Lines and the maintenance-cabinet rewards.",
+      "Long delays or pressure overloads advance Tower Strain and can cost Oakhaven its eastern watchtower."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 150,
+    "plannedMinutes": 140,
+    "bossReserveMinutes": 45,
+    "cutOrder": [
+      "If 20+ minutes behind, reduce the Stone-Sump Crawlers from two to one and place the maintenance door in clear sight.",
+      "If 15+ minutes behind at the pressure puzzle, let Harn's Echo appear immediately after one player states the equality goal.",
+      "Never cut the three repair jobs, the destructive-core choice, or the Black Orchard reveal."
+    ],
+    "optionalOrder": [
+      "Extended discussion with Captain Marr before descent.",
+      "Searching secondary alcoves in the flooded tunnel after the maintenance route is found.",
+      "Additional historical questions for Harn after the ledger has been recovered."
+    ]
+  },
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-watchtower",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-edda-marr": {
+        "status": "alive",
+        "attitude": "urgent"
+      },
+      "npc-harn-echo": {
+        "status": "bound",
+        "attitude": "dutiful"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-healing-potion": "in-maintenance-cabinet",
+      "item-watch-pay": "in-maintenance-cabinet",
+      "item-saltglass-brooch": "in-maintenance-cabinet",
+      "item-maintenance-ledger": "sealed-in-maintenance-cabinet"
+    },
+    "eventState": {
+      "towerStrain": 0,
+      "balancedLines": false,
+      "saltGate": "jammed",
+      "bellGround": "severed",
+      "rootVent": "open",
+      "overflowCoreHp": 24,
+      "sluiceState": "overflowing"
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "All adventure-specific creatures and hazards use the quick-run numbers in this package.",
+        "General checks use ordinary 2014 5E ability-check and saving-throw procedure."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "All adventure-specific creatures and hazards use the quick-run numbers in this package.",
+        "General checks use the selected current SRD ability-check and saving-throw procedure; no 2014 class feature is imported."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "beneath-the-eastern-watchtower",
+    "version": "0.1.0",
+    "target": {
+      "level": 3,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-crawler-bypass",
+      "check-pressure-balance",
+      "check-salt-gate",
+      "check-bell-ground",
+      "check-root-vent"
+    ],
+    "checks": [
+      {
+        "id": "check-crawler-bypass",
+        "sceneId": "scene-tunnel",
+        "label": "Slip past the sump crawlers",
+        "dc": 12,
+        "ability": "Group Dexterity (Stealth)",
+        "success": "The party crosses the broken catwalk and reaches the maintenance door before the crawlers react.",
+        "failure": "The crawlers engage, but the party begins 20 ft. closer to the maintenance door and can still escape forward."
+      },
+      {
+        "id": "check-pressure-balance",
+        "sceneId": "scene-vault",
+        "label": "Balance Root / Stone / Salt",
+        "dc": 12,
+        "ability": "Intelligence (Investigation) if players want a hint",
+        "success": "Point out that all three gauges total 9 and the inscription requires equality: 3 / 3 / 3.",
+        "failure": "The visible valve rules remain available; a pressure overload summons Harn's Echo and reveals the equality goal."
+      },
+      {
+        "id": "check-salt-gate",
+        "sceneId": "scene-sluice",
+        "label": "Open the Salt Gate",
+        "dc": 13,
+        "ability": "Strength (Athletics) or Dexterity (Thieves' Tools)",
+        "success": "The jammed wheel turns and the lower salt basin begins accepting flow.",
+        "failure": "The wheel slips; the character keeps the Action cost but can try again next turn."
+      },
+      {
+        "id": "check-bell-ground",
+        "sceneId": "scene-sluice",
+        "label": "Reconnect the Bell Ground",
+        "dc": 13,
+        "ability": "Intelligence (Arcana) or Wisdom (Religion)",
+        "success": "The bronze grounding braid hums and one layer of black static leaves the core.",
+        "failure": "A harmless spark shows the correct contact point; the character can retry next turn."
+      },
+      {
+        "id": "check-root-vent",
+        "sceneId": "scene-sluice",
+        "label": "Clamp the Root Vent",
+        "dc": 13,
+        "ability": "Intelligence (Nature), Wisdom (Medicine), or Dexterity (Thieves' Tools)",
+        "success": "The upward line closes and no new black splinter enters Oakhaven's roots.",
+        "failure": "The clamp catches but does not seal; retrying remains possible next turn."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-sump-crawlers",
+        "objective": "Reach the maintenance door or drive off the territorial crawlers.",
+        "start": "The party enters the west end of a 70 × 40 ft. flooded tunnel; two crawlers emerge from the southeast runoff.",
+        "bypass": "DC 12 group Stealth over the north catwalk, or throw one ration into the southeast runoff to draw both crawlers away for 3 rounds.",
+        "creatures": [
+          {
+            "name": "Stone-Sump Crawler",
+            "count": 2,
+            "ac": 13,
+            "hp": 18,
+            "speed": "30 ft., climb 20 ft.",
+            "attack": "Mandibles +4 to hit, 1d8+2 piercing.",
+            "trait": "Mineral Shell: the first time each crawler takes bludgeoning damage, reduce that damage by 2 as crust breaks away.",
+            "tactics": "Attack the nearest source of vibration, then retreat toward the runoff if bloodied."
+          }
+        ],
+        "end": "The party reaches the bronze maintenance door, defeats the crawlers, or lures them away."
+      },
+      {
+        "id": "enc-harn-echo",
+        "objective": "Learn the machine's purpose and continue through the vault.",
+        "start": "Harn appears in the bronze bell's reflection after the bell is struck or the gauges overload.",
+        "bypass": "Ignore the echo and use the ledger, gauges, and wall diagrams instead.",
+        "creatures": [],
+        "end": "The gauges are balanced and the lower sluice door opens."
+      },
+      {
+        "id": "enc-gloam-sluice",
+        "objective": "Stop the root vent by repairing three systems or destroying the overflow core.",
+        "start": "The party enters a 70 × 70 ft. catwalk chamber with the Core at center and three repair stations around it.",
+        "bypass": "Destroy Overflow Core AC 13 / 24 HP to end the pulses immediately, accepting the tower collapse and 2d6 necrotic breach blast.",
+        "creatures": [],
+        "end": "All three repair jobs succeed and the purge lever is pulled, or the Overflow Core is destroyed."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-falling-masonry",
+        "sceneId": "scene-tunnel",
+        "trigger": "Beginning after round 3, one random 10-ft. section sheds stone each round.",
+        "save": "DC 12 Dexterity saving throw for creatures in that section.",
+        "failure": "Take 1d6 bludgeoning damage.",
+        "success": "Take no damage and step to the nearest safe square if available.",
+        "failForward": "The debris creates difficult terrain but never blocks the maintenance door."
+      },
+      {
+        "id": "hazard-pressure-backlash",
+        "sceneId": "scene-vault",
+        "trigger": "Any pressure gauge reaches 0 or 6.",
+        "save": "DC 12 Constitution saving throw for creatures within 10 ft. of the gauges.",
+        "failure": "Take 1d6 thunder damage and mark one Tower Strain.",
+        "success": "Take no damage, but mark one Tower Strain.",
+        "failForward": "The gauges reset and Harn's Echo reveals that all three lines must be equal."
+      },
+      {
+        "id": "hazard-pressure-pulse",
+        "sceneId": "scene-sluice",
+        "trigger": "Initiative count 20 each round while the sluice is overflowing.",
+        "save": "DC 12 Constitution saving throw for creatures on the catwalk.",
+        "failure": "Take 1d6 necrotic damage and be pushed 5 ft. away from the core.",
+        "success": "Take no damage and hold position.",
+        "failForward": "A pushed creature stops at the catwalk edge rather than being forced into the chasm unless another effect already removed the railing."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-vault",
+        "when": "The party opens the Bellkeeper maintenance cabinet.",
+        "reward": "Potion of Healing, 35 gp in old watch pay, and the maintenance ledger."
+      },
+      {
+        "id": "reward-safe",
+        "when": "The sluice is safely purged before Tower Strain 3.",
+        "reward": "125 gp total plus the Saltglass Brooch; eastern watchtower remains standing."
+      },
+      {
+        "id": "reward-late",
+        "when": "The sluice is safely purged after Tower Strain reaches 3.",
+        "reward": "100 gp total plus the Saltglass Brooch; the tower is lost."
+      },
+      {
+        "id": "reward-broken",
+        "when": "The Overflow Core is destroyed.",
+        "reward": "75 gp total; the immediate splinter threat ends but the tower and old ward are lost."
+      },
+      {
+        "id": "reward-hook",
+        "when": "The maintenance ledger is recovered.",
+        "reward": "The Black Orchard north of Oakhaven is identified as the original wardstone source."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-tunnel",
+        "dimensions": "70 × 40 ft. flooded tunnel; 5-ft. grid.",
+        "features": [
+          "west party entry",
+          "east maintenance door",
+          "north broken catwalk",
+          "southeast mineral runoff",
+          "three marked falling-masonry zones"
+        ]
+      },
+      {
+        "sceneId": "scene-sluice",
+        "dimensions": "70 × 70 ft. catwalk chamber; 5-ft. grid.",
+        "features": [
+          "Overflow Core center",
+          "Salt Gate north",
+          "Bell Ground west",
+          "Root Vent east",
+          "Purge lever south",
+          "open chasm beyond catwalk rails"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One underground spine with a finale that branches on repair quality and player choice.",
+    "mainSpine": [
+      "scene-watchtower",
+      "scene-tunnel",
+      "scene-vault",
+      "scene-sluice"
+    ],
+    "allowedBranchScenes": [
+      "scene-sluice"
+    ],
+    "terminalScenes": [
+      "scene-resolution-safe",
+      "scene-resolution-lost",
+      "scene-resolution-broken"
+    ],
+    "stageCount": 5
+  },
+  "clock": {
+    "name": "Tower Strain",
+    "max": 3,
+    "start": 0,
+    "states": [
+      "0 — foundations stable",
+      "1 — dust and mortar flakes fall after the flooded tunnel",
+      "2 — visible cracks climb the tower cellar walls",
+      "3 — evacuation begins; the eastern watchtower cannot be saved tonight"
+    ]
+  }
+}

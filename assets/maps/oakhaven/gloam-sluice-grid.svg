@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="840" viewBox="0 0 840 840" role="img" aria-labelledby="title desc">
+<title id="title">Gloam Sluice finale map</title>
+<desc id="desc">A seventy by seventy foot catwalk chamber on a five foot grid, with central overflow core and repair stations north, east, west, and south.</desc>
+<rect width="840" height="840" fill="#ece9e1"/>
+<g stroke="#b9b4aa" stroke-width="1">
+<line x1="0" y1="0" x2="0" y2="840"/><line x1="60" y1="0" x2="60" y2="840"/><line x1="120" y1="0" x2="120" y2="840"/><line x1="180" y1="0" x2="180" y2="840"/><line x1="240" y1="0" x2="240" y2="840"/><line x1="300" y1="0" x2="300" y2="840"/><line x1="360" y1="0" x2="360" y2="840"/><line x1="420" y1="0" x2="420" y2="840"/><line x1="480" y1="0" x2="480" y2="840"/><line x1="540" y1="0" x2="540" y2="840"/><line x1="600" y1="0" x2="600" y2="840"/><line x1="660" y1="0" x2="660" y2="840"/><line x1="720" y1="0" x2="720" y2="840"/><line x1="780" y1="0" x2="780" y2="840"/><line x1="840" y1="0" x2="840" y2="840"/>
+<line x1="0" y1="0" x2="840" y2="0"/><line x1="0" y1="60" x2="840" y2="60"/><line x1="0" y1="120" x2="840" y2="120"/><line x1="0" y1="180" x2="840" y2="180"/><line x1="0" y1="240" x2="840" y2="240"/><line x1="0" y1="300" x2="840" y2="300"/><line x1="0" y1="360" x2="840" y2="360"/><line x1="0" y1="420" x2="840" y2="420"/><line x1="0" y1="480" x2="840" y2="480"/><line x1="0" y1="540" x2="840" y2="540"/><line x1="0" y1="600" x2="840" y2="600"/><line x1="0" y1="660" x2="840" y2="660"/><line x1="0" y1="720" x2="840" y2="720"/><line x1="0" y1="780" x2="840" y2="780"/><line x1="0" y1="840" x2="840" y2="840"/>
+</g>
+<rect x="90" y="90" width="660" height="660" rx="26" fill="#d8d3c8" stroke="#2f302d" stroke-width="8"/>
+<rect x="240" y="240" width="360" height="360" fill="#f2efe7" stroke="#5c584f" stroke-width="6"/>
+<circle cx="420" cy="420" r="62" fill="#c8c4bb" stroke="#1f1f1f" stroke-width="7"/>
+<g stroke="#4f4b44" stroke-width="22" stroke-linecap="round">
+<line x1="420" y1="240" x2="420" y2="358"/>
+<line x1="240" y1="420" x2="358" y2="420"/>
+<line x1="482" y1="420" x2="600" y2="420"/>
+<line x1="420" y1="482" x2="420" y2="600"/>
+</g>
+<rect x="365" y="105" width="110" height="70" fill="#d0cbc0" stroke="#333" stroke-width="4"/>
+<rect x="105" y="365" width="110" height="70" fill="#d0cbc0" stroke="#333" stroke-width="4"/>
+<rect x="625" y="365" width="110" height="70" fill="#d0cbc0" stroke="#333" stroke-width="4"/>
+<rect x="365" y="665" width="110" height="70" fill="#d0cbc0" stroke="#333" stroke-width="4"/>
+<text x="368" y="408" font-family="sans-serif" font-size="17" fill="#111">OVERFLOW</text>
+<text x="390" y="432" font-family="sans-serif" font-size="17" fill="#111">CORE</text>
+<text x="378" y="148" font-family="sans-serif" font-size="17" fill="#111">SALT GATE</text>
+<text x="118" y="405" font-family="sans-serif" font-size="17" fill="#111">BELL GROUND</text>
+<text x="641" y="405" font-family="sans-serif" font-size="17" fill="#111">ROOT VENT</text>
+<text x="382" y="706" font-family="sans-serif" font-size="17" fill="#111">PURGE LEVER</text>
+<text x="18" y="28" font-family="sans-serif" font-size="16" fill="#111">Open areas beyond outer rails drop into the lower chasm.</text>
+</svg>
