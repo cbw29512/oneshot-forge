@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" role="img" aria-labelledby="title desc">
+<title id="title">Founder diversion relief map</title>
+<desc id="desc">A player-facing schematic showing the Night Spring diverted from the Founders' Crypt eastward under the road, Ashen Bridge, and Mere, plus a service tunnel returning toward the crypt.</desc>
+<rect width="1000" height="620" fill="#f3efe5"/>
+<path d="M120 290 C260 250 340 320 470 295 S700 250 875 315" fill="none" stroke="#454b47" stroke-width="26" stroke-linecap="round"/>
+<path d="M130 430 C260 390 320 410 430 405" fill="none" stroke="#7d7568" stroke-width="14" stroke-dasharray="18 12"/>
+<g fill="#d4cec0" stroke="#333" stroke-width="5">
+<rect x="70" y="210" width="150" height="120" rx="14"/>
+<rect x="395" y="225" width="150" height="120" rx="14"/>
+<rect x="740" y="250" width="170" height="120" rx="14"/>
+</g>
+<text x="88" y="268" font-family="sans-serif" font-size="21">FOUNDERS' CRYPT</text>
+<text x="418" y="280" font-family="sans-serif" font-size="21">ASHEN BRIDGE</text>
+<text x="790" y="305" font-family="sans-serif" font-size="22">THE MERE</text>
+<text x="115" y="455" font-family="sans-serif" font-size="18">CRYPT RELIEF SERVICE TUNNEL</text>
+<text x="260" y="160" font-family="serif" font-size="26">NIGHT SPRING DIVERSION — EAST</text>
+</svg>
