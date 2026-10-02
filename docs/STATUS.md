@@ -45,11 +45,10 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Curated authored adventures remain valid examples/products; the runner consumes the same normalized package regardless of origin.
 
 ## Next (in order)
-1. Compile ForgeBones into the normal Adventure Package schema so the new bones become authoritative for random adventures.
-2. Add per-field reroll + lock controls to Forge Lab.
-3. Expand compatibility-tagged scene pools.
-4. Repair/audit Night 3 before merging it.
-5. Checkout only after owner gives a payment account
+1. Add per-field reroll + lock controls to Forge Lab.
+2. Expand compatibility-tagged scene pools.
+3. Repair/audit Night 3 before merging it.
+4. Checkout only after owner gives a payment account
 
 ## Do not
 - Violate `docs/FORGE_CONSTITUTION.md`
@@ -62,6 +61,8 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Write two curated Quiet Seals nights in one day
 
 ## Last session
+2026-10-02 — Compiled ForgeBones into the Adventure Package schema (`forge-compile.js`). Forge Lab now opens the compiled bones package in the runner instead of the old generator. Bones stay attached as `forgeBones` and are not mutated. Not release-ready prose.
+
 2026-10-02 — Fixed a release-blocking GM runner readability defect reported from the live Mere Bell stage card: nested spoken/NPC/transition panels had inherited dark text on a dark brown surface. Standardized those panels on a high-contrast paper palette, enlarged dense dialogue text/spacing, added a 7:1 contrast regression gate, and cache-busted the runner stylesheet.
 2026-10-01 — Built Oakhaven Module 06 `The Bell Beneath the Mere`: Mere Level 0–3, skimmer bypass, LOW/HIGH/LOW warning puzzle, Tamsin air-pocket rescue with alternate route at max flood, founder diversion archive, release/silence/preserve Ysra endings, two visual handouts/maps, and Module 07 Founders' Crypt hook.
 2026-10-01 — Built Oakhaven Module 05 `The Ashen Bridge`: six-person bridge rescue, four-integrity visible clock, ash-lime mixing puzzle, guide-line/cargo preparation, optional medicine-wagon reward, hanging-rescue fail-forward, three outcome states, bridge map/handout, and Module 06 Mere bell-chamber hook.
