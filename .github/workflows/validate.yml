@@ -52,6 +52,14 @@ jobs:
         run: node scripts/validate-table-readiness.mjs data/adventures/the-lantern-below.oneshot.json
       - name: Audit Lantern clue delivery
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-lantern-below.oneshot.json
+      - name: Audit Lantern spoken presentation
+        run: node scripts/validate-presentation.mjs data/adventures/the-lantern-below.oneshot.json
+      - name: Audit Well GM table readiness
+        run: node scripts/validate-table-readiness.mjs data/adventures/the-well-that-would-not-dry.oneshot.json
+      - name: Audit Well clue delivery
+        run: node scripts/validate-clue-delivery.mjs data/adventures/the-well-that-would-not-dry.oneshot.json
+      - name: Audit Well spoken presentation
+        run: node scripts/validate-presentation.mjs data/adventures/the-well-that-would-not-dry.oneshot.json
       - name: Audit Owlbear table readiness
         run: node scripts/validate-table-readiness.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Audit Owlbear clue delivery
@@ -88,6 +96,8 @@ jobs:
         run: node scripts/validate-presentation.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
       - name: Validate adventure registry
         run: node scripts/validate-adventure-registry.mjs
+      - name: Validate catalog zero-prep baseline
+        run: node scripts/validate-catalog-zero-prep.mjs
       - name: Audit Owlbear spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Validate Owlbear printable cards
