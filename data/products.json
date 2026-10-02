@@ -101,6 +101,31 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "beneath-the-eastern-watchtower",
+      "title": "Beneath the Eastern Watchtower",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=beneath-the-eastern-watchtower",
+      "productUrl": "adventures/beneath-the-eastern-watchtower.html",
+      "level": 3,
+      "party": "4 players",
+      "playTime": "2–3 hours",
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
 }
