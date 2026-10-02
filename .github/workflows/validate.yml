@@ -28,6 +28,9 @@ jobs:
           node --check quickrun.js
           node --check rules.js
           node --check adventure-registry.js
+          node --check zero-hero.js
+      - name: Validate From Zero to Hero
+        run: node scripts/validate-zero-to-hero.mjs
       - name: Validate authored adventures
         run: |
           node scripts/validate-adventure.mjs data/adventures/the-lantern-below.oneshot.json
