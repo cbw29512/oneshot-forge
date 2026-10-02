@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oneshotforge.example/schema/zero-to-hero.schema.json",
+  "title": "One-Shot Forge From Zero to Hero",
+  "type": "object",
+  "required": ["id","title","rules","start","development","village","chapters","graduation"],
+  "properties": {
+    "id": {"const":"from-zero-to-hero"},
+    "title": {"type":"string"},
+    "rules": {
+      "type":"object",
+      "required":["mode","criticalChecksHouseRule","editionIsolation"],
+      "properties":{
+        "mode":{"const":"level-0-house-rule"},
+        "criticalChecksHouseRule":{"const":true},
+        "editionIsolation":{"const":true}
+      }
+    },
+    "start": {
+      "type":"object",
+      "required":["age","scores","className"],
+      "properties":{
+        "age":{"const":12},
+        "className":{"const":"Level 0"},
+        "scores":{
+          "type":"object",
+          "required":["STR","DEX","CON","INT","WIS","CHA"],
+          "additionalProperties":false,
+          "properties":{
+            "STR":{"const":9},"DEX":{"const":9},"CON":{"const":9},
+            "INT":{"const":9},"WIS":{"const":9},"CHA":{"const":9}
+          }
+        }
+      }
+    },
+    "development":{
+      "type":"object",
+      "required":["totalPoints","pointsPerChapter","maxPreOriginScore","costToRaise"],
+      "properties":{
+        "totalPoints":{"const":21},
+        "pointsPerChapter":{"const":3},
+        "maxPreOriginScore":{"const":15}
+      }
+    },
+    "village":{"type":"object"},
+    "chapters":{
+      "type":"array",
+      "minItems":7,
+      "maxItems":7
+    },
+    "graduation":{
+      "type":"object",
+      "required":["2014","2024"]
+    }
+  }
+}
