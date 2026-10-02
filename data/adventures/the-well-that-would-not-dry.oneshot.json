@@ -243,7 +243,7 @@
     {
       "id": "loc-hearthford-mill",
       "name": "Hearthford mill loft",
-      "description": "Grain, chalk tallies, Oda’s desk.",
+      "description": "Hearthford's working mill smells of grain dust, lamp oil, and damp wood. Chalk tallies cover one wall beside Oda's desk, where wagon schedules and water orders compete for space.",
       "connections": [
         "loc-saltmere-square"
       ]
@@ -251,7 +251,7 @@
     {
       "id": "loc-saltmere-square",
       "name": "Saltmere well-square",
-      "description": "Twenty roofs, a stone well at center, well-house north, Jory southwest, drying shed northwest, road south to Hearthford.",
+      "description": "Saltmere's twenty roofs crowd around a stone well at the center of the square. The well-house stands north, Jory's cottage southwest, the drying shed northwest, and the Hearthford road exits south.",
       "connections": [
         "loc-hearthford-mill",
         "loc-well-house",
@@ -261,7 +261,7 @@
     {
       "id": "loc-jory",
       "name": "Jory’s cottage",
-      "description": "One room. A child’s slate with a name written and rubbed out.",
+      "description": "Jory's one-room cottage is clean except for a child's slate left on the table. One name has been written, rubbed away, and written again until chalk dust coats the wood.",
       "connections": [
         "loc-saltmere-square"
       ]
@@ -269,7 +269,7 @@
     {
       "id": "loc-well-house",
       "name": "Well-house",
-      "description": "Shed over the well. Four tin cups. Trapdoor to the shaft.",
+      "description": "The well-house is a cramped timber shed built directly over the shaft. Four tin cups sit on a shelf above a trapdoor, and damp rope hangs beside the winch.",
       "connections": [
         "loc-saltmere-square",
         "loc-shaft"
@@ -278,7 +278,7 @@
     {
       "id": "loc-shaft",
       "name": "Well shaft",
-      "description": "Rungs, wet rope, 40 feet down.",
+      "description": "Iron rungs descend forty feet through sweating stone beside a wet rope and dented bucket. Every sound carries downward, and droplets strike the shaft walls long after movement stops.",
       "connections": [
         "loc-well-house",
         "loc-cistern"
@@ -287,7 +287,7 @@
     {
       "id": "loc-cistern",
       "name": "Cistern",
-      "description": "Forty-foot circle. Walkway. Dark water 15 feet across. Loose name-stone on the ring.",
+      "description": "A forty-foot circular cistern surrounds fifteen feet of perfectly dark water. A narrow stone walkway rings the pool, with a loose carved name-stone lying beside an empty wall socket.",
       "connections": [
         "loc-shaft"
       ]
