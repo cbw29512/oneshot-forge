@@ -1,10 +1,5 @@
-const ADVENTURE_PACKS = {
-  "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
-  "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json",
-  "the-owlbear-egg": "data/adventures/the-owlbear-egg.oneshot.json",
-  "whispers-of-the-oakhaven-hollow": "data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json",
-  "beneath-the-eastern-watchtower": "data/adventures/beneath-the-eastern-watchtower.oneshot.json"
-};
+const ADVENTURE_PACKS = window.ONE_SHOT_ADVENTURES;
+if (!ADVENTURE_PACKS) throw new Error("Adventure registry failed to load.");
 const DEFAULT_ADVENTURE = ADVENTURE_PACKS["the-lantern-below"];
 const PACKAGE_PREFIX = "oneshot-forge:package:";
 const STATE_PREFIX = "oneshot-forge:state:";
