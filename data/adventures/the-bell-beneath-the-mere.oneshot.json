@@ -1,0 +1,1282 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-bell-beneath-the-mere",
+    "title": "The Bell Beneath the Mere",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 3,
+    "partySize": 4,
+    "partySizeRange": "4 players",
+    "durationMinutes": 150,
+    "tone": [
+      "flooded ruin",
+      "ghost mystery",
+      "echoing folk horror"
+    ]
+  },
+  "series": {
+    "title": "Oakhaven Adventures",
+    "episode": 6,
+    "hub": "Oakhaven",
+    "giver": "Ferryman Noll Vey",
+    "nextTitle": "The Founders' Crypt"
+  },
+  "setup": {
+    "pitch": "The Night Spring soundings end beneath the Mere, where a drowned warning bell has begun ringing underwater and a ferryman's apprentice vanished while investigating it.",
+    "openingLocation": "Noll Vey's ferry landing on the Mere",
+    "gmSummary": "The party follows blackwater soundings to the Mere after locals hear a bell ringing beneath still water. Ferryman Noll Vey's apprentice, Tamsin Reed, disappeared while checking the flooded bell-house. The party crosses reed channels, descends through a half-submerged bell-house, and reconstructs a three-note warning sequence from physical inscriptions and drowned keeper records. The apparent haunting is Bellkeeper Ysra, who is not trying to drown intruders; she is repeatedly sounding the old contamination warning because the Night Spring is carrying buried corruption into the Mere. Ringing the proper sequence opens the founder's dry archive chamber, releases Ysra from duty, and reveals that the spring was deliberately diverted from beneath Oakhaven's Founders' Crypt generations ago.",
+    "background": "Before Oakhaven built its later wards, the Mere bell-house monitored groundwater and flood channels. Bellkeeper Ysra was ordered to sound three notes if tainted water reached the Mere. During a catastrophic flood, the bell-house sank, Ysra died at her post, and the warning system was abandoned. The Night Spring now carries the same corruption route past the Ashen Bridge into the Mere. Ysra's echo continues the last duty she understood: ring the warning until someone answers correctly.",
+    "standaloneStart": "If prior Oakhaven modules were not played, Noll Vey hires the party after his apprentice Tamsin disappears near a submerged bell-house that has started ringing beneath calm water."
+  },
+  "quest": {
+    "type": "rescue / investigate / release",
+    "objective": "Find Tamsin Reed, learn why the drowned bell is ringing, and stop the underwater warning without silencing whatever truth it protects.",
+    "stakes": "Every failed bell attempt raises the Mere inside the ruin. At Mere Level 3, lower chambers become fully submerged and the dry archive can only be reached through the emergency air shaft.",
+    "deadline": "MERE LEVEL 0–3. Increase by 1 after a wrong bell sequence or a long delay inside the drowned bell-house. Level 3 changes routes but never locks the ending.",
+    "successConditions": [
+      "Tamsin Reed is rescued or her fate is determined.",
+      "The three-note warning sequence is understood and resolved.",
+      "Bellkeeper Ysra is released or the bell is deliberately silenced after the archive truth is recovered."
+    ],
+    "failureConditions": [
+      "The party destroys the bell mechanism before recovering the founder archive and then abandons the site.",
+      "The party leaves Tamsin trapped in the bell-house."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-ysra-duty",
+        "text": "Bellkeeper Ysra's ghost is sounding an old contamination warning, not trying to lure people to their deaths."
+      },
+      {
+        "id": "fact-three-notes",
+        "text": "The warning sequence is LOW → HIGH → LOW, representing water below, alarm above, and water withdrawn."
+      },
+      {
+        "id": "fact-tamsin-safe",
+        "text": "Tamsin is alive in a trapped air pocket below the bell deck."
+      },
+      {
+        "id": "fact-founder-diversion",
+        "text": "Oakhaven's founders deliberately diverted the Night Spring away from their crypt and toward the Mere."
+      },
+      {
+        "id": "fact-crypt-lead",
+        "text": "The founder archive identifies a sealed relief tunnel back toward the Founders' Crypt under Oakhaven."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-ysra-order",
+        "text": "Ysra was ordered to keep ringing even after evacuation because town leaders feared panic more than losing the bellkeeper.",
+        "revealCondition": "Read the sealed duty order in the archive or earn Ysra's trust after completing the warning sequence."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-noll",
+      "name": "Noll Vey",
+      "role": "Mere ferryman and quest giver",
+      "personality": [
+        "blunt",
+        "protective",
+        "superstitious only when practical"
+      ],
+      "voiceCues": [
+        "spits over the gunwale before mentioning ghosts",
+        "uses water depth instead of distance"
+      ],
+      "wants": [
+        "Tamsin back alive",
+        "The bell explained before fishermen abandon the Mere"
+      ],
+      "fears": [
+        "Tamsin drowned because he sent her alone",
+        "The blackwater reaching drinking inlets"
+      ],
+      "knows": [
+        "The bell rings only when the Mere is unnaturally still",
+        "Tamsin took a pry bar, rope, and hooded lantern",
+        "An old bell-house roof is visible at very low water"
+      ],
+      "believes": [
+        "Something under the bell-house is warning the town, not hunting it"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The founders redirected the Night Spring",
+        "The exact warning sequence"
+      ],
+      "revealRules": [
+        {
+          "fact": "The ringing starts only during blackwater seepage.",
+          "when": "The party asks when the bell began."
+        },
+        {
+          "fact": "Tamsin knows the old ferry markers.",
+          "when": "The party asks how she reached the ruin."
+        }
+      ],
+      "questFunction": "Gets the party onto the Mere, makes the missing-person stake personal, and frames the bell as a possible warning rather than an automatic enemy.",
+      "description": "A square-built ferryman in a patched oilskin coat, holding one oar under his arm and Tamsin's spare red scarf knotted around his wrist.",
+      "tableDialogue": [
+        "“Bells do not ring underwater unless somebody wants to be heard.”",
+        "“Bring Tamsin back. Then we can decide whether the dead get to keep their bell.”",
+        "“The water is wrong when it goes quiet. That is when the ringing starts.”"
+      ],
+      "reactions": {
+        "agreement": "Provides a flat-bottomed ferry, three cork floats, and a weighted line.",
+        "refusal": "Leaves the ferry tied and tells the party they can borrow it if they change their minds.",
+        "danger": "Rows injured survivors back to shore while the party finishes the ruin."
+      }
+    },
+    {
+      "id": "npc-tamsin",
+      "name": "Tamsin Reed",
+      "role": "missing ferryman apprentice trapped in an air pocket",
+      "personality": [
+        "quick-thinking",
+        "cold",
+        "trying not to sound afraid"
+      ],
+      "voiceCues": [
+        "taps pipes before speaking",
+        "counts breaths when stressed"
+      ],
+      "wants": [
+        "Out of the bell-house",
+        "Her notes preserved so the trip meant something"
+      ],
+      "fears": [
+        "The air pocket collapsing",
+        "Ysra being destroyed before anyone understands her"
+      ],
+      "knows": [
+        "The bell has two reachable strike points that make low/high tones",
+        "The wall inscription uses three water-line symbols",
+        "Ysra stopped attacking when Tamsin copied the symbols"
+      ],
+      "believes": [
+        "The ghost is repeating a warning procedure"
+      ],
+      "secrets": [
+        "She rang the wrong sequence once and flooded the lower stairs"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "What is inside the founder archive"
+      ],
+      "revealRules": [
+        {
+          "fact": "LOW and HIGH are produced from different bell strike points.",
+          "when": "The party frees her or speaks through the grate."
+        },
+        {
+          "fact": "She already tried HIGH → LOW and caused the flood surge.",
+          "when": "The party asks what she tested."
+        }
+      ],
+      "questFunction": "Provides rescue stakes and practical sound-puzzle knowledge without being the only source of the solution.",
+      "description": "A young ferryman wedged into a brick air pocket under the bell deck, soaked to the shoulders, with charcoal symbols copied across one forearm.",
+      "tableDialogue": [
+        "“Do not ring it high first. I learned that one for all of us.”",
+        "“The ghost keeps pointing at the water marks, not at me.”",
+        "“There are two tones. Three marks. I think the middle note is the alarm.”"
+      ],
+      "reactions": {
+        "agreement": "Hands over her charcoal rubbing and helps strike the sequence once freed.",
+        "refusal": "Still passes the rubbing through the grate; she wants the puzzle solved more than credit.",
+        "danger": "Uses the air pocket rope to anchor anyone swept off the lower stairs."
+      }
+    },
+    {
+      "id": "npc-ysra",
+      "name": "Bellkeeper Ysra",
+      "role": "drowned keeper echo bound to the warning bell",
+      "personality": [
+        "formal",
+        "exhausted",
+        "incapable of abandoning duty without acknowledgment"
+      ],
+      "voiceCues": [
+        "speaks in three-word phrases",
+        "voice arrives a heartbeat after the bell stops vibrating"
+      ],
+      "wants": [
+        "The contamination warning answered correctly",
+        "Someone living to carry the archive truth"
+      ],
+      "fears": [
+        "The bell being broken before the warning is understood",
+        "The founders' diversion being forgotten again"
+      ],
+      "knows": [
+        "The warning sequence",
+        "The archive opens after the proper response",
+        "The Night Spring was diverted from the Founders' Crypt"
+      ],
+      "believes": [
+        "Duty ends only when a living witness repeats the warning and opens the archive"
+      ],
+      "secrets": [
+        "She was ordered to keep ringing after everyone else evacuated"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "What Oakhaven has become since her death"
+      ],
+      "revealRules": [
+        {
+          "fact": "She is warning, not attacking.",
+          "when": "A character presents the keeper badge or repeats any two correct notes."
+        },
+        {
+          "fact": "The founders diverted the spring.",
+          "when": "The archive opens or the full sequence is rung."
+        }
+      ],
+      "questFunction": "Provides a social alternative to fighting the haunting and turns the bell sequence into an acknowledgment ritual rather than a lock code.",
+      "description": "A translucent woman in an old bellkeeper coat, seen only where ripples reflect the bronze bell; water pours endlessly from her sleeves without wetting the floor.",
+      "tableDialogue": [
+        "“Water below. Alarm above. Water withdrawn.”",
+        "“Warning unanswered. Duty continues.”",
+        "“Read the founders. Then release me.”"
+      ],
+      "reactions": {
+        "agreement": "Stops creating grasping-water hazards and points toward the archive latch.",
+        "refusal": "Continues the warning cycle but never withholds physical clues.",
+        "danger": "Defends the bell with waves and pushing water; she avoids lethal harm."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-landing",
+      "name": "Mere Ferry Landing",
+      "description": "Gray water stretches beyond reed islands while a red scarf hangs from an empty ferry post and no wind disturbs the surface.",
+      "connections": [
+        "loc-reed-channel"
+      ]
+    },
+    {
+      "id": "loc-reed-channel",
+      "name": "The Silent Reeds",
+      "description": "A narrow channel winds through head-high reeds where black bubbles rise in straight lines from somewhere below.",
+      "connections": [
+        "loc-landing",
+        "loc-bell-house"
+      ]
+    },
+    {
+      "id": "loc-bell-house",
+      "name": "Drowned Bell-House",
+      "description": "A stone roof and bronze belfry tilt above the waterline, with half the lower floor submerged and a great bell hanging inches over black water.",
+      "connections": [
+        "loc-reed-channel",
+        "loc-air-pocket",
+        "loc-archive"
+      ]
+    },
+    {
+      "id": "loc-air-pocket",
+      "name": "Keeper's Air Pocket",
+      "description": "A brick service nook trapped under the bell deck holds stale air, Tamsin's lantern, and a grate opening onto the flooded lower stair.",
+      "connections": [
+        "loc-bell-house"
+      ]
+    },
+    {
+      "id": "loc-archive",
+      "name": "Founders' Dry Archive",
+      "description": "A sealed stone chamber above the old flood line holds waxed ledgers, duty orders, and a relief map showing the Night Spring diverted away from Oakhaven's crypt.",
+      "connections": [
+        "loc-bell-house"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-landing",
+      "title": "A Bell Under Still Water",
+      "purpose": "Establish Tamsin's disappearance, the underwater bell, and the idea that the haunting may be a warning rather than a predator.",
+      "locationId": "loc-landing",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "Hook",
+      "readAloud": "The Mere is flat enough to reflect the clouds without breaking them. Noll Vey's ferry sits tied at the landing, but Tamsin's red scarf is gone from its peg. Somewhere out beyond the reed islands, a bell rings once beneath the water. The sound reaches the dock through your boots before it reaches your ears.",
+      "gmNotes": [
+        "Noll offers 100 gp total to recover Tamsin and explain the ringing.",
+        "Place three MERE LEVEL boxes on the table. Start at 0/3.",
+        "The party receives a flat-bottomed ferry, weighted line, and three cork floats.",
+        "Noll explicitly suggests the bell may be warning someone."
+      ],
+      "runSteps": [
+        {
+          "title": "State the rescue",
+          "text": "Tamsin vanished while checking the drowned bell-house."
+        },
+        {
+          "title": "Show Mere Level",
+          "text": "Put three boxes on the table. Wrong bell sequences and long delays can raise the water."
+        },
+        {
+          "title": "Frame the mystery",
+          "text": "Tell the party the ringing occurs only during blackwater seepage and still weather."
+        }
+      ],
+      "advanceWhen": "The party pushes into the reed channel toward the drowned bell-house.",
+      "npcIds": [
+        "npc-noll"
+      ],
+      "clueIds": [
+        "clue-ysra-duty"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-reeds"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-reeds",
+          "label": "Cross the Silent Reeds",
+          "description": "Follow Tamsin's ferry markers toward the submerged ruin."
+        }
+      ]
+    },
+    {
+      "id": "scene-reeds",
+      "title": "The Silent Reeds",
+      "purpose": "Deliver physical evidence that the Night Spring is flowing beneath the Mere and offer a mobile encounter that can be avoided.",
+      "locationId": "loc-reed-channel",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Approach",
+      "readAloud": "The channel narrows until reeds brush both sides of the ferry. Black bubbles rise in straight rows beneath you, each one popping without sound. Ahead, three white ferry markers lean toward the same sunken roof. Then something bumps the hull from below hard enough to rock the lantern.",
+      "gmNotes": [
+        "Two Mere Skimmers circle the ferry but are attracted to vibration, not blood.",
+        "The party can distract them by throwing one cork float and striking the hull away from the bell-house; no check required.",
+        "A physical survey marker carved with NIGHT FLOW points directly from the Ashen Bridge direction toward the bell-house.",
+        "If combat occurs, skimmers retreat once one is bloodied."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the current",
+          "text": "Describe the straight black bubble line and the physical NIGHT FLOW survey marker."
+        },
+        {
+          "title": "Offer distraction",
+          "text": "The cork floats can pull skimmers away from the ferry without combat."
+        },
+        {
+          "title": "Reach the roof",
+          "text": "The party arrives beside the tilted belfry and can tie off before entering."
+        }
+      ],
+      "advanceWhen": "The ferry is secured to the drowned bell-house.",
+      "npcIds": [],
+      "clueIds": [
+        "clue-ysra-duty",
+        "clue-founder-diversion"
+      ],
+      "encounterIds": [
+        "enc-mere-skimmers"
+      ],
+      "exits": [
+        "scene-bell-house"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-bell-house",
+          "label": "Enter the bell-house",
+          "description": "Climb through the tilted belfry into the flooded ruin."
+        }
+      ]
+    },
+    {
+      "id": "scene-bell-house",
+      "title": "Low, High, Low",
+      "purpose": "Present the sound puzzle, Ysra's warning behavior, and Tamsin's location before any player must commit to ringing the bell.",
+      "locationId": "loc-bell-house",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Bell puzzle",
+      "readAloud": "The bronze bell hangs crooked above black water. One strike point near the rim is polished bright; another higher on the shoulder is green with age. Three carved water lines mark the wall: LOW WATER, ALARM, WITHDRAWN. A pale figure appears in the bell's reflection and raises one hand toward the carvings. Below the deck, someone knocks three times from behind a grate.",
+      "gmNotes": [
+        "The intended sequence is LOW → HIGH → LOW.",
+        "Physical backup: the wall inscription shows low water, alarm above it, then water withdrawn back below.",
+        "Tamsin's charcoal rubbing in the grate repeats the same three symbols.",
+        "A wrong sequence raises Mere Level by 1 and triggers Grasping Water, but then Ysra points directly at the first correct strike point.",
+        "At Mere Level 3, the lower stair is fully submerged. Tamsin remains reachable through the emergency air shaft; the ending is never locked.",
+        "Completing LOW → HIGH → LOW opens the archive latch and makes Ysra non-hostile."
+      ],
+      "runSteps": [
+        {
+          "title": "Put two tones and three marks on the table",
+          "text": "LOW comes from the rim; HIGH comes from the shoulder; the wall shows LOW / ALARM / WITHDRAWN."
+        },
+        {
+          "title": "Fail forward",
+          "text": "A wrong sequence raises the Mere, triggers the hazard, and causes Ysra to point at the first correct note."
+        },
+        {
+          "title": "Open the archive",
+          "text": "The correct sequence releases the stone latch and stops Ysra's hostile water effects."
+        }
+      ],
+      "advanceWhen": "The party has opened the archive latch and located Tamsin below.",
+      "npcIds": [
+        "npc-ysra",
+        "npc-tamsin"
+      ],
+      "clueIds": [
+        "clue-ysra-duty",
+        "clue-three-notes",
+        "clue-tamsin-safe"
+      ],
+      "encounterIds": [
+        "enc-ysra-warning"
+      ],
+      "exits": [
+        "scene-rescue"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-rescue",
+          "label": "Reach Tamsin",
+          "description": "Use the lower stair or emergency air shaft to enter the keeper pocket."
+        }
+      ]
+    },
+    {
+      "id": "scene-rescue",
+      "title": "Three Breaths of Air",
+      "purpose": "Rescue Tamsin with fail-forward mechanics and preserve access even at maximum Mere Level.",
+      "locationId": "loc-air-pocket",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Rescue",
+      "readAloud": "The keeper pocket is barely large enough for two people to crouch. Tamsin sits with her back against the brick, chin above the water, one hand wrapped around a rusted pipe. She gives you a tired grin. “I had started to suspect Noll sent better swimmers.”",
+      "gmNotes": [
+        "At Mere Level 0–2, reach Tamsin through the lower stair: DC 12 Strength (Athletics) or Dexterity (Acrobatics) to cross the flooded landing safely.",
+        "At Mere Level 3, use the emergency air shaft from the bell deck: DC 12 Athletics to lower/raise a rescuer with rope.",
+        "Failure never traps the party. On failure, take 1d6 bludgeoning from debris and reach Tamsin anyway.",
+        "Tamsin gives the party her charcoal rubbing and confirms HIGH → LOW was wrong.",
+        "Once freed, Tamsin can assist with one archive check or one final bell interaction, granting advantage."
+      ],
+      "runSteps": [
+        {
+          "title": "Choose the route",
+          "text": "Lower stair at Mere 0–2; emergency shaft at Mere 3."
+        },
+        {
+          "title": "Resolve one crossing check",
+          "text": "Failure costs 1d6 bludgeoning but still reaches the air pocket."
+        },
+        {
+          "title": "Bring Tamsin up",
+          "text": "Once rescued, she provides her rubbing and can assist one later check."
+        }
+      ],
+      "advanceWhen": "Tamsin is out of the pocket and the archive can be entered.",
+      "npcIds": [
+        "npc-tamsin"
+      ],
+      "clueIds": [
+        "clue-three-notes",
+        "clue-tamsin-safe",
+        "clue-founder-diversion"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-archive"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-archive",
+          "label": "Open the Founders' Archive",
+          "description": "Read the records behind the bell latch."
+        }
+      ]
+    },
+    {
+      "id": "scene-archive",
+      "title": "The Founders Moved the Water",
+      "purpose": "Reveal the series truth, give Ysra a release condition, and let players choose how to end the haunting.",
+      "locationId": "loc-archive",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Truth",
+      "readAloud": "The archive is dry. Waxed ledgers fill stone shelves above an old flood line, and a relief map of Oakhaven covers the back wall. A black channel has been carved from beneath a building labeled FOUNDERS' CRYPT, across the east road, under the bridge, and into the Mere. On a hook below the map hangs Bellkeeper Ysra's final duty order: SOUND THE WARNING UNTIL ANSWERED.",
+      "gmNotes": [
+        "The founder archive is the required truth source; Ysra's explanation is optional.",
+        "Players can RELEASE Ysra by reading the final duty order aloud and ringing LOW → HIGH → LOW one last time.",
+        "They can SILENCE the bell by removing the clapper after reading the archive; Ysra fades, but without closure.",
+        "They can PRESERVE the bell and leave Ysra bound after taking the records. This is legal but leaves the haunting active.",
+        "The relief map identifies a sealed service tunnel back toward Oakhaven's Founders' Crypt.",
+        "The town reward is highest if Tamsin survives and the archive is recovered, regardless of whether Ysra is released or silenced."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the diversion",
+          "text": "Put the relief map in front of the table: Founders' Crypt → east road → Ashen Bridge → Mere."
+        },
+        {
+          "title": "Make the final choice explicit",
+          "text": "Release Ysra, silence the bell after reading the truth, or preserve the warning and leave her bound."
+        },
+        {
+          "title": "Carry the next lead",
+          "text": "The sealed service tunnel returns toward the Founders' Crypt for Module 07."
+        }
+      ],
+      "advanceWhen": "The archive truth is recovered and the party chooses Ysra's fate.",
+      "npcIds": [
+        "npc-ysra",
+        "npc-tamsin"
+      ],
+      "clueIds": [
+        "clue-founder-diversion",
+        "clue-crypt"
+      ],
+      "encounterIds": [
+        "enc-final-choice"
+      ],
+      "exits": [
+        "scene-resolution-release",
+        "scene-resolution-silence",
+        "scene-resolution-preserve"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-release",
+          "label": "Release Ysra",
+          "description": "Repeat the answered warning and formally end her duty."
+        },
+        {
+          "target": "scene-resolution-silence",
+          "label": "Silence the bell",
+          "description": "Remove the clapper after recovering the archive truth."
+        },
+        {
+          "target": "scene-resolution-preserve",
+          "label": "Preserve the warning",
+          "description": "Leave the bell and Ysra bound as an active warning station."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-release",
+      "title": "Resolution: Warning Answered",
+      "purpose": "Close the mystery with Tamsin safe, Ysra released, and the founder diversion exposed.",
+      "locationId": "loc-landing",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 6,
+      "flowTotal": 6,
+      "flowLabel": "Resolution",
+      "readAloud": "The final low note fades across the Mere instead of beneath it. Ysra appears once in the reflection beside Tamsin, no water pouring from her sleeves now. “Warning answered,” she says. Then the bell stops moving. At the landing, Noll grips Tamsin by both shoulders before remembering to pretend he is angry.",
+      "gmNotes": [
+        "Award 125 gp total.",
+        "Noll gives the party a Mereglass Token: once per long rest, gain advantage on one saving throw against being pushed, pulled, or knocked Prone.",
+        "The bell-house becomes quiet.",
+        "The Founders' Crypt service-tunnel map is retained for Module 07."
+      ],
+      "runSteps": [
+        {
+          "title": "Pay the rescue",
+          "text": "Award 125 gp total."
+        },
+        {
+          "title": "Award closure",
+          "text": "Give the Mereglass Token."
+        },
+        {
+          "title": "Point home",
+          "text": "The archive route leads back beneath Oakhaven to the Founders' Crypt."
+        }
+      ],
+      "advanceWhen": "Rewards and the Founders' Crypt map are recorded.",
+      "npcIds": [
+        "npc-noll",
+        "npc-tamsin"
+      ],
+      "clueIds": [
+        "clue-crypt"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-silence",
+      "title": "Resolution: A Quiet Mere",
+      "purpose": "Honor a pragmatic ending that stops the haunting after the truth is preserved.",
+      "locationId": "loc-landing",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 6,
+      "flowTotal": 6,
+      "flowLabel": "Resolution",
+      "readAloud": "When the clapper comes free, the bell rolls once in the current without making a sound. Ysra's reflection breaks into widening rings and does not return. The Mere is quiet again, but this time the silence feels chosen rather than waiting.",
+      "gmNotes": [
+        "Award 110 gp total.",
+        "Tamsin survives and the archive truth is preserved.",
+        "No Mereglass Token is awarded.",
+        "The service tunnel still points to the Founders' Crypt."
+      ],
+      "runSteps": [
+        {
+          "title": "Record pragmatic closure",
+          "text": "The bell cannot ring again; Ysra fades without formal release."
+        },
+        {
+          "title": "Pay the work",
+          "text": "Award 110 gp total."
+        },
+        {
+          "title": "Point home",
+          "text": "Carry the archive map toward the Founders' Crypt."
+        }
+      ],
+      "advanceWhen": "The bell is silenced and the archive map is secured.",
+      "npcIds": [
+        "npc-noll",
+        "npc-tamsin"
+      ],
+      "clueIds": [
+        "clue-crypt"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-preserve",
+      "title": "Resolution: The Bell Still Rings",
+      "purpose": "Allow the party to preserve the active warning at the cost of leaving Ysra bound.",
+      "locationId": "loc-landing",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 6,
+      "flowTotal": 6,
+      "flowLabel": "Resolution",
+      "readAloud": "The ferry reaches shore with the archive wrapped in oilcloth. Behind you, the drowned bell-house shrinks into the gray water. Just before the reeds hide it, the bell rings once below the surface. Tamsin looks back. “At least now we know what it means.”",
+      "gmNotes": [
+        "Award 100 gp total.",
+        "Ysra remains bound and the bell continues to sound during future contamination surges.",
+        "Noll accepts the choice if Tamsin is alive and the warning is understood.",
+        "The Founders' Crypt map remains the next lead."
+      ],
+      "runSteps": [
+        {
+          "title": "Record the continuing warning",
+          "text": "Ysra remains on duty and the bell continues functioning."
+        },
+        {
+          "title": "Pay the investigation",
+          "text": "Award 100 gp total."
+        },
+        {
+          "title": "Carry the truth",
+          "text": "The archive map points directly back to the Founders' Crypt."
+        }
+      ],
+      "advanceWhen": "The party leaves with the archive and understands the ongoing bell warning.",
+      "npcIds": [
+        "npc-noll",
+        "npc-tamsin"
+      ],
+      "clueIds": [
+        "clue-crypt"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-ysra-duty",
+      "revelation": "Ysra is repeating an old contamination warning rather than trying to drown intruders.",
+      "required": true,
+      "sources": [
+        "A physical NIGHT FLOW survey marker points from the blackwater channel toward the bell-house.",
+        "The bell-house wall inscription labels the ringing pattern CONTAMINATION WARNING.",
+        "Ysra points at the warning inscription and water marks instead of attacking Tamsin."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-three-notes",
+      "revelation": "The warning sequence is LOW → HIGH → LOW.",
+      "required": true,
+      "sources": [
+        "The physical wall inscription shows LOW WATER, ALARM, then WITHDRAWN beneath three strike symbols.",
+        "Tamsin's charcoal rubbing records the same three water-line marks.",
+        "Bellkeeper Ysra's ritual phrase is 'Water below. Alarm above. Water withdrawn.'"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-tamsin-safe",
+      "revelation": "Tamsin is alive in the keeper's trapped air pocket.",
+      "required": true,
+      "sources": [
+        "Three knocks come through the physical service grate below the bell deck.",
+        "Tamsin's lit hooded lantern is visible through bubbles under the lower stair.",
+        "A fresh rope track leads from the bell deck toward the emergency air shaft."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-founder-diversion",
+      "revelation": "Oakhaven's founders deliberately diverted the Night Spring away from their crypt and toward the Mere.",
+      "required": true,
+      "sources": [
+        "The physical relief map in the dry archive shows the diversion carved from the Founders' Crypt to the Mere.",
+        "A waxed founder record orders the spring channel moved east before crypt construction.",
+        "Ysra's sealed duty order references contamination 'from the founder diversion line.'"
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": false
+    },
+    {
+      "id": "clue-crypt",
+      "revelation": "A sealed service tunnel returns from the bell-house system toward the Founders' Crypt beneath Oakhaven.",
+      "required": false,
+      "sources": [
+        "The archive relief map labels a maintenance tunnel CRYPT RELIEF.",
+        "A physical brass key tag in the archive reads FOUNDERS' SERVICE TUNNEL.",
+        "Ysra remembers maintenance crews coming from Oakhaven through the same dry passage."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": false
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-mere-skimmers",
+      "name": "Mere Skimmers",
+      "type": "combat / distraction",
+      "difficulty": "light",
+      "summary": "Two vibration-hunting aquatic scavengers bump and climb the ferry on the approach to the bell-house.",
+      "objective": "Reach the drowned bell-house without losing the ferry.",
+      "resolution": "Distract, drive off, or bloody the skimmers; they do not pursue into the ruin.",
+      "talkOut": "They are animals and do not negotiate.",
+      "bypass": "Throw a cork float and strike the water away from the bell-house; both skimmers follow it for long enough to reach the ruin.",
+      "special": "A bloodied skimmer retreats immediately."
+    },
+    {
+      "id": "enc-ysra-warning",
+      "name": "Bellkeeper Ysra's Warning",
+      "type": "social / hazard",
+      "difficulty": "moderate",
+      "summary": "Ysra creates pushing water when the party mishandles the bell but becomes non-hostile after the correct warning sequence.",
+      "objective": "Understand and answer the warning without destroying the bell.",
+      "resolution": "Ring LOW → HIGH → LOW, or survive long enough to interpret the physical inscriptions and repeat the sequence.",
+      "talkOut": "Present the warning inscription, keeper badge, or two correct notes; Ysra responds with ritual phrases and gestures.",
+      "bypass": "The archive latch can also be forced with DC 15 Athletics after the truth is understood, but the bell sequence still releases Ysra cleanly.",
+      "special": "Wrong sequences raise Mere Level but reveal more of the correct answer."
+    },
+    {
+      "id": "enc-final-choice",
+      "name": "The Bellkeeper's Release",
+      "type": "social choice / aftermath",
+      "difficulty": "consequential",
+      "summary": "After the archive opens, the party decides whether to release Ysra, silence the bell, or preserve the ongoing warning.",
+      "objective": "Choose Ysra's fate after the founder diversion truth is recovered.",
+      "resolution": "Read the duty order and ring the answered warning, remove the clapper, or leave the warning intact.",
+      "talkOut": "Ysra accepts release, resists premature destruction, and remains bound if the party preserves the bell.",
+      "bypass": "No combat is required. If Ysra was made hostile, the physical archive still enables all three endings.",
+      "special": "The choice changes reward and future bell-house state, not access to Module 07."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-warning-sequence",
+      "name": "Water Below, Alarm Above",
+      "locationId": "loc-bell-house",
+      "prompt": "The bell has LOW and HIGH strike points. Three carved water-line symbols read LOW WATER, ALARM, WITHDRAWN.",
+      "solution": "LOW → HIGH → LOW.",
+      "failForward": "A wrong sequence raises Mere Level by 1 and triggers Grasping Water, but Ysra then points directly to the first correct LOW strike point."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-grasping-water",
+      "name": "Grasping Water",
+      "locationId": "loc-bell-house",
+      "trigger": "Ring an incorrect three-note bell sequence.",
+      "effect": "Creatures on the bell deck make DC 12 Strength saves; on a failure they are pulled 5 ft. toward the flooded edge and take 1d6 cold damage.",
+      "failForward": "Mere Level rises by 1, but Ysra reveals the first correct LOW note and the puzzle remains fully solvable."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-cork-floats",
+      "name": "Cork Floats",
+      "kind": "tool",
+      "description": "Three bright ferry floats.",
+      "effect": "One can distract both Mere Skimmers long enough to bypass the approach encounter."
+    },
+    {
+      "id": "item-charcoal-rubbing",
+      "name": "Tamsin's Bell Rubbing",
+      "kind": "story handout",
+      "description": "Three copied water-line symbols from the bell-house wall.",
+      "effect": "Provides a physical LOW / ALARM / WITHDRAWN clue."
+    },
+    {
+      "id": "item-mereglass-token",
+      "name": "Mereglass Token",
+      "kind": "original magic item",
+      "description": "A flat piece of blue-gray glass drilled for a cord.",
+      "effect": "Once per long rest, gain advantage on one saving throw against being pushed, pulled, or knocked Prone."
+    },
+    {
+      "id": "item-founder-map",
+      "name": "Founder Diversion Map",
+      "kind": "story item",
+      "description": "A waxed relief map showing the Night Spring redirected from the Founders' Crypt to the Mere.",
+      "effect": "Hooks Module 07."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-mere-bell-house",
+      "name": "Mere and Drowned Bell-House",
+      "asset": null,
+      "regions": [
+        {
+          "id": "reg-landing",
+          "label": "Ferry Landing",
+          "sceneId": "scene-landing",
+          "x": 5,
+          "y": 70,
+          "w": 18,
+          "h": 13
+        },
+        {
+          "id": "reg-reeds",
+          "label": "Silent Reeds",
+          "sceneId": "scene-reeds",
+          "x": 28,
+          "y": 55,
+          "w": 20,
+          "h": 14
+        },
+        {
+          "id": "reg-bell",
+          "label": "Bell-House",
+          "sceneId": "scene-bell-house",
+          "x": 50,
+          "y": 35,
+          "w": 20,
+          "h": 18
+        },
+        {
+          "id": "reg-pocket",
+          "label": "Air Pocket",
+          "sceneId": "scene-rescue",
+          "x": 62,
+          "y": 62,
+          "w": 16,
+          "h": 13
+        },
+        {
+          "id": "reg-archive",
+          "label": "Dry Archive",
+          "sceneId": "scene-archive",
+          "x": 75,
+          "y": 20,
+          "w": 18,
+          "h": 17
+        }
+      ]
+    }
+  ],
+  "playMaps": [
+    {
+      "sceneIds": [
+        "scene-bell-house",
+        "scene-rescue"
+      ],
+      "title": "Drowned Bell-House — 60 × 60 ft.",
+      "kind": "combat",
+      "src": "assets/maps/oakhaven/drowned-bell-house-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Flooded bell deck with LOW/HIGH strike points, lower stair, service grate, and emergency air shaft.",
+      "notes": [
+        "Bell centered north",
+        "LOW strike point at rim",
+        "HIGH strike point at upper shoulder",
+        "Flooded lower stair east",
+        "Tamsin air pocket southeast",
+        "Emergency shaft west"
+      ]
+    },
+    {
+      "sceneIds": [
+        "scene-archive"
+      ],
+      "title": "Founder Diversion Relief Map",
+      "kind": "handout",
+      "src": "assets/maps/oakhaven/founder-diversion-handout.svg",
+      "grid": "none",
+      "playerSafe": true,
+      "caption": "Player-facing relief showing the Night Spring diverted from the Founders' Crypt toward the east road, Ashen Bridge, and Mere.",
+      "notes": [
+        "Use after archive opens",
+        "The Founders' Crypt service tunnel is visibly labeled"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event-wrong-bell",
+      "name": "Mere Rises",
+      "trigger": "An incorrect bell sequence",
+      "effect": "Increase Mere Level by 1, maximum 3."
+    },
+    {
+      "id": "event-delay",
+      "name": "Flood Creep",
+      "trigger": "A long delay inside the bell-house",
+      "effect": "Increase Mere Level by 1, maximum 3."
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-release",
+      "name": "Warning Answered",
+      "condition": "Archive recovered and Ysra formally released with the answered warning.",
+      "result": "Tamsin safe; 125 gp; Mereglass Token; bell quiet; Founders' Crypt lead."
+    },
+    {
+      "id": "ending-silence",
+      "name": "A Quiet Mere",
+      "condition": "Archive recovered and bell clapper removed.",
+      "result": "Tamsin safe; 110 gp; bell silent; Ysra fades without formal release; Founders' Crypt lead."
+    },
+    {
+      "id": "ending-preserve",
+      "name": "The Bell Still Rings",
+      "condition": "Archive recovered and warning bell left active.",
+      "result": "Tamsin safe; 100 gp; Ysra remains bound as warning keeper; Founders' Crypt lead."
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "Every wrong bell attempt reveals more of the correct answer; the sound puzzle cannot dead-end.",
+      "Maximum flooding changes the rescue route but never locks the ending.",
+      "If an NPC is absent or hostile, physical inscriptions and archive records preserve every required truth."
+    ],
+    "routes": [
+      {
+        "id": "rec-noll-unavailable",
+        "trigger": "Noll is refused, missing, unavailable, or dead before the party launches.",
+        "response": "Tamsin's empty ferry, red scarf, weighted line, and route markers remain at the landing. A physical note on the ferry says she went to the drowned bell-house.",
+        "stateChanges": [
+          "The rescue remains actionable.",
+          "The ferry and approach tools remain available."
+        ]
+      },
+      {
+        "id": "rec-ysra-attacked",
+        "trigger": "The party attacks Ysra, makes her hostile, or tries to destroy the bell before she can explain the warning.",
+        "response": "The physical warning inscription, Tamsin's rubbing, and archive mechanism still reveal LOW → HIGH → LOW. Ysra defends the bell with pushing water but never removes clues.",
+        "stateChanges": [
+          "All required clues remain physical.",
+          "The three finale choices remain available after the archive opens."
+        ]
+      },
+      {
+        "id": "rec-bell-house-bypassed",
+        "trigger": "The party skips or bypasses the main bell deck using swimming, magic, or the emergency shaft.",
+        "response": "They can still rescue Tamsin and reach the archive latch from below. Tamsin's rubbing and the archive inscription provide the sequence when they return to the bell.",
+        "stateChanges": [
+          "No core truth is lost.",
+          "The puzzle can be solved from either direction."
+        ]
+      },
+      {
+        "id": "rec-party-leaves",
+        "trigger": "The party leaves the ruin after locating Tamsin but before resolving the bell.",
+        "response": "Increase Mere Level by one when they return, maximum 3. Tamsin's air pocket and the emergency shaft remain safe enough for the one-shot.",
+        "stateChanges": [
+          "Pressure increases.",
+          "The ending remains available."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Careful investigation makes the bell sequence and rescue safer, but rushing never locks the ending; the party can still finish at Mere Level 3 through the emergency shaft and physical archive clues.",
+    "prepared": [
+      "Using the cork float bypasses the Mere Skimmers without spending combat resources.",
+      "Reading the wall inscription before ringing prevents unnecessary Mere Level increases."
+    ],
+    "rushed": [
+      "Wrong bell sequences raise the Mere and add Grasping Water hazards.",
+      "Skipping the normal lower stair forces the party to use the tighter emergency shaft at Mere Level 3."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 150,
+    "plannedMinutes": 155,
+    "bossReserveMinutes": 35,
+    "cutOrder": [
+      "If 20+ minutes behind, remove the Mere Skimmers and deliver the NIGHT FLOW marker as the ferry reaches the ruin.",
+      "If 15+ minutes behind at the bell, have Tamsin's rubbing already visible through the grate.",
+      "Never cut Tamsin's rescue, the founder diversion reveal, or Ysra's final choice."
+    ],
+    "optionalOrder": [
+      "Extended ferry conversation with Noll.",
+      "Combat with Mere Skimmers instead of float distraction.",
+      "Additional founder-record reading after the service tunnel is identified."
+    ]
+  },
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-landing",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-noll": {
+        "status": "alive",
+        "attitude": "worried"
+      },
+      "npc-tamsin": {
+        "status": "trapped",
+        "attitude": "determined"
+      },
+      "npc-ysra": {
+        "status": "bound",
+        "attitude": "warning"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-cork-floats": "with-party",
+      "item-charcoal-rubbing": "with-tamsin",
+      "item-mereglass-token": "with-noll",
+      "item-founder-map": "in-archive"
+    },
+    "eventState": {
+      "mereLevel": 0,
+      "bellSequenceKnown": false,
+      "tamsinRescued": false,
+      "archiveOpen": false,
+      "keeperReleased": false
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures, hazards, and item effects use the quick-run wording in this package.",
+        "General checks and saves use ordinary 2014 5E procedure."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures, hazards, and item effects use the quick-run wording in this package.",
+        "General checks and saves use the selected current SRD procedure; no 2014 class feature is imported."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-bell-beneath-the-mere",
+    "version": "0.1.0",
+    "target": {
+      "level": 3,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-bell-hint",
+      "check-rescue-stair",
+      "check-rescue-shaft",
+      "check-force-archive"
+    ],
+    "checks": [
+      {
+        "id": "check-bell-hint",
+        "sceneId": "scene-bell-house",
+        "label": "Interpret the water-line inscription",
+        "dc": 12,
+        "ability": "Intelligence (Investigation or History)",
+        "success": "LOW WATER → ALARM → WITHDRAWN maps directly to LOW → HIGH → LOW.",
+        "failure": "The physical symbols remain; the first wrong sequence reveals the opening LOW note."
+      },
+      {
+        "id": "check-rescue-stair",
+        "sceneId": "scene-rescue",
+        "label": "Cross the flooded lower stair",
+        "dc": 12,
+        "ability": "Strength (Athletics) or Dexterity (Acrobatics)",
+        "success": "Reach Tamsin without harm.",
+        "failure": "Take 1d6 bludgeoning from debris but reach Tamsin anyway."
+      },
+      {
+        "id": "check-rescue-shaft",
+        "sceneId": "scene-rescue",
+        "label": "Use the emergency air shaft",
+        "dc": 12,
+        "ability": "Strength (Athletics)",
+        "success": "Lower and raise a rescuer cleanly.",
+        "failure": "Take 1d6 bludgeoning from the tight shaft but complete the rescue."
+      },
+      {
+        "id": "check-force-archive",
+        "sceneId": "scene-bell-house",
+        "label": "Force the archive latch after understanding the warning",
+        "dc": 15,
+        "ability": "Strength (Athletics)",
+        "success": "The archive opens without another bell interaction.",
+        "failure": "The latch holds; the LOW → HIGH → LOW sequence remains available and easier."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-mere-skimmers",
+        "objective": "Reach the drowned bell-house with the ferry intact.",
+        "start": "Two Mere Skimmers bump the ferry in the reed channel.",
+        "bypass": "Throw one cork float and strike the water away from the ruin; both skimmers follow it.",
+        "creatures": [
+          {
+            "name": "Mere Skimmer",
+            "count": 2,
+            "ac": 12,
+            "hp": 12,
+            "speed": "10 ft., swim 40 ft.",
+            "attack": "Ram +4 to hit, 1d6+2 bludgeoning.",
+            "trait": "Vibration Hunter: if a loud splash or struck float occurs within 60 ft., the skimmer moves toward it on its next turn.",
+            "tactics": "Ram the hull or exposed swimmer; retreat when bloodied."
+          }
+        ],
+        "end": "Skimmers are distracted, driven away, or one is bloodied."
+      },
+      {
+        "id": "enc-ysra-warning",
+        "objective": "Understand and answer the contamination warning.",
+        "start": "Ysra manifests in the bell reflection when the party touches or strikes the bell.",
+        "bypass": "Correct LOW → HIGH → LOW sequence ends hostile water effects. The archive can be forced only after the warning truth is understood.",
+        "creatures": [],
+        "end": "Archive latch opens and Ysra becomes non-hostile."
+      },
+      {
+        "id": "enc-final-choice",
+        "objective": "Choose Ysra's fate after recovering the founder diversion truth.",
+        "start": "The archive duty order states SOUND THE WARNING UNTIL ANSWERED.",
+        "bypass": "Release, silence, or preserve the bell; no combat required.",
+        "creatures": [],
+        "end": "Party chooses one of the three authored outcomes."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-grasping-water",
+        "sceneId": "scene-bell-house",
+        "trigger": "Ring an incorrect three-note sequence.",
+        "save": "DC 12 Strength saving throw.",
+        "failure": "Pulled 5 ft. toward flooded edge and take 1d6 cold damage.",
+        "success": "Hold position and take no damage.",
+        "failForward": "Mere Level rises, but Ysra reveals the first correct LOW note."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-release",
+        "when": "Tamsin is rescued, archive recovered, and Ysra released.",
+        "reward": "125 gp total plus Mereglass Token."
+      },
+      {
+        "id": "reward-silence",
+        "when": "Tamsin is rescued and the bell is silenced after archive recovery.",
+        "reward": "110 gp total."
+      },
+      {
+        "id": "reward-preserve",
+        "when": "Tamsin is rescued and the active warning is preserved.",
+        "reward": "100 gp total."
+      },
+      {
+        "id": "reward-hook",
+        "when": "Founder archive is recovered.",
+        "reward": "Service-tunnel map leading to Oakhaven's Founders' Crypt."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-bell-house",
+        "dimensions": "60 × 60 ft. flooded bell-house; 5-ft. grid.",
+        "features": [
+          "bronze bell north",
+          "LOW rim strike point",
+          "HIGH shoulder strike point",
+          "flooded stair east",
+          "service grate southeast",
+          "emergency shaft west"
+        ]
+      },
+      {
+        "sceneId": "scene-archive",
+        "dimensions": "Player handout; no tactical scale.",
+        "features": [
+          "Founders' Crypt origin",
+          "east-road diversion",
+          "Ashen Bridge crossing",
+          "Mere outlet",
+          "sealed service tunnel back to crypt"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One rescue-and-mystery spine with a final social choice after the founder truth is recovered.",
+    "mainSpine": [
+      "scene-landing",
+      "scene-reeds",
+      "scene-bell-house",
+      "scene-rescue",
+      "scene-archive"
+    ],
+    "allowedBranchScenes": [
+      "scene-archive"
+    ],
+    "terminalScenes": [
+      "scene-resolution-release",
+      "scene-resolution-silence",
+      "scene-resolution-preserve"
+    ],
+    "stageCount": 6
+  },
+  "clock": {
+    "name": "Mere Level",
+    "max": 3,
+    "start": 0,
+    "states": [
+      "0 — lower stair exposed to knee depth",
+      "1 — stair waist-deep; bell deck slick",
+      "2 — lower stair chest-deep; strong current",
+      "3 — lower stair fully submerged; emergency air shaft required"
+    ]
+  }
+}
