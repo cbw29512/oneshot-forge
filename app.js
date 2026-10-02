@@ -463,7 +463,9 @@ function renderScene() {
   const location = adventure.locations.find(item => item.id === scene.locationId);
   el("scene-kicker").textContent = location ? location.name : "Adventure scene";
   el("scene-title").textContent = scene.title;
+  document.title = scene.title + " — " + adventure.metadata.title + " | One-Shot Forge";
   if (el("scene-purpose")) el("scene-purpose").textContent = scene.purpose || "";
+  if (el("scene-purpose-primary")) el("scene-purpose-primary").textContent = scene.purpose || adventure.quest?.objective || "";
   el("scene-pacing").textContent = (scene.pacingClass || "core") + " • " + (scene.estimatedMinutes || "?") + " min";
   const idx = adventure.scenes.findIndex(s => s.id === scene.id);
   const logicalStage = Number(scene.flowStage || (idx + 1));
@@ -475,8 +477,13 @@ function renderScene() {
   if (el("stage-bar")) {
     el("stage-bar").style.width = Math.round((logicalStage / logicalTotal) * 100) + "%";
   }
+  if (el("stage-bar-track")) {
+    el("stage-bar-track").setAttribute("aria-valuemax", String(logicalTotal));
+    el("stage-bar-track").setAttribute("aria-valuenow", String(logicalStage));
+  }
   if (el("stage-clock")) {
-    el("stage-clock").textContent = adventure.quest?.deadline || "";
+    const deadline = adventure.quest?.deadline || "";
+    el("stage-clock").textContent = deadline ? "Time pressure · " + deadline : "No hard time pressure";
   }
   el("read-aloud").textContent = scene.readAloud || "No read-aloud text.";
 
@@ -494,6 +501,7 @@ function renderScene() {
   if (el("dm-box")) {
     el("dm-box").innerHTML = dmBoxHtml(scene, { location, npcs, checks, hazards, puzzles, traps, encounters });
     bindRunStepControls(scene);
+    updateRunStepStatus(scene);
   }
 
   const monsterHtml = encounters.map(encounterCardHtml).join("");
@@ -536,6 +544,23 @@ function runStepsHtml(scene) {
     '</section>';
 }
 
+function updateRunStepStatus(scene) {
+  const host = el("stage-step-status");
+  if (!host) return;
+  const steps = scene.runSteps || [];
+  if (!steps.length) {
+    host.textContent = "Stage ready";
+    host.classList.remove("complete");
+    return;
+  }
+  const done = state.completedRunSteps?.[scene.id] || [];
+  const complete = steps.reduce((count, _step, index) => count + Number(Boolean(done[index])), 0);
+  host.textContent = complete === steps.length
+    ? "Stage checklist complete"
+    : complete + " / " + steps.length + " steps complete";
+  host.classList.toggle("complete", complete === steps.length);
+}
+
 function bindRunStepControls(scene) {
   if (!el("dm-box")) return;
   el("dm-box").querySelectorAll("[data-run-step]").forEach(input => {
@@ -545,6 +570,7 @@ function bindRunStepControls(scene) {
       state.completedRunSteps[scene.id][index] = input.checked;
       saveState();
       input.closest(".run-step")?.classList.toggle("done", input.checked);
+      updateRunStepStatus(scene);
     });
   });
 }
