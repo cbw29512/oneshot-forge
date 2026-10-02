@@ -69,3 +69,97 @@ ul{margin-top:.35rem}
   .scene-chapter{page-break-before:always}
   .module-section{break-inside:auto}
 }
+
+/* Production module additions: runnable on screen and clean on paper. */
+.scene-objective{
+  margin:.8rem 0 1rem;
+  padding:.7rem .85rem;
+  border-left:5px solid var(--accent);
+  background:#f0e2c8;
+  font-weight:700;
+}
+.location-description{color:#514538;font-style:italic}
+.run-order{
+  margin:1rem 0 1.2rem;
+  padding:.9rem 1rem;
+  border:1px solid #b99d74;
+  border-radius:.4rem;
+  background:#fff8e9;
+}
+.run-order>.label{
+  display:block;
+  margin-bottom:.45rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.74rem;
+}
+.run-order ol{margin:.25rem 0 .65rem;padding-left:1.35rem}
+.run-order li{margin:.38rem 0}
+.move-on{
+  margin:.75rem 0 0;
+  padding:.55rem .65rem;
+  border-left:4px solid var(--accent-dark);
+  background:#ead8b7;
+}
+.npc-description{font-style:italic;color:#514538}
+.npc-say{margin:.8rem 0}
+.npc-say blockquote{
+  margin:.4rem 0;
+  padding:.55rem .7rem;
+  border-left:4px solid var(--accent);
+  background:#f2e5ce;
+  color:#2d2117;
+}
+.npc-reactions{
+  margin:.75rem 0;
+  padding:.65rem .75rem;
+  border:1px solid #d0b995;
+  background:#fbf1df;
+}
+.npc-reactions ul{margin:.35rem 0 0;padding-left:1.15rem}
+.npc-reactions li{margin:.25rem 0}
+
+@media screen{
+  .module-toolbar{
+    padding:.65rem clamp(.8rem,3vw,1.4rem);
+    box-shadow:0 10px 30px #0005;
+  }
+  .module-shell{
+    width:min(1040px,calc(100% - 2rem));
+    margin:1.25rem auto 4rem;
+    border-radius:.35rem;
+    overflow:hidden;
+  }
+  .cover-page{
+    min-height:min(72vh,700px);
+    padding:8vh 8% 7vh;
+  }
+  .module-section,.scene-chapter{padding:2.4rem 7.5%}
+  .npc-card,.ending-card,.recovery-card,.clue-card,.encounter-block{
+    box-shadow:0 6px 18px #4b36200d;
+  }
+  .scene-chapter{
+    background:linear-gradient(180deg,#f8f1e5,#f4ebdc);
+  }
+  .scene-chapter:nth-child(even){
+    background:linear-gradient(180deg,#f5ecdc,#f8f1e5);
+  }
+}
+
+@media(max-width:700px){
+  .module-toolbar{gap:.4rem;flex-wrap:wrap}
+  .toolbar-spacer{display:none}
+  .toolbar-button{flex:1 1 auto;text-align:center}
+  .module-shell{width:100%;margin:0;border-radius:0}
+  .scene-headline{display:block}
+  .scene-meta{margin-top:.35rem;white-space:normal}
+}
+
+@media print{
+  .scene-objective,.run-order,.npc-reactions,.npc-say blockquote{
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  .run-order{break-inside:avoid}
+  .npc-card{break-inside:avoid}
+}

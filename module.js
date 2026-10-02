@@ -41,6 +41,8 @@ function renderMeta(adventure) {
   el("module-title").textContent = m.title;
   document.title = m.title + " — One-Shot Forge";
   el("module-subtitle").textContent = adventure.quest.objective;
+  if (el("module-run-link")) el("module-run-link").href = "run.html?id=" + encodeURIComponent(m.id);
+  if (el("module-printouts-link")) el("module-printouts-link").href = "print.html?id=" + encodeURIComponent(m.id);
   el("cover-pitch").textContent = adventure.setup?.pitch || adventure.quest.stakes;
   el("cover-meta").innerHTML = [
     "Level " + m.partyLevel,
@@ -74,17 +76,28 @@ function renderMeta(adventure) {
 }
 
 function renderNpcs(adventure) {
-  el("npc-appendix").innerHTML = adventure.npcs.map(npc =>
-    '<article class="npc-card">' +
-    '<h3>' + esc(npc.name) + '</h3>' +
-    '<p><span class="label">Role.</span> ' + esc(npc.role) + '</p>' +
-    '<p><span class="label">Personality.</span> ' + esc((npc.personality || []).join(", ")) + '</p>' +
-    '<p><span class="label">Wants.</span> ' + esc((npc.wants || []).join("; ")) + '</p>' +
-    '<p><span class="label">Knows.</span> ' + esc((npc.knows || []).join("; ")) + '</p>' +
-    '<p><span class="label">Secrets.</span> ' + esc((npc.secrets || []).join("; ")) + '</p>' +
-    '<p><span class="label">Use in play.</span> ' + esc(npc.questFunction || npc.role) + '</p>' +
-    '</article>'
-  ).join("");
+  el("npc-appendix").innerHTML = adventure.npcs.map(npc => {
+    const dialogue = (npc.tableDialogue || []).slice(0, 3);
+    const reactions = npc.reactions || {};
+    return '<article class="npc-card">' +
+      '<h3>' + esc(npc.name) + '</h3>' +
+      (npc.description ? '<p class="npc-description">' + esc(npc.description) + '</p>' : '') +
+      '<p><span class="label">Role.</span> ' + esc(npc.role) + '</p>' +
+      '<p><span class="label">Voice.</span> ' + esc((npc.voiceCues || []).join("; ")) + '</p>' +
+      '<p><span class="label">Wants now.</span> ' + esc((npc.wants || []).join("; ")) + '</p>' +
+      '<p><span class="label">Knows.</span> ' + esc((npc.knows || []).join("; ")) + '</p>' +
+      (dialogue.length ? '<div class="npc-say"><span class="label">Ready lines.</span>' +
+        dialogue.map(line => '<blockquote>' + esc(line) + '</blockquote>').join("") + '</div>' : '') +
+      ((reactions.agreement || reactions.refusal || reactions.accusation || reactions.danger) ?
+        '<div class="npc-reactions"><span class="label">Reactions.</span><ul>' +
+        (reactions.agreement ? '<li><b>Agree:</b> ' + esc(reactions.agreement) + '</li>' : '') +
+        (reactions.refusal ? '<li><b>Refuse:</b> ' + esc(reactions.refusal) + '</li>' : '') +
+        (reactions.accusation ? '<li><b>Accuse:</b> ' + esc(reactions.accusation) + '</li>' : '') +
+        (reactions.danger ? '<li><b>Danger:</b> ' + esc(reactions.danger) + '</li>' : '') +
+        '</ul></div>' : '') +
+      '<p><span class="label">Use in play.</span> ' + esc(npc.questFunction || npc.role) + '</p>' +
+      '</article>';
+  }).join("");
 }
 
 function renderFlow(adventure) {
@@ -112,8 +125,12 @@ function encounterBlock(encounter) {
   return '<div class="encounter-block">' +
     '<h3>' + esc(encounter.name) + '</h3>' +
     '<p><span class="label">' + esc(encounter.type || "Encounter") + '.</span> ' + esc(encounter.summary || "") + '</p>' +
+    (encounter.objective ? '<p><span class="label">Objective.</span> ' + esc(encounter.objective) + '</p>' : '') +
     stats +
     '<p><span class="label">Resolution.</span> ' + esc(encounter.resolution || "") + '</p>' +
+    (encounter.talkOut ? '<p><span class="label">Talk-out.</span> ' + esc(encounter.talkOut) + '</p>' : '') +
+    (encounter.bypass ? '<p><span class="label">Bypass.</span> ' + esc(encounter.bypass) + '</p>' : '') +
+    (encounter.special ? '<p><span class="label">Special.</span> ' + esc(encounter.special) + '</p>' : '') +
     '</div>';
 }
 
@@ -131,13 +148,21 @@ function renderScenes(adventure) {
       .map(id => adventure.scenes.find(item => item.id === id)?.title)
       .filter(Boolean);
 
+    const runSteps = (scene.runSteps || []).length
+      ? '<div class="run-order"><p class="label">Run this stage in order</p><ol>' +
+        scene.runSteps.map(step => '<li><b>' + esc(step.title || "Step") + '.</b> ' + esc(step.text || "") + '</li>').join("") +
+        '</ol>' + (scene.advanceWhen ? '<p class="move-on"><b>Move on when:</b> ' + esc(scene.advanceWhen) + '</p>' : '') + '</div>'
+      : (scene.advanceWhen ? '<div class="run-order"><p class="move-on"><b>Move on when:</b> ' + esc(scene.advanceWhen) + '</p></div>' : '');
+
     return '<article class="scene-chapter">' +
       '<div class="scene-headline"><div>' +
         '<div class="scene-number">Scene ' + (index+1) + '</div>' +
         '<h2>' + esc(scene.title) + '</h2>' +
       '</div><div class="scene-meta">' + esc(scene.estimatedMinutes || "?") + ' min • ' + esc(scene.pacingClass || "core") + '</div></div>' +
+      '<div class="scene-objective"><span class="label">Objective.</span> ' + esc(scene.purpose || "") + '</div>' +
       '<p><span class="label">Location.</span> ' + esc(location?.name || "Unspecified") + '</p>' +
-      '<p><span class="label">Purpose.</span> ' + esc(scene.purpose || "") + '</p>' +
+      (location?.description ? '<p class="location-description">' + esc(location.description) + '</p>' : '') +
+      runSteps +
       '<h3>Read Aloud</h3>' +
       '<div class="boxed-text">' + esc(scene.readAloud || "No boxed text.") + '</div>' +
       '<h3>GM Guidance</h3>' +
