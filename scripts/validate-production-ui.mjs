@@ -33,6 +33,15 @@ for (const product of products.products || []) {
   if (productPage && !productPage.includes("styles.css?v=20261002e")) {
     errors.push(`${product.id}: landing page is not pinned to production gameplay styling`);
   }
+  if (productPage && !productPage.includes(`run.html?id=${product.id}`)) {
+    errors.push(`${product.id}: landing page lacks direct runner path`);
+  }
+  if (productPage && !productPage.includes(`print.html?id=${product.id}`)) {
+    errors.push(`${product.id}: landing page lacks print-center path`);
+  }
+  if (productPage && !/class="cover"|class="adventure-cover-art/.test(productPage)) {
+    errors.push(`${product.id}: landing page lacks a production visual identity`);
+  }
 }
 
 for (const required of [
