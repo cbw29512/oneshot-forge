@@ -19,6 +19,7 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Whispers of the Oakhaven Hollow — Oakhaven Module 02, standalone curated lane, Level 3 / 4 players / 2–3 hours. Review/free-preview state with $0.99 target; no checkout claim until commercial gates pass.
 - Beneath the Eastern Watchtower — Oakhaven Module 03, standalone curated lane, Level 3 / 4 players / 2–3 hours. Artifact/environment finale; review/free-preview state with $0.99 target.
 - The Black Orchard — Oakhaven Module 04, standalone curated lane, Level 3 / 4 players / 2–3 hours. Rescue + resource-choice finale; review/free-preview state with $0.99 target.
+- The Ashen Bridge — Oakhaven Module 05, standalone curated lane, Level 3 / 4 players / 2–3 hours. Timed rescue/infrastructure finale; review/free-preview state with $0.99 target.
 
 ## Auditor
 - Auditor pass: Night 1 — The Lantern Below — 2026-09-20
@@ -60,6 +61,7 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Write two curated Quiet Seals nights in one day
 
 ## Last session
+2026-10-01 — Built Oakhaven Module 05 `The Ashen Bridge`: six-person bridge rescue, four-integrity visible clock, ash-lime mixing puzzle, guide-line/cargo preparation, optional medicine-wagon reward, hanging-rescue fail-forward, three outcome states, bridge map/handout, and Module 06 Mere bell-chamber hook.
 2026-10-01 — Built Oakhaven Module 04 `The Black Orchard`: nonlethal orchard wardens, three-offering fail-forward puzzle, Lio rescue, living wardstone truth, Return/Take/Living-Graft finale, three consequence endings, two maps, and Module 05 Ashen Bridge hook.
 2026-10-01 — Built Oakhaven Module 03 `Beneath the Eastern Watchtower`: flooded-undercroft bypass/combat, 5/3/1 pressure puzzle, Tower Strain clock, three-job Gloam Sluice repair finale, destructive-core shortcut, three consequence endings, two tactical maps, zero-prep quick-run data, and Module 04 Black Orchard hook. Also centralized authored adventure browser paths in `adventure-registry.js` with a CI drift validator.
 2026-10-01 — Built Oakhaven Module 02 `Whispers of the Oakhaven Hollow` as an authoritative Adventure Package: Bramble Guard map/hazard, fail-forward moonstone puzzle, Shroud clock, Heart Tree Core job, lethal/nonlethal Malakor resolutions, tactical maps, quick-run numbers, storefront preview wiring, and level-safe pregen fallback. Commercial state remains review/free-preview with a $0.99 target.

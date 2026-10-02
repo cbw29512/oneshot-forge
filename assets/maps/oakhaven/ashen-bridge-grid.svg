@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+<title id="title">Ashen Bridge rescue map</title>
+<desc id="desc">A one hundred by forty foot bridge on a five foot grid with west safe bank, two center wagons, six civilian positions, eastern pier, and blackwater gorge.</desc>
+<rect width="1200" height="480" fill="#eef0ec"/>
+<g stroke="#b8b8b2" stroke-width="1">
+<line x1="0" y1="0" x2="0" y2="480"/><line x1="60" y1="0" x2="60" y2="480"/><line x1="120" y1="0" x2="120" y2="480"/><line x1="180" y1="0" x2="180" y2="480"/><line x1="240" y1="0" x2="240" y2="480"/><line x1="300" y1="0" x2="300" y2="480"/><line x1="360" y1="0" x2="360" y2="480"/><line x1="420" y1="0" x2="420" y2="480"/><line x1="480" y1="0" x2="480" y2="480"/><line x1="540" y1="0" x2="540" y2="480"/><line x1="600" y1="0" x2="600" y2="480"/><line x1="660" y1="0" x2="660" y2="480"/><line x1="720" y1="0" x2="720" y2="480"/><line x1="780" y1="0" x2="780" y2="480"/><line x1="840" y1="0" x2="840" y2="480"/><line x1="900" y1="0" x2="900" y2="480"/><line x1="960" y1="0" x2="960" y2="480"/><line x1="1020" y1="0" x2="1020" y2="480"/><line x1="1080" y1="0" x2="1080" y2="480"/><line x1="1140" y1="0" x2="1140" y2="480"/><line x1="1200" y1="0" x2="1200" y2="480"/>
+<line x1="0" y1="0" x2="1200" y2="0"/><line x1="0" y1="60" x2="1200" y2="60"/><line x1="0" y1="120" x2="1200" y2="120"/><line x1="0" y1="180" x2="1200" y2="180"/><line x1="0" y1="240" x2="1200" y2="240"/><line x1="0" y1="300" x2="1200" y2="300"/><line x1="0" y1="360" x2="1200" y2="360"/><line x1="0" y1="420" x2="1200" y2="420"/><line x1="0" y1="480" x2="1200" y2="480"/>
+</g>
+<rect x="0" y="0" width="180" height="480" fill="#d8d3c8"/>
+<rect x="180" y="150" width="780" height="180" fill="#cfc8bb" stroke="#3d3d39" stroke-width="8"/>
+<rect x="960" y="100" width="120" height="280" fill="#c8c1b5" stroke="#333" stroke-width="8"/>
+<rect x="1080" y="0" width="120" height="480" fill="#d8d3c8"/>
+<g fill="#9da8aa" opacity=".75">
+<rect x="180" y="0" width="900" height="135"/>
+<rect x="180" y="345" width="900" height="135"/>
+</g>
+<g fill="#b5afa3" stroke="#343431" stroke-width="5">
+<rect x="420" y="185" width="150" height="110" rx="10"/>
+<rect x="660" y="185" width="150" height="110" rx="10"/>
+</g>
+<g fill="#f2eee6" stroke="#333" stroke-width="3">
+<circle cx="385" cy="195" r="16"/><circle cx="385" cy="285" r="16"/><circle cx="595" cy="195" r="16"/><circle cx="595" cy="285" r="16"/><circle cx="835" cy="195" r="16"/><circle cx="835" cy="285" r="16"/>
+</g>
+<text x="35" y="250" font-family="sans-serif" font-size="24">WEST SAFE BANK</text>
+<text x="440" y="245" font-family="sans-serif" font-size="20">STONE WAGON</text>
+<text x="675" y="245" font-family="sans-serif" font-size="20">MEDICINE WAGON</text>
+<text x="960" y="85" font-family="sans-serif" font-size="20">EASTERN PIER</text>
+<text x="965" y="420" font-family="sans-serif" font-size="18">SEAL STATION</text>
+<text x="430" y="40" font-family="sans-serif" font-size="18">BLACKWATER GORGE</text>
+<text x="430" y="465" font-family="sans-serif" font-size="18">BLACKWATER GORGE</text>
+</svg>

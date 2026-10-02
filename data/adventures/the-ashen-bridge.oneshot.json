@@ -1,0 +1,1154 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-ashen-bridge",
+    "title": "The Ashen Bridge",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 3,
+    "partySize": 4,
+    "partySizeRange": "4 players",
+    "durationMinutes": 150,
+    "tone": [
+      "storm rescue",
+      "failing infrastructure",
+      "blackwater folk horror"
+    ]
+  },
+  "series": {
+    "title": "Oakhaven Adventures",
+    "episode": 5,
+    "hub": "Oakhaven",
+    "giver": "Bridgewarden Soren Vale",
+    "nextTitle": "The Bell Beneath the Mere"
+  },
+  "setup": {
+    "pitch": "The Night Spring traced from the Black Orchard resurfaces beneath the Ashen Bridge just as a merchant caravan is caught on the failing span.",
+    "openingLocation": "East road approach to the Ashen Bridge",
+    "gmSummary": "The party reaches the Ashen Bridge during a blackwater surge. Six civilians and two wagons are trapped on the center span while Bridgewarden Soren Vale tries to hold a cracked pier together. The old bridge was designed with ashwood drainage ribs that neutralized seepage from the Night Spring, but recent emergency repairs replaced three ribs with iron braces. The water is now eroding the pier instead of being wicked into ash beds. The party must reach the bridge ashhouse, mix a sealing mortar, then manage a live evacuation while installing the seal. The best ending saves the people and bridge. A hard rescue can save everyone while losing the bridge. Greedy delay can cost cargo or lives.",
+    "background": "For generations the Ashen Bridge carried Oakhaven's east road across the Merecut gorge. Its blackened ashwood ribs were not ornamental: they drew tainted groundwater into sacrificial ash beds beneath the eastern pier. After spring floods damaged the bridge, cash-strapped road crews replaced three ash ribs with iron. The change went unnoticed until the Night Spring intensified. Now blackwater pressure is undermining the eastern pier while a caravan is stranded above it.",
+    "standaloneStart": "If prior Oakhaven modules were not played, Bridgewarden Soren sends a runner to Oakhaven when black water begins boiling from the eastern pier and the center span cracks under a trapped caravan."
+  },
+  "quest": {
+    "type": "rescue / stabilize",
+    "objective": "Rescue the six trapped civilians, stabilize or abandon the Ashen Bridge, and stop the Night Spring surge from undermining the eastern road.",
+    "stakes": "Every failed rescue cycle damages the bridge. If integrity reaches 0 before the civilians are off, people can fall with the span.",
+    "deadline": "BRIDGE INTEGRITY 4→0. Lose 1 integrity at the end of each finale round while the pier is unsealed. Lose an extra 1 if a wagon remains on the center span when a Pressure Break occurs.",
+    "successConditions": [
+      "All six civilians are off the center span.",
+      "The Night Spring surge is sealed or the collapsing span is deliberately abandoned.",
+      "The party survives the evacuation."
+    ],
+    "failureConditions": [
+      "Bridge Integrity reaches 0 while civilians remain on the center span.",
+      "The party leaves without attempting the evacuation."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-ash-ribs",
+        "text": "The bridge's original ashwood ribs neutralized tainted groundwater by drawing it into sacrificial ash beds."
+      },
+      {
+        "id": "fact-iron-repair",
+        "text": "Three ash ribs were replaced with iron braces, breaking the bridge's old filtration function."
+      },
+      {
+        "id": "fact-seal",
+        "text": "An ash-lime sealing mortar can restore the eastern pier long enough for the bridge to survive the Night Spring surge."
+      },
+      {
+        "id": "fact-load",
+        "text": "The trapped wagons are accelerating structural damage; dumping cargo or moving wagons reduces risk."
+      },
+      {
+        "id": "fact-mere-lead",
+        "text": "The Night Spring does not end at the bridge; underground soundings continue toward a flooded bell chamber beneath the Mere."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-council-repair",
+        "text": "The town council approved the iron repair as a cheaper substitute despite Soren's written objection.",
+        "revealCondition": "Read the ashhouse maintenance ledger or earn Soren's trust after the rescue."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-soren",
+      "name": "Soren Vale",
+      "role": "Bridgewarden and rescue coordinator",
+      "personality": [
+        "controlled",
+        "guilty",
+        "technically precise"
+      ],
+      "voiceCues": [
+        "counts cracks aloud",
+        "uses bridge terms under stress"
+      ],
+      "wants": [
+        "Every civilian off the span",
+        "The eastern pier sealed before the bridge is lost"
+      ],
+      "fears": [
+        "A full span collapse",
+        "His ignored repair warnings becoming a death sentence"
+      ],
+      "knows": [
+        "The original ash ribs mattered",
+        "The ashhouse stores lime and char ash",
+        "The center span can survive briefly if wagon load is reduced"
+      ],
+      "believes": [
+        "The bridge can still be saved if the party reaches the ashhouse first"
+      ],
+      "secrets": [
+        "He warned against the iron braces in writing and was overruled"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Where the Night Spring goes beyond the bridge soundings"
+      ],
+      "revealRules": [
+        {
+          "fact": "Dumping wagon cargo buys structural time.",
+          "when": "The party asks what can reduce the load immediately."
+        },
+        {
+          "fact": "The ashhouse mortar can seal the pier.",
+          "when": "The party asks how to save the bridge rather than simply evacuate."
+        }
+      ],
+      "questFunction": "Provides the rescue priorities, makes the bridge mechanics legible, and keeps the finale focused on lives and structure.",
+      "description": "A lean bridgewarden in a soaked leather coat, one sleeve tied above a splinted forearm, chalking new cracks onto a board faster than the rain can wash them away.",
+      "tableDialogue": [
+        "“Six people. Two wagons. Four good breaths left in this bridge if the pier keeps taking water.”",
+        "“Save the people first. If you can save the bridge too, I will not stop you.”",
+        "“The old ash ribs drank this poison. Iron only gives it something hard to push against.”"
+      ],
+      "reactions": {
+        "agreement": "Hands over the ashhouse key and a coil of bridge line.",
+        "refusal": "Begins evacuating alone; the party can still join at any point.",
+        "danger": "Cuts loose a cargo wagon before risking another civilian."
+      }
+    },
+    {
+      "id": "npc-mera",
+      "name": "Mera Holt",
+      "role": "caravan master trapped on the center span",
+      "personality": [
+        "proud",
+        "decisive",
+        "protective of her people"
+      ],
+      "voiceCues": [
+        "shouts names instead of orders",
+        "slaps wagon boards when thinking"
+      ],
+      "wants": [
+        "Her six people alive",
+        "At least one wagon saved if it does not risk lives"
+      ],
+      "fears": [
+        "Panicked horses pulling a wagon sideways",
+        "Being blamed for blocking the bridge"
+      ],
+      "knows": [
+        "One wagon carries stone and is dangerously heavy",
+        "The lighter medicine wagon can be pushed by hand if the horses are cut loose"
+      ],
+      "believes": [
+        "The eastern rail will fail before the road deck"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "How the ashhouse seal works"
+      ],
+      "revealRules": [
+        {
+          "fact": "The stone wagon can be dumped in one Action by cutting its rear pins.",
+          "when": "The party reaches her."
+        }
+      ],
+      "questFunction": "Turns abstract civilians into named rescue stakes and presents the cargo-vs-life choice without hiding mechanics.",
+      "description": "A broad-faced caravan master with rain plastering gray hair to her cheeks, braced between two wagons while keeping four frightened travelers low behind the wheel hubs.",
+      "tableDialogue": [
+        "“People first. Then medicine. Stone can learn to swim.”",
+        "“Cut the rear pins and the heavy wagon dumps straight off the east side.”",
+        "“Do not make my people run until someone has that guide rope tight.”"
+      ],
+      "reactions": {
+        "agreement": "Organizes civilians into pairs, giving advantage to the first guided crossing check.",
+        "refusal": "Moves her people anyway once a safe line is visible.",
+        "danger": "Cuts the heavy wagon loose herself if the bridge loses two integrity."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-west-approach",
+      "name": "West Bridge Approach",
+      "description": "Rain lashes the east road where the old stone approach meets a timber span shuddering over black floodwater.",
+      "connections": [
+        "loc-ashhouse",
+        "loc-center-span"
+      ]
+    },
+    {
+      "id": "loc-ashhouse",
+      "name": "Bridge Ashhouse",
+      "description": "A low maintenance shed holds slaked lime, ash barrels, spare rope, old rib templates, and a mixing trough bolted to the floor.",
+      "connections": [
+        "loc-west-approach",
+        "loc-center-span"
+      ]
+    },
+    {
+      "id": "loc-center-span",
+      "name": "Center Span",
+      "description": "Two wagons and six soaked travelers crowd a cracked timber deck above a gorge where blackwater hammers the eastern pier.",
+      "connections": [
+        "loc-west-approach",
+        "loc-east-pier"
+      ]
+    },
+    {
+      "id": "loc-east-pier",
+      "name": "Eastern Pier",
+      "description": "The stone pier is split along three iron braces while black water jets from joints that once held sacrificial ashwood ribs.",
+      "connections": [
+        "loc-center-span"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-arrival",
+      "title": "Six People on a Bad Bridge",
+      "purpose": "Make the rescue count, bridge clock, and two viable priorities immediately visible.",
+      "locationId": "loc-west-approach",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "Crisis",
+      "readAloud": "The Ashen Bridge moves when the wind does not. Six people crouch between two wagons on the center span while black water punches through the eastern pier below them. A bridgewarden with one arm splinted is tying rope around a milestone. He sees you and shouts over the rain. “Six people. Two wagons. Four good breaths left in the bridge.”",
+      "gmNotes": [
+        "Put four BRIDGE INTEGRITY boxes on the table. The live countdown begins only when the finale starts; the party has time to reach the ashhouse first.",
+        "Soren presents two jobs: prepare the ash-lime seal, then evacuate the caravan while installing it.",
+        "The heavy stone wagon is structurally dangerous. Dumping its cargo later prevents the extra wagon penalty.",
+        "The party can choose a pure evacuation plan and let the bridge fall; saving the bridge is optional."
+      ],
+      "runSteps": [
+        {
+          "title": "Count the lives",
+          "text": "State six civilians and two wagons clearly."
+        },
+        {
+          "title": "Show four integrity",
+          "text": "Place four visible bridge boxes; tell players they do not start ticking until the rescue sequence begins."
+        },
+        {
+          "title": "Offer the ashhouse",
+          "text": "Soren says the old maintenance shed may contain what is needed to seal the eastern pier."
+        }
+      ],
+      "advanceWhen": "The party commits to the rescue and either heads for the ashhouse or proceeds directly to the span.",
+      "npcIds": [
+        "npc-soren"
+      ],
+      "clueIds": [
+        "clue-ash-ribs",
+        "clue-load"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-ashhouse"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-ashhouse",
+          "label": "Prepare the seal",
+          "description": "Check the ashhouse before beginning the live bridge evacuation."
+        }
+      ]
+    },
+    {
+      "id": "scene-ashhouse",
+      "title": "Three Measures Black",
+      "purpose": "Teach the bridge's original function and create the sealing material through a quick tactile puzzle.",
+      "locationId": "loc-ashhouse",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Preparation",
+      "readAloud": "The ashhouse smells of wet charcoal and lime. Three marked scoops hang above a stone trough: one white, one black, one plain wood. A bridge rib template is burned with a maintenance verse: TWO WHITE TO BIND, ONE BLACK TO DRINK, WATER UNTIL THE TROUGH STANDS STILL. On the back wall, old drawings show ashwood ribs feeding into beds beneath the eastern pier.",
+      "gmNotes": [
+        "Correct mortar: 2 measures lime, 1 measure char ash, then water.",
+        "A wrong dry ratio causes Caustic Puff: DC 12 Constitution save or 1d6 poison damage. Ingredients remain available.",
+        "After one wrong ratio, old scoop wear clearly shows two white marks and one black mark; failure cannot block progress.",
+        "Mixing the seal reveals the original ash-rib filtration design and the later iron substitution.",
+        "Prepared Seal grants one automatic successful Pier Seal action during the finale; without it, the pier can still be sealed with two DC 13 repair successes using improvised material."
+      ],
+      "runSteps": [
+        {
+          "title": "Present the verse",
+          "text": "Read the 2-white / 1-black / water clue exactly once and let players handle the three scoops."
+        },
+        {
+          "title": "Fail forward",
+          "text": "On a wrong ratio, resolve Caustic Puff and reveal the scoop wear marks."
+        },
+        {
+          "title": "Package the payoff",
+          "text": "The finished ash-lime mortar counts as one automatic Pier Seal success in the finale."
+        }
+      ],
+      "advanceWhen": "The ash-lime seal is mixed or the party deliberately leaves without it.",
+      "npcIds": [],
+      "clueIds": [
+        "clue-ash-ribs",
+        "clue-iron-repair",
+        "clue-seal"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-span"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-span",
+          "label": "Begin the evacuation",
+          "description": "Carry the prepared seal and bridge line onto the live span."
+        }
+      ]
+    },
+    {
+      "id": "scene-span",
+      "title": "The Bridge Moves Under You",
+      "purpose": "Introduce bridge movement, optional blackwater predators, and let the party set the guide line before the full timed finale.",
+      "locationId": "loc-center-span",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Position",
+      "readAloud": "The center span drops half an inch under your first steps. One wagon is stacked with cut stone; the other carries medicine crates under soaked canvas. Six travelers cling to spokes and rail posts. Below, something long and pale rolls through the blackwater, then vanishes beneath the eastern pier. Mera Holt points at the heavy wagon. “Stone can swim. People cannot.”",
+      "gmNotes": [
+        "This scene is positioning, not yet the integrity clock.",
+        "Two Blackwater Lampreys may climb the east rail if the party spends time there. They are nuisance threats and can be driven back with damage or a DC 12 Strength shove.",
+        "Set Guide Line: one character can use an Action and DC 12 Dexterity (Sleight of Hand) or Strength (Athletics) to secure Soren's rope across the span. Success gives advantage on all civilian crossing checks in the finale.",
+        "Dump Heavy Cargo: one Action adjacent to the stone wagon cuts rear pins and removes the extra-wagon integrity penalty for the finale.",
+        "Mera grants advantage to the first civilian crossing check once the finale begins."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the load problem",
+          "text": "Identify the heavy stone wagon and medicine wagon."
+        },
+        {
+          "title": "Let them prepare",
+          "text": "Allow the guide line and cargo dump before the clock starts."
+        },
+        {
+          "title": "Start when they are ready",
+          "text": "The integrity clock begins when the party declares the evacuation underway or starts sealing the eastern pier."
+        }
+      ],
+      "advanceWhen": "The party starts the evacuation/sealing sequence.",
+      "npcIds": [
+        "npc-mera"
+      ],
+      "clueIds": [
+        "clue-load",
+        "clue-seal"
+      ],
+      "encounterIds": [
+        "enc-blackwater-lampreys"
+      ],
+      "exits": [
+        "scene-finale"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-finale",
+          "label": "Start the bridge rescue",
+          "description": "Begin timed evacuation and pier sealing."
+        }
+      ]
+    },
+    {
+      "id": "scene-finale",
+      "title": "Four Integrity",
+      "purpose": "Run a transparent rescue clock where characters choose each round between moving people, reducing load, defending, and sealing the pier.",
+      "locationId": "loc-east-pier",
+      "pacingClass": "core",
+      "estimatedMinutes": 50,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Finale",
+      "readAloud": "The bridge gives a deep wooden crack and the eastern pier shifts sideways. Blackwater sprays through the iron braces in three hard jets. Behind you, six people wait for someone to tell them when to move. Ahead, the pier is close enough to reach with a rope and the ash-lime seal. Soren raises four fingers from the west bank. One folds down as another crack races through the deck.",
+      "gmNotes": [
+        "Start Bridge Integrity at 4 and civiliansRemaining at 6.",
+        "At the end of each round while pierSeal is false, lose 1 Bridge Integrity.",
+        "Pressure Break at initiative count 20: creatures on the center/east span make DC 12 Dexterity saves or fall Prone. If the heavy stone wagon still carries its cargo, also lose 1 additional Integrity on the first Pressure Break only.",
+        "Guide Civilians: Action, DC 12 Charisma (Persuasion), Wisdom (Survival), or Dexterity (Acrobatics) to move 2 civilians safely to the west bank; move only 1 on a failure. Guide Line gives advantage.",
+        "Move Medicine Wagon: two adjacent characters each spend an Action to push it west; saving it grants extra reward but is never required.",
+        "Pier Seal with prepared mortar: one Action adjacent to the eastern pier automatically seals it.",
+        "Pier Seal without prepared mortar: require 2 total DC 13 successes using Strength (Athletics), Intelligence (Nature), or Dexterity with suitable tools; one success can be accumulated across rounds.",
+        "Once pierSeal is true, Integrity stops decreasing at round end.",
+        "If Integrity reaches 0 with civilians still present, each remaining civilian makes a DC 10 Dexterity save; failed saves create a hanging rescue target rather than instant death. Each hanging target can be pulled up with one Action and DC 11 Athletics before the scene resolves.",
+        "The bridge may be abandoned deliberately once all civilians are safe; that is a valid full rescue even if the structure is lost."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the board",
+          "text": "Track Integrity 4, Civilians 6, Heavy Cargo present/removed, Medicine Wagon present/removed, and Pier Seal yes/no."
+        },
+        {
+          "title": "Run Pressure Break",
+          "text": "At initiative 20, resolve prone risk and the one-time heavy-wagon integrity penalty if still loaded."
+        },
+        {
+          "title": "Let actions compete",
+          "text": "Every Action spent sealing, rescuing, pushing, or defending matters; do not add hidden penalties."
+        },
+        {
+          "title": "Stop the clock honestly",
+          "text": "Once Pier Seal succeeds, no more automatic integrity loss. Once all civilians are safe, the party may abandon the bridge without further checks."
+        }
+      ],
+      "advanceWhen": "All civilians are safe and either the pier is sealed or the bridge has been deliberately abandoned/collapsed.",
+      "npcIds": [
+        "npc-soren",
+        "npc-mera"
+      ],
+      "clueIds": [
+        "clue-seal",
+        "clue-mere"
+      ],
+      "encounterIds": [
+        "enc-bridge-rescue"
+      ],
+      "exits": [
+        "scene-resolution-saved",
+        "scene-resolution-lost",
+        "scene-resolution-costly"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-saved",
+          "label": "People and bridge saved",
+          "description": "All civilians safe, pier sealed, Bridge Integrity remains above 0."
+        },
+        {
+          "target": "scene-resolution-lost",
+          "label": "People saved, bridge lost",
+          "description": "All civilians safe but the span collapses or is deliberately abandoned."
+        },
+        {
+          "target": "scene-resolution-costly",
+          "label": "Rescue with injuries",
+          "description": "Integrity reaches 0 while civilians remain and the party completes hanging rescues."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-saved",
+      "title": "Resolution: The Road Holds",
+      "purpose": "Reward a complete rescue and stabilized crossing.",
+      "locationId": "loc-west-approach",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "The ash-lime seal turns gray as it sets against the eastern pier. For the first time since you arrived, the bridge stops moving. One by one the rescued travelers step off the west approach and onto solid road. Behind them, blackwater still runs through the gorge, but no longer through the bridge. Soren lays a hand on the old ashwood rail. “It remembers what it was built to do.”",
+      "gmNotes": [
+        "Award 125 gp total.",
+        "If the medicine wagon was saved, Mera adds a Healer's Satchel with two Potion of Healing uses represented as two separate doses.",
+        "Soren's soundings show the Night Spring continuing southeast toward a flooded bell chamber beneath the Mere.",
+        "The Ashen Bridge remains open after repairs."
+      ],
+      "runSteps": [
+        {
+          "title": "Pay the rescue",
+          "text": "Award 125 gp total."
+        },
+        {
+          "title": "Reward extra rescue",
+          "text": "If the medicine wagon survived, award two healing-potion doses."
+        },
+        {
+          "title": "Open Module 06",
+          "text": "Reveal the flooded bell chamber beneath the Mere."
+        }
+      ],
+      "advanceWhen": "Rewards are recorded and the Mere lead is understood.",
+      "npcIds": [
+        "npc-soren",
+        "npc-mera"
+      ],
+      "clueIds": [
+        "clue-mere"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-lost",
+      "title": "Resolution: People Before Timber",
+      "purpose": "Treat a full civilian rescue as success even when the structure is sacrificed.",
+      "locationId": "loc-west-approach",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "The last traveler reaches stone just before the center span folds into the gorge. Wet timber disappears beneath blackwater and the medicine wagon tips after it with a flash of canvas. Nobody follows. Soren watches the bridge go without speaking, then looks over the six soaked people beside you. “Roads can be rebuilt.”",
+      "gmNotes": [
+        "Award 100 gp total for saving all six civilians.",
+        "The bridge is closed until rebuilt, slowing travel east of Oakhaven.",
+        "If the medicine wagon was saved before collapse, Mera still awards two healing-potion doses.",
+        "The Night Spring remains active downstream toward the Mere."
+      ],
+      "runSteps": [
+        {
+          "title": "Count six survivors",
+          "text": "Make the full civilian rescue explicit."
+        },
+        {
+          "title": "Record infrastructure loss",
+          "text": "The Ashen Bridge is destroyed or unusable."
+        },
+        {
+          "title": "Point downstream",
+          "text": "Soren's surviving soundings lead to the flooded bell chamber beneath the Mere."
+        }
+      ],
+      "advanceWhen": "The rescue count and bridge loss are recorded.",
+      "npcIds": [
+        "npc-soren",
+        "npc-mera"
+      ],
+      "clueIds": [
+        "clue-mere"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-costly",
+      "title": "Resolution: Hands on the Rope",
+      "purpose": "Allow the adventure to finish after a clock failure while preserving consequence and heroic recovery.",
+      "locationId": "loc-west-approach",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "The span breaks before everyone is clear. For several terrible seconds the bridge is rope, splintered rail, and people shouting each other's names over blackwater. Then the last pair of hands clears the edge. The bridge is gone. Nobody pretends it was clean. But everyone you pulled from the gorge is still breathing when the rain begins to ease.",
+      "gmNotes": [
+        "Award 75 gp total.",
+        "Any civilian who failed the collapse save is injured but alive if the party completed the hanging rescue.",
+        "The bridge is destroyed.",
+        "Mera does not award the medicine bonus unless that wagon was explicitly moved before collapse.",
+        "The Mere lead remains available from Soren's records."
+      ],
+      "runSteps": [
+        {
+          "title": "Record injuries",
+          "text": "Note which civilians were pulled from the collapse; they survive but may need care."
+        },
+        {
+          "title": "Apply reduced reward",
+          "text": "Award 75 gp total."
+        },
+        {
+          "title": "Keep the chain moving",
+          "text": "Reveal the flooded bell chamber beneath the Mere."
+        }
+      ],
+      "advanceWhen": "Survivors and injuries are recorded and the party has the Mere lead.",
+      "npcIds": [
+        "npc-soren",
+        "npc-mera"
+      ],
+      "clueIds": [
+        "clue-mere"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-ash-ribs",
+      "revelation": "The bridge's original ashwood ribs were part of a filtration system for tainted groundwater.",
+      "required": true,
+      "sources": [
+        "Soren identifies missing ash ribs at the eastern pier.",
+        "The ashhouse wall diagram shows ash ribs draining into sacrificial beds.",
+        "Charred residue around surviving ribs is clean while black seepage concentrates around iron replacements."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-iron-repair",
+      "revelation": "Iron emergency braces replaced three ash ribs and broke the old filtration function.",
+      "required": true,
+      "sources": [
+        "The maintenance ledger records three ash ribs removed after flood damage.",
+        "Fresh iron braces stand exactly where blackwater now jets from the pier.",
+        "Soren's written objection explains that iron could carry load but not absorb seepage."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-seal",
+      "revelation": "Ash-lime mortar can seal the eastern pier and restore enough filtration for the bridge to survive the surge.",
+      "required": true,
+      "sources": [
+        "The ashhouse maintenance inscription gives the mortar formula: two white measures, one black measure, then water.",
+        "A labeled repair bucket reads EAST PIER SEEP SEAL.",
+        "Soren explains that the mortar is the last emergency substitute for a missing ash rib."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-load",
+      "revelation": "The heavy stone wagon accelerates bridge failure and can be dumped quickly.",
+      "required": true,
+      "sources": [
+        "Soren's physical chalk load record marks the stone wagon as the largest active stress on the center span.",
+        "Mera explains the rear pins can dump the stone cargo in one Action.",
+        "Visible cracks widen beneath the stone wagon whenever the span shifts."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-mere",
+      "revelation": "The Night Spring continues southeast to a flooded bell chamber beneath the Mere.",
+      "required": false,
+      "sources": [
+        "Soren's groundwater soundings continue past the bridge toward the Mere.",
+        "An old ashhouse survey map labels a downstream anomaly BELL CAVITY.",
+        "Blackwater vibration produces a distant bell-like tone from downstream after the pier is sealed."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": false
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-blackwater-lampreys",
+      "name": "Blackwater Lampreys",
+      "type": "combat / shove / ignore",
+      "difficulty": "light",
+      "summary": "Two pale lamprey-like scavengers climb the east rail while the party prepares the center span.",
+      "objective": "Keep the preparation area clear long enough to set lines or dump cargo.",
+      "resolution": "Drive both lampreys into the gorge, defeat them, or ignore them and proceed to the finale.",
+      "talkOut": "They are animals and cannot negotiate.",
+      "bypass": "An adjacent character can use an Action and DC 12 Strength (Athletics) to shove a lamprey back into the gorge, removing it from the encounter.",
+      "special": "They never pursue onto the west bank and are not required kills."
+    },
+    {
+      "id": "enc-bridge-rescue",
+      "name": "Four Integrity Rescue",
+      "type": "timed rescue / environmental finale",
+      "difficulty": "climactic",
+      "summary": "Characters spend limited rounds moving civilians, reducing wagon load, and sealing the eastern pier while the bridge loses integrity.",
+      "objective": "Get all six civilians off and either seal the pier or abandon the bridge safely.",
+      "resolution": "All civilians safe plus pier sealed or span abandoned.",
+      "talkOut": "There is no antagonist to persuade; coordination with Soren and Mera changes action efficiency.",
+      "bypass": "A party that abandons the bridge can focus entirely on civilians. Saving infrastructure is optional.",
+      "special": "Bridge Integrity decreases only while the pier remains unsealed."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-ash-mortar",
+      "name": "Three Measures Black",
+      "locationId": "loc-ashhouse",
+      "prompt": "The maintenance verse reads: TWO WHITE TO BIND, ONE BLACK TO DRINK, WATER UNTIL THE TROUGH STANDS STILL.",
+      "solution": "2 measures lime, 1 measure char ash, then water.",
+      "failForward": "A wrong dry ratio causes Caustic Puff but consumes nothing. After the first mistake, worn scoop marks reveal two white measures and one black."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-caustic-puff",
+      "name": "Caustic Puff",
+      "locationId": "loc-ashhouse",
+      "trigger": "Mix the dry mortar ingredients in the wrong ratio.",
+      "effect": "The acting creature makes a DC 12 Constitution saving throw; failure takes 1d6 poison damage.",
+      "failForward": "Ingredients remain usable and scoop wear reveals the correct ratio after the first error."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-bridge-line",
+      "name": "Bridge Line",
+      "kind": "tool",
+      "description": "A heavy rope with fixed eye loops.",
+      "effect": "A successful setup grants advantage on civilian crossing checks in the finale."
+    },
+    {
+      "id": "item-ash-lime-seal",
+      "name": "Prepared Ash-Lime Seal",
+      "kind": "adventure tool",
+      "description": "Emergency mortar mixed in the bridge ashhouse.",
+      "effect": "One Action at the eastern pier automatically seals the leak and stops round-end Integrity loss."
+    },
+    {
+      "id": "item-healers-satchel",
+      "name": "Healer's Satchel",
+      "kind": "reward",
+      "description": "Medicine cargo awarded if the wagon survives.",
+      "effect": "Contains two separate Potion of Healing doses using the selected ruleset's normal potion rules."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-ashen-bridge",
+      "name": "Ashen Bridge Rescue",
+      "asset": null,
+      "regions": [
+        {
+          "id": "reg-west",
+          "label": "West Approach",
+          "sceneId": "scene-arrival",
+          "x": 5,
+          "y": 55,
+          "w": 18,
+          "h": 18
+        },
+        {
+          "id": "reg-ashhouse",
+          "label": "Ashhouse",
+          "sceneId": "scene-ashhouse",
+          "x": 10,
+          "y": 20,
+          "w": 18,
+          "h": 16
+        },
+        {
+          "id": "reg-span",
+          "label": "Center Span",
+          "sceneId": "scene-span",
+          "x": 35,
+          "y": 40,
+          "w": 30,
+          "h": 18
+        },
+        {
+          "id": "reg-pier",
+          "label": "Eastern Pier",
+          "sceneId": "scene-finale",
+          "x": 72,
+          "y": 38,
+          "w": 20,
+          "h": 20
+        }
+      ]
+    }
+  ],
+  "playMaps": [
+    {
+      "sceneIds": [
+        "scene-span",
+        "scene-finale"
+      ],
+      "title": "Ashen Bridge — 100 × 40 ft.",
+      "kind": "combat",
+      "src": "assets/maps/oakhaven/ashen-bridge-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Live rescue map with west bank, center wagons, eastern pier, and blackwater gorge.",
+      "notes": [
+        "West bank is safe zone",
+        "Six civilians begin center span",
+        "Stone wagon center-west",
+        "Medicine wagon center-east",
+        "Eastern pier repair point at east end",
+        "Falling into gorge is only possible after rail failure or explicit collapse effect"
+      ]
+    },
+    {
+      "sceneIds": [
+        "scene-ashhouse"
+      ],
+      "title": "Ashhouse Mixing Bench",
+      "kind": "handout",
+      "src": "assets/maps/oakhaven/ashhouse-mortar-handout.svg",
+      "grid": "none",
+      "playerSafe": true,
+      "caption": "Player-facing mixing clue showing white scoop, black scoop, plain scoop, and maintenance verse.",
+      "notes": [
+        "Use as a handout, not a tactical map",
+        "Verse contains the complete intended solution clue"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event-integrity-loss",
+      "name": "Pier Failure",
+      "trigger": "End of each finale round while pierSeal is false",
+      "effect": "Lose 1 Bridge Integrity."
+    },
+    {
+      "id": "event-pressure-break",
+      "name": "Pressure Break",
+      "trigger": "Initiative count 20 during the finale",
+      "effect": "DC 12 Dexterity save or Prone; loaded stone wagon causes one extra Integrity loss the first time."
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-saved",
+      "name": "The Road Holds",
+      "condition": "All civilians safe, pier sealed, Bridge Integrity above 0.",
+      "result": "Bridge survives; 125 gp reward; medicine-wagon bonus if saved; Mere lead revealed."
+    },
+    {
+      "id": "ending-lost",
+      "name": "People Before Timber",
+      "condition": "All civilians safe but bridge is abandoned or collapses.",
+      "result": "Full civilian rescue; 100 gp reward; bridge closed until rebuilt; Mere lead revealed."
+    },
+    {
+      "id": "ending-costly",
+      "name": "Hands on the Rope",
+      "condition": "Integrity reaches 0 while civilians remain, but hanging rescues are completed.",
+      "result": "Civilians survive with injuries; 75 gp reward; bridge destroyed; Mere lead revealed."
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "Every clock failure creates a rescue complication before it creates death.",
+      "The party can always prioritize people over infrastructure and still earn a successful ending.",
+      "Move mechanical information forward through Soren, Mera, visible cracks, or maintenance labels instead of requiring one specific check."
+    ],
+    "routes": [
+      {
+        "id": "rec-soren-unavailable",
+        "trigger": "Soren is refused, missing, unavailable, or incapacitated.",
+        "response": "His chalk load board, ashhouse key, and maintenance note remain tied to the west milestone. Mera can explain the caravan side of the rescue.",
+        "stateChanges": [
+          "The bridge clock and ashhouse solution remain available.",
+          "The party can run the rescue without Soren."
+        ]
+      },
+      {
+        "id": "rec-ashhouse-skipped",
+        "trigger": "The party skips or bypasses the Ashhouse and starts the rescue without prepared mortar.",
+        "response": "The bridge can still be saved with two DC 13 improvised Pier Seal successes, or the party can abandon the structure after evacuating everyone.",
+        "stateChanges": [
+          "Prepared Seal is unavailable.",
+          "No ending is locked."
+        ]
+      },
+      {
+        "id": "rec-medicine-lost",
+        "trigger": "The medicine wagon falls or is deliberately abandoned.",
+        "response": "No required clue or rescue condition is lost; only the optional Healer's Satchel reward disappears.",
+        "stateChanges": [
+          "Civilian rescue remains primary.",
+          "Reward decreases only by the optional bonus."
+        ]
+      },
+      {
+        "id": "rec-integrity-zero",
+        "trigger": "Bridge Integrity reaches 0 while civilians remain.",
+        "response": "Remaining civilians make collapse saves and become hanging rescue targets on failures. The party gets a final rescue window instead of instant fatalities.",
+        "stateChanges": [
+          "Bridge is lost.",
+          "The adventure remains finishable through hanging rescues."
+        ]
+      },
+      {
+        "id": "rec-apparent-antagonist-attacked",
+        "trigger": "The party treats a Blackwater Lamprey or another creature as the apparent antagonist and attacks or kills it before understanding the structural problem.",
+        "response": "The lamprey fight changes nothing about the bridge truth. Soren's chalk load record, the ashhouse inscription, visible iron braces, and blackwater jets still reveal the failed filtration system and rescue priorities.",
+        "stateChanges": [
+          "Required bridge clues remain physical and available.",
+          "Combat never replaces or blocks the rescue objective."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Preparation buys action efficiency; skipping preparation makes the same rescue harder but never locks the ending. The party can still finish by getting the civilians off and abandoning the bridge if necessary.",
+    "prepared": [
+      "Prepared Ash-Lime Seal stops Integrity loss with one Action.",
+      "Guide Line grants advantage on civilian crossing checks.",
+      "Dumping the stone wagon prevents the one-time Pressure Break integrity penalty."
+    ],
+    "rushed": [
+      "Without prepared mortar, sealing requires two DC 13 repair successes.",
+      "Without a Guide Line, civilian crossing checks are normal.",
+      "Leaving the stone wagon loaded costs an extra Integrity during the first Pressure Break."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 150,
+    "plannedMinutes": 140,
+    "bossReserveMinutes": 45,
+    "cutOrder": [
+      "If 20+ minutes behind, remove the Blackwater Lampreys and let the party begin scene-span with Mera already holding one end of the guide line.",
+      "If 15+ minutes behind in the ashhouse, reveal the scoop wear marks before the first mix.",
+      "Never cut the six-person rescue count, the four-integrity clock, or the pier-seal choice."
+    ],
+    "optionalOrder": [
+      "Extended council-repair history with Soren.",
+      "Fighting the Blackwater Lampreys instead of shoving/ignoring them.",
+      "Saving the medicine wagon after all civilians are already safe."
+    ]
+  },
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-arrival",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-soren": {
+        "status": "alive",
+        "attitude": "focused"
+      },
+      "npc-mera": {
+        "status": "alive",
+        "attitude": "protective"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-bridge-line": "with-soren",
+      "item-ash-lime-seal": "unmixed",
+      "item-healers-satchel": "in-medicine-wagon"
+    },
+    "eventState": {
+      "bridgeIntegrity": 4,
+      "civiliansRemaining": 6,
+      "wagonsRemaining": 2,
+      "heavyCargoDumped": false,
+      "guideLine": false,
+      "pierSeal": false,
+      "pierSealSuccesses": 0,
+      "medicineWagonSaved": false
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures, hazards, and rescue actions use the quick-run numbers in this package.",
+        "General checks and saving throws use ordinary 2014 5E procedure."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures, hazards, and rescue actions use the quick-run numbers in this package.",
+        "General checks and saving throws use the selected current SRD procedure; no 2014 class feature is imported."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-ashen-bridge",
+    "version": "0.1.0",
+    "target": {
+      "level": 3,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-mortar",
+      "check-guide-line",
+      "check-dump-cargo",
+      "check-guide-civilians",
+      "check-pier-seal"
+    ],
+    "checks": [
+      {
+        "id": "check-mortar",
+        "sceneId": "scene-ashhouse",
+        "label": "Mix the Ash-Lime Seal",
+        "dc": 12,
+        "ability": "Intelligence (Investigation or Nature) for a hint",
+        "success": "Confirm 2 lime / 1 char ash / water. Prepared Seal is created.",
+        "failure": "A wrong ratio causes the listed hazard but ingredients remain; scoop wear reveals the ratio."
+      },
+      {
+        "id": "check-guide-line",
+        "sceneId": "scene-span",
+        "label": "Set the Guide Line",
+        "dc": 12,
+        "ability": "Dexterity (Sleight of Hand) or Strength (Athletics)",
+        "success": "Guide Line is secured; civilian crossing checks gain advantage.",
+        "failure": "The knot slips; retrying remains possible before or during the finale."
+      },
+      {
+        "id": "check-dump-cargo",
+        "sceneId": "scene-span",
+        "label": "Dump the Stone Cargo",
+        "dc": 0,
+        "ability": "Action adjacent to heavy wagon",
+        "success": "Cut rear pins; heavy cargo falls clear and the first Pressure Break cannot cause the extra wagon integrity loss.",
+        "failure": "No roll required."
+      },
+      {
+        "id": "check-guide-civilians",
+        "sceneId": "scene-finale",
+        "label": "Guide civilians west",
+        "dc": 12,
+        "ability": "Charisma (Persuasion), Wisdom (Survival), or Dexterity (Acrobatics)",
+        "success": "Move 2 civilians to safety.",
+        "failure": "Move 1 civilian to safety; progress is never zero."
+      },
+      {
+        "id": "check-pier-seal",
+        "sceneId": "scene-finale",
+        "label": "Seal the Eastern Pier",
+        "dc": 13,
+        "ability": "Strength (Athletics), Intelligence (Nature), or Dexterity with suitable tools",
+        "success": "Without prepared mortar, record one of two required successes. With Prepared Seal, no roll is needed: one Action completes the seal.",
+        "failure": "No progress this Action; retry next round."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-blackwater-lampreys",
+        "objective": "Keep the center span clear while preparing the evacuation.",
+        "start": "Two lampreys climb the east rail when the party reaches the center wagons.",
+        "bypass": "Adjacent Action + DC 12 Athletics shoves a lamprey back into the gorge and removes it from the encounter.",
+        "creatures": [
+          {
+            "name": "Blackwater Lamprey",
+            "count": 2,
+            "ac": 12,
+            "hp": 10,
+            "speed": "20 ft., climb 20 ft., swim 30 ft.",
+            "attack": "Bite +4 to hit, 1d6+2 piercing.",
+            "trait": "Clinging Mouth: after a hit, target's speed is reduced by 10 ft. until the start of the lamprey's next turn.",
+            "tactics": "Bite isolated characters near the east rail; retreat into the gorge when bloodied."
+          }
+        ],
+        "end": "Lampreys are defeated, shoved away, ignored as the finale begins, or the party leaves their reach."
+      },
+      {
+        "id": "enc-bridge-rescue",
+        "objective": "Rescue six civilians and seal or abandon the bridge before structural failure becomes fatal.",
+        "start": "Bridge Integrity 4; Civilians 6; Pier Seal false; Pressure Break at initiative 20.",
+        "bypass": "The party may ignore bridge preservation entirely and spend actions only on civilians, accepting bridge loss as a successful rescue.",
+        "creatures": [],
+        "end": "All civilians are safe and the bridge is sealed or abandoned/collapsed."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-caustic-puff",
+        "sceneId": "scene-ashhouse",
+        "trigger": "Mix the dry mortar ingredients in the wrong ratio.",
+        "save": "DC 12 Constitution saving throw.",
+        "failure": "Take 1d6 poison damage.",
+        "success": "Take no damage.",
+        "failForward": "Ingredients remain and scoop wear reveals the correct ratio."
+      },
+      {
+        "id": "hazard-pressure-break",
+        "sceneId": "scene-finale",
+        "trigger": "Initiative count 20 each finale round.",
+        "save": "DC 12 Dexterity saving throw for creatures on the center or eastern span.",
+        "failure": "Fall Prone.",
+        "success": "Remain standing.",
+        "failForward": "The first Pressure Break also costs 1 extra Integrity only if the heavy stone cargo was not dumped."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-saved",
+        "when": "People and bridge are saved.",
+        "reward": "125 gp total; if medicine wagon survives, gain two Potion of Healing doses."
+      },
+      {
+        "id": "reward-lost",
+        "when": "All civilians survive but bridge is lost.",
+        "reward": "100 gp total; medicine bonus only if explicitly saved."
+      },
+      {
+        "id": "reward-costly",
+        "when": "Integrity reaches 0 before evacuation completes but hanging rescues succeed.",
+        "reward": "75 gp total; survivors may be injured."
+      },
+      {
+        "id": "reward-hook",
+        "when": "The rescue resolves.",
+        "reward": "Groundwater soundings reveal a flooded bell chamber beneath the Mere."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-finale",
+        "dimensions": "100 × 40 ft. bridge; 5-ft. grid.",
+        "features": [
+          "west bank safe zone",
+          "stone wagon center-west",
+          "medicine wagon center-east",
+          "six civilian start positions around wagons",
+          "eastern pier seal station",
+          "blackwater gorge below"
+        ]
+      },
+      {
+        "sceneId": "scene-ashhouse",
+        "dimensions": "Player handout; no tactical scale.",
+        "features": [
+          "white lime scoop",
+          "black char-ash scoop",
+          "plain water scoop",
+          "maintenance verse with 2-white / 1-black clue"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "Preparation scene leads into one timed rescue finale with outcome branches based on lives saved and bridge state.",
+    "mainSpine": [
+      "scene-arrival",
+      "scene-ashhouse",
+      "scene-span",
+      "scene-finale"
+    ],
+    "allowedBranchScenes": [
+      "scene-finale"
+    ],
+    "terminalScenes": [
+      "scene-resolution-saved",
+      "scene-resolution-lost",
+      "scene-resolution-costly"
+    ],
+    "stageCount": 5
+  },
+  "clock": {
+    "name": "Bridge Integrity",
+    "max": 4,
+    "start": 4,
+    "states": [
+      "4 — span damaged but stable enough for organized rescue",
+      "3 — rail joints separate; deck visibly flexes",
+      "2 — eastern half sags and wagon wheels roll toward the pier",
+      "1 — primary beam splits; only rope and secondary braces remain",
+      "0 — center span collapses"
+    ]
+  }
+}
