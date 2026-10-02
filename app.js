@@ -576,10 +576,11 @@ function dmBoxHtml(scene, bits) {
           (wants.length ? '<p><b>Wants now.</b> ' + escapeHtml(wants.join('; ')) + '</p>' : '') +
           (dialogue.length ? '<div class="dm-dialogue"><b>Say:</b>' + dialogue.map(line =>
             '<blockquote>' + escapeHtml(line) + '</blockquote>').join('') + '</div>' : '') +
-          ((reactions.agreement || reactions.refusal || reactions.danger) ?
+          ((reactions.agreement || reactions.refusal || reactions.accusation || reactions.danger) ?
             '<p class="tiny"><b>React.</b> ' +
               [reactions.agreement && ('Agree: ' + reactions.agreement),
                reactions.refusal && ('Refuse: ' + reactions.refusal),
+               reactions.accusation && ('Accuse: ' + reactions.accusation),
                reactions.danger && ('Danger: ' + reactions.danger)]
                 .filter(Boolean).map(escapeHtml).join(' · ') + '</p>' : '') +
         '</div>';
