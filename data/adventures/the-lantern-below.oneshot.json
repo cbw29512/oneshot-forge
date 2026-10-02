@@ -256,7 +256,7 @@
     {
       "id": "loc-north-trail",
       "name": "North Trail",
-      "description": "Beech and blackthorn, rain-cut ruts, one set of fresh boot prints going north.",
+      "description": "A narrow beech-and-blackthorn trail climbs through wet ruts toward the priory ridge. Fresh boot prints point north, while pale mist gathers in root hollows and wind moves the upper branches.",
       "connections": [
         "loc-briar-glen",
         "loc-priory-yard",
@@ -266,7 +266,7 @@
     {
       "id": "loc-culvert",
       "name": "Old Culvert",
-      "description": "Shoulder-wide priory drain. Soft candle, scratched warning, crypt at the far end.",
+      "description": "A shoulder-wide stone drain runs beneath the priory's east wall, cold meltwater washing over the floor. A soft tallow candle and scratched warning mark the route before it opens into the crypt.",
       "connections": [
         "loc-north-trail",
         "loc-priory-crypt"
@@ -275,7 +275,7 @@
     {
       "id": "loc-priory-yard",
       "name": "Bellweather Priory Yard",
-      "description": "Sixty by fifty feet. Toppled bells, chalked doors, thorned graves, culvert outside the east wall.",
+      "description": "A sixty-by-fifty-foot mud yard lies inside the broken bell gate. Two toppled bronze bells collect rain, fresh chalk wards circle the chapel doors, and thorn-choked graves line the wall.",
       "connections": [
         "loc-north-trail",
         "loc-priory-chapel"
@@ -284,7 +284,7 @@
     {
       "id": "loc-priory-chapel",
       "name": "Ruined Chapel",
-      "description": "Roofless. Dragged altar, moon-bell plate, hanging handbell, Caldus’s notes.",
+      "description": "A roofless chapel stands open to rain and moonlight. Rotten pews face a dragged altar, while a bronze moon-bell plate, hanging handbell, and Caldus's weighted notes dominate the floor.",
       "connections": [
         "loc-priory-yard",
         "loc-priory-crypt"
@@ -293,7 +293,7 @@
     {
       "id": "loc-priory-crypt",
       "name": "Bell Crypt",
-      "description": "Low niches, muffled cracked bell, stair down to the ritual chamber.",
+      "description": "A low stone crypt is lined with burial niches and smells of wet bronze and old incense. A cracked bell hangs muffled in cloth beside the stair descending to the ritual chamber.",
       "connections": [
         "loc-priory-chapel",
         "loc-culvert",
@@ -303,7 +303,7 @@
     {
       "id": "loc-ritual-chamber",
       "name": "Ritual Chamber",
-      "description": "Forty-foot circle, silver ring, four sigils, Emberglass socket, no second door.",
+      "description": "A forty-foot circular chamber surrounds a silver binding ring with four floor sigils and an Emberglass socket. Bare stone walls leave no second exit, making the stair the only retreat.",
       "connections": [
         "loc-priory-crypt"
       ]
