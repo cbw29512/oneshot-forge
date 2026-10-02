@@ -26,4 +26,5 @@ For generated adventures, `docs/FORGE_CONSTITUTION.md` is authoritative. This qu
 
 - Pregens must satisfy `docs/PREGEN_PRINT_STANDARD.md`.
 - Read-aloud, NPC/monster cards, location descriptions, and scene transitions must satisfy `docs/PRESENTATION_STANDARD.md`.
+- Public catalog, landing-page, GM-runner, module, print, readability, resume, and deployment behavior must satisfy `docs/PRODUCTION_GAMEPLAY_STANDARD.md`.
 - These are release gates, not optional style guidance.
