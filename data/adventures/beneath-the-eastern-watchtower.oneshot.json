@@ -130,7 +130,8 @@
       "reactions": {
         "agreement": "Unlocks the supply cellar, provides fifty feet of rope, and posts two guards at the surface hatch.",
         "refusal": "Warns that she will seal the cellar at dusk; the party can still enter before then if they change their minds.",
-        "danger": "Orders the upper tower evacuated and keeps the stairwell clear for the party's return."
+        "danger": "Orders the upper tower evacuated and keeps the stairwell clear for the party's return.",
+        "accusation": "Does not deny the watch ignored old foundation signs; she produces repair logs and says nobody alive knew the buried ward still existed."
       }
     },
     {
@@ -189,7 +190,8 @@
       "reactions": {
         "agreement": "Provides one clear repair instruction each time the party completes a job.",
         "refusal": "Falls silent until the bell is struck again, but the physical diagrams remain usable.",
-        "danger": "Warns which catwalk or pipe will fail one round before it collapses."
+        "danger": "Warns which catwalk or pipe will fail one round before it collapses.",
+        "accusation": "Accepts that the old watch buried the truth and repeats the maintenance record rather than defending the founders' decision."
       }
     }
   ],
