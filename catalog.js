@@ -45,10 +45,29 @@
     return "Coming after review";
   }
 
+  function hasLocalProgress(productId) {
+    try {
+      const raw = localStorage.getItem("oneshot-forge:state:" + productId);
+      if (!raw) return false;
+      const state = JSON.parse(raw);
+      if ((state.sceneHistory || []).length) return true;
+      if ((state.discoveredClueIds || []).length) return true;
+      return Object.values(state.completedRunSteps || {}).some(steps =>
+        Array.isArray(steps) && steps.some(Boolean)
+      );
+    } catch (error) {
+      console.warn(`One-Shot Forge could not inspect saved progress for ${productId}`, error);
+      return false;
+    }
+  }
+
   function configureAction(action, product, entitlement) {
     const owned = entitlement === "owned";
     const canSell = releaseGate(product) && !owned;
-    action.textContent = owned ? "Run now" : canSell ? `Buy ${money.format(product.priceCents / 100)}` : "Run now";
+    const resume = hasLocalProgress(product.id);
+    action.textContent = canSell
+      ? `Buy ${money.format(product.priceCents / 100)}`
+      : resume ? "Resume game" : "Run now";
     action.dataset.commercialState = owned ? "owned" : canSell ? "sellable" : "preview";
 
     if (canSell) {
