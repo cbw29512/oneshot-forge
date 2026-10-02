@@ -126,6 +126,31 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "the-black-orchard",
+      "title": "The Black Orchard",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-black-orchard",
+      "productUrl": "adventures/the-black-orchard.html",
+      "level": 3,
+      "party": "4 players",
+      "playTime": "2–3 hours",
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
 }
