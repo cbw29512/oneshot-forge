@@ -131,7 +131,8 @@
       "reactions": {
         "agreement": "Gives the party a wooden orchard token that keeps the outer crows from raising an alarm.",
         "refusal": "Allows them to enter without her help but warns that cutting living wood will wake every warden in the rows.",
-        "danger": "Guides injured characters to a stone irrigation ditch where the roots cannot reach."
+        "danger": "Guides injured characters to a stone irrigation ditch where the roots cannot reach.",
+        "accusation": "Admits her family accepted town money to keep the orchard's true purpose out of public records, then asks whether secrecy made the Rootheart any less necessary."
       }
     },
     {
@@ -190,7 +191,8 @@
       "reactions": {
         "agreement": "Hands over the recovered silver survey chain and corrects the council order in writing.",
         "refusal": "Still gives the party the chain; he cares more about fixing the damage than winning the argument.",
-        "danger": "Curls inside the root cage and shouts measurements that help others avoid collapsing stone."
+        "danger": "Curls inside the root cage and shouts measurements that help others avoid collapsing stone.",
+        "accusation": "Admits he ignored Vessa's warning because the council wanted a physical sample and accepts responsibility for loosening the shard."
       }
     },
     {
@@ -243,7 +245,8 @@
       "reactions": {
         "agreement": "Keeps the chamber stable while the party performs its chosen resolution.",
         "refusal": "Withdraws from conversation but leaves the shard and consequences physically visible.",
-        "danger": "Uses roots to separate attackers from the Rootheart; it avoids lethal force unless the party tries to burn the grove."
+        "danger": "Uses roots to separate attackers from the Rootheart; it avoids lethal force unless the party tries to burn the grove.",
+        "accusation": "Answers blame with the orchard's memory of the first axes and first bargain; it does not deny the grove has harmed intruders while protecting the spring."
       }
     }
   ],
