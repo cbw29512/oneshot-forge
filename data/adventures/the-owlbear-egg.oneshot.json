@@ -970,7 +970,8 @@
       "resolution": "Reach Briar Hollow. This encounter exists to close the map, not to consume the session.",
       "talkOut": "Not available.",
       "bypass": "Retreat toward Briar Hollow.",
-      "special": "Clearly telegraph overwhelming numbers. If players insist on a suicidal stand after warning, the warband can kill them."
+      "special": "Clearly telegraph overwhelming numbers. If players insist on a suicidal stand after warning, the warband can kill them.",
+      "objective": "Close the alternate road clearly enough that the party chooses Briar Hollow instead of spending the session on an unwinnable boundary fight."
     },
     {
       "id": "enc-father",
@@ -981,7 +982,8 @@
       "resolution": "Feed him the party's remaining rations, kill him, drive him off creatively, or refuse to intervene.",
       "talkOut": "He cannot be reasoned with, but food overrides his rage.",
       "bypass": "Throw the party's remaining rations into the square. He devours them and leaves.",
-      "special": "Ragged Exhaustion gives Disadvantage on attack rolls, ability checks, and saving throws. If the party does nothing, two spear-bearing villagers are killed immediately and the father destroys Briar Hollow. If killed, his feverish carcass is unsafe to eat and the mother's scream answers from the ridge."
+      "special": "Ragged Exhaustion gives Disadvantage on attack rolls, ability checks, and saving throws. If the party does nothing, two spear-bearing villagers are killed immediately and the father destroys Briar Hollow. If killed, his feverish carcass is unsafe to eat and the mother's scream answers from the ridge.",
+      "objective": "Stop the starving father before he destroys Briar Hollow, using food, force, or another concrete way to drive him off."
     },
     {
       "id": "enc-mother-rage",
@@ -992,7 +994,8 @@
       "resolution": "Survive, drive her off, or escape the village.",
       "talkOut": "No normal social check ends the rage once combat begins.",
       "bypass": "Only available before combat by abandoning the village and egg.",
-      "special": "Maternal Rage: Advantage on Strength checks/saves, +2 Strength-melee damage, and resistance to all damage except psychic for 1 minute."
+      "special": "Maternal Rage: Advantage on Strength checks/saves, +2 Strength-melee damage, and resistance to all damage except psychic for 1 minute.",
+      "objective": "Survive or end the mother's dawn attack after the egg has been destroyed or eaten."
     },
     {
       "id": "enc-mother-baby",
@@ -1003,7 +1006,8 @@
       "resolution": "Father alive: no combat. Father dead: drive the mother away, survive until she withdraws, or evacuate the village.",
       "talkOut": "Father alive: no check is needed; the return succeeds. Father dead: once Maternal Rage begins, normal social checks do not end it.",
       "bypass": "Keep distance and allow the family to withdraw if the father survived; evacuate rather than defend if he died.",
-      "special": "The hatchling uses the half-grown profile. If the mother rages, she gains Advantage on Strength checks/saves, +2 Strength-melee damage, and resistance to all damage except psychic."
+      "special": "The hatchling uses the half-grown profile. If the mother rages, she gains Advantage on Strength checks/saves, +2 Strength-melee damage, and resistance to all damage except psychic.",
+      "objective": "Resolve the returned-egg consequence according to whether the father survived."
     },
     {
       "id": "enc-mother-keep",
@@ -1014,7 +1018,8 @@
       "resolution": "Yield the hatchling, back away and allow reunion, evacuate with the hatchling, or fight to keep it.",
       "talkOut": "Father alive: no roll is needed if the party visibly yields and backs away. Father dead: social checks cannot erase grief, but surrendering the hatchling may keep her focus on recovery rather than pursuit.",
       "bypass": "Do not stand between mother and hatchling; retreat and let the family reunite.",
-      "special": "Father alive + visible surrender can end without combat. If violence starts, the mother can enter Maternal Rage: Advantage on Strength checks/saves, +2 Strength-melee damage, resistance to all damage except psychic."
+      "special": "Father alive + visible surrender can end without combat. If violence starts, the mother can enter Maternal Rage: Advantage on Strength checks/saves, +2 Strength-melee damage, resistance to all damage except psychic.",
+      "objective": "Resolve whether the party yields the imprinted hatchling, evacuates with it, or fights to keep it."
     }
   ],
   "puzzles": [
