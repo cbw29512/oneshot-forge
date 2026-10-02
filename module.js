@@ -125,8 +125,12 @@ function encounterBlock(encounter) {
   return '<div class="encounter-block">' +
     '<h3>' + esc(encounter.name) + '</h3>' +
     '<p><span class="label">' + esc(encounter.type || "Encounter") + '.</span> ' + esc(encounter.summary || "") + '</p>' +
+    (encounter.objective ? '<p><span class="label">Objective.</span> ' + esc(encounter.objective) + '</p>' : '') +
     stats +
     '<p><span class="label">Resolution.</span> ' + esc(encounter.resolution || "") + '</p>' +
+    (encounter.talkOut ? '<p><span class="label">Talk-out.</span> ' + esc(encounter.talkOut) + '</p>' : '') +
+    (encounter.bypass ? '<p><span class="label">Bypass.</span> ' + esc(encounter.bypass) + '</p>' : '') +
+    (encounter.special ? '<p><span class="label">Special.</span> ' + esc(encounter.special) + '</p>' : '') +
     '</div>';
 }
 
