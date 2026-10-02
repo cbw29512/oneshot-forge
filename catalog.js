@@ -48,7 +48,7 @@
   function configureAction(action, product, entitlement) {
     const owned = entitlement === "owned";
     const canSell = releaseGate(product) && !owned;
-    action.textContent = owned ? "Start adventure" : canSell ? `Buy ${money.format(product.priceCents / 100)}` : "Start adventure";
+    action.textContent = owned ? "Run now" : canSell ? `Buy ${money.format(product.priceCents / 100)}` : "Run now";
     action.dataset.commercialState = owned ? "owned" : canSell ? "sellable" : "preview";
 
     if (canSell) {
