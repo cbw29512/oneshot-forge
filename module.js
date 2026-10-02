@@ -87,7 +87,7 @@ function renderNpcs(adventure) {
       '<p><span class="label">Wants now.</span> ' + esc((npc.wants || []).join("; ")) + '</p>' +
       '<p><span class="label">Knows.</span> ' + esc((npc.knows || []).join("; ")) + '</p>' +
       (dialogue.length ? '<div class="npc-say"><span class="label">Ready lines.</span>' +
-        dialogue.map(line => '<blockquote>“' + esc(String(line).replace(/^["“]|["”]$/g, "")) + '”</blockquote>').join("") + '</div>' : '') +
+        dialogue.map(line => '<blockquote>' + esc(line) + '</blockquote>').join("") + '</div>' : '') +
       ((reactions.agreement || reactions.refusal || reactions.accusation || reactions.danger) ?
         '<div class="npc-reactions"><span class="label">Reactions.</span><ul>' +
         (reactions.agreement ? '<li><b>Agree:</b> ' + esc(reactions.agreement) + '</li>' : '') +
