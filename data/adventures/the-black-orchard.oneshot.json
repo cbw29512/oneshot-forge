@@ -1,0 +1,1170 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-black-orchard",
+    "title": "The Black Orchard",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 3,
+    "partySize": 4,
+    "partySizeRange": "4 players",
+    "durationMinutes": 150,
+    "tone": [
+      "folk mystery",
+      "living corruption",
+      "difficult stewardship"
+    ]
+  },
+  "series": {
+    "title": "Oakhaven Adventures",
+    "episode": 4,
+    "hub": "Oakhaven",
+    "giver": "Vessa Thorn / Oakhaven survey office",
+    "nextTitle": "The Ashen Bridge"
+  },
+  "setup": {
+    "pitch": "The wardstone beneath Oakhaven came from a black-barked orchard north of town. A surveyor sent to inspect the old quarry has vanished, and the orchard keeper insists nobody may take another stone.",
+    "openingLocation": "The Black Orchard, north road outside Oakhaven",
+    "gmSummary": "Oakhaven's records identify the Black Orchard as the source of the Gloam Sluice's wardstone. Surveyor Lio Derran entered the orchard to recover a replacement sample and never returned. Vessa Thorn, the orchard keeper, blocks further quarrying but cannot safely enter the awakened grove alone. The party crosses orchard rows guarded by rag-stitched wardens, solves a three-offering gate, and rescues Lio from roots inside the abandoned quarry. The twist is that the orchard is not corrupted because of the wardstone—the living wardstone and black apples are containing a Night Spring beneath the quarry. Lio loosened a shard and destabilized the Rootheart. In the finale, the party chooses whether to return the shard and preserve the orchard, take it to strengthen Oakhaven while sacrificing the orchard, or use a recovered silver survey chain to create a living graft that shares the ward between both places.",
+    "background": "The Black Orchard grew around a natural seam of living wardstone. Its roots learned to draw shadow seepage from a buried Night Spring into fruit that ripens black and falls harmlessly into mineral soil. Oakhaven's founders quarried part of that seam for the Gloam Sluice, weakening but not destroying the old balance. Vessa's family has guarded the orchard since then. Lio Derran, following incomplete civic records, entered the quarry and pried loose a fresh shard. The Rootheart woke, trapped him, and turned its old scarecrow wardens against anyone carrying cutting tools.",
+    "standaloneStart": "If Module 03 was not played, Oakhaven's survey office sends the party after missing surveyor Lio Derran, whose last note says he found a wardstone quarry beneath the Black Orchard."
+  },
+  "quest": {
+    "type": "rescue / investigate / choose",
+    "objective": "Find Lio Derran, determine whether the Black Orchard can safely provide wardstone, and resolve the unstable Rootheart before its contained corruption spills into the north road.",
+    "stakes": "Taking more living wardstone may strengthen Oakhaven but kill the orchard that currently contains the Night Spring.",
+    "deadline": "No hard clock. Destructive choices change the orchard's disposition and available rewards, but exploration can proceed at the party's pace.",
+    "successConditions": [
+      "Lio Derran is rescued or his fate is determined.",
+      "The loosened wardstone shard is deliberately resolved rather than abandoned unstable.",
+      "The party learns what the Black Orchard is containing."
+    ],
+    "failureConditions": [
+      "The party abandons the loosened shard inside the destabilized Rootheart.",
+      "The Rootheart is destroyed without containing the Night Spring."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-orchard-filter",
+        "text": "The Black Orchard is a living containment system: its roots and fruit draw shadow seepage out of a buried Night Spring."
+      },
+      {
+        "id": "fact-fruit-purpose",
+        "text": "The black apples store corruption safely; eating or carrying ripe fruit away spreads the burden outside the orchard."
+      },
+      {
+        "id": "fact-lio-trigger",
+        "text": "Lio Derran awakened the Rootheart defenses when he pried loose a wardstone shard."
+      },
+      {
+        "id": "fact-shard-choice",
+        "text": "Returning the shard preserves the orchard; taking it strengthens Oakhaven but condemns the orchard unless a living graft is made."
+      },
+      {
+        "id": "fact-bridge-lead",
+        "text": "An underground water survey shows the Night Spring flowing east toward the ruined Ashen Bridge."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-vessa-family",
+        "text": "Vessa's family accepted Oakhaven coin for generations to keep the orchard's true purpose out of public records.",
+        "revealCondition": "Vessa trusts the party after Lio is rescued, or the party reads the locked orchard ledger."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-vessa-thorn",
+      "name": "Vessa Thorn",
+      "role": "Black Orchard keeper and reluctant guide",
+      "personality": [
+        "guarded",
+        "practical",
+        "protective of living things before institutions"
+      ],
+      "voiceCues": [
+        "calls trees by row numbers and old family names",
+        "never raises her voice when angry"
+      ],
+      "wants": [
+        "Lio brought back alive",
+        "No more wardstone removed until the party understands the cost"
+      ],
+      "fears": [
+        "Oakhaven strip-mining the living seam",
+        "The Night Spring reaching the north farms"
+      ],
+      "knows": [
+        "Black fruit must not leave the orchard",
+        "Her family has maintained the Rootheart for generations",
+        "Lio entered with survey tools yesterday"
+      ],
+      "believes": [
+        "Oakhaven will choose its walls over her orchard if given an easy choice"
+      ],
+      "secrets": [
+        "Her family was paid to hide the orchard's containment role from public ledgers"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Exactly how far the underground Night Spring extends east"
+      ],
+      "revealRules": [
+        {
+          "fact": "Black apples are containment vessels, not food.",
+          "when": "The party asks why the fruit is never sold."
+        },
+        {
+          "fact": "Lio carried a silver survey chain and stone chisel.",
+          "when": "The party asks what equipment he had."
+        }
+      ],
+      "questFunction": "Frames the wardstone conflict, provides the orchard's side of the choice, and makes a non-destructive ending legible.",
+      "description": "A weather-browned orchard keeper in a patched green coat, carrying pruning shears with their blades tied shut by red cord and a basket she refuses to let touch the ground.",
+      "tableDialogue": [
+        "“You can save your town without pretending this place is empty land.”",
+        "“The black fruit is doing a job. Do not put it in your mouth, your pack, or somebody else's cart.”",
+        "“Find Lio first. Then we can argue about who gets the stone he stole.”"
+      ],
+      "reactions": {
+        "agreement": "Gives the party a wooden orchard token that keeps the outer crows from raising an alarm.",
+        "refusal": "Allows them to enter without her help but warns that cutting living wood will wake every warden in the rows.",
+        "danger": "Guides injured characters to a stone irrigation ditch where the roots cannot reach."
+      }
+    },
+    {
+      "id": "npc-lio-derran",
+      "name": "Lio Derran",
+      "role": "missing Oakhaven surveyor trapped in the quarry",
+      "personality": [
+        "embarrassed",
+        "methodical",
+        "more curious than brave"
+      ],
+      "voiceCues": [
+        "narrates measurements when nervous",
+        "apologizes before admitting mistakes"
+      ],
+      "wants": [
+        "Out of the root cage",
+        "To correct his survey report before the council acts on it"
+      ],
+      "fears": [
+        "The Rootheart closing over him",
+        "Being blamed for losing the orchard"
+      ],
+      "knows": [
+        "He loosened one wardstone shard",
+        "The silver survey chain can conduct the Rootheart's living magic",
+        "The underground water line runs east"
+      ],
+      "believes": [
+        "A replacement ward can be grown rather than quarried if Vessa is right"
+      ],
+      "secrets": [
+        "He ignored Vessa's warning because the council wanted a physical sample"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "How the Rootheart will react if the shard is permanently removed"
+      ],
+      "revealRules": [
+        {
+          "fact": "The silver chain is conductive enough for a living graft.",
+          "when": "The party recovers him and asks about the survey chain."
+        },
+        {
+          "fact": "The Night Spring line continues east.",
+          "when": "The party asks what his underground survey found."
+        }
+      ],
+      "questFunction": "Provides the rescue objective, admits the trigger, and supplies the material that makes the shared-graft ending possible.",
+      "description": "A thin surveyor pinned waist-deep inside pale roots, with a broken measuring rod beside him and a silver chain looped around one wrist like a climbing rope.",
+      "tableDialogue": [
+        "“Good news: the stone is alive. Bad news: I discovered that with a chisel.”",
+        "“The chain carried the pulse without cracking. Vessa may be able to graft through it.”",
+        "“There is water below us, moving east. It should not be black on my map, but it is.”"
+      ],
+      "reactions": {
+        "agreement": "Hands over the recovered silver survey chain and corrects the council order in writing.",
+        "refusal": "Still gives the party the chain; he cares more about fixing the damage than winning the argument.",
+        "danger": "Curls inside the root cage and shouts measurements that help others avoid collapsing stone."
+      }
+    },
+    {
+      "id": "npc-mother-graft",
+      "name": "Mother Graft",
+      "role": "voice of the Rootheart and orchard's living memory",
+      "personality": [
+        "slow",
+        "literal",
+        "protective rather than benevolent"
+      ],
+      "voiceCues": [
+        "speaks through several nearby trunks at once",
+        "uses seasons as measures of time"
+      ],
+      "wants": [
+        "The loosened shard resolved",
+        "The Night Spring kept contained"
+      ],
+      "fears": [
+        "Fire",
+        "The living seam being quarried until it cannot hold the spring"
+      ],
+      "knows": [
+        "The orchard's containment purpose",
+        "The cost of taking the shard",
+        "How to grow a living graft through silver"
+      ],
+      "believes": [
+        "Humans can keep bargains only if consequences remain visible"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "Oakhaven's current political or military needs"
+      ],
+      "revealRules": [
+        {
+          "fact": "A living graft can share the shard's function.",
+          "when": "The party brings Lio's silver survey chain into the Rootheart chamber."
+        }
+      ],
+      "questFunction": "Turns the finale into a choice with clear consequences instead of an obligatory monster fight.",
+      "description": "No single creature appears; a woman's face forms briefly in bark, apples, and pale root fibers wherever the party looks, never in the same place twice.",
+      "tableDialogue": [
+        "“Stone taken. Spring rises. Choice remains.”",
+        "“Return what was cut, carry it away, or teach it two homes.”",
+        "“I remember the first axes. I also remember the first promises.”"
+      ],
+      "reactions": {
+        "agreement": "Keeps the chamber stable while the party performs its chosen resolution.",
+        "refusal": "Withdraws from conversation but leaves the shard and consequences physically visible.",
+        "danger": "Uses roots to separate attackers from the Rootheart; it avoids lethal force unless the party tries to burn the grove."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-orchard-gate",
+      "name": "Black Orchard Gate",
+      "description": "Black-barked apple trees begin immediately beyond a leaning stone wall, their pale leaves flashing silver underneath while untouched fruit hangs dark as polished coal.",
+      "connections": [
+        "loc-warden-rows"
+      ]
+    },
+    {
+      "id": "loc-warden-rows",
+      "name": "The Warden Rows",
+      "description": "Narrow orchard lanes run between grafted trees and irrigation stones, with old scarecrows tied to posts by red cords and a quarry ridge visible beyond the branches.",
+      "connections": [
+        "loc-orchard-gate",
+        "loc-quarry-gate"
+      ]
+    },
+    {
+      "id": "loc-quarry-gate",
+      "name": "The Offering Gate",
+      "description": "A limestone arch seals the abandoned quarry, holding three shallow basins beneath carvings of ROOT, BLOOM, and STONE while roots curl around a trapped surveyor beyond.",
+      "connections": [
+        "loc-warden-rows",
+        "loc-rootheart"
+      ]
+    },
+    {
+      "id": "loc-rootheart",
+      "name": "The Rootheart Quarry",
+      "description": "The quarry floor has become a cathedral of roots around a seam of green-black mineral, with one loosened shard glowing beside a pool of perfectly still dark water.",
+      "connections": [
+        "loc-quarry-gate"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-gate",
+      "title": "Do Not Pick the Fruit",
+      "purpose": "Introduce the missing surveyor, the wardstone request, and Vessa's warning that the orchard is doing something Oakhaven's records omitted.",
+      "locationId": "loc-orchard-gate",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "Hook",
+      "readAloud": "The Black Orchard earns its name before you cross the wall. Every trunk is dark enough to look charred, but the leaves are alive and silver underneath. Apples hang black and glossy between them. Vessa Thorn waits at the gate with pruning shears tied shut by red cord. On the stone beside her lies a survey flag stamped OAKHAVEN. “Your man went in yesterday,” she says. “If you came for him, good. If you came for more stone, learn what it is first.”",
+      "gmNotes": [
+        "Oakhaven wants Lio found and a wardstone sample assessed. Vessa wants Lio rescued but opposes further quarrying.",
+        "Black apples are not edible treasure. Removing one from the orchard without containing it carries corruption outward.",
+        "Vessa gives an orchard token if treated respectfully; it allows a character to make one Warden Cord check with advantage.",
+        "There is no time clock. The adventure's pressure comes from consequences, not a countdown."
+      ],
+      "runSteps": [
+        {
+          "title": "State both jobs",
+          "text": "Find Lio and determine whether Oakhaven can safely take more wardstone."
+        },
+        {
+          "title": "Make the conflict visible",
+          "text": "Vessa is not hiding the orchard; she is warning that the stone and black fruit are part of a containment system."
+        },
+        {
+          "title": "Send them into the rows",
+          "text": "If they accept, Vessa points toward Lio's survey flags leading to the old quarry."
+        }
+      ],
+      "advanceWhen": "The party enters the orchard rows following Lio's survey flags.",
+      "npcIds": [
+        "npc-vessa-thorn"
+      ],
+      "clueIds": [
+        "clue-orchard-filter",
+        "clue-fruit-purpose"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-rows"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-rows",
+          "label": "Follow the survey flags",
+          "description": "Enter the warden rows and track Lio toward the quarry."
+        }
+      ]
+    },
+    {
+      "id": "scene-rows",
+      "title": "Rags Between the Trees",
+      "purpose": "Make the orchard's defenses active without requiring their destruction and reward players who notice the red control cords.",
+      "locationId": "loc-warden-rows",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Wardens",
+      "readAloud": "Lio's red survey flags lead between rows of black trunks until the wind stops. The scarecrows do not move at first. Then one turns its sackcloth head without bending its wooden neck. A second lifts a rusted pruning hook from behind its post. Red cords run from both figures into the roots at their feet. Beyond them, the quarry ridge rises through the branches, and a human voice calls once from somewhere under the stone.",
+      "gmNotes": [
+        "Two Rag-Stitched Wardens block the route. They are orchard tools, not evil creatures.",
+        "A character adjacent to a warden can use an Action and DC 12 Dexterity (Sleight of Hand) or Intelligence (Nature) to cut/unhook its red control cord; success disables that warden.",
+        "The orchard token from Vessa grants advantage on one cord-disabling check.",
+        "Fire damage to living orchard trees angers Mother Graft. Record orchardHarm +1 for roleplay consequences, but the adventure remains finishable.",
+        "The wardens do not pursue past the quarry gate."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the cords",
+          "text": "Mention the red cords before initiative so disabling the wardens is an obvious alternative to damage."
+        },
+        {
+          "title": "Run or bypass",
+          "text": "Use the orchard-row map. Stealth between irrigation ditches or disabling both cords gets the party through."
+        },
+        {
+          "title": "Carry consequence forward",
+          "text": "If the party deliberately burns living trees, note it for Mother Graft's attitude in the finale."
+        }
+      ],
+      "advanceWhen": "The party reaches the limestone quarry gate.",
+      "npcIds": [],
+      "clueIds": [
+        "clue-fruit-purpose",
+        "clue-lio-trigger"
+      ],
+      "encounterIds": [
+        "enc-rag-wardens"
+      ],
+      "exits": [
+        "scene-quarry-gate"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-quarry-gate",
+          "label": "Reach the quarry gate",
+          "description": "Follow Lio's voice and survey flags beneath the ridge."
+        }
+      ]
+    },
+    {
+      "id": "scene-quarry-gate",
+      "title": "Ash, Rain, and Black Fruit",
+      "purpose": "Use a thematic offering puzzle, rescue Lio without a hard-stop check, and reveal that he destabilized the living wardstone seam.",
+      "locationId": "loc-quarry-gate",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Rescue puzzle",
+      "readAloud": "Three stone basins block the quarry arch. One is carved with roots, one with a flowering branch, and one with a split stone. Nearby sit an old ash bucket and a rain barrel. A single black apple rests in a root cradle where no branch grows. Beyond the arch, Lio Derran is visible between pale roots, trapped to the waist. He sees you and calls, “I would strongly recommend not chiseling anything else.”",
+      "gmNotes": [
+        "Offerings: ROOT receives ash; BLOOM receives rainwater; STONE receives the black apple. The carvings support the logic.",
+        "Wrong offering: Thorn Lash, DC 12 Dexterity save or 1d6 piercing. The basin ejects the item intact.",
+        "After one wrong offering, fine glowing veins connect each item to its correct carving. Failure cannot stop progression.",
+        "Once the gate opens, Lio can be freed with DC 13 Strength (Athletics), Dexterity (Sleight of Hand), or Intelligence (Nature). Failure deals no damage; roots loosen enough that a second attempt succeeds automatically.",
+        "Lio admits he pried loose the glowing wardstone shard and gives the party his silver survey chain."
+      ],
+      "runSteps": [
+        {
+          "title": "Present three offerings",
+          "text": "Put ash, rainwater, and one black apple beside the ROOT, BLOOM, and STONE basins."
+        },
+        {
+          "title": "Fail forward visibly",
+          "text": "On the first wrong match, resolve Thorn Lash and illuminate the correct item-to-basin veins."
+        },
+        {
+          "title": "Rescue Lio",
+          "text": "After the gate opens, let one check free him; after a failed check, the next attempt succeeds automatically."
+        },
+        {
+          "title": "Hand over the key material",
+          "text": "Lio provides the silver survey chain and admits the shard came loose because of his chisel."
+        }
+      ],
+      "advanceWhen": "Lio is free and the party enters the Rootheart Quarry with the loosened shard and silver chain.",
+      "npcIds": [
+        "npc-lio-derran"
+      ],
+      "clueIds": [
+        "clue-orchard-filter",
+        "clue-lio-trigger",
+        "clue-shard-choice",
+        "clue-bridge"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-rootheart"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-rootheart",
+          "label": "Enter the Rootheart",
+          "description": "Follow the loosened wardstone seam into the heart of the quarry."
+        }
+      ]
+    },
+    {
+      "id": "scene-rootheart",
+      "title": "One Stone, Two Homes",
+      "purpose": "Force a clear stewardship choice using the wardstone shard, with a discoverable third option that depends on material the party earned by rescuing Lio.",
+      "locationId": "loc-rootheart",
+      "pacingClass": "core",
+      "estimatedMinutes": 45,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Finale",
+      "readAloud": "The quarry is no longer a quarry. Roots fill it from floor to ceiling around a seam of green-black stone that pulses like slow breathing. The shard Lio loosened lies half free at the edge of a dark pool. As the silver survey chain comes near, light runs through every link. Faces form briefly in the bark around you. “Stone taken,” several voices say together. “Spring rises. Choice remains.”",
+      "gmNotes": [
+        "Make all three consequences explicit before the party chooses.",
+        "RETURN: seat the shard back into the Rootheart. The orchard remains healthy and continues containing the Night Spring. Oakhaven receives knowledge but no new wardstone.",
+        "TAKE: remove the shard for Oakhaven. The town gains a powerful wardstone, but the orchard cannot contain the Night Spring indefinitely and will die within a season unless another solution is found.",
+        "LIVING GRAFT: wrap Lio's silver survey chain around the shard and a healthy sapling. DC 13 Intelligence (Arcana or Nature) or Wisdom (Medicine). Success grows a living ward-graft that can be transplanted to Oakhaven while the Rootheart retains enough living stone to survive.",
+        "On a failed Living Graft check, the silver chain cracks and is consumed. The party can still RETURN or TAKE; no ending is blocked.",
+        "If orchardHarm was recorded, Mother Graft is colder and refuses to assist, but the same mechanics remain legal.",
+        "If attacked, Mother Graft uses roots to push intruders 10 ft. away from the shard. There is no required combat stat block; destroying the Rootheart would release the Night Spring and fails the quest."
+      ],
+      "runSteps": [
+        {
+          "title": "State the conflict",
+          "text": "Oakhaven and the orchard both benefit from the same living wardstone. There is only one loosened shard."
+        },
+        {
+          "title": "Reveal the third option",
+          "text": "If the silver survey chain is present, show energy traveling through it and let Lio/Vessa identify the possibility of a living graft."
+        },
+        {
+          "title": "Make the choice",
+          "text": "Resolve RETURN, TAKE, or one Living Graft check. Do not invent a hidden fourth consequence after players commit."
+        },
+        {
+          "title": "Carry the next clue",
+          "text": "Whichever option they choose, Lio's water survey points east toward the ruined Ashen Bridge."
+        }
+      ],
+      "advanceWhen": "The shard is returned, taken, or successfully transformed into a living graft.",
+      "npcIds": [
+        "npc-lio-derran",
+        "npc-mother-graft"
+      ],
+      "clueIds": [
+        "clue-orchard-filter",
+        "clue-shard-choice",
+        "clue-bridge"
+      ],
+      "encounterIds": [
+        "enc-rootheart-choice"
+      ],
+      "exits": [
+        "scene-resolution-return",
+        "scene-resolution-take",
+        "scene-resolution-graft"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-return",
+          "label": "Return the shard",
+          "description": "Preserve the orchard and leave Oakhaven without a new wardstone."
+        },
+        {
+          "target": "scene-resolution-take",
+          "label": "Take the shard",
+          "description": "Strengthen Oakhaven and accept the orchard's decline."
+        },
+        {
+          "target": "scene-resolution-graft",
+          "label": "Grow a living graft",
+          "description": "Use Lio's silver chain to try to give the living ward two homes."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-return",
+      "title": "Resolution: The Orchard Keeps Its Heart",
+      "purpose": "Close on preservation, rescue, and knowledge rather than material extraction.",
+      "locationId": "loc-orchard-gate",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "When the shard slides back into the seam, the black apples across the orchard tremble and then go still. The dark pool in the quarry lowers by an inch. Outside, Vessa presses one palm to the nearest trunk and closes her eyes. Lio tears the sample request from his notebook and begins writing a different report. Oakhaven will not get another wardstone today, but it will get the truth about why the first one existed.",
+      "gmNotes": [
+        "Lio returns safely and corrects the survey record.",
+        "Oakhaven pays 100 gp total for the rescue and verified containment report.",
+        "Vessa gives the party two antitoxin doses and a standing orchard favor.",
+        "The Night Spring remains contained; Lio's map points east toward the Ashen Bridge."
+      ],
+      "runSteps": [
+        {
+          "title": "Record the rescue",
+          "text": "Lio returns to Oakhaven and withdraws the extraction recommendation."
+        },
+        {
+          "title": "Award the preservation reward",
+          "text": "Give 100 gp total, two antitoxin doses, and an orchard favor."
+        },
+        {
+          "title": "Point east",
+          "text": "End with the underground water line reaching the ruined Ashen Bridge."
+        }
+      ],
+      "advanceWhen": "Rewards are recorded and the Ashen Bridge lead is in the party's hands.",
+      "npcIds": [
+        "npc-vessa-thorn",
+        "npc-lio-derran"
+      ],
+      "clueIds": [
+        "clue-bridge"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-take",
+      "title": "Resolution: Stone for the Town",
+      "purpose": "Honor extraction as a valid solution while making the orchard consequence persistent and visible.",
+      "locationId": "loc-orchard-gate",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "The shard comes free with a sound like ice breaking beneath deep water. Far above, black apples begin dropping into the grass one after another. Vessa does not stop you. She simply starts collecting them before any roll toward the road. Lio wraps the living stone in his survey cloth and stares at the darkening leaves. “This will help Oakhaven,” he says. Neither he nor Vessa adds the word enough.",
+      "gmNotes": [
+        "Oakhaven pays 125 gp total for the rescued surveyor and wardstone shard.",
+        "The orchard begins a season-long decline because its containment capacity is reduced.",
+        "No orchard item reward is given.",
+        "The Night Spring map still points east to the Ashen Bridge; the party now has a reason to address it before the orchard fails."
+      ],
+      "runSteps": [
+        {
+          "title": "Award the town reward",
+          "text": "Give 125 gp total and record that Oakhaven possesses a new living wardstone shard."
+        },
+        {
+          "title": "Record the cost",
+          "text": "The Black Orchard will die within a season if the Night Spring is not addressed."
+        },
+        {
+          "title": "Point east",
+          "text": "The survey map shows the spring's underground flow reaching the Ashen Bridge."
+        }
+      ],
+      "advanceWhen": "The wardstone is delivered and the orchard's decline is recorded.",
+      "npcIds": [
+        "npc-vessa-thorn",
+        "npc-lio-derran"
+      ],
+      "clueIds": [
+        "clue-bridge"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-graft",
+      "title": "Resolution: Two Homes",
+      "purpose": "Reward rescue and careful material use with a living compromise that preserves both needs without erasing future risk.",
+      "locationId": "loc-orchard-gate",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Resolution",
+      "readAloud": "The silver chain tightens around the sapling without cutting its bark. Green-black light runs from the wardstone shard into the young roots, then settles into a slow pulse. Mother Graft's voice comes once from every tree in the orchard: “Two homes.” Vessa lifts the sapling herself. Lio is already sketching a transport cradle before you reach the gate. The orchard keeps its heart, and Oakhaven receives something stranger than a stone—a living piece of the same promise.",
+      "gmNotes": [
+        "Oakhaven pays 125 gp total for Lio's rescue and the living ward-graft.",
+        "Vessa gives the party a Graftwood Charm: once per long rest, after failing a saving throw against poison or necrotic damage, reroll the save and use the new result.",
+        "The orchard remains stable and Oakhaven can cultivate the graft without quarrying the Rootheart.",
+        "The Night Spring still exists. Lio's water survey points east toward the Ashen Bridge."
+      ],
+      "runSteps": [
+        {
+          "title": "Award the compromise",
+          "text": "Give 125 gp total and the Graftwood Charm."
+        },
+        {
+          "title": "Record both states",
+          "text": "The orchard survives and Oakhaven receives a living ward-graft rather than quarried stone."
+        },
+        {
+          "title": "Keep the threat alive",
+          "text": "The graft manages symptoms; the Night Spring still flows toward the Ashen Bridge."
+        }
+      ],
+      "advanceWhen": "The living graft is secured for transport and the party has the Ashen Bridge map.",
+      "npcIds": [
+        "npc-vessa-thorn",
+        "npc-lio-derran"
+      ],
+      "clueIds": [
+        "clue-bridge"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-orchard-filter",
+      "revelation": "The Black Orchard is containing a buried Night Spring rather than simply suffering from corruption.",
+      "required": true,
+      "sources": [
+        "A family orchard record at Vessa's gate describes black fruit as seasonal containment yield.",
+        "Black residue in the irrigation tracks flows toward the trees and disappears into healthy roots.",
+        "The Rootheart chamber shows living wardstone drawing dark water out of the spring and into the orchard."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-fruit-purpose",
+      "revelation": "Black apples store corruption and should not be eaten or removed casually.",
+      "required": true,
+      "sources": [
+        "Vessa's warning and orchard record both state that ripe black fruit must fall inside the stone wall.",
+        "A broken basket near the warden rows has black residue burned into the ground where one apple rolled outside the irrigation track.",
+        "The Offering Gate accepts a black apple into the STONE basin, where its darkness drains harmlessly into the mechanism."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-lio-trigger",
+      "revelation": "Lio destabilized the Rootheart when he pried loose a living wardstone shard.",
+      "required": true,
+      "sources": [
+        "Fresh chisel tracks and silver survey marks surround the loosened stone near Lio's root cage.",
+        "Lio admits he ignored Vessa's warning and chipped the sample free.",
+        "The Rootheart's visible wound pulses in the same rhythm as the loosened shard."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-shard-choice",
+      "revelation": "Returning the shard preserves the orchard; taking it strengthens Oakhaven but weakens containment; the silver survey chain can support a living graft.",
+      "required": true,
+      "sources": [
+        "The orchard ledger records that removing living wardstone reduces the Rootheart's containment capacity.",
+        "Lio's silver-chain test notes show the metal carried ward energy without cracking the shard.",
+        "Mother Graft states the three options directly in the Rootheart chamber."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-bridge",
+      "revelation": "The Night Spring's underground water line continues east toward the ruined Ashen Bridge.",
+      "required": false,
+      "sources": [
+        "Lio's survey map marks the black water track continuing east.",
+        "A quarry-wall water inscription from the old survey crew labels the eastern flow ASHEN BRIDGE.",
+        "Mother Graft remembers the Night Spring becoming louder whenever floodwater rises near the bridge."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": false
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-rag-wardens",
+      "name": "Rag-Stitched Wardens",
+      "type": "combat / disable / bypass",
+      "difficulty": "moderate",
+      "summary": "Two orchard scarecrow wardens animate when armed strangers enter the inner rows. Their red root cords can be disabled without destroying them.",
+      "objective": "Reach the quarry gate without unnecessary damage to the orchard.",
+      "resolution": "The encounter ends when both wardens are disabled/defeated or the party reaches the quarry path beyond them.",
+      "talkOut": "The wardens do not speak, but they stop immediately if their red control cords are unhooked.",
+      "bypass": "DC 12 group Dexterity (Stealth) along the irrigation ditch, or disable each red cord with an adjacent Action.",
+      "special": "The orchard token gives advantage on one cord-disabling check."
+    },
+    {
+      "id": "enc-rootheart-choice",
+      "name": "The Rootheart Choice",
+      "type": "social / resource finale",
+      "difficulty": "consequential",
+      "summary": "The party has one loosened living wardstone shard and three explicit ways to resolve it.",
+      "objective": "Stabilize the Rootheart by returning, taking, or transforming the shard.",
+      "resolution": "Choose RETURN, TAKE, or attempt the LIVING GRAFT. A failed graft consumes the silver chain but leaves Return and Take available.",
+      "talkOut": "Mother Graft will explain consequences if spoken to; no creature must be defeated for a full victory.",
+      "bypass": "The party may choose Return or Take without any check. Only the shared Living Graft requires a DC 13 check.",
+      "special": "Destroying the Rootheart releases the Night Spring and is a failure condition, not a secret shortcut."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-three-offerings",
+      "name": "Ash, Rain, and Black Fruit",
+      "locationId": "loc-quarry-gate",
+      "prompt": "Three basins are carved ROOT, BLOOM, and STONE. The available offerings are wood ash, rainwater, and one black apple. Match each offering to the part of the orchard it serves.",
+      "solution": "ROOT = ash; BLOOM = rainwater; STONE = black apple.",
+      "failForward": "A wrong match triggers Thorn Lash but ejects the item intact. After the first error, glowing veins connect each offering to its correct basin."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-thorn-lash",
+      "name": "Thorn Lash",
+      "locationId": "loc-quarry-gate",
+      "trigger": "An offering is placed into the wrong basin.",
+      "effect": "The acting creature makes a DC 12 Dexterity saving throw; on a failure it takes 1d6 piercing damage.",
+      "failForward": "The item is not consumed, and glowing veins reveal the correct matching path after the first mistake."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-black-apple",
+      "name": "Black Orchard Apple",
+      "kind": "containment vessel",
+      "description": "A ripe black fruit storing shadow seepage.",
+      "effect": "Safe only while kept inside the orchard's containment system; not ordinary food or treasure."
+    },
+    {
+      "id": "item-silver-chain",
+      "name": "Lio's Silver Survey Chain",
+      "kind": "tool / ritual material",
+      "description": "A calibrated silver chain used for magical ground surveys.",
+      "effect": "Enables the Living Graft option in the Rootheart finale."
+    },
+    {
+      "id": "item-wardstone-shard",
+      "name": "Living Wardstone Shard",
+      "kind": "story item",
+      "description": "A green-black piece loosened from the Rootheart seam.",
+      "effect": "Must be returned, taken, or transformed before the adventure ends."
+    },
+    {
+      "id": "item-graftwood-charm",
+      "name": "Graftwood Charm",
+      "kind": "original magic item",
+      "description": "A small blackwood charm with a silver living vein.",
+      "effect": "Once per long rest, after failing a saving throw against poison or necrotic damage, reroll the save and use the new result."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-black-orchard",
+      "name": "Black Orchard and Quarry",
+      "asset": null,
+      "regions": [
+        {
+          "id": "reg-gate",
+          "label": "Orchard Gate",
+          "sceneId": "scene-gate",
+          "x": 6,
+          "y": 70,
+          "w": 18,
+          "h": 13
+        },
+        {
+          "id": "reg-rows",
+          "label": "Warden Rows",
+          "sceneId": "scene-rows",
+          "x": 28,
+          "y": 52,
+          "w": 22,
+          "h": 16
+        },
+        {
+          "id": "reg-quarry-gate",
+          "label": "Offering Gate",
+          "sceneId": "scene-quarry-gate",
+          "x": 54,
+          "y": 38,
+          "w": 18,
+          "h": 14
+        },
+        {
+          "id": "reg-rootheart",
+          "label": "Rootheart Quarry",
+          "sceneId": "scene-rootheart",
+          "x": 73,
+          "y": 16,
+          "w": 20,
+          "h": 20
+        }
+      ]
+    }
+  ],
+  "playMaps": [
+    {
+      "sceneIds": [
+        "scene-rows"
+      ],
+      "title": "Black Orchard Warden Rows — 70 × 50 ft.",
+      "kind": "combat",
+      "src": "assets/maps/oakhaven/black-orchard-rows-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Dense orchard rows with irrigation ditches, warden posts, and the quarry path to the east.",
+      "notes": [
+        "Party enters west",
+        "Quarry path exits east",
+        "Two warden posts near center rows",
+        "Irrigation ditches grant half cover when crouched",
+        "Living tree squares are difficult terrain if forced through"
+      ]
+    },
+    {
+      "sceneIds": [
+        "scene-rootheart"
+      ],
+      "title": "Rootheart Quarry — 70 × 70 ft.",
+      "kind": "handout",
+      "src": "assets/maps/oakhaven/rootheart-quarry-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Choice-space map showing the living wardstone seam, Night Spring pool, shard, and grafting sapling.",
+      "notes": [
+        "Wardstone seam north",
+        "Night Spring pool center",
+        "Loosened shard west of pool",
+        "Healthy sapling south",
+        "Quarry exit southwest"
+      ]
+    }
+  ],
+  "events": [],
+  "endings": [
+    {
+      "id": "ending-return",
+      "name": "The Orchard Keeps Its Heart",
+      "condition": "The party returns the living shard to the Rootheart.",
+      "result": "The orchard remains stable, Oakhaven receives knowledge rather than stone, and the party earns 100 gp plus two antitoxin doses."
+    },
+    {
+      "id": "ending-take",
+      "name": "Stone for the Town",
+      "condition": "The party takes the wardstone shard to Oakhaven.",
+      "result": "Oakhaven gains a new wardstone and pays 125 gp, but the Black Orchard begins dying unless the Night Spring is addressed within a season."
+    },
+    {
+      "id": "ending-graft",
+      "name": "Two Homes",
+      "condition": "The party succeeds on the Living Graft using Lio's silver survey chain.",
+      "result": "The orchard survives, Oakhaven gains a living ward-graft, and the party earns 125 gp plus the Graftwood Charm."
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "Move required information forward through physical evidence if an NPC is missed or distrusted.",
+      "Creative solutions that preserve the same resource tradeoff may replace Return, Take, or Living Graft without inventing consequence-free extraction.",
+      "Failed checks cost hit points or materials but never prevent the party from resolving the shard."
+    ],
+    "routes": [
+      {
+        "id": "rec-vessa-unavailable",
+        "trigger": "Vessa is refused, missing, unavailable, or dead before the party enters the orchard.",
+        "response": "Lio's survey flags, the orchard record nailed inside the gate shed, and the black-fruit warning signs still provide the route and containment clues.",
+        "stateChanges": [
+          "The orchard remains enterable.",
+          "The rescue objective survives without Vessa."
+        ]
+      },
+      {
+        "id": "rec-mother-graft-attacked",
+        "trigger": "Mother Graft is attacked, treated as hostile, or refuses to speak.",
+        "response": "The orchard ledger, Lio's chain notes, and the physical Rootheart wound still show all three shard options. Roots push attackers away rather than hiding required information.",
+        "stateChanges": [
+          "The finale remains a resource choice.",
+          "No NPC explanation is required."
+        ]
+      },
+      {
+        "id": "rec-rows-bypassed",
+        "trigger": "The party bypasses or skips the warden rows by climbing the wall, flying, or using another route.",
+        "response": "They reach the Offering Gate directly. The warden-control clue is skipped, but no required finale information is lost.",
+        "stateChanges": [
+          "The adventure continues to the rescue puzzle.",
+          "No reward is removed merely for bypassing combat."
+        ]
+      },
+      {
+        "id": "rec-leave-orchard",
+        "trigger": "The party leaves the orchard after freeing Lio but before resolving the shard.",
+        "response": "Vessa keeps the quarry entrance watched. The unstable shard remains in place and the same three options are available when the party returns.",
+        "stateChanges": [
+          "The ending is not locked.",
+          "The Night Spring remains contained for the duration of this one-shot."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared and non-destructive play earns better information and the shared-graft option, but rushed or violent play never locks the ending; the party can still finish by returning or taking the shard.",
+    "prepared": [
+      "Rescuing Lio recovers the silver survey chain, enabling the Living Graft option.",
+      "Disabling wardens by their cords preserves Vessa's trust and keeps the orchard intact."
+    ],
+    "rushed": [
+      "Destroying orchard defenses makes Mother Graft less cooperative even though physical evidence preserves the finale choices.",
+      "Ignoring Lio's chain removes the Living Graft option, leaving Return or Take as complete legal endings."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 150,
+    "plannedMinutes": 145,
+    "bossReserveMinutes": 35,
+    "cutOrder": [
+      "If 20+ minutes behind, reduce the warden encounter to one Rag-Stitched Warden and start the party beside the first red control cord.",
+      "If 15+ minutes behind at the Offering Gate, reveal one correct offering match before the party acts.",
+      "Never cut Lio's rescue, the three explicit shard options, or the Ashen Bridge reveal."
+    ],
+    "optionalOrder": [
+      "Extended argument with Vessa at the orchard gate.",
+      "Searching extra orchard rows after the quarry route is obvious.",
+      "Historical questions for Mother Graft after the shard choice is resolved."
+    ]
+  },
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-gate",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-vessa-thorn": {
+        "status": "alive",
+        "attitude": "guarded"
+      },
+      "npc-lio-derran": {
+        "status": "trapped",
+        "attitude": "embarrassed"
+      },
+      "npc-mother-graft": {
+        "status": "rooted",
+        "attitude": "protective"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-black-apple": "at-offering-gate",
+      "item-silver-chain": "with-lio",
+      "item-wardstone-shard": "loosened-in-rootheart",
+      "item-graftwood-charm": "unmade"
+    },
+    "eventState": {
+      "orchardHarm": 0,
+      "lioRescued": false,
+      "silverChainRecovered": false,
+      "shardState": "loosened",
+      "rootheartState": "unstable"
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "All adventure-specific creatures and items use the quick-run wording in this package.",
+        "General checks and saving throws use ordinary 2014 5E procedure."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "All adventure-specific creatures and items use the quick-run wording in this package.",
+        "General checks and saving throws use the selected current SRD procedure; no 2014 class feature is imported."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-black-orchard",
+    "version": "0.1.0",
+    "target": {
+      "level": 3,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-warden-cord",
+      "check-offering-hint",
+      "check-free-lio",
+      "check-living-graft"
+    ],
+    "checks": [
+      {
+        "id": "check-warden-cord",
+        "sceneId": "scene-rows",
+        "label": "Disable a warden's red cord",
+        "dc": 12,
+        "ability": "Dexterity (Sleight of Hand) or Intelligence (Nature)",
+        "success": "The red control cord releases and that warden immediately goes limp.",
+        "failure": "The cord snaps back into the roots; the Action is spent, but the character can try again next turn."
+      },
+      {
+        "id": "check-offering-hint",
+        "sceneId": "scene-quarry-gate",
+        "label": "Read the offering logic",
+        "dc": 12,
+        "ability": "Intelligence (Nature or Investigation)",
+        "success": "Ash feeds ROOT, rainwater wakes BLOOM, and the black apple returns corruption to STONE.",
+        "failure": "The physical offerings remain usable; the first wrong placement reveals all matching veins."
+      },
+      {
+        "id": "check-free-lio",
+        "sceneId": "scene-quarry-gate",
+        "label": "Free Lio from the root cage",
+        "dc": 13,
+        "ability": "Strength (Athletics), Dexterity (Sleight of Hand), or Intelligence (Nature)",
+        "success": "Lio is freed immediately with his silver survey chain intact.",
+        "failure": "The roots loosen enough that the next attempt succeeds automatically; no progression is blocked."
+      },
+      {
+        "id": "check-living-graft",
+        "sceneId": "scene-rootheart",
+        "label": "Grow the Living Graft",
+        "dc": 13,
+        "ability": "Intelligence (Arcana or Nature) or Wisdom (Medicine)",
+        "success": "The silver chain conducts the shard into a healthy sapling, preserving the orchard while creating a transportable living ward for Oakhaven.",
+        "failure": "The silver chain cracks and is consumed. Return and Take remain available immediately."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-rag-wardens",
+        "objective": "Reach the quarry path while preserving as much of the orchard as the party chooses.",
+        "start": "Two Rag-Stitched Wardens animate between the center rows when the party approaches with tools or weapons.",
+        "bypass": "DC 12 group Stealth along the irrigation ditch, or disable each red cord with an adjacent Action.",
+        "creatures": [
+          {
+            "name": "Rag-Stitched Warden",
+            "count": 2,
+            "ac": 13,
+            "hp": 16,
+            "speed": "25 ft.",
+            "attack": "Pruning Hook +4 to hit, 1d6+2 slashing.",
+            "trait": "Cord-Bound: a successful adjacent DC 12 Sleight of Hand or Nature Action disables the warden instantly.",
+            "tactics": "Block the quarry path and shove intruders away from living trees; do not pursue past the Offering Gate."
+          }
+        ],
+        "end": "Both wardens are disabled/defeated or the party reaches the quarry path."
+      },
+      {
+        "id": "enc-rootheart-choice",
+        "objective": "Resolve the loosened wardstone shard without releasing the Night Spring.",
+        "start": "The shard is half free beside the dark spring; Mother Graft states that it can be returned, taken, or taught two homes.",
+        "bypass": "Return or Take requires no check. Living Graft requires Lio's silver chain and one DC 13 check.",
+        "creatures": [],
+        "end": "The shard is returned, taken, or successfully transformed into a living graft."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-thorn-lash",
+        "sceneId": "scene-quarry-gate",
+        "trigger": "Place an offering into the wrong basin.",
+        "save": "DC 12 Dexterity saving throw.",
+        "failure": "Take 1d6 piercing damage.",
+        "success": "Take no damage.",
+        "failForward": "The item is ejected intact and glowing veins reveal the correct offering matches after the first error."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-return",
+        "when": "The shard is returned to the Rootheart.",
+        "reward": "100 gp total, two antitoxin doses, and a standing favor from Vessa."
+      },
+      {
+        "id": "reward-take",
+        "when": "The shard is taken to Oakhaven.",
+        "reward": "125 gp total and possession of a new living wardstone shard for the town; the orchard begins declining."
+      },
+      {
+        "id": "reward-graft",
+        "when": "The Living Graft succeeds.",
+        "reward": "125 gp total plus the Graftwood Charm; orchard survives and Oakhaven receives a transplantable living ward."
+      },
+      {
+        "id": "reward-hook",
+        "when": "Lio's survey is recovered.",
+        "reward": "The underground Night Spring flow is traced east to the Ashen Bridge."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-rows",
+        "dimensions": "70 × 50 ft. orchard rows; 5-ft. grid.",
+        "features": [
+          "west party entry",
+          "east quarry path",
+          "two warden posts near center",
+          "north and south irrigation ditches",
+          "dense living-tree rows"
+        ]
+      },
+      {
+        "sceneId": "scene-rootheart",
+        "dimensions": "70 × 70 ft. quarry chamber; 5-ft. grid.",
+        "features": [
+          "wardstone seam north",
+          "Night Spring pool center",
+          "loosened shard west of pool",
+          "healthy grafting sapling south",
+          "quarry exit southwest"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One rescue-and-investigation spine with a finale that branches on an explicit resource choice.",
+    "mainSpine": [
+      "scene-gate",
+      "scene-rows",
+      "scene-quarry-gate",
+      "scene-rootheart"
+    ],
+    "allowedBranchScenes": [
+      "scene-rootheart"
+    ],
+    "terminalScenes": [
+      "scene-resolution-return",
+      "scene-resolution-take",
+      "scene-resolution-graft"
+    ],
+    "stageCount": 5
+  }
+}
