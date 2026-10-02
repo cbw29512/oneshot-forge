@@ -16,6 +16,12 @@
   --ember-deep: #9a3a1c;
   --ok: #7d9a74;
   --danger: #c86d61;
+  /* High-contrast paper palette for GM-facing reading surfaces. */
+  --gm-paper: #fff8e9;
+  --gm-paper-alt: #f7ecd0;
+  --gm-ink: #16120c;
+  --gm-ink-muted: #4a4032;
+  --gm-label: #7d351b;
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -3208,41 +3214,60 @@ body.run { background: var(--bg) }
 /* GM spoken layer: table-ready description, dialogue, reactions, transitions. */
 .dm-spoken-layer {
   margin:.85rem 0;
-  padding:.8rem .9rem;
-  border:1px solid var(--border);
-  border-left:4px solid var(--ember);
+  padding:.9rem 1rem;
+  border:1px solid #c4b48a;
+  border-left:4px solid var(--gm-label);
   border-radius:8px;
-  background:color-mix(in oklab, var(--bg-subtle) 88%, var(--ember) 12%);
+  background:var(--gm-paper);
+  color:var(--gm-ink);
+  font-size:1rem;
+  line-height:1.55;
+}
+.dm-spoken-layer p,
+.dm-spoken-layer li,
+.dm-spoken-layer b {
+  color:var(--gm-ink);
+}
+.dm-spoken-layer .muted,
+.dm-spoken-layer .tiny {
+  color:var(--gm-ink-muted);
 }
 .dm-spoken-layer > .box-label {
-  margin:0 0 .45rem;
-  color:var(--ember);
+  margin:0 0 .55rem;
+  color:var(--gm-label);
+  font-size:.78rem;
 }
 .dm-npc + .dm-npc {
-  margin-top:.8rem;
-  padding-top:.75rem;
-  border-top:1px solid var(--border);
+  margin-top:.9rem;
+  padding-top:.85rem;
+  border-top:1px solid #c4b48a;
 }
 .dm-npc p {
-  margin:.25rem 0;
+  margin:.32rem 0;
 }
 .dm-dialogue {
-  margin:.4rem 0;
+  margin:.5rem 0;
 }
 .dm-dialogue > b {
   display:block;
-  margin-bottom:.25rem;
+  margin-bottom:.3rem;
+  color:var(--gm-ink);
 }
 .dm-dialogue blockquote {
-  margin:.22rem 0;
-  padding:.32rem .55rem;
-  border-left:3px solid var(--ember);
-  background:var(--panel);
-  font-size:.96rem;
-  line-height:1.35;
+  margin:.3rem 0;
+  padding:.42rem .65rem;
+  border:1px solid #d8c69b;
+  border-left:4px solid var(--gm-label);
+  border-radius:6px;
+  background:var(--gm-paper-alt);
+  color:var(--gm-ink);
+  font-family:var(--font-body);
+  font-size:1rem;
+  line-height:1.5;
 }
 .dm-transition {
   border-left-color:#8c6a32;
+  background:var(--gm-paper-alt);
 }
 
 /* Feature-heavy pregen protection: mechanics win space before personality prose. */
