@@ -615,7 +615,7 @@
       "revelation": "Ash-lime mortar can seal the eastern pier and restore enough filtration for the bridge to survive the surge.",
       "required": true,
       "sources": [
-        "The ashhouse maintenance verse gives the mortar formula.",
+        "The ashhouse maintenance inscription gives the mortar formula: two white measures, one black measure, then water.",
         "A labeled repair bucket reads EAST PIER SEEP SEAL.",
         "Soren explains that the mortar is the last emergency substitute for a missing ash rib."
       ],
@@ -627,7 +627,7 @@
       "revelation": "The heavy stone wagon accelerates bridge failure and can be dumped quickly.",
       "required": true,
       "sources": [
-        "Soren's chalk load board marks the stone wagon as the largest active stress.",
+        "Soren's physical chalk load record marks the stone wagon as the largest active stress on the center span.",
         "Mera explains the rear pins can dump the stone cargo in one Action.",
         "Visible cracks widen beneath the stone wagon whenever the span shifts."
       ],
@@ -850,7 +850,7 @@
       },
       {
         "id": "rec-ashhouse-skipped",
-        "trigger": "The party starts the rescue without visiting the ashhouse.",
+        "trigger": "The party skips or bypasses the Ashhouse and starts the rescue without prepared mortar.",
         "response": "The bridge can still be saved with two DC 13 improvised Pier Seal successes, or the party can abandon the structure after evacuating everyone.",
         "stateChanges": [
           "Prepared Seal is unavailable.",
@@ -874,11 +874,20 @@
           "Bridge is lost.",
           "The adventure remains finishable through hanging rescues."
         ]
+      },
+      {
+        "id": "rec-apparent-antagonist-attacked",
+        "trigger": "The party treats a Blackwater Lamprey or another creature as the apparent antagonist and attacks or kills it before understanding the structural problem.",
+        "response": "The lamprey fight changes nothing about the bridge truth. Soren's chalk load record, the ashhouse inscription, visible iron braces, and blackwater jets still reveal the failed filtration system and rescue priorities.",
+        "stateChanges": [
+          "Required bridge clues remain physical and available.",
+          "Combat never replaces or blocks the rescue objective."
+        ]
       }
     ]
   },
   "pathPressure": {
-    "principle": "Preparation buys action efficiency; skipping preparation makes the same rescue harder but never impossible.",
+    "principle": "Preparation buys action efficiency; skipping preparation makes the same rescue harder but never locks the ending. The party can still finish by getting the civilians off and abandoning the bridge if necessary.",
     "prepared": [
       "Prepared Ash-Lime Seal stops Integrity loss with one Action.",
       "Guide Line grants advantage on civilian crossing checks.",
