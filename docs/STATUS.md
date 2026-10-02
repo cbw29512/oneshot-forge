@@ -62,6 +62,7 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Write two curated Quiet Seals nights in one day
 
 ## Last session
+2026-10-02 — Fixed a release-blocking GM runner readability defect reported from the live Mere Bell stage card: nested spoken/NPC/transition panels had inherited dark text on a dark brown surface. Standardized those panels on a high-contrast paper palette, enlarged dense dialogue text/spacing, added a 7:1 contrast regression gate, and cache-busted the runner stylesheet.
 2026-10-01 — Built Oakhaven Module 06 `The Bell Beneath the Mere`: Mere Level 0–3, skimmer bypass, LOW/HIGH/LOW warning puzzle, Tamsin air-pocket rescue with alternate route at max flood, founder diversion archive, release/silence/preserve Ysra endings, two visual handouts/maps, and Module 07 Founders' Crypt hook.
 2026-10-01 — Built Oakhaven Module 05 `The Ashen Bridge`: six-person bridge rescue, four-integrity visible clock, ash-lime mixing puzzle, guide-line/cargo preparation, optional medicine-wagon reward, hanging-rescue fail-forward, three outcome states, bridge map/handout, and Module 06 Mere bell-chamber hook.
 2026-10-01 — Built Oakhaven Module 04 `The Black Orchard`: nonlethal orchard wardens, three-offering fail-forward puzzle, Lio rescue, living wardstone truth, Return/Take/Living-Graft finale, three consequence endings, two maps, and Module 05 Ashen Bridge hook.
