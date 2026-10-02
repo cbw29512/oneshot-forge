@@ -44,7 +44,7 @@ if(d.graduation.originLegacy?.bonusFeatDefault!==false||d.graduation.originLegac
 for(const k of ["abilityArray","proficiencies","heirloom","mentor"]) if(!d.graduation?.rawAudit?.[k]) fail("RAW graduation audit missing "+k);
 const page=fs.readFileSync("zero-hero.html","utf8");
 const script=fs.readFileSync("zero-hero.js","utf8");
-if(!/From Zero to Hero/.test(page)||!/21/.test(page)||!/Level-0-only rule/.test(page)) fail("public growth sheet lacks rule disclosure");
+if(!/From Zero to Hero/.test(page)||!/21/.test(page)||!/Level-0-only story rule/.test(page)) fail("public growth sheet lacks rule disclosure");
 if(!/oneshot-forge:zero-hero:v1/.test(script)||!/criticalSuccess/.test(script)||!/criticalFailure/.test(script)) fail("growth state/outcomes missing");
 if(!/state\.scores\[ability\] >= campaign\.development\.maxPreOriginScore/.test(script)) fail("score cap guard missing");
 if(!/const succeeded = total >= dc/.test(script)) fail("developmental checks must resolve normal total-vs-DC first");
