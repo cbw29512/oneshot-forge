@@ -131,7 +131,8 @@
       "reactions": {
         "agreement": "Hands over the ashhouse key and a coil of bridge line.",
         "refusal": "Begins evacuating alone; the party can still join at any point.",
-        "danger": "Cuts loose a cargo wagon before risking another civilian."
+        "danger": "Cuts loose a cargo wagon before risking another civilian.",
+        "accusation": "Accepts blame for not stopping the iron-brace retrofit, then shows the written warning he filed before the work was approved."
       }
     },
     {
@@ -183,7 +184,8 @@
       "reactions": {
         "agreement": "Organizes civilians into pairs, giving advantage to the first guided crossing check.",
         "refusal": "Moves her people anyway once a safe line is visible.",
-        "danger": "Cuts the heavy wagon loose herself if the bridge loses two integrity."
+        "danger": "Cuts the heavy wagon loose herself if the bridge loses two integrity.",
+        "accusation": "Admits the stone wagon is worsening the load and says she will dump it herself if the party will not risk an Action on it."
       }
     }
   ],
@@ -191,7 +193,7 @@
     {
       "id": "loc-west-approach",
       "name": "West Bridge Approach",
-      "description": "Rain lashes the east road where the old stone approach meets a timber span shuddering over black floodwater.",
+      "description": "Rain lashes the east road where old stone meets a timber span shuddering over black floodwater. The air smells of wet rope and split pine, and every deep impact from the gorge travels up through the milestone underfoot.",
       "connections": [
         "loc-ashhouse",
         "loc-center-span"
@@ -200,7 +202,7 @@
     {
       "id": "loc-ashhouse",
       "name": "Bridge Ashhouse",
-      "description": "A low maintenance shed holds slaked lime, ash barrels, spare rope, old rib templates, and a mixing trough bolted to the floor.",
+      "description": "A low maintenance shed crouches beside the road, warm with the chalky bite of slaked lime and wet charcoal. Ash barrels, spare rope, old rib templates, and a mixing trough crowd the walls, with one door back to the approach and another opening toward the center span.",
       "connections": [
         "loc-west-approach",
         "loc-center-span"
@@ -209,7 +211,7 @@
     {
       "id": "loc-center-span",
       "name": "Center Span",
-      "description": "Two wagons and six soaked travelers crowd a cracked timber deck above a gorge where blackwater hammers the eastern pier.",
+      "description": "Two wagons and six soaked travelers crowd a cracked timber deck above a gorge where blackwater hammers the eastern pier. Boards flex under shifting weight, wagon wheels grind against chocks, and the west approach remains the only clear route to solid ground.",
       "connections": [
         "loc-west-approach",
         "loc-east-pier"
@@ -218,7 +220,7 @@
     {
       "id": "loc-east-pier",
       "name": "Eastern Pier",
-      "description": "The stone pier is split along three iron braces while black water jets from joints that once held sacrificial ashwood ribs.",
+      "description": "The eastern stone pier is split along three iron braces while black water jets from joints that once held sacrificial ashwood ribs. Spray makes the footing slick, the braces ring under pressure, and a narrow maintenance ledge gives access to the failing seams.",
       "connections": [
         "loc-center-span"
       ]
