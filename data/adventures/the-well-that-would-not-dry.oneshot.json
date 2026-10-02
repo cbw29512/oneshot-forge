@@ -546,7 +546,7 @@
     {
       "id": "scene-resolution",
       "title": "What the Well Remembers",
-      "purpose": "Pay, campaign fact, back to Hearthford.",
+      "purpose": "Resolution and aftermath: show the well's final state, pay the party, record the campaign fact, and close the adventure.",
       "locationId": "loc-saltmere-square",
       "pacingClass": "core",
       "estimatedMinutes": 20,
