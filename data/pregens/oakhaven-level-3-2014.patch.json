@@ -1,0 +1,90 @@
+{
+  "schema": "oneshot-forge-pregen-progression/0.1",
+  "ruleset": "5e-2014-srd",
+  "series": "Oakhaven Adventures",
+  "level": 3,
+  "basePack": "data/pregens/quiet-seals-level-4-2014-srd.json",
+  "party": [
+    "pregen-brann",
+    "pregen-pell",
+    "pregen-nyx",
+    "pregen-ivo"
+  ],
+  "rationale": "Back-level the established reusable characters to level 3. Level-4 ASI gains are removed; no future-level feature may leak backward.",
+  "characters": {
+    "pregen-brann": {
+      "scoreOverrides": {
+        "CON": 14
+      },
+      "hp": 28,
+      "removeSources": [
+        "Fighter 4"
+      ],
+      "textReplacements": {
+        "1d10+4": "1d10+3"
+      }
+    },
+    "pregen-pell": {
+      "scoreOverrides": {
+        "WIS": 14
+      },
+      "hp": 30,
+      "spellSaveDC": 12,
+      "spellAttack": 4,
+      "slots": {
+        "1": 4,
+        "2": 2
+      },
+      "prepareCount": "5 (Wis 2 + cleric 3); domain spells always prepared and do not count",
+      "textReplacements": {
+        "DC 13": "DC 12",
+        "Restore 20 HP": "Restore 15 HP",
+        "already in 39": "already in 30",
+        "Slots 4/3": "Slots 4/2",
+        "Prepare Wis mod + level = 7": "Prepare Wis mod + level = 5",
+        "1d8+3 HP": "1d8+2 HP",
+        "1d4+3 HP": "1d4+2 HP",
+        "total 1d8+6": "total 1d8+5",
+        "total 1d4+6": "total 1d4+5",
+        "+5, 1d8+3": "+4, 1d8+2"
+      }
+    },
+    "pregen-nyx": {
+      "scoreOverrides": {
+        "DEX": 14
+      },
+      "hp": 24,
+      "ac": 14,
+      "acNotes": "studded leather 12 + Dex 2",
+      "attackBonusDelta": -1,
+      "attackDamageText": {
+        "+3": "+2"
+      },
+      "textReplacements": {
+        "+3 ft. (Dex mod)": "+2 ft. (Dex mod)"
+      }
+    },
+    "pregen-ivo": {
+      "scoreOverrides": {
+        "INT": 14
+      },
+      "hp": 20,
+      "spellSaveDC": 12,
+      "spellAttack": 4,
+      "slots": {
+        "1": 4,
+        "2": 2
+      },
+      "prepareCount": "5 (Int 2 + wizard 3). Detect Magic can be cast as a ritual from the spellbook.",
+      "removeSpells": [
+        "Shatter"
+      ],
+      "textReplacements": {
+        "DC 13": "DC 12",
+        "+5": "+4",
+        "Slots 4/3": "Slots 4/2",
+        "Prepare 7": "Prepare 5"
+      }
+    }
+  }
+}
