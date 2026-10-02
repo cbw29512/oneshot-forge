@@ -130,7 +130,8 @@
       "reactions": {
         "agreement": "Provides a flat-bottomed ferry, three cork floats, and a weighted line.",
         "refusal": "Leaves the ferry tied and tells the party they can borrow it if they change their minds.",
-        "danger": "Rows injured survivors back to shore while the party finishes the ruin."
+        "danger": "Rows injured survivors back to shore while the party finishes the ruin.",
+        "accusation": "Takes responsibility for sending Tamsin alone, but says the ringing had already become dangerous enough that someone had to investigate."
       }
     },
     {
@@ -189,7 +190,8 @@
       "reactions": {
         "agreement": "Hands over her charcoal rubbing and helps strike the sequence once freed.",
         "refusal": "Still passes the rubbing through the grate; she wants the puzzle solved more than credit.",
-        "danger": "Uses the air pocket rope to anchor anyone swept off the lower stairs."
+        "danger": "Uses the air pocket rope to anchor anyone swept off the lower stairs.",
+        "accusation": "Admits she rang the wrong sequence and caused the lower flood surge, then immediately shows the rubbing so nobody repeats it."
       }
     },
     {
@@ -248,7 +250,8 @@
       "reactions": {
         "agreement": "Stops creating grasping-water hazards and points toward the archive latch.",
         "refusal": "Continues the warning cycle but never withholds physical clues.",
-        "danger": "Defends the bell with waves and pushing water; she avoids lethal harm."
+        "danger": "Defends the bell with waves and pushing water; she avoids lethal harm.",
+        "accusation": "Points to the founder duty order rather than arguing; she wants the living to judge the command after they understand what it required."
       }
     }
   ],
