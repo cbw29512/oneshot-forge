@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>From Zero to Hero — One-Shot Forge</title>
+  <link rel="icon" href="assets/mark-lantern.jpg">
+  <link rel="stylesheet" href="styles.css?v=20261002e">
+  <link rel="stylesheet" href="zero-hero.css?v=20261002a">
+</head>
+<body class="zero-hero-page">
+  <header class="land-bar print-hide">
+    <a class="brand" href="./"><img src="assets/mark-lantern.jpg" alt="" width="36" height="36"><span>One-Shot Forge</span></a>
+    <nav class="land-nav"><a href="./">Adventures</a><button class="button small secondary" id="print-growth" type="button">Print growth sheet</button><button class="button small" id="reset-growth" type="button">Reset Level 0</button></nav>
+  </header>
+  <main class="zero-shell">
+    <section class="zero-hero-intro print-hide">
+      <p class="eyebrow ember">LEVEL 0 HOUSE RULE · 2014 / 2024 GRADUATION</p>
+      <h1>From Zero to Hero</h1>
+      <p class="lede">Begin around age 12 with six 9s, no class, and an ordinary life in Hearthcross. Seven yearly mini-adventures build the character through choices. At age 18, graduate into a certified Level-1 character for the selected edition.</p>
+      <div class="zero-rule-strip"><span>7 yearly chapters</span><span>3 growth checks each</span><span>21 development points</span><span>pre-origin cap 15</span></div>
+      <p class="zero-house-note"><strong>Level-0-only rule:</strong> natural 20 and natural 1 create critical outcomes on developmental ability checks. This does not alter normal Level-1+ 5E ability checks.</p>
+    </section>
+
+    <section class="growth-sheet" id="growth-sheet">
+      <header class="growth-head">
+        <div><p class="eyebrow">FROM ZERO TO HERO · GROWING-UP SHEET</p><h2 id="sheet-name">Unnamed child</h2><p id="sheet-meta">Age 12 · Level 0 · Hearthcross</p></div>
+        <div class="growth-progress"><strong id="growth-count">0 / 21</strong><span>development points</span></div>
+      </header>
+
+      <div class="identity-grid">
+        <label>Name<input id="char-name" maxlength="50" placeholder="Character name"></label>
+        <label>Ancestry / species<input id="char-ancestry" maxlength="50" placeholder="Choose identity; mechanics wait for graduation"></label>
+        <label>Family / guardians<input id="char-family" maxlength="90" placeholder="Who raised you?"></label>
+        <label>Childhood work / chores<input id="char-chores" maxlength="90" placeholder="What do you do around Hearthcross?"></label>
+        <label class="wide">What I am striving to become<textarea id="char-aspiration" rows="2" maxlength="180" placeholder="A knight? A healer? Someone who sees the world? This may change."></textarea></label>
+      </div>
+
+      <section><h3>Abilities growing through play</h3><div class="ability-growth" id="ability-growth"></div></section>
+
+      <div class="growth-columns">
+        <section><h3>Who I am becoming</h3>
+          <label>Values / personality<textarea id="char-values" rows="3"></textarea></label>
+          <label>Fears<textarea id="char-fears" rows="2"></textarea></label>
+          <label>Training / familiarities<textarea id="char-training" rows="4"></textarea></label>
+          <label>Possessions / heirloom<textarea id="char-possessions" rows="4"></textarea></label>
+        </section>
+        <section><h3>People & consequences</h3>
+          <label>Friends / rivals / mentors<textarea id="char-relationships" rows="5"></textarea></label>
+          <label>Reputation / scars<textarea id="char-reputation" rows="4"></textarea></label>
+          <label>Important choices<textarea id="char-choices" rows="4"></textarea></label>
+        </section>
+      </div>
+
+      <section class="timeline-zone"><h3>Growing-up timeline</h3><div id="timeline" class="timeline"></div></section>
+    </section>
+
+    <section class="quest-panel print-hide">
+      <div class="quest-title-row"><div><p class="eyebrow ember">CURRENT MINI-ADVENTURE</p><h2 id="quest-title">Loading…</h2><p id="quest-objective"></p></div><div class="quest-age" id="quest-age">Age 12</div></div>
+      <p class="quest-pressure" id="quest-pressure"></p>
+      <div id="beat-host"></div>
+      <div class="quest-choice"><h3>End-of-year choice</h3><p id="quest-choice"></p><p class="muted" id="quest-consequence"></p></div>
+      <button id="advance-year" class="button ember" type="button" disabled>Finish this year →</button>
+    </section>
+
+    <section class="graduation-panel print-hide" id="graduation-panel" hidden>
+      <p class="eyebrow ember">AGE 18 COMPLETE</p>
+      <h2>Graduate to Level 1</h2>
+      <p>Your Level-0 base array is frozen. Choose the edition first; the normal certified Level-1 package applies that edition's legal origin/background/species/class rules without mixing editions.</p>
+      <div class="graduation-actions"><button type="button" class="button" data-edition="2014">Prepare 2014 graduation</button><button type="button" class="button ember" data-edition="2024">Prepare 2024 graduation</button></div>
+      <div id="graduation-summary"></div>
+    </section>
+
+    <section class="village-panel print-hide">
+      <details><summary>Hearthcross village cast & locations</summary><div id="village-host"></div></details>
+    </section>
+  </main>
+  <script src="zero-hero.js?v=20261002a"></script>
+</body>
+</html>
