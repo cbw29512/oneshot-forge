@@ -21,6 +21,7 @@ const app = read("app.js");
 const moduleHtml = read("module.html");
 const moduleJs = read("module.js");
 const styles = read("styles.css");
+const printCenter = read("print.html");
 
 for (const product of products.products || []) {
   const cardMarker = `data-product-id="${product.id}"`;
@@ -91,6 +92,15 @@ if (!index.includes("Player read-aloud") ||
     !index.includes("Fail-forward rules") ||
     !index.includes("Maps & print views")) {
   errors.push("homepage no longer explains the table-ready product contract");
+}
+
+for (const required of [
+  "hasCompatiblePregens",
+  "Pregens not included",
+  "bring-your-own characters",
+  "disabled: !hasCompatiblePregens"
+]) {
+  if (!printCenter.includes(required)) errors.push("print center compatibility guard missing: " + required);
 }
 
 if (errors.length) {
