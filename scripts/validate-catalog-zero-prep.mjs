@@ -50,7 +50,7 @@ for (const product of products.products || []) {
     if (!Array.isArray(npc.tableDialogue) || npc.tableDialogue.length < 3) {
       errors.push(`${product.id}/${npc.id}: needs 3 tableDialogue lines`);
     }
-    for (const reaction of ["agreement", "refusal", "danger"]) {
+    for (const reaction of ["agreement", "refusal", "accusation", "danger"]) {
       if (!String(npc.reactions?.[reaction] || "").trim()) {
         errors.push(`${product.id}/${npc.id}: missing ${reaction} reaction`);
       }
