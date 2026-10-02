@@ -1,0 +1,986 @@
+{
+  "id": "from-zero-to-hero",
+  "title": "From Zero to Hero",
+  "subtitle": "Grow up in Hearthcross. Become the adventurer your choices create.",
+  "rules": {
+    "mode": "level-0-house-rule",
+    "baseSystem": "5E",
+    "criticalChecksHouseRule": true,
+    "criticalSuccessNatural": 20,
+    "criticalFailureNatural": 1,
+    "failureFailsForward": true,
+    "editionIsolation": true,
+    "note": "Natural 20/1 critical outcomes apply only to From Zero to Hero developmental checks, not ordinary Level 1–20 ability checks."
+  },
+  "start": {
+    "age": 12,
+    "lifeStage": "adolescent or ancestry-equivalent",
+    "className": "Level 0",
+    "proficiencyBonus": 2,
+    "scores": {
+      "STR": 9,
+      "DEX": 9,
+      "CON": 9,
+      "INT": 9,
+      "WIS": 9,
+      "CHA": 9
+    },
+    "possessions": "Ordinary clothing and household items justified by family/home. No adventuring package."
+  },
+  "development": {
+    "totalPoints": 21,
+    "pointsPerChapter": 3,
+    "maxPreOriginScore": 15,
+    "costToRaise": {
+      "9": 1,
+      "10": 1,
+      "11": 1,
+      "12": 1,
+      "13": 2,
+      "14": 2
+    },
+    "awardOnAttempt": true,
+    "criticalsAffectStoryNotGrowthBudget": true,
+    "abilityGuide": {
+      "STR": "Force, lift, wrestle, break, haul.",
+      "DEX": "Balance, sneak, climb, aim, or use precise hands.",
+      "CON": "Endure, protect through stamina, resist hardship.",
+      "INT": "Study, reason, engineer, recall, or solve.",
+      "WIS": "Notice, judge, empathize, track, or survive.",
+      "CHA": "Persuade, inspire, deceive, perform, or lead."
+    }
+  },
+  "village": {
+    "id": "hearthcross",
+    "name": "Hearthcross",
+    "pitch": "A river-crossing village built around an old black standing stone, a market square, two mills, and a road that carries more strangers every year.",
+    "changesOverTime": [
+      "Businesses open, close, or change hands.",
+      "Mentors age and their responsibilities shift.",
+      "Rivals can become friends, enemies, lovers, or leave town.",
+      "Locations damaged or saved in earlier chapters stay changed.",
+      "The old Watchstone mystery becomes more visible each year."
+    ],
+    "locations": [
+      {
+        "id": "market",
+        "name": "Crossmarket",
+        "use": "festivals, contests, trade, public arguments and emergencies"
+      },
+      {
+        "id": "green",
+        "name": "The Common Green",
+        "use": "games, training, militia drills and community meetings"
+      },
+      {
+        "id": "shrine",
+        "name": "Shrine of the Open Hand",
+        "use": "faith, healing, charity and moral choices"
+      },
+      {
+        "id": "quillhouse",
+        "name": "Quill House",
+        "use": "letters, records, lessons and arcane study"
+      },
+      {
+        "id": "forge",
+        "name": "Cask & Anvil",
+        "use": "craft, repairs, weapons and apprenticeship"
+      },
+      {
+        "id": "apothecary",
+        "name": "Venn's Remedies",
+        "use": "medicine, herbs and local emergencies"
+      },
+      {
+        "id": "inn",
+        "name": "The Fox & Ferry",
+        "use": "rumors, travelers, work and outsiders"
+      },
+      {
+        "id": "river",
+        "name": "The Hearth River",
+        "use": "fishing, ferrying, floods, rescues and travel"
+      },
+      {
+        "id": "woods",
+        "name": "Alderwood",
+        "use": "hunting, animals, survival and hidden paths"
+      },
+      {
+        "id": "watchstone",
+        "name": "The Watchstone",
+        "use": "old village landmark; warm to the touch before major storms"
+      }
+    ],
+    "npcs": [
+      {
+        "id": "orren",
+        "name": "Captain Orren Vale",
+        "role": "Retired watch captain; martial mentor",
+        "appearance": "Broad-shouldered, iron-gray hair, left knee stiff in cold weather.",
+        "voice": "Short sentences; asks questions instead of giving speeches.",
+        "wants": "Hearthcross able to defend itself without becoming cruel.",
+        "fears": "Training another young person who dies for his mistakes.",
+        "secret": "He knows the Watchstone once reacted to bloodshed on the old road.",
+        "teaches": [
+          "Athletics",
+          "weapon familiarity",
+          "shield drills",
+          "discipline"
+        ],
+        "provides": [
+          "training yard",
+          "military contacts",
+          "old Watchblade heirloom path"
+        ],
+        "change": "Strong at age 12; hand tremor appears by age 16; fully retired by age 18."
+      },
+      {
+        "id": "sera",
+        "name": "Sera Quill",
+        "role": "Record keeper; arcane mentor",
+        "appearance": "Ink-stained fingers, copper spectacles, sleeves always rolled.",
+        "voice": "Fast, delighted, corrects herself aloud.",
+        "wants": "Preserve the village records and understand the Watchstone.",
+        "fears": "Her curiosity will expose something the village cannot contain.",
+        "secret": "She has copied fragments of a pre-village ward diagram.",
+        "teaches": [
+          "Arcana familiarity",
+          "History",
+          "calligraphy",
+          "research"
+        ],
+        "provides": [
+          "records",
+          "lessons",
+          "ritual clues"
+        ],
+        "change": "Local clerk at age 12; recognized scholar by age 18."
+      },
+      {
+        "id": "elwen",
+        "name": "Sister Elwen Marr",
+        "role": "Shrine keeper; divine mentor",
+        "appearance": "Weathered face, shaved temple, patched blue shawl.",
+        "voice": "Gentle until someone uses faith as an excuse for cruelty.",
+        "wants": "Keep the village generous when fear rises.",
+        "fears": "The shrine becoming a weapon in local politics.",
+        "secret": "She once heard a voice beneath the Watchstone during a vigil.",
+        "teaches": [
+          "Medicine familiarity",
+          "Religion",
+          "service",
+          "public speaking"
+        ],
+        "provides": [
+          "care",
+          "shelter",
+          "temple contacts"
+        ],
+        "change": "Takes on two young acolytes as the party ages."
+      },
+      {
+        "id": "bram",
+        "name": "Bram Alder",
+        "role": "Beekeeper and hunter; primal mentor",
+        "appearance": "Lean, sun-browned, one sleeve usually dotted with beeswax.",
+        "voice": "Long pauses; describes people the way he describes weather.",
+        "wants": "Keep Alderwood healthy and the river clean.",
+        "fears": "The road expansion will ruin the woods.",
+        "secret": "Animals avoid a buried stone circle north of town.",
+        "teaches": [
+          "Survival",
+          "Animal Handling",
+          "tracking",
+          "bow familiarity"
+        ],
+        "provides": [
+          "wilderness guide",
+          "herbs",
+          "hunting gear"
+        ],
+        "change": "Becomes increasingly protective of the woods as traffic grows."
+      },
+      {
+        "id": "tavi",
+        "name": "Tavi Brindle",
+        "role": "Locksmith and trader; expert/social mentor",
+        "appearance": "Small, immaculate coat, brass key-ring at the hip.",
+        "voice": "Warm salesman's cadence; notices every missing detail.",
+        "wants": "Build Hearthcross into a prosperous stop without losing its character.",
+        "fears": "Being remembered as merely a shopkeeper.",
+        "secret": "Sometimes opens sealed letters for the reeve.",
+        "teaches": [
+          "Sleight of Hand familiarity",
+          "Investigation",
+          "Persuasion",
+          "tools"
+        ],
+        "provides": [
+          "locks",
+          "trade contacts",
+          "odd jobs"
+        ],
+        "change": "Expands from stall to storefront by age 16."
+      },
+      {
+        "id": "maela",
+        "name": "Maela Venn",
+        "role": "Apothecary and healer",
+        "appearance": "Dark curls tied with green cord, sharp herbal smell on her apron.",
+        "voice": "Dry humor; gives instructions while moving.",
+        "wants": "Train enough hands that emergencies do not depend on her alone.",
+        "fears": "A winter sickness she cannot treat.",
+        "secret": "Keeps notes on strange fevers that coincide with Watchstone heat.",
+        "teaches": [
+          "Medicine",
+          "herbalism",
+          "patient care"
+        ],
+        "provides": [
+          "healing",
+          "supplies",
+          "work"
+        ],
+        "change": "Takes over the full shop after her aunt retires."
+      },
+      {
+        "id": "wren",
+        "name": "Wren Cask",
+        "role": "Smith and builder",
+        "appearance": "Heavy leather apron, burn scar across one forearm.",
+        "voice": "Laughs loudly; criticizes work, not people.",
+        "wants": "Leave the village safer than she found it.",
+        "fears": "A bridge or building failing because she cut a corner.",
+        "secret": "The Watchstone rings faintly when struck with her oldest hammer.",
+        "teaches": [
+          "smith's tools",
+          "carpenter's tools",
+          "Strength work",
+          "engineering"
+        ],
+        "provides": [
+          "repairs",
+          "training",
+          "mundane gear"
+        ],
+        "change": "Becomes head of major village works by age 17."
+      },
+      {
+        "id": "pike",
+        "name": "Reeve Corlan Pike",
+        "role": "Village authority",
+        "appearance": "Tall, neat beard, spotless boots even in mud.",
+        "voice": "Formal in public; exhausted in private.",
+        "wants": "Order, trade and a good reputation with the district.",
+        "fears": "A disaster that proves he was unprepared.",
+        "secret": "He suppresses old reports of the Watchstone to avoid panic.",
+        "teaches": [
+          "civic procedure",
+          "negotiation"
+        ],
+        "provides": [
+          "permits",
+          "official access",
+          "consequences"
+        ],
+        "change": "Can become trusted ally or entrenched opponent based on player choices."
+      },
+      {
+        "id": "jory",
+        "name": "Jory Fen",
+        "role": "Innkeeper and rumor hub",
+        "appearance": "Round face, quick hands, silver tooth.",
+        "voice": "Every sentence sounds like the start of a story.",
+        "wants": "A full common room and no blood on the floor.",
+        "fears": "The road bypassing Hearthcross.",
+        "secret": "Keeps a coded ledger of travelers who ask about the Watchstone.",
+        "teaches": [
+          "Performance familiarity",
+          "Insight",
+          "hospitality"
+        ],
+        "provides": [
+          "rumors",
+          "meals",
+          "traveler contacts"
+        ],
+        "change": "His daughter begins managing the inn by the final chapter."
+      },
+      {
+        "id": "kess",
+        "name": "Kess Reed",
+        "role": "Same-age rival",
+        "appearance": "Freckled, cropped hair, always one scraped knuckle.",
+        "voice": "Competitive, funny, hates pity.",
+        "wants": "To be first at something that matters.",
+        "fears": "Everyone leaving Hearthcross before she can prove herself.",
+        "secret": "Her older brother is tied to petty smugglers.",
+        "teaches": [
+          "competition",
+          "courage"
+        ],
+        "provides": [
+          "rivalry or fierce friendship"
+        ],
+        "change": "Can join the militia, leave with traders, or become a local organizer."
+      },
+      {
+        "id": "nima",
+        "name": "Nima Bell",
+        "role": "Same-age friend",
+        "appearance": "Long braids, bright scarf, notebook of sketches.",
+        "voice": "Asks the question everyone else avoids.",
+        "wants": "See the world and draw places no one in Hearthcross has seen.",
+        "fears": "Being trapped by family expectations.",
+        "secret": "She has sketched symbols near the Watchstone that change after storms.",
+        "teaches": [
+          "Perception",
+          "art",
+          "empathy"
+        ],
+        "provides": [
+          "friendship",
+          "visual clues"
+        ],
+        "change": "May leave for a season and return with outside knowledge."
+      },
+      {
+        "id": "rusk",
+        "name": "Rusk Thorn",
+        "role": "Older troublemaker",
+        "appearance": "Thin grin, oversized coat, silver ring he claims he won.",
+        "voice": "Makes bad ideas sound like favors.",
+        "wants": "Money and respect without waiting for either.",
+        "fears": "Being powerless.",
+        "secret": "Runs errands for smugglers by age 15.",
+        "teaches": [
+          "Stealth familiarity",
+          "Deception",
+          "street contacts"
+        ],
+        "provides": [
+          "shortcuts",
+          "temptations",
+          "criminal hooks"
+        ],
+        "change": "Can become criminal, informant, or redeemed ally."
+      },
+      {
+        "id": "sable",
+        "name": "Old Sable",
+        "role": "Outsider and evolving mystery NPC",
+        "appearance": "White hair, traveling cloak patched with unfamiliar cloth, black walking staff.",
+        "voice": "Soft and precise; rarely answers the first question directly.",
+        "wants": "Observe whether Hearthcross remembers why the Watchstone was raised.",
+        "fears": "The ward failing before anyone is ready.",
+        "secret": "She is descended from one of the ward's original keepers.",
+        "teaches": [
+          "old stories",
+          "Insight",
+          "ritual fragments"
+        ],
+        "provides": [
+          "mystery clues",
+          "late mentor option"
+        ],
+        "change": "Appears only some years; her identity becomes clearer over time."
+      },
+      {
+        "id": "mara",
+        "name": "Mara Hale",
+        "role": "Baker; sample guardian NPC",
+        "appearance": "Flour on her sleeves, red kerchief, strong forearms.",
+        "voice": "Direct, affectionate, impossible to distract when worried.",
+        "wants": "Children safe, fed, and capable.",
+        "fears": "Adventure taking them farther away than home can reach.",
+        "secret": "She once planned to leave Hearthcross herself.",
+        "teaches": [
+          "cooking tools",
+          "work ethic",
+          "community memory"
+        ],
+        "provides": [
+          "home",
+          "food",
+          "family stakes"
+        ],
+        "change": "Treat as a template guardian; replace or personalize per PC."
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "id": "age-12-runaway-cart",
+      "age": 12,
+      "title": "The Runaway Cart",
+      "objective": "Keep Crossmarket from becoming a disaster when a grain cart breaks loose during the Founders' Fair.",
+      "pressure": "Three beats before the cart reaches the crowded river steps.",
+      "relationshipFocus": [
+        "kess",
+        "nima",
+        "orren"
+      ],
+      "growthBeats": [
+        {
+          "id": "cart-1",
+          "title": "The snap",
+          "prompt": "The cart's brake chain snaps at the top of Market Hill. What do you do first?",
+          "dc": 10,
+          "approaches": {
+            "STR": "Grab a side rail and wrench the cart toward the ditch.",
+            "DEX": "Sprint ahead, climb aboard, and reach the brake lever.",
+            "CON": "Brace a rope line and hold despite the pull.",
+            "INT": "Spot which wheel or axle can be jammed safely.",
+            "WIS": "Read the crowd and identify who is in greatest danger.",
+            "CHA": "Take command and clear a path through the market."
+          },
+          "outcomes": {
+            "criticalSuccess": "You redirect the danger and save someone who could not save themselves; gain +1 reputation with one witness.",
+            "success": "You reduce the danger enough for the next beat to remain manageable.",
+            "failure": "You cannot stop it cleanly; a stall is damaged or someone is separated, but the next character gets a new opening.",
+            "criticalFailure": "You are knocked down or trapped by debris; the group must rescue you while the cart keeps moving."
+          }
+        },
+        {
+          "id": "cart-2",
+          "title": "The crossing",
+          "prompt": "The cart is now aimed at a narrow crossing crowded with children and animals.",
+          "dc": 10,
+          "approaches": {
+            "STR": "Heave a barrier into its path.",
+            "DEX": "Use balance and speed to release the team animals.",
+            "CON": "Keep a panicked horse from crushing someone despite kicks and strain.",
+            "INT": "Work out a safer deflection angle using barrels and slope.",
+            "WIS": "Notice a hidden side lane or frightened child's position.",
+            "CHA": "Coordinate villagers into a fast rescue line."
+          },
+          "outcomes": {
+            "criticalSuccess": "You create a clean escape lane and Captain Orren notices your judgment.",
+            "success": "You prevent the worst harm.",
+            "failure": "The crossing clears, but something valuable is broken or lost.",
+            "criticalFailure": "Your move worsens the tangle; mark a minor scar/bruise or relationship complication, then continue."
+          }
+        },
+        {
+          "id": "cart-3",
+          "title": "Aftermath",
+          "prompt": "Someone cut the brake chain. The adults are shouting over each other while evidence is being trampled.",
+          "dc": 11,
+          "approaches": {
+            "STR": "Physically secure the cart and preserve the broken chain.",
+            "DEX": "Slip through the crowd to follow the fleeing suspect.",
+            "CON": "Stay on your feet through the chaos and help carry the hurt.",
+            "INT": "Examine the cut and determine what tool made it.",
+            "WIS": "Read witnesses and separate fear from what they actually saw.",
+            "CHA": "Calm the market and get useful witness statements."
+          },
+          "outcomes": {
+            "criticalSuccess": "You preserve decisive evidence and earn a strong lead toward Rusk's older associates.",
+            "success": "You preserve enough evidence to prove the break was deliberate.",
+            "failure": "The truth survives through a second clue, but the direct trail is lost.",
+            "criticalFailure": "An innocent person is briefly blamed or a relationship is damaged; another clue still proves sabotage."
+          }
+        }
+      ],
+      "choice": "Do you tell the reeve everything, protect a peer who was nearby, or take the clue to a mentor first?",
+      "consequence": "Sets the party's first reputation and changes who trusts them in later years."
+    },
+    {
+      "id": "age-13-winter-tracks",
+      "age": 13,
+      "title": "Winter Without Wolves",
+      "objective": "Find out why livestock are vanishing before frightened farmers organize a dangerous hunt.",
+      "pressure": "A hard freeze arrives tonight.",
+      "relationshipFocus": [
+        "bram",
+        "elwen",
+        "kess"
+      ],
+      "growthBeats": [
+        {
+          "id": "winter-1",
+          "title": "Tracks in snow",
+          "prompt": "The tracks look like wolves until they reach a fence and become confusing.",
+          "dc": 10,
+          "approaches": {
+            "STR": "Move a frozen obstacle to reveal the ground beneath.",
+            "DEX": "Follow the lightest prints without disturbing them.",
+            "CON": "Push through hours of freezing search.",
+            "INT": "Compare stride, weight, and fence damage to rule out wolves.",
+            "WIS": "Read animal behavior and the terrain.",
+            "CHA": "Persuade angry farmers to delay the hunt long enough to investigate."
+          },
+          "outcomes": {
+            "criticalSuccess": "You find both the true trail and a useful dropped item.",
+            "success": "You identify that people, not wolves, are involved.",
+            "failure": "You learn the truth but lose time or supplies.",
+            "criticalFailure": "You lead the group into thin ice or another hazard; recover with a complication."
+          }
+        },
+        {
+          "id": "winter-2",
+          "title": "The hidden camp",
+          "prompt": "The missing livestock are feeding displaced families hiding beyond the old quarry.",
+          "dc": 11,
+          "approaches": {
+            "STR": "Help repair their collapsing shelter.",
+            "DEX": "Approach unseen to learn whether they are dangerous.",
+            "CON": "Endure the cold while giving up your own warm gear or food.",
+            "INT": "Assess how much food the village can spare and make a workable plan.",
+            "WIS": "Judge who is sick, frightened, or lying.",
+            "CHA": "Negotiate with the families and the farmers."
+          },
+          "outcomes": {
+            "criticalSuccess": "You solve an immediate need and gain a grateful contact.",
+            "success": "You keep the situation from turning violent.",
+            "failure": "A compromise is possible but costs the village or your family something.",
+            "criticalFailure": "Your words/actions inflame one side; Elwen or Bram prevents violence, but trust drops."
+          }
+        },
+        {
+          "id": "winter-3",
+          "title": "The choice",
+          "prompt": "The reeve demands names before he agrees to help.",
+          "dc": 11,
+          "approaches": {
+            "STR": "Take responsibility and physically deliver supplies despite orders.",
+            "DEX": "Sneak food out without revealing the camp.",
+            "CON": "Accept punishment or hardship to protect someone else.",
+            "INT": "Find a legal/recorded obligation the reeve cannot ignore.",
+            "WIS": "Read what concession Pike actually needs to save face.",
+            "CHA": "Argue publicly for mercy or construct a convincing cover story."
+          },
+          "outcomes": {
+            "criticalSuccess": "You protect the families and shift village policy in their favor.",
+            "success": "You secure temporary safety.",
+            "failure": "Safety is won with a debt, fine, or damaged relationship.",
+            "criticalFailure": "The secret breaks badly; the families must move, but they survive and remain future contacts."
+          }
+        }
+      ],
+      "choice": "Expose, shelter, relocate, or publicly sponsor the displaced families.",
+      "consequence": "Changes the village's attitude toward outsiders and can reshape Kess, Pike, Elwen, and Bram."
+    },
+    {
+      "id": "age-14-river-rise",
+      "age": 14,
+      "title": "The River on the Rise",
+      "objective": "Save people and infrastructure during the worst spring flood in a generation.",
+      "pressure": "Flood Level 0–3 rises after each unresolved beat.",
+      "relationshipFocus": [
+        "wren",
+        "maela",
+        "mara"
+      ],
+      "growthBeats": [
+        {
+          "id": "flood-1",
+          "title": "The footbridge",
+          "prompt": "The footbridge is twisting loose with two villagers stranded midspan.",
+          "dc": 11,
+          "approaches": {
+            "STR": "Haul the guide rope tight.",
+            "DEX": "Cross the swaying rail and clip in the stranded villagers.",
+            "CON": "Hold the anchor in freezing water.",
+            "INT": "Calculate the strongest new anchor point.",
+            "WIS": "Read the current and predict the next surge.",
+            "CHA": "Direct rescuers and stop panicked relatives from overloading the bridge."
+          },
+          "outcomes": {
+            "criticalSuccess": "Both villagers and a crate of medicine are saved.",
+            "success": "The villagers are saved.",
+            "failure": "The villagers survive but the bridge or medicine is lost.",
+            "criticalFailure": "You are swept into a secondary rescue; gain a scar/gear loss, but the story continues."
+          }
+        },
+        {
+          "id": "flood-2",
+          "title": "The apothecary",
+          "prompt": "Water reaches Venn's Remedies while patients are still inside.",
+          "dc": 11,
+          "approaches": {
+            "STR": "Carry patients or furniture to higher ground.",
+            "DEX": "Move through a narrow roof route with supplies.",
+            "CON": "Work repeatedly in cold water without stopping.",
+            "INT": "Identify which medicines must be saved first.",
+            "WIS": "Triage patients and notice hidden symptoms.",
+            "CHA": "Organize neighbors into evacuation and salvage teams."
+          },
+          "outcomes": {
+            "criticalSuccess": "Save all patients plus a valuable medical cache.",
+            "success": "Save the patients and core supplies.",
+            "failure": "Save the people but lose important stock.",
+            "criticalFailure": "A patient worsens or a relationship strains because of a bad call; Maela stabilizes the situation."
+          }
+        },
+        {
+          "id": "flood-3",
+          "title": "The mill gate",
+          "prompt": "A jammed mill gate is backing water toward homes.",
+          "dc": 12,
+          "approaches": {
+            "STR": "Force the gate mechanism.",
+            "DEX": "Reach the release wheel from the slick exterior.",
+            "CON": "Stay in dangerous water long enough to hold a repair in place.",
+            "INT": "Diagnose the jam and improvise a fix.",
+            "WIS": "Notice a safer overflow route.",
+            "CHA": "Convince property owners to sacrifice part of the mill to save homes."
+          },
+          "outcomes": {
+            "criticalSuccess": "Water drops and the mill survives mostly intact.",
+            "success": "Water drops before homes flood.",
+            "failure": "Homes are saved but the mill suffers major damage.",
+            "criticalFailure": "The repair fails dramatically; evacuations succeed, but the mill is ruined and someone blames you."
+          }
+        }
+      ],
+      "choice": "Which property, livelihood, or resource are you willing to sacrifice to protect people?",
+      "consequence": "Permanently changes a village location and determines who owes the party a favor."
+    },
+    {
+      "id": "age-15-lantern-fair",
+      "age": 15,
+      "title": "The Lantern Fair",
+      "objective": "Enjoy Hearthcross's largest fair, then solve a theft without letting rivalry turn into a mob.",
+      "pressure": "The caravan leaves at dawn.",
+      "relationshipFocus": [
+        "tavi",
+        "jory",
+        "rusk",
+        "nima"
+      ],
+      "growthBeats": [
+        {
+          "id": "fair-1",
+          "title": "Choose your contest",
+          "prompt": "Each character enters or assists with one fair event.",
+          "dc": 11,
+          "approaches": {
+            "STR": "Wrestling, hammer lift, or hauling contest.",
+            "DEX": "Archery, balance course, juggling, or precision craft.",
+            "CON": "Long-distance run, cold-water swim, or endurance task.",
+            "INT": "Riddle table, repair challenge, or strategy game.",
+            "WIS": "Tracking game, judging contest, or animal trial.",
+            "CHA": "Storytelling, debate, music, or crowd leadership."
+          },
+          "outcomes": {
+            "criticalSuccess": "Win decisively and attract a mentor/contact or special mundane prize.",
+            "success": "Place well and gain local recognition.",
+            "failure": "Lose cleanly but learn something useful.",
+            "criticalFailure": "Fail spectacularly; gain an embarrassing nickname or rival beat, but also a memorable relationship hook."
+          }
+        },
+        {
+          "id": "fair-2",
+          "title": "The missing coffer",
+          "prompt": "A visiting artisan's locked payment coffer disappears.",
+          "dc": 12,
+          "approaches": {
+            "STR": "Search heavy crates and physically inaccessible storage.",
+            "DEX": "Shadow a suspect through the fair without being seen.",
+            "CON": "Keep searching through the night without rest.",
+            "INT": "Reconstruct who had access and how the lock was bypassed.",
+            "WIS": "Read body language and notice who is afraid rather than guilty.",
+            "CHA": "Question witnesses or bait the thief into revealing knowledge."
+          },
+          "outcomes": {
+            "criticalSuccess": "Recover the coffer and reveal the method plus an extra clue about the Watchstone buyers.",
+            "success": "Recover the coffer or identify the thief.",
+            "failure": "Recover most value, but the culprit escapes or someone innocent is accused first.",
+            "criticalFailure": "The wrong accusation explodes into a fight or social rupture; evidence later corrects it."
+          }
+        },
+        {
+          "id": "fair-3",
+          "title": "Rusk's offer",
+          "prompt": "Rusk offers to return the last stolen item if the party keeps his smuggling work quiet.",
+          "dc": 12,
+          "approaches": {
+            "STR": "Intimidate him physically without attacking.",
+            "DEX": "Steal or snatch the evidence from him.",
+            "CON": "Outlast a dangerous chase or vigil.",
+            "INT": "Prove his leverage is false using records or logic.",
+            "WIS": "See what Rusk is genuinely afraid of.",
+            "CHA": "Bargain, persuade, deceive, or publicly corner him."
+          },
+          "outcomes": {
+            "criticalSuccess": "Secure the item and a major secret while deciding Rusk's future.",
+            "success": "Resolve the theft on your terms.",
+            "failure": "Get the item, but owe someone or lose trust elsewhere.",
+            "criticalFailure": "Rusk escapes with leverage; the theft is still solved, but he becomes a stronger future complication."
+          }
+        }
+      ],
+      "choice": "Turn Rusk in, recruit him as an informant, protect him, or let him leave Hearthcross.",
+      "consequence": "Determines whether the party gains a criminal contact, bitter enemy, or redeemed ally."
+    },
+    {
+      "id": "age-16-hollow-light",
+      "age": 16,
+      "title": "The Hollow Light",
+      "objective": "Investigate lights and voices around the Watchstone after a lightning strike exposes buried masonry.",
+      "pressure": "Three nights before district officials seal the site.",
+      "relationshipFocus": [
+        "sera",
+        "sable",
+        "pike"
+      ],
+      "growthBeats": [
+        {
+          "id": "light-1",
+          "title": "The buried stair",
+          "prompt": "A collapsed stone stair descends beneath the Watchstone.",
+          "dc": 12,
+          "approaches": {
+            "STR": "Shift fallen blocks safely.",
+            "DEX": "Squeeze through and secure a rope route.",
+            "CON": "Work in stale air and cramped conditions.",
+            "INT": "Read the masonry and find the original access pattern.",
+            "WIS": "Notice airflow, sound, and unstable sections.",
+            "CHA": "Get official permission or convince adults to let the group assist."
+          },
+          "outcomes": {
+            "criticalSuccess": "Open a safe route and recover an intact ward fragment.",
+            "success": "Open a usable route.",
+            "failure": "Reach the chamber but trigger a collapse that costs time or gear.",
+            "criticalFailure": "Become briefly trapped or injured; rescue reveals another entrance."
+          }
+        },
+        {
+          "id": "light-2",
+          "title": "The echo chamber",
+          "prompt": "Whispers repeat the characters' own fears and memories.",
+          "dc": 12,
+          "approaches": {
+            "STR": "Break or move the resonant stone creating the effect.",
+            "DEX": "Cross the chamber without touching resonant tiles.",
+            "CON": "Keep functioning while the whispers attack your composure.",
+            "INT": "Map the repeating pattern and identify its mechanism.",
+            "WIS": "Separate real sounds/emotions from magical echoes.",
+            "CHA": "Speak aloud to steady the group or answer the echo without surrendering to it."
+          },
+          "outcomes": {
+            "criticalSuccess": "Master the chamber and reveal a hidden inscription.",
+            "success": "Cross and learn the core warning.",
+            "failure": "Cross with a fear, scar, or relationship confession exposed.",
+            "criticalFailure": "Panic or trigger a ward pulse; the group escapes, but the village notices the Watchstone flare."
+          }
+        },
+        {
+          "id": "light-3",
+          "title": "Sable's truth",
+          "prompt": "Old Sable admits the Watchstone is a damaged ward, but refuses to tell Pike everything.",
+          "dc": 13,
+          "approaches": {
+            "STR": "Demonstrate you can physically help maintain the site.",
+            "DEX": "Follow Sable unseen to discover where she keeps old tools.",
+            "CON": "Endure a painful ward test meant to prove resolve.",
+            "INT": "Compare Sable's story with Quill's records.",
+            "WIS": "Judge which adult is hiding the most dangerous truth.",
+            "CHA": "Persuade Sable, Pike, or both to cooperate."
+          },
+          "outcomes": {
+            "criticalSuccess": "Unite two factions and gain a direct mentor/heirloom clue.",
+            "success": "Gain the truth needed for later chapters.",
+            "failure": "Learn the truth but deepen the conflict between adults.",
+            "criticalFailure": "Trust collapses; a physical ward fragment provides the necessary clue anyway."
+          }
+        }
+      ],
+      "choice": "Who should control knowledge of the Watchstone: the reeve, mentors, the whole village, or a smaller trusted circle?",
+      "consequence": "Determines who has authority during the final crisis."
+    },
+    {
+      "id": "age-17-broken-watch",
+      "age": 17,
+      "title": "The Broken Watch",
+      "objective": "Protect travelers and Hearthcross when armed raiders exploit a night the Watchstone goes dark.",
+      "pressure": "Four rounds of crisis; raiders withdraw if their objective becomes impossible.",
+      "relationshipFocus": [
+        "orren",
+        "kess",
+        "bram"
+      ],
+      "growthBeats": [
+        {
+          "id": "watch-1",
+          "title": "Alarm at the north road",
+          "prompt": "A wagon limps into town with raiders close behind.",
+          "dc": 12,
+          "approaches": {
+            "STR": "Move barricades and pull the wagon to safety.",
+            "DEX": "Scout or flank through side lanes.",
+            "CON": "Hold a position under sustained danger.",
+            "INT": "Identify the raiders' actual target from their movement.",
+            "WIS": "Spot a hidden second group or safe evacuation route.",
+            "CHA": "Rally militia and civilians into useful jobs."
+          },
+          "outcomes": {
+            "criticalSuccess": "Save the wagon and learn the raiders' objective before they strike.",
+            "success": "Save the wagon and prepare for the next threat.",
+            "failure": "Save the people but lose cargo or position.",
+            "criticalFailure": "Your position collapses; someone is hurt or captured, creating a rescue objective."
+          }
+        },
+        {
+          "id": "watch-2",
+          "title": "A job, not a brawl",
+          "prompt": "The raiders are trying to steal a Watchstone fragment, not conquer the village.",
+          "dc": 13,
+          "approaches": {
+            "STR": "Hold the access point or wrest the fragment away.",
+            "DEX": "Reach the fragment first or sabotage the raiders' route.",
+            "CON": "Keep a defensive task going while wounded/exhausted.",
+            "INT": "Disable the mechanism or use the site layout to deny access.",
+            "WIS": "Predict the raider leader's next move.",
+            "CHA": "Bluff, command, bargain, or split the raiders' morale."
+          },
+          "outcomes": {
+            "criticalSuccess": "Deny the objective and create a noncombat surrender/retreat opening.",
+            "success": "Deny or delay the objective.",
+            "failure": "The fragment is partly damaged or stolen, but the raiders can be pursued or negotiated with.",
+            "criticalFailure": "The fragment is taken; a marked trail and captured clue preserve the path forward."
+          }
+        },
+        {
+          "id": "watch-3",
+          "title": "Orren falls",
+          "prompt": "Captain Orren is injured while another objective remains active.",
+          "dc": 13,
+          "approaches": {
+            "STR": "Carry or shield Orren while others act.",
+            "DEX": "Reach him through danger and extract him.",
+            "CON": "Keep pressure on the rescue despite fatigue or injury.",
+            "INT": "Assess the injury and choose the safest extraction.",
+            "WIS": "Recognize whether Orren is actually the priority or directing you toward someone else.",
+            "CHA": "Coordinate the rescue and defense simultaneously."
+          },
+          "outcomes": {
+            "criticalSuccess": "Save Orren and the objective; he entrusts his heirloom path if relationship supports it.",
+            "success": "Save Orren or complete the objective without abandoning either need entirely.",
+            "failure": "Choose one cost: Orren worsens, property is lost, or raiders escape.",
+            "criticalFailure": "A harsh consequence lands, but no required future path is blocked; this choice permanently marks relationships."
+          }
+        }
+      ],
+      "choice": "Who or what do you prioritize when you cannot save everything?",
+      "consequence": "Determines mentor fate, heirloom eligibility, and village defenses at age 18."
+    },
+    {
+      "id": "age-18-night-watchstone-broke",
+      "age": 18,
+      "title": "The Night the Watchstone Broke",
+      "objective": "Use six years of relationships, training, and choices to save Hearthcross when the damaged ward finally fails.",
+      "pressure": "Ward Collapse 0–4. Each unresolved major beat advances it.",
+      "relationshipFocus": [
+        "sable",
+        "sera",
+        "elwen",
+        "orren",
+        "pike",
+        "all"
+      ],
+      "growthBeats": [
+        {
+          "id": "final-1",
+          "title": "The village chooses",
+          "prompt": "Panic spreads as the Watchstone fractures and old paths under town open.",
+          "dc": 13,
+          "approaches": {
+            "STR": "Lead physical defenses and rescues.",
+            "DEX": "Move rapidly between threatened locations or carry messages unseen.",
+            "CON": "Keep rescue/repair work functioning through exhaustion.",
+            "INT": "Use six years of clues to identify the failure sequence.",
+            "WIS": "Read the village's danger and choose who needs help first.",
+            "CHA": "Unite rival adults and assign people to jobs."
+          },
+          "outcomes": {
+            "criticalSuccess": "The village acts as one; reduce Ward Collapse by 1 and gain a final relationship boon.",
+            "success": "The village organizes enough to proceed.",
+            "failure": "The plan works with a cost: one location begins the finale already damaged.",
+            "criticalFailure": "Two factions split; a trusted NPC still creates a workable route forward."
+          }
+        },
+        {
+          "id": "final-2",
+          "title": "Three jobs at once",
+          "prompt": "The ward needs a physical anchor reset, a pattern restored, and frightened people evacuated.",
+          "dc": 14,
+          "approaches": {
+            "STR": "Reset the anchor or hold collapsing structure.",
+            "DEX": "Cross the unstable site to place a needed component.",
+            "CON": "Remain in the dangerous zone to keep a task active.",
+            "INT": "Restore the ward sequence from records and fragments.",
+            "WIS": "Sense the correct timing/route or calm people one by one.",
+            "CHA": "Command teams, negotiate cooperation, or keep a crowd moving."
+          },
+          "outcomes": {
+            "criticalSuccess": "Complete your job and create advantage/a reduced DC for another character's job.",
+            "success": "Complete your job.",
+            "failure": "Complete it with injury, lost gear, or a damaged relationship/location.",
+            "criticalFailure": "Your job fails first, but a mentor/relationship earned earlier offers a costly recovery route."
+          }
+        },
+        {
+          "id": "final-3",
+          "title": "Who you became",
+          "prompt": "The final decision cannot be solved by adults alone. The party must choose what Hearthcross becomes after the ward.",
+          "dc": 14,
+          "approaches": {
+            "STR": "Commit to a protective physical sacrifice or reconstruction.",
+            "DEX": "Execute a precise dangerous final placement or retrieval.",
+            "CON": "Endure the ward's backlash long enough for others to finish.",
+            "INT": "Rewrite/reconfigure the failing pattern.",
+            "WIS": "Choose the humane/sustainable path after reading the consequences.",
+            "CHA": "Persuade the village to accept a difficult future and lead the final act."
+          },
+          "outcomes": {
+            "criticalSuccess": "Resolve the crisis with an extra preserved resource, relationship, or heirloom awakening opportunity.",
+            "success": "Resolve the crisis and graduate to Level 1.",
+            "failure": "Resolve the crisis with a permanent cost recorded on the village and character sheets.",
+            "criticalFailure": "The crisis resolves through a fail-forward emergency option, but Hearthcross bears a major scar that carries into later adventures."
+          }
+        }
+      ],
+      "choice": "Preserve the old ward, rebuild it differently, or end it and accept a changed village.",
+      "consequence": "Locks the Level-0 campaign ending, village state, mentor/contact state, heirloom state, and the story carried into Level 1."
+    }
+  ],
+  "graduation": {
+    "2014": {
+      "ruleset": "2014",
+      "order": [
+        "Freeze earned pre-origin base array.",
+        "Apply legal 2014 race/species ability adjustments and traits.",
+        "Apply legal 2014 background package.",
+        "Apply certified Level-1 class package.",
+        "Carry only explicitly allowed story/proficiency elements."
+      ],
+      "forbidden": [
+        "2024 background ability-score rules",
+        "2024 origin feats unless an explicit separate house rule is enabled"
+      ]
+    },
+    "2024": {
+      "ruleset": "2024",
+      "order": [
+        "Freeze earned pre-origin base array.",
+        "Apply legal 2024 background ability-score increases.",
+        "Apply legal 2024 origin feat/background package.",
+        "Apply legal species traits.",
+        "Apply certified Level-1 class package.",
+        "Carry only explicitly allowed story/proficiency elements."
+      ],
+      "forbidden": [
+        "2014 racial ASI/background mechanics"
+      ]
+    },
+    "originLegacy": {
+      "default": "Dormant/scaling heirloom or similarly bounded story benefit.",
+      "bonusFeatDefault": false,
+      "mentor": "Persistent contact with bounded favors; never an unlimited solution engine."
+    }
+  }
+}
