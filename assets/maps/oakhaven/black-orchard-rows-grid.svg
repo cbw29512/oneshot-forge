@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="600" viewBox="0 0 840 600" role="img" aria-labelledby="title desc">
+<title id="title">Black Orchard Warden Rows</title>
+<desc id="desc">A seventy by fifty foot orchard on a five foot grid with dense tree rows, irrigation ditches, two warden posts, west entry, and east quarry path.</desc>
+<rect width="840" height="600" fill="#f0eee7"/>
+<g stroke="#bbb7ae" stroke-width="1">
+<line x1="0" y1="0" x2="0" y2="600"/><line x1="60" y1="0" x2="60" y2="600"/><line x1="120" y1="0" x2="120" y2="600"/><line x1="180" y1="0" x2="180" y2="600"/><line x1="240" y1="0" x2="240" y2="600"/><line x1="300" y1="0" x2="300" y2="600"/><line x1="360" y1="0" x2="360" y2="600"/><line x1="420" y1="0" x2="420" y2="600"/><line x1="480" y1="0" x2="480" y2="600"/><line x1="540" y1="0" x2="540" y2="600"/><line x1="600" y1="0" x2="600" y2="600"/><line x1="660" y1="0" x2="660" y2="600"/><line x1="720" y1="0" x2="720" y2="600"/><line x1="780" y1="0" x2="780" y2="600"/><line x1="840" y1="0" x2="840" y2="600"/>
+<line x1="0" y1="0" x2="840" y2="0"/><line x1="0" y1="60" x2="840" y2="60"/><line x1="0" y1="120" x2="840" y2="120"/><line x1="0" y1="180" x2="840" y2="180"/><line x1="0" y1="240" x2="840" y2="240"/><line x1="0" y1="300" x2="840" y2="300"/><line x1="0" y1="360" x2="840" y2="360"/><line x1="0" y1="420" x2="840" y2="420"/><line x1="0" y1="480" x2="840" y2="480"/><line x1="0" y1="540" x2="840" y2="540"/><line x1="0" y1="600" x2="840" y2="600"/>
+</g>
+<g fill="#d7d2c6" stroke="#44453f" stroke-width="3">
+<circle cx="120" cy="120" r="24"/><circle cx="120" cy="240" r="24"/><circle cx="120" cy="360" r="24"/><circle cx="120" cy="480" r="24"/><circle cx="240" cy="120" r="24"/><circle cx="240" cy="240" r="24"/><circle cx="240" cy="360" r="24"/><circle cx="240" cy="480" r="24"/><circle cx="360" cy="120" r="24"/><circle cx="360" cy="240" r="24"/><circle cx="360" cy="360" r="24"/><circle cx="360" cy="480" r="24"/><circle cx="480" cy="120" r="24"/><circle cx="480" cy="240" r="24"/><circle cx="480" cy="360" r="24"/><circle cx="480" cy="480" r="24"/><circle cx="600" cy="120" r="24"/><circle cx="600" cy="240" r="24"/><circle cx="600" cy="360" r="24"/><circle cx="600" cy="480" r="24"/>
+</g>
+<g stroke="#707b80" stroke-width="18" opacity=".8">
+<line x1="0" y1="545" x2="840" y2="545"/>
+<line x1="0" y1="55" x2="840" y2="55"/>
+</g>
+<g fill="#c9c2b3" stroke="#2d2d2b" stroke-width="4">
+<rect x="330" y="250" width="36" height="70"/>
+<rect x="510" y="250" width="36" height="70"/>
+</g>
+<path d="M805 230 L835 230 L835 370 L805 370" fill="#d8d2c6" stroke="#333" stroke-width="4"/>
+<text x="12" y="310" font-family="sans-serif" font-size="21">ENTRY</text>
+<text x="280" y="225" font-family="sans-serif" font-size="16">WARDEN</text>
+<text x="498" y="225" font-family="sans-serif" font-size="16">WARDEN</text>
+<text x="682" y="208" font-family="sans-serif" font-size="18">QUARRY PATH</text>
+<text x="20" y="42" font-family="sans-serif" font-size="15">IRRIGATION DITCH</text>
+<text x="20" y="590" font-family="sans-serif" font-size="15">IRRIGATION DITCH</text>
+</svg>
