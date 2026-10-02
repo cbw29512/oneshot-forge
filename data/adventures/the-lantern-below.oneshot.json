@@ -113,7 +113,19 @@
           "when": "The party presents evidence, succeeds at a social challenge, or refuses the job without more truth."
         }
       ],
-      "questFunction": "Starts the quest and provides one route to the priory clue."
+      "questFunction": "Starts the quest and provides one route to the priory clue.",
+      "description": "A straight-backed village keeper in a rain-dark wool coat, holding the empty Emberglass box so tightly the velvet lining wrinkles under her thumbs.",
+      "tableDialogue": [
+        "“Bring the Emberglass back before the moon clears the ridge. After that, I cannot promise what the dark lantern keeps out.”",
+        "“Caldus stole it. Desperate is not the same as innocent.”",
+        "“Yes. It is a seal. I wanted you moving before I had to say that in the square.”"
+      ],
+      "reactions": {
+        "agreement": "Gives the party the empty reliquary box, Caldus's direction of travel, and the full 200 gp survival terms.",
+        "refusal": "Stops calling the Emberglass a relic and admits enough about the seal to make the danger clear; the crisis continues without the contract.",
+        "accusation": "If shown evidence or pressed successfully, admits her family hid the lantern's true purpose to prevent panic.",
+        "danger": "Moves villagers indoors and keeps people away from the dead lantern while the party is gone."
+      }
     },
     {
       "id": "npc-brother-caldus",
@@ -159,7 +171,19 @@
           "when": "Asked why the seal matters or when the party reaches the ritual chamber."
         }
       ],
-      "questFunction": "Carries the twist, explains the real stakes, and can help complete the final ritual."
+      "questFunction": "Carries the twist, explains the real stakes, and can help complete the final ritual.",
+      "description": "A hollow-eyed priest in a travel-stained gray habit, one sleeve burned at the cuff, carrying the Emberglass like a coal that has become too hot to set down.",
+      "tableDialogue": [
+        "“The lantern is a lock. I stole the key because Mara wanted to keep turning it after the teeth had worn away.”",
+        "“The thing below does not eat flesh first. It eats the part of you that knows whose face you are looking at.”",
+        "“Help me replace the binding. If you still want to call me a thief afterward, I will not argue.”"
+      ],
+      "reactions": {
+        "agreement": "Explains the replacement binding, offers the Emberglass to the party if they want custody, and leads them into the ritual chamber.",
+        "refusal": "Does not block the stair, but warns that restoring the old seal only buys roughly one season.",
+        "accusation": "Admits the theft immediately and insists the dispute is about method, not whether the danger is real.",
+        "danger": "Fights defensively while retreating toward the ritual chamber, shouting required truths and surrendering before death."
+      }
     },
     {
       "id": "npc-tamsin-reed",
@@ -205,7 +229,19 @@
           "when": "The party treats her seriously or asks for another route."
         }
       ],
-      "questFunction": "Backup clue source and alternate route to the priory."
+      "questFunction": "Backup clue source and alternate route to the priory.",
+      "description": "A mud-kneed village scout with a patched satchel, wet hair cut with a knife, and the restless expression of someone annoyed that the adults started the mystery without her.",
+      "tableDialogue": [
+        "“He took the north trail. I know because I followed him farther than Mara thinks I did.”",
+        "“There is a drain under the east wall. It is miserable, but miserable is quieter than the graveyard.”",
+        "“If everyone keeps telling me I am too young to help, I am going to start charging for directions.”"
+      ],
+      "reactions": {
+        "agreement": "Draws a quick route to the culvert and tells the party where she lost Caldus's trail.",
+        "refusal": "Gives the north-trail direction anyway, then pointedly withholds the culvert until someone treats her information seriously.",
+        "accusation": "Admits she followed Caldus halfway to the priory and lied about only seeing him from her window.",
+        "danger": "Stops joking, gets civilians under cover, and does not volunteer to enter the ritual chamber."
+      }
     }
   ],
   "locations": [
@@ -220,7 +256,7 @@
     {
       "id": "loc-north-trail",
       "name": "North Trail",
-      "description": "Beech and blackthorn, rain-cut ruts, one set of fresh boot prints going north.",
+      "description": "A narrow beech-and-blackthorn trail climbs through wet ruts toward the priory ridge. Fresh boot prints point north, while pale mist gathers in root hollows and wind moves the upper branches.",
       "connections": [
         "loc-briar-glen",
         "loc-priory-yard",
@@ -230,7 +266,7 @@
     {
       "id": "loc-culvert",
       "name": "Old Culvert",
-      "description": "Shoulder-wide priory drain. Soft candle, scratched warning, crypt at the far end.",
+      "description": "A shoulder-wide stone drain runs beneath the priory's east wall, cold meltwater washing over the floor. A soft tallow candle and scratched warning mark the route before it opens into the crypt.",
       "connections": [
         "loc-north-trail",
         "loc-priory-crypt"
@@ -239,7 +275,7 @@
     {
       "id": "loc-priory-yard",
       "name": "Bellweather Priory Yard",
-      "description": "Sixty by fifty feet. Toppled bells, chalked doors, thorned graves, culvert outside the east wall.",
+      "description": "A sixty-by-fifty-foot mud yard lies inside the broken bell gate. Two toppled bronze bells collect rain, fresh chalk wards circle the chapel doors, and thorn-choked graves line the wall.",
       "connections": [
         "loc-north-trail",
         "loc-priory-chapel"
@@ -248,7 +284,7 @@
     {
       "id": "loc-priory-chapel",
       "name": "Ruined Chapel",
-      "description": "Roofless. Dragged altar, moon-bell plate, hanging handbell, Caldus’s notes.",
+      "description": "A roofless chapel stands open to rain and moonlight. Rotten pews face a dragged altar, while a bronze moon-bell plate, hanging handbell, and Caldus's weighted notes dominate the floor.",
       "connections": [
         "loc-priory-yard",
         "loc-priory-crypt"
@@ -257,7 +293,7 @@
     {
       "id": "loc-priory-crypt",
       "name": "Bell Crypt",
-      "description": "Low niches, muffled cracked bell, stair down to the ritual chamber.",
+      "description": "A low stone crypt is lined with burial niches and smells of wet bronze and old incense. A cracked bell hangs muffled in cloth beside the stair descending to the ritual chamber.",
       "connections": [
         "loc-priory-chapel",
         "loc-culvert",
@@ -267,7 +303,7 @@
     {
       "id": "loc-ritual-chamber",
       "name": "Ritual Chamber",
-      "description": "Forty-foot circle, silver ring, four sigils, Emberglass socket, no second door.",
+      "description": "A forty-foot circular chamber surrounds a silver binding ring with four floor sigils and an Emberglass socket. Bare stone walls leave no second exit, making the stair the only retreat.",
       "connections": [
         "loc-priory-crypt"
       ]
@@ -304,7 +340,22 @@
         "scene-road",
         "scene-priory-gate",
         "scene-culvert"
-      ]
+      ],
+      "runSteps": [
+        {
+          "title": "Name the job and clock",
+          "text": "Mara offers 200 gp if Briar Glen survives and asks for the Emberglass before moonrise. Put the moonrise deadline in front of the table."
+        },
+        {
+          "title": "Let the secret show",
+          "text": "If the party presses Mara, use check-mara. Tamsin interrupts if ignored and can identify the north trail plus the old culvert."
+        },
+        {
+          "title": "Choose the approach",
+          "text": "Let the party take the north trail, go directly to the priory, or use the culvert if they learned it. Do not force the travel scene."
+        }
+      ],
+      "advanceWhen": "The party leaves Briar Glen for the north trail, priory, or known culvert."
     },
     {
       "id": "scene-road",
@@ -332,7 +383,22 @@
       "exits": [
         "scene-priory-gate",
         "scene-culvert"
-      ]
+      ],
+      "runSteps": [
+        {
+          "title": "Show the cost of the leak",
+          "text": "Present the three memory-struck travelers and the pale mist pointing back toward the priory ridge."
+        },
+        {
+          "title": "Calm or pass them",
+          "text": "Use check-travelers if the party helps. If they continue north, preserve the route and move the spirit clue forward to Caldus."
+        },
+        {
+          "title": "Approach the priory",
+          "text": "Let the party choose the broken gate or the culvert if they know it."
+        }
+      ],
+      "advanceWhen": "The party reaches Bellweather Priory or turns into the old culvert."
     },
     {
       "id": "scene-priory-gate",
@@ -360,7 +426,22 @@
       "exits": [
         "scene-chapel",
         "scene-culvert"
-      ]
+      ],
+      "runSteps": [
+        {
+          "title": "Show protective preparation",
+          "text": "Put the fresh chalk wards and toppled bells in view before the Grave-Things rise. check-wards can identify the marks as protective."
+        },
+        {
+          "title": "Cross the yard",
+          "text": "Run the guardians only as long as they remain an obstacle. Stealth or the culvert are full solutions, not lesser outcomes."
+        },
+        {
+          "title": "Enter the priory",
+          "text": "Once the party reaches the chapel doors or leaves for the culvert, end the yard pressure."
+        }
+      ],
+      "advanceWhen": "The party reaches the chapel or deliberately takes the culvert route."
     },
     {
       "id": "scene-culvert",
@@ -384,7 +465,22 @@
       "entryConditions": [],
       "exits": [
         "scene-crypt"
-      ]
+      ],
+      "runSteps": [
+        {
+          "title": "Reward the alternate route",
+          "text": "Show the fresh candle and Caldus's DO NOT RING THE BELL warning. Make clear someone has been through recently."
+        },
+        {
+          "title": "Preserve the warning",
+          "text": "The scratched message is the clue. Noise may stir the yard guardians, but they cannot enter the culvert."
+        },
+        {
+          "title": "Open into the crypt",
+          "text": "Move directly to Caldus once the party reaches the far end."
+        }
+      ],
+      "advanceWhen": "The party reaches the Bell Crypt."
     },
     {
       "id": "scene-chapel",
@@ -408,7 +504,22 @@
       "entryConditions": [],
       "exits": [
         "scene-crypt"
-      ]
+      ],
+      "runSteps": [
+        {
+          "title": "Put the puzzle and notes together",
+          "text": "Show the four moon bells, the hanging handbell, and Caldus's notes before asking what the party does."
+        },
+        {
+          "title": "Open the stair",
+          "text": "The clean solution is new → crescent → half → full. Wrong attempts reset; the hanging bell remains the fail-forward route with its listed psychic cost."
+        },
+        {
+          "title": "Carry the truth downstairs",
+          "text": "Make sure Caldus's notes reveal that the village flame was a seal before the party descends."
+        }
+      ],
+      "advanceWhen": "The crypt stair is open and the party descends with Caldus's intent available."
     },
     {
       "id": "scene-crypt",
@@ -437,7 +548,22 @@
       "entryConditions": [],
       "exits": [
         "scene-final"
-      ]
+      ],
+      "runSteps": [
+        {
+          "title": "Give Caldus one sentence",
+          "text": "He does not attack first. Let him state that the lantern is a failing lock before the party decides whether to hear more."
+        },
+        {
+          "title": "Resolve trust or hostility",
+          "text": "If they talk, he explains the Pale Guest and new binding. If attacked, use the defensive encounter while his warnings or journal preserve the same revelation."
+        },
+        {
+          "title": "Go to the ritual chamber",
+          "text": "Once the party understands the real stakes—or has the journal after a fight—move to the chamber below."
+        }
+      ],
+      "advanceWhen": "The party descends to the ritual chamber with the seal truth available through Caldus or his journal."
     },
     {
       "id": "scene-final",
@@ -468,7 +594,26 @@
       "entryConditions": [],
       "exits": [
         "scene-resolution"
-      ]
+      ],
+      "runSteps": [
+        {
+          "title": "Put every legal victory on the table",
+          "text": "The party can destroy the Guest, complete the replacement binding, bargain with it, or restore the old flame while the Emberglass remains intact."
+        },
+        {
+          "title": "Run pressure, not hidden rules",
+          "text": "Use initiative, the sigil flare, and the listed ritual/bargain/Old Flame procedures. Tell players when an action advances one of those tracks."
+        },
+        {
+          "title": "Honor the Emberglass choice",
+          "text": "If it is smashed, remove nonmagical resistance and close binding/Old Flame as written. Do not invent another penalty."
+        },
+        {
+          "title": "End when one resolution succeeds",
+          "text": "Stop initiative immediately when a legal resolution completes and carry that exact state into What Burns After."
+        }
+      ],
+      "advanceWhen": "The Pale Guest is destroyed, newly bound, bargained with, or returned to the old lantern-seal."
     },
     {
       "id": "scene-resolution",
@@ -492,7 +637,22 @@
       "encounterIds": [],
       "clueIds": [],
       "entryConditions": [],
-      "exits": []
+      "exits": [],
+      "runSteps": [
+        {
+          "title": "Name what happened",
+          "text": "Use the ending that actually occurred: old flame, new binding, destruction, or bargain. State the immediate village consequence."
+        },
+        {
+          "title": "Pay and record",
+          "text": "Mara pays 200 gp if Briar Glen survives. Record the campaign fact, any owed memories, and whether Caldus/Tamsin remain trusted contacts."
+        },
+        {
+          "title": "Close on the next consequence",
+          "text": "Give the Saltmere hook appropriate to the ending, then stop the session rather than beginning another episode inside this one."
+        }
+      ],
+      "advanceWhen": "The ending, payment, and campaign fact are recorded."
     }
   ],
   "clues": [
@@ -600,7 +760,8 @@
       "summary": "Three travelers are confused and frightened. Calming them reveals that a pale mist from the priory stole recent memories.",
       "resolution": "No combat required. A hostile approach may scatter them and lose this optional clue.",
       "talkOut": "Persuasion or Medicine DC 12: they stay and describe the mist. Intimidation scatters them.",
-      "special": "Not a fight unless the party attacks. They scatter if intimidated."
+      "special": "Not a fight unless the party attacks. They scatter if intimidated.",
+      "objective": "Learn what the pale mist did without turning frightened victims into an unnecessary fight."
     },
     {
       "id": "enc-grave-things",
@@ -611,7 +772,8 @@
       "resolution": "Fight them, distract them with fire/noise, or bypass them through the culvert.",
       "talkOut": null,
       "bypass": "Culvert or fire/noise. They do not speak.",
-      "special": "Ambush if the party walks the grave-row without checking. Fight to the death. They do not speak and do not chase past the broken gate."
+      "special": "Ambush if the party walks the grave-row without checking. Fight to the death. They do not speak and do not chase past the broken gate.",
+      "objective": "Cross the priory yard or neutralize the rooted guardians long enough to reach shelter."
     },
     {
       "id": "enc-caldus-if-hostile",
@@ -621,7 +783,8 @@
       "summary": "Caldus wants to talk. If attacked, he fights defensively and retreats toward the ritual chamber.",
       "resolution": "The scene should still deliver the seal revelation through his shouted warnings, notes, or ritual evidence.",
       "talkOut": "He wants to talk. Persuasion DC 13 to help the new binding; Insight DC 12 to see he is telling the truth.",
-      "special": "Wants to talk first. Fights defensively and retreats to the ritual chamber if attacked. Does not fight to the death."
+      "special": "Wants to talk first. Fights defensively and retreats to the ritual chamber if attacked. Does not fight to the death.",
+      "objective": "Keep the seal revelation available while deciding whether Caldus becomes an ally, prisoner, or obstacle."
     },
     {
       "id": "enc-pale-guest",
@@ -631,7 +794,8 @@
       "summary": "A memory-eating spirit attacks while the binding fails. Each round should create pressure through whispers, lost recollections, or unstable sigils.",
       "resolution": "Defeat it, complete the replacement binding, destroy the Emberglass and fight it fully, or negotiate a costly new bargain.",
       "talkOut": "Bargain: a memory for a memory. It does not need to be a boss fight.",
-      "special": "Appears after the read-aloud; roll initiative. Will negotiate (see talk-out). Does not leave this chamber while the Emberglass exists."
+      "special": "Appears after the read-aloud; roll initiative. Will negotiate (see talk-out). Does not leave this chamber while the Emberglass exists.",
+      "objective": "Stop the Pale Guest before moonrise through destruction, binding, bargain, or restoration of the old seal."
     }
   ],
   "puzzles": [
@@ -841,7 +1005,9 @@
   "pacing": {
     "targetMinutes": 240,
     "cutOrder": [
-      "scene-road"
+      "If 30+ minutes behind, cut Whispers on the North Trail entirely; Caldus and the ritual evidence still deliver the spirit truth.",
+      "If 20+ minutes behind at the priory, let the culvert route be immediately available if Tamsin described it and skip the yard guardians.",
+      "If 15+ minutes behind after the chapel, move directly from the Caldus revelation into the ritual chamber after one clear exchange."
     ],
     "optionalOrder": [
       "scene-culvert"
