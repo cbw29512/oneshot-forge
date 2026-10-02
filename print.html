@@ -24,7 +24,7 @@
     .hub-tip{margin-top:1.5rem;font-size:.85rem;color:#5f554b}
   </style>
 </head>
-<body>
+<body class="landing print-center-page">
   <header class="land-bar">
     <a class="brand" href="./">
       <img src="assets/mark-lantern.jpg" alt="" width="36" height="36">
@@ -33,7 +33,7 @@
     <nav class="land-nav">
       <span id="ruleset-host"></span>
       <a href="./">Home</a>
-      <a id="runner-link" href="run.html">GM table</a>
+      <a id="runner-link" href="run.html">GM runner</a>
     </nav>
   </header>
   <main class="print-hub">
@@ -122,13 +122,25 @@
         : 0;
 
       const ed = currentEdition();
+      const hasCompatiblePregens = Boolean(
+        adventure && (
+          (adventure.pregens || []).length ||
+          adventure.pregenPack ||
+          adventure.pregenPack2024 ||
+          Number(adventure.metadata?.partyLevel) === 4
+        )
+      );
+      const characterDesc = hasCompatiblePregens
+        ? "Print the compatible level-" + adventure.metadata.partyLevel + " pregen packet for this adventure. Spellcasters include their spell reference sheet."
+        : "This is a level-" + (adventure?.metadata?.partyLevel || "?") + " adventure and currently expects bring-your-own characters. No compatible pregen packet is included yet.";
       const tiles = [
         tile({
           icon: "🧙",
           title: "Character sheets",
-          desc: "Print all six recommended pregens. Each character gets one core sheet; spellcasters get one additional spell sheet. Portraits stay on the core sheet.",
+          desc: characterDesc,
           href: "sheets.html?rules=" + ed + "&print=1",
-          label: "Print all pregens"
+          label: hasCompatiblePregens ? "Print compatible pregens" : "Pregens not included",
+          disabled: !hasCompatiblePregens
         }),
         tile({
           icon: "📖",
