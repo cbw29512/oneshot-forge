@@ -42,7 +42,7 @@
     </section>
   </main>
   <script src="forge-bones.js?v=20260926a"></script>
-  <script src="forge-flesh.js?v=20260926a"></script>
+  <script src="forge-flesh.js?v=20260926a"></script>\n  <script src="forge-compiler.js?v=20261002a"></script>
   <script src="generator.js?v=20260920p"></script>
   <script>
     function currentForgeOptions() {
@@ -98,19 +98,17 @@
     });
 
     document.getElementById("forge-go").addEventListener("click", () => {
-      const gen = globalThis.OneShotGenerator;
-      if (!gen) return alert("Generator missing.");
-      const seed = document.getElementById("forge-seed").value.trim() || gen.newSeed();
-      const pkg = gen.generate({
-        level: Number(document.getElementById("forge-level").value),
-        partySize: Number(document.getElementById("forge-party").value),
-        durationHours: Number(document.getElementById("forge-duration").value),
-        tone: document.getElementById("forge-tone").value,
-        seed
-      });
+      try {
+        const options = currentForgeOptions();
+        const bones = globalThis.ForgeBones.generateBones(options);
+        const pkg = globalThis.ForgeCompiler.compileBones(bones, options);
       localStorage.setItem("oneshot-forge:package:" + pkg.metadata.id, JSON.stringify(pkg));
       localStorage.setItem("oneshot-forge:last-adventure", pkg.metadata.id);
-      location.href = "run.html";
+        location.href = "run.html";
+      } catch (error) {
+        console.error("Forge package compilation failed.", error);
+        alert("Could not compile this ForgeBones package.");
+      }
     });
   </script>
 </body>
