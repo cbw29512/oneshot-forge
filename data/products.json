@@ -176,6 +176,31 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "the-bell-beneath-the-mere",
+      "title": "The Bell Beneath the Mere",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-bell-beneath-the-mere",
+      "productUrl": "adventures/the-bell-beneath-the-mere.html",
+      "level": 3,
+      "party": "4 players",
+      "playTime": "2–3 hours",
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
 }
