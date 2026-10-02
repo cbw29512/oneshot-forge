@@ -61,6 +61,7 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Write two curated Quiet Seals nights in one day
 
 ## Last session
+2026-10-02 — Continued existing-catalog polish after the Lantern/Well retrofit: deepened Ashen Bridge and Bell Beneath the Mere locations with sensory/spatial cues, strengthened the Mere rescue/ending read-aloud, added accusation reactions for their core NPCs, and updated the shared runner to surface accusation reactions when authored.
 2026-10-02 — Began full existing-catalog improvement pass. Retrofitted The Lantern Below and The Well That Would Not Dry to the modern zero-prep stage standard without changing their bones: ordered run steps, explicit move-on conditions, full NPC visual/voice/dialogue/reaction cards, explicit encounter objectives, and stronger pacing cuts. Reconciled Owlbear encounter objectives. Added a catalog-wide CI baseline so every live one-shot must keep runnable scenes, NPC table voice, encounter jobs, and pacing guidance.
 2026-10-02 — Compiled ForgeBones into the Adventure Package schema (`forge-compile.js`). Forge Lab now opens the compiled bones package in the runner instead of the old generator. Bones stay attached as `forgeBones` and are not mutated. Not release-ready prose.
 

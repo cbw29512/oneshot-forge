@@ -54,6 +54,8 @@ for (const required of ["GET /api/entitlements/{productId}", '"owned": true', "4
 const run = read("run.html");
 for (const id of ["read-aloud", "dm-box", "monster-box", "stage-progress", "scene-exits", "prev-scene", "next-scene"]) if (!run.includes('id="' + id + '"')) errors.push("run.html missing #" + id);
 if (/id="forge-random"/.test(run)) errors.push("customer runner still has New random");
+const app = read("app.js");
+if (!app.includes("reactions.accusation")) errors.push("GM runner no longer surfaces authored accusation reactions");
 
 const lantern = read("adventures/the-lantern-below.html");
 if (!lantern.includes("Start adventure")) errors.push("adventure page missing Start adventure");

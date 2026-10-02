@@ -130,7 +130,8 @@
       "reactions": {
         "agreement": "Provides a flat-bottomed ferry, three cork floats, and a weighted line.",
         "refusal": "Leaves the ferry tied and tells the party they can borrow it if they change their minds.",
-        "danger": "Rows injured survivors back to shore while the party finishes the ruin."
+        "danger": "Rows injured survivors back to shore while the party finishes the ruin.",
+        "accusation": "Takes responsibility for sending Tamsin alone, but says the ringing had already become dangerous enough that someone had to investigate."
       }
     },
     {
@@ -189,7 +190,8 @@
       "reactions": {
         "agreement": "Hands over her charcoal rubbing and helps strike the sequence once freed.",
         "refusal": "Still passes the rubbing through the grate; she wants the puzzle solved more than credit.",
-        "danger": "Uses the air pocket rope to anchor anyone swept off the lower stairs."
+        "danger": "Uses the air pocket rope to anchor anyone swept off the lower stairs.",
+        "accusation": "Admits she rang the wrong sequence and caused the lower flood surge, then immediately shows the rubbing so nobody repeats it."
       }
     },
     {
@@ -248,7 +250,8 @@
       "reactions": {
         "agreement": "Stops creating grasping-water hazards and points toward the archive latch.",
         "refusal": "Continues the warning cycle but never withholds physical clues.",
-        "danger": "Defends the bell with waves and pushing water; she avoids lethal harm."
+        "danger": "Defends the bell with waves and pushing water; she avoids lethal harm.",
+        "accusation": "Points to the founder duty order rather than arguing; she wants the living to judge the command after they understand what it required."
       }
     }
   ],
@@ -256,7 +259,7 @@
     {
       "id": "loc-landing",
       "name": "Mere Ferry Landing",
-      "description": "Gray water stretches beyond reed islands while a red scarf hangs from an empty ferry post and no wind disturbs the surface.",
+      "description": "Gray water stretches beyond reed islands beneath a low sky, and a red scarf hangs from an empty ferry post while no wind disturbs the surface. Tar, wet rope, and fish oil cling to the landing, where the tied ferry is the only practical route into the Mere.",
       "connections": [
         "loc-reed-channel"
       ]
@@ -273,7 +276,7 @@
     {
       "id": "loc-bell-house",
       "name": "Drowned Bell-House",
-      "description": "A stone roof and bronze belfry tilt above the waterline, with half the lower floor submerged and a great bell hanging inches over black water.",
+      "description": "A drowned stone bell-house tilts out of the Mere with its bronze belfry just above the waterline. The lower floor is half submerged, cold mineral water slaps the inner walls, and a great bell hangs inches above the black surface beside stairs leading down and an archive latch set high in the stone.",
       "connections": [
         "loc-reed-channel",
         "loc-air-pocket",
@@ -283,7 +286,7 @@
     {
       "id": "loc-air-pocket",
       "name": "Keeper's Air Pocket",
-      "description": "A brick service nook trapped under the bell deck holds stale air, Tamsin's lantern, and a grate opening onto the flooded lower stair.",
+      "description": "A brick service pocket beneath the bell deck holds one person's worth of stale air, Tamsin's hooded lantern, and a rusted pipe slick with condensation. A flooded lower stair opens through one side while an emergency shaft rises toward the bell deck overhead.",
       "connections": [
         "loc-bell-house"
       ]
@@ -291,7 +294,7 @@
     {
       "id": "loc-archive",
       "name": "Founders' Dry Archive",
-      "description": "A sealed stone chamber above the old flood line holds waxed ledgers, duty orders, and a relief map showing the Night Spring diverted away from Oakhaven's crypt.",
+      "description": "A sealed stone archive above the old flood line smells of wax, dust, and mineral damp. Shelves hold wrapped ledgers and duty orders, while a relief map covers the back wall and a service-tunnel mark points toward Oakhaven's Founders' Crypt.",
       "connections": [
         "loc-bell-house"
       ]
@@ -466,7 +469,7 @@
       "flowStage": 4,
       "flowTotal": 5,
       "flowLabel": "Rescue",
-      "readAloud": "The keeper pocket is barely large enough for two people to crouch. Tamsin sits with her back against the brick, chin above the water, one hand wrapped around a rusted pipe. She gives you a tired grin. “I had started to suspect Noll sent better swimmers.”",
+      "readAloud": "The keeper pocket is barely large enough for two people to crouch, and the trapped air tastes of rust and lamp smoke. Tamsin sits with her back against the brick, chin above the water, one hand wrapped around a pipe while the floodline trembles at her collar. She gives you a tired grin. “I had started to suspect Noll sent better swimmers.” Above her, the old emergency shaft knocks softly each time the Mere shifts.",
       "gmNotes": [
         "At Mere Level 0–2, reach Tamsin through the lower stair: DC 12 Strength (Athletics) or Dexterity (Acrobatics) to cross the flooded landing safely.",
         "At Mere Level 3, use the emergency air shaft from the bell deck: DC 12 Athletics to lower/raise a rescuer with rope.",
@@ -629,7 +632,7 @@
       "flowStage": 6,
       "flowTotal": 6,
       "flowLabel": "Resolution",
-      "readAloud": "When the clapper comes free, the bell rolls once in the current without making a sound. Ysra's reflection breaks into widening rings and does not return. The Mere is quiet again, but this time the silence feels chosen rather than waiting.",
+      "readAloud": "When the clapper comes free, the bell rolls once in the current without making a sound. Ysra's reflection breaks into widening rings and does not return. Even the reeds outside seem louder afterward, and the ferry rope creaks against the landing in ordinary wind. The Mere is quiet again, but this time the silence feels chosen rather than waiting.",
       "gmNotes": [
         "Award 110 gp total.",
         "Tamsin survives and the archive truth is preserved.",
@@ -671,7 +674,7 @@
       "flowStage": 6,
       "flowTotal": 6,
       "flowLabel": "Resolution",
-      "readAloud": "The ferry reaches shore with the archive wrapped in oilcloth. Behind you, the drowned bell-house shrinks into the gray water. Just before the reeds hide it, the bell rings once below the surface. Tamsin looks back. “At least now we know what it means.”",
+      "readAloud": "The ferry noses back toward shore with the archive wrapped in oilcloth between your feet. Behind you, the drowned bell-house shrinks into gray water while reeds close over the channel. Just before the roof disappears, the bell rings once below the surface, the vibration traveling through the hull. Tamsin looks back. “At least now we know what it means.”",
       "gmNotes": [
         "Award 100 gp total.",
         "Ysra remains bound and the bell continues to sound during future contamination surges.",
