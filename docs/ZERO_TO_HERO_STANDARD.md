@@ -127,7 +127,7 @@ Level-0 training is recorded as **familiarity**, not automatic 5E proficiency.
 
 A character can repeatedly practice Athletics, smithing, a weapon, a language, herbalism, arcane study, and so on. Those entries document who the character is becoming and may guide graduation choices.
 
-In default **RAW Graduation** mode, familiarity adds no proficiency bonus by itself. At Level 1 it becomes mechanical only when a legal option from the selected edition grants it:
+In default **RAW Graduation** mode, familiarity adds no proficiency bonus by itself. At Level 1 it becomes mechanical only when a legal option from the locked edition grants it:
 - 2014 race/background/class choices;
 - 2024 species/background/class choices.
 
@@ -229,14 +229,78 @@ At Level 1:
 - it grants no feat, spell, or class feature;
 - it does not force the character into the likely class path.
 
-The scrapbook preserves the upbringing as history. The selected 2014 or 2024 Level-1 rules become authoritative.
+The scrapbook preserves the upbringing as history. The 2014 or 2024 rules edition locked in the pre-class shell becomes authoritative.
+
+## 5D. Immutable Level-0 pre-class shell
+
+From Zero to Hero uses one persistent character record from age 12 into Level 1.
+
+Before the first Growth Beat, the player must lock:
+- **target rules edition:** 2014 or 2024;
+- **race/species identity**;
+- source-verified intrinsic race/species notes such as size, speed, senses, and innate traits;
+- any level-gated race/species traits that are known now but not yet legally active.
+
+Once locked, those fields do not change during the Level-0 campaign or at graduation. Changing them requires resetting the Level-0 character.
+
+### What remains deliberately blank
+
+The Level-0 sheet carries visible **RAW placeholders** for:
+- background;
+- class;
+- subclass when legally relevant;
+- HP / Hit Die;
+- saving-throw proficiencies;
+- skill proficiencies;
+- tool proficiencies;
+- weapon / armor training;
+- spells / spellcasting;
+- feat / Origin feat;
+- adventuring equipment;
+- edition ability adjustment.
+
+These slots are intentionally empty during childhood. They are filled at graduation from the locked edition's legal rules unless the table explicitly enables another named homebrew.
+
+### Six-9 house-rule bridge
+
+Race/species identity is real from age 12, but the Level-0 development economy still begins:
+
+**STR 9 · DEX 9 · CON 9 · INT 9 · WIS 9 · CHA 9**
+
+To preserve that homebrew development system:
+- a normal **2014 racial ability-score adjustment is deferred** until the earned 27–30 Level-0 base array is frozen;
+- a normal **2024 background ability-score adjustment is deferred** until the earned 27–30 Level-0 base array is frozen.
+
+This deferral is part of the Level-0 homebrew bridge. It is not presented as ordinary RAW character creation.
+
+### Innate traits during Level 0
+
+A race/species trait may be recorded as active during Level 0 only when the table's rules source makes it genuinely innate and it does not require:
+- a class;
+- proficiency bonus;
+- a minimum character level;
+- a spellcasting feature;
+- another prerequisite the Level-0 character does not possess.
+
+Traits with unmet prerequisites are recorded in the shell but remain dormant until the prerequisite legally exists.
+
+The site stores short source-verified notes supplied by the player/DM. It does not need to reproduce proprietary rules text.
+
+### Why edition locks early
+
+The same race/species name can have different mechanics in 2014 and 2024. Locking the edition with race/species avoids an age-18 rewrite of the character's innate rules.
+
+Class is **not** locked. Upbringing can suggest a direction without forcing it.
 
 ## 6. Growing-up sheet
 
 The Level-0 sheet tracks:
 
 - name
-- ancestry/species
+- immutable race/species identity
+- locked 2014/2024 rules edition
+- source note for intrinsic race/species traits
+- visible RAW placeholders for background/class/HP/proficiencies/spells/feats/equipment
 - chronological age
 - ancestry-equivalent life stage
 - family/guardians
