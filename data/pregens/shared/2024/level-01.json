@@ -1584,7 +1584,7 @@
       "scores": {
         "STR": 10,
         "DEX": 17,
-        "CON": 15,
+        "CON": 14,
         "INT": 10,
         "WIS": 14,
         "CHA": 10
@@ -1730,7 +1730,7 @@
       "acNotes": "scale mail 14 + Dex 2 (medium armor max 2)",
       "initiative": 5,
       "speedFt": 35,
-      "hp": 11,
+      "hp": 12,
       "hitDice": "1d10",
       "darkvision": 60,
       "proficiencies": {
@@ -1913,7 +1913,7 @@
         "base": {
           "STR": 10,
           "DEX": 15,
-          "CON": 14,
+          "CON": 13,
           "INT": 10,
           "WIS": 14,
           "CHA": 10
@@ -1959,7 +1959,7 @@
       "scores": {
         "STR": 17,
         "DEX": 10,
-        "CON": 15,
+        "CON": 14,
         "INT": 10,
         "WIS": 10,
         "CHA": 14
@@ -2105,7 +2105,7 @@
       "acNotes": "chain mail 16 + shield 2",
       "initiative": 0,
       "speedFt": 30,
-      "hp": 15,
+      "hp": 14,
       "hitDice": "1d10",
       "darkvision": 0,
       "proficiencies": {
@@ -2277,7 +2277,7 @@
         "base": {
           "STR": 15,
           "DEX": 10,
-          "CON": 14,
+          "CON": 13,
           "INT": 10,
           "WIS": 10,
           "CHA": 14
@@ -2665,7 +2665,7 @@
         "DEX": 14,
         "CON": 13,
         "INT": 10,
-        "WIS": 10,
+        "WIS": 11,
         "CHA": 17
       },
       "abilityBuild": {
