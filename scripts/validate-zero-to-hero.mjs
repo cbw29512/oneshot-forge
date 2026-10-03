@@ -18,6 +18,8 @@ if(dev?.startingPointBuyCost!==6) fail("six starting 9s must carry point-buy val
 if(dev?.baseOpportunities!==21) fail("must have 21 base Development Opportunities");
 if(dev?.normalTargetValue!==27) fail("normal target must remain 27 point-buy value");
 if(dev?.minimumGraduationValue!==27) fail("graduation floor must remain 27 point-buy value");
+if(dev?.maximumGraduationValue!==30) fail("graduation ceiling must remain 30 point-buy value");
+if(!/never exceed/i.test(dev?.statGrowthCapRule||"")||!/30/.test(dev?.statGrowthCapRule||"")) fail("30-point stat-growth cap rule missing");
 if(dev?.baseGrowthNeverLost!==true) fail("base development may never be lost");
 if(!/stranded/i.test(dev?.maturitySettlementRule||"")||!/Graduation is blocked/i.test(dev?.maturitySettlementRule||"")) fail("maturity settlement / graduation-floor rule missing");
 if(dev?.maxPreOriginScore!==15) fail("pre-origin cap must remain 15");
@@ -76,8 +78,10 @@ if(!/development wallet/i.test(page)) fail("public page must explain the develop
 if(!/How Character Advantage is earned/.test(page)||!/No roleplay Disadvantage/.test(page)) fail("public page must explain fair Character Advantage criteria");
 if(!/critical failure can redirect/i.test(page)) fail("public page must disclose critical-failure redirection");
 if(!/Heroic \/ house-rule ability generation/.test(script)) fail("graduation must label above-27 arrays as house rule");
+if(!/maximumGraduationValue\|\|30/.test(script)) fail("script must read the 30-point ceiling");
+if(!/arrayCostForInvested\(next\) <= maximumArrayValue\(\)/.test(script)) fail("Development Point spending must be blocked above 30");
 if(!/minimumGraduationValue\|\|27/.test(script)) fail("graduation must read the 27-point floor");
-if(!/const ready=value>=floor && lessons===0/.test(script)) fail("graduation must be blocked below the floor or with unresolved Lesson Points");
+if(!/const ready=value>=floor && value<=ceiling && lessons===0/.test(script)) fail("graduation must enforce the 27–30 range and resolve Lesson Points");
 if(!/btn\.disabled=!ready/.test(script)) fail("edition buttons must remain disabled until the floor is secured");
 if(!/settleMaturityCredits/.test(script)) fail("Maturity Settlement implementation missing");
 if(!/state\.wallet\.flexible\+=reclaimed/.test(script)) fail("stranded earned growth must return to the flexible wallet");
@@ -88,7 +92,7 @@ if(!/state\.wallet\.flexible\+=Number\(rule\.flexible\|\|0\)/.test(script)) fail
 if(!/state\.wallet\.lessons\[lessonAbility\]\+=Number\(rule\.lesson\)/.test(script)) fail("Lesson Point award path missing");
 if(!/lessonAbility===attemptedAbility/.test(script)) fail("lesson ability must be prevented from matching attempted ability");
 if(!/state\.invested\[attemptedAbility\]-=1/.test(script)||!/state\.invested\[lessonAbility\]\+=1/.test(script)) fail("critical-failure invested-point redirect missing");
-if(!/state\.scores\[ability\] < campaign\.development\.maxPreOriginScore/.test(script)) fail("ability cap guard missing");
+if(!/state\.scores\[ability\] >= campaign\.development\.maxPreOriginScore/.test(script)) fail("ability score cap guard missing");
 if(!/const succeeded=total>=dc/.test(script)) fail("checks must resolve normal total-vs-DC first");
 if(!/Math\.max\(roll1,roll2\)/.test(script)) fail("Advantage must use the higher of two d20s");
 if(!/advantageReason/.test(script)||!/Character Advantage earned/.test(script)) fail("Advantage reason capture missing");
@@ -116,5 +120,6 @@ for(const score of Object.keys(raise).map(Number)){
  if(baseFromOutcomes.some(x=>x!==1)) fail("success/failure/critical-failure must each preserve one baseline Development Point");
  if(expected.criticalSuccess.flexible+expected.criticalSuccess.lesson!==2) fail("critical success must be one baseline point plus one bonus");
  if(dev.startingPointBuyCost+dev.baseOpportunities!==dev.minimumGraduationValue) fail("6 starting value + 21 base growth must equal the 27-point floor");
+if(dev.maximumGraduationValue-dev.minimumGraduationValue!==3) fail("Zero-to-Hero heroic headroom must remain exactly 3 point-buy value");
 
-console.log("From Zero to Hero OK — hard DC curve, character-grounded Advantage, 27-point minimum, differentiated outcomes, hard lessons, critical bonuses, edition-isolated graduation.");
+console.log("From Zero to Hero OK — 27-point minimum, absolute 30-point cap, hard DC curve, character-grounded Advantage, differentiated outcomes, hard lessons, edition-isolated graduation.");
