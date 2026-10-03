@@ -29,19 +29,27 @@ try {
   for (const product of contract.products) {
     const gate = product.releaseGate || {};
     const commerce = product.commerce || {};
+    const delivery = product.delivery || {};
     const commerceReady = Boolean(commerce.provider && commerce.checkoutUrl && commerce.entitlementMode === "server-verified" && commerce.entitlementVerificationUrl);
-    const gated = product.sellable && gate.approved && gate.checkoutConfigured && commerceReady;
+    const deliveryReady = Boolean(
+      (!delivery.browserRequiredForPaid || delivery.browserReady) &&
+      (!delivery.zipRequiredForPaid || delivery.zipReady) &&
+      delivery.printReady
+    );
+    const gated = product.sellable && gate.approved && gate.dmPlaytestApproved && gate.checkoutConfigured && deliveryReady && commerceReady;
     if (gate.checkoutConfigured && !commerceReady) errors.push(`${product.id}: checkoutConfigured requires provider, checkout URL, and server-verified entitlement endpoint`);
-    if (product.sellable && !gated) errors.push(`${product.id}: sellable product has incomplete release gate`);
+    if (product.sellable && !gated) errors.push(`${product.id}: sellable product has incomplete playtest/delivery/checkout release gate`);
     if (!gated && index.includes(`data-product-id="${product.id}" data-commercial-state="sellable"`)) errors.push(`${product.id}: homepage exposes Buy state before release gates pass`);
   }
 } catch (error) { errors.push("invalid data/products.json: " + error.message); }
 
 const catalog = read("catalog.js");
 for (const required of [
-  "checkoutConfigured", "gate.approved", "commerce.checkoutUrl", 'commerce.entitlementMode === "server-verified"',
-  "commerce.entitlementVerificationUrl", "event.preventDefault()", 'target.protocol !== "https:"', "window.location.assign(target.href)",
-  'params.get("checkout_return")', "await verifiedEntitlement(product)", 'entitlement !== "owned"', "clearCheckoutReturn()", "window.history.replaceState"
+  "checkoutConfigured", "gate.approved", "gate.dmPlaytestApproved", "deliveryReady(product)", "commerce.checkoutUrl",
+  'commerce.entitlementMode === "server-verified"', "commerce.entitlementVerificationUrl", "event.preventDefault()",
+  'method: "POST"', "JSON.stringify({ productId: product.id })", '/\\.stripe\\.com$/i.test(target.hostname)',
+  'params.get("checkout_return")', 'params.get("session_id")', "await verifiedEntitlement(product, returnSessionId)",
+  'entitlement !== "owned"', "clearCheckoutReturn()", "window.history.replaceState"
 ]) {
   if (!catalog.includes(required)) errors.push("catalog checkout/entitlement gate missing: " + required);
 }
@@ -49,6 +57,20 @@ for (const required of [
 const entitlement = read("docs/ENTITLEMENT_API.md");
 for (const required of ["GET /api/entitlements/{productId}", '"owned": true', "401", "404", "503", "fail closed", "Price is never trusted from browser input", "localStorage"]) {
   if (!entitlement.includes(required)) errors.push("entitlement contract missing: " + required);
+}
+
+
+const stripeCheckout = read("netlify/functions/stripe-checkout.mts");
+const stripeEntitlement = read("netlify/functions/stripe-entitlement.mts");
+const stripeWebhook = read("netlify/functions/stripe-webhook.mts");
+for (const required of ["STRIPE_SECRET_KEY", "checkout.sessions.create", 'unit_amount: product.amountCents', 'path: "/api/stripe/checkout"']) {
+  if (!stripeCheckout.includes(required)) errors.push("Stripe checkout function missing: " + required);
+}
+for (const required of ["ENTITLEMENT_SIGNING_SECRET", "checkout.sessions.retrieve", 'session.payment_status === "paid"', 'path: "/api/stripe/entitlement"']) {
+  if (!stripeEntitlement.includes(required)) errors.push("Stripe entitlement function missing: " + required);
+}
+for (const required of ["STRIPE_WEBHOOK_SECRET", "stripe.webhooks.constructEvent", "checkout.session.completed", 'path: "/api/stripe/webhook"']) {
+  if (!stripeWebhook.includes(required)) errors.push("Stripe webhook function missing: " + required);
 }
 
 const run = read("run.html");
