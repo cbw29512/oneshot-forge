@@ -19,7 +19,7 @@
 
   function blankState() {
     return {
-      version:5,
+      version:6,
       chapterIndex:0,
       age:12,
       identity:{
@@ -37,6 +37,7 @@
       resolvedBeats:{},
       timeline:[],
       yearbook:{},
+      scrapbookCards:[],
       graduationEdition:null
     };
   }
@@ -73,8 +74,8 @@
   }
 
   function migrateState(parsed) {
-    if(!parsed || ![1,2,3,4,5].includes(parsed.version)) return blankState();
-    if(parsed.version===3 || parsed.version===4 || parsed.version===5) {
+    if(!parsed || ![1,2,3,4,5,6].includes(parsed.version)) return blankState();
+    if(parsed.version===3 || parsed.version===4 || parsed.version===5 || parsed.version===6) {
       parsed.wallet ||= {flexible:0,lessons:blankAbilityMap(0)};
       parsed.wallet.lessons ||= blankAbilityMap(0);
       parsed.invested ||= blankAbilityMap(0);
@@ -84,7 +85,8 @@
       }
       parsed.criticalBonusEarned=Number(parsed.criticalBonusEarned||0);
       parsed.yearbook ||= {};
-      parsed.version=5;
+      parsed.scrapbookCards ||= [];
+      parsed.version=6;
       state=parsed;
       recomputeScores();
       return state;
@@ -99,6 +101,7 @@
     migrated.resolvedBeats=parsed.resolvedBeats||{};
     migrated.timeline=parsed.timeline||[];
     migrated.yearbook=parsed.yearbook||{};
+    migrated.scrapbookCards=parsed.scrapbookCards||[];
     migrated.graduationEdition=parsed.graduationEdition||null;
 
     for(const a of ABILITIES) {
@@ -121,6 +124,87 @@
 
   function saveState() {
     localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+  }
+
+  function scrapbookDevelopmentText(resolved) {
+    if(resolved.outcome==="criticalSuccess") return "+2 Flexible Development Points";
+    if(resolved.outcome==="success") return "+1 Flexible Development Point";
+    if(resolved.outcome==="failure") return "+1 "+resolved.lessonAbility+" Lesson Point";
+    return "+1 "+resolved.lessonAbility+" Lesson Point"+(resolved.shifted?" · redirected 1 invested "+resolved.attemptedAbility+" point to "+resolved.lessonAbility:"");
+  }
+
+  function scrapbookCategory(outcome) {
+    return outcome==="criticalSuccess" ? "Milestone" : outcome==="success" ? "Milestone" : "Mishap";
+  }
+
+  function scrapbookTitle(beat,outcome) {
+    const suffix={
+      criticalSuccess:"Legendary Finish",
+      success:"Made It Count",
+      failure:"Hard Lesson",
+      criticalFailure:"Never Forget This One"
+    }[outcome]||"Memory";
+    return beat.title+" — "+suffix;
+  }
+
+  function developmentCardId(chapterId,beatId) {
+    return "development:"+chapterId+":"+beatId;
+  }
+
+  function upsertDevelopmentCard(chapter,beat,resolved) {
+    const id=developmentCardId(chapter.id,beat.id);
+    const existing=state.scrapbookCards.find(card=>card.id===id);
+    const card={
+      id,
+      type:"development",
+      mechanical:true,
+      age:chapter.age,
+      chapter:chapter.title,
+      chapterId:chapter.id,
+      beatId:beat.id,
+      event:beat.title,
+      title:existing?.title||scrapbookTitle(beat,resolved.outcome),
+      category:scrapbookCategory(resolved.outcome),
+      memory:beat.outcomes[resolved.outcome],
+      attemptedAbility:resolved.attemptedAbility,
+      rollOutcome:resolved.outcome,
+      advantageReason:resolved.advantageReason||"",
+      developmentType:resolved.outcome,
+      flexiblePoints:Number(resolved.flexibleEarned||0),
+      lessonAbility:resolved.lessonAbility||"",
+      lessonPoints:Number(resolved.lessonEarned||0),
+      shiftedFrom:resolved.shifted?resolved.attemptedAbility:"",
+      shiftedTo:resolved.shifted?resolved.lessonAbility:"",
+      placement:existing?.placement||null,
+      fieldSize:existing?.fieldSize||null,
+      badge:resolved.outcome==="criticalSuccess"?"Legendary Finish":"",
+      playerNote:existing?.playerNote||""
+    };
+    if(existing) Object.assign(existing,card);
+    else state.scrapbookCards.push(card);
+    return card;
+  }
+
+  function syncDevelopmentCards() {
+    for(const [key,resolved] of Object.entries(state.resolvedBeats||{})) {
+      const split=key.indexOf(":");
+      if(split<0) continue;
+      const chapterId=key.slice(0,split);
+      const beatId=key.slice(split+1);
+      const chapter=campaign.chapters.find(c=>c.id===chapterId);
+      const beat=chapter?.growthBeats?.find(b=>b.id===beatId);
+      if(chapter&&beat) upsertDevelopmentCard(chapter,beat,resolved);
+    }
+  }
+
+  function scrapbookMechanicalTotals() {
+    return state.scrapbookCards.filter(c=>c.type==="development").reduce((sum,card)=>{
+      sum.flexible+=Number(card.flexiblePoints||0);
+      sum.lessons+=Number(card.lessonPoints||0);
+      if(card.rollOutcome==="criticalSuccess") sum.criticalBonus+=1;
+      if(card.shiftedFrom&&card.shiftedTo) sum.redirects+=1;
+      return sum;
+    },{flexible:0,lessons:0,criticalBonus:0,redirects:0});
   }
 
   function totalLessonWallet() {
@@ -257,6 +341,7 @@
       lessonEarned:Number(rule.lesson||0),
       shifted
     };
+    upsertDevelopmentCard(chapter,beat,state.resolvedBeats[key]);
 
     const growthText=outcome==="criticalSuccess"
       ? "+2 flexible Development Points"
@@ -588,6 +673,50 @@
     ).join("")+'</div>';
   }
 
+  function renderScrapbook() {
+    const host=$("scrapbook-grid");
+    if(!host) return;
+    syncDevelopmentCards();
+    const cards=[...state.scrapbookCards].sort((a,b)=>(a.age-b.age)||String(a.chapter).localeCompare(String(b.chapter))||String(a.event).localeCompare(String(b.event)));
+    $("scrapbook-count").textContent=cards.length+" card"+(cards.length===1?"":"s");
+    if(!cards.length) {
+      host.innerHTML='<p class="muted scrapbook-empty">Your scrapbook is empty. Your first resolved Growth Beat will create the first Development Card.</p>';
+      return;
+    }
+    host.innerHTML=cards.map(card=>{
+      const development=card.type==="development"
+        ? scrapbookDevelopmentText({
+            outcome:card.rollOutcome,
+            lessonAbility:card.lessonAbility,
+            shifted:Boolean(card.shiftedFrom&&card.shiftedTo),
+            attemptedAbility:card.shiftedFrom||card.attemptedAbility
+          })
+        : "Story memory";
+      const place=card.placement&&card.fieldSize
+        ? '<div class="scrapbook-place">'+esc(card.placement)+ordinal(card.placement)+' of '+esc(card.fieldSize)+'</div>'
+        : "";
+      const badge=card.badge?'<span class="scrapbook-badge">'+esc(card.badge)+'</span>':"";
+      const advantage=card.advantageReason?'<p class="scrapbook-small"><b>Advantage:</b> '+esc(brief(card.advantageReason,95))+'</p>':"";
+      const lesson=card.lessonAbility?'<p class="scrapbook-small"><b>Lesson:</b> '+esc(card.lessonAbility)+(card.shiftedFrom?' · shifted from '+esc(card.shiftedFrom):"")+'</p>':"";
+      return '<article class="scrapbook-card" data-card-id="'+esc(card.id)+'">'+
+        '<header><div><span class="scrapbook-age">AGE '+card.age+'</span><span class="scrapbook-category">'+esc(card.category)+'</span></div>'+badge+'</header>'+
+        '<h3>'+esc(card.title)+'</h3>'+
+        '<p class="scrapbook-event">'+esc(card.event||card.chapter)+'</p>'+place+
+        '<p class="scrapbook-memory">'+esc(brief(card.memory,180))+'</p>'+
+        '<div class="scrapbook-development"><span>BUILT ME</span><strong>'+esc(development)+'</strong></div>'+
+        '<p class="scrapbook-small"><b>Approach:</b> '+esc(card.attemptedAbility||"Story")+' · '+esc(labelOutcome(card.rollOutcome||"memory"))+'</p>'+
+        advantage+lesson+
+        '<footer>'+esc(card.chapter)+'</footer>'+
+      '</article>';
+    }).join("");
+  }
+
+  function ordinal(n) {
+    const value=Number(n);
+    if(value%100>=11&&value%100<=13) return "th";
+    return value%10===1?"st":value%10===2?"nd":value%10===3?"rd":"th";
+  }
+
   function brief(value,max=180) {
     const textValue=String(value||"").trim();
     return textValue.length>max ? textValue.slice(0,max-1).trimEnd()+"…" : textValue;
@@ -687,7 +816,7 @@
   }
 
   function printZeroHero(mode) {
-    const classes=["print-growth","print-certificate","print-graduation-packet"];
+    const classes=["print-growth","print-scrapbook","print-certificate","print-graduation-packet"];
     classes.forEach(c=>document.body.classList.remove(c));
     document.body.classList.add(mode);
     const cleanup=()=>{
@@ -772,6 +901,7 @@
     renderHeaderOnly();
     renderAbilities();
     renderTimeline();
+    renderScrapbook();
     renderQuest();
     renderGraduation();
   }
@@ -781,11 +911,14 @@
     if(!res.ok) throw new Error("Unable to load From Zero to Hero data.");
     campaign=await res.json();
     loadState();
+    syncDevelopmentCards();
+    saveState();
     bindIdentity();
     renderVillage();
     render();
 
     $("print-growth").onclick=()=>printZeroHero("print-growth");
+    $("print-scrapbook").onclick=()=>printZeroHero("print-scrapbook");
     $("print-certificate").onclick=()=>printZeroHero("print-certificate");
     $("print-graduation-packet").onclick=()=>printZeroHero("print-graduation-packet");
     $("reset-growth").onclick=()=>{
