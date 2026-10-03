@@ -1031,11 +1031,13 @@
     "2014": {
       "ruleset": "2014",
       "order": [
-        "Freeze earned pre-origin base array.",
-        "Apply legal 2014 race/species ability adjustments and traits.",
-        "Apply legal 2014 background package.",
-        "Apply certified Level-1 class package.",
-        "Carry only explicitly allowed story/proficiency elements."
+        "Freeze the earned Level-0 base array at 27–30 point-buy value.",
+        "Keep the already-locked 2014 race/species identity; do not reselect it.",
+        "Validate recorded innate race/species traits against the chosen 2014 source and activate any level-gated trait that is now legally available.",
+        "Apply the legal 2014 racial ability-score adjustment after the homebrew base array is frozen.",
+        "Choose and apply a legal 2014 background package.",
+        "Choose and apply a certified legal Level-1 class package, including HP/Hit Die, saves, proficiencies, equipment, and class features.",
+        "Carry childhood training only where a legal 2014 source grants the matching proficiency; otherwise keep it as history."
       ],
       "forbidden": [
         "2024 background ability-score rules",
@@ -1045,12 +1047,12 @@
     "2024": {
       "ruleset": "2024",
       "order": [
-        "Freeze earned pre-origin base array.",
-        "Apply legal 2024 background ability-score increases.",
-        "Apply legal 2024 origin feat/background package.",
-        "Apply legal species traits.",
-        "Apply certified Level-1 class package.",
-        "Carry only explicitly allowed story/proficiency elements."
+        "Freeze the earned Level-0 base array at 27–30 point-buy value.",
+        "Keep the already-locked 2024 species identity; do not reselect it.",
+        "Validate recorded innate species traits against the chosen 2024 source and activate any level-gated trait that is now legally available.",
+        "Choose and apply a legal 2024 background, including its legal ability-score increase and Origin feat package after the homebrew base array is frozen.",
+        "Choose and apply a certified legal Level-1 class package, including HP/Hit Die, saves, proficiencies, equipment, and class features.",
+        "Carry childhood training only where a legal 2024 source grants the matching proficiency; otherwise keep it as history."
       ],
       "forbidden": [
         "2014 racial ASI/background mechanics"
@@ -1069,7 +1071,7 @@
       "proficiencies": "Training/familiarity remains narrative until a legal 2014 race/background/class or 2024 species/background/class choice grants the proficiency.",
       "heirloom": "Heirloom remains mundane/narrative unless the selected ruleset or an explicitly enabled house rule grants a mechanical property.",
       "mentor": "Mentors are narrative contacts and grant no automatic numerical bonus unless an explicit house rule says otherwise.",
-      "mechanics": "After the base ability array is frozen, all species/race, background, class, proficiency, HP, spell, feat, equipment, and later advancement rules must follow the selected 2014 or 2024 ruleset exactly."
+      "mechanics": "Race/species identity and target edition are locked before the first Growth Beat. The six-9 Level-0 array and 27–30 development envelope are homebrew. Once that array is frozen, all remaining background, class, proficiency, HP, spell, feat, equipment, deferred ability adjustment, and later advancement rules must follow the locked 2014 or 2024 ruleset exactly unless another homebrew is explicitly named."
     }
   },
   "lifeFirstDesign": {
@@ -1906,5 +1908,102 @@
         ]
       }
     ]
+  },
+  "preClassShell": {
+    "enabled": true,
+    "shellName": "Level-0 Pre-Class Character",
+    "lockRequiredBeforeFirstGrowthBeat": true,
+    "immutableFields": [
+      "rulesEdition",
+      "raceSpecies",
+      "size",
+      "speed",
+      "senses",
+      "intrinsicTraits",
+      "levelGatedTraits",
+      "sourceNote"
+    ],
+    "startingAbilityRule": "All six Level-0 base ability scores begin at 9 regardless of race/species. This is an explicit house-rule override used only for the origin campaign.",
+    "editionRule": "The target rules edition (2014 or 2024) locks with race/species before the first Growth Beat so the later RAW handoff has one authoritative rules source.",
+    "raceSpeciesRule": "Race/species identity is chosen before play and cannot change during the origin campaign or at graduation.",
+    "intrinsicTraitRule": "Source-verified race/species traits that are innate and not gated by class, proficiency bonus, or character level may be recorded as active Level-0 traits. The site stores user-entered notes rather than reproducing proprietary rules text.",
+    "gatedTraitRule": "Any race/species trait whose source requires a character level, proficiency bonus, class feature, spellcasting feature, or other unavailable prerequisite remains recorded but dormant until that prerequisite legally exists.",
+    "abilityAdjustmentRule": {
+      "2014": "Any normal 2014 racial ability-score adjustment is deferred until after the homebrew Level-0 base array is frozen at graduation.",
+      "2024": "Any normal 2024 background ability-score adjustment is deferred until after the homebrew Level-0 base array is frozen at graduation."
+    },
+    "historyRule": "Level-0 practice with skills, tools, weapons, languages, magic, crafts, medicine, and similar activities remains familiarity/history unless a legal Level-1 source grants the proficiency or feature.",
+    "rawPlaceholders": [
+      {
+        "id": "background",
+        "label": "Background",
+        "filledBy": "legal edition background at graduation"
+      },
+      {
+        "id": "class",
+        "label": "Class",
+        "filledBy": "legal edition class at graduation"
+      },
+      {
+        "id": "subclass",
+        "label": "Subclass",
+        "filledBy": "only when the selected edition/class legally grants it"
+      },
+      {
+        "id": "hpHitDie",
+        "label": "HP / Hit Die",
+        "filledBy": "selected Level-1 class and legal rules"
+      },
+      {
+        "id": "savingThrows",
+        "label": "Saving Throw Proficiencies",
+        "filledBy": "selected Level-1 class"
+      },
+      {
+        "id": "skills",
+        "label": "Skill Proficiencies",
+        "filledBy": "legal race/species/background/class sources"
+      },
+      {
+        "id": "tools",
+        "label": "Tool Proficiencies",
+        "filledBy": "legal background/class/other source"
+      },
+      {
+        "id": "weaponsArmor",
+        "label": "Weapon / Armor Training",
+        "filledBy": "legal race/species/class/other source"
+      },
+      {
+        "id": "spells",
+        "label": "Spells / Spellcasting",
+        "filledBy": "only if legally granted"
+      },
+      {
+        "id": "feats",
+        "label": "Feat / Origin Feat",
+        "filledBy": "only if legally granted by the selected edition"
+      },
+      {
+        "id": "equipment",
+        "label": "Adventuring Equipment",
+        "filledBy": "legal background/class/equipment choices"
+      },
+      {
+        "id": "abilityAdjustment",
+        "label": "Edition Ability Adjustment",
+        "filledBy": "2014 race or 2024 background after Level-0 array freeze"
+      }
+    ],
+    "homebrewFields": [
+      "six-9 starting array",
+      "Upbringing Lean",
+      "Development Points",
+      "Lesson Points",
+      "Level-0 critical development tiers",
+      "27–30 base-array envelope",
+      "scrapbook development ledger"
+    ],
+    "level1Rule": "Anything not explicitly listed as a Level-0 homebrew field or immutable race/species identity must be filled from the selected edition's legal rules at graduation unless the table deliberately enables another named homebrew."
   }
 }
