@@ -132,6 +132,30 @@ In default **RAW Graduation** mode, familiarity adds no proficiency bonus by its
 
 If the legal Level-1 package does not grant that proficiency, the familiarity remains narrative history. This prevents the Level-0 campaign from silently adding extra proficiencies to an otherwise RAW character.
 
+## 5B. Challenge curve and Character Advantage
+
+Base success should be uncommon. The authored DC floor rises as the characters grow so increasing ability scores do not make the mini-adventures trivial:
+
+| Age | Minimum developmental DC |
+| --- | ---: |
+| 12–13 | 15 |
+| 14–16 | 16 |
+| 17–18 | 17 |
+
+A player can earn **Character Advantage** when the attempted action is specifically grounded in the character or scene. Qualifying examples include:
+
+- using an established bond, fear, value, aspiration, relationship, mentor lesson, familiarity, possession, or earlier consequence;
+- exploiting a concrete scene feature or accepting a meaningful cost/risk that makes the approach more credible;
+- clearly explaining what the character actually does.
+
+Performance is never required. Accents, theatrical delivery, confidence, or player eloquence are not prerequisites.
+
+The same generic justification cannot be repeated indefinitely. The Advantage must be specific to the current scene and the character's established history.
+
+Character Advantage follows the normal Advantage procedure: roll two d20s and use the higher result. It never stacks with itself. The kept die is the natural result used by the Level-0 critical-success/critical-failure house rule.
+
+Failure to earn Character Advantage does **not** impose Disadvantage. The player simply makes the normal hard check.
+
 ## 6. Growing-up sheet
 
 The Level-0 sheet tracks:
@@ -257,6 +281,10 @@ From Zero to Hero is not production-ready until:
 - all seven chapters exist and ages run 12 through 18;
 - exactly 21 base Development Opportunities exist;
 - every Growth Beat has an explicit DC, all six approaches, and four outcome bands;
+- developmental DCs respect the age-band floors 15 / 16 / 17;
+- Character Advantage is available only for specific fiction-grounded play, never acting skill;
+- Advantage rolls two d20s and uses the higher result, does not stack, and records why it was earned;
+- failure to earn Character Advantage never imposes Disadvantage;
 - success awards +1 flexible point;
 - failure awards +1 off-path Lesson Point;
 - critical success awards +2 flexible points total;
