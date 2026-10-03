@@ -18,7 +18,7 @@ const ADVENTURE = {
       readAloud:"Warm lamplight spills across tables crowded with ribbons, flowers, and half-finished cups of cider. At the center of the common room waits a magnificent cake, its candles burning with tiny golden flames. As the Birthday Hero leans forward to make her wish, every flame bends toward her—then snaps out. A bright spark tears free from the cake, circles the Birthday Hero once, and streaks through the pantry door. Somewhere below, a clock begins to strike.",
       details:["Martha Bramblepot welcomes the party and makes certain the Birthday Hero is seated at the place of honor.","Boris Ironladle carries in the cake and loudly insists nobody touch the frosting before the wish.","Lute Merriweather begins a birthday song, forgetting the final verse.","At the instant the wish is stolen, three Animated Presents attack from the gift table."],
       checks:["DC 11 Arcana: the stolen spark is a real birthday wish, not an illusion.","DC 12 Investigation: frosting footprints and golden ash lead through the pantry.","DC 10 Persuasion: calm Pip, who saw a tall shadow pass beneath the inn."],
-      wendy:"The Birthday Hero alone hears a whisper from the fleeing spark: ‘Find me before the last candle dies.’",
+      birthdayHero:"The Birthday Hero alone hears a whisper from the fleeing spark: ‘Find me before the last candle dies.’",
       dialogue:["Martha: ‘That was not merely a cake. Something has taken the wish she had not yet spoken.’","Boris: ‘Nobody steals a wish from my kitchen and lives to complain about the crust!’"],
       transition:"The pantry floor opens around an old brass key hanging at Martha's neck, revealing stairs descending into forgotten celebration halls."
     },
@@ -30,7 +30,7 @@ const ADVENTURE = {
       trap:"Confetti Choke: pulling the wrong table bell releases a 10-foot cloud. DC 12 Constitution save or blinded until the end of the creature's next turn. A character can identify the stuffed bell with DC 12 Investigation.",
       puzzle:"Forgotten Candles: six unlit candles stand beneath the portraits. A candle lights when a hero speaks one sincere reason that person deserves to be remembered. The Birthday Hero's candle lights last, revealing the words: YOUR WISH STILL KNOWS YOU.",
       tactics:"The mimic grapples the first creature to touch the cake, then drags the target beneath the table. At half hit points it flees toward the pantry passage.",
-      wendy:"When the Birthday Hero lights the final candle, they see a brief memory of friends gathering around her—proof the wish is tied to the people present, not treasure or power.",
+      birthdayHero:"When the Birthday Hero lights the final candle, they see a brief memory of friends gathering around them—proof the wish is tied to the people present, not treasure or power.",
       transition:"A door of hardened frosting softens and opens when all six candles burn."
     },
     {
@@ -40,7 +40,7 @@ const ADVENTURE = {
       checks:["DC 12 Insight: the inscription emphasizes giving, not guessing.","DC 13 Investigation: animated boxes have ribbons knotted inward like clenched fists.","Mage Hand, familiars, or clever tools can test boxes without triggering them, but do not reveal their contents."],
       trap:"Wrapping-Paper Snare: crossing the center without exchanging a gift causes enchanted paper to coil around one creature. DC 13 Dexterity save or restrained. Escape DC 12 Strength or Dexterity; fire destroys the paper but deals 1 fire damage to the captive.",
       puzzle:"Each hero selects one box, then gives it to another hero. When every chosen gift has been offered freely, the silver door unlocks. No die roll is required.",
-      wendy:"One box bears the Birthday Hero's name. It cannot be opened by the Birthday Hero, but opens immediately when they give it to another companion. Inside is the first Wish Fragment: ‘NOT FOR ME ALONE…’",
+      birthdayHero:"One box bears the Birthday Hero's name. It cannot be opened by the Birthday Hero, but opens immediately when they give it to another companion. Inside is the first Wish Fragment: ‘NOT FOR ME ALONE…’",
       transition:"The opened gifts release glowing ribbon that forms a safe path into the Candle Maze."
     },
     {
@@ -50,7 +50,7 @@ const ADVENTURE = {
       checks:["Navigate: DC 12 Survival or Perception.","Protect the flames: DC 12 Arcana, Sleight of Hand, or a suitable spell.","Cross the wax: DC 12 Athletics or Acrobatics."],
       trap:"Candlefall: a pressure tile tips a rack of burning candles. DC 13 Dexterity save; 2d6 fire damage on a failure, half on success. DC 13 Investigation spots wax pooled around the tile. The rack can be jammed with an iron spike.",
       puzzle:"Six pedestal candles are labeled Courage, Kindness, Laughter, Friendship, Love, and Hope. Hope will not light directly. Lighting any three of the other five causes Hope to ignite, teaching that hope is sustained by other virtues.",
-      wendy:"Only the Birthday Hero can lift the lantern containing the second fragment. It whispers: ‘…BUT FOR ONE MORE ADVENTURE…’",
+      birthdayHero:"Only the Birthday Hero can lift the lantern containing the second fragment. It whispers: ‘…BUT FOR ONE MORE ADVENTURE…’",
       transition:"The lantern's flame becomes a floating balloon and drifts through the next doorway."
     },
     {
@@ -61,7 +61,7 @@ const ADVENTURE = {
       trap:"Balloon Lift: cutting a silver string triggers six balloons that seize a creature and lift it 20 feet. DC 13 Dexterity save avoids capture. A captured creature can cut free, taking 2d6 falling damage unless caught; allies may shoot balloons to lower it five feet per balloon.",
       puzzle:"Recover three gold-dragon memory balloons without popping them. Each is lowered by telling a true or invented-in-character memory about the Birthday Hero's courage, kindness, or humor. Popping one releases harmless glitter but advances the midnight clock by five minutes.",
       tactics:"The Piñata Mimic uses the balloons as concealment and attempts to shove heroes toward the Exploding Piñata. At half hit points it can be distracted with candy or calmed by returning one protected memory.",
-      wendy:"Joining the three memory balloons reveals the final fragment: ‘…TOGETHER.’ The full shape of the wish is near, but the Birthday Hero still chooses its meaning at the finale.",
+      birthdayHero:"Joining the three memory balloons reveals the final fragment: ‘…TOGETHER.’ The full shape of the wish is near, but the Birthday Hero still chooses its meaning at the finale.",
       transition:"The three balloons become golden lights and open the doors to the Wish Circle."
     },
     {
@@ -70,7 +70,7 @@ const ADVENTURE = {
       details:["Sepulchral is the Keeper of Forgotten Wishes. His own wish failed centuries ago, and he now steals wishes to spare others pain.","Use the supplied Sepulchral and Wish Circle monster cards.","The ritual advances at initiative count 20. At three advances the wish fades unless the party has completed three objectives."],
       objectives:["Erase one rune: adjacent action, DC 13 Arcana, Religion, or thieves' tools.","Relight one extinguished candle: adjacent action, DC 12 Performance, Persuasion, or use of a flame spell.","Protect the cake: a hero adjacent to it may use a reaction to take damage meant for the cake.","Reach Sepulchral: reduce him below half hit points or succeed on three total social successes against DC 13."],
       dialogue:["Sepulchral: ‘Every candle goes dark. Every song ends. Why teach her to hope?’","Martha, if present: ‘Because darkness does not make the light a lie.’","Sepulchral, bloodied: ‘And if their wish fails?’"],
-      wendy:"When the ritual breaks, the Birthday Hero chooses the final answer: make a wish for themselves, make a wish that includes others, or offer Sepulchral a place at the celebration. Any sincere answer restores the wish.",
+      birthdayHero:"When the ritual breaks, the Birthday Hero chooses the final answer: make a wish for themselves, make a wish that includes others, or offer Sepulchral a place at the celebration. Any sincere answer restores the wish.",
       ending:"The golden wish circles every hero, then settles before the Birthday Hero. Return to the inn. Martha says, ‘I believe this has been waiting for you.’ Hand the Birthday Hero the real pop-up dragon card. Allow silence. Then let the group celebrate."
     }
   ],
