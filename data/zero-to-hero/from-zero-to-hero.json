@@ -462,540 +462,569 @@
   },
   "chapters": [
     {
-      "id": "age-12-runaway-cart",
+      "id": "age-12-spring-chore-day",
       "age": 12,
-      "title": "The Runaway Cart",
-      "objective": "Keep Crossmarket from becoming a disaster when a grain cart breaks loose during the Founders' Fair.",
-      "pressure": "Three beats before the cart reaches the crowded river steps.",
+      "title": "Spring Chore Day",
+      "lifeEvent": "community chores",
+      "tone": "ordinary village life",
+      "groupActivity": "The children are assigned a shared list of spring jobs before the first heavy rain.",
+      "objective": "Finish the village chore list, help each other, and decide whose needs matter when there is not enough time to do everything.",
+      "pressure": "Three chore bells. When the third bell rings, the spring rain arrives and unfinished work becomes someone else's problem.",
       "relationshipFocus": [
-        "kess",
-        "nima",
-        "orren"
-      ],
-      "growthBeats": [
-        {
-          "id": "cart-1",
-          "title": "The snap",
-          "prompt": "The cart's brake chain snaps at the top of Market Hill. What do you do first?",
-          "dc": 15,
-          "approaches": {
-            "STR": "Grab a side rail and wrench the cart toward the ditch.",
-            "DEX": "Sprint ahead, climb aboard, and reach the brake lever.",
-            "CON": "Brace a rope line and hold despite the pull.",
-            "INT": "Spot which wheel or axle can be jammed safely.",
-            "WIS": "Read the crowd and identify who is in greatest danger.",
-            "CHA": "Take command and clear a path through the market."
-          },
-          "outcomes": {
-            "criticalSuccess": "You redirect the danger and save someone who could not save themselves; gain +1 reputation with one witness.",
-            "success": "You reduce the danger enough for the next beat to remain manageable.",
-            "failure": "You cannot stop it cleanly; a stall is damaged or someone is separated, but the next character gets a new opening.",
-            "criticalFailure": "You are knocked down or trapped by debris; the group must rescue you while the cart keeps moving."
-          }
-        },
-        {
-          "id": "cart-2",
-          "title": "The crossing",
-          "prompt": "The cart is now aimed at a narrow crossing crowded with children and animals.",
-          "dc": 15,
-          "approaches": {
-            "STR": "Heave a barrier into its path.",
-            "DEX": "Use balance and speed to release the team animals.",
-            "CON": "Keep a panicked horse from crushing someone despite kicks and strain.",
-            "INT": "Work out a safer deflection angle using barrels and slope.",
-            "WIS": "Notice a hidden side lane or frightened child's position.",
-            "CHA": "Coordinate villagers into a fast rescue line."
-          },
-          "outcomes": {
-            "criticalSuccess": "You create a clean escape lane and Captain Orren notices your judgment.",
-            "success": "You prevent the worst harm.",
-            "failure": "The crossing clears, but something valuable is broken or lost.",
-            "criticalFailure": "Your move worsens the tangle; mark a minor scar/bruise or relationship complication, then continue."
-          }
-        },
-        {
-          "id": "cart-3",
-          "title": "Aftermath",
-          "prompt": "Someone cut the brake chain. The adults are shouting over each other while evidence is being trampled.",
-          "dc": 15,
-          "approaches": {
-            "STR": "Physically secure the cart and preserve the broken chain.",
-            "DEX": "Slip through the crowd to follow the fleeing suspect.",
-            "CON": "Stay on your feet through the chaos and help carry the hurt.",
-            "INT": "Examine the cut and determine what tool made it.",
-            "WIS": "Read witnesses and separate fear from what they actually saw.",
-            "CHA": "Calm the market and get useful witness statements."
-          },
-          "outcomes": {
-            "criticalSuccess": "You preserve decisive evidence and earn a strong lead toward Rusk's older associates.",
-            "success": "You preserve enough evidence to prove the break was deliberate.",
-            "failure": "The truth survives through a second clue, but the direct trail is lost.",
-            "criticalFailure": "An innocent person is briefly blamed or a relationship is damaged; another clue still proves sabotage."
-          }
-        }
-      ],
-      "choice": "Do you tell the reeve everything, protect a peer who was nearby, or take the clue to a mentor first?",
-      "consequence": "Sets the party's first reputation and changes who trusts them in later years."
-    },
-    {
-      "id": "age-13-winter-tracks",
-      "age": 13,
-      "title": "Winter Without Wolves",
-      "objective": "Find out why livestock are vanishing before frightened farmers organize a dangerous hunt.",
-      "pressure": "A hard freeze arrives tonight.",
-      "relationshipFocus": [
-        "bram",
-        "elwen",
-        "kess"
-      ],
-      "growthBeats": [
-        {
-          "id": "winter-1",
-          "title": "Tracks in snow",
-          "prompt": "The tracks look like wolves until they reach a fence and become confusing.",
-          "dc": 15,
-          "approaches": {
-            "STR": "Move a frozen obstacle to reveal the ground beneath.",
-            "DEX": "Follow the lightest prints without disturbing them.",
-            "CON": "Push through hours of freezing search.",
-            "INT": "Compare stride, weight, and fence damage to rule out wolves.",
-            "WIS": "Read animal behavior and the terrain.",
-            "CHA": "Persuade angry farmers to delay the hunt long enough to investigate."
-          },
-          "outcomes": {
-            "criticalSuccess": "You find both the true trail and a useful dropped item.",
-            "success": "You identify that people, not wolves, are involved.",
-            "failure": "You learn the truth but lose time or supplies.",
-            "criticalFailure": "You lead the group into thin ice or another hazard; recover with a complication."
-          }
-        },
-        {
-          "id": "winter-2",
-          "title": "The hidden camp",
-          "prompt": "The missing livestock are feeding displaced families hiding beyond the old quarry.",
-          "dc": 15,
-          "approaches": {
-            "STR": "Help repair their collapsing shelter.",
-            "DEX": "Approach unseen to learn whether they are dangerous.",
-            "CON": "Endure the cold while giving up your own warm gear or food.",
-            "INT": "Assess how much food the village can spare and make a workable plan.",
-            "WIS": "Judge who is sick, frightened, or lying.",
-            "CHA": "Negotiate with the families and the farmers."
-          },
-          "outcomes": {
-            "criticalSuccess": "You solve an immediate need and gain a grateful contact.",
-            "success": "You keep the situation from turning violent.",
-            "failure": "A compromise is possible but costs the village or your family something.",
-            "criticalFailure": "Your words/actions inflame one side; Elwen or Bram prevents violence, but trust drops."
-          }
-        },
-        {
-          "id": "winter-3",
-          "title": "The choice",
-          "prompt": "The reeve demands names before he agrees to help.",
-          "dc": 15,
-          "approaches": {
-            "STR": "Take responsibility and physically deliver supplies despite orders.",
-            "DEX": "Sneak food out without revealing the camp.",
-            "CON": "Accept punishment or hardship to protect someone else.",
-            "INT": "Find a legal/recorded obligation the reeve cannot ignore.",
-            "WIS": "Read what concession Pike actually needs to save face.",
-            "CHA": "Argue publicly for mercy or construct a convincing cover story."
-          },
-          "outcomes": {
-            "criticalSuccess": "You protect the families and shift village policy in their favor.",
-            "success": "You secure temporary safety.",
-            "failure": "Safety is won with a debt, fine, or damaged relationship.",
-            "criticalFailure": "The secret breaks badly; the families must move, but they survive and remain future contacts."
-          }
-        }
-      ],
-      "choice": "Expose, shelter, relocate, or publicly sponsor the displaced families.",
-      "consequence": "Changes the village's attitude toward outsiders and can reshape Kess, Pike, Elwen, and Bram."
-    },
-    {
-      "id": "age-14-river-rise",
-      "age": 14,
-      "title": "The River on the Rise",
-      "objective": "Save people and infrastructure during the worst spring flood in a generation.",
-      "pressure": "Flood Level 0–3 rises after each unresolved beat.",
-      "relationshipFocus": [
+        "mara",
         "wren",
         "maela",
-        "mara"
-      ],
-      "growthBeats": [
-        {
-          "id": "flood-1",
-          "title": "The footbridge",
-          "prompt": "The footbridge is twisting loose with two villagers stranded midspan.",
-          "dc": 16,
-          "approaches": {
-            "STR": "Haul the guide rope tight.",
-            "DEX": "Cross the swaying rail and clip in the stranded villagers.",
-            "CON": "Hold the anchor in freezing water.",
-            "INT": "Calculate the strongest new anchor point.",
-            "WIS": "Read the current and predict the next surge.",
-            "CHA": "Direct rescuers and stop panicked relatives from overloading the bridge."
-          },
-          "outcomes": {
-            "criticalSuccess": "Both villagers and a crate of medicine are saved.",
-            "success": "The villagers are saved.",
-            "failure": "The villagers survive but the bridge or medicine is lost.",
-            "criticalFailure": "You are swept into a secondary rescue; gain a scar/gear loss, but the story continues."
-          }
-        },
-        {
-          "id": "flood-2",
-          "title": "The apothecary",
-          "prompt": "Water reaches Venn's Remedies while patients are still inside.",
-          "dc": 16,
-          "approaches": {
-            "STR": "Carry patients or furniture to higher ground.",
-            "DEX": "Move through a narrow roof route with supplies.",
-            "CON": "Work repeatedly in cold water without stopping.",
-            "INT": "Identify which medicines must be saved first.",
-            "WIS": "Triage patients and notice hidden symptoms.",
-            "CHA": "Organize neighbors into evacuation and salvage teams."
-          },
-          "outcomes": {
-            "criticalSuccess": "Save all patients plus a valuable medical cache.",
-            "success": "Save the patients and core supplies.",
-            "failure": "Save the people but lose important stock.",
-            "criticalFailure": "A patient worsens or a relationship strains because of a bad call; Maela stabilizes the situation."
-          }
-        },
-        {
-          "id": "flood-3",
-          "title": "The mill gate",
-          "prompt": "A jammed mill gate is backing water toward homes.",
-          "dc": 16,
-          "approaches": {
-            "STR": "Force the gate mechanism.",
-            "DEX": "Reach the release wheel from the slick exterior.",
-            "CON": "Stay in dangerous water long enough to hold a repair in place.",
-            "INT": "Diagnose the jam and improvise a fix.",
-            "WIS": "Notice a safer overflow route.",
-            "CHA": "Convince property owners to sacrifice part of the mill to save homes."
-          },
-          "outcomes": {
-            "criticalSuccess": "Water drops and the mill survives mostly intact.",
-            "success": "Water drops before homes flood.",
-            "failure": "Homes are saved but the mill suffers major damage.",
-            "criticalFailure": "The repair fails dramatically; evacuations succeed, but the mill is ruined and someone blames you."
-          }
-        }
-      ],
-      "choice": "Which property, livelihood, or resource are you willing to sacrifice to protect people?",
-      "consequence": "Permanently changes a village location and determines who owes the party a favor."
-    },
-    {
-      "id": "age-15-lantern-fair",
-      "age": 15,
-      "title": "The Lantern Fair",
-      "objective": "Enjoy Hearthcross's largest fair, then solve a theft without letting rivalry turn into a mob.",
-      "pressure": "The caravan leaves at dawn.",
-      "relationshipFocus": [
-        "tavi",
-        "jory",
-        "rusk",
+        "kess",
         "nima"
       ],
       "growthBeats": [
         {
-          "id": "fair-1",
-          "title": "Choose your contest",
-          "prompt": "Each character enters or assists with one fair event.",
-          "dc": 16,
+          "id": "chores-1",
+          "title": "The job board",
+          "prompt": "The group has a cart, a pile of tools, and too many jobs: stack firewood, scrub the shrine steps, mend a fence, haul flour, and deliver medicine. How do you make the morning work?",
+          "dc": 15,
           "approaches": {
-            "STR": "Wrestling, hammer lift, or hauling contest.",
-            "DEX": "Archery, balance course, juggling, or precision craft.",
-            "CON": "Long-distance run, cold-water swim, or endurance task.",
-            "INT": "Riddle table, repair challenge, or strategy game.",
-            "WIS": "Tracking game, judging contest, or animal trial.",
-            "CHA": "Storytelling, debate, music, or crowd leadership."
+            "STR": "Take the heaviest jobs and keep the work moving.",
+            "DEX": "Handle the fiddly repairs, knots, latches, and quick deliveries.",
+            "CON": "Keep working steadily while everyone else tires or complains.",
+            "INT": "Sort the list by tools, route, and dependencies so the group wastes no time.",
+            "WIS": "Notice which household actually needs help first and which jobs can wait.",
+            "CHA": "Organize the group, trade favors, and get reluctant helpers moving."
           },
           "outcomes": {
-            "criticalSuccess": "Win decisively and attract a mentor/contact or special mundane prize.",
-            "success": "Place well and gain local recognition.",
-            "failure": "Lose cleanly but learn something useful.",
-            "criticalFailure": "Fail spectacularly; gain an embarrassing nickname or rival beat, but also a memorable relationship hook."
+            "criticalSuccess": "The group finishes ahead of the first bell and earns a small favor from one household.",
+            "success": "The first set of chores is finished cleanly.",
+            "failure": "The jobs get done, but something is late, messy, or has to be redone after lunch.",
+            "criticalFailure": "A mistake creates a new chore and an embarrassed argument, but an adult turns it into a lesson rather than a punishment."
+          }
+        },
+        {
+          "id": "chores-2",
+          "title": "Mara's escaped goat",
+          "prompt": "While the group is repairing a side fence, Mara's stubborn goat Clover slips loose and heads straight for the apothecary garden.",
+          "dc": 15,
+          "approaches": {
+            "STR": "Block Clover's path and wrestle her away from the herbs.",
+            "DEX": "Circle around quietly and catch the trailing rope without spooking her.",
+            "CON": "Keep pace through mud, brambles, and several failed attempts until she tires.",
+            "INT": "Work out why the gate failed and use the yard layout to funnel her back.",
+            "WIS": "Read the goat's behavior and lure her toward something she actually wants.",
+            "CHA": "Recruit neighbors or mimic Mara's feeding call to get Clover to follow."
+          },
+          "outcomes": {
+            "criticalSuccess": "Clover is caught without damaging the garden, and Maela lets the group keep a useful bundle of harmless herbs.",
+            "success": "Clover is caught before real damage is done.",
+            "failure": "Clover is caught, but tramples seedlings or ruins part of the repaired fence.",
+            "criticalFailure": "Clover causes a spectacular mess and someone gets knocked into the mud; the group still catches her and now owes Maela a repair favor."
+          }
+        },
+        {
+          "id": "chores-3",
+          "title": "Rain before supper",
+          "prompt": "The clouds break early. One final delivery of flour, medicine, and lamp oil still has to cross the village before the roads become mud.",
+          "dc": 15,
+          "approaches": {
+            "STR": "Carry the heaviest load so the cart can move faster.",
+            "DEX": "Take a faster footpath and keep fragile parcels dry.",
+            "CON": "Push through cold rain and fatigue without abandoning the route.",
+            "INT": "Repack and reroute the deliveries so one trip reaches all three stops.",
+            "WIS": "Judge which delivery is most urgent if the group cannot protect everything.",
+            "CHA": "Convince shopkeepers and neighbors to form a quick relay."
+          },
+          "outcomes": {
+            "criticalSuccess": "Everything arrives dry, and the group earns a reputation for being dependable.",
+            "success": "The deliveries arrive before the roads turn bad.",
+            "failure": "Everything arrives, but one parcel is wet, late, or damaged and must be replaced.",
+            "criticalFailure": "The cart gets stuck and the group finishes soaked and late; nobody loses what they truly need, but the children owe an extra day of work."
+          }
+        }
+      ],
+      "choice": "When there is time for only one extra job, do you help family, a friend, a mentor, or the household that needs it most?",
+      "consequence": "Creates the group's first shared reputation and establishes which adults begin trusting them with real responsibility."
+    },
+    {
+      "id": "age-13-spring-dance",
+      "age": 13,
+      "title": "The Spring Dance",
+      "lifeEvent": "village dance",
+      "tone": "social, funny, awkward, celebratory",
+      "groupActivity": "The group helps prepare Hearthcross's spring dance, attends it together, and navigates the small disasters that matter enormously at thirteen.",
+      "objective": "Get the hall ready, survive the social tangle, and help the dance end as a good memory instead of a village argument.",
+      "pressure": "The musicians start at sunset. Once the final lantern is lit, unfinished preparations become part of the evening.",
+      "relationshipFocus": [
+        "kess",
+        "nima",
+        "jory",
+        "tavi",
+        "mara"
+      ],
+      "growthBeats": [
+        {
+          "id": "dance-1",
+          "title": "Before the music",
+          "prompt": "The Fox & Ferry yard needs benches, ribbons, lanterns, food tables, a dance floor, and a hundred tiny fixes before sunset.",
+          "dc": 15,
+          "approaches": {
+            "STR": "Move benches, barrels, tables, and the heavy lantern poles into place.",
+            "DEX": "Hang ribbons, string lanterns, tune small instruments, and fix delicate decorations.",
+            "CON": "Work through heat and repetition while others drift off to socialize.",
+            "INT": "Measure the floor, solve the seating problem, and keep the setup from blocking exits.",
+            "WIS": "Notice what is missing, who is overwhelmed, and which small problem will become a big one later.",
+            "CHA": "Coordinate helpers, smooth over complaints, and convince older youths to actually help."
+          },
+          "outcomes": {
+            "criticalSuccess": "The yard looks unusually good and one adult publicly credits the group.",
+            "success": "The dance space is ready when the musicians arrive.",
+            "failure": "The dance opens on time, but a crooked banner, missing bench, or mismatched table becomes an ongoing joke.",
+            "criticalFailure": "A setup mistake causes a public scramble just as guests arrive; the group fixes it together while half the village watches."
+          }
+        },
+        {
+          "id": "dance-2",
+          "title": "The awkward middle",
+          "prompt": "A friend is being left out, a rival is showing off, someone has been stood up, and a small argument is spreading through the edge of the dance.",
+          "dc": 15,
+          "approaches": {
+            "STR": "Step physically between people before shoving starts and redirect the energy into a game or contest.",
+            "DEX": "Slip between groups, pass a note, recover a dropped keepsake, or quietly arrange a better seating/dance pairing.",
+            "CON": "Stay with the embarrassed or upset person even when doing so means missing the fun yourself.",
+            "INT": "Piece together what was actually said and expose the misunderstanding before it gets worse.",
+            "WIS": "Read who is hurt, jealous, frightened, or pretending not to care.",
+            "CHA": "Talk someone down, invite the excluded person in, make a joke, or persuade the rival to back off."
+          },
+          "outcomes": {
+            "criticalSuccess": "The argument becomes a story everyone laughs about later, and one relationship improves sharply.",
+            "success": "The social problem settles without spoiling the evening.",
+            "failure": "The argument ends, but someone leaves hurt or a friendship becomes strained.",
+            "criticalFailure": "The scene becomes the dance's embarrassing moment of the year; the damage is social, not permanent, and it creates a memorable lesson."
+          }
+        },
+        {
+          "id": "dance-3",
+          "title": "Lanterns in the wind",
+          "prompt": "A sudden gust knocks down part of the lantern line and threatens the food tables while the musicians keep playing.",
+          "dc": 15,
+          "approaches": {
+            "STR": "Catch or brace a falling pole before it hits the crowd.",
+            "DEX": "Move through the dancers and retie the loose line before more lanterns fall.",
+            "CON": "Hold a support in place until someone can secure it properly.",
+            "INT": "Identify the failed knot/anchor and improvise a safer rigging pattern.",
+            "WIS": "Spot where the next lantern will fall and clear people from the danger first.",
+            "CHA": "Turn the scramble into an organized cleanup without killing the mood."
+          },
+          "outcomes": {
+            "criticalSuccess": "The group fixes the problem so smoothly that the music never stops.",
+            "success": "The lanterns are secured and the dance continues.",
+            "failure": "Several lanterns break and part of the food is lost, but nobody is hurt.",
+            "criticalFailure": "The whole line comes down in a harmless but spectacular crash; the dance moves indoors and the story follows the group for years."
+          }
+        }
+      ],
+      "choice": "Who do you spend the last song with—or do you skip it to help someone else?",
+      "consequence": "Changes friendships, rivalries, crushes, and promises that can reappear in later years without locking any romance."
+    },
+    {
+      "id": "age-14-harvest-games",
+      "age": 14,
+      "title": "Harvest Fair & Team Games",
+      "lifeEvent": "fair and competitions",
+      "tone": "competitive, communal, playful",
+      "groupActivity": "The group enters Hearthcross's team games while also helping their households run stalls and animals.",
+      "objective": "Compete without letting the contest matter more than the people around you.",
+      "pressure": "Three fair bells: registration, championship round, and closing market.",
+      "relationshipFocus": [
+        "kess",
+        "nima",
+        "bram",
+        "jory",
+        "wren"
+      ],
+      "growthBeats": [
+        {
+          "id": "fair-1",
+          "title": "Pick your event",
+          "prompt": "The team can enter hauling, obstacle running, endurance, riddles, tracking, or performance events—but everyone has to contribute.",
+          "dc": 16,
+          "approaches": {
+            "STR": "Anchor the hauling or wrestling leg.",
+            "DEX": "Take the balance, archery, or obstacle leg.",
+            "CON": "Handle the distance run, cold-water carry, or endurance leg.",
+            "INT": "Solve the riddle, repair, or planning leg.",
+            "WIS": "Track the marked route, judge animals, or spot hidden targets.",
+            "CHA": "Handle storytelling, music, debate, or rally the team between events."
+          },
+          "outcomes": {
+            "criticalSuccess": "The team wins its heat and earns a direct shot at the final.",
+            "success": "The team advances or places respectably.",
+            "failure": "The team loses the heat but earns a second-chance event or useful favor.",
+            "criticalFailure": "The attempt goes memorably wrong, but the crowd cheers the recovery and the team still gets a consolation route into the day."
           }
         },
         {
           "id": "fair-2",
-          "title": "The missing coffer",
-          "prompt": "A visiting artisan's locked payment coffer disappears.",
+          "title": "The stall rush",
+          "prompt": "During the busiest hour, two family stalls are short-handed, a pie tray falls, and a merchant's mule refuses to move.",
           "dc": 16,
           "approaches": {
-            "STR": "Search heavy crates and physically inaccessible storage.",
-            "DEX": "Shadow a suspect through the fair without being seen.",
-            "CON": "Keep searching through the night without rest.",
-            "INT": "Reconstruct who had access and how the lock was bypassed.",
-            "WIS": "Read body language and notice who is afraid rather than guilty.",
-            "CHA": "Question witnesses or bait the thief into revealing knowledge."
+            "STR": "Move crates, right the stall, or muscle the mule's cart out of the lane.",
+            "DEX": "Catch falling goods, weave through the crowd, and make fast precise fixes.",
+            "CON": "Work two stations back-to-back without slowing down.",
+            "INT": "Reorganize inventory, prices, and traffic so the bottleneck clears.",
+            "WIS": "Notice which problem will hurt a family most if ignored.",
+            "CHA": "Call customers, negotiate swaps, or recruit temporary help."
           },
           "outcomes": {
-            "criticalSuccess": "Recover the coffer and reveal the method plus an extra clue about the Watchstone buyers.",
-            "success": "Recover the coffer or identify the thief.",
-            "failure": "Recover most value, but the culprit escapes or someone innocent is accused first.",
-            "criticalFailure": "The wrong accusation explodes into a fight or social rupture; evidence later corrects it."
+            "criticalSuccess": "The rush turns into the best sales hour of the day and someone shares the credit with the group.",
+            "success": "The stalls survive the rush with little loss.",
+            "failure": "The stalls recover, but money, food, or pride is lost along the way.",
+            "criticalFailure": "A public mess costs a family part of the day's profit, but the group helps repair the damage before closing."
           }
         },
         {
           "id": "fair-3",
-          "title": "Rusk's offer",
-          "prompt": "Rusk offers to return the last stolen item if the party keeps his smuggling work quiet.",
+          "title": "The final relay",
+          "prompt": "The closing team relay mixes a sack carry, narrow beam, memory puzzle, animal gate, and crowd-facing finish.",
           "dc": 16,
           "approaches": {
-            "STR": "Intimidate him physically without attacking.",
-            "DEX": "Steal or snatch the evidence from him.",
-            "CON": "Outlast a dangerous chase or vigil.",
-            "INT": "Prove his leverage is false using records or logic.",
-            "WIS": "See what Rusk is genuinely afraid of.",
-            "CHA": "Bargain, persuade, deceive, or publicly corner him."
+            "STR": "Take the carry and make up ground through force.",
+            "DEX": "Take the beam or precision handoff.",
+            "CON": "Take the longest leg and keep pace despite fatigue.",
+            "INT": "Memorize and solve the sequence station.",
+            "WIS": "Handle the animal gate and choose the safest shortcut.",
+            "CHA": "Call the handoffs, steady a panicked teammate, and lead the finish."
           },
           "outcomes": {
-            "criticalSuccess": "Secure the item and a major secret while deciding Rusk's future.",
-            "success": "Resolve the theft on your terms.",
-            "failure": "Get the item, but owe someone or lose trust elsewhere.",
-            "criticalFailure": "Rusk escapes with leverage; the theft is still solved, but he becomes a stronger future complication."
+            "criticalSuccess": "The team wins or ties for the fair's top honor and can choose what to do with the prize.",
+            "success": "The team finishes well enough to be proud of the day.",
+            "failure": "The team falls short but finishes together instead of blaming one member.",
+            "criticalFailure": "A mistake costs the placing in dramatic fashion; the lesson is whether the group turns on each other or laughs and carries on."
           }
         }
       ],
-      "choice": "Turn Rusk in, recruit him as an informant, protect him, or let him leave Hearthcross.",
-      "consequence": "Determines whether the party gains a criminal contact, bitter enemy, or redeemed ally."
+      "choice": "If the group wins anything valuable, keep it, split it, give it to family, or donate it to a village need?",
+      "consequence": "Establishes how the group handles rivalry, recognition, money, and each other's mistakes."
     },
     {
-      "id": "age-16-hollow-light",
-      "age": 16,
-      "title": "The Hollow Light",
-      "objective": "Investigate lights and voices around the Watchstone after a lightning strike exposes buried masonry.",
-      "pressure": "Three nights before district officials seal the site.",
-      "relationshipFocus": [
-        "sera",
-        "sable",
-        "pike"
-      ],
-      "growthBeats": [
-        {
-          "id": "light-1",
-          "title": "The buried stair",
-          "prompt": "A collapsed stone stair descends beneath the Watchstone.",
-          "dc": 16,
-          "approaches": {
-            "STR": "Shift fallen blocks safely.",
-            "DEX": "Squeeze through and secure a rope route.",
-            "CON": "Work in stale air and cramped conditions.",
-            "INT": "Read the masonry and find the original access pattern.",
-            "WIS": "Notice airflow, sound, and unstable sections.",
-            "CHA": "Get official permission or convince adults to let the group assist."
-          },
-          "outcomes": {
-            "criticalSuccess": "Open a safe route and recover an intact ward fragment.",
-            "success": "Open a usable route.",
-            "failure": "Reach the chamber but trigger a collapse that costs time or gear.",
-            "criticalFailure": "Become briefly trapped or injured; rescue reveals another entrance."
-          }
-        },
-        {
-          "id": "light-2",
-          "title": "The echo chamber",
-          "prompt": "Whispers repeat the characters' own fears and memories.",
-          "dc": 16,
-          "approaches": {
-            "STR": "Break or move the resonant stone creating the effect.",
-            "DEX": "Cross the chamber without touching resonant tiles.",
-            "CON": "Keep functioning while the whispers attack your composure.",
-            "INT": "Map the repeating pattern and identify its mechanism.",
-            "WIS": "Separate real sounds/emotions from magical echoes.",
-            "CHA": "Speak aloud to steady the group or answer the echo without surrendering to it."
-          },
-          "outcomes": {
-            "criticalSuccess": "Master the chamber and reveal a hidden inscription.",
-            "success": "Cross and learn the core warning.",
-            "failure": "Cross with a fear, scar, or relationship confession exposed.",
-            "criticalFailure": "Panic or trigger a ward pulse; the group escapes, but the village notices the Watchstone flare."
-          }
-        },
-        {
-          "id": "light-3",
-          "title": "Sable's truth",
-          "prompt": "Old Sable admits the Watchstone is a damaged ward, but refuses to tell Pike everything.",
-          "dc": 16,
-          "approaches": {
-            "STR": "Demonstrate you can physically help maintain the site.",
-            "DEX": "Follow Sable unseen to discover where she keeps old tools.",
-            "CON": "Endure a painful ward test meant to prove resolve.",
-            "INT": "Compare Sable's story with Quill's records.",
-            "WIS": "Judge which adult is hiding the most dangerous truth.",
-            "CHA": "Persuade Sable, Pike, or both to cooperate."
-          },
-          "outcomes": {
-            "criticalSuccess": "Unite two factions and gain a direct mentor/heirloom clue.",
-            "success": "Gain the truth needed for later chapters.",
-            "failure": "Learn the truth but deepen the conflict between adults.",
-            "criticalFailure": "Trust collapses; a physical ward fragment provides the necessary clue anyway."
-          }
-        }
-      ],
-      "choice": "Who should control knowledge of the Watchstone: the reeve, mentors, the whole village, or a smaller trusted circle?",
-      "consequence": "Determines who has authority during the final crisis."
-    },
-    {
-      "id": "age-17-broken-watch",
-      "age": 17,
-      "title": "The Broken Watch",
-      "objective": "Protect travelers and Hearthcross when armed raiders exploit a night the Watchstone goes dark.",
-      "pressure": "Four rounds of crisis; raiders withdraw if their objective becomes impossible.",
+      "id": "age-15-apprentice-week",
+      "age": 15,
+      "title": "Apprentice Week",
+      "lifeEvent": "work and mentorship",
+      "tone": "responsibility, identity, experimentation",
+      "groupActivity": "For one week, Hearthcross youths rotate through real adult work before choosing where they want deeper training.",
+      "objective": "Try several kinds of work, complete a shared commission, and discover which adults or crafts feel worth returning to.",
+      "pressure": "The commission must be finished by market morning or the village pays an outside crew.",
       "relationshipFocus": [
         "orren",
-        "kess",
-        "bram"
-      ],
-      "growthBeats": [
-        {
-          "id": "watch-1",
-          "title": "Alarm at the north road",
-          "prompt": "A wagon limps into town with raiders close behind.",
-          "dc": 17,
-          "approaches": {
-            "STR": "Move barricades and pull the wagon to safety.",
-            "DEX": "Scout or flank through side lanes.",
-            "CON": "Hold a position under sustained danger.",
-            "INT": "Identify the raiders' actual target from their movement.",
-            "WIS": "Spot a hidden second group or safe evacuation route.",
-            "CHA": "Rally militia and civilians into useful jobs."
-          },
-          "outcomes": {
-            "criticalSuccess": "Save the wagon and learn the raiders' objective before they strike.",
-            "success": "Save the wagon and prepare for the next threat.",
-            "failure": "Save the people but lose cargo or position.",
-            "criticalFailure": "Your position collapses; someone is hurt or captured, creating a rescue objective."
-          }
-        },
-        {
-          "id": "watch-2",
-          "title": "A job, not a brawl",
-          "prompt": "The raiders are trying to steal a Watchstone fragment, not conquer the village.",
-          "dc": 17,
-          "approaches": {
-            "STR": "Hold the access point or wrest the fragment away.",
-            "DEX": "Reach the fragment first or sabotage the raiders' route.",
-            "CON": "Keep a defensive task going while wounded/exhausted.",
-            "INT": "Disable the mechanism or use the site layout to deny access.",
-            "WIS": "Predict the raider leader's next move.",
-            "CHA": "Bluff, command, bargain, or split the raiders' morale."
-          },
-          "outcomes": {
-            "criticalSuccess": "Deny the objective and create a noncombat surrender/retreat opening.",
-            "success": "Deny or delay the objective.",
-            "failure": "The fragment is partly damaged or stolen, but the raiders can be pursued or negotiated with.",
-            "criticalFailure": "The fragment is taken; a marked trail and captured clue preserve the path forward."
-          }
-        },
-        {
-          "id": "watch-3",
-          "title": "Orren falls",
-          "prompt": "Captain Orren is injured while another objective remains active.",
-          "dc": 17,
-          "approaches": {
-            "STR": "Carry or shield Orren while others act.",
-            "DEX": "Reach him through danger and extract him.",
-            "CON": "Keep pressure on the rescue despite fatigue or injury.",
-            "INT": "Assess the injury and choose the safest extraction.",
-            "WIS": "Recognize whether Orren is actually the priority or directing you toward someone else.",
-            "CHA": "Coordinate the rescue and defense simultaneously."
-          },
-          "outcomes": {
-            "criticalSuccess": "Save Orren and the objective; he entrusts his heirloom path if relationship supports it.",
-            "success": "Save Orren or complete the objective without abandoning either need entirely.",
-            "failure": "Choose one cost: Orren worsens, property is lost, or raiders escape.",
-            "criticalFailure": "A harsh consequence lands, but no required future path is blocked; this choice permanently marks relationships."
-          }
-        }
-      ],
-      "choice": "Who or what do you prioritize when you cannot save everything?",
-      "consequence": "Determines mentor fate, heirloom eligibility, and village defenses at age 18."
-    },
-    {
-      "id": "age-18-night-watchstone-broke",
-      "age": 18,
-      "title": "The Night the Watchstone Broke",
-      "objective": "Use six years of relationships, training, and choices to save Hearthcross when the damaged ward finally fails.",
-      "pressure": "Ward Collapse 0–4. Each unresolved major beat advances it.",
-      "relationshipFocus": [
-        "sable",
         "sera",
         "elwen",
+        "bram",
+        "tavi",
+        "maela",
+        "wren"
+      ],
+      "growthBeats": [
+        {
+          "id": "apprentice-1",
+          "title": "Morning rotations",
+          "prompt": "Each youth is sent to a different mentor for half a day, then the group compares what they learned.",
+          "dc": 16,
+          "approaches": {
+            "STR": "Work forge bellows, timber, hauling, or militia drills.",
+            "DEX": "Practice fine tools, locks, stitching, bow work, or precise craft.",
+            "CON": "Take the long repetitive jobs others abandon.",
+            "INT": "Copy records, measure materials, solve a repair, or research an old method.",
+            "WIS": "Treat patients, handle animals, gather herbs, or learn field signs.",
+            "CHA": "Deal with customers, teach younger children, perform, or mediate a complaint."
+          },
+          "outcomes": {
+            "criticalSuccess": "A mentor notices unusual promise and offers an extra lesson later.",
+            "success": "The rotation produces useful familiarity and a good day's work.",
+            "failure": "The work is completed badly enough to require correction, but the mentor explains what went wrong.",
+            "criticalFailure": "A costly or embarrassing mistake happens under supervision; the mentor makes the youth help repair it and remembers how they respond."
+          }
+        },
+        {
+          "id": "apprentice-2",
+          "title": "The crooked pavilion",
+          "prompt": "The group's shared commission is repairing the market pavilion. Halfway through, they discover an older support was installed crooked years ago.",
+          "dc": 16,
+          "approaches": {
+            "STR": "Brace and realign the timber while others secure it.",
+            "DEX": "Reach the awkward joint and make the precise correction.",
+            "CON": "Stay under the brace doing exhausting steady work until the fix is safe.",
+            "INT": "Recalculate the load and redesign the repair instead of copying the bad old work.",
+            "WIS": "Notice signs that another beam is starting to fail too.",
+            "CHA": "Get two arguing mentors to agree on one repair plan."
+          },
+          "outcomes": {
+            "criticalSuccess": "The pavilion ends up stronger than the original and Wren lets the group sign the hidden repair beam.",
+            "success": "The pavilion is repaired safely before market day.",
+            "failure": "The repair works, but costs extra materials or another day's labor.",
+            "criticalFailure": "The first fix fails inspection and has to be stripped out; the group loses pride and time, not the commission."
+          }
+        },
+        {
+          "id": "apprentice-3",
+          "title": "A real customer",
+          "prompt": "Before the week ends, a traveler needs urgent help: a broken cart, an injured hand, a lost document, and little money.",
+          "dc": 16,
+          "approaches": {
+            "STR": "Repair or lift the damaged cart enough to travel.",
+            "DEX": "Make the precise repair or recover the dropped/lost item.",
+            "CON": "Do the difficult labor without demanding the traveler pay more than they can afford.",
+            "INT": "Work out a cheap substitute repair or reconstruct the missing document's route.",
+            "WIS": "Notice the injury or hidden problem the traveler is minimizing.",
+            "CHA": "Negotiate payment, charity, or a trade that feels fair to both sides."
+          },
+          "outcomes": {
+            "criticalSuccess": "The traveler leaves genuinely helped and later becomes an outside contact.",
+            "success": "The customer gets what they need at a fair cost.",
+            "failure": "The immediate problem is solved, but the group or mentor absorbs a cost.",
+            "criticalFailure": "The first solution makes matters worse; under a mentor's eye the group repairs the mistake and learns what professional responsibility feels like."
+          }
+        }
+      ],
+      "choice": "Which mentor, craft, duty, or kind of work do you want to keep pursuing—and which one did you learn is not for you?",
+      "consequence": "Adds persistent familiarity and mentor history, but never grants automatic Level-1 proficiency."
+    },
+    {
+      "id": "age-16-road-to-bellmere",
+      "age": 16,
+      "title": "The Road to Bellmere",
+      "lifeEvent": "first trip away from home",
+      "tone": "independence, discovery, low danger",
+      "groupActivity": "The group is trusted to take a cart of goods and letters to the neighboring hamlet of Bellmere without an adult escort.",
+      "objective": "Get there, handle one night away from home, complete the deliveries, and return with the cart and each other intact.",
+      "pressure": "Bellmere's market closes at noon on the second day; missing it means sleeping away from home another night.",
+      "relationshipFocus": [
+        "jory",
+        "bram",
+        "tavi",
+        "nima",
+        "kess"
+      ],
+      "growthBeats": [
+        {
+          "id": "road-1",
+          "title": "Packing the cart",
+          "prompt": "Everyone has different ideas about what the cart needs, and there is more cargo than space.",
+          "dc": 16,
+          "approaches": {
+            "STR": "Load and secure the heaviest cargo.",
+            "DEX": "Pack fragile items tightly and tie down awkward loads.",
+            "CON": "Take responsibility for the physically miserable driving shift.",
+            "INT": "Balance weight, route, food, spare parts, and delivery order.",
+            "WIS": "Read the weather and animals before deciding what to leave behind.",
+            "CHA": "Negotiate whose cargo gets priority and keep the group from starting the trip angry."
+          },
+          "outcomes": {
+            "criticalSuccess": "The cart is balanced, nothing important is forgotten, and the group leaves early.",
+            "success": "The cart is packed well enough for the road.",
+            "failure": "Something useful is left behind or packed badly, creating inconvenience later.",
+            "criticalFailure": "The load shifts outside town and the group has to repack everything under humiliating observation from younger children."
+          }
+        },
+        {
+          "id": "road-2",
+          "title": "Night at Alder Ford",
+          "prompt": "High water makes the usual ford questionable, and darkness is less than an hour away.",
+          "dc": 16,
+          "approaches": {
+            "STR": "Move stones, brace the cart, or physically guide it through the safest line.",
+            "DEX": "Scout the bank and find a narrow foot crossing for people or light cargo.",
+            "CON": "Take the cold-water job or keep watch while exhausted.",
+            "INT": "Estimate depth/current and improvise a safer crossing method.",
+            "WIS": "Read weather, current, animal behavior, and signs of an older crossing.",
+            "CHA": "Convince the group to accept a slower plan—or persuade a nearby farmer to let them use a private footbridge."
+          },
+          "outcomes": {
+            "criticalSuccess": "The group crosses safely and still makes a comfortable camp before dark.",
+            "success": "The group gets across without serious trouble.",
+            "failure": "The crossing costs time, wet supplies, or a wheel repair.",
+            "criticalFailure": "The cart becomes stuck or damaged; the group camps there and solves the problem at first light instead of suffering a catastrophic loss."
+          }
+        },
+        {
+          "id": "road-3",
+          "title": "Bellmere market",
+          "prompt": "One recipient has moved, one merchant disputes the agreed price, and the market bell is already ringing.",
+          "dc": 16,
+          "approaches": {
+            "STR": "Handle the heavy unloading fast enough to create time for the missing delivery.",
+            "DEX": "Move through unfamiliar streets quickly and track down the moved recipient.",
+            "CON": "Keep working through the long day while everyone else is tired and hungry.",
+            "INT": "Check receipts, addresses, and market rules to settle the dispute with facts.",
+            "WIS": "Read which local actually knows where the recipient went and whether the merchant is bluffing.",
+            "CHA": "Negotiate the price dispute and get useful directions without insulting anyone."
+          },
+          "outcomes": {
+            "criticalSuccess": "Every delivery is completed and the group returns with a new outside contact or invitation.",
+            "success": "The business is finished in time to head home.",
+            "failure": "The deliveries are completed, but the group loses money, time, or comfort.",
+            "criticalFailure": "They miss the return window and must spend an unplanned second night away; nothing is ruined, but families worry and trust has to be repaired."
+          }
+        }
+      ],
+      "choice": "On the road home, do you talk about leaving Hearthcross someday, staying, or not knowing yet?",
+      "consequence": "Makes the outside world real and records each character's first serious thought about life beyond the village."
+    },
+    {
+      "id": "age-17-long-storm",
+      "age": 17,
+      "title": "The Long Storm",
+      "lifeEvent": "community emergency",
+      "tone": "serious, communal, first true danger",
+      "groupActivity": "A two-day spring storm overwhelms ordinary village preparations, and the youths are now old enough that adults rely on them.",
+      "objective": "Protect people, animals, and homes while deciding what cannot be saved.",
+      "pressure": "Storm Level 0–3 rises after each beat; the village cannot protect every location at once.",
+      "relationshipFocus": [
         "orren",
+        "maela",
+        "wren",
         "pike",
+        "mara"
+      ],
+      "growthBeats": [
+        {
+          "id": "storm-1",
+          "title": "Before the river rises",
+          "prompt": "The village has one hour to board windows, move livestock, fill sandbags, and check isolated homes.",
+          "dc": 17,
+          "approaches": {
+            "STR": "Lead the heavy boarding, hauling, and sandbag work.",
+            "DEX": "Move quickly between rooftops, shutters, ropes, and narrow spaces.",
+            "CON": "Take the longest continuous work detail without stopping.",
+            "INT": "Prioritize tasks using the flood map and available labor.",
+            "WIS": "Notice the house, animal pen, or drainage ditch everyone else forgot.",
+            "CHA": "Organize work crews and convince stubborn residents to evacuate early."
+          },
+          "outcomes": {
+            "criticalSuccess": "The village is unusually well prepared and one later storm consequence is softened.",
+            "success": "The most important preparations are complete before conditions worsen.",
+            "failure": "One location is underprepared and becomes a harder problem later.",
+            "criticalFailure": "A preparation goes wrong publicly and costs precious time, but the mistake reveals where help is needed most."
+          }
+        },
+        {
+          "id": "storm-2",
+          "title": "Someone is still out there",
+          "prompt": "A cart horse returns without its driver while a family reports that an older relative never came home.",
+          "dc": 17,
+          "approaches": {
+            "STR": "Force through debris or carry someone who cannot walk.",
+            "DEX": "Follow the quickest dangerous path and cross unstable ground.",
+            "CON": "Push through cold, wind, and exhaustion to keep searching.",
+            "INT": "Reconstruct likely routes from chores, timing, and road conditions.",
+            "WIS": "Track signs through rain and decide which clue is fresh.",
+            "CHA": "Coordinate searchers and keep frightened family members useful instead of panicked."
+          },
+          "outcomes": {
+            "criticalSuccess": "The missing people are found quickly enough to save both them and valuable supplies.",
+            "success": "The missing person is found and brought home.",
+            "failure": "The rescue succeeds but someone is injured, equipment is lost, or another task is delayed.",
+            "criticalFailure": "The first search route is wrong; the group finds the person only after conditions worsen, leaving a lasting scar or relationship consequence."
+          }
+        },
+        {
+          "id": "storm-3",
+          "title": "One crew, two crises",
+          "prompt": "The mill wall is failing while floodwater enters three homes. The group cannot personally do both jobs.",
+          "dc": 17,
+          "approaches": {
+            "STR": "Take the physically dangerous stabilization job.",
+            "DEX": "Reach trapped residents through a route larger rescuers cannot use.",
+            "CON": "Hold a failing position long enough for another crew to finish.",
+            "INT": "Devise a temporary engineering solution that buys one side time.",
+            "WIS": "Judge which crisis is about to become irreversible.",
+            "CHA": "Split and direct volunteers so both problems get at least some response."
+          },
+          "outcomes": {
+            "criticalSuccess": "The group finds a way to preserve both lives and most property.",
+            "success": "The people are safe and the chosen priority is preserved.",
+            "failure": "Everyone survives, but one important village asset is lost or badly damaged.",
+            "criticalFailure": "The wrong priority becomes obvious too late; people still survive through fail-forward rescue, but a major location changes permanently."
+          }
+        }
+      ],
+      "choice": "When safety and livelihood conflict, what does the group choose to save first?",
+      "consequence": "Creates the first genuinely adult consequence the group carries into the final year."
+    },
+    {
+      "id": "age-18-last-spring-dance",
+      "age": 18,
+      "title": "The Last Spring Dance",
+      "lifeEvent": "coming-of-age celebration and final crisis",
+      "tone": "nostalgic, hopeful, consequential",
+      "groupActivity": "The same group that once scrambled through the dance at thirteen now helps run it. Some of them may leave Hearthcross afterward.",
+      "objective": "Finish one last celebration together, settle unfinished relationships, and respond when the Watchstone finally forces the village to confront its oldest problem.",
+      "pressure": "The dance lasts three songs after midnight. When the third ends, the Watchstone's fracture can no longer be ignored.",
+      "relationshipFocus": [
         "all"
       ],
       "growthBeats": [
         {
-          "id": "final-1",
-          "title": "The village chooses",
-          "prompt": "Panic spreads as the Watchstone fractures and old paths under town open.",
+          "id": "last-dance-1",
+          "title": "This time, you're in charge",
+          "prompt": "The younger children are setting up badly in exactly the ways the group once did. Adults now expect the eighteen-year-olds to make the evening work.",
           "dc": 17,
           "approaches": {
-            "STR": "Lead physical defenses and rescues.",
-            "DEX": "Move rapidly between threatened locations or carry messages unseen.",
-            "CON": "Keep rescue/repair work functioning through exhaustion.",
-            "INT": "Use six years of clues to identify the failure sequence.",
-            "WIS": "Read the village's danger and choose who needs help first.",
-            "CHA": "Unite rival adults and assign people to jobs."
+            "STR": "Take the heavy work and teach younger helpers safe technique.",
+            "DEX": "Handle delicate setup while showing someone younger how to do it.",
+            "CON": "Keep the crew moving through a long day without snapping at them.",
+            "INT": "Plan the layout and fix old recurring problems before they happen.",
+            "WIS": "Notice which younger child is being left out or overwhelmed.",
+            "CHA": "Delegate, encourage, and resolve complaints without doing every job yourself."
           },
           "outcomes": {
-            "criticalSuccess": "The village acts as one; reduce Ward Collapse by 1 and gain a final relationship boon.",
-            "success": "The village organizes enough to proceed.",
-            "failure": "The plan works with a cost: one location begins the finale already damaged.",
-            "criticalFailure": "Two factions split; a trusted NPC still creates a workable route forward."
+            "criticalSuccess": "The setup runs so well that younger children start copying the group's habits.",
+            "success": "The dance opens smoothly and on time.",
+            "failure": "The dance opens with a few problems the group must quietly manage.",
+            "criticalFailure": "A familiar old mistake returns in a new form; the group must decide whether to blame the younger kids or teach them better."
           }
         },
         {
-          "id": "final-2",
-          "title": "Three jobs at once",
-          "prompt": "The ward needs a physical anchor reset, a pattern restored, and frightened people evacuated.",
+          "id": "last-dance-2",
+          "title": "The last song before midnight",
+          "prompt": "Old promises, rivalries, friendships, family expectations, and choices about leaving Hearthcross all come to the surface.",
           "dc": 17,
           "approaches": {
-            "STR": "Reset the anchor or hold collapsing structure.",
-            "DEX": "Cross the unstable site to place a needed component.",
-            "CON": "Remain in the dangerous zone to keep a task active.",
-            "INT": "Restore the ward sequence from records and fragments.",
-            "WIS": "Sense the correct timing/route or calm people one by one.",
-            "CHA": "Command teams, negotiate cooperation, or keep a crowd moving."
+            "STR": "Help with a physical task beside someone you need to talk to, letting the conversation happen while working.",
+            "DEX": "Find the right private moment or recover an object tied to an old memory.",
+            "CON": "Stay present through an uncomfortable conversation instead of walking away.",
+            "INT": "Use what you know of the past six years to challenge a false assumption or old story.",
+            "WIS": "Listen carefully enough to understand what someone is actually afraid of losing.",
+            "CHA": "Say what needs saying: apologize, forgive, ask, refuse, promise, or say goodbye."
           },
           "outcomes": {
-            "criticalSuccess": "Complete your job and create one local edge: one other character may gain Advantage on one later Level-0 check in this chapter. No permanent build benefit.",
-            "success": "Complete your job.",
-            "failure": "Complete it with injury, lost gear, or a damaged relationship/location.",
-            "criticalFailure": "Your job fails first, but a mentor/relationship earned earlier offers a costly recovery route."
+            "criticalSuccess": "A relationship reaches a clear, earned new state that can carry into adulthood.",
+            "success": "Something important is said or understood before midnight.",
+            "failure": "The conversation remains imperfect, but both sides know where they stand.",
+            "criticalFailure": "The attempt hurts before it helps; a hard truth comes out badly, yet the relationship is no longer built on avoidance."
           }
         },
         {
-          "id": "final-3",
-          "title": "Who you became",
-          "prompt": "The final decision cannot be solved by adults alone. The party must choose what Hearthcross becomes after the ward.",
+          "id": "last-dance-3",
+          "title": "When the Watchstone rings",
+          "prompt": "At midnight the Watchstone cracks with a sound heard across Hearthcross. Old buried channels open under the green and the village must act immediately.",
           "dc": 17,
           "approaches": {
-            "STR": "Commit to a protective physical sacrifice or reconstruction.",
-            "DEX": "Execute a precise dangerous final placement or retrieval.",
-            "CON": "Endure the ward's backlash long enough for others to finish.",
-            "INT": "Rewrite/reconfigure the failing pattern.",
-            "WIS": "Choose the humane/sustainable path after reading the consequences.",
-            "CHA": "Persuade the village to accept a difficult future and lead the final act."
+            "STR": "Brace, lift, clear, or physically hold the failing structure long enough for others to work.",
+            "DEX": "Cross unstable ground and place or retrieve the needed ward component.",
+            "CON": "Remain at the dangerous job despite pain, fear, or exhaustion.",
+            "INT": "Use Sera's records and six years of clues to understand what is failing.",
+            "WIS": "Read the pattern of tremors, people, animals, and old signs to choose the safest response.",
+            "CHA": "Unite mentors, rivals, officials, and frightened villagers behind one plan."
           },
           "outcomes": {
-            "criticalSuccess": "Resolve the crisis with an extra preserved resource, relationship, or heirloom awakening opportunity.",
-            "success": "Resolve the crisis and graduate to Level 1.",
-            "failure": "Resolve the crisis with a permanent cost recorded on the village and character sheets.",
-            "criticalFailure": "The crisis resolves through a fail-forward emergency option, but Hearthcross bears a major scar that carries into later adventures."
+            "criticalSuccess": "The group resolves the immediate failure while preserving an extra relationship, location, or piece of the village's history.",
+            "success": "The group saves Hearthcross from the immediate crisis and earns the right to decide what comes next.",
+            "failure": "The village is saved with a permanent cost that becomes part of the characters' adult history.",
+            "criticalFailure": "The first plan fails dramatically, but six years of relationships provide a costly second route; Hearthcross survives changed, and the group graduates carrying that scar."
           }
         }
       ],
-      "choice": "Preserve the old ward, rebuild it differently, or end it and accept a changed village.",
-      "consequence": "Locks the Level-0 campaign ending, village state, mentor/contact state, heirloom state, and the story carried into Level 1."
+      "choice": "After the dance and crisis, who stays, who leaves, who follows a mentor, and what promise keeps the group connected?",
+      "consequence": "Freezes the village state, relationships, aspirations, and Level-0 history that carry into Level 1."
     }
   ],
   "graduation": {
@@ -1042,5 +1071,16 @@
       "mentor": "Mentors are narrative contacts and grant no automatic numerical bonus unless an explicit house rule says otherwise.",
       "mechanics": "After the base ability array is frozen, all species/race, background, class, proficiency, HP, spell, feat, equipment, and later advancement rules must follow the selected 2014 or 2024 ruleset exactly."
     }
+  },
+  "lifeFirstDesign": {
+    "principle": "The early campaign is about growing up together, not being miniature adventurers.",
+    "ordinaryLifeYears": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "escalation": "Ages 12–15 center chores, dances, fairs, family, apprenticeships, friendships and small local problems. Age 16 expands the world. Age 17 introduces serious community danger. Age 18 combines a coming-of-age celebration with the final crisis/calling.",
+    "groupRule": "Every chapter gives the whole group a shared reason to be together and multiple simultaneous jobs so each player can contribute without waiting for one protagonist."
   }
 }
