@@ -103,7 +103,10 @@
         "pointsByOutcome",
         "lessonRule",
         "criticalFailureRule",
-        "criticalSuccessBonusRule"
+        "criticalSuccessBonusRule",
+        "minimumGraduationValue",
+        "baseGrowthNeverLost",
+        "maturitySettlementRule"
       ],
       "properties": {
         "startingPointBuyCost": {
@@ -207,6 +210,16 @@
               }
             }
           }
+        },
+        "minimumGraduationValue": {
+          "const": 27
+        },
+        "baseGrowthNeverLost": {
+          "const": true
+        },
+        "maturitySettlementRule": {
+          "type": "string",
+          "minLength": 20
         }
       }
     },
