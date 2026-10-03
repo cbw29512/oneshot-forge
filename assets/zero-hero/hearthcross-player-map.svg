@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+<title id="title">Hearthcross Player Map</title>
+<desc id="desc">A player-safe map of Hearthcross showing the Common Green, Watchstone, Crossmarket, village shops, river, road, woods, and surrounding farms.</desc>
+<defs>
+  <style>
+    .paper{fill:#f4ead6}.ink{stroke:#3d3127;stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .road{stroke:#9b7d5c;stroke-width:18;fill:none;stroke-linecap:round}.path{stroke:#b89b77;stroke-width:8;fill:none;stroke-linecap:round;stroke-dasharray:16 12}
+    .river{stroke:#7fa2ad;stroke-width:38;fill:none;stroke-linecap:round}.bank{stroke:#4b6f78;stroke-width:3;fill:none}
+    .tree{fill:#87936a;stroke:#465139;stroke-width:3}.roof{fill:#9a5f45;stroke:#4a3025;stroke-width:3}.wall{fill:#e2cda7;stroke:#4a3025;stroke-width:3}
+    .field{fill:#d9d49a;stroke:#7c764c;stroke-width:2}.water{fill:#bfd3d7}.label{font-family:Georgia,serif;font-size:26px;fill:#2e251e;font-weight:700}
+    .small{font-family:Georgia,serif;font-size:20px;fill:#4d4035}.tiny{font-family:Arial,sans-serif;font-size:16px;fill:#5d5146}
+    .green{fill:#c7d1a2;stroke:#586246;stroke-width:4}.stone{fill:#a69b8b;stroke:#4c4640;stroke-width:4}
+    .bridge{fill:#8f7354;stroke:#4d3c2c;stroke-width:3}
+  </style>
+  <g id="house"><rect class="wall" x="-32" y="-22" width="64" height="44" rx="4"/><path class="roof" d="M-40 -20 L0 -52 L40 -20 Z"/><rect x="-8" y="-2" width="16" height="24" fill="#7c5a3a"/></g>
+  <g id="tree"><circle class="tree" cx="0" cy="-8" r="18"/><circle class="tree" cx="-13" cy="1" r="13"/><circle class="tree" cx="13" cy="1" r="13"/><rect x="-4" y="8" width="8" height="21" fill="#71543a"/></g>
+</defs>
+<rect class="paper" width="1400" height="900"/>
+<path class="river" d="M50 700 C230 650 320 735 485 690 C645 645 755 735 920 700 C1080 665 1175 740 1360 690"/>
+<path class="bank" d="M45 677 C230 628 320 712 480 668 C640 623 752 712 915 677 C1080 642 1170 717 1365 668"/>
+<path class="bank" d="M55 723 C230 674 325 758 490 713 C650 668 760 758 925 723 C1085 688 1180 763 1355 713"/>
+<path class="road" d="M70 450 C310 440 400 460 650 450 C850 440 1030 415 1350 390"/>
+<path class="road" d="M690 450 C705 555 720 650 740 845"/>
+<path class="path" d="M690 450 C625 360 590 275 560 95"/>
+<ellipse class="green" cx="690" cy="430" rx="190" ry="145"/>
+<circle class="stone" cx="690" cy="315" r="24"/><path class="ink" d="M682 306 l8 10 8-10 M682 316 l8 10 8-10"/>
+<text class="label" x="727" y="320">Watchstone</text>
+<text class="label" x="605" y="445">Common Green</text>
+
+<g transform="translate(470 430)"><use href="#house"/><text class="small" x="-90" y="55">Crossmarket</text></g>
+<g transform="translate(435 330)"><use href="#house"/><text class="small" x="-76" y="55">Quill House</text></g>
+<g transform="translate(900 360)"><use href="#house"/><text class="small" x="-77" y="55">Cask &amp; Anvil</text></g>
+<g transform="translate(970 470)"><use href="#house"/><text class="small" x="-95" y="55">Venn's Remedies</text></g>
+<g transform="translate(540 570)"><use href="#house"/><text class="small" x="-75" y="55">Fox &amp; Ferry</text></g>
+<g transform="translate(820 560)"><use href="#house"/><text class="small" x="-125" y="55">Shrine of the Open Hand</text></g>
+<g transform="translate(610 520)"><rect class="wall" x="-42" y="-28" width="84" height="56"/><path class="roof" d="M-48 -27 L0 -58 L48 -27 Z"/><text class="small" x="-70" y="55">Market Pavilion</text></g>
+
+<rect class="field" x="1040" y="520" width="250" height="125" rx="18"/><path class="ink" d="M1060 550 h210 M1060 585 h210 M1060 620 h210"/><text class="small" x="1095" y="675">Outer Farms</text>
+<rect class="bridge" x="700" y="680" width="80" height="28" transform="rotate(4 740 694)"/>
+<text class="small" x="770" y="665">River Bridge</text>
+<text class="label" x="1080" y="745">Hearth River</text>
+
+<g transform="translate(330 155)"><use href="#tree"/></g><g transform="translate(390 120)"><use href="#tree"/></g><g transform="translate(450 175)"><use href="#tree"/></g><g transform="translate(510 120)"><use href="#tree"/></g><g transform="translate(285 220)"><use href="#tree"/></g><g transform="translate(365 235)"><use href="#tree"/></g><g transform="translate(455 245)"><use href="#tree"/></g><g transform="translate(545 210)"><use href="#tree"/></g>
+<text class="label" x="300" y="95">Alderwood</text>
+
+<text class="label" x="1110" y="350">Bellmere Road →</text>
+<text class="small" x="735" y="840">South road / Alder Ford ↓</text>
+<text class="tiny" x="52" y="55">HEARTHCROSS · PLAYER MAP</text>
+<text class="tiny" x="52" y="82">The places a child of Hearthcross would know. No secrets shown.</text>
+<g transform="translate(1080 85)">
+  <rect x="0" y="0" width="260" height="150" rx="10" fill="#efe2c8" stroke="#7b6249" stroke-width="2"/>
+  <text class="small" x="18" y="30">Map key</text>
+  <line class="road" x1="20" y1="55" x2="70" y2="55"/><text class="tiny" x="85" y="60">Road</text>
+  <line class="path" x1="20" y1="85" x2="70" y2="85"/><text class="tiny" x="85" y="90">Footpath</text>
+  <line class="river" x1="20" y1="115" x2="70" y2="115"/><text class="tiny" x="85" y="120">River</text>
+</g>
+</svg>
