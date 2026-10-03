@@ -31,7 +31,7 @@ ADVENTURE.rooms = [
       "DC 12 Investigation: the trail passes through the pantry and down an old stair hidden beneath a flour bin.",
       "DC 10 Persuasion: calm Pip enough for him to describe the tall, pale figure he saw only in the mirror."
     ],
-    "the Birthday Hero alone hears the fleeing spark whisper: 'Find me before the last candle dies.'",
+    "The Birthday Hero alone hears the fleeing spark whisper: 'Find me before the last candle dies.'",
     "Martha removes a brass key from beneath her apron. The pantry floor unlocks with a sigh, revealing stairs into the forgotten celebration halls.",
     { dialogue:[
       "Martha: 'No one celebrates alone under my roof, my dear. Not tonight.'",
@@ -53,7 +53,7 @@ ADVENTURE.rooms = [
       "DC 12 Perception: the Birthday Hero's frame bears a tiny gold dragon emblem matching the pop-up card motif.",
       "Any sincere toast, kind memory, or statement about why a person matters lights one candle automatically."
     ],
-    "the Birthday Hero's candle must be lit by another hero saying why the Birthday Hero matters to them. the Birthday Hero cannot solve her own candle. When it lights, she receives Wish Fragment I: NOT FOR ME ALONE.",
+    "The Birthday Hero's candle must be lit by another hero saying why the Birthday Hero matters to them. the Birthday Hero cannot solve their own candle. When it lights, they receive Wish Fragment I: NOT FOR ME ALONE.",
     "When all six candles burn, the painted dragon curls around the frame and becomes a brass door handle.",
     { puzzle:"Puzzle 1 — Forgotten Candles: light all six candles through sincere remembrance. Never require a die roll for a heartfelt answer.", dialogue:["Whispering portrait: 'A birthday forgotten is not a life forgotten—unless no one chooses to remember.'"] }
   ),
@@ -111,7 +111,7 @@ ADVENTURE.rooms = [
       "DC 12 Arcana: the magic reacts to intention, so pretending to give a gift does not work.",
       "Creative exchanges, including giving a box to an NPC, are valid."
     ],
-    "the Birthday Hero's box will not open in her hands. When she gives it to Jonnelle or another companion, it reveals Wish Fragment II: BUT FOR ONE MORE ADVENTURE.",
+    "the Birthday Hero's box will not open in her hands. When they give it to another companion, it reveals Wish Fragment II: BUT FOR ONE MORE ADVENTURE.",
     "When everyone has genuinely given or received a gift, ribbons weave themselves into a glowing path toward the Candle Maze.",
     { puzzle:"Puzzle 2 — Gift Exchange: each marked gift opens only after being freely given to someone else." }
   ),
