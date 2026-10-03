@@ -91,7 +91,24 @@ Available materials must be reachable without reconstructing URLs:
 
 Unavailable materials must be labeled unavailable rather than linking to empty output.
 
-## 7. Production validation
+## 7. Edition integrity
+
+Every paid one-shot must expose an explicit **2014 / 2024** rules choice before play begins.
+
+That selection controls the entire session package:
+- adventure mechanics;
+- monsters and NPC mechanics;
+- spells and features;
+- rules references;
+- pregens;
+- printed character sheets;
+- equipment and magic items.
+
+The UI must never offer a pregen from the wrong edition. Edition changes invalidate or remap incompatible saved character selections.
+
+A paid release is incomplete until both edition packages are independently validated.
+
+## 8. Production validation
 
 A gameplay-facing release candidate is not production-ready until:
 - authored adventure validation passes;
@@ -109,7 +126,7 @@ A gameplay-facing release candidate is not production-ready until:
 
 Do not weaken a validator to make a release pass. Repair the product.
 
-## 8. Definition of "production ready"
+## 9. Definition of "production ready"
 
 For One-Shot Forge, **production ready** means:
 
