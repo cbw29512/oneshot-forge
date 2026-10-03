@@ -2955,8 +2955,8 @@
         }
       },
       "skills": "Medicine +5, Nature +2, Perception +5, Survival +5",
-      "ac": 16,
-      "acNotes": "hide 12 + Dex 1 + shield 2",
+      "ac": 15,
+      "acNotes": "hide 12 + Dex 1 + wooden shield 2",
       "initiative": 1,
       "speedFt": 30,
       "hp": 31,
