@@ -89,6 +89,37 @@ No roleplay Disadvantage exists. If the approach does not earn Advantage, the ch
 
 Because Advantage also increases the chance that the kept die is a natural 20 and sharply reduces the chance that it is a natural 1, strong character-grounded play slightly biases both ordinary success and the critical-growth outcomes without changing the guaranteed 27-point floor.
 
+## Upbringing Lean fairness audit
+
+Upbringing Lean is a Level-0 probability house rule. It does not change the six starting 9s.
+
+Every one of the twelve presets has exactly:
+- 2 Favored abilities rolled with Advantage;
+- 2 Neutral abilities rolled normally;
+- 2 Challenging abilities rolled with Disadvantage.
+
+This gives every preset the same **number** of favorable, neutral, and unfavorable lanes. The profiles differ only in *which* abilities receive those lanes.
+
+At age 12 with ability 9 (-1) against DC 15:
+- Neutral succeeds on 16–20: **25%**;
+- Advantage succeeds about **43.75%**;
+- Disadvantage succeeds about **6.25%**.
+
+That is intentionally a strong upbringing signal before the ability scores themselves diverge.
+
+Character Advantage interacts through normal advantage/disadvantage cancellation:
+- Neutral + Character Advantage → Advantage;
+- Challenging + Character Advantage → Normal;
+- Favored + Character Advantage → still Advantage.
+
+There is no double Advantage.
+
+No acting penalty exists. Upbringing Disadvantage is fixed by the selected Level-0 profile; it is not imposed because a player was quiet, brief, or untheatrical.
+
+The profile locks after the first resolved Growth Beat so a player cannot swap profiles between checks to chase favorable dice.
+
+Upbringing Lean ends mechanically at Level 1. It remains scrapbook/history context only and cannot grant permanent Advantage, Disadvantage, proficiency, save proficiency, ASI, feat, spell, or class feature.
+
 ## D20 resolution boundary
 
 The check itself still resolves using the normal 5E procedure:
@@ -140,6 +171,11 @@ CI must reject any implementation that:
 - lowers the age-band DC floors below 15 / 16 / 17;
 - grants Character Advantage without a specific fiction-grounded reason;
 - penalizes weak presentation or acting with Disadvantage;
+- gives any Upbringing Lean more or fewer than 2 Favored / 2 Neutral / 2 Challenging abilities;
+- lets Upbringing Lean alter the six starting 9s;
+- allows the Upbringing Lean to be swapped after the first resolved Growth Beat;
+- lets Upbringing Advantage/Disadvantage stack instead of cancel;
+- carries Upbringing Lean mechanical Advantage/Disadvantage into Level 1;
 - stacks Character Advantage beyond the normal two-d20 keep-high procedure;
 - awards success anything other than +1 flexible point;
 - awards failure anything other than +1 off-path Lesson Point;
