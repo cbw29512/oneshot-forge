@@ -10,6 +10,11 @@ const PRODUCTS: Record<string, StripeProduct> = {
     title: "The Well That Would Not Dry",
     amountCents: 99,
   },
+  "birthday-one-shot": {
+    id: "birthday-one-shot",
+    title: "Birthday One Shot",
+    amountCents: 99,
+  },
   "the-owlbear-egg": {
     id: "the-owlbear-egg",
     title: "The Owlbear Egg",
