@@ -1599,7 +1599,7 @@
           "proficient": true
         },
         "CON": {
-          "bonus": 1,
+          "bonus": 2,
           "proficient": false
         },
         "INT": {
@@ -3106,8 +3106,8 @@
           "INT": 1
         }
       },
-      "ac": 15,
-      "acNotes": "leather armor 11 + Dex 1 + shield 2, plus Warden medium-armor training available for later upgrades",
+      "ac": 14,
+      "acNotes": "leather armor 11 + Dex 1 + shield 2; Warden grants Medium armor training for later upgrades",
       "initiative": 1,
       "speedFt": 30,
       "hp": 12,
