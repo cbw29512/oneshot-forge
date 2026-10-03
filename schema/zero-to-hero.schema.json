@@ -11,7 +11,8 @@
     "development",
     "village",
     "chapters",
-    "graduation"
+    "graduation",
+    "lifeFirstDesign"
   ],
   "properties": {
     "id": {
@@ -293,7 +294,67 @@
     "chapters": {
       "type": "array",
       "minItems": 7,
-      "maxItems": 7
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "age",
+          "title",
+          "lifeEvent",
+          "tone",
+          "groupActivity",
+          "objective",
+          "pressure",
+          "relationshipFocus",
+          "growthBeats",
+          "choice",
+          "consequence"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "age": {
+            "type": "integer",
+            "minimum": 12,
+            "maximum": 18
+          },
+          "title": {
+            "type": "string"
+          },
+          "lifeEvent": {
+            "type": "string"
+          },
+          "tone": {
+            "type": "string"
+          },
+          "groupActivity": {
+            "type": "string"
+          },
+          "objective": {
+            "type": "string"
+          },
+          "pressure": {
+            "type": "string"
+          },
+          "relationshipFocus": {
+            "type": "array",
+            "minItems": 1
+          },
+          "growthBeats": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "choice": {
+            "type": "string"
+          },
+          "consequence": {
+            "type": "string"
+          }
+        }
+      }
     },
     "graduation": {
       "type": "object",
@@ -302,6 +363,37 @@
         "2024",
         "rawAudit"
       ]
+    },
+    "lifeFirstDesign": {
+      "type": "object",
+      "required": [
+        "principle",
+        "ordinaryLifeYears",
+        "escalation",
+        "groupRule"
+      ],
+      "properties": {
+        "principle": {
+          "type": "string",
+          "minLength": 20
+        },
+        "ordinaryLifeYears": {
+          "const": [
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        "escalation": {
+          "type": "string",
+          "minLength": 30
+        },
+        "groupRule": {
+          "type": "string",
+          "minLength": 30
+        }
+      }
     }
   }
 }
