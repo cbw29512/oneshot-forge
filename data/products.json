@@ -1,13 +1,13 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "currency": "USD",
   "products": [
     {
       "id": "the-lantern-below",
       "title": "The Lantern Below",
-      "status": "review",
-      "priceCents": 99,
-      "currentAccess": "free-preview",
+      "status": "starter-review",
+      "priceCents": 0,
+      "currentAccess": "free-starter",
       "sellable": false,
       "runnerUrl": "run.html?id=the-lantern-below",
       "productUrl": "adventures/the-lantern-below.html",
@@ -17,14 +17,23 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
-        "checkoutConfigured": false
+        "requiresCheckout": false,
+        "checkoutConfigured": false,
+        "dmPlaytestApproved": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
+      },
+      "delivery": {
+        "browserRequiredForPaid": true,
+        "browserReady": true,
+        "printReady": true,
+        "zipRequiredForPaid": true,
+        "zipReady": false,
+        "zipUrl": null
       }
     },
     {
@@ -43,13 +52,22 @@
         "requiresApproval": true,
         "approved": false,
         "requiresCheckout": true,
-        "checkoutConfigured": false
+        "checkoutConfigured": false,
+        "dmPlaytestApproved": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
+      },
+      "delivery": {
+        "browserRequiredForPaid": true,
+        "browserReady": true,
+        "printReady": true,
+        "zipRequiredForPaid": true,
+        "zipReady": false,
+        "zipUrl": null
       }
     },
     {
@@ -68,13 +86,22 @@
         "requiresApproval": true,
         "approved": false,
         "requiresCheckout": true,
-        "checkoutConfigured": false
+        "checkoutConfigured": false,
+        "dmPlaytestApproved": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
+      },
+      "delivery": {
+        "browserRequiredForPaid": true,
+        "browserReady": true,
+        "printReady": true,
+        "zipRequiredForPaid": true,
+        "zipReady": false,
+        "zipUrl": null
       }
     },
     {
@@ -93,13 +120,22 @@
         "requiresApproval": true,
         "approved": false,
         "requiresCheckout": true,
-        "checkoutConfigured": false
+        "checkoutConfigured": false,
+        "dmPlaytestApproved": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
+      },
+      "delivery": {
+        "browserRequiredForPaid": true,
+        "browserReady": true,
+        "printReady": true,
+        "zipRequiredForPaid": true,
+        "zipReady": false,
+        "zipUrl": null
       }
     },
     {
@@ -118,13 +154,22 @@
         "requiresApproval": true,
         "approved": false,
         "requiresCheckout": true,
-        "checkoutConfigured": false
+        "checkoutConfigured": false,
+        "dmPlaytestApproved": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
+      },
+      "delivery": {
+        "browserRequiredForPaid": true,
+        "browserReady": true,
+        "printReady": true,
+        "zipRequiredForPaid": true,
+        "zipReady": false,
+        "zipUrl": null
       }
     },
     {
@@ -143,13 +188,22 @@
         "requiresApproval": true,
         "approved": false,
         "requiresCheckout": true,
-        "checkoutConfigured": false
+        "checkoutConfigured": false,
+        "dmPlaytestApproved": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
+      },
+      "delivery": {
+        "browserRequiredForPaid": true,
+        "browserReady": true,
+        "printReady": true,
+        "zipRequiredForPaid": true,
+        "zipReady": false,
+        "zipUrl": null
       }
     },
     {
@@ -168,13 +222,22 @@
         "requiresApproval": true,
         "approved": false,
         "requiresCheckout": true,
-        "checkoutConfigured": false
+        "checkoutConfigured": false,
+        "dmPlaytestApproved": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
+      },
+      "delivery": {
+        "browserRequiredForPaid": true,
+        "browserReady": true,
+        "printReady": true,
+        "zipRequiredForPaid": true,
+        "zipReady": false,
+        "zipUrl": null
       }
     },
     {
@@ -193,13 +256,22 @@
         "requiresApproval": true,
         "approved": false,
         "requiresCheckout": true,
-        "checkoutConfigured": false
+        "checkoutConfigured": false,
+        "dmPlaytestApproved": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
+      },
+      "delivery": {
+        "browserRequiredForPaid": true,
+        "browserReady": true,
+        "printReady": true,
+        "zipRequiredForPaid": true,
+        "zipReady": false,
+        "zipUrl": null
       }
     },
     {
@@ -223,13 +295,22 @@
         "requiresApproval": true,
         "approved": false,
         "requiresCheckout": true,
-        "checkoutConfigured": false
+        "checkoutConfigured": false,
+        "dmPlaytestApproved": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
+      },
+      "delivery": {
+        "browserRequiredForPaid": true,
+        "browserReady": false,
+        "printReady": true,
+        "zipRequiredForPaid": true,
+        "zipReady": true,
+        "zipUrl": "assets/bundles/right-to-owlbear-arms-v1.1.zip"
       }
     }
   ]
