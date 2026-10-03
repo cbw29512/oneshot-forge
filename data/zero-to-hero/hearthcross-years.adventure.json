@@ -1,0 +1,549 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "from-zero-to-hero-hearthcross-years",
+    "title": "From Zero to Hero: The Hearthcross Years",
+    "format": "Level-0 origin adventure",
+    "systemCompatibility": "5E-compatible fantasy RPG with explicit Level-0 house rules",
+    "defaultPartySize": 4,
+    "partySizeRange": "4–6 players",
+    "startAge": 12,
+    "endAge": 18,
+    "sessionCount": 7,
+    "expectedMinutesPerChapter": 90,
+    "totalExpectedMinutes": 630,
+    "tone": [
+      "coming of age",
+      "village life",
+      "friendship",
+      "competition",
+      "earned heroism"
+    ]
+  },
+  "premise": {
+    "playerPitch": "You begin at twelve years old with six 9s, no class, and a whole village that still sees you as a child. Over seven years you do chores, compete at fairs, make friends, disappoint people, learn trades, leave home for the first time, survive a storm, and face the night Hearthcross finally needs you. Every win and loss becomes a scrapbook card. By the end, the scrapbook explains the Level-1 adventurer you became.",
+    "gmSummary": "Run one chapter per age from 12 through 18. Each chapter contains exactly three shared Growth Beats. Every player gets one Development Check in each beat before that beat closes. The player-facing Zero-to-Hero sheet owns the development wallet, Upbringing Lean, cards, Yearbook, and graduation math. This adventure owns pacing, read-aloud, NPC pressure, group choices, contest procedure, and the evolving village. Early chapters are deliberately ordinary. Serious danger begins at 17. The age-18 Watchstone crisis pays off people, places, promises, and mistakes accumulated across the earlier years.",
+    "winCondition": "There is no single win condition. The adventure succeeds when the four-to-six players complete all seven years, preserve their consequences, finish 21 personal Development Checks each, and graduate with a legal 27–30 Level-0 base array before entering certified 2014 or 2024 Level-1 creation.",
+    "failureRule": "Failure always changes the story and the scrapbook; it never removes a player's baseline development or bricks the campaign."
+  },
+  "tableContract": {
+    "defaultPlayers": 4,
+    "supportedPlayers": [
+      4,
+      5,
+      6
+    ],
+    "spotlightRule": "In every Growth Beat, every player gets one distinct Development Check before the beat closes. Rotate who acts first from beat to beat and chapter to chapter.",
+    "fourPlayerProcedure": [
+      "Name Players A–D at session start.",
+      "Beat 1 starts with A, Beat 2 with B, Beat 3 with C; next chapter starts with D, then continue rotating.",
+      "After the first action changes the scene, ask the next player what they do in the new situation; do not replay the exact same check.",
+      "A character may help another in the fiction but still needs their own Development Check."
+    ],
+    "scaling": {
+      "5": "Add one more distinct task, witness, delivery, rival, or consequence in each Growth Beat; do not raise DCs.",
+      "6": "Add two more distinct tasks or consequences and split crowded scenes into two simultaneous fronts; do not raise DCs."
+    }
+  },
+  "rulesBoundary": {
+    "level0": "All developmental checks, Upbringing Lean, natural-20/natural-1 growth tiers, Lesson Points, scrapbook development cards, 27 floor, and 30 ceiling are explicit Level-0 house rules.",
+    "level1": "Once the base array is frozen, 2014 or 2024 rules become authoritative for race/species, background, class, HP, proficiency, saves, spells, feats, equipment, and later advancement. Do not mix editions.",
+    "safety": "Ages 12–15 use embarrassment, responsibility, cost, damaged property, strained relationships, and ordinary accidents rather than routine lethal stakes. Age 16 adds travel risk. Age 17 introduces serious danger. Age 18 contains the true origin crisis."
+  },
+  "hearthcrossSix": {
+    "purpose": "A balanced six-contest slate used across childhood celebrations. One contest is keyed to each ability so every 2/2/2 Upbringing Lean encounters exactly two Favored, two Neutral, and two Challenging contests across the slate.",
+    "ranking": "For each core contest, all contestants use the named primary ability. Use the character's Upbringing Lean and Character Advantage cancellation. Rank by final check total, then kept d20, then one story-only d20 tiebreak. Placement grants a scrapbook award but no extra Development Point.",
+    "contests": [
+      {
+        "id": "sack-haul",
+        "ability": "STR",
+        "name": "Sack Haul"
+      },
+      {
+        "id": "rat-race",
+        "ability": "DEX",
+        "name": "The Rat Race"
+      },
+      {
+        "id": "pie-eating",
+        "ability": "CON",
+        "name": "Pie-Eating Contest"
+      },
+      {
+        "id": "riddle-table",
+        "ability": "INT",
+        "name": "Riddle Table"
+      },
+      {
+        "id": "hearthcross-scavenger-hunt",
+        "ability": "WIS",
+        "name": "Hearthcross Scavenger Hunt"
+      },
+      {
+        "id": "lantern-decorating",
+        "ability": "CHA",
+        "name": "Lantern Presentation"
+      }
+    ]
+  },
+  "chapterOrder": [
+    "age-12-spring-chore-day",
+    "age-13-spring-dance",
+    "age-14-harvest-games",
+    "age-15-apprentice-week",
+    "age-16-road-to-bellmere",
+    "age-17-long-storm",
+    "age-18-last-spring-dance"
+  ],
+  "chapters": [
+    {
+      "id": "age-12-spring-chore-day",
+      "age": 12,
+      "title": "Spring Chore Day",
+      "sessionGoal": "Make the party feel like children who belong to the same village before asking them to be heroes.",
+      "openingReadAloud": "Spring has finally beaten the last gray ice out of Hearthcross. The Common Green is crowded with carts, brooms, buckets, fence rails, and adults holding lists far too long for one morning. For the first time, your names are written on the youth work board instead of beside your parents'.",
+      "dmOpening": [
+        "Have each player introduce their home, one chore they hate, and one person in Hearthcross they do not want to disappoint.",
+        "Confirm each player has chosen an Upbringing Lean before the first Development Check.",
+        "Tell the players nobody is grading their acting; concrete choices and history are enough."
+      ],
+      "beats": [
+        {
+          "growthBeatId": "chores-1",
+          "title": "The Job Board",
+          "minutes": 25,
+          "purpose": "Establish teamwork and first adult trust.",
+          "readAloud": "Five jobs are circled in chalk: firewood, shrine steps, a broken fence, flour delivery, and medicine delivery. Wren Cask folds her arms and points at the sky. “Rain by the third bell. Decide who does what before the weather decides for you.”",
+          "runSteps": [
+            "Put all five jobs on the table at once.",
+            "Ask the first player to choose a responsibility and method; resolve that character's Development Check.",
+            "Change the fiction based on that result, then move to the next player with a different remaining problem.",
+            "For four players, leave one job dependent on how well the group coordinates; for five or six, each player can own a job."
+          ],
+          "consequence": "Record which household or institution the party prioritized. That group begins treating them as dependable—or remembers being left waiting.",
+          "scrapbookPrompt": "Name one object from the chore day that would still make the character remember being twelve."
+        },
+        {
+          "growthBeatId": "chores-2",
+          "title": "Clover Gets Loose",
+          "minutes": 20,
+          "purpose": "Turn an ordinary mistake into a group comedy with real consequences.",
+          "readAloud": "There is a crack of wood, a delighted bleat, and Mara Hale's goat Clover shoots through the half-mended fence with six feet of rope bouncing behind her. She makes straight for Maela Venn's neat rows of spring herbs. Maela looks at you, then at the goat. “Please tell me that's still your problem.”",
+          "runSteps": [
+            "Run Clover as a moving problem, not combat.",
+            "Each player's action changes Clover's position: garden, wash line, flour cart, shrine steps, then fence unless stopped earlier.",
+            "Do not end the beat after the first successful catch; later players handle damage control, frightened animals, broken fence, or Maela's reaction.",
+            "A failure creates a funny cost; a critical failure should create a memorable mishap card, not serious injury."
+          ],
+          "consequence": "If the garden is damaged, the group owes Maela a future favor. If it survives, she becomes an early source of trust.",
+          "scrapbookPrompt": "Give the goat incident a nickname the village would still use six years later."
+        },
+        {
+          "growthBeatId": "chores-3",
+          "title": "Rain Before Supper",
+          "minutes": 25,
+          "purpose": "End the first year with responsibility instead of spectacle.",
+          "readAloud": "The third bell has not rung, but the rain comes anyway—fat cold drops that turn dust to dark spots in seconds. Flour, lamp oil, and medicine are still on the cart. Three households are waiting, and the road is already becoming mud.",
+          "runSteps": [
+            "Put the three deliveries and worsening weather in front of the group.",
+            "Every player chooses what they protect, carry, reroute, or sacrifice.",
+            "On failure, something arrives late/wet/damaged but no household loses an essential medicine dose; fail forward.",
+            "End with the group arriving home soaked and being treated a little less like children."
+          ],
+          "consequence": "The village gains its first opinion of the group as a unit.",
+          "scrapbookPrompt": "What did the character bring home from the rain: an object, a bruise, a compliment, or an argument?"
+        }
+      ],
+      "closeReadAloud": "That winter, adults still call you children—but now they sometimes call your names when work needs doing.",
+      "yearbookFocus": "First responsibility"
+    },
+    {
+      "id": "age-13-spring-dance",
+      "age": 13,
+      "title": "The Spring Dance",
+      "sessionGoal": "Make social victories and embarrassments as important as physical ones.",
+      "openingReadAloud": "A year later, ribbons cross the Fox & Ferry yard and every window in Crossmarket has a spring lantern hanging in it. The dance does not begin until sunset, which means the village has given the youth crews all afternoon to make mistakes where everyone can see them.",
+      "dmOpening": [
+        "Ask what changed about each character physically or socially since last spring.",
+        "Run the CHA Hearthcross Six contest—Lantern Presentation—as an optional placement card before Beat 1; it adds no DP by itself.",
+        "Put Kess, Nima, and one chosen family member into the evening."
+      ],
+      "beats": [
+        {
+          "growthBeatId": "dance-1",
+          "title": "Before the Music",
+          "minutes": 25,
+          "purpose": "Give the group ownership of the celebration.",
+          "readAloud": "Benches are in the wrong place, two lantern poles lean toward the food tables, and half the older youths have vanished the moment someone mentioned carrying barrels. The musicians are already tuning.",
+          "runSteps": [
+            "Let each player claim a setup problem.",
+            "If someone won or lost the Lantern Presentation, let that result color how villagers react to them.",
+            "Resolve all players before the music begins.",
+            "Use success to improve the party's position in Beat 3; use failure for running jokes and repair work."
+          ],
+          "consequence": "A clean setup earns public praise; a messy one creates a village story that can return in later dances.",
+          "scrapbookPrompt": "What decoration, ribbon, lantern, or mistake becomes the image the character remembers?"
+        },
+        {
+          "growthBeatId": "dance-2",
+          "title": "The Awkward Middle",
+          "minutes": 25,
+          "purpose": "Let relationships create mechanical history without forcing romance.",
+          "readAloud": "The first hour goes well enough that people begin making bad social decisions. Someone has been left out, Kess is showing off, a friend has heard a rumor that may not be true, and somebody is pretending not to care who asked whom to dance.",
+          "runSteps": [
+            "Ask each player which social problem they notice or choose to ignore.",
+            "No romance is mandatory; friendship, rivalry, family embarrassment, and loyalty are equally valid.",
+            "A player can earn Character Advantage by invoking a real relationship or prior memory.",
+            "Failure strains a relationship; it never forces a romantic outcome."
+          ],
+          "consequence": "Update one friend/rival/mentor relationship per character.",
+          "scrapbookPrompt": "Who did the character spend time with when nobody was assigning them a job?"
+        },
+        {
+          "growthBeatId": "dance-3",
+          "title": "Lanterns in the Wind",
+          "minutes": 20,
+          "purpose": "Give the chapter a group-action finish while keeping stakes ordinary.",
+          "readAloud": "A gust runs through the yard hard enough to make every flame lean sideways. One lantern line tears free, then a second. A pole starts to fall toward the crowded food tables while the musicians keep playing because nobody has told them to stop.",
+          "runSteps": [
+            "Give every player a distinct front: falling pole, loose line, hot lantern, crowded table, frightened younger child, or keeping the dance calm.",
+            "If the group resolves things cleanly, the music never stops.",
+            "On failure, move the dance indoors or lose food/decorations; nobody is seriously injured.",
+            "End with one last-song choice."
+          ],
+          "consequence": "The last-song choice becomes a Yearbook relationship memory.",
+          "scrapbookPrompt": "What part of this embarrassment or triumph gets retold next spring?"
+        }
+      ],
+      "closeReadAloud": "The last song ends, lantern smoke hangs in the rafters, and the walk home feels shorter than it did last year.",
+      "yearbookFocus": "Belonging and embarrassment"
+    },
+    {
+      "id": "age-14-harvest-games",
+      "age": 14,
+      "title": "Harvest Fair & Team Games",
+      "sessionGoal": "Make winning and losing visible, fair, funny, and formative.",
+      "openingReadAloud": "Harvest banners turn Crossmarket gold and red. This year your names are not just on the work board—they are on the competition slate. Ribbons, wooden trophies, and one extremely suspicious pie crown wait on the judges' table.",
+      "dmOpening": [
+        "This is the best chapter for the Hearthcross Six. Run as many placement contests as the table enjoys; use the three Growth Beats for the major fair situations.",
+        "Across the six core contests, each Upbringing Lean gets exactly 2 Favored, 2 Neutral, and 2 Challenging lanes.",
+        "Every player gets a placement card in every contest they enter."
+      ],
+      "beats": [
+        {
+          "growthBeatId": "fair-1",
+          "title": "Pick Your Event",
+          "minutes": 30,
+          "purpose": "Let competition identity emerge without letting one stat dominate the whole fair.",
+          "readAloud": "A bell rings and six chalkboards flip over: Sack Haul, Rat Race, Pie Eating, Riddle Table, Scavenger Hunt, Lantern Presentation. Kess grins across the green. “Pick carefully. I plan to remember this forever.”",
+          "runSteps": [
+            "Run at least two Hearthcross Six contests now, preferably one physical and one mental/social.",
+            "For each contest, everyone who enters uses the same primary ability; record official placement 1st through field size.",
+            "Award 1st/2nd/3rd podium cards and unique consolation/mishap cards to everyone else.",
+            "The Growth Beat Development Check remains the player's broader response to competition—training, pressure, sportsmanship, strategy, nerves, or recovery—not an extra placement DP."
+          ],
+          "consequence": "Establish who is competitive, gracious, resentful, fearless, or unexpectedly talented.",
+          "scrapbookPrompt": "Which ribbon, trophy, joke award, or failure goes in the scrapbook?"
+        },
+        {
+          "growthBeatId": "fair-2",
+          "title": "The Stall Rush",
+          "minutes": 20,
+          "purpose": "Remind players the fair is also family work.",
+          "readAloud": "The fair reaches its loudest hour at exactly the wrong moment. A pie tray tips, two family stalls are short-handed, and a merchant's mule plants all four feet in the middle of the lane. Somewhere behind you, a judge is calling the next event.",
+          "runSteps": [
+            "Force a choice between competition glory and helping people.",
+            "Every player gets a separate practical problem.",
+            "Character Advantage should often come from family duties, earlier chores, or a relationship.",
+            "On failure, money, food, or pride is lost—not campaign access."
+          ],
+          "consequence": "Families remember whether the character showed up when fun competed with responsibility.",
+          "scrapbookPrompt": "What did the character miss—or give up—to help?"
+        },
+        {
+          "growthBeatId": "fair-3",
+          "title": "The Final Relay",
+          "minutes": 25,
+          "purpose": "End the fair on teamwork rather than individual ranking.",
+          "readAloud": "The closing relay is deliberately unfair: a carry, a balance beam, a memory station, an animal gate, and a crowd-facing finish. The judges do not care who has the best single talent. They care whether your team gets everybody across.",
+          "runSteps": [
+            "Give each player a different relay job aligned with the fiction they choose.",
+            "Do not allow one high roll to carry the whole team; each player resolves once.",
+            "Failure changes final placing but the team finishes together.",
+            "If you want one more Hearthcross Six result, run the remaining core contest after the relay as an epilogue."
+          ],
+          "consequence": "The group's reaction to winning or losing becomes village reputation.",
+          "scrapbookPrompt": "What did the team do immediately after the result was announced?"
+        }
+      ],
+      "closeReadAloud": "By sunset the ribbons matter less than the stories. Some people won. Some lost. Everybody remembers exactly who laughed, who sulked, and who stayed to help clean up.",
+      "yearbookFocus": "Competition and sportsmanship"
+    },
+    {
+      "id": "age-15-apprentice-week",
+      "age": 15,
+      "title": "Apprentice Week",
+      "sessionGoal": "Let characters discover work, mentors, and identities without granting premature proficiency.",
+      "openingReadAloud": "At fifteen, adults stop asking what games you like and start asking what work you can do. For one week every youth in Hearthcross rotates through real jobs before choosing where to spend more of the coming year.",
+      "dmOpening": [
+        "Offer at least four mentor stations relevant to the party: Orren, Sera, Elwen, Bram, Tavi, Maela, Wren, or Jory.",
+        "Make clear that familiarity is story/history only until a legal Level-1 source grants proficiency.",
+        "Ask each player what they hope they are good at—and what they fear they are not."
+      ],
+      "beats": [
+        {
+          "growthBeatId": "apprentice-1",
+          "title": "Morning Rotations",
+          "minutes": 25,
+          "purpose": "Test assumptions about what each child thinks they will become.",
+          "readAloud": "The first bell sends everyone in a different direction: forge smoke, herb steam, ink, animals, customers, drills, ledgers. By midday, every one of you has discovered at least one job that looks easier from across the street.",
+          "runSteps": [
+            "Give each player a mentor and concrete task.",
+            "Success earns praise but not proficiency.",
+            "Failure should teach technique, patience, humility, or a different ability lane.",
+            "Record one mentor quote suitable for a scrapbook memory card."
+          ],
+          "consequence": "A mentor may offer future time based on attitude, not just success.",
+          "scrapbookPrompt": "What did the mentor say that the character still remembers at eighteen?"
+        },
+        {
+          "growthBeatId": "apprentice-2",
+          "title": "The Crooked Pavilion",
+          "minutes": 25,
+          "purpose": "Make the party solve an adult problem together.",
+          "readAloud": "Halfway through repairing the market pavilion, Wren stops the work with one raised hand. The old support beneath your new boards is crooked—badly crooked—and fixing only what you were assigned would hide the problem for another year.",
+          "runSteps": [
+            "Present the choice: finish on time with the hidden flaw or admit the larger repair.",
+            "Every player's check addresses a different part of the correction or negotiation.",
+            "Failure costs materials/time; critical failure means redoing work and facing embarrassment.",
+            "The pavilion's eventual condition should remain visible in later chapters."
+          ],
+          "consequence": "The group learns whether professional responsibility matters more than looking competent.",
+          "scrapbookPrompt": "Did the character sign the hidden repair beam? Why or why not?"
+        },
+        {
+          "growthBeatId": "apprentice-3",
+          "title": "A Real Customer",
+          "minutes": 20,
+          "purpose": "Introduce professional responsibility and fairness.",
+          "readAloud": "A traveler limps into the work yard with a damaged cart, a cut hand, a missing delivery paper, and not enough coin to solve all four problems. Your mentors do not answer for you. They wait to see what you do.",
+          "runSteps": [
+            "Let each player take one aspect of the customer's problem.",
+            "Do not make charity automatically correct; fair trade, clever substitution, or calling in a favor are valid.",
+            "Failure may cost the mentor money or time and requires repair/accountability.",
+            "If helped well, the traveler becomes a later Bellmere contact."
+          ],
+          "consequence": "The party gains or loses one outside contact before age 16.",
+          "scrapbookPrompt": "What did the customer leave behind: thanks, debt, advice, complaint, or small object?"
+        }
+      ],
+      "closeReadAloud": "By the end of the week, your hands know things they did not know on Monday. None of it makes you an adventurer yet. It does make adults start asking when you can work again.",
+      "yearbookFocus": "Work and mentorship"
+    },
+    {
+      "id": "age-16-road-to-bellmere",
+      "age": 16,
+      "title": "The Road to Bellmere",
+      "sessionGoal": "Make independence feel exciting before making it dangerous.",
+      "openingReadAloud": "At sixteen, the village gives you something it has never given you before: a cart, a delivery list, and no adult sitting beside you. Bellmere is only a day away. That feels very far when Hearthcross disappears behind the trees.",
+      "dmOpening": [
+        "Ask who each family warned before departure.",
+        "Let the party choose who holds the money, map, animal lead, and letters.",
+        "Use the outside contact from Apprentice Week if one exists."
+      ],
+      "beats": [
+        {
+          "growthBeatId": "road-1",
+          "title": "Packing the Cart",
+          "minutes": 20,
+          "purpose": "Let planning and interpersonal conflict happen before the road.",
+          "readAloud": "There is more cargo than cart. Flour cannot get wet, medicine cannot freeze, lamp oil should not sit beside either, and three families have quietly added packages that were not on the original list.",
+          "runSteps": [
+            "Force priorities rather than inventory trivia.",
+            "Every player owns one load/route/social problem.",
+            "Failure creates a later inconvenience, not a dead end.",
+            "Record who accepted responsibility for the purse and paperwork."
+          ],
+          "consequence": "How they pack changes the ford or market complications.",
+          "scrapbookPrompt": "What did someone secretly pack from home?"
+        },
+        {
+          "growthBeatId": "road-2",
+          "title": "Night at Alder Ford",
+          "minutes": 25,
+          "purpose": "Give the first unsupervised risk without turning it into combat.",
+          "readAloud": "The river is higher than Bram predicted. The usual stones are underwater, dusk is close, and the cart horse has decided the rushing water is a terrible idea. Hearthcross is behind you. Bellmere is ahead. Nobody older is coming to decide.",
+          "runSteps": [
+            "Let the group choose cross now, find another way, or camp.",
+            "Every player resolves a different aspect: depth, animal, rigging, cold water, shelter, negotiation with a nearby farmer.",
+            "Failure costs time, wet supplies, or repair; do not sweep anyone away to death.",
+            "Make the second night away possible if they lose too much time."
+          ],
+          "consequence": "Family trust at home later depends on honesty about what happened.",
+          "scrapbookPrompt": "What did the character hear in the dark that made home feel far away?"
+        },
+        {
+          "growthBeatId": "road-3",
+          "title": "Bellmere Market",
+          "minutes": 25,
+          "purpose": "Show a world where nobody knows the children's reputations.",
+          "readAloud": "Bellmere does not care who your parents are. One customer has moved, one merchant disputes the written price, and the market bell says you have less than an hour before stalls close.",
+          "runSteps": [
+            "Give each player one unfamiliar-city problem.",
+            "Use documentation, observation, negotiation, endurance, speed, or labor as appropriate.",
+            "Failure can cost money or an extra night; all required deliveries still have a fail-forward route.",
+            "Let one outsider treat a character according to what they actually did, not what Hearthcross thinks of them."
+          ],
+          "consequence": "Each character records whether leaving home feels more or less attractive now.",
+          "scrapbookPrompt": "What small Bellmere souvenir proves the trip happened?"
+        }
+      ],
+      "closeReadAloud": "The road back into Hearthcross looks smaller than the road out did. People ask how it went. For the first time, you get to decide which version of the story they hear.",
+      "yearbookFocus": "Independence"
+    },
+    {
+      "id": "age-17-long-storm",
+      "age": 17,
+      "title": "The Long Storm",
+      "sessionGoal": "Introduce serious stakes while proving the previous five years mattered.",
+      "openingReadAloud": "The storm begins with warm rain and no wind. By noon, the Hearth River is brown and fast. By afternoon, the watch bell rings twice—the signal for every able hand to report. This time, nobody sends you home.",
+      "dmOpening": [
+        "Bring back consequences: repaired pavilion, Maela's garden/shop, family stalls, Bellmere road, mentor health.",
+        "Tell players the village cannot save everything; people take priority over property.",
+        "Serious injury is possible now, but failure still moves forward."
+      ],
+      "beats": [
+        {
+          "growthBeatId": "storm-1",
+          "title": "Before the River Rises",
+          "minutes": 25,
+          "purpose": "Turn six years of familiarity into preparation choices.",
+          "readAloud": "Boards, sandbags, animals, children, ledgers, medicine, grain—everyone is shouting a different priority. Orren points at your group instead of assigning you one task. “You know this village. Decide where you're useful.”",
+          "runSteps": [
+            "Offer at least six tasks tied to recurring locations.",
+            "Each player chooses one and resolves once.",
+            "Use old scrapbook memories to justify Character Advantage where specific.",
+            "Failure makes a later crisis worse rather than injuring someone immediately."
+          ],
+          "consequence": "Mark one location as well-prepared and one as underprepared if the group cannot cover everything.",
+          "scrapbookPrompt": "Which adult looked at the character differently after this?"
+        },
+        {
+          "growthBeatId": "storm-2",
+          "title": "Someone Is Still Out There",
+          "minutes": 25,
+          "purpose": "Deliver the first real rescue.",
+          "readAloud": "A riderless cart horse comes back through the rain with one rein torn loose. At almost the same moment, a family realizes an older relative never came home. The road noise is so loud you have to shout to hear each other.",
+          "runSteps": [
+            "Choose missing NPCs from the relationship list when possible.",
+            "Every player contributes to finding, reaching, stabilizing, transporting, or coordinating.",
+            "A failed first route makes the rescue harder; it does not erase the person.",
+            "A critical failure can cause a scar, lost keepsake, or relationship consequence."
+          ],
+          "consequence": "The rescued person's later graduation reaction depends on this scene.",
+          "scrapbookPrompt": "What did the character lose or damage during the rescue?"
+        },
+        {
+          "growthBeatId": "storm-3",
+          "title": "One Crew, Two Crises",
+          "minutes": 25,
+          "purpose": "Force an adult-scale priority decision.",
+          "readAloud": "The mill wall groans. Across the lane, water punches through the doors of three homes. You have enough people to guarantee one problem and only maybe enough to save both.",
+          "runSteps": [
+            "State clearly: lives can be saved in either plan, but property/location outcomes differ.",
+            "Let the group split if desired; keep spotlight moving between fronts.",
+            "Every player resolves one check; accumulated results determine how much property survives.",
+            "Do not invent a perfect no-cost answer unless earned by exceptional play."
+          ],
+          "consequence": "Permanently alter at least one Hearthcross location.",
+          "scrapbookPrompt": "What choice does the character still defend—or regret—at eighteen?"
+        }
+      ],
+      "closeReadAloud": "When the water drops, Hearthcross is still standing. It is not unchanged. Neither are you.",
+      "yearbookFocus": "Responsibility under real danger"
+    },
+    {
+      "id": "age-18-last-spring-dance",
+      "age": 18,
+      "title": "The Last Spring Dance",
+      "sessionGoal": "Pay off the entire scrapbook and hand the characters into Level 1.",
+      "openingReadAloud": "Six years after your first spring dance, younger children are hanging lanterns badly in all the familiar ways. Some of you may leave after tonight. Some may stay. Everyone in Hearthcross seems to know that, even when nobody says it.",
+      "dmOpening": [
+        "Before play, review each character's scrapbook and choose one family member, one friend/rival, and one mentor to feature.",
+        "Bring back at least three physical village consequences from earlier chapters.",
+        "The Watchstone crisis is not a monster fight by default; it is a community problem whose solution depends on what these characters learned."
+      ],
+      "beats": [
+        {
+          "growthBeatId": "last-dance-1",
+          "title": "This Time, You're in Charge",
+          "minutes": 20,
+          "purpose": "Mirror age 13 and show the characters have become the older youths.",
+          "readAloud": "A younger helper knots the lantern line wrong. Another stacks benches where the musicians need to stand. Five years ago, adults fixed your mistakes. Tonight, everybody looks at you.",
+          "runSteps": [
+            "Give each player a younger helper who resembles one of their own old mistakes.",
+            "Resolve teaching, delegating, correcting, or quietly redoing.",
+            "Success creates a legacy; failure shows what the character still has not learned.",
+            "Keep the scene affectionate rather than punitive."
+          ],
+          "consequence": "Each player gains one nonmechanical 'Someone Looked Up to Me' or equivalent memory card.",
+          "scrapbookPrompt": "What mistake did the character recognize because they once made it?"
+        },
+        {
+          "growthBeatId": "last-dance-2",
+          "title": "The Last Song Before Midnight",
+          "minutes": 25,
+          "purpose": "Resolve unfinished relationships before the crisis.",
+          "readAloud": "The music slows. There are people you may not see every week after tonight: family, rivals, mentors, friends, maybe someone you hurt or never thanked. Midnight is close enough that everyone is suddenly brave or suddenly quiet.",
+          "runSteps": [
+            "Give every player one chosen conversation.",
+            "Character Advantage should frequently come from Yearbook memories and relationship cards.",
+            "Do not force reconciliation; clarity is a valid success.",
+            "Failure means the truth comes out badly, not that the relationship becomes impossible forever."
+          ],
+          "consequence": "Freeze the relationship state that enters Level 1.",
+          "scrapbookPrompt": "What words does the character wish they had said differently—or is glad they finally said?"
+        },
+        {
+          "growthBeatId": "last-dance-3",
+          "title": "When the Watchstone Rings",
+          "minutes": 35,
+          "purpose": "Make the final crisis a synthesis of six years of growth.",
+          "readAloud": "At midnight the Watchstone rings like a struck bell, though nobody touched it. A black crack races down its face. The Common Green shudders, old stone channels split open beneath the grass, and every lantern flame bends toward the standing stone at once.",
+          "runSteps": [
+            "Reveal that the Watchstone is an old pressure-and-ward structure, not a boss monster.",
+            "Give six simultaneous jobs: brace the exposed channel, evacuate the green, interpret Sera's copied ward marks, read the tremor pattern, carry the keystone, and unite frightened adults behind one plan.",
+            "For four players, combine jobs but keep four distinct checks; for five or six, use one job each.",
+            "Use relevant mentors/locations/cards as Advantage hooks.",
+            "Failure should destroy or scar a meaningful village location, relationship, or heirloom path; Hearthcross survives through a costly second route.",
+            "After every player acts, let the group choose whether to restore the old ward, safely vent/break it, or preserve part of it for future study."
+          ],
+          "consequence": "The chosen resolution becomes the first adult reputation of the party and the final Hearthcross state carried into Level 1.",
+          "scrapbookPrompt": "What single object from the green goes into the scrapbook as the last Level-0 card?"
+        }
+      ],
+      "closeReadAloud": "Dawn comes over a Hearthcross that knows your names for reasons that have nothing to do with your parents. Whatever you become next, nobody here can honestly call you children anymore.",
+      "yearbookFocus": "Who you became",
+      "graduationProcedure": [
+        "Resolve all remaining Lesson Points and Maturity Settlement on each player sheet.",
+        "Confirm every base array is at least 27 and no more than 30 point-buy value.",
+        "Choose 2014 or 2024 separately for each character only if the campaign allows mixed player editions; never mix mechanics inside one character.",
+        "Print the Coming-of-Age Certificate, Origin Chronicle, and scrapbook cards.",
+        "Only then begin certified Level-1 character creation."
+      ]
+    }
+  ],
+  "gmAuditChecklist": [
+    "Every player resolved exactly three Development Checks per chapter.",
+    "No Growth Beat ended before all players acted.",
+    "First-player spotlight rotated.",
+    "Every failure moved play forward.",
+    "No early chapter used lethal combat as the default stake.",
+    "Upbringing Lean changed odds but never changed the starting six 9s.",
+    "Character Advantage was based on specific fiction, not acting skill.",
+    "Competition placement never awarded extra Development Points.",
+    "All scrapbook Development Cards reconcile with the player sheet.",
+    "The final Level-0 array is 27–30 and no score exceeded 15 before edition-specific Level-1 adjustments.",
+    "2014/2024 mechanics begin only after the Level-0 array is frozen."
+  ]
+}
