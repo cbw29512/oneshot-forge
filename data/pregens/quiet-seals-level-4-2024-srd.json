@@ -335,7 +335,8 @@
         "Javelin: Slow (hit and damage: target’s Speed −10 ft. until your next turn)"
       ],
       "ruleset": "2024",
-      "conversionNote": "2014 Champion rebuilt on 2024 Fighter 4 / Champion 3 / Human / Soldier. Extra Attack is still level 5."
+      "conversionNote": "2014 Champion rebuilt on 2024 Fighter 4 / Champion 3 / Human / Soldier. Extra Attack is still level 5.",
+      "hpBonusPerLevel": 2
     },
     {
       "id": "pregen-pell",
@@ -792,7 +793,8 @@
       ],
       "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer’s kit, Acolyte’s vestments, 15 gp",
       "ruleset": "2024",
-      "conversionNote": "2014 Life Cleric identity rebuilt on 2024 Cleric 4 / Life Domain 3 / Dwarf / Acolyte with 2024-native spell preparation and spell text."
+      "conversionNote": "2014 Life Cleric identity rebuilt on 2024 Cleric 4 / Life Domain 3 / Dwarf / Acolyte with 2024-native spell preparation and spell text.",
+      "hpBonusPerLevel": 1
     },
     {
       "id": "pregen-nyx",
@@ -1107,7 +1109,8 @@
       ],
       "ruleset": "2024",
       "conversionNote": "2014 Thief rebuilt on 2024 Rogue 4 / Thief 3 / Halfling / Criminal. Cunning Strike is level 5 — not on this sheet.",
-      "initiativeBonusOverride": 2
+      "initiativeBonusOverride": 2,
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-ivo",
@@ -1508,7 +1511,8 @@
       ],
       "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar’s pack, Bottle of ink, 22 gp",
       "ruleset": "2024",
-      "conversionNote": "2014 Evoker rebuilt on 2024 Wizard 4 (subclass at 3) / Elf High / Sage. No Extra Attack. No 3rd-level slots."
+      "conversionNote": "2014 Evoker rebuilt on 2024 Wizard 4 (subclass at 3) / Elf High / Sage. No Extra Attack. No 3rd-level slots.",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-kael",
@@ -1877,7 +1881,8 @@
         "Shortsword: Vex"
       ],
       "ruleset": "2024",
-      "conversionNote": "2014 Hunter identity rebuilt on 2024 Ranger 4 / Hunter 3 / Wood Elf / Guide with 2024 prepared-spell rules. Extra Attack is level 5."
+      "conversionNote": "2014 Hunter identity rebuilt on 2024 Ranger 4 / Hunter 3 / Wood Elf / Guide with 2024 prepared-spell rules. Extra Attack is level 5.",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-hester",
@@ -2272,7 +2277,8 @@
         "Javelin: Slow"
       ],
       "ruleset": "2024",
-      "conversionNote": "2014 Devotion Paladin identity rebuilt on 2024 Paladin 4 / Oath of Devotion 3 / Human / Farmer with 2024 prepared-spell and Smite rules. Extra Attack is level 5."
+      "conversionNote": "2014 Devotion Paladin identity rebuilt on 2024 Paladin 4 / Oath of Devotion 3 / Human / Farmer with 2024 prepared-spell and Smite rules. Extra Attack is level 5.",
+      "hpBonusPerLevel": 2
     }
   ]
 }
