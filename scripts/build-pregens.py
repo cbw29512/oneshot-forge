@@ -187,7 +187,7 @@ def pell():
         "portrait": "assets/pregens/pell.jpg", "alignment": "Lawful Good",
         "scores": scores, "saveMap": saves(scores, ["WIS", "CHA"]), "skillsMap": sk, "skills": sk,
         "ac": 18, "acNotes": "chain mail 16 + shield 2", "initiative": -1,
-        "speedFt": 25, "hp": 39, "hitDice": "4d8", "darkvision": 60,
+        "speedFt": 25, "hp": 39, "hitDice": "4d8", "darkvision": 60, "hpBonusPerLevel": 1,
         "proficiencies": {
             "armor": ["light", "medium", "heavy", "shields"],
             "weapons": ["simple weapons", "warhammer (dwarf)"],
@@ -701,7 +701,7 @@ def vexa():
         "portrait": "", "alignment": "Chaotic Good",
         "scores": scores, "saveMap": saves(scores, ["CON", "CHA"]), "skillsMap": sk, "skills": sk,
         "ac": 15, "acNotes": "Draconic Resilience 13 + Dex 2", "initiative": 2,
-        "speedFt": 30, "hp": 34, "hitDice": "4d6", "darkvision": 0,
+        "speedFt": 30, "hp": 34, "hitDice": "4d6", "darkvision": 0, "hpBonusPerLevel": 1,
         "proficiencies": {
             "armor": [],
             "weapons": ["daggers", "darts", "slings", "quarterstaffs", "light crossbows"],
