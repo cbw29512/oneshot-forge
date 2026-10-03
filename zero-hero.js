@@ -419,7 +419,7 @@
 
     audit.innerHTML='<h3>Ability-generation audit</h3><p><strong>Current base array point-buy value: '+value+'.</strong> Normal 5E point-buy target: '+campaign.development.normalTargetValue+'.</p>'+
       (over
-        ? '<p class="zero-house-note"><strong>Heroic array:</strong> this is '+over+' point'+(over===1?'':'s')+' above normal point-buy because critical-success bonus growth was spent. The ability-generation method is house rule; post-graduation rules remain edition-locked.</p>'
+        ? '<p class="zero-house-note"><strong>Heroic / house-rule ability generation:</strong> this is '+over+' point'+(over===1?'':'s')+' above normal point-buy because critical-success bonus growth was spent. The ability-generation method is house rule; post-graduation rules remain edition-locked.</p>'
         : '<p class="zero-house-note"><strong>Within the normal point-buy envelope.</strong> The growth method is still Level-0 house rule, but this base array does not exceed normal point-buy value.</p>');
 
     reflection.innerHTML='<p><strong>Unspent wallet:</strong> '+state.wallet.flexible+' flexible · '+totalLessonWallet()+' lesson. <strong>Partial invested progress:</strong> '+pending+'.</p>'+
