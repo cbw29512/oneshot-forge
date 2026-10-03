@@ -1605,7 +1605,8 @@
           "bonus": 7,
           "damage": "1d8+3",
           "type": "piercing",
-          "notes": "Archery included; range 150/600; two-handed"
+          "notes": "Archery included; range 150/600; two-handed",
+          "attackBonusOverride": 2
         },
         {
           "name": "Shortsword",
