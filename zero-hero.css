@@ -178,3 +178,20 @@
   body.print-scrapbook .scrapbook-small{font-size:.06in;line-height:1.2;margin:.02in 0}
   body.print-scrapbook .scrapbook-card footer{font-size:.055in;margin-top:.03in}
 }
+
+.upbringing-select select{font:inherit;border:1px solid #9e8c72;background:#fff;color:#17120e;border-radius:.4rem;padding:.55rem}
+.upbringing-select small{font-size:.76rem;font-weight:400;line-height:1.35;color:#61574d}
+.upbringing-summary{background:#f1e4cd;color:#241910;border-left:4px solid #8c532d;border-radius:.45rem;padding:.7rem .8rem}
+.upbringing-summary>div:first-child{display:flex;flex-direction:column;gap:.2rem}
+.upbringing-summary small{display:block;margin-top:.5rem}
+.upbringing-lanes{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.55rem}
+.lane,.ability-lane{display:inline-block;border-radius:999px;padding:.2rem .45rem;font:800 .66rem/1.2 Arial,sans-serif;text-transform:uppercase;letter-spacing:.05em}
+.lane.favored,.ability-lane.advantage{background:#dfe9d2;color:#24401e}
+.lane.neutral,.ability-lane.neutral{background:#e8e1d6;color:#4b4339}
+.lane.challenging,.ability-lane.disadvantage{background:#efd6d0;color:#6f2e26}
+.ability-card mark{margin-top:.28rem;width:max-content}
+.ability-card.ability-advantage{border-color:#71865f}
+.ability-card.ability-disadvantage{border-color:#9d655b}
+.upbringing-roll-state{display:flex;justify-content:space-between;align-items:center;gap:.5rem;background:#2b231c;border:1px solid #735d49;border-radius:.45rem;padding:.55rem .65rem;margin:.5rem 0}
+.upbringing-roll-state span{font-weight:700}
+.upbringing-roll-state strong{text-transform:uppercase;letter-spacing:.05em}
