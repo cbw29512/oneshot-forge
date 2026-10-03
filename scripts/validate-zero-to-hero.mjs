@@ -75,6 +75,7 @@ if(d.graduation["2014"].forbidden.join(" ").includes("2014 background")) fail("2
 for(const k of ["abilityArray","proficiencies","heirloom","mentor","mechanics"]) if(!d.graduation?.rawAudit?.[k]) fail("graduation audit missing "+k);
 
 if(!/development wallet/i.test(page)) fail("public page must explain the development wallet");
+if(!/30-point maximum/i.test(page)) fail("public page must disclose the absolute 30-point maximum");
 if(!/How Character Advantage is earned/.test(page)||!/No roleplay Disadvantage/.test(page)) fail("public page must explain fair Character Advantage criteria");
 if(!/critical failure can redirect/i.test(page)) fail("public page must disclose critical-failure redirection");
 if(!/Heroic \/ house-rule ability generation/.test(script)) fail("graduation must label above-27 arrays as house rule");
