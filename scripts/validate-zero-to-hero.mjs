@@ -22,6 +22,11 @@ if(dev?.baseGrowthNeverLost!==true) fail("base development may never be lost");
 if(!/stranded/i.test(dev?.maturitySettlementRule||"")||!/Graduation is blocked/i.test(dev?.maturitySettlementRule||"")) fail("maturity settlement / graduation-floor rule missing");
 if(dev?.maxPreOriginScore!==15) fail("pre-origin cap must remain 15");
 if(dev?.wallet!==true) fail("development wallet must be enabled");
+if(dev?.challengeProfile?.roleplayAdvantage!==true) fail("Character Advantage must be enabled");
+if(dev?.challengeProfile?.advantageStacks!==false) fail("Character Advantage may not stack");
+if(dev?.challengeProfile?.noRoleplayDisadvantage!==true) fail("roleplay may not impose Disadvantage");
+if(!Array.isArray(dev?.challengeProfile?.criteria)||dev.challengeProfile.criteria.length<3) fail("Character Advantage criteria missing");
+if(dev?.challengeProfile?.dcByAgeBand?.["12-13"]!==15||dev?.challengeProfile?.dcByAgeBand?.["14-16"]!==16||dev?.challengeProfile?.dcByAgeBand?.["17-18"]!==17) fail("hard DC age curve must remain 15/16/17");
 for(const s of [9,10,11,12,13,14]) if(!dev?.costToRaise?.[String(s)]) fail("missing raise cost for "+s);
 
 const expected={
@@ -55,6 +60,8 @@ for(const c of d.chapters){
   for(const b of c.growthBeats){
     opportunities++;
     if(!Number.isInteger(b.dc)||b.dc<5||b.dc>20) fail(b.id+" invalid DC");
+    const floor=c.age<=13?15:c.age<=16?16:17;
+    if(b.dc<floor) fail(b.id+" DC "+b.dc+" is below age-"+c.age+" floor "+floor);
     for(const a of ab) if(!b.approaches?.[a]) fail(b.id+" missing "+a+" approach");
     for(const o of Object.keys(expected)) if(!b.outcomes?.[o]) fail(b.id+" missing "+o+" outcome");
   }
@@ -66,6 +73,7 @@ if(d.graduation["2014"].forbidden.join(" ").includes("2014 background")) fail("2
 for(const k of ["abilityArray","proficiencies","heirloom","mentor","mechanics"]) if(!d.graduation?.rawAudit?.[k]) fail("graduation audit missing "+k);
 
 if(!/development wallet/i.test(page)) fail("public page must explain the development wallet");
+if(!/How Character Advantage is earned/.test(page)||!/No roleplay Disadvantage/.test(page)) fail("public page must explain fair Character Advantage criteria");
 if(!/critical failure can redirect/i.test(page)) fail("public page must disclose critical-failure redirection");
 if(!/Heroic \/ house-rule ability generation/.test(script)) fail("graduation must label above-27 arrays as house rule");
 if(!/minimumGraduationValue\|\|27/.test(script)) fail("graduation must read the 27-point floor");
@@ -74,7 +82,7 @@ if(!/btn\.disabled=!ready/.test(script)) fail("edition buttons must remain disab
 if(!/settleMaturityCredits/.test(script)) fail("Maturity Settlement implementation missing");
 if(!/state\.wallet\.flexible\+=reclaimed/.test(script)) fail("stranded earned growth must return to the flexible wallet");
 if(!/state\.invested\[ability\]-=partial/.test(script)) fail("partial stranded investment recovery missing");
-if(!/version:3/.test(script)) fail("wallet state version missing");
+if(!/version:4/.test(script)) fail("Character Advantage state version missing");
 if(!/wallet:\{flexible:0,lessons:blankAbilityMap\(0\)\}/.test(script)) fail("wallet state missing");
 if(!/state\.wallet\.flexible\+=Number\(rule\.flexible\|\|0\)/.test(script)) fail("flexible award path missing");
 if(!/state\.wallet\.lessons\[lessonAbility\]\+=Number\(rule\.lesson\)/.test(script)) fail("Lesson Point award path missing");
@@ -82,6 +90,11 @@ if(!/lessonAbility===attemptedAbility/.test(script)) fail("lesson ability must b
 if(!/state\.invested\[attemptedAbility\]-=1/.test(script)||!/state\.invested\[lessonAbility\]\+=1/.test(script)) fail("critical-failure invested-point redirect missing");
 if(!/state\.scores\[ability\] < campaign\.development\.maxPreOriginScore/.test(script)) fail("ability cap guard missing");
 if(!/const succeeded=total>=dc/.test(script)) fail("checks must resolve normal total-vs-DC first");
+if(!/Math\.max\(roll1,roll2\)/.test(script)) fail("Advantage must use the higher of two d20s");
+if(!/advantageReason/.test(script)||!/Character Advantage earned/.test(script)) fail("Advantage reason capture missing");
+if(!/Advantage requires two d20 results/.test(script)) fail("Advantage must require two d20 inputs");
+if(!/Record the specific character or scene reason/.test(script)) fail("Advantage must require a fiction-grounded reason");
+if(/disadvantage/i.test(script)) fail("Zero-to-Hero script must not introduce roleplay Disadvantage");
 if(/finalReflection|reflectionRemaining|canFinishReflection/.test(script)) fail("superseded Final Reflection logic must not remain");
 if(!/criticalBonusEarned\+=1/.test(script)) fail("critical-success bonus tracking missing");
 if(!/27-point minimum guaranteed/.test(script)) fail("graduation summary must state the minimum guarantee");
@@ -104,4 +117,4 @@ for(const score of Object.keys(raise).map(Number)){
  if(expected.criticalSuccess.flexible+expected.criticalSuccess.lesson!==2) fail("critical success must be one baseline point plus one bonus");
  if(dev.startingPointBuyCost+dev.baseOpportunities!==dev.minimumGraduationValue) fail("6 starting value + 21 base growth must equal the 27-point floor");
 
-console.log("From Zero to Hero OK — 27-point minimum guaranteed, differentiated outcomes conserved, hard-lesson redirection, critical bonuses, edition-isolated graduation.");
+console.log("From Zero to Hero OK — hard DC curve, character-grounded Advantage, 27-point minimum, differentiated outcomes, hard lessons, critical bonuses, edition-isolated graduation.");

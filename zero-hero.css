@@ -8,3 +8,15 @@
 .lesson-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;margin-top:.55rem}
 .lesson-actions .button{text-align:left;white-space:normal}
 @media(max-width:760px){.lesson-actions{grid-template-columns:1fr}}
+
+.advantage-guide{margin-top:1rem;border:1px solid #8c704f;border-radius:.65rem;background:#211a14}
+.advantage-guide summary{cursor:pointer;font-weight:800;padding:.8rem 1rem}
+.advantage-guide>div{padding:0 1rem 1rem}
+.advantage-guide ul{margin:.5rem 0 .5rem 1.2rem}
+.advantage-toggle{display:flex!important;flex-direction:row!important;align-items:center!important;gap:.45rem!important;margin:.65rem 0;font-weight:800}
+.advantage-toggle input{width:auto}
+.advantage-fields{margin:.45rem 0}
+.advantage-fields input{width:100%;font:inherit;padding:.5rem;border:1px solid #9e8c72;border-radius:.4rem}
+.dice-entry{display:flex;gap:.8rem;flex-wrap:wrap;margin:.45rem 0 .7rem}
+.dice-entry label{display:flex;flex-direction:column;gap:.25rem;font-weight:700}
+.dice-entry input{width:7rem;padding:.45rem;font:inherit}

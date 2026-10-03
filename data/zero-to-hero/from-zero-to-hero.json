@@ -78,7 +78,25 @@
     },
     "minimumGraduationValue": 27,
     "baseGrowthNeverLost": true,
-    "maturitySettlementRule": "After all 21 base Development Opportunities are resolved, any stranded Lesson Points blocked by the 15 cap and any stranded partial invested progress that has not completed an ability increase may be converted into Flexible Maturity Points. Graduation is blocked until the pre-origin array has at least 27 point-buy value. Critical failures may redirect where development lands, but can never reduce the 27-point minimum."
+    "maturitySettlementRule": "After all 21 base Development Opportunities are resolved, any stranded Lesson Points blocked by the 15 cap and any stranded partial invested progress that has not completed an ability increase may be converted into Flexible Maturity Points. Graduation is blocked until the pre-origin array has at least 27 point-buy value. Critical failures may redirect where development lands, but can never reduce the 27-point minimum.",
+    "challengeProfile": {
+      "intent": "Base success should be uncommon. Character-grounded play earns Advantage and meaningfully improves the odds.",
+      "dcByAgeBand": {
+        "12-13": 15,
+        "14-16": 16,
+        "17-18": 17
+      },
+      "roleplayAdvantage": true,
+      "advantageStacks": false,
+      "criteria": [
+        "Use an established bond, fear, value, aspiration, relationship, mentor lesson, familiarity, possession, or prior consequence in a way that materially fits the attempt.",
+        "Use a concrete feature of the scene or accept a meaningful cost/risk that makes the approach more credible.",
+        "Explain what the character actually does in the fiction; performance, accents, or eloquence are never required."
+      ],
+      "restriction": "The same generic justification cannot be repeated indefinitely. The advantage must be specific to the current scene and character history.",
+      "noRoleplayDisadvantage": true,
+      "resolution": "With Advantage, roll two d20s and use the higher result. The kept die is the natural result used for the Level-0 critical-success/critical-failure tier."
+    }
   },
   "village": {
     "id": "hearthcross",
@@ -457,7 +475,7 @@
           "id": "cart-1",
           "title": "The snap",
           "prompt": "The cart's brake chain snaps at the top of Market Hill. What do you do first?",
-          "dc": 10,
+          "dc": 15,
           "approaches": {
             "STR": "Grab a side rail and wrench the cart toward the ditch.",
             "DEX": "Sprint ahead, climb aboard, and reach the brake lever.",
@@ -477,7 +495,7 @@
           "id": "cart-2",
           "title": "The crossing",
           "prompt": "The cart is now aimed at a narrow crossing crowded with children and animals.",
-          "dc": 10,
+          "dc": 15,
           "approaches": {
             "STR": "Heave a barrier into its path.",
             "DEX": "Use balance and speed to release the team animals.",
@@ -497,7 +515,7 @@
           "id": "cart-3",
           "title": "Aftermath",
           "prompt": "Someone cut the brake chain. The adults are shouting over each other while evidence is being trampled.",
-          "dc": 11,
+          "dc": 15,
           "approaches": {
             "STR": "Physically secure the cart and preserve the broken chain.",
             "DEX": "Slip through the crowd to follow the fleeing suspect.",
@@ -533,7 +551,7 @@
           "id": "winter-1",
           "title": "Tracks in snow",
           "prompt": "The tracks look like wolves until they reach a fence and become confusing.",
-          "dc": 10,
+          "dc": 15,
           "approaches": {
             "STR": "Move a frozen obstacle to reveal the ground beneath.",
             "DEX": "Follow the lightest prints without disturbing them.",
@@ -553,7 +571,7 @@
           "id": "winter-2",
           "title": "The hidden camp",
           "prompt": "The missing livestock are feeding displaced families hiding beyond the old quarry.",
-          "dc": 11,
+          "dc": 15,
           "approaches": {
             "STR": "Help repair their collapsing shelter.",
             "DEX": "Approach unseen to learn whether they are dangerous.",
@@ -573,7 +591,7 @@
           "id": "winter-3",
           "title": "The choice",
           "prompt": "The reeve demands names before he agrees to help.",
-          "dc": 11,
+          "dc": 15,
           "approaches": {
             "STR": "Take responsibility and physically deliver supplies despite orders.",
             "DEX": "Sneak food out without revealing the camp.",
@@ -609,7 +627,7 @@
           "id": "flood-1",
           "title": "The footbridge",
           "prompt": "The footbridge is twisting loose with two villagers stranded midspan.",
-          "dc": 11,
+          "dc": 16,
           "approaches": {
             "STR": "Haul the guide rope tight.",
             "DEX": "Cross the swaying rail and clip in the stranded villagers.",
@@ -629,7 +647,7 @@
           "id": "flood-2",
           "title": "The apothecary",
           "prompt": "Water reaches Venn's Remedies while patients are still inside.",
-          "dc": 11,
+          "dc": 16,
           "approaches": {
             "STR": "Carry patients or furniture to higher ground.",
             "DEX": "Move through a narrow roof route with supplies.",
@@ -649,7 +667,7 @@
           "id": "flood-3",
           "title": "The mill gate",
           "prompt": "A jammed mill gate is backing water toward homes.",
-          "dc": 12,
+          "dc": 16,
           "approaches": {
             "STR": "Force the gate mechanism.",
             "DEX": "Reach the release wheel from the slick exterior.",
@@ -686,7 +704,7 @@
           "id": "fair-1",
           "title": "Choose your contest",
           "prompt": "Each character enters or assists with one fair event.",
-          "dc": 11,
+          "dc": 16,
           "approaches": {
             "STR": "Wrestling, hammer lift, or hauling contest.",
             "DEX": "Archery, balance course, juggling, or precision craft.",
@@ -706,7 +724,7 @@
           "id": "fair-2",
           "title": "The missing coffer",
           "prompt": "A visiting artisan's locked payment coffer disappears.",
-          "dc": 12,
+          "dc": 16,
           "approaches": {
             "STR": "Search heavy crates and physically inaccessible storage.",
             "DEX": "Shadow a suspect through the fair without being seen.",
@@ -726,7 +744,7 @@
           "id": "fair-3",
           "title": "Rusk's offer",
           "prompt": "Rusk offers to return the last stolen item if the party keeps his smuggling work quiet.",
-          "dc": 12,
+          "dc": 16,
           "approaches": {
             "STR": "Intimidate him physically without attacking.",
             "DEX": "Steal or snatch the evidence from him.",
@@ -762,7 +780,7 @@
           "id": "light-1",
           "title": "The buried stair",
           "prompt": "A collapsed stone stair descends beneath the Watchstone.",
-          "dc": 12,
+          "dc": 16,
           "approaches": {
             "STR": "Shift fallen blocks safely.",
             "DEX": "Squeeze through and secure a rope route.",
@@ -782,7 +800,7 @@
           "id": "light-2",
           "title": "The echo chamber",
           "prompt": "Whispers repeat the characters' own fears and memories.",
-          "dc": 12,
+          "dc": 16,
           "approaches": {
             "STR": "Break or move the resonant stone creating the effect.",
             "DEX": "Cross the chamber without touching resonant tiles.",
@@ -802,7 +820,7 @@
           "id": "light-3",
           "title": "Sable's truth",
           "prompt": "Old Sable admits the Watchstone is a damaged ward, but refuses to tell Pike everything.",
-          "dc": 13,
+          "dc": 16,
           "approaches": {
             "STR": "Demonstrate you can physically help maintain the site.",
             "DEX": "Follow Sable unseen to discover where she keeps old tools.",
@@ -838,7 +856,7 @@
           "id": "watch-1",
           "title": "Alarm at the north road",
           "prompt": "A wagon limps into town with raiders close behind.",
-          "dc": 12,
+          "dc": 17,
           "approaches": {
             "STR": "Move barricades and pull the wagon to safety.",
             "DEX": "Scout or flank through side lanes.",
@@ -858,7 +876,7 @@
           "id": "watch-2",
           "title": "A job, not a brawl",
           "prompt": "The raiders are trying to steal a Watchstone fragment, not conquer the village.",
-          "dc": 13,
+          "dc": 17,
           "approaches": {
             "STR": "Hold the access point or wrest the fragment away.",
             "DEX": "Reach the fragment first or sabotage the raiders' route.",
@@ -878,7 +896,7 @@
           "id": "watch-3",
           "title": "Orren falls",
           "prompt": "Captain Orren is injured while another objective remains active.",
-          "dc": 13,
+          "dc": 17,
           "approaches": {
             "STR": "Carry or shield Orren while others act.",
             "DEX": "Reach him through danger and extract him.",
@@ -917,7 +935,7 @@
           "id": "final-1",
           "title": "The village chooses",
           "prompt": "Panic spreads as the Watchstone fractures and old paths under town open.",
-          "dc": 13,
+          "dc": 17,
           "approaches": {
             "STR": "Lead physical defenses and rescues.",
             "DEX": "Move rapidly between threatened locations or carry messages unseen.",
@@ -937,7 +955,7 @@
           "id": "final-2",
           "title": "Three jobs at once",
           "prompt": "The ward needs a physical anchor reset, a pattern restored, and frightened people evacuated.",
-          "dc": 14,
+          "dc": 17,
           "approaches": {
             "STR": "Reset the anchor or hold collapsing structure.",
             "DEX": "Cross the unstable site to place a needed component.",
@@ -957,7 +975,7 @@
           "id": "final-3",
           "title": "Who you became",
           "prompt": "The final decision cannot be solved by adults alone. The party must choose what Hearthcross becomes after the ward.",
-          "dc": 14,
+          "dc": 17,
           "approaches": {
             "STR": "Commit to a protective physical sacrifice or reconstruction.",
             "DEX": "Execute a precise dangerous final placement or retrieval.",

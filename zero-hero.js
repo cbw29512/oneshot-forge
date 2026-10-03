@@ -19,7 +19,7 @@
 
   function blankState() {
     return {
-      version:3,
+      version:4,
       chapterIndex:0,
       age:12,
       identity:{
@@ -72,8 +72,8 @@
   }
 
   function migrateState(parsed) {
-    if(!parsed || ![1,2,3].includes(parsed.version)) return blankState();
-    if(parsed.version===3) {
+    if(!parsed || ![1,2,3,4].includes(parsed.version)) return blankState();
+    if(parsed.version===3 || parsed.version===4) {
       parsed.wallet ||= {flexible:0,lessons:blankAbilityMap(0)};
       parsed.wallet.lessons ||= blankAbilityMap(0);
       parsed.invested ||= blankAbilityMap(0);
@@ -82,7 +82,7 @@
         parsed.invested[a]=Number(parsed.invested[a]||0);
       }
       parsed.criticalBonusEarned=Number(parsed.criticalBonusEarned||0);
-      parsed.version=3;
+      parsed.version=4;
       state=parsed;
       recomputeScores();
       return state;
@@ -203,11 +203,11 @@
     return succeeded ? "success" : "failure";
   }
 
-  function finalizeBeat(chapter,beat,attemptedAbility,roll,outcome,lessonAbility=null) {
+  function finalizeBeat(chapter,beat,attemptedAbility,rollData,outcome,lessonAbility=null) {
     const key=chapter.id+":"+beat.id;
     if(state.resolvedBeats[key]) return;
 
-    const total=roll+mod(state.scores[attemptedAbility]);
+    const {roll1,roll2,keptRoll,advantage,advantageReason,total}=rollData;
     const rule=campaign.development.pointsByOutcome[outcome];
     let shifted=0;
 
@@ -230,7 +230,7 @@
     state.growthUsed+=1;
     state.chapterGrowth[chapter.id]=Number(state.chapterGrowth[chapter.id]||0)+1;
     state.resolvedBeats[key]={
-      attemptedAbility,roll,total,outcome,lessonAbility,
+      attemptedAbility,roll:keptRoll,roll1,roll2,keptRoll,advantage,advantageReason,total,outcome,lessonAbility,
       flexibleEarned:Number(rule.flexible||0),
       lessonEarned:Number(rule.lesson||0),
       shifted
@@ -246,7 +246,7 @@
 
     state.timeline.push({
       type:"check",age:chapter.age,chapter:chapter.title,beat:beat.title,
-      ability:attemptedAbility,lessonAbility,roll,total,dc:beat.dc,outcome,
+      ability:attemptedAbility,lessonAbility,roll:keptRoll,roll1,roll2,advantage,advantageReason,total,dc:beat.dc,outcome,
       result:beat.outcomes[outcome],growthText,
       scoreAfter:state.scores[attemptedAbility]
     });
@@ -255,20 +255,24 @@
     render();
   }
 
-  function resolveBeat(chapter,beat,attemptedAbility,roll,lessonAbility=null) {
+  function resolveBeat(chapter,beat,attemptedAbility,roll1,roll2=null,advantage=false,advantageReason="",lessonAbility=null) {
     const key=chapter.id+":"+beat.id;
     if(state.resolvedBeats[key]) return {done:true};
     if(!ABILITIES.includes(attemptedAbility)) return {error:"Choose an approach."};
-    if(!Number.isInteger(roll)||roll<1||roll>20) return {error:"Enter a d20 result from 1 to 20."};
+    if(!Number.isInteger(roll1)||roll1<1||roll1>20) return {error:"Enter the first d20 result from 1 to 20."};
+    if(advantage && (!Number.isInteger(roll2)||roll2<1||roll2>20)) return {error:"Advantage requires two d20 results from 1 to 20."};
+    if(advantage && String(advantageReason||"").trim().length<5) return {error:"Record the specific character or scene reason that earned Advantage."};
 
-    const total=roll+mod(state.scores[attemptedAbility]);
-    const outcome=outcomeFor(roll,total,beat.dc);
+    const keptRoll=advantage?Math.max(roll1,roll2):roll1;
+    const total=keptRoll+mod(state.scores[attemptedAbility]);
+    const outcome=outcomeFor(keptRoll,total,beat.dc);
+    const rollData={roll1,roll2:advantage?roll2:null,keptRoll,advantage:Boolean(advantage),advantageReason:String(advantageReason||"").trim(),total};
 
     if((outcome==="failure"||outcome==="criticalFailure") && !lessonAbility) {
-      return {needsLesson:true,outcome,total};
+      return {needsLesson:true,outcome,total,rollData};
     }
 
-    finalizeBeat(chapter,beat,attemptedAbility,roll,outcome,lessonAbility);
+    finalizeBeat(chapter,beat,attemptedAbility,rollData,outcome,lessonAbility);
     return {done:true};
   }
 
@@ -329,9 +333,13 @@
         return '<article><strong>Age '+e.age+' · '+esc(e.chapter)+'</strong><p>'+esc(e.result)+'</p></article>';
       }
       const lesson=e.lessonAbility?' · lesson: '+e.lessonAbility:"";
+      const rollText=e.advantage
+        ? 'Advantage ['+e.roll1+', '+e.roll2+'] → '+e.roll
+        : 'd20 '+e.roll;
+      const advantageText=e.advantageReason?'<p><b>Advantage:</b> '+esc(e.advantageReason)+'</p>':"";
       return '<article><strong>Age '+e.age+' · '+esc(e.chapter)+'</strong><span>'+esc(e.beat)+' — '+e.ability+
-        ' d20 '+e.roll+' '+signed(e.total-e.roll)+' = '+e.total+' vs DC '+e.dc+
-        ' · '+labelOutcome(e.outcome)+lesson+'</span><p>'+esc(e.growthText||"")+'</p><p>'+esc(e.result)+'</p></article>';
+        ' · '+rollText+' '+signed(e.total-e.roll)+' = '+e.total+' vs DC '+e.dc+
+        ' · '+labelOutcome(e.outcome)+lesson+'</span>'+advantageText+'<p>'+esc(e.growthText||"")+'</p><p>'+esc(e.result)+'</p></article>';
     }).join("");
   }
 
@@ -348,17 +356,19 @@
         : done.outcome==="success"
           ? "+1 flexible DP"
           : "+1 "+done.lessonAbility+" Lesson DP"+(done.shifted?" · shifted 1 invested point":"");
-      return '<article class="growth-beat done"><p class="beat-index">Growth '+(index+1)+' of 3 · complete</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="resolved"><b>'+done.attemptedAbility+' · '+labelOutcome(done.outcome)+'</b><span>d20 '+done.roll+' → total '+done.total+' vs DC '+beat.dc+' · '+esc(growth)+'</span><p>'+esc(beat.outcomes[done.outcome])+'</p></div></article>';
+      const rollText=done.advantage?'Advantage ['+done.roll1+', '+done.roll2+'] → '+done.roll:'d20 '+done.roll;
+      const advantageReason=done.advantageReason?'<p><b>Advantage earned:</b> '+esc(done.advantageReason)+'</p>':"";
+      return '<article class="growth-beat done"><p class="beat-index">Growth '+(index+1)+' of 3 · complete</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="resolved"><b>'+done.attemptedAbility+' · '+labelOutcome(done.outcome)+'</b><span>'+rollText+' → total '+done.total+' vs DC '+beat.dc+' · '+esc(growth)+'</span>'+advantageReason+'<p>'+esc(beat.outcomes[done.outcome])+'</p></div></article>';
     }
 
     const approaches=ABILITIES.map(a=>
       '<button type="button" class="approach" data-ability="'+a+'" data-beat="'+esc(beat.id)+'"><b>'+a+'</b><span>'+esc(beat.approaches[a])+'</span></button>'
     ).join("");
 
-    return '<article class="growth-beat"><p class="beat-index">Growth '+(index+1)+' of 3 · DC '+beat.dc+'</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="approach-grid">'+approaches+'</div><div class="roll-box" id="roll-'+esc(beat.id)+'" hidden><label>Chosen approach <strong class="chosen-ability"></strong></label><label>d20 result <input class="d20-input" type="number" min="1" max="20" inputmode="numeric" placeholder="1–20"></label><button type="button" class="button ember resolve-roll">Resolve developmental check</button><p class="muted">Success earns flexible growth. Failure earns growth somewhere else. Critical success earns an extra point. Critical failure can redirect an already-invested point.</p><div class="lesson-picker" hidden></div></div></article>';
+    return '<article class="growth-beat"><p class="beat-index">Growth '+(index+1)+' of 3 · DC '+beat.dc+'</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="approach-grid">'+approaches+'</div><div class="roll-box" id="roll-'+esc(beat.id)+'" hidden><label>Chosen approach <strong class="chosen-ability"></strong></label><label class="advantage-toggle"><input class="advantage-check" type="checkbox"> Character Advantage earned</label><div class="advantage-fields" hidden><label>Why this earned Advantage <input class="advantage-reason" type="text" maxlength="180" placeholder="Bond, fear, mentor lesson, prior history, scene feature, meaningful risk…"></label></div><div class="dice-entry"><label>First d20 <input class="d20-input d20-first" type="number" min="1" max="20" inputmode="numeric" placeholder="1–20"></label><label class="second-d20" hidden>Second d20 <input class="d20-input d20-second" type="number" min="1" max="20" inputmode="numeric" placeholder="1–20"></label></div><button type="button" class="button ember resolve-roll">Resolve developmental check</button><p class="muted">Base checks are intentionally hard. Ground the action in who the character is or what they have learned to earn Advantage. Success earns flexible growth; failure earns an off-path lesson; critical success earns an extra point; critical failure can redirect invested growth.</p><div class="lesson-picker" hidden></div></div></article>';
   }
 
-  function showLessonPicker(chapter,beat,box,attemptedAbility,roll,outcome,total) {
+  function showLessonPicker(chapter,beat,box,attemptedAbility,rollData,outcome,total) {
     const host=box.querySelector(".lesson-picker");
     const options=ABILITIES.filter(a=>a!==attemptedAbility&&canInvest(a));
     host.hidden=false;
@@ -370,7 +380,7 @@
       '</div>';
 
     host.querySelectorAll(".choose-lesson").forEach(btn=>{
-      btn.onclick=()=>finalizeBeat(chapter,beat,attemptedAbility,roll,outcome,btn.dataset.lesson);
+      btn.onclick=()=>finalizeBeat(chapter,beat,attemptedAbility,rollData,outcome,btn.dataset.lesson);
     });
   }
 
@@ -386,18 +396,31 @@
       box.querySelector(".d20-input").focus();
     }));
 
+    document.querySelectorAll(".advantage-check").forEach(check=>check.addEventListener("change",()=>{
+      const box=check.closest(".roll-box");
+      box.querySelector(".advantage-fields").hidden=!check.checked;
+      box.querySelector(".second-d20").hidden=!check.checked;
+      if(!check.checked) {
+        box.querySelector(".advantage-reason").value="";
+        box.querySelector(".d20-second").value="";
+      }
+    }));
+
     document.querySelectorAll(".resolve-roll").forEach(btn=>btn.addEventListener("click",()=>{
       const box=btn.closest(".roll-box");
       const beatId=box.id.replace(/^roll-/,"");
       const beat=chapter.growthBeats.find(x=>x.id===beatId);
       const ability=box.dataset.ability;
-      const roll=Number(box.querySelector(".d20-input").value);
-      const result=resolveBeat(chapter,beat,ability,roll);
+      const advantage=box.querySelector(".advantage-check").checked;
+      const roll1=Number(box.querySelector(".d20-first").value);
+      const roll2=advantage?Number(box.querySelector(".d20-second").value):null;
+      const reason=advantage?box.querySelector(".advantage-reason").value:"";
+      const result=resolveBeat(chapter,beat,ability,roll1,roll2,advantage,reason);
       if(result?.error) {
         alert(result.error);
         return;
       }
-      if(result?.needsLesson) showLessonPicker(chapter,beat,box,ability,roll,result.outcome,result.total);
+      if(result?.needsLesson) showLessonPicker(chapter,beat,box,ability,result.rollData,result.outcome,result.total);
     }));
   }
 
