@@ -3580,7 +3580,8 @@
           "bonus": 5,
           "damage": "1d6+3",
           "type": "piercing",
-          "notes": "versatile 1d8+3"
+          "notes": "Monk weapon; Martial Arts uses Dex; versatile 1d8+3",
+          "attackAbilityOverride": "DEX"
         }
       ],
       "bonusActions": [
@@ -3780,7 +3781,7 @@
       ],
       "attacks": [
         "Unarmed Strike. +5 to hit; 1d6+3 bludgeoning; Martial Arts; can make one as a Bonus Action after attacking",
-        "Spear. +5 to hit; 1d6+3 piercing; versatile 1d8+3"
+        "Spear. +5 to hit; 1d6+3 piercing; Monk weapon; Martial Arts uses Dex; versatile 1d8+3"
       ],
       "gear": "Spear, 5× Dagger, Explorer’s pack, 8 gp",
       "advancementHistory": [
