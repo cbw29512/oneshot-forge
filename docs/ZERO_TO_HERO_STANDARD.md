@@ -54,6 +54,20 @@ With no critical-success bonuses, resolving all 21 opportunities yields the equi
 
 Critical successes can add bonus Development Points beyond that normal target. If those bonus points are spent so the final base array exceeds normal 27-point-buy value, the array must be labeled **Heroic / house-rule ability generation**. All 2014/2024 mechanics applied after the array is frozen remain edition-locked and RAW unless another house rule is explicitly enabled.
 
+### 27-point graduation floor
+
+Completing all 21 base Development Opportunities guarantees a **minimum final pre-origin point-buy value of 27**.
+
+Failure and critical failure may redirect development into abilities the player did not intend to prioritize, but they may not reduce the total baseline development earned.
+
+At age 18:
+- graduation is blocked while the base array is below 27 point-buy value;
+- remaining Lesson Points must be spent in their tagged abilities where possible;
+- any Lesson Point blocked by the 15 cap may be converted to flexible growth;
+- any partial invested progress that cannot complete the next score increase may be returned to the flexible wallet as **Maturity Settlement**;
+- Maturity Settlement never creates new Development Points; it only prevents already-earned development from being stranded by the stepped point-buy costs;
+- critical-success bonus growth may still push the final array above 27.
+
 ## 4. Development follows behavior
 
 The player never earns Strength because they declared an intention to become a Fighter. The chosen approach determines the ability.
@@ -101,6 +115,7 @@ This means a critical failure can visibly pull a future martial character away f
 - Lesson Points may be spent only on their tagged ability.
 - The lesson ability must differ from the attempted ability.
 - Critical failure redirects at most one previously invested point per developmental check.
+- No number of failures or critical failures can reduce the completed campaign below the 27-point graduation floor.
 - If the attempted ability has no invested point to redirect, the critical failure still grants its Lesson Point but creates no negative point balance.
 - Roll outcomes may change relationships, reputation, scars, possessions, clocks, and village state in addition to these growth effects.
 - Failure must still fail forward; no result can brick the campaign.
@@ -214,7 +229,8 @@ For 2024 graduation:
 From Zero to Hero ability generation is explicitly a **Level-0 house rule**.
 
 At graduation the site audits the final base array:
-- **27 point-buy value or less:** within the normal point-buy envelope, although the route used to generate it was still the Level-0 house rule;
+- **below 27:** graduation is blocked; already-earned growth must be spent or settled until the floor is reached;
+- **exactly 27:** the character has received the complete baseline development budget;
 - **above 27:** visibly labeled **Heroic / house-rule ability generation**, normally caused by spent critical-success bonus points;
 - no pre-origin score may exceed 15.
 
@@ -248,7 +264,9 @@ From Zero to Hero is not production-ready until:
 - no ability exceeds 15 before edition-specific adjustments;
 - the wallet may be spent between growth scenes;
 - the site displays flexible, lesson, and critical-bonus growth separately;
-- the final base array is audited and clearly labeled if it exceeds normal 27-point-buy value;
+- graduation is impossible below a 27-point base-array value after all 21 base opportunities;
+- Maturity Settlement can recover only stranded/cap-blocked earned growth and cannot mint new points;
+- the final base array is audited and clearly labeled if it exceeds 27 because of critical-success bonus growth;
 - familiarity cannot silently become proficiency;
 - 2014 and 2024 graduation mechanics stay isolated;
 - the custom sheet persists and prints;
