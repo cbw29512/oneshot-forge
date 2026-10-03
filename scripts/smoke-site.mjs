@@ -36,16 +36,28 @@ try {
       (!delivery.zipRequiredForPaid || delivery.zipReady) &&
       delivery.printReady
     );
-    const gated = product.sellable && gate.approved && gate.dmPlaytestApproved && gate.checkoutConfigured && deliveryReady && commerceReady;
+    const rules = product.rulesSupport || {};
+    const dualEditionReady = Boolean(
+      Array.isArray(rules.requiredEditions) &&
+      rules.requiredEditions.includes("2014") &&
+      rules.requiredEditions.includes("2024") &&
+      rules.editionLockedSelection === true &&
+      rules.adventure2014Certified === true &&
+      rules.pregens2014Certified === true &&
+      rules.adventure2024Certified === true &&
+      rules.pregens2024Certified === true
+    );
+    const gated = product.sellable && gate.approved && gate.dmPlaytestApproved && gate.checkoutConfigured && dualEditionReady && deliveryReady && commerceReady;
     if (gate.checkoutConfigured && !commerceReady) errors.push(`${product.id}: checkoutConfigured requires provider, checkout URL, and server-verified entitlement endpoint`);
-    if (product.sellable && !gated) errors.push(`${product.id}: sellable product has incomplete playtest/delivery/checkout release gate`);
+    if (product.sellable && !dualEditionReady) errors.push(`${product.id}: sellable product is missing certified 2014/2024 adventure or pregen support`);
+    if (product.sellable && !gated) errors.push(`${product.id}: sellable product has incomplete playtest/dual-edition/delivery/checkout release gate`);
     if (!gated && index.includes(`data-product-id="${product.id}" data-commercial-state="sellable"`)) errors.push(`${product.id}: homepage exposes Buy state before release gates pass`);
   }
 } catch (error) { errors.push("invalid data/products.json: " + error.message); }
 
 const catalog = read("catalog.js");
 for (const required of [
-  "checkoutConfigured", "gate.approved", "gate.dmPlaytestApproved", "deliveryReady(product)", "commerce.checkoutUrl",
+  "checkoutConfigured", "gate.approved", "gate.dmPlaytestApproved", "dualEditionReady(product)", "deliveryReady(product)", "commerce.checkoutUrl",
   'commerce.entitlementMode === "server-verified"', "commerce.entitlementVerificationUrl", "event.preventDefault()",
   'method: "POST"', "JSON.stringify({ productId: product.id })", '/\\.stripe\\.com$/i.test(target.hostname)',
   'params.get("checkout_return")', 'params.get("session_id")', "await verifiedEntitlement(product, returnSessionId)",
