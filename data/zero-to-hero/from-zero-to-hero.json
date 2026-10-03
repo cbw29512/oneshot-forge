@@ -78,7 +78,7 @@
     },
     "minimumGraduationValue": 27,
     "baseGrowthNeverLost": true,
-    "maturitySettlementRule": "After all 21 base Development Opportunities are resolved, any unspent Lesson Points and any partial invested progress that has not completed an ability increase may be converted into Flexible Maturity Points. Graduation is blocked until the pre-origin array has at least 27 point-buy value. Critical failures may redirect where development lands, but can never reduce the 27-point minimum."
+    "maturitySettlementRule": "After all 21 base Development Opportunities are resolved, any stranded Lesson Points blocked by the 15 cap and any stranded partial invested progress that has not completed an ability increase may be converted into Flexible Maturity Points. Graduation is blocked until the pre-origin array has at least 27 point-buy value. Critical failures may redirect where development lands, but can never reduce the 27-point minimum."
   },
   "village": {
     "id": "hearthcross",
