@@ -1576,7 +1576,7 @@
       "className": "Ranger",
       "subclass": null,
       "race": "Elf (Wood Elf Lineage)",
-      "background": "Guide",
+      "background": "Criminal",
       "role": "Ranged hunter",
       "recommended": true,
       "portrait": "assets/pregens/kael.jpg",
@@ -1584,9 +1584,9 @@
       "scores": {
         "STR": 10,
         "DEX": 17,
-        "CON": 13,
+        "CON": 15,
         "INT": 10,
-        "WIS": 15,
+        "WIS": 14,
         "CHA": 10
       },
       "saveMap": {
@@ -1728,7 +1728,7 @@
       "skills": "Athletics +2, Nature +2, Perception +6 (ex), Stealth +5, Survival +4",
       "ac": 16,
       "acNotes": "scale mail 14 + Dex 2 (medium armor max 2)",
-      "initiative": 3,
+      "initiative": 5,
       "speedFt": 35,
       "hp": 11,
       "hitDice": "1d10",
@@ -1780,12 +1780,11 @@
           "1": 2
         },
         "focus": "druidic focus",
-        "prepareCount": "2 prepared Ranger spells plus Hunter’s Mark always prepared; Magic Initiate (Druid) is separate.",
+        "prepareCount": "2 prepared Ranger spells plus Hunter’s Mark always prepared.",
         "prepared": [
           "Cure Wounds",
           "Ensnaring Strike",
-          "Hunter’s Mark",
-          "Goodberry"
+          "Hunter’s Mark"
         ],
         "cantrips": [
           "Produce Flame",
@@ -1813,27 +1812,6 @@
           "time": "bonus",
           "range": "90 ft.",
           "effect": "Always prepared. Concentration up to 1 hour; deal +1d6 damage to the marked target when you hit it. 2 free casts/LR."
-        },
-        {
-          "level": 0,
-          "name": "Produce Flame",
-          "time": "action",
-          "range": "self/60 ft.",
-          "effect": "Magic Initiate cantrip; create flame or make a ranged spell attack for fire damage."
-        },
-        {
-          "level": 0,
-          "name": "Guidance",
-          "time": "action",
-          "range": "touch",
-          "effect": "Magic Initiate cantrip; concentration up to 1 minute; add 1d4 to one eligible ability check."
-        },
-        {
-          "level": 1,
-          "name": "Goodberry",
-          "time": "action",
-          "range": "self",
-          "effect": "Magic Initiate spell; create 10 berries for 24 hours. Bonus Action to eat one for 1 HP and nourishment; 1 free cast/LR or use slots."
         }
       ],
       "featureList": [
@@ -1869,9 +1847,9 @@
           "text": "Speed 35 ft. and Druidcraft at level 1; additional lineage spells arrive later."
         },
         {
-          "name": "Magic Initiate (Druid)",
-          "source": "Guide origin feat",
-          "text": "Produce Flame and Guidance; Goodberry is prepared, has 1 free cast/LR, and can also use spell slots."
+          "name": "Alert",
+          "source": "Criminal origin feat",
+          "text": "Add Proficiency Bonus to Initiative and can swap Initiative with a willing ally after rolling."
         }
       ],
       "equipment": [
@@ -1920,7 +1898,7 @@
         "Fey Ancestry: Advantage on saves to avoid or end Charmed.",
         "Trance: Magic can’t put you to sleep; finish a Long Rest in 4 hours of trance.",
         "Wood Elf Lineage: Speed 35 ft. and Druidcraft at level 1; additional lineage spells arrive later.",
-        "Magic Initiate (Druid): Produce Flame and Guidance; Goodberry is prepared, has 1 free cast/LR, and can also use spell slots."
+        "Alert: Add Proficiency Bonus to Initiative and can swap Initiative with a willing ally after rolling."
       ],
       "gear": "Scale mail, Longbow, 20× Arrows, Shortsword, Explorer’s pack, 11 gp",
       "masteries": [
@@ -1928,27 +1906,27 @@
         "Shortsword: Vex"
       ],
       "ruleset": "2024",
-      "conversionNote": "2024-native Wood Elf Guide Ranger root; Hunter begins at Ranger 3.",
+      "conversionNote": "2024-native Wood Elf Criminal Ranger root using Basic Rules background options; Hunter begins at Ranger 3.",
       "hpBonusPerLevel": 0,
       "abilityBuild": {
         "method": "point-buy",
         "base": {
           "STR": 10,
           "DEX": 15,
-          "CON": 13,
+          "CON": 14,
           "INT": 10,
           "WIS": 14,
           "CHA": 10
         },
-        "background": "Guide",
+        "background": "Criminal",
         "allowed": [
           "DEX",
           "CON",
-          "WIS"
+          "INT"
         ],
         "increases": {
           "DEX": 2,
-          "WIS": 1
+          "CON": 1
         }
       },
       "edition": "2024",
@@ -1964,7 +1942,8 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "initiativeBonusOverride": 2
     },
     {
       "id": "pregen-hester",
@@ -1972,7 +1951,7 @@
       "className": "Paladin",
       "subclass": null,
       "race": "Human",
-      "background": "Farmer",
+      "background": "Soldier",
       "role": "Face and second front line",
       "recommended": true,
       "portrait": "assets/pregens/hester.jpg",
@@ -1980,7 +1959,7 @@
       "scores": {
         "STR": 17,
         "DEX": 10,
-        "CON": 14,
+        "CON": 15,
         "INT": 10,
         "WIS": 10,
         "CHA": 14
@@ -2126,7 +2105,7 @@
       "acNotes": "chain mail 16 + shield 2",
       "initiative": 0,
       "speedFt": 30,
-      "hp": 14,
+      "hp": 15,
       "hitDice": "1d10",
       "darkvision": 0,
       "proficiencies": {
@@ -2217,16 +2196,6 @@
           "text": "Longsword (Sap) and Javelin (Slow)."
         },
         {
-          "name": "Tough",
-          "source": "Farmer origin feat",
-          "text": "+2 HP per character level (already included)."
-        },
-        {
-          "name": "Savage Attacker",
-          "source": "Human Versatile origin feat",
-          "text": "Once per turn when you hit with a weapon, roll the weapon’s damage dice twice and use either roll."
-        },
-        {
           "name": "Resourceful",
           "source": "Human",
           "text": "Gain Heroic Inspiration after each Long Rest."
@@ -2235,6 +2204,16 @@
           "name": "Skillful",
           "source": "Human",
           "text": "Gain proficiency in one skill of your choice (already reflected on the sheet)."
+        },
+        {
+          "name": "Savage Attacker",
+          "source": "Soldier origin feat",
+          "text": "Once per turn when you hit with a weapon, roll the weapon’s damage dice twice and use either roll."
+        },
+        {
+          "name": "Tough",
+          "source": "Human Versatile origin feat",
+          "text": "+2 HP per character level (already included)."
         }
       ],
       "equipment": [
@@ -2280,10 +2259,10 @@
         "Lay on Hands: Bonus Action, touch. Pool of 5 HP; heal from the pool or spend 5 points to remove Poisoned.",
         "Spellcasting: Cha DC 12, +4. Two 1st-level slots and two prepared Paladin spells.",
         "Weapon Mastery: Longsword (Sap) and Javelin (Slow).",
-        "Tough: +2 HP per character level (already included).",
-        "Savage Attacker: Once per turn when you hit with a weapon, roll the weapon’s damage dice twice and use either roll.",
         "Resourceful: Gain Heroic Inspiration after each Long Rest.",
-        "Skillful: Gain proficiency in one skill of your choice (already reflected on the sheet)."
+        "Skillful: Gain proficiency in one skill of your choice (already reflected on the sheet).",
+        "Savage Attacker: Once per turn when you hit with a weapon, roll the weapon’s damage dice twice and use either roll.",
+        "Tough: +2 HP per character level (already included)."
       ],
       "gear": "Chain mail, Shield, Longsword, 3× Javelin, Holy symbol (iron lantern), 14 gp",
       "masteries": [
@@ -2291,23 +2270,23 @@
         "Javelin: Slow"
       ],
       "ruleset": "2024",
-      "conversionNote": "2024-native Human Farmer Paladin root; Oath of Devotion begins at Paladin 3.",
+      "conversionNote": "2024-native Human Soldier Paladin root using Basic Rules background options; Oath of Devotion begins at Paladin 3.",
       "hpBonusPerLevel": 2,
       "abilityBuild": {
         "method": "point-buy",
         "base": {
           "STR": 15,
           "DEX": 10,
-          "CON": 13,
+          "CON": 14,
           "INT": 10,
           "WIS": 10,
           "CHA": 14
         },
-        "background": "Farmer",
+        "background": "Soldier",
         "allowed": [
           "STR",
-          "CON",
-          "WIS"
+          "DEX",
+          "CON"
         ],
         "increases": {
           "STR": 2,
