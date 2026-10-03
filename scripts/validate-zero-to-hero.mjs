@@ -13,6 +13,18 @@ if(d.rules?.naturalExtremesNeverOverrideTotal!==true) fail("normal total-vs-DC r
 if(d.start?.age!==12||d.start?.className!=="Level 0") fail("must start age 12 at Level 0");
 for(const a of ab) if(d.start?.scores?.[a]!==9) fail(a+" must start at 9");
 
+if(d.preClassShell?.enabled!==true||d.preClassShell?.lockRequiredBeforeFirstGrowthBeat!==true) fail("immutable pre-class shell must be enabled and required before play");
+if(d.preClassShell?.shellName!=="Level-0 Pre-Class Character") fail("pre-class shell name drifted");
+for(const field of ["rulesEdition","raceSpecies","size","speed","senses","intrinsicTraits","levelGatedTraits","sourceNote"]) if(!d.preClassShell?.immutableFields?.includes(field)) fail("pre-class immutable field missing: "+field);
+if(!/begin at 9/i.test(d.preClassShell?.startingAbilityRule||"")) fail("pre-class shell must preserve six-9 start");
+if(!/cannot change/i.test(d.preClassShell?.raceSpeciesRule||"")) fail("race/species must be immutable after lock");
+if(!/2014 or 2024/i.test(d.preClassShell?.editionRule||"")) fail("pre-class shell must lock one edition");
+if(!/deferred/i.test(d.preClassShell?.abilityAdjustmentRule?.["2014"]||"")||!/deferred/i.test(d.preClassShell?.abilityAdjustmentRule?.["2024"]||"")) fail("edition ability adjustments must be deferred until the base array freezes");
+if(!Array.isArray(d.preClassShell?.rawPlaceholders)||d.preClassShell.rawPlaceholders.length<12) fail("pre-class shell needs complete RAW placeholders");
+const placeholderIds=d.preClassShell.rawPlaceholders.map(x=>x.id);
+for(const id of ["background","class","hpHitDie","savingThrows","skills","tools","weaponsArmor","spells","feats","equipment","abilityAdjustment"]) if(!placeholderIds.includes(id)) fail("RAW placeholder missing: "+id);
+if(!/unless the table deliberately enables another named homebrew/i.test(d.preClassShell?.level1Rule||"")) fail("Level-1 RAW/default-homebrew boundary missing");
+
 if(d.upbringingLeans?.enabled!==true||d.upbringingLeans?.level0Only!==true) fail("Upbringing Lean must be enabled and Level-0-only");
 if(d.upbringingLeans?.locksAfterFirstGrowthBeat!==true) fail("Upbringing Lean must lock after the first Growth Beat");
 if(d.upbringingLeans?.doesNotLockClass!==true) fail("Upbringing Lean may not lock the Level-1 class");
@@ -163,6 +175,7 @@ for(const id of ["graduation-keepsakes","graduation-certificate","origin-chronic
 if(!/30-point maximum/i.test(page)) fail("public page must disclose the absolute 30-point maximum");
 if(!/How Character Advantage is earned/.test(page)||!/No roleplay Disadvantage/.test(page)) fail("public page must explain fair Character Advantage criteria");
 if(!/id="char-upbringing"/.test(page)||!/id="upbringing-summary"/.test(page)) fail("public sheet must expose Upbringing Lean selection and summary");
+for(const id of ["preclass-shell","preclass-edition","preclass-race","preclass-size","preclass-speed","preclass-senses","preclass-intrinsic","preclass-gated","preclass-source","lock-preclass-shell","raw-placeholder-grid"]) if(!page.includes('id="'+id+'"')) fail("pre-class shell UI missing "+id);
 if(!/two abilities are Favored \(Advantage\), two are Neutral, and two are Challenging \(Disadvantage\)/.test(page)) fail("public page must explain the 2/2/2 Upbringing fairness structure");
 if(!/critical failure can redirect/i.test(page)) fail("public page must disclose critical-failure redirection");
 if(!/Heroic \/ house-rule ability generation/.test(script)) fail("graduation must label above-27 arrays as house rule");
@@ -170,11 +183,17 @@ if(!/maximumGraduationValue\|\|30/.test(script)) fail("script must read the 30-p
 if(!/arrayCostForInvested\(next\) <= maximumArrayValue\(\)/.test(script)) fail("Development Point spending must be blocked above 30");
 if(!/minimumGraduationValue\|\|27/.test(script)) fail("graduation must read the 27-point floor");
 if(!/const ready=value>=floor && value<=ceiling && lessons===0/.test(script)) fail("graduation must enforce the 27–30 range and resolve Lesson Points");
-if(!/btn\.disabled=!ready/.test(script)) fail("edition buttons must remain disabled until the floor is secured");
+if(!/btn\.disabled=!ready\|\|!isTarget/.test(script)) fail("only the locked edition graduation button may activate after the floor is secured");
 if(!/settleMaturityCredits/.test(script)) fail("Maturity Settlement implementation missing");
 if(!/state\.wallet\.flexible\+=reclaimed/.test(script)) fail("stranded earned growth must return to the flexible wallet");
 if(!/state\.invested\[ability\]-=partial/.test(script)) fail("partial stranded investment recovery missing");
-if(!/version:7/.test(script)) fail("Upbringing Lean state version missing");
+if(!/version:8/.test(script)) fail("pre-class shell state version missing");
+if(!/preclass:\{/.test(script)||!/rulesEdition:""/.test(script)||!/raceSpecies:""/.test(script)||!/locked:false/.test(script)) fail("pre-class shell state missing");
+if(!/function preclassReadyToLock/.test(script)||!/function lockPreclassShell/.test(script)||!/function bindPreclassShell/.test(script)) fail("pre-class shell lock/binding logic missing");
+if(!/state\.preclass\.locked=true/.test(script)) fail("pre-class shell must become immutable after explicit lock");
+if(!/state\.graduationEdition=edition/.test(script)) fail("locked rules edition must anchor graduation edition");
+if(!/Lock the Level-0 race\/species and rules edition before the first developmental check/.test(script)) fail("Growth checks must require locked race/species + edition");
+if(!/state\.preclass\?\.raceSpecies/.test(script)||!/state\.preclass\?\.rulesEdition/.test(script)) fail("graduation/keepsakes must read immutable pre-class identity");
 if(!/upbringingProfile:""/.test(script)||!/upbringingLocked:false/.test(script)) fail("Upbringing Lean state missing");
 if(!/function upbringingDisposition/.test(script)||!/function effectiveRollMode/.test(script)) fail("Upbringing roll-mode helpers missing");
 if(!/Math\.min\(roll1,roll2\)/.test(script)) fail("Upbringing Disadvantage must keep the lower d20");
@@ -201,7 +220,9 @@ if(!/renderGraduationKeepsakes/.test(script)) fail("graduation keepsake renderer
 if(!/ready for certified Level-1 creation/.test(script)) fail("certificate must stop at certified Level-1 readiness until class wiring exists");
 if(!/graduationKeepsakes\.ruleBoundary/.test(script)) fail("certificate/chronicle must display the no-mechanical-benefit boundary");
 if(!/printZeroHero\("print-certificate"\)/.test(script)||!/printZeroHero\("print-graduation-packet"\)/.test(script)) fail("graduation print modes missing");
-if(!/state\.graduationEdition/.test(script)) fail("graduation keepsakes must record selected edition");
+if(!/state\.graduationEdition/.test(script)) fail("graduation keepsakes must record locked edition");
+if(!/const targetEdition=state\.preclass\?\.rulesEdition\|\|""/.test(script)) fail("graduation must be constrained to the locked rules edition");
+if(!/btn\.hidden=!isTarget/.test(script)) fail("non-target graduation edition must be hidden");
 if(!/wallet:\{flexible:0,lessons:blankAbilityMap\(0\)\}/.test(script)) fail("wallet state missing");
 if(!/state\.wallet\.flexible\+=Number\(rule\.flexible\|\|0\)/.test(script)) fail("flexible award path missing");
 if(!/state\.wallet\.lessons\[lessonAbility\]\+=Number\(rule\.lesson\)/.test(script)) fail("Lesson Point award path missing");
@@ -237,4 +258,4 @@ for(const score of Object.keys(raise).map(Number)){
  if(dev.startingPointBuyCost+dev.baseOpportunities!==dev.minimumGraduationValue) fail("6 starting value + 21 base growth must equal the 27-point floor");
 if(dev.maximumGraduationValue-dev.minimumGraduationValue!==3) fail("Zero-to-Hero heroic headroom must remain exactly 3 point-buy value");
 
-console.log("From Zero to Hero OK — equal 2/2/2 Upbringing Leans, mathematically balanced Hearthcross Six, scrapbook-led development, 4–6 player adventure play, 27–30 point range, edition-isolated graduation.");
+console.log("From Zero to Hero OK — immutable race/species + edition pre-class shell, equal 2/2/2 Upbringing Leans, balanced Hearthcross Six, scrapbook-led development, 27–30 point range, RAW-slot graduation handoff.");
