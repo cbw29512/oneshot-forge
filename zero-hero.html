@@ -6,7 +6,7 @@
   <title>From Zero to Hero — One-Shot Forge</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
   <link rel="stylesheet" href="styles.css?v=20261002e">
-  <link rel="stylesheet" href="zero-hero.css?v=20261003d">
+  <link rel="stylesheet" href="zero-hero.css?v=20261003e">
 </head>
 <body class="zero-hero-page">
   <header class="land-bar print-hide">
@@ -71,6 +71,20 @@
           <strong id="scrapbook-count">0 cards</strong>
           <button type="button" class="button secondary" id="print-scrapbook">Print scrapbook cards</button>
         </div>
+      </div>
+      <div class="competition-award-tool print-hide" id="competition-award-tool">
+        <div>
+          <p class="eyebrow">ADD A COMPETITION MEMORY</p>
+          <p class="muted">Record the official result after the DM runs a Hearthcross contest. Placement creates the correct podium or consolation card but never adds extra Development Points.</p>
+        </div>
+        <div class="competition-award-fields">
+          <label>Contest<select id="competition-select"></select></label>
+          <label>Field size<select id="competition-field-size"><option value="4">4</option><option value="5">5</option><option value="6">6</option></select></label>
+          <label>Official place<select id="competition-place"></select></label>
+          <label class="competition-note">Player note<input id="competition-note" maxlength="120" placeholder="Optional: what you remember"></label>
+          <button type="button" class="button secondary" id="add-competition-card">Add / update card</button>
+        </div>
+        <p id="competition-preview" class="competition-preview"></p>
       </div>
       <div class="scrapbook-grid" id="scrapbook-grid"></div>
     </section>
@@ -138,6 +152,6 @@
       <details><summary>Hearthcross village cast & locations</summary><div id="village-host"></div></details>
     </section>
   </main>
-  <script src="zero-hero.js?v=20261003d"></script>
+  <script src="zero-hero.js?v=20261003e"></script>
 </body>
 </html>
