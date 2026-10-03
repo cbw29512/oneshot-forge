@@ -54,6 +54,14 @@ for(const n of d.village.npcs){
 }
 
 if(!d.lifeFirstDesign||d.lifeFirstDesign.ordinaryLifeYears?.join(",")!=="12,13,14,15") fail("life-first ordinary years must be ages 12–15");
+if(d.continuity?.growthBeatParticipation?.noEarlyClose!==true) fail("shared Growth Beats may not close before every player acts");
+if(d.continuity?.growthBeatParticipation?.rotateSpotlight!==true) fail("Growth Beat spotlight order must rotate");
+if(d.continuity?.growthBeatParticipation?.supportAllowed!==true) fail("shared Growth Beats must permit fictional support");
+if(d.continuity?.yearbook?.requiredAfterEachChapter!==true) fail("Yearbook reflection must be required after each chapter");
+if(d.continuity?.yearbook?.grantsDevelopment!==false) fail("Yearbook reflection may never grant Development Points");
+if(!Array.isArray(d.continuity?.betweenYears)||d.continuity.betweenYears.length!==6) fail("exactly six between-year interludes required");
+if(d.continuity.betweenYears.map(x=>x.afterAge).join(",")!=="12,13,14,15,16,17") fail("between-year interludes must bridge ages 12 through 17");
+if(!Array.isArray(d.continuity?.villageTimeline)||d.continuity.villageTimeline.length!==7) fail("village timeline requires one visible change per year");
 if(!/whole group/i.test(d.lifeFirstDesign.groupRule||"")) fail("life-first design must explicitly keep the whole group involved");
 if(!Array.isArray(d.chapters)||d.chapters.length!==7) fail("must have seven yearly chapters");
 if(d.chapters.map(x=>x.age).join(",")!=="12,13,14,15,16,17,18") fail("chapter ages must be 12 through 18");
@@ -92,6 +100,7 @@ if(d.graduation["2014"].forbidden.join(" ").includes("2014 background")) fail("2
 for(const k of ["abilityArray","proficiencies","heirloom","mentor","mechanics"]) if(!d.graduation?.rawAudit?.[k]) fail("graduation audit missing "+k);
 
 if(!/development wallet/i.test(page)) fail("public page must explain the development wallet");
+if(!/group-resolution-note/.test(page)||!/yearbook-host/.test(page)) fail("public page must expose shared-beat and Yearbook continuity surfaces");
 if(!/30-point maximum/i.test(page)) fail("public page must disclose the absolute 30-point maximum");
 if(!/How Character Advantage is earned/.test(page)||!/No roleplay Disadvantage/.test(page)) fail("public page must explain fair Character Advantage criteria");
 if(!/critical failure can redirect/i.test(page)) fail("public page must disclose critical-failure redirection");
@@ -104,7 +113,11 @@ if(!/btn\.disabled=!ready/.test(script)) fail("edition buttons must remain disab
 if(!/settleMaturityCredits/.test(script)) fail("Maturity Settlement implementation missing");
 if(!/state\.wallet\.flexible\+=reclaimed/.test(script)) fail("stranded earned growth must return to the flexible wallet");
 if(!/state\.invested\[ability\]-=partial/.test(script)) fail("partial stranded investment recovery missing");
-if(!/version:4/.test(script)) fail("Character Advantage state version missing");
+if(!/version:5/.test(script)) fail("Yearbook continuity state version missing");
+if(!/yearbook:\{\}/.test(script)) fail("Yearbook state missing");
+if(!/yearbookComplete/.test(script)||!/saveYearbook/.test(script)) fail("Yearbook completion/save logic missing");
+if(!/next\.disabled=used!==3 \|\| !yearbookComplete\(chapter\)/.test(script)) fail("age advancement must wait for Yearbook completion");
+if(!/type:"yearbook"/.test(script)) fail("Yearbook history entries must be persisted");
 if(!/wallet:\{flexible:0,lessons:blankAbilityMap\(0\)\}/.test(script)) fail("wallet state missing");
 if(!/state\.wallet\.flexible\+=Number\(rule\.flexible\|\|0\)/.test(script)) fail("flexible award path missing");
 if(!/state\.wallet\.lessons\[lessonAbility\]\+=Number\(rule\.lesson\)/.test(script)) fail("Lesson Point award path missing");
@@ -140,4 +153,4 @@ for(const score of Object.keys(raise).map(Number)){
  if(dev.startingPointBuyCost+dev.baseOpportunities!==dev.minimumGraduationValue) fail("6 starting value + 21 base growth must equal the 27-point floor");
 if(dev.maximumGraduationValue-dev.minimumGraduationValue!==3) fail("Zero-to-Hero heroic headroom must remain exactly 3 point-buy value");
 
-console.log("From Zero to Hero OK — life-first village arc, whole-group chapters, 27–30 point range, hard DC curve, Character Advantage, differentiated outcomes, edition-isolated graduation.");
+console.log("From Zero to Hero OK — life-first village arc, shared per-player Growth Beats, Yearbook continuity, 27–30 point range, Character Advantage, differentiated outcomes, edition-isolated graduation.");

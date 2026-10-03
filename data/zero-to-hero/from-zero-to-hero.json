@@ -1082,5 +1082,107 @@
     ],
     "escalation": "Ages 12–15 center chores, dances, fairs, family, apprenticeships, friendships and small local problems. Age 16 expands the world. Age 17 introduces serious community danger. Age 18 combines a coming-of-age celebration with the final crisis/calling.",
     "groupRule": "Every chapter gives the whole group a shared reason to be together and multiple simultaneous jobs so each player can contribute without waiting for one protagonist."
+  },
+  "continuity": {
+    "growthBeatParticipation": {
+      "rule": "Each Growth Beat is one shared group situation. Every player character gets one Development Check inside that beat before the beat closes.",
+      "noEarlyClose": true,
+      "rotateSpotlight": true,
+      "supportAllowed": true,
+      "supportRule": "A character may help another character fictionally, but still needs their own distinct contribution/check in the beat to receive that beat's Development Opportunity.",
+      "reframingRule": "After each character acts, update the fiction. Later characters solve the new state of the problem rather than repeating an identical check."
+    },
+    "yearbook": {
+      "requiredAfterEachChapter": true,
+      "grantsDevelopment": false,
+      "prompts": [
+        "What will your character still remember from this year?",
+        "Which relationship changed most for your character?",
+        "Is your character still striving to become the same thing? If not, what changed?",
+        "What changed in Hearthcross that your character notices?"
+      ],
+      "advantageLink": "A recorded Yearbook memory may later justify Character Advantage only when it specifically matters to the current scene."
+    },
+    "betweenYears": [
+      {
+        "afterAge": 12,
+        "title": "First Snow",
+        "season": "winter",
+        "prompt": "The first snow keeps most of Hearthcross close to home. Choose one small memory: help family prepare for winter, spend a day with friends, visit a mentor, make or repair something, or get into harmless trouble.",
+        "villageChange": "The Common Green gets its first permanent youth notice board after the spring chore crews prove they can be trusted."
+      },
+      {
+        "afterAge": 13,
+        "title": "High Summer",
+        "season": "summer",
+        "prompt": "A hot week slows the village down. Where does your group gather when nobody has assigned you a job: riverbank, inn loft, smithy shade, shrine steps, orchard wall, or somewhere you invented yourselves?",
+        "villageChange": "The Spring Dance becomes a stronger village tradition, and younger children begin copying the group's games and fashions."
+      },
+      {
+        "afterAge": 14,
+        "title": "The Long Evenings",
+        "season": "autumn",
+        "prompt": "Harvest is over and evenings stretch longer. Pick one thing your character practices badly but keeps returning to, and one person who notices.",
+        "villageChange": "Tavi Brindle expands from a market stall into a small storefront, changing the feel of Crossmarket."
+      },
+      {
+        "afterAge": 15,
+        "title": "Choosing Where to Spend Your Time",
+        "season": "winter",
+        "prompt": "Adult work is starting to compete with childhood freedom. Which mentor, craft, household duty, friend, or private interest gets most of your spare time this year?",
+        "villageChange": "Maela Venn takes over more of the apothecary as her aunt withdraws from daily work."
+      },
+      {
+        "afterAge": 16,
+        "title": "Letters from Beyond Hearthcross",
+        "season": "summer",
+        "prompt": "The first trip away makes the world feel larger. Who keeps in touch with someone outside the village, who wants to leave someday, and who feels more certain Hearthcross is home?",
+        "villageChange": "More travelers begin using Hearthcross as a stop between Bellmere and the district road; strangers become less unusual."
+      },
+      {
+        "afterAge": 17,
+        "title": "After the Storm",
+        "season": "autumn",
+        "prompt": "The village repairs what it can. What job does your character keep showing up for after nobody is asking anymore, and which adult starts treating them differently because of it?",
+        "villageChange": "Captain Orren's age becomes harder to ignore; younger villagers begin taking over duties he once handled automatically."
+      }
+    ],
+    "villageTimeline": [
+      {
+        "age": 12,
+        "ambientChange": "The youth notice board appears on the Common Green.",
+        "choiceSensitive": "Whichever household the group helped most starts treating them as dependable rather than merely children."
+      },
+      {
+        "age": 13,
+        "ambientChange": "The Spring Dance becomes an annual youth-led tradition.",
+        "choiceSensitive": "Friendships, rivalries, crushes, and embarrassments from the dance remain visible next year."
+      },
+      {
+        "age": 14,
+        "ambientChange": "Crossmarket grows busier as Tavi's storefront opens.",
+        "choiceSensitive": "How the group handled winning/losing affects local reputation."
+      },
+      {
+        "age": 15,
+        "ambientChange": "Several youths begin regular apprenticeships or household work.",
+        "choiceSensitive": "Mentors remember both good work and how mistakes were repaired."
+      },
+      {
+        "age": 16,
+        "ambientChange": "Outside travelers and letters become more common after the Bellmere road trip.",
+        "choiceSensitive": "The group gains or loses family trust depending on how responsibly they handled independence."
+      },
+      {
+        "age": 17,
+        "ambientChange": "Storm repairs permanently change at least one visible village location.",
+        "choiceSensitive": "Adults begin addressing the group as near-peers in emergencies."
+      },
+      {
+        "age": 18,
+        "ambientChange": "The village prepares for some of the group to leave and others to stay.",
+        "choiceSensitive": "The final crisis locks the Hearthcross state carried into Level 1."
+      }
+    ]
   }
 }

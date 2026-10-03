@@ -262,6 +262,50 @@ Age **18** may contain the origin campaign's true crisis because the characters 
 
 The purpose is escalation by **life stage**, not escalation because every session needs a bigger villain.
 
+## 8B. Shared Growth Beats, Yearbook, and continuity
+
+### Every player gets the beat
+
+Each of the three yearly Growth Beats is one **shared group situation**, not one check for the whole party.
+
+Every player character receives exactly one Development Check inside each Growth Beat. The scene does not close because the first character succeeds.
+
+Rules:
+- no character receives a second Development Check in the beat until every character has had one;
+- rotate who acts first so the same player does not always define the scene;
+- helping another character is allowed, but assistance does not replace the helper's own Development Check;
+- after each character acts, update the fiction so later characters address the new state instead of repeating an identical roll;
+- an early success can improve the position, reduce consequences, or change what remains to be done, but cannot erase another player's Development Opportunity.
+
+This is how a four-player group still gives **each character** all 21 base Development Opportunities across the seven-year campaign.
+
+### Yearbook reflection
+
+After the three Growth Beats resolve, each character records a short **Yearbook** entry before advancing to the next age.
+
+Yearbook entries:
+- grant **no Development Points**;
+- cannot increase ability scores or proficiencies;
+- record one concrete memory from the year;
+- record a relationship that changed;
+- confirm whether the character's aspiration stayed the same or changed;
+- record a visible change in Hearthcross;
+- may include the between-years seasonal memory.
+
+A recorded Yearbook memory can later support Character Advantage only when it is genuinely relevant to the current attempt. Writing a memory does not create a reusable generic Advantage token.
+
+### Between the years
+
+The campaign includes six short interludes between ages 12 and 18:
+- First Snow;
+- High Summer;
+- The Long Evenings;
+- Choosing Where to Spend Your Time;
+- Letters from Beyond Hearthcross;
+- After the Storm.
+
+These are ordinary-life prompts, not extra Development Opportunities. They exist to make time passing visible, deepen family/mentor/friend continuity, and let Hearthcross visibly change from year to year.
+
 ## 9. Graduation: 2014
 
 Level-0 produces the **pre-origin base ability array**.

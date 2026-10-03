@@ -19,7 +19,7 @@
 
   function blankState() {
     return {
-      version:4,
+      version:5,
       chapterIndex:0,
       age:12,
       identity:{
@@ -36,6 +36,7 @@
       chapterGrowth:{},
       resolvedBeats:{},
       timeline:[],
+      yearbook:{},
       graduationEdition:null
     };
   }
@@ -72,8 +73,8 @@
   }
 
   function migrateState(parsed) {
-    if(!parsed || ![1,2,3,4].includes(parsed.version)) return blankState();
-    if(parsed.version===3 || parsed.version===4) {
+    if(!parsed || ![1,2,3,4,5].includes(parsed.version)) return blankState();
+    if(parsed.version===3 || parsed.version===4 || parsed.version===5) {
       parsed.wallet ||= {flexible:0,lessons:blankAbilityMap(0)};
       parsed.wallet.lessons ||= blankAbilityMap(0);
       parsed.invested ||= blankAbilityMap(0);
@@ -82,7 +83,8 @@
         parsed.invested[a]=Number(parsed.invested[a]||0);
       }
       parsed.criticalBonusEarned=Number(parsed.criticalBonusEarned||0);
-      parsed.version=4;
+      parsed.yearbook ||= {};
+      parsed.version=5;
       state=parsed;
       recomputeScores();
       return state;
@@ -96,6 +98,7 @@
     migrated.chapterGrowth=parsed.chapterGrowth||{};
     migrated.resolvedBeats=parsed.resolvedBeats||{};
     migrated.timeline=parsed.timeline||[];
+    migrated.yearbook=parsed.yearbook||{};
     migrated.graduationEdition=parsed.graduationEdition||null;
 
     for(const a of ABILITIES) {
@@ -351,6 +354,13 @@
       if(e.type==="maturity") {
         return '<article><strong>Age '+e.age+' · '+esc(e.chapter)+'</strong><p>'+esc(e.result)+'</p></article>';
       }
+      if(e.type==="yearbook") {
+        return '<article class="yearbook-entry"><strong>Age '+e.age+' · Yearbook</strong><p><b>Memory:</b> '+esc(e.memory)+'</p>'+
+          (e.relationship?'<p><b>Relationship:</b> '+esc(e.relationship)+'</p>':"")+
+          (e.aspiration?'<p><b>Aspiration:</b> '+esc(e.aspiration)+'</p>':"")+
+          (e.interlude?'<p><b>Between the years:</b> '+esc(e.interlude)+'</p>':"")+
+          '</article>';
+      }
       const lesson=e.lessonAbility?' · lesson: '+e.lessonAbility:"";
       const rollText=e.advantage
         ? 'Advantage ['+e.roll1+', '+e.roll2+'] → '+e.roll
@@ -443,12 +453,99 @@
     }));
   }
 
+  function yearbookRecord(chapter) {
+    const existing=state.yearbook[chapter.id]||{};
+    return {
+      memory:existing.memory||"",
+      relationship:existing.relationship||"",
+      aspirationStatus:existing.aspirationStatus||"",
+      aspiration:existing.aspiration||state.identity.aspiration||"",
+      villageNote:existing.villageNote||"",
+      interlude:existing.interlude||""
+    };
+  }
+
+  function yearbookComplete(chapter) {
+    const y=yearbookRecord(chapter);
+    return y.memory.trim().length>=10 && ["same","changed"].includes(y.aspirationStatus);
+  }
+
+  function saveYearbook(chapter) {
+    const host=$("yearbook-host");
+    if(!host) return false;
+    const memory=host.querySelector("[data-yearbook='memory']")?.value.trim()||"";
+    const relationship=host.querySelector("[data-yearbook='relationship']")?.value.trim()||"";
+    const aspirationStatus=host.querySelector("[data-yearbook='aspirationStatus']")?.value||"";
+    const aspiration=host.querySelector("[data-yearbook='aspiration']")?.value.trim()||state.identity.aspiration||"";
+    const villageNote=host.querySelector("[data-yearbook='villageNote']")?.value.trim()||"";
+    const interlude=host.querySelector("[data-yearbook='interlude']")?.value.trim()||"";
+
+    if(memory.length<10) {
+      alert("Record at least one sentence about what your character remembers from this year.");
+      return false;
+    }
+    if(!["same","changed"].includes(aspirationStatus)) {
+      alert("Choose whether the character's aspiration stayed the same or changed.");
+      return false;
+    }
+    if(aspirationStatus==="changed" && aspiration.length<3) {
+      alert("Write the new thing your character is striving to become.");
+      return false;
+    }
+
+    state.yearbook[chapter.id]={memory,relationship,aspirationStatus,aspiration,villageNote,interlude};
+    if(aspirationStatus==="changed") state.identity.aspiration=aspiration;
+
+    state.timeline=state.timeline.filter(e=>!(e.type==="yearbook"&&e.chapterId===chapter.id));
+    state.timeline.push({
+      type:"yearbook",chapterId:chapter.id,age:chapter.age,chapter:chapter.title,
+      memory,relationship,aspiration:aspirationStatus==="same"?(state.identity.aspiration||"Unchanged"):aspiration,
+      villageNote,interlude
+    });
+    saveState();
+    bindIdentity();
+    render();
+    return true;
+  }
+
+  function renderYearbook(chapter,used) {
+    const host=$("yearbook-host");
+    if(!host) return;
+    if(used!==campaign.development.pointsPerChapter && used!==3) {
+      host.innerHTML='<p class="muted">Finish all three Growth Beats before closing this year.</p>';
+      return;
+    }
+
+    const y=yearbookRecord(chapter);
+    const transition=campaign.continuity?.betweenYears?.find(x=>x.afterAge===chapter.age);
+    const village=campaign.continuity?.villageTimeline?.find(x=>x.age===chapter.age);
+    const aspirationNow=state.identity.aspiration||"";
+
+    host.innerHTML='<div class="yearbook-card"><p class="eyebrow ember">YEARBOOK · STORY ONLY · NO DEVELOPMENT POINTS</p>'+
+      '<h3>What changed at age '+chapter.age+'?</h3>'+
+      '<p class="muted">These answers become character history and may later support Character Advantage when they actually matter to a scene.</p>'+
+      '<label>What will your character still remember from this year?<textarea data-yearbook="memory" rows="2" placeholder="One concrete memory…">'+esc(y.memory)+'</textarea></label>'+
+      '<label>Which relationship changed most?<textarea data-yearbook="relationship" rows="2" placeholder="Friend, rival, family, mentor…">'+esc(y.relationship)+'</textarea></label>'+
+      '<label>Are you still striving to become the same thing?<select data-yearbook="aspirationStatus"><option value="">Choose…</option><option value="same"'+(y.aspirationStatus==="same"?" selected":"")+'>Yes — the aspiration is still mine</option><option value="changed"'+(y.aspirationStatus==="changed"?" selected":"")+'>No — it changed this year</option></select></label>'+
+      '<label>Current aspiration<textarea data-yearbook="aspiration" rows="2">'+esc(y.aspiration||aspirationNow)+'</textarea></label>'+
+      (village?'<div class="village-change"><b>Hearthcross this year:</b> '+esc(village.ambientChange)+'<br><span>'+esc(village.choiceSensitive)+'</span></div>':"")+
+      '<label>What change in Hearthcross matters to your character?<textarea data-yearbook="villageNote" rows="2">'+esc(y.villageNote)+'</textarea></label>'+
+      (transition?'<div class="between-years"><p class="eyebrow">BETWEEN THE YEARS · '+esc(transition.title)+'</p><p>'+esc(transition.prompt)+'</p><p class="muted">'+esc(transition.villageChange)+'</p><label>Your small memory<textarea data-yearbook="interlude" rows="2" placeholder="Optional, but useful later…">'+esc(y.interlude)+'</textarea></label></div>':"")+
+      '<button type="button" class="button secondary" id="save-yearbook">Save yearbook entry</button>'+
+      (yearbookComplete(chapter)?'<span class="yearbook-saved">Yearbook complete ✓</span>':"")+
+      '</div>';
+
+    const save=$("save-yearbook");
+    if(save) save.onclick=()=>saveYearbook(chapter);
+  }
+
   function renderQuest() {
     const chapter=campaign.chapters[state.chapterIndex];
     if(!chapter) {
       $("quest-title").textContent="Origin campaign complete";
       $("quest-objective").textContent="Spend any remaining Development Points, then freeze your Level-0 array for graduation.";
       $("beat-host").innerHTML="";
+      $("yearbook-host").innerHTML="";
       $("advance-year").hidden=true;
       $("graduation-panel").hidden=false;
       return;
@@ -462,15 +559,17 @@
     $("quest-pressure").textContent=chapter.pressure;
     $("quest-choice").textContent=chapter.choice;
     $("quest-consequence").textContent=chapter.consequence;
+    $("group-resolution-note").textContent=campaign.continuity?.growthBeatParticipation?.rule||"";
     $("beat-host").innerHTML=chapter.growthBeats.map((b,i)=>renderBeat(chapter,b,i)).join("");
 
     const used=Number(state.chapterGrowth[chapter.id]||0);
+    renderYearbook(chapter,used);
     const next=$("advance-year");
     next.hidden=false;
-    next.disabled=used!==3;
+    next.disabled=used!==3 || !yearbookComplete(chapter);
     next.textContent=chapter.age===18?"Complete Level 0 →":"Finish age "+chapter.age+" → age "+(chapter.age+1);
     next.onclick=()=>{
-      if(used!==3) return;
+      if(used!==3 || !yearbookComplete(chapter)) return;
       state.chapterIndex+=1;
       state.age=campaign.chapters[state.chapterIndex]?.age||18;
       saveState();
