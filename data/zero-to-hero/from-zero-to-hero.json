@@ -1031,11 +1031,13 @@
     "2014": {
       "ruleset": "2014",
       "order": [
-        "Freeze earned pre-origin base array.",
-        "Apply legal 2014 race/species ability adjustments and traits.",
-        "Apply legal 2014 background package.",
-        "Apply certified Level-1 class package.",
-        "Carry only explicitly allowed story/proficiency elements."
+        "Freeze the earned Level-0 base array at 27–30 point-buy value.",
+        "Keep the already-locked 2014 race/species identity; do not reselect it.",
+        "Validate recorded innate race/species traits against the chosen 2014 source and activate any level-gated trait that is now legally available.",
+        "Apply the legal 2014 racial ability-score adjustment after the homebrew base array is frozen.",
+        "Choose and apply a legal 2014 background package.",
+        "Choose and apply a certified legal Level-1 class package, including HP/Hit Die, saves, proficiencies, equipment, and class features.",
+        "Carry childhood training only where a legal 2014 source grants the matching proficiency; otherwise keep it as history."
       ],
       "forbidden": [
         "2024 background ability-score rules",
@@ -1045,12 +1047,12 @@
     "2024": {
       "ruleset": "2024",
       "order": [
-        "Freeze earned pre-origin base array.",
-        "Apply legal 2024 background ability-score increases.",
-        "Apply legal 2024 origin feat/background package.",
-        "Apply legal species traits.",
-        "Apply certified Level-1 class package.",
-        "Carry only explicitly allowed story/proficiency elements."
+        "Freeze the earned Level-0 base array at 27–30 point-buy value.",
+        "Keep the already-locked 2024 species identity; do not reselect it.",
+        "Validate recorded innate species traits against the chosen 2024 source and activate any level-gated trait that is now legally available.",
+        "Choose and apply a legal 2024 background, including its legal ability-score increase and Origin feat package after the homebrew base array is frozen.",
+        "Choose and apply a certified legal Level-1 class package, including HP/Hit Die, saves, proficiencies, equipment, and class features.",
+        "Carry childhood training only where a legal 2024 source grants the matching proficiency; otherwise keep it as history."
       ],
       "forbidden": [
         "2014 racial ASI/background mechanics"
@@ -1069,7 +1071,7 @@
       "proficiencies": "Training/familiarity remains narrative until a legal 2014 race/background/class or 2024 species/background/class choice grants the proficiency.",
       "heirloom": "Heirloom remains mundane/narrative unless the selected ruleset or an explicitly enabled house rule grants a mechanical property.",
       "mentor": "Mentors are narrative contacts and grant no automatic numerical bonus unless an explicit house rule says otherwise.",
-      "mechanics": "After the base ability array is frozen, all species/race, background, class, proficiency, HP, spell, feat, equipment, and later advancement rules must follow the selected 2014 or 2024 ruleset exactly."
+      "mechanics": "Race/species identity and target edition are locked before the first Growth Beat. The six-9 Level-0 array and 27–30 development envelope are homebrew. Once that array is frozen, all remaining background, class, proficiency, HP, spell, feat, equipment, deferred ability adjustment, and later advancement rules must follow the locked 2014 or 2024 ruleset exactly unless another homebrew is explicitly named."
     }
   },
   "lifeFirstDesign": {
