@@ -1956,7 +1956,7 @@
         }
       ],
       "bonusActions": [
-        "Divine Smite is not a bonus — it is on hit. Sacred Weapon (Channel): bonus action, 1 minute, attacks with one weapon use +5 (Cha) instead of Str, and the weapon is magical."
+        "Divine Smite is not a bonus — it is on hit. Sacred Weapon uses an action, lasts 1 minute, adds Cha (+3) to attack rolls with the chosen weapon, and makes it magical."
       ],
       "reactions": [],
       "spellcasting": {
@@ -2045,7 +2045,7 @@
         {
           "name": "Channel Divinity: Sacred Weapon",
           "source": "Devotion 3",
-          "text": "Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better — +6 to hit), magical, sheds light.",
+          "text": "Action, 1/rest. For 1 minute, add Cha (+3) to attack rolls with one held weapon; the weapon becomes magical and sheds light. With the longsword on this sheet, the attack bonus becomes +8.",
           "uses": "1/rest shared"
         },
         {
@@ -2105,7 +2105,7 @@
         "Fighting Style: Dueling: +2 damage with a melee weapon in one hand and no other weapon (already in 1d8+5).",
         "Divine Smite: When you hit with a melee weapon, expend a spell slot: +2d8 radiant (1st) or +3d8 (2nd). +1d8 vs undead or fiend. You have only 1st-level slots: +2d8, or +3d8 vs undead/fiend.",
         "Divine Health: Immune to disease.",
-        "Channel Divinity: Sacred Weapon: Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better — +6 to hit), magical, sheds light.",
+        "Channel Divinity: Sacred Weapon: Action, 1/rest. For 1 minute, add Cha (+3) to attack rolls with one held weapon; the weapon becomes magical and sheds light. With the longsword on this sheet, the attack bonus becomes +8.",
         "Channel Divinity: Turn the Unholy: Action, 1/rest. Fiends and undead within 30 ft. that see/hear you: Wis DC 13 or turned 1 minute.",
         "Rustic Hospitality: Common folk will hide you from the law or anyone searching, if you are not putting them in undue danger."
       ],
