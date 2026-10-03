@@ -19,7 +19,10 @@ body.zero-adventure-body{background:#17120e;color:#f4eadc}
 .chapter-goal{font-weight:700;font-size:1.05rem}
 .boxed-text{display:block;background:#f4eadc;color:#201811;border-left:5px solid #b07543;border-radius:.45rem;padding:1rem 1.1rem;font:1rem/1.55 Georgia,serif;margin:.7rem 0}
 .dm-box,.spotlight-box,.growth-reference,.scrapbook-callout{border-radius:.6rem;padding:.85rem;margin:.85rem 0}
-.dm-box{background:#30251d;border:1px solid #604c3b}
+.zero-adventure-body .dm-box{background:var(--gm-paper);color:var(--gm-ink);border:1px solid #b9a48b;line-height:1.6}
+.zero-adventure-body .dm-box :is(p,li,b,strong){color:var(--gm-ink)}
+.zero-adventure-body .dm-box .box-label{color:var(--gm-label)}
+.zero-adventure-body :is(.spotlight-box,.growth-reference,.scrapbook-callout) :is(.muted,.tiny,h3){color:var(--gm-ink)}
 .spotlight-box{background:#eadcc4;color:#241911;border-left:5px solid #8d613a}
 .growth-reference{background:#fffaf0;color:#1d1813;border:2px solid #8c704f}
 .scrapbook-callout{background:#e9e2cf;color:#20180f;border-left:5px solid #6e7a4d}
