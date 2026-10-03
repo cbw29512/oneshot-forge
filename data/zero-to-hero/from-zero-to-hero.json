@@ -1599,5 +1599,234 @@
       "mechanical": false,
       "rule": "Yearbook, bond, reputation, and pure memory cards may be added in addition to Development Cards, but they carry no Development Points unless they are also the card for a resolved Growth Beat."
     }
+  },
+  "upbringingLeans": {
+    "enabled": true,
+    "level0Only": true,
+    "locksAfterFirstGrowthBeat": true,
+    "doesNotLockClass": true,
+    "startingScoresUnaffected": true,
+    "fairnessRule": "Every preset has exactly two advantaged abilities, two neutral abilities, and two disadvantaged abilities. No preset receives more favorable or unfavorable ability lanes than another.",
+    "interactionRule": "Use standard 5E-style advantage/disadvantage cancellation. Any Advantage source plus any Disadvantage source resolves to a normal roll. Multiple Advantage sources never stack; multiple Disadvantage sources never stack.",
+    "characterAdvantageInteraction": "Character Advantage can improve a neutral upbringing check to Advantage or cancel an upbringing Disadvantage to a normal roll. It cannot create double Advantage.",
+    "level1Boundary": "Upbringing Lean changes only Level-0 developmental checks. It grants no Level-1 ability modifier, proficiency, feat, class feature, spell, save proficiency, or permanent Advantage/Disadvantage.",
+    "profiles": [
+      {
+        "id": "barbarian",
+        "label": "Barbarian-shaped upbringing",
+        "likelyPath": "Barbarian",
+        "description": "A childhood of heavy work, rough play, carrying, climbing, weather, and learning to endure before learning to analyze.",
+        "advantage": [
+          "STR",
+          "CON"
+        ],
+        "neutral": [
+          "DEX",
+          "CHA"
+        ],
+        "disadvantage": [
+          "INT",
+          "WIS"
+        ]
+      },
+      {
+        "id": "bard",
+        "label": "Bard-shaped upbringing",
+        "likelyPath": "Bard",
+        "description": "A childhood around performance, quick hands, social rooms, stories, music, errands, and reading an audience.",
+        "advantage": [
+          "DEX",
+          "CHA"
+        ],
+        "neutral": [
+          "INT",
+          "WIS"
+        ],
+        "disadvantage": [
+          "STR",
+          "CON"
+        ]
+      },
+      {
+        "id": "cleric",
+        "label": "Cleric-shaped upbringing",
+        "likelyPath": "Cleric",
+        "description": "A childhood of service, patient work, community responsibility, ritual, care, and learning to endure other people's needs.",
+        "advantage": [
+          "WIS",
+          "CON"
+        ],
+        "neutral": [
+          "STR",
+          "CHA"
+        ],
+        "disadvantage": [
+          "DEX",
+          "INT"
+        ]
+      },
+      {
+        "id": "druid",
+        "label": "Druid-shaped upbringing",
+        "likelyPath": "Druid",
+        "description": "A childhood outdoors with animals, weather, seasons, practical endurance, and learning to notice what the land is saying.",
+        "advantage": [
+          "WIS",
+          "CON"
+        ],
+        "neutral": [
+          "DEX",
+          "INT"
+        ],
+        "disadvantage": [
+          "STR",
+          "CHA"
+        ]
+      },
+      {
+        "id": "fighter",
+        "label": "Fighter-shaped upbringing",
+        "likelyPath": "Fighter",
+        "description": "A childhood of labor, drills, carrying, wrestling, repetitive practice, and being expected to stand your ground.",
+        "advantage": [
+          "STR",
+          "CON"
+        ],
+        "neutral": [
+          "DEX",
+          "CHA"
+        ],
+        "disadvantage": [
+          "INT",
+          "WIS"
+        ]
+      },
+      {
+        "id": "monk",
+        "label": "Monk-shaped upbringing",
+        "likelyPath": "Monk",
+        "description": "A childhood built around balance, discipline, observation, repetition, restraint, and precise physical practice.",
+        "advantage": [
+          "DEX",
+          "WIS"
+        ],
+        "neutral": [
+          "CON",
+          "INT"
+        ],
+        "disadvantage": [
+          "STR",
+          "CHA"
+        ]
+      },
+      {
+        "id": "paladin",
+        "label": "Paladin-shaped upbringing",
+        "likelyPath": "Paladin",
+        "description": "A childhood of duty, presence, physical training, public promises, responsibility, and being expected to act when others hesitate.",
+        "advantage": [
+          "STR",
+          "CHA"
+        ],
+        "neutral": [
+          "CON",
+          "WIS"
+        ],
+        "disadvantage": [
+          "DEX",
+          "INT"
+        ]
+      },
+      {
+        "id": "ranger",
+        "label": "Ranger-shaped upbringing",
+        "likelyPath": "Ranger",
+        "description": "A childhood of scouting, hunting, quick movement, watching trails, judging distance, and learning when not to be noticed.",
+        "advantage": [
+          "DEX",
+          "WIS"
+        ],
+        "neutral": [
+          "STR",
+          "CON"
+        ],
+        "disadvantage": [
+          "INT",
+          "CHA"
+        ]
+      },
+      {
+        "id": "rogue",
+        "label": "Rogue-shaped upbringing",
+        "likelyPath": "Rogue",
+        "description": "A childhood of quick hands, locks, routes, tricks, noticing mechanisms, and solving problems before stronger people notice them.",
+        "advantage": [
+          "DEX",
+          "INT"
+        ],
+        "neutral": [
+          "CON",
+          "CHA"
+        ],
+        "disadvantage": [
+          "STR",
+          "WIS"
+        ]
+      },
+      {
+        "id": "sorcerer",
+        "label": "Sorcerer-shaped upbringing",
+        "likelyPath": "Sorcerer",
+        "description": "A childhood of forceful personality, stubborn vitality, strange instincts, and learning to survive attention you did not always ask for.",
+        "advantage": [
+          "CHA",
+          "CON"
+        ],
+        "neutral": [
+          "DEX",
+          "WIS"
+        ],
+        "disadvantage": [
+          "STR",
+          "INT"
+        ]
+      },
+      {
+        "id": "warlock",
+        "label": "Warlock-shaped upbringing",
+        "likelyPath": "Warlock",
+        "description": "A childhood of forbidden books, bargains, secrets, persuasion, curiosity, and learning to get answers adults would rather hide.",
+        "advantage": [
+          "CHA",
+          "INT"
+        ],
+        "neutral": [
+          "CON",
+          "WIS"
+        ],
+        "disadvantage": [
+          "STR",
+          "DEX"
+        ]
+      },
+      {
+        "id": "wizard",
+        "label": "Wizard-shaped upbringing",
+        "likelyPath": "Wizard",
+        "description": "A childhood of study, memory, careful observation, puzzles, books, and thinking through problems before acting.",
+        "advantage": [
+          "INT",
+          "WIS"
+        ],
+        "neutral": [
+          "DEX",
+          "CHA"
+        ],
+        "disadvantage": [
+          "STR",
+          "CON"
+        ]
+      }
+    ]
   }
 }
