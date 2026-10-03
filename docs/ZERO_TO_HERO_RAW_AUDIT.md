@@ -70,6 +70,25 @@ If critical-success bonus points are spent so the final base ability array has a
 
 It may not be presented as standard RAW point buy.
 
+## Hard checks and Character Advantage
+
+The Level-0 campaign intentionally keeps the base success chance low. Developmental DC floors are:
+- ages 12–13: DC 15;
+- ages 14–16: DC 16;
+- ages 17–18: DC 17.
+
+This keeps success uncommon even as ability scores improve.
+
+The balancing lever is **Character Advantage**. A player earns Advantage by grounding the attempted action in established character history, a relationship, mentor lesson, familiarity, possession, prior consequence, a concrete scene feature, or a meaningful accepted risk/cost.
+
+This reward is based on the fictional approach, not acting talent. Quiet or non-theatrical players qualify exactly the same way.
+
+Character Advantage uses the normal two-d20, keep-the-higher procedure. It does not stack. The kept die is the natural result used by the Level-0 critical tier.
+
+No roleplay Disadvantage exists. If the approach does not earn Advantage, the character simply makes the normal hard check.
+
+Because Advantage also increases the chance that the kept die is a natural 20 and sharply reduces the chance that it is a natural 1, strong character-grounded play slightly biases both ordinary success and the critical-growth outcomes without changing the guaranteed 27-point floor.
+
 ## D20 resolution boundary
 
 The check itself still resolves using the normal 5E procedure:
@@ -118,6 +137,10 @@ CI must reject any implementation that:
 - changes the six starting 9s;
 - removes the 15 pre-origin cap;
 - changes the 21 base growth opportunities;
+- lowers the age-band DC floors below 15 / 16 / 17;
+- grants Character Advantage without a specific fiction-grounded reason;
+- penalizes weak presentation or acting with Disadvantage;
+- stacks Character Advantage beyond the normal two-d20 keep-high procedure;
 - awards success anything other than +1 flexible point;
 - awards failure anything other than +1 off-path Lesson Point;
 - awards critical success anything other than +2 flexible points total;
