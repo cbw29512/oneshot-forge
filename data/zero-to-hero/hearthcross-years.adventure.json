@@ -121,7 +121,42 @@
             "For four players, leave one job dependent on how well the group coordinates; for five or six, each player can own a job."
           ],
           "consequence": "Record which household or institution the party prioritized. That group begins treating them as dependable—or remembers being left waiting.",
-          "scrapbookPrompt": "Name one object from the chore day that would still make the character remember being twelve."
+          "scrapbookPrompt": "Name one object from the chore day that would still make the character remember being twelve.",
+          "location": "Common Green and the five work routes radiating from it. Cool spring sun, wet earth, hammering from the fence line, yeast and smoke from the bakery lane. The Watchstone stands at the north edge of the Green where all five routes remain visible.",
+          "fourPlayerJobs": [
+            "Repair or brace the broken goat fence.",
+            "Move and stack the shrine firewood before rain.",
+            "Deliver flour without tearing the sacks.",
+            "Carry Maela's medicine parcel to the far cottages."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Wren Cask",
+              "voice": "Dry, practical",
+              "lines": [
+                "Pick a job you can finish, not one you can brag about.",
+                "If you need help, ask before the fence falls over.",
+                "Rain doesn't care whose fault it is."
+              ]
+            },
+            {
+              "npc": "Nima Bell",
+              "voice": "Curious, lightly teasing",
+              "lines": [
+                "Why does the water groove point toward the old stone?",
+                "I'll trade you firewood duty for literally anything.",
+                "I drew your name on the work board bigger. You're welcome."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "If any character works near the Watchstone or crosses the Green after the first drizzle, Nima points out three shallow chevrons cut near its base. Do not explain them."
+          ],
+          "branches": [
+            "If the group prioritizes Maela, she remembers it at age 15 when assigning apprentices.",
+            "If the fence is neglected, Clover's escape in the next beat starts closer to the herb beds."
+          ],
+          "advanceWhen": "Every player has completed one distinct responsibility and the first drops of rain begin."
         },
         {
           "growthBeatId": "chores-2",
@@ -136,7 +171,42 @@
             "A failure creates a funny cost; a critical failure should create a memorable mishap card, not serious injury."
           ],
           "consequence": "If the garden is damaged, the group owes Maela a future favor. If it survives, she becomes an early source of trust.",
-          "scrapbookPrompt": "Give the goat incident a nickname the village would still use six years later."
+          "scrapbookPrompt": "Give the goat incident a nickname the village would still use six years later.",
+          "location": "Mara Hale's fence line, Maela Venn's herb rows, a wash line, flour cart, and shrine steps all within a messy fifty-yard chase. The ground is damp enough to slide but not dangerous.",
+          "fourPlayerJobs": [
+            "Cut Clover off before the herb rows.",
+            "Protect or repair what Clover has already hit.",
+            "Calm a second frightened animal tied near the flour cart.",
+            "Coordinate adults or children so the chase does not become worse than the goat."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Mara Hale",
+              "voice": "Mortified guardian energy",
+              "lines": [
+                "Clover! That is not a road!",
+                "Please catch the goat before Maela learns new words.",
+                "Nobody tells your aunt about this version of the story."
+              ]
+            },
+            {
+              "npc": "Maela Venn",
+              "voice": "Very calm, therefore alarming",
+              "lines": [
+                "Those are feverfew seedlings.",
+                "The goat is negotiable. The seedlings are not.",
+                "If you save half the bed, I will call this educational."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "If Clover bolts across the Common Green, she refuses to step directly beside the Watchstone and jerks around it hard enough to drag her rope sideways."
+          ],
+          "branches": [
+            "Saved herb bed: Maela owes the group a small favor later.",
+            "Damaged bed: the group helps replant between years and may gain a specific herb-garden familiarity memory."
+          ],
+          "advanceWhen": "Clover is contained and each player has dealt with one separate consequence of the escape."
         },
         {
           "growthBeatId": "chores-3",
@@ -151,11 +221,47 @@
             "End with the group arriving home soaked and being treated a little less like children."
           ],
           "consequence": "The village gains its first opinion of the group as a unit.",
-          "scrapbookPrompt": "What did the character bring home from the rain: an object, a bruise, a compliment, or an argument?"
+          "scrapbookPrompt": "What did the character bring home from the rain: an object, a bruise, a compliment, or an argument?",
+          "location": "Rain-dark village lanes between Crossmarket, the shrine, outlying cottages, and the river road. The rain is cold, wagon ruts fill quickly, and the smell of wet flour and lamp oil follows the cart.",
+          "fourPlayerJobs": [
+            "Keep medicine dry and deliver it first.",
+            "Protect flour sacks from water and mud.",
+            "Get lamp oil safely down the slick lane.",
+            "Choose and communicate a route when one lane floods."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Nima Bell",
+              "voice": "Breathless over rain",
+              "lines": [
+                "Look—the puddle's going the wrong way.",
+                "No, seriously. Water does not climb hills.",
+                "I'm drawing it before it stops."
+              ]
+            },
+            {
+              "npc": "Reeve Corlan Pike",
+              "voice": "Publicly reassuring",
+              "lines": [
+                "The Green drains strangely every spring. Keep moving.",
+                "Deliveries first, mysteries tomorrow.",
+                "Good work. Now get warm."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "At the Watchstone, rainwater runs a few feet uphill through an old groove before vanishing under the turf. Pike dismisses it as old drainage."
+          ],
+          "branches": [
+            "Fast deliveries build a 'dependable' reputation.",
+            "A damaged parcel creates an owed favor or apology, not a medical tragedy."
+          ],
+          "advanceWhen": "The essential medicine arrives, every player has resolved a delivery/weather problem, and the group reaches home soaked."
         }
       ],
       "closeReadAloud": "That winter, adults still call you children—but now they sometimes call your names when work needs doing.",
-      "yearbookFocus": "First responsibility"
+      "yearbookFocus": "First responsibility",
+      "chapterArc": "Responsibility: adults give the children real work for the first time."
     },
     {
       "id": "age-13-spring-dance",
@@ -182,7 +288,42 @@
             "Use success to improve the party's position in Beat 3; use failure for running jokes and repair work."
           ],
           "consequence": "A clean setup earns public praise; a messy one creates a village story that can return in later dances.",
-          "scrapbookPrompt": "What decoration, ribbon, lantern, or mistake becomes the image the character remembers?"
+          "scrapbookPrompt": "What decoration, ribbon, lantern, or mistake becomes the image the character remembers?",
+          "location": "Fox & Ferry yard and Common Green before sunset. Fresh-cut ribbons snap overhead, bread and onions roast near the inn, musicians tune under an awning, and unfinished lantern poles lean at worrying angles.",
+          "fourPlayerJobs": [
+            "Brace and align a lantern pole.",
+            "Rearrange benches so older villagers have clear access.",
+            "Recover missing barrels or serving ware.",
+            "Organize younger helpers abandoned by older teens."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Jory Fen",
+              "voice": "Cheerful panic",
+              "lines": [
+                "The dance starts when the musicians do, not when we're ready.",
+                "If that pole falls, aim it away from the pies.",
+                "You lot wanted to be treated older. Congratulations."
+              ]
+            },
+            {
+              "npc": "Kess Reed",
+              "voice": "Competitive grin",
+              "lines": [
+                "Mine is straighter than yours.",
+                "Winner gets first pick of the sweet buns.",
+                "Don't look at the knot. The knot is temporary."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "Old Sable watches the Watchstone rather than the decorations. If approached she asks, 'Does it always hum before rain here?' even though the sky is clear."
+          ],
+          "branches": [
+            "Clean setup gives the group easier crowd cooperation in dance-3.",
+            "Visible mistakes become named scrapbook jokes that NPCs may repeat years later."
+          ],
+          "advanceWhen": "The yard is safe enough for the musicians to begin and all players have solved one setup problem."
         },
         {
           "growthBeatId": "dance-2",
@@ -197,7 +338,42 @@
             "Failure strains a relationship; it never forces a romantic outcome."
           ],
           "consequence": "Update one friend/rival/mentor relationship per character.",
-          "scrapbookPrompt": "Who did the character spend time with when nobody was assigning them a job?"
+          "scrapbookPrompt": "Who did the character spend time with when nobody was assigning them a job?",
+          "location": "The dance in full swing: packed earth underfoot, lantern smoke and fried apples in the air, music loud enough that private conversations require stepping to the yard edge.",
+          "fourPlayerJobs": [
+            "Notice and include someone being left out.",
+            "Address a rumor involving a friend or family member.",
+            "Deal with Kess or another rival showing off at someone's expense.",
+            "Choose whether to tell a difficult truth or protect someone from embarrassment."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Nima Bell",
+              "voice": "Quiet beneath the music",
+              "lines": [
+                "You can tell me if you don't want to dance. That's easier than pretending.",
+                "Kess heard the rumor too.",
+                "Do you ever think about leaving Hearthcross?"
+              ]
+            },
+            {
+              "npc": "Kess Reed",
+              "voice": "Defensive humor",
+              "lines": [
+                "I was joking. Mostly.",
+                "Don't make that face like you're better than me.",
+                "Fine. I shouldn't have said it where everyone could hear."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "If anyone steps near the Watchstone during a quiet moment, the hum disappears under a hand placed on the stone, then returns when they let go."
+          ],
+          "branches": [
+            "Reconciliation can turn a rival into support later.",
+            "Public humiliation can harden a rivalry but must never force romance or attraction."
+          ],
+          "advanceWhen": "Each player has made one relationship-defining choice and the musicians announce the final set."
         },
         {
           "growthBeatId": "dance-3",
@@ -212,11 +388,38 @@
             "End with one last-song choice."
           ],
           "consequence": "The last-song choice becomes a Yearbook relationship memory.",
-          "scrapbookPrompt": "What part of this embarrassment or triumph gets retold next spring?"
+          "scrapbookPrompt": "What part of this embarrassment or triumph gets retold next spring?",
+          "location": "Fox & Ferry yard during a sudden crosswind. Lantern lines whip overhead, one pole tips toward the food tables, and the crowd compresses toward the inn doors.",
+          "fourPlayerJobs": [
+            "Catch or redirect the falling pole.",
+            "Pull a loose lantern line away from people and cloth awnings.",
+            "Move children or elders out of the crush.",
+            "Keep the crowd calm and the musicians informed."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Old Sable",
+              "voice": "Soft, intent",
+              "lines": [
+                "Watch the flames, not the wind.",
+                "There. They bend toward the stone.",
+                "Still drawing breath, then."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "Several lantern flames point toward the Watchstone even after the wind shifts the opposite direction. Sable's comment is the first explicit hint that she recognizes the behavior."
+          ],
+          "branches": [
+            "If the dance continues outside, villagers remember the group saved the celebration.",
+            "If moved inside, the final song becomes more intimate and changes which relationships get spotlighted."
+          ],
+          "advanceWhen": "The lantern hazard is contained, everyone is safe, and the group chooses where the final song happens."
         }
       ],
       "closeReadAloud": "The last song ends, lantern smoke hangs in the rafters, and the walk home feels shorter than it did last year.",
-      "yearbookFocus": "Belonging and embarrassment"
+      "yearbookFocus": "Belonging and embarrassment",
+      "chapterArc": "Belonging: the characters decide who they are among peers when nobody assigns them a role."
     },
     {
       "id": "age-14-harvest-games",
@@ -243,7 +446,42 @@
             "The Growth Beat Development Check remains the player's broader response to competition—training, pressure, sportsmanship, strategy, nerves, or recovery—not an extra placement DP."
           ],
           "consequence": "Establish who is competitive, gracious, resentful, fearless, or unexpectedly talented.",
-          "scrapbookPrompt": "Which ribbon, trophy, joke award, or failure goes in the scrapbook?"
+          "scrapbookPrompt": "Which ribbon, trophy, joke award, or failure goes in the scrapbook?",
+          "location": "The Common Green transformed into six contest lanes with chalkboards, rope barriers, ribbons, judges' stools, and a long prize table. Bells, cheering, dust, berry pie, and livestock noise overlap.",
+          "fourPlayerJobs": [
+            "Enter or help run one physical contest.",
+            "Enter or help run one mental/perceptive contest.",
+            "Handle a rival challenge or sportsmanship moment.",
+            "Record or dispute a placement without derailing the fair."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Kess Reed",
+              "voice": "Delighted challenge",
+              "lines": [
+                "Pick your event. I plan to remember this forever.",
+                "If you beat me, I will deny it by winter.",
+                "If I beat you, I expect dramatic suffering."
+              ]
+            },
+            {
+              "npc": "Tavi Brindle",
+              "voice": "Fast fair-announcer patter",
+              "lines": [
+                "Totals first, kept die second, and if you still tie I get the joy of making you roll again.",
+                "Third place is a podium. Do not let first place propaganda tell you otherwise.",
+                "Everybody gets a card. Some cards are kinder than others."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "The WIS Scavenger Hunt's final clue leads to the north edge of Alderwood where a buried marker bears the same three-chevron symbol Nima drew at age 12."
+          ],
+          "branches": [
+            "A character who wins gracefully earns different reputation than one who gloats.",
+            "A consolation card can become as socially memorable as a podium card."
+          ],
+          "advanceWhen": "At least two core contests have been run, every participating player has an official result card, and each player has resolved the Growth Beat."
         },
         {
           "growthBeatId": "fair-2",
@@ -258,7 +496,33 @@
             "On failure, money, food, or pride is lost—not campaign access."
           ],
           "consequence": "Families remember whether the character showed up when fun competed with responsibility.",
-          "scrapbookPrompt": "What did the character miss—or give up—to help?"
+          "scrapbookPrompt": "What did the character miss—or give up—to help?",
+          "location": "Crossmarket at peak fair hour. Family stalls crowd the lane, a mule blocks the center, hot pies slide on uneven boards, and contest bells keep calling competitors away.",
+          "fourPlayerJobs": [
+            "Help a family stall during a rush.",
+            "Control or reroute the stubborn mule.",
+            "Save a dropped or tipping tray without injuring anyone.",
+            "Choose between making the next contest call and keeping a promise to help."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Reeve Corlan Pike",
+              "voice": "Trying to sound unbothered",
+              "lines": [
+                "The fair can survive one blocked lane.",
+                "No, the mule does not need an official permit.",
+                "Please stop asking whether the standing stone is part of the scavenger hunt."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "If the market lane is cleared, a wheel briefly drops into a shallow depression above the buried east conduit. Wren remarks that the ground should not be hollow there."
+          ],
+          "branches": [
+            "Skipping an event to help family creates a bond/reputation memory.",
+            "Choosing the contest instead is allowed; the family consequence should be personal, not moralized by the DM."
+          ],
+          "advanceWhen": "The lane functions again and every player has chosen what mattered more to them in the rush."
         },
         {
           "growthBeatId": "fair-3",
@@ -273,11 +537,38 @@
             "If you want one more Hearthcross Six result, run the remaining core contest after the relay as an epilogue."
           ],
           "consequence": "The group's reaction to winning or losing becomes village reputation.",
-          "scrapbookPrompt": "What did the team do immediately after the result was announced?"
+          "scrapbookPrompt": "What did the team do immediately after the result was announced?",
+          "location": "A relay course looping around the Green: weighted carry, balance beam, memory station, animal gate, and a raised finish platform facing the whole fair.",
+          "fourPlayerJobs": [
+            "Handle the carry or physical obstacle.",
+            "Take the balance/precision segment.",
+            "Solve or remember the station clue.",
+            "Manage the animal gate or crowd-facing finish."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Nima Bell",
+              "voice": "Half laughing, half serious",
+              "lines": [
+                "Do not drop the token. I drew the clue on it.",
+                "We finish together or Kess will be unbearable.",
+                "After this, come see what we found in the woods."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "After the relay, Nima can show the group her age-12 sketch beside the newly found Alderwood marker. The three-chevron marks match closely enough to be deliberate."
+          ],
+          "branches": [
+            "Team placing affects reputation but not development budget.",
+            "If the party dismisses the symbols, Nima continues keeping the evidence anyway."
+          ],
+          "advanceWhen": "Every player completes a different relay segment and the team crosses the finish together."
         }
       ],
       "closeReadAloud": "By sunset the ribbons matter less than the stories. Some people won. Some lost. Everybody remembers exactly who laughed, who sulked, and who stayed to help clean up.",
-      "yearbookFocus": "Competition and sportsmanship"
+      "yearbookFocus": "Competition and sportsmanship",
+      "chapterArc": "Competition: winning and losing become public memories without defining worth."
     },
     {
       "id": "age-15-apprentice-week",
@@ -304,7 +595,42 @@
             "Record one mentor quote suitable for a scrapbook memory card."
           ],
           "consequence": "A mentor may offer future time based on attitude, not just success.",
-          "scrapbookPrompt": "What did the mentor say that the character still remembers at eighteen?"
+          "scrapbookPrompt": "What did the mentor say that the character still remembers at eighteen?",
+          "location": "A rotating circuit through forge, remedies shop, records room, shrine yard, training yard, bee sheds, and inn. Each place smells and sounds completely different; the characters are old enough to be trusted with real tools but not unsupervised mastery.",
+          "fourPlayerJobs": [
+            "Complete a careful physical/craft task.",
+            "Handle a customer or community request.",
+            "Research, copy, or sort records accurately.",
+            "Work with an animal, patient, trainee, or younger helper."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Sera Quill",
+              "voice": "Fast and delighted",
+              "lines": [
+                "Copy what is there, not what you think should be there.",
+                "That mark again. I have seen it in an older ledger.",
+                "No, you may not take the brittle page outside."
+              ]
+            },
+            {
+              "npc": "Wren Cask",
+              "voice": "Matter-of-fact",
+              "lines": [
+                "Good work is the part nobody notices later.",
+                "If the old wood lies to you, believe the sag, not the paint.",
+                "Measure twice is advice for optimists. Measure three times."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "Sera shows a partial copied diagram with three lines radiating from a central stone, but the labels are missing. She has not yet connected it to the village map."
+          ],
+          "branches": [
+            "Mentors offer future time based on attitude and accountability, not only success.",
+            "Failure can redirect who the character enjoys learning from."
+          ],
+          "advanceWhen": "Each player completes a mentor task and names one thing they want to learn more—or less—about."
         },
         {
           "growthBeatId": "apprentice-2",
@@ -319,7 +645,42 @@
             "The pavilion's eventual condition should remain visible in later chapters."
           ],
           "consequence": "The group learns whether professional responsibility matters more than looking competent.",
-          "scrapbookPrompt": "Did the character sign the hidden repair beam? Why or why not?"
+          "scrapbookPrompt": "Did the character sign the hidden repair beam? Why or why not?",
+          "location": "The Crossmarket pavilion, half stripped for repairs. Sawdust floats in sunlight, old posts smell of rot, and one support hides a gap beneath newer boards.",
+          "fourPlayerJobs": [
+            "Brace the pavilion safely while the support is exposed.",
+            "Determine how much old material must actually come out.",
+            "Explain the larger problem to Pike or merchants who want the market reopened.",
+            "Trace the unexpected stonework beneath the post without destabilizing it."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Wren Cask",
+              "voice": "Low and serious",
+              "lines": [
+                "This isn't a bad board. It's a bad answer built over an older question.",
+                "There is dressed stone under my post.",
+                "Reeve, someone cut a channel through here before there was a pavilion."
+              ]
+            },
+            {
+              "npc": "Reeve Corlan Pike",
+              "voice": "Controlled concern",
+              "lines": [
+                "Cover it safely. I will request an inspection.",
+                "No digging under the market without authority.",
+                "We have stalls to reopen tomorrow."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "The repair exposes the east conduit: fitted stone, a shallow groove, and the same keeper mark. Pike's reaction suggests this is not the first report he has seen."
+          ],
+          "branches": [
+            "Insist on documenting it: Sera gets a rubbing and future Advantage evidence.",
+            "Accept Pike's order quietly: the conduit is re-covered, making age-17 access harder but not impossible."
+          ],
+          "advanceWhen": "The pavilion is structurally safe and the group decides whether the old channel gets documented before it is covered."
         },
         {
           "growthBeatId": "apprentice-3",
@@ -334,11 +695,38 @@
             "If helped well, the traveler becomes a later Bellmere contact."
           ],
           "consequence": "The party gains or loses one outside contact before age 16.",
-          "scrapbookPrompt": "What did the customer leave behind: thanks, debt, advice, complaint, or small object?"
+          "scrapbookPrompt": "What did the customer leave behind: thanks, debt, advice, complaint, or small object?",
+          "location": "Wren and Maela's shared work yard at late afternoon. A traveler's damaged cart leans on one wheel, blood dots a wrapped palm, and the delivery papers are rain-softened.",
+          "fourPlayerJobs": [
+            "Stabilize or repair the cart.",
+            "Treat or comfort the injured traveler within ordinary first-aid limits.",
+            "Resolve the missing/unclear paperwork.",
+            "Find a fair way to cover the work when the traveler cannot pay for everything."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Traveler Iven Dorr",
+              "voice": "Embarrassed, direct",
+              "lines": [
+                "I can pay for the wheel or the hand, not both.",
+                "Bellmere clerks love paper more than people.",
+                "If you ever come through the east gate, ask for Iven Dorr. I owe Hearthcross."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "If helped well, Iven mentions Bellmere road archives contain old district surveys whenever a village disputes buried infrastructure."
+          ],
+          "branches": [
+            "Help creates a Bellmere contact for age 16.",
+            "Exploit or dismiss him means the party must navigate Bellmere archives without that shortcut."
+          ],
+          "advanceWhen": "The traveler can safely leave and every player has owned one part of the problem."
         }
       ],
       "closeReadAloud": "By the end of the week, your hands know things they did not know on Monday. None of it makes you an adventurer yet. It does make adults start asking when you can work again.",
-      "yearbookFocus": "Work and mentorship"
+      "yearbookFocus": "Work and mentorship",
+      "chapterArc": "Craft and accountability: doing adult work means admitting when the problem is larger than your assignment."
     },
     {
       "id": "age-16-road-to-bellmere",
@@ -365,7 +753,33 @@
             "Record who accepted responsibility for the purse and paperwork."
           ],
           "consequence": "How they pack changes the ford or market complications.",
-          "scrapbookPrompt": "What did someone secretly pack from home?"
+          "scrapbookPrompt": "What did someone secretly pack from home?",
+          "location": "Hearthcross cart shed at dawn. Flour, medicine, lamp oil, letters, personal parcels, blankets, feed, and too many family requests compete for a finite wagon bed.",
+          "fourPlayerJobs": [
+            "Prioritize and secure cargo.",
+            "Check route, weather, and timing.",
+            "Manage the horse and harness.",
+            "Negotiate which unofficial parcels can come."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Bram Alder",
+              "voice": "Slow, weather-minded",
+              "lines": [
+                "River's high but falling. Probably.",
+                "If the horse refuses a crossing, assume she noticed something before you did.",
+                "Bellmere is one day away if nothing interesting happens."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "Sera slips the party a copied three-line Watchstone diagram and asks them to look for any matching survey notation in Bellmere if they get the chance."
+          ],
+          "branches": [
+            "Well-packed cargo reduces consequences at Alder Ford.",
+            "Taking too many favors creates social obligations in Bellmere but can also earn contacts."
+          ],
+          "advanceWhen": "The cart is loaded, four core responsibilities are assigned, and the party leaves Hearthcross without an adult escort."
         },
         {
           "growthBeatId": "road-2",
@@ -380,7 +794,34 @@
             "Make the second night away possible if they lose too much time."
           ],
           "consequence": "Family trust at home later depends on honesty about what happened.",
-          "scrapbookPrompt": "What did the character hear in the dark that made home feel far away?"
+          "scrapbookPrompt": "What did the character hear in the dark that made home feel far away?",
+          "location": "Alder Ford at dusk. Brown water covers the normal stepping stones, reeds hiss in wind, horse breath steams, and the nearest farmhouse light is a quarter mile away.",
+          "fourPlayerJobs": [
+            "Judge the river and choose whether to cross.",
+            "Calm and manage the horse.",
+            "Rig cargo or shelter against water/weather.",
+            "Negotiate shelter/help or find a safer alternate route."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Nima Bell",
+              "voice": "If traveling with the party, exhilarated and nervous",
+              "lines": [
+                "This is officially farther than I've ever been without family.",
+                "I vote we don't drown for the sake of being on time.",
+                "Look at the stones on the north bank. Same cutting style as the marker."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "A dressed stone on the north bank uses the same old construction style as the Alderwood marker, suggesting the pre-village builders worked beyond Hearthcross too."
+          ],
+          "branches": [
+            "Cross now risks wet cargo but saves time.",
+            "Camp costs time but can protect goods.",
+            "Ask the farmer for help creates a new regional relationship."
+          ],
+          "advanceWhen": "The party has a safe plan for the night/ford and every player resolves a different travel responsibility."
         },
         {
           "growthBeatId": "road-3",
@@ -395,11 +836,48 @@
             "Let one outsider treat a character according to what they actually did, not what Hearthcross thinks of them."
           ],
           "consequence": "Each character records whether leaving home feels more or less attractive now.",
-          "scrapbookPrompt": "What small Bellmere souvenir proves the trip happened?"
+          "scrapbookPrompt": "What small Bellmere souvenir proves the trip happened?",
+          "location": "Bellmere market and district records office. Stone paving, shouting vendors, horse dung, spice smoke, and clerks behind a brass-railed counter make Hearthcross feel very small.",
+          "fourPlayerJobs": [
+            "Complete a disputed delivery.",
+            "Find a moved customer or correct address.",
+            "Negotiate an incorrect price or missing receipt.",
+            "Get access to the old district survey before the records office closes."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Bellmere Clerk Ada Voss",
+              "voice": "Efficient, unimpressed",
+              "lines": [
+                "Hearthcross. Old road district, north shelf.",
+                "You want drainage, boundary, or pre-charter stonework? Those are different ledgers.",
+                "Do not fold the survey. I will know."
+              ]
+            },
+            {
+              "npc": "Iven Dorr",
+              "voice": "If befriended, pleased",
+              "lines": [
+                "You made it. Good. Tell Ada I sent you.",
+                "I said I owed Hearthcross, not that I enjoy the clerk's office.",
+                "Take a copy. Old roads cause new arguments every year."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "The survey labels the Watchstone a 'relief cap' and shows three arms. A margin note reads: 'Keep all three relief ways open after flood or road work.' Part of the south route is missing from the damaged sheet."
+          ],
+          "branches": [
+            "Acquire a copy: major age-18 Advantage evidence.",
+            "Only memorize it: Sera can reconstruct most of it later, but exact routing is harder.",
+            "Miss the office: Iven can mail a copy later if he is an ally."
+          ],
+          "advanceWhen": "The required deliveries are complete and the party either obtains, memorizes, or loses access to the survey evidence."
         }
       ],
       "closeReadAloud": "The road back into Hearthcross looks smaller than the road out did. People ask how it went. For the first time, you get to decide which version of the story they hear.",
-      "yearbookFocus": "Independence"
+      "yearbookFocus": "Independence",
+      "chapterArc": "Independence: the characters learn what changes when nobody older is there to decide."
     },
     {
       "id": "age-17-long-storm",
@@ -426,7 +904,42 @@
             "Failure makes a later crisis worse rather than injuring someone immediately."
           ],
           "consequence": "Mark one location as well-prepared and one as underprepared if the group cannot cover everything.",
-          "scrapbookPrompt": "Which adult looked at the character differently after this?"
+          "scrapbookPrompt": "Which adult looked at the character differently after this?",
+          "location": "Hearthcross under relentless warm rain. Sandbag lines cross the Green, animals crowd covered yards, river noise carries through every street, and the Watchstone gives off a barely audible vibration.",
+          "fourPlayerJobs": [
+            "Protect homes/shops on low ground.",
+            "Move medicine, food, or records to higher storage.",
+            "Secure animals and dangerous loose materials.",
+            "Inspect known Watchstone/conduit sites using earlier clues."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Captain Orren Vale",
+              "voice": "Clipped and trusting",
+              "lines": [
+                "You know this village. Pick where you're useful.",
+                "People first. Buildings second. Pride nowhere.",
+                "If you see the old stone move, tell Sera before you tell the crowd."
+              ]
+            },
+            {
+              "npc": "Sera Quill",
+              "voice": "Focused, no longer excited",
+              "lines": [
+                "The Bellmere drawing fits the market channel.",
+                "If there are three arms, one of them is under this water.",
+                "I need observations, not theories."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "The Watchstone hum and water behavior now clearly match the Bellmere survey. The south spill is not relieving pressure as it should."
+          ],
+          "branches": [
+            "Prior preparation from ages 12–16 can save a location automatically from property damage but never erase another player's Growth Check.",
+            "Ignoring the old conduits makes storm-3 worse."
+          ],
+          "advanceWhen": "Every player has secured one priority and the river rises high enough to trigger the missing-person alarm."
         },
         {
           "growthBeatId": "storm-2",
@@ -441,7 +954,33 @@
             "A critical failure can cause a scar, lost keepsake, or relationship consequence."
           ],
           "consequence": "The rescued person's later graduation reaction depends on this scene.",
-          "scrapbookPrompt": "What did the character lose or damage during the rescue?"
+          "scrapbookPrompt": "What did the character lose or damage during the rescue?",
+          "location": "Outer road, flooded pasture, and drainage ditches in driving rain. Visibility drops to fifty feet; a riderless cart horse returns with torn tack.",
+          "fourPlayerJobs": [
+            "Track or infer the missing person's route.",
+            "Cross or bypass a flooded obstacle.",
+            "Stabilize the missing NPC once found.",
+            "Coordinate transport back through worsening weather."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Bram Alder",
+              "voice": "Quiet urgency",
+              "lines": [
+                "Horse came back from the old road, not the river path.",
+                "Water erases tracks. Broken grass doesn't.",
+                "Bring them home. Then we can argue about why they were out there."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "Near the old road, floodwater disappears abruptly into a collapsed stone-lined cut—the east relief arm—with fresh rubble from Rusk's side passage."
+          ],
+          "branches": [
+            "If Rusk is trusted or redeemed, he admits the smuggling cut and shows a safer entrance.",
+            "If hostile, the party can still find the passage from physical evidence."
+          ],
+          "advanceWhen": "The missing person is recovered and the party has seen enough of the east-arm damage to report it."
         },
         {
           "growthBeatId": "storm-3",
@@ -456,11 +995,48 @@
             "Do not invent a perfect no-cost answer unless earned by exceptional play."
           ],
           "consequence": "Permanently alter at least one Hearthcross location.",
-          "scrapbookPrompt": "What choice does the character still defend—or regret—at eighteen?"
+          "scrapbookPrompt": "What choice does the character still defend—or regret—at eighteen?",
+          "location": "Crossmarket and the low residential lane as two crises unfold: the mill wall groans under water pressure while floodwater forces doors in three homes. The Watchstone's vibration can now be felt through the soles of boots.",
+          "fourPlayerJobs": [
+            "Lead the mill effort.",
+            "Lead the home evacuation.",
+            "Open or clear part of the market conduit.",
+            "Coordinate people/resources between the two fronts."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Reeve Corlan Pike",
+              "voice": "Finally rattled",
+              "lines": [
+                "The old reports said settling. They did not say this.",
+                "I thought opening the ground would cause panic.",
+                "If you have a better order, give it now."
+              ]
+            },
+            {
+              "npc": "Sera Quill",
+              "voice": "Realization breaking through exhaustion",
+              "lines": [
+                "Three arms. North, east, south. It isn't a ward wall—it's a relief system.",
+                "The stone is not holding something in. It is trying to let something out safely.",
+                "We have been building over the exits."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "This beat reveals the campaign truth: the three-arm relief system is failing. Do not reveal every final solution yet."
+          ],
+          "branches": [
+            "Save mill first: homes are evacuated but property loss is worse.",
+            "Save homes first: mill damage affects next year's economy.",
+            "Split efficiently: both can survive partially, but one conduit-access route is lost."
+          ],
+          "advanceWhen": "Lives are safe, at least one property consequence is locked in, and Sera publicly explains the three-arm theory."
         }
       ],
       "closeReadAloud": "When the water drops, Hearthcross is still standing. It is not unchanged. Neither are you.",
-      "yearbookFocus": "Responsibility under real danger"
+      "yearbookFocus": "Responsibility under real danger",
+      "chapterArc": "Duty: the village needs them during real danger and cannot save everything."
     },
     {
       "id": "age-18-last-spring-dance",
@@ -487,7 +1063,33 @@
             "Keep the scene affectionate rather than punitive."
           ],
           "consequence": "Each player gains one nonmechanical 'Someone Looked Up to Me' or equivalent memory card.",
-          "scrapbookPrompt": "What mistake did the character recognize because they once made it?"
+          "scrapbookPrompt": "What mistake did the character recognize because they once made it?",
+          "location": "Common Green on the afternoon of the final Spring Dance. Younger teens repeat all the old mistakes: crooked lanterns, misplaced benches, tangled ribbons. The characters now stand on the adult side of the work list.",
+          "fourPlayerJobs": [
+            "Teach a younger helper instead of taking over.",
+            "Correct a safety problem without humiliating anyone.",
+            "Delegate a task to someone unreliable or nervous.",
+            "Decide how much of last year's Watchstone concern to mention during preparations."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Kess Reed",
+              "voice": "Older, still competitive",
+              "lines": [
+                "Look at them. We were never that bad.",
+                "Do not answer that.",
+                "One last contest before everyone becomes unbearable adults?"
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "The Watchstone has a hairline crack exactly along one branch of the three-chevron mark. Sera has been checking it all winter."
+          ],
+          "branches": [
+            "Patient teaching creates a younger ally during the finale.",
+            "Taking over everything gets tasks done faster but leaves younger helpers less useful later."
+          ],
+          "advanceWhen": "The dance grounds are ready, every player has handed responsibility to someone younger, and sunset begins."
         },
         {
           "growthBeatId": "last-dance-2",
@@ -502,7 +1104,42 @@
             "Failure means the truth comes out badly, not that the relationship becomes impossible forever."
           ],
           "consequence": "Freeze the relationship state that enters Level 1.",
-          "scrapbookPrompt": "What words does the character wish they had said differently—or is glad they finally said?"
+          "scrapbookPrompt": "What words does the character wish they had said differently—or is glad they finally said?",
+          "location": "The edge of the dance under steady lantern light. Familiar songs, familiar smells, and people who may not all be together next spring create a quiet pocket before midnight.",
+          "fourPlayerJobs": [
+            "Speak with a family member about leaving or staying.",
+            "Resolve or redefine the Kess rivalry.",
+            "Ask a mentor what adulthood changes between them.",
+            "Tell Nima/Rusk/Pike/Sable something left unsaid."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Old Sable",
+              "voice": "Direct for once",
+              "lines": [
+                "You found the pattern without me. Good.",
+                "My family called themselves keepers. Mostly that meant remembering what needed doing.",
+                "I will tell you what I know. I will not choose what Hearthcross becomes."
+              ]
+            },
+            {
+              "npc": "Nima Bell",
+              "voice": "Soft, brave",
+              "lines": [
+                "I kept every sketch.",
+                "The crack matches the first drawing from when we were twelve.",
+                "Whatever happens after tonight, don't pretend none of this mattered."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "If the party has connected at least three earlier clues, Sable reveals her keeper ancestry and confirms the system's purpose. If not, she still gives enough truth to prevent a dead end, but the party loses an easy Character Advantage justification."
+          ],
+          "branches": [
+            "Relationships resolve according to accumulated history; no reconciliation is mandatory.",
+            "Sable becomes an advisor, never the decision-maker."
+          ],
+          "advanceWhen": "Each player has one final relationship conversation and the midnight bell begins."
         },
         {
           "growthBeatId": "last-dance-3",
@@ -519,7 +1156,52 @@
             "After every player acts, let the group choose whether to restore the old ward, safely vent/break it, or preserve part of it for future study."
           ],
           "consequence": "The chosen resolution becomes the first adult reputation of the party and the final Hearthcross state carried into Level 1.",
-          "scrapbookPrompt": "What single object from the green goes into the scrapbook as the last Level-0 card?"
+          "scrapbookPrompt": "What single object from the green goes into the scrapbook as the last Level-0 card?",
+          "location": "Common Green at midnight. The Watchstone cracks with a bell-like report; turf splits along three buried lines; dust rises from Crossmarket; river water shivers against the current; every lantern flame bends inward.",
+          "fourPlayerJobs": [
+            "Stabilize or move the exposed capstone/keystone.",
+            "Evacuate and organize the Green.",
+            "Interpret diagram, sketches, and survey evidence.",
+            "Open or reroute one blocked relief arm while directing villagers."
+          ],
+          "npcDialogue": [
+            {
+              "npc": "Sera Quill",
+              "voice": "Fast, precise, terrified but functioning",
+              "lines": [
+                "North, east, south—pick what we're doing and I can tell you where.",
+                "Do not patch the crack until we know where the pressure goes.",
+                "This is infrastructure. Treat it like infrastructure."
+              ]
+            },
+            {
+              "npc": "Wren Cask",
+              "voice": "Commanding craftsperson",
+              "lines": [
+                "Tell me what stays and what breaks.",
+                "I can move stone. I cannot move indecision.",
+                "If we sacrifice the pavilion, say it now."
+              ]
+            },
+            {
+              "npc": "Old Sable",
+              "voice": "Calm",
+              "lines": [
+                "Restore it, open it, remake it. All three are choices.",
+                "The old keepers made theirs.",
+                "Now Hearthcross makes yours."
+              ]
+            }
+          ],
+          "mysteryClues": [
+            "The final geometry confirms all earlier evidence. Players should be able to point to scrapbook memories that justify at least one useful action."
+          ],
+          "branches": [
+            "Restore: clear three arms and reseat the old capstone; ongoing keeper duty becomes a village institution.",
+            "Vent: deliberately ruin the regulating throat and permanently reshape the Common Green into an open spill channel.",
+            "Retune: sacrifice/rebuild one affected structure and create a new balanced routing using current knowledge."
+          ],
+          "advanceWhen": "All players complete their final Development Check, the group chooses one of the three infrastructure resolutions (or a clearly equivalent player-created solution), immediate danger ends, and the village witnesses the result."
         }
       ],
       "closeReadAloud": "Dawn comes over a Hearthcross that knows your names for reasons that have nothing to do with your parents. Whatever you become next, nobody here can honestly call you children anymore.",
@@ -530,7 +1212,8 @@
         "Choose 2014 or 2024 separately for each character only if the campaign allows mixed player editions; never mix mechanics inside one character.",
         "Print the Coming-of-Age Certificate, Origin Chronicle, and scrapbook cards.",
         "Only then begin certified Level-1 character creation."
-      ]
+      ],
+      "chapterArc": "Adulthood: relationships resolve, the childhood mystery becomes a civic crisis, and the group chooses what Hearthcross carries forward."
     }
   ],
   "gmAuditChecklist": [
@@ -545,5 +1228,143 @@
     "All scrapbook Development Cards reconcile with the player sheet.",
     "The final Level-0 array is 27–30 and no score exceeded 15 before edition-specific Level-1 adjustments.",
     "2014/2024 mechanics begin only after the Level-0 array is frozen."
+  ],
+  "campaignMystery": {
+    "name": "The Watchstone Breathes",
+    "dmTruth": "The Watchstone is not a prison and there is no monster sealed beneath Hearthcross. It is the visible capstone of an old three-channel relief system built before the village to bleed dangerous magical-geological resonance out of a deep spring and stone fault. The north arm vents through a buried stone circle in Alderwood, the east arm runs beneath Crossmarket and the old pavilion toward the road, and the south arm spills pressure toward the Hearth River. Generations of repairs, roadwork, forgotten maps, and one smuggler-cut side passage have narrowed or blocked all three. The system has been warning the village for years. The age-17 storm cracks the already stressed matrix; the following spring thaw pushes it to failure during the age-18 dance.",
+    "theme": "The mystery is about inherited responsibility, not defeating evil. Adults forgot, hid, misunderstood, or postponed maintenance. The children become the generation that finally sees the whole pattern.",
+    "noVillainRule": "Do not reveal a mastermind. Reeve Pike hid reports because he feared panic and economic damage. Rusk's smuggling worsened one channel but did not create the problem. Old Sable looks suspicious because she knows too much, but she is trying to discover whether Hearthcross can become its own keeper again.",
+    "threeReliefArms": [
+      {
+        "id": "north",
+        "name": "Alderwood Vent",
+        "route": "Watchstone → buried stone circle north of town",
+        "problem": "Tree roots and a collapsed capstone constrict the old vent.",
+        "keyEvidence": "Bram's animals avoid the circle; the age-14 scavenger hunt exposes a matching keeper mark."
+      },
+      {
+        "id": "east",
+        "name": "Market Conduit",
+        "route": "Watchstone → beneath Crossmarket pavilion → old road",
+        "problem": "Successive repairs covered access points; smugglers later cut a side passage that filled part of the conduit with rubble.",
+        "keyEvidence": "The age-15 crooked pavilion exposes marked stonework; Rusk knows the side passage by age 17."
+      },
+      {
+        "id": "south",
+        "name": "River Spill",
+        "route": "Watchstone → Fox & Ferry lane → Hearth River",
+        "problem": "Silt, flood repairs, and a newer retaining wall choke the spillway.",
+        "keyEvidence": "Age-12 rain runs strangely toward the stone; age-17 floodwater surges backward through the old drain."
+      }
+    ],
+    "clueLadder": [
+      {
+        "age": 12,
+        "clue": "During the rain, water briefly runs uphill through a shallow groove toward the Watchstone. Nima sketches three nested chevrons on the stone before the puddle hides them again.",
+        "meaningNow": "A strange village detail.",
+        "meaningLater": "The first visible sign of the three-channel system."
+      },
+      {
+        "age": 13,
+        "clue": "When the lantern lines snap, several flames bend toward the Watchstone even after the wind changes. Old Sable quietly says, 'Still drawing breath, then.'",
+        "meaningNow": "Sable is odd and the stone is stranger than adults admit.",
+        "meaningLater": "The relief system is pulling energy toward the capstone."
+      },
+      {
+        "age": 14,
+        "clue": "The scavenger hunt uncovers a weathered north marker bearing the same three-chevron keeper mark. Bram notes that deer refuse to cross the nearby ring of stones.",
+        "meaningNow": "A fair clue leads somewhere unexpectedly old.",
+        "meaningLater": "This is the north relief arm."
+      },
+      {
+        "age": 15,
+        "clue": "Removing the crooked pavilion brace exposes dressed stone below the market with a channel groove and keeper mark. Pike orders it covered until 'someone qualified' can inspect it.",
+        "meaningNow": "Old construction under the village.",
+        "meaningLater": "This is the east conduit and evidence that Pike has seen reports before."
+      },
+      {
+        "age": 16,
+        "clue": "A Bellmere survey copy labels Hearthcross's old standing stone as a 'relief cap' and warns that three drains must remain open. The document is incomplete but unmistakable.",
+        "meaningNow": "Proof that the Watchstone once had a practical function.",
+        "meaningLater": "The characters can identify the three arms before the final crisis."
+      },
+      {
+        "age": 17,
+        "clue": "Stormwater bursts backward from the market drain while the Watchstone hums hard enough to rattle cups. Sera overlays the party's clues and finally sees the three-arm diagram.",
+        "meaningNow": "The forgotten system is failing now.",
+        "meaningLater": "The party knows what must be inspected over winter."
+      },
+      {
+        "age": 18,
+        "clue": "The crack in the Watchstone follows the same three-chevron geometry from the childhood clues. The crisis is the accumulated maintenance failure becoming visible all at once.",
+        "meaningNow": "Everything connects.",
+        "meaningLater": "The final choice determines how Hearthcross handles inherited responsibility going forward."
+      }
+    ],
+    "finaleOptions": [
+      {
+        "id": "restore",
+        "name": "Restore the Old Relief System",
+        "requirements": "Use Sable/Sera's keeper knowledge, expose all three arms, clear the blockages, and reseat the capstone.",
+        "cost": "Hearthcross keeps the Watchstone and accepts an ongoing keeper/maintenance duty.",
+        "future": "The village preserves the old system but can no longer pretend it is self-maintaining."
+      },
+      {
+        "id": "vent",
+        "name": "Open the System Permanently",
+        "requirements": "Break the old regulating throat in a controlled way and route the stored pressure through the south spillway.",
+        "cost": "The Watchstone is ruined and part of the Common Green becomes a permanent stone-and-water channel.",
+        "future": "The old ward no longer needs keepers, but Hearthcross visibly changes."
+      },
+      {
+        "id": "retune",
+        "name": "Build a New Three-Arm Balance",
+        "requirements": "Combine Sera's diagram, Bellmere survey knowledge, Wren's structural skill, and player-devised routing to rebalance the arms.",
+        "cost": "Requires sacrificing or rebuilding one earlier village structure selected from the campaign's consequences.",
+        "future": "Hearthcross keeps a functioning system that belongs to the current generation rather than copying the old one exactly."
+      }
+    ]
+  },
+  "recurringArcs": [
+    {
+      "id": "kess",
+      "npc": "Kess Reed",
+      "start": "Same-age rival who needs to be first at something.",
+      "middle": "The Harvest Fair determines whether rivalry becomes mutual respect, resentment, or friendship.",
+      "late": "During the Long Storm, Kess volunteers before being asked. She can become a reliable second crew leader if the characters ever treated her as more than competition.",
+      "age18": "At the Last Spring Dance she either jokes about old defeats, demands one final contest, or quietly admits she is afraid everyone will leave."
+    },
+    {
+      "id": "nima",
+      "npc": "Nima Bell",
+      "start": "Friend and sketcher who notices patterns adults ignore.",
+      "middle": "Her drawings become the most consistent visual record of changes around the Watchstone.",
+      "late": "She returns from time away with a Bellmere drawing technique that helps compare old marks precisely.",
+      "age18": "Her childhood sketches can supply Character Advantage when the party identifies the three-channel crack."
+    },
+    {
+      "id": "rusk",
+      "npc": "Rusk Thorn",
+      "start": "Older youth who makes shortcuts sound clever.",
+      "middle": "By Apprentice Week he is doing errands for smugglers using an old market-side passage.",
+      "late": "The smuggling passage has worsened the east conduit blockage. Rusk can confess, flee, or help clear it depending on earlier treatment.",
+      "age18": "He is evidence that one bad choice can matter without making him the campaign's secret villain."
+    },
+    {
+      "id": "pike",
+      "npc": "Reeve Corlan Pike",
+      "start": "Competent village authority who values calm and reputation.",
+      "middle": "He repeatedly delays investigation of old Watchstone reports because each year offers a more urgent ordinary problem.",
+      "late": "The Long Storm proves the reports were real. He can admit the suppression or double down until confronted with the Bellmere survey.",
+      "age18": "He yields authority to the young adults if they have evidence and community trust; otherwise he tries to centralize the response."
+    },
+    {
+      "id": "sable",
+      "npc": "Old Sable",
+      "start": "An outsider who appears to know why the standing stone matters.",
+      "middle": "She drops precise fragments rather than solving the mystery for the children.",
+      "late": "She reveals her keeper ancestry only after the party independently connects at least three clue sources.",
+      "age18": "She refuses to choose the finale for them: 'A keeper who chooses for the village is only another kind of lock.'"
+    }
   ]
 }
