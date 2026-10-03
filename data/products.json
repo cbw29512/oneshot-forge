@@ -34,6 +34,17 @@
         "zipRequiredForPaid": true,
         "zipReady": false,
         "zipUrl": null
+      },
+      "rulesSupport": {
+        "requiredEditions": [
+          "2014",
+          "2024"
+        ],
+        "editionLockedSelection": true,
+        "adventure2014Certified": false,
+        "pregens2014Certified": false,
+        "adventure2024Certified": false,
+        "pregens2024Certified": false
       }
     },
     {
@@ -68,6 +79,17 @@
         "zipRequiredForPaid": true,
         "zipReady": false,
         "zipUrl": null
+      },
+      "rulesSupport": {
+        "requiredEditions": [
+          "2014",
+          "2024"
+        ],
+        "editionLockedSelection": true,
+        "adventure2014Certified": false,
+        "pregens2014Certified": false,
+        "adventure2024Certified": false,
+        "pregens2024Certified": false
       }
     },
     {
@@ -102,6 +124,17 @@
         "zipRequiredForPaid": true,
         "zipReady": false,
         "zipUrl": null
+      },
+      "rulesSupport": {
+        "requiredEditions": [
+          "2014",
+          "2024"
+        ],
+        "editionLockedSelection": true,
+        "adventure2014Certified": false,
+        "pregens2014Certified": false,
+        "adventure2024Certified": false,
+        "pregens2024Certified": false
       }
     },
     {
@@ -136,6 +169,17 @@
         "zipRequiredForPaid": true,
         "zipReady": false,
         "zipUrl": null
+      },
+      "rulesSupport": {
+        "requiredEditions": [
+          "2014",
+          "2024"
+        ],
+        "editionLockedSelection": true,
+        "adventure2014Certified": false,
+        "pregens2014Certified": false,
+        "adventure2024Certified": false,
+        "pregens2024Certified": false
       }
     },
     {
@@ -170,6 +214,17 @@
         "zipRequiredForPaid": true,
         "zipReady": false,
         "zipUrl": null
+      },
+      "rulesSupport": {
+        "requiredEditions": [
+          "2014",
+          "2024"
+        ],
+        "editionLockedSelection": true,
+        "adventure2014Certified": false,
+        "pregens2014Certified": false,
+        "adventure2024Certified": false,
+        "pregens2024Certified": false
       }
     },
     {
@@ -204,6 +259,17 @@
         "zipRequiredForPaid": true,
         "zipReady": false,
         "zipUrl": null
+      },
+      "rulesSupport": {
+        "requiredEditions": [
+          "2014",
+          "2024"
+        ],
+        "editionLockedSelection": true,
+        "adventure2014Certified": false,
+        "pregens2014Certified": false,
+        "adventure2024Certified": false,
+        "pregens2024Certified": false
       }
     },
     {
@@ -238,6 +304,17 @@
         "zipRequiredForPaid": true,
         "zipReady": false,
         "zipUrl": null
+      },
+      "rulesSupport": {
+        "requiredEditions": [
+          "2014",
+          "2024"
+        ],
+        "editionLockedSelection": true,
+        "adventure2014Certified": false,
+        "pregens2014Certified": false,
+        "adventure2024Certified": false,
+        "pregens2024Certified": false
       }
     },
     {
@@ -272,6 +349,17 @@
         "zipRequiredForPaid": true,
         "zipReady": false,
         "zipUrl": null
+      },
+      "rulesSupport": {
+        "requiredEditions": [
+          "2014",
+          "2024"
+        ],
+        "editionLockedSelection": true,
+        "adventure2014Certified": false,
+        "pregens2014Certified": false,
+        "adventure2024Certified": false,
+        "pregens2024Certified": false
       }
     },
     {
@@ -306,6 +394,17 @@
         "zipRequiredForPaid": true,
         "zipReady": false,
         "zipUrl": null
+      },
+      "rulesSupport": {
+        "requiredEditions": [
+          "2014",
+          "2024"
+        ],
+        "editionLockedSelection": true,
+        "adventure2014Certified": false,
+        "pregens2014Certified": false,
+        "adventure2024Certified": false,
+        "pregens2024Certified": false
       }
     },
     {
@@ -345,6 +444,17 @@
         "zipRequiredForPaid": true,
         "zipReady": true,
         "zipUrl": "assets/bundles/right-to-owlbear-arms-v1.1.zip"
+      },
+      "rulesSupport": {
+        "requiredEditions": [
+          "2014",
+          "2024"
+        ],
+        "editionLockedSelection": true,
+        "adventure2014Certified": false,
+        "pregens2014Certified": false,
+        "adventure2024Certified": false,
+        "pregens2024Certified": false
       }
     }
   ]
