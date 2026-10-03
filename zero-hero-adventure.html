@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>From Zero to Hero: The Hearthcross Years — DM Adventure</title>
+  <meta name="description" content="Run the seven-chapter From Zero to Hero Level-0 origin adventure in Hearthcross.">
+  <link rel="canonical" href="https://cbw29512.github.io/oneshot-forge/zero-hero-adventure.html">
+  <link rel="stylesheet" href="styles.css?v=20261002e">
+  <link rel="stylesheet" href="zero-hero-adventure.css?v=20261003a">
+</head>
+<body class="zero-adventure-body">
+  <a class="skip-link" href="#scene-card">Skip to current scene</a>
+  <header class="topbar zero-adventure-topbar">
+    <div>
+      <p class="eyebrow"><a class="home-link" href="index.html">‹ One-Shot Forge</a></p>
+      <h1>From Zero to Hero: The Hearthcross Years</h1>
+      <p id="adventure-meta" class="muted">Level 0 · 4 players default · Ages 12–18</p>
+    </div>
+    <nav class="zero-adventure-actions" aria-label="Zero to Hero resources">
+      <a class="button secondary" href="zero-hero.html" target="_blank" rel="noopener">Player Growth Sheet</a>
+      <button class="button secondary" id="print-chapter" type="button">Print current chapter</button>
+      <button class="button danger" id="reset-adventure" type="button">Reset run</button>
+    </nav>
+  </header>
+
+  <main class="zero-adventure-shell">
+    <aside class="zero-adventure-sidebar print-hide">
+      <section class="panel">
+        <p class="eyebrow ember">TABLE SETUP</p>
+        <label for="party-size">Players</label>
+        <select id="party-size">
+          <option value="4">4 players</option>
+          <option value="5">5 players</option>
+          <option value="6">6 players</option>
+        </select>
+        <p id="party-scaling" class="muted"></p>
+      </section>
+
+      <section class="panel">
+        <p class="eyebrow ember">SEVEN YEARS</p>
+        <nav id="chapter-list" class="chapter-list" aria-label="Adventure chapters"></nav>
+      </section>
+
+      <section class="panel fairness-card">
+        <p class="eyebrow ember">FAIRNESS LOCK</p>
+        <p><strong>Same six 9s.</strong> Upbringing changes odds, not starting scores.</p>
+        <p><strong>2 Favored · 2 Neutral · 2 Challenging.</strong></p>
+        <p>Across the Hearthcross Six, every upbringing faces exactly two contests in each lane.</p>
+      </section>
+    </aside>
+
+    <section class="zero-adventure-main">
+      <article class="panel chapter-intro">
+        <div class="chapter-intro-head">
+          <div>
+            <p class="eyebrow ember" id="chapter-age">AGE 12</p>
+            <h2 id="chapter-title">Spring Chore Day</h2>
+          </div>
+          <span id="chapter-progress" class="badge">Chapter 1 of 7</span>
+        </div>
+        <p id="chapter-goal" class="chapter-goal"></p>
+        <blockquote id="chapter-opening" class="boxed-text"></blockquote>
+        <div class="dm-box">
+          <p class="box-label">Open the session</p>
+          <ol id="chapter-opening-steps"></ol>
+        </div>
+      </article>
+
+      <article class="panel scene-panel" id="scene-card">
+        <div class="scene-head">
+          <div>
+            <p class="eyebrow" id="beat-progress">Growth Beat 1 of 3</p>
+            <h2 id="beat-title">The Job Board</h2>
+          </div>
+          <span id="beat-minutes" class="badge">25 min</span>
+        </div>
+
+        <section class="stage-focus">
+          <p class="box-label">Purpose</p>
+          <p id="beat-purpose"></p>
+        </section>
+
+        <section>
+          <p class="box-label">Read this to the players</p>
+          <blockquote class="boxed-text" id="beat-readaloud"></blockquote>
+        </section>
+
+        <section class="spotlight-box">
+          <p class="box-label">Spotlight order</p>
+          <p id="spotlight-order"></p>
+          <p class="muted">Every player gets one Development Check before this beat closes. A success changes the scene; it never removes another player's turn.</p>
+        </section>
+
+        <section class="dm-box">
+          <p class="box-label">Run this beat in order</p>
+          <ol id="beat-runsteps"></ol>
+        </section>
+
+        <section class="growth-reference">
+          <div class="growth-reference-head">
+            <div><p class="box-label">Development check</p><h3 id="growth-reference-title"></h3></div>
+            <strong id="growth-dc" class="dc-chip">DC 15</strong>
+          </div>
+          <p id="growth-prompt"></p>
+          <div class="approach-reference" id="growth-approaches"></div>
+          <div class="outcome-reference" id="growth-outcomes"></div>
+        </section>
+
+        <section class="scrapbook-callout">
+          <p class="box-label">Scrapbook</p>
+          <p id="scrapbook-prompt"></p>
+          <p><strong>Consequence carried forward:</strong> <span id="beat-consequence"></span></p>
+        </section>
+
+        <div class="scene-nav">
+          <button class="button secondary" id="prev-beat" type="button">← Previous</button>
+          <span id="absolute-progress" class="muted">1 / 21</span>
+          <button class="button" id="next-beat" type="button">Next beat →</button>
+        </div>
+      </article>
+
+      <article class="panel chapter-close">
+        <p class="eyebrow ember">END OF YEAR</p>
+        <blockquote id="chapter-close-readaloud"></blockquote>
+        <p><strong>Yearbook focus:</strong> <span id="yearbook-focus"></span></p>
+        <p id="chapter-close-note" class="muted">Complete the Yearbook entry on each player's Growth Sheet before aging up.</p>
+      </article>
+
+      <details class="panel adventure-reference print-hide">
+        <summary>DM reference: Hearthcross Six & graduation</summary>
+        <section>
+          <h3>Hearthcross Six</h3>
+          <p id="six-purpose"></p>
+          <div id="six-grid" class="six-grid"></div>
+        </section>
+        <section>
+          <h3>End-of-campaign audit</h3>
+          <ul id="gm-audit"></ul>
+        </section>
+      </details>
+    </section>
+  </main>
+
+  <script src="zero-hero-adventure.js?v=20261003a"></script>
+</body>
+</html>
