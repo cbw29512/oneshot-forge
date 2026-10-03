@@ -1,7 +1,7 @@
 // Complete player-facing level 3 pregens. Values follow D&D 5e 2014 conventions.
 ADVENTURE.pregens = [
 {
- name:"Birthday Hero", pronouns:"they/them", species:"Human", class:"Barbarian 3", subclass:"Path of the Totem Warrior — Bear", background:"Folk Hero", alignment:"Neutral Good", xp:"900", role:"Birthday hero and steadfast protector", portrait:"barbarian-wendy",
+ name:"Birthday Hero", pronouns:"they/them", species:"Human", class:"Barbarian 3", subclass:"Path of the Totem Warrior — Bear", background:"Folk Hero", alignment:"Neutral Good", xp:"900", role:"Birthday hero and steadfast protector", portrait:"barbarian-birthday-hero",
  ac:15, hp:32, hitDice:"3d12", speed:"30 ft.", initiative:"+2", proficiency:"+2", passive:13,
  abilities:{STR:[16,"+3"],DEX:[14,"+2"],CON:[16,"+3"],INT:[8,"−1"],WIS:[12,"+1"],CHA:[10,"+0"]},
  saves:{Strength:"+5",Dexterity:"+2",Constitution:"+5",Intelligence:"−1",Wisdom:"+1",Charisma:"+0"},
