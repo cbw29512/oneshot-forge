@@ -158,7 +158,7 @@ for(const k of ["abilityArray","proficiencies","heirloom","mentor","mechanics"])
 
 if(!/development wallet/i.test(page)) fail("public page must explain the development wallet");
 if(!/group-resolution-note/.test(page)||!/yearbook-host/.test(page)) fail("public page must expose shared-beat and Yearbook continuity surfaces");
-for(const id of ["scrapbook-panel","scrapbook-grid","scrapbook-count","print-scrapbook"]) if(!page.includes('id="'+id+'"')) fail("character scrapbook UI missing "+id);
+for(const id of ["scrapbook-panel","scrapbook-grid","scrapbook-count","print-scrapbook","competition-award-tool","competition-select","competition-field-size","competition-place","add-competition-card"]) if(!page.includes('id="'+id+'"')) fail("character scrapbook UI missing "+id);
 for(const id of ["graduation-keepsakes","graduation-certificate","origin-chronicle","print-certificate","print-graduation-packet"]) if(!page.includes('id="'+id+'"')) fail("graduation keepsake UI missing "+id);
 if(!/30-point maximum/i.test(page)) fail("public page must disclose the absolute 30-point maximum");
 if(!/How Character Advantage is earned/.test(page)||!/No roleplay Disadvantage/.test(page)) fail("public page must explain fair Character Advantage criteria");
@@ -188,6 +188,10 @@ if(!/upsertDevelopmentCard\(chapter,beat,state\.resolvedBeats\[key\]\)/.test(scr
 if(!/developmentCardId/.test(script)||!/syncDevelopmentCards/.test(script)) fail("scrapbook development-card reconciliation path missing");
 if(!/scrapbookDevelopmentText/.test(script)||!/flexiblePoints/.test(script)||!/lessonPoints/.test(script)||!/shiftedFrom/.test(script)||!/shiftedTo/.test(script)) fail("Development Cards must preserve mechanical growth effects");
 if(!/renderScrapbook/.test(script)) fail("scrapbook renderer missing");
+if(!/competitionAwardFor/.test(script)||!/renderCompetitionAwardTool/.test(script)) fail("competition award recorder missing");
+if(!/type:"competition"/.test(script)||!/mechanical:false/.test(script)) fail("competition award cards must be story-only");
+if(!/placement===1\?"1st Place"/.test(script)) fail("competition podium badge mapping missing");
+if(!/Competition memory · no extra DP/.test(script)) fail("competition cards must disclose no extra DP");
 if(!/printZeroHero\("print-scrapbook"\)/.test(script)) fail("scrapbook print mode missing");
 if(!/yearbook:\{\}/.test(script)) fail("Yearbook state missing");
 if(!/yearbookComplete/.test(script)||!/saveYearbook/.test(script)) fail("Yearbook completion/save logic missing");
