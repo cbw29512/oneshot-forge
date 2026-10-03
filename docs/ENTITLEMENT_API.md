@@ -1,56 +1,99 @@
-# Entitlement API contract
+# Stripe checkout and entitlement contract
 
-One-Shot Forge treats purchase ownership as server-authoritative. Browser state is presentation only.
+99¢ One-Shots treats purchase ownership as server-authoritative. Browser state is presentation only.
+
+## Checkout
+
+`POST /api/stripe/checkout`
+
+Request:
+
+```json
+{
+  "productId": "the-owlbear-egg"
+}
+```
+
+The function resolves the product against the server-side Stripe product allowlist. The browser never supplies a trusted price.
+
+A successful response contains a Stripe-hosted Checkout URL:
+
+```json
+{
+  "url": "https://checkout.stripe.com/..."
+}
+```
+
+The storefront redirects to that HTTPS Stripe URL.
 
 ## Verify ownership
 
-`GET /api/entitlements/{productId}`
+`GET /api/stripe/entitlement?productId={productId}&session_id={optionalCheckoutSessionId}`
 
-The request must carry the deployment's authenticated customer session. The browser never supplies a trusted `owned` value.
+Normal repeat visits use the secure entitlement cookie and omit `session_id`.
 
-### 200 response
+On the first return from Stripe, the browser supplies the Checkout Session ID from Stripe's success redirect. The server retrieves that Checkout Session from Stripe and grants ownership only when all of these match:
 
-```json
-{
-  "schemaVersion": 1,
-  "productId": "the-lantern-below",
-  "owned": true,
-  "access": "owned",
-  "verifiedAt": "2026-09-22T02:00:00Z"
-}
-```
+- `payment_status === "paid"`
+- Stripe metadata `productId` equals the requested product
+- Stripe metadata `storefront === "99centoneshots"`
 
-`access` is one of `owned`, `preview`, or `none`. `owned: true` is valid only when the server has verified the provider purchase for the authenticated customer and matching product ID.
+The server then issues a signed, HttpOnly, Secure, SameSite=Lax entitlement cookie for that product.
 
-### Error responses
-
-- `401` — no valid customer session.
-- `404` — unknown product ID.
-- `503` — provider/entitlement verification unavailable. Fail closed for paid access; do not convert this to ownership in the browser.
-
-Error body:
+### Owned response
 
 ```json
 {
-  "schemaVersion": 1,
-  "error": "entitlement_unavailable",
-  "message": "Purchase verification is temporarily unavailable."
+  "productId": "the-owlbear-egg",
+  "access": "owned"
 }
 ```
 
-## Checkout handoff
+### Not-owned response
 
-The catalog may navigate to the configured provider checkout URL only after the product release gates pass. A checkout return URL is not proof of purchase. After checkout, the browser requests the entitlement endpoint again and changes the action to **Start Adventure** only from a server response with `owned: true`.
+```json
+{
+  "productId": "the-owlbear-egg",
+  "access": "none"
+}
+```
+
+Unknown products return 404. Missing server configuration returns 503. Paid access fails closed.
+
+## Stripe webhook
+
+`POST /api/stripe/webhook`
+
+The webhook verifies the `Stripe-Signature` header against `STRIPE_WEBHOOK_SECRET` using Stripe's raw request body. The first supported event is `checkout.session.completed`.
+
+The webhook currently provides verified purchase audit logging. It does not mint browser access by itself because an HTTP webhook cannot set a cookie in the buyer's browser.
+
+## Required environment variables
+
+These values belong in the hosting environment and MUST NOT be committed:
+
+- `STRIPE_SECRET_KEY`
+- `STRIPE_WEBHOOK_SECRET`
+- `ENTITLEMENT_SIGNING_SECRET`
+
+The public Stripe publishable key is not required for the hosted Checkout redirect used here.
 
 ## Security invariants
 
-1. Product ID is matched server-side against the authoritative product catalog.
+1. Product ID is matched server-side against the authoritative allowlist.
 2. Price is never trusted from browser input.
 3. Provider credentials and webhook secrets never ship to static assets.
-4. Query strings, localStorage, sessionStorage, cookies set solely by client JavaScript, and checkout success pages cannot mint ownership.
-5. Verification outages fail closed for paid content and show a retryable message.
-6. Entitlement responses contain no payment-card or provider-secret data.
+4. Query strings, localStorage, sessionStorage, and cookies created solely by browser JavaScript cannot mint ownership.
+5. A Checkout success redirect is not ownership; the server re-fetches the Stripe Checkout Session.
+6. Verification outages fail closed for paid content.
+7. Entitlement responses contain no card data or provider secrets.
+8. Stripe webhook signatures are verified against the raw request body.
+9. A paid adventure remains unsellable until DM playtest approval, browser delivery, printable delivery, downloadable ZIP delivery, checkout configuration, and repository validation all pass.
 
-## Current preview behavior
+## Free starter
 
-Until an adventure is approved/frozen and checkout is configured, its `currentAccess` may remain `free-preview`. This keeps editorial review independent from future paid entitlement while preventing the catalog from claiming the product is for sale.
+The Lantern Below is the permanent free starter. It does not require Stripe entitlement, but it must still meet the same playability and complete-delivery quality bar before being presented as the finished starter product.
+
+## Known production boundary
+
+The current repository still exposes review adventure files as static site assets. Before any paid adventure is released, paid browser packages and paid ZIP files must move behind entitlement-aware delivery so a direct static URL cannot bypass checkout.
