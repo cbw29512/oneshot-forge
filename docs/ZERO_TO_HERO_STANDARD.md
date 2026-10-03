@@ -306,6 +306,84 @@ The campaign includes six short interludes between ages 12 and 18:
 
 These are ordinary-life prompts, not extra Development Opportunities. They exist to make time passing visible, deepen family/mentor/friend continuity, and let Hearthcross visibly change from year to year.
 
+## 8C. Character Scrapbook — the development ledger
+
+The scrapbook is not decorative flavor placed beside character creation. It is the **persistent development ledger that explains the character sheet**.
+
+Every resolved Growth Beat creates exactly one **Development Card** for that character. Across the seven-year campaign, a completed character therefore has **21 mechanical Development Cards** before optional memory/award cards are counted.
+
+A Development Card records:
+- age and chapter;
+- event / Growth Beat;
+- card title and category;
+- what happened;
+- attempted ability;
+- roll outcome;
+- Character Advantage reason, when any;
+- Flexible Development Points earned;
+- Lesson ability and Lesson Points earned;
+- critical-failure redirection, when any;
+- competition placement/field size when the beat was a competition;
+- optional badge and player note.
+
+The card's development effect must exactly match the Growth Beat result:
+- critical success → **+2 Flexible DP**;
+- success → **+1 Flexible DP**;
+- failure → **+1 off-path Lesson DP**;
+- critical failure → **+1 off-path Lesson DP** plus the actual one-point development redirect when legal.
+
+The card does **not** grant an additional copy of that development. It is the record/source-of-truth for the development already awarded.
+
+The stat sheet is the current summary. The scrapbook answers **why** the scores, relationships, and identity ended up that way.
+
+### Memory cards
+
+Additional story-only cards may record:
+- relationships;
+- mentor moments;
+- dances;
+- family events;
+- reputation;
+- funny mishaps;
+- travel souvenirs;
+- village milestones.
+
+Story-only cards add no DP by themselves. A specific memory may later support Character Advantage when genuinely relevant.
+
+### Competition cards for 4–6 players
+
+Competition content is designed for **4–6 player characters**.
+
+Every competitor receives a card:
+- **1st place** — podium card;
+- **2nd place** — podium card;
+- **3rd place** — podium card;
+- **4th place** — first consolation/mishap card;
+- **5th place** — second consolation/mishap card when present;
+- **6th place** — third consolation/mishap card when present.
+
+Consolation cards should be specific and memorable rather than generic failure labels. Examples include:
+- **Face Full of Pie**;
+- **Lost a Shoe, Finished Anyway**;
+- **Confidently Incorrect**;
+- **Participation Ribbon, Earned the Hard Way**;
+- **6th Place in a Five-Person Race**.
+
+The humorous title may exaggerate the event, but the card must also preserve the **real official result**, such as “5th of 5.”
+
+For ties:
+1. compare the kept d20 from the competition check;
+2. if a podium tie remains, make one story-only d20 tiebreak roll;
+3. the tiebreak awards **no Development Point**.
+
+Competition placement itself never creates extra DP. If the competition is a Growth Beat, the competition card carries that character's existing Growth Beat development effect.
+
+Critical success may add a **Legendary Finish** badge. Critical failure should prefer an event-specific mishap title when the character finishes outside the podium.
+
+### Print standard
+
+Scrapbook cards print at **2.5 × 3.5 inches**, nine cards per portrait Letter sheet in a cut-friendly 3 × 3 layout.
+
 ## 9. Graduation: 2014
 
 Level-0 produces the **pre-origin base ability array**.
