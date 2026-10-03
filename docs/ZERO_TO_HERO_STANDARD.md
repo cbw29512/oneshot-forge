@@ -52,7 +52,7 @@ Ability costs mirror the normal point-buy curve from the age-12 floor:
 
 With no critical-success bonuses, resolving all 21 opportunities yields the equivalent of a normal 27-point budget: the starting six-point array plus 21 earned development points.
 
-Critical successes can add bonus Development Points beyond that normal target. If those bonus points are spent so the final base array exceeds normal 27-point-buy value, the array must be labeled **Heroic / house-rule ability generation**. All 2014/2024 mechanics applied after the array is frozen remain edition-locked and RAW unless another house rule is explicitly enabled.
+Critical successes can add bonus Development Points beyond that normal target. The base ability array has an absolute **30-point-buy-value ceiling**. If bonus points push the array above 27, it must be labeled **Heroic / house-rule ability generation**; no investment may raise it above 30. All 2014/2024 mechanics applied after the array is frozen remain edition-locked and RAW unless another house rule is explicitly enabled.
 
 ### 27-point graduation floor
 
@@ -66,7 +66,8 @@ At age 18:
 - any Lesson Point blocked by the 15 cap may be converted to flexible growth;
 - any partial invested progress that cannot complete the next score increase may be returned to the flexible wallet as **Maturity Settlement**;
 - Maturity Settlement never creates new Development Points; it only prevents already-earned development from being stranded by the stepped point-buy costs;
-- critical-success bonus growth may still push the final array above 27.
+- critical-success bonus growth may raise the final array above 27 but never above 30;
+- once the array reaches 30, further Development Points may remain recorded but cannot create additional ability-score power.
 
 ## 4. Development follows behavior
 
@@ -255,7 +256,8 @@ From Zero to Hero ability generation is explicitly a **Level-0 house rule**.
 At graduation the site audits the final base array:
 - **below 27:** graduation is blocked; already-earned growth must be spent or settled until the floor is reached;
 - **exactly 27:** the character has received the complete baseline development budget;
-- **above 27:** visibly labeled **Heroic / house-rule ability generation**, normally caused by spent critical-success bonus points;
+- **28–30:** visibly labeled **Heroic / house-rule ability generation**, normally caused by spent critical-success bonus points;
+- **above 30:** invalid; the interface and validator must prevent this state;
 - no pre-origin score may exceed 15.
 
 Once the base array is frozen, the selected edition becomes authoritative.
@@ -295,6 +297,7 @@ From Zero to Hero is not production-ready until:
 - graduation is impossible below a 27-point base-array value after all 21 base opportunities;
 - Maturity Settlement can recover only stranded/cap-blocked earned growth and cannot mint new points;
 - the final base array is audited and clearly labeled if it exceeds 27 because of critical-success bonus growth;
+- no Development Point investment may raise the final base array above 30;
 - familiarity cannot silently become proficiency;
 - 2014 and 2024 graduation mechanics stay isolated;
 - the custom sheet persists and prints;
