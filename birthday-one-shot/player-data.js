@@ -1,7 +1,7 @@
 // Complete player-facing level 3 pregens. Values follow D&D 5e 2014 conventions.
 ADVENTURE.pregens = [
 {
- name:"the Birthday Hero", pronouns:"she/her", species:"Human", class:"Barbarian 3", subclass:"Path of the Totem Warrior — Bear", background:"Folk Hero", alignment:"Neutral Good", xp:"900", role:"Birthday hero and steadfast protector", portrait:"barbarian-wendy",
+ name:"Birthday Hero", pronouns:"they/them", species:"Human", class:"Barbarian 3", subclass:"Path of the Totem Warrior — Bear", background:"Folk Hero", alignment:"Neutral Good", xp:"900", role:"Birthday hero and steadfast protector", portrait:"barbarian-wendy",
  ac:15, hp:32, hitDice:"3d12", speed:"30 ft.", initiative:"+2", proficiency:"+2", passive:13,
  abilities:{STR:[16,"+3"],DEX:[14,"+2"],CON:[16,"+3"],INT:[8,"−1"],WIS:[12,"+1"],CHA:[10,"+0"]},
  saves:{Strength:"+5",Dexterity:"+2",Constitution:"+5",Intelligence:"−1",Wisdom:"+1",Charisma:"+0"},
@@ -12,12 +12,12 @@ ADVENTURE.pregens = [
  features:["Rage (3/long rest): bonus action; 1 minute; advantage on Strength checks/saves, +2 melee damage using Strength, and resistance to bludgeoning, piercing, and slashing damage.","Bear Spirit: while raging, resistance to every damage type except psychic.","Reckless Attack: on your first attack each turn, gain advantage on Strength-based melee attacks that turn; attacks against you then have advantage until your next turn.","Danger Sense: advantage on Dexterity saves against effects you can see while not blinded, deafened, or incapacitated.","Unarmored Defense: AC equals 10 + Dexterity modifier + Constitution modifier."],
  equipment:["Greataxe","2 handaxes","4 javelins","Explorer's pack","Family keepsake with a carved dragon","Traveler's clothes","10 gp"],
  proficiencies:["Light armor","Medium armor","Shields","Simple weapons","Martial weapons","Land vehicles","Cook's utensils","Common","Dwarvish"],
- traits:"I step between danger and the people I care about.", ideal:"Celebration. Joy is worth defending, especially when darkness tries to steal it.", bond:"Jonnelle is my sister; the rest of the party is chosen family.", flaw:"I shoulder responsibility alone even when others want to help.",
+ traits:"I step between danger and the people I care about.", ideal:"Celebration. Joy is worth defending, especially when darkness tries to steal it.", bond:"Jonnelle is my closest friend; the rest of the party is chosen family.", flaw:"I shoulder responsibility alone even when others want to help.",
  hook:"Your unspoken birthday wish has been stolen. Its fragments suggest you wished for one more adventure together—but only you can choose the final words.", tactics:["Round 1: bonus action Rage, move beside the most dangerous enemy, then attack.","Use Reckless Attack when accuracy matters more than defense.","Stand near vulnerable allies and block routes to them.","Save a handaxe or javelin for flying or distant targets."],
  quote:"Nobody gets left behind—especially at my birthday party."
 },
 {
- name:"Jonnelle",pronouns:"she/her",species:"Human",class:"Barbarian 3",subclass:"Path of the Totem Warrior — Wolf",background:"Outlander",alignment:"Chaotic Good",xp:"900",role:"the Birthday Hero's fearless sister and aggressive frontliner",portrait:"barbarian-jonnelle",
+ name:"Jonnelle",pronouns:"they/them",species:"Human",class:"Barbarian 3",subclass:"Path of the Totem Warrior — Wolf",background:"Outlander",alignment:"Chaotic Good",xp:"900",role:"the Birthday Hero's fearless friend and aggressive frontliner",portrait:"barbarian-jonnelle",
  ac:15,hp:32,hitDice:"3d12",speed:"30 ft.",initiative:"+2",proficiency:"+2",passive:13,
  abilities:{STR:[16,"+3"],DEX:[14,"+2"],CON:[16,"+3"],INT:[8,"−1"],WIS:[12,"+1"],CHA:[10,"+0"]},
  saves:{Strength:"+5",Dexterity:"+2",Constitution:"+5",Intelligence:"−1",Wisdom:"+1",Charisma:"+0"},saveProficiencies:["Strength","Constitution"],
@@ -25,10 +25,10 @@ ADVENTURE.pregens = [
  attacks:["Maul — +5 to hit, 2d6+3 bludgeoning; while raging, 2d6+5.","Handaxe ‘Cake’ — +5 to hit, 1d6+3 slashing; thrown 20/60.","Handaxe ‘Candles’ — +5 to hit, 1d6+3 slashing; thrown 20/60."],
  features:["Rage (3/long rest): bonus action; 1 minute; advantage on Strength checks/saves, +2 Strength-melee damage, and resistance to bludgeoning, piercing, and slashing.","Wolf Spirit: while raging, allies have advantage on melee attack rolls against hostile creatures within 5 feet of you.","Reckless Attack: advantage on your Strength-melee attacks this turn, but attacks against you gain advantage until your next turn.","Danger Sense: advantage on visible Dexterity saves while able to act.","Unarmored Defense: AC 10 + Dexterity + Constitution."],
  equipment:["Maul","Handaxes named Cake and Candles","4 javelins","Explorer's pack","Hunting trap","Traveler's clothes","10 gp"],proficiencies:["Light armor","Medium armor","Shields","Simple weapons","Martial weapons","Land vehicles","One musical instrument","Common","Orc"],
- traits:"I turn everything into a challenge and laugh loudest when things get dangerous.",ideal:"Loyalty. the Birthday Hero never fights alone.",bond:"My sister's happiness matters more than any treasure.",flaw:"I charge first and develop a plan somewhere around round three.",hook:"Someone stole your sister's birthday wish. That was their final bad decision.",tactics:["Rage and move adjacent to the enemy the party most wants to hit.","Your Wolf Spirit gives melee allies advantage while you rage—set the Birthday Hero up for huge attacks.","Use Reckless Attack freely when the Birthday Hero or another ally can punish the enemy.","Throw handaxes when closing distance is impossible."],quote:"If my sister's going, I'm going—and I'm bringing the maul."
+ traits:"I turn everything into a challenge and laugh loudest when things get dangerous.",ideal:"Loyalty. the Birthday Hero never fights alone.",bond:"My friend's happiness matters more than any treasure.",flaw:"I charge first and develop a plan somewhere around round three.",hook:"Someone stole your sister's birthday wish. That was their final bad decision.",tactics:["Rage and move adjacent to the enemy the party most wants to hit.","Your Wolf Spirit gives melee allies advantage while you rage—set the Birthday Hero up for huge attacks.","Use Reckless Attack freely when the Birthday Hero or another ally can punish the enemy.","Throw handaxes when closing distance is impossible."],quote:"If my friend is going, I'm going—and I'm bringing the maul."
 },
 {
- name:"Mira Honeycup",pronouns:"she/her",species:"Lightfoot Halfling",class:"Cleric 3",subclass:"Life Domain",background:"Guild Artisan (Baker)",alignment:"Lawful Good",xp:"900",role:"Healer, support caster, and party heart",portrait:"cleric-mira",
+ name:"Mira Honeycup",pronouns:"they/them",species:"Lightfoot Halfling",class:"Cleric 3",subclass:"Life Domain",background:"Guild Artisan (Baker)",alignment:"Lawful Good",xp:"900",role:"Healer, support caster, and party heart",portrait:"cleric-mira",
  ac:18,hp:24,hitDice:"3d8",speed:"25 ft.",initiative:"+0",proficiency:"+2",passive:15,spellSave:"13",spellAttack:"+5",slots:"1st: 4 | 2nd: 2",
  abilities:{STR:[10,"+0"],DEX:[10,"+0"],CON:[14,"+2"],INT:[10,"+0"],WIS:[16,"+3"],CHA:[14,"+2"]},
  saves:{Strength:"+0",Dexterity:"+0",Constitution:"+2",Intelligence:"+0",Wisdom:"+5",Charisma:"+4"},saveProficiencies:["Wisdom","Charisma"],
@@ -52,7 +52,7 @@ ADVENTURE.pregens = [
  traits:"I explain magical phenomena while they are actively trying to eat me.",ideal:"Discovery. Every mystery is an unopened gift.",bond:"Boris lets me experiment with his ovens, under increasingly strict supervision.",flaw:"Warnings sound like invitations when magic is involved.",hook:"You came to study wish-baking and now have the field experiment of a lifetime.",tactics:["Cast Mage Armor before danger if there is time; AC becomes 16.","Use Web to restrain groups and control a room.","Use Shield as a reaction when an attack would hit you.","Stay behind the barbarians and use Fire Bolt or Magic Missile."],quote:"Technically, this is a catastrophe. Academically, it is magnificent."
 },
 {
- name:"Poppy Quickstep",pronouns:"she/her",species:"Lightfoot Halfling",class:"Rogue 3",subclass:"Thief",background:"Charlatan (Event Planner)",alignment:"Chaotic Good",xp:"900",role:"Scout, trap specialist, and mobile striker",portrait:"rogue-poppy",
+ name:"Poppy Quickstep",pronouns:"they/them",species:"Lightfoot Halfling",class:"Rogue 3",subclass:"Thief",background:"Charlatan (Event Planner)",alignment:"Chaotic Good",xp:"900",role:"Scout, trap specialist, and mobile striker",portrait:"rogue-poppy",
  ac:15,hp:24,hitDice:"3d8",speed:"25 ft.",initiative:"+3",proficiency:"+2",passive:14,
  abilities:{STR:[8,"−1"],DEX:[16,"+3"],CON:[14,"+2"],INT:[14,"+2"],WIS:[12,"+1"],CHA:[12,"+1"]},
  saves:{Strength:"−1",Dexterity:"+5",Constitution:"+2",Intelligence:"+4",Wisdom:"+1",Charisma:"+1"},saveProficiencies:["Dexterity","Intelligence"],
