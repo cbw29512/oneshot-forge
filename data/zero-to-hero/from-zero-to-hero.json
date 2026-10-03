@@ -1906,5 +1906,102 @@
         ]
       }
     ]
+  },
+  "preClassShell": {
+    "enabled": true,
+    "shellName": "Level-0 Pre-Class Character",
+    "lockRequiredBeforeFirstGrowthBeat": true,
+    "immutableFields": [
+      "rulesEdition",
+      "raceSpecies",
+      "size",
+      "speed",
+      "senses",
+      "intrinsicTraits",
+      "levelGatedTraits",
+      "sourceNote"
+    ],
+    "startingAbilityRule": "All six Level-0 base ability scores begin at 9 regardless of race/species. This is an explicit house-rule override used only for the origin campaign.",
+    "editionRule": "The target rules edition (2014 or 2024) locks with race/species before the first Growth Beat so the later RAW handoff has one authoritative rules source.",
+    "raceSpeciesRule": "Race/species identity is chosen before play and cannot change during the origin campaign or at graduation.",
+    "intrinsicTraitRule": "Source-verified race/species traits that are innate and not gated by class, proficiency bonus, or character level may be recorded as active Level-0 traits. The site stores user-entered notes rather than reproducing proprietary rules text.",
+    "gatedTraitRule": "Any race/species trait whose source requires a character level, proficiency bonus, class feature, spellcasting feature, or other unavailable prerequisite remains recorded but dormant until that prerequisite legally exists.",
+    "abilityAdjustmentRule": {
+      "2014": "Any normal 2014 racial ability-score adjustment is deferred until after the homebrew Level-0 base array is frozen at graduation.",
+      "2024": "Any normal 2024 background ability-score adjustment is deferred until after the homebrew Level-0 base array is frozen at graduation."
+    },
+    "historyRule": "Level-0 practice with skills, tools, weapons, languages, magic, crafts, medicine, and similar activities remains familiarity/history unless a legal Level-1 source grants the proficiency or feature.",
+    "rawPlaceholders": [
+      {
+        "id": "background",
+        "label": "Background",
+        "filledBy": "legal edition background at graduation"
+      },
+      {
+        "id": "class",
+        "label": "Class",
+        "filledBy": "legal edition class at graduation"
+      },
+      {
+        "id": "subclass",
+        "label": "Subclass",
+        "filledBy": "only when the selected edition/class legally grants it"
+      },
+      {
+        "id": "hpHitDie",
+        "label": "HP / Hit Die",
+        "filledBy": "selected Level-1 class and legal rules"
+      },
+      {
+        "id": "savingThrows",
+        "label": "Saving Throw Proficiencies",
+        "filledBy": "selected Level-1 class"
+      },
+      {
+        "id": "skills",
+        "label": "Skill Proficiencies",
+        "filledBy": "legal race/species/background/class sources"
+      },
+      {
+        "id": "tools",
+        "label": "Tool Proficiencies",
+        "filledBy": "legal background/class/other source"
+      },
+      {
+        "id": "weaponsArmor",
+        "label": "Weapon / Armor Training",
+        "filledBy": "legal race/species/class/other source"
+      },
+      {
+        "id": "spells",
+        "label": "Spells / Spellcasting",
+        "filledBy": "only if legally granted"
+      },
+      {
+        "id": "feats",
+        "label": "Feat / Origin Feat",
+        "filledBy": "only if legally granted by the selected edition"
+      },
+      {
+        "id": "equipment",
+        "label": "Adventuring Equipment",
+        "filledBy": "legal background/class/equipment choices"
+      },
+      {
+        "id": "abilityAdjustment",
+        "label": "Edition Ability Adjustment",
+        "filledBy": "2014 race or 2024 background after Level-0 array freeze"
+      }
+    ],
+    "homebrewFields": [
+      "six-9 starting array",
+      "Upbringing Lean",
+      "Development Points",
+      "Lesson Points",
+      "Level-0 critical development tiers",
+      "27–30 base-array envelope",
+      "scrapbook development ledger"
+    ],
+    "level1Rule": "Anything not explicitly listed as a Level-0 homebrew field or immutable race/species identity must be filled from the selected edition's legal rules at graduation unless the table deliberately enables another named homebrew."
   }
 }
