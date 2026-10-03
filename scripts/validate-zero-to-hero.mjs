@@ -189,7 +189,7 @@ if(!/state\.scores\[ability\] >= campaign\.development\.maxPreOriginScore/.test(
 if(!/const succeeded=total>=dc/.test(script)) fail("checks must resolve normal total-vs-DC first");
 if(!/Math\.max\(roll1,roll2\)/.test(script)) fail("Advantage must use the higher of two d20s");
 if(!/advantageReason/.test(script)||!/Character Advantage earned/.test(script)) fail("Advantage reason capture missing");
-if(!/Advantage requires two d20 results/.test(script)) fail("Advantage must require two d20 inputs");
+if(!/const needsTwoDice=rollMode!=="normal"/.test(script)||!/needsTwoDice && \(!Number\.isInteger\(roll2\)/.test(script)) fail("Advantage/Disadvantage must require two d20 inputs");
 if(!/Record the specific character or scene reason/.test(script)) fail("Advantage must require a fiction-grounded reason");
 if(/roleplay disadvantage/i.test(script)) fail("script must not introduce roleplay-based Disadvantage");
 if(/finalReflection|reflectionRemaining|canFinishReflection/.test(script)) fail("superseded Final Reflection logic must not remain");
