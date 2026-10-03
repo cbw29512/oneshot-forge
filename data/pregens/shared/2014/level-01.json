@@ -1,0 +1,3782 @@
+{
+  "schema": "oneshot-forge-character-pack/0.3",
+  "ruleset": "5e-2014-srd",
+  "edition": "2014",
+  "level": 1,
+  "series": "99¢ One-Shots Shared Pregens",
+  "lineageSource": "data/pregens/quiet-seals-level-4-2014-srd.json",
+  "note": "Persistent Level-1 roots for the shared 2014 pregen library. These identities advance forward; later levels must derive from the previous certified level.",
+  "recommendedParty": [
+    "pregen-brann",
+    "pregen-pell",
+    "pregen-nyx",
+    "pregen-ivo",
+    "pregen-kael",
+    "pregen-hester"
+  ],
+  "characters": [
+    {
+      "id": "pregen-brann",
+      "name": "Brann Oakholt",
+      "className": "Fighter",
+      "subclass": null,
+      "race": "Human",
+      "background": "Soldier",
+      "role": "Front line",
+      "recommended": true,
+      "portrait": "assets/pregens/brann.jpg",
+      "alignment": "Lawful Neutral",
+      "scores": {
+        "STR": 14,
+        "DEX": 12,
+        "CON": 16,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 10
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "DEX": {
+          "bonus": 1,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 5,
+          "proficient": true
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 1,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": 0,
+          "proficient": false
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        }
+      },
+      "skills": "Athletics +4, Intimidation +2, Perception +3, Survival +3",
+      "ac": 19,
+      "acNotes": "chain mail 16 + shield 2 + Defense 1",
+      "initiative": 1,
+      "speedFt": 30,
+      "hp": 13,
+      "hitDice": "1d10",
+      "darkvision": 0,
+      "proficiencies": {
+        "armor": [
+          "all armor",
+          "shields"
+        ],
+        "weapons": [
+          "simple weapons",
+          "martial weapons"
+        ],
+        "tools": [
+          "dice set",
+          "land vehicles"
+        ],
+        "languages": [
+          "Common",
+          "Dwarvish"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Longsword",
+          "bonus": 4,
+          "damage": "1d8+2",
+          "type": "slashing",
+          "notes": "versatile 1d10+2; one attack"
+        },
+        {
+          "name": "Javelin",
+          "bonus": 4,
+          "damage": "1d6+2",
+          "type": "piercing",
+          "notes": "thrown 30/120; 3 carried"
+        }
+      ],
+      "bonusActions": [
+        "Second Wind (1/rest): regain 1d10+1 HP."
+      ],
+      "reactions": [],
+      "featureList": [
+        {
+          "name": "Fighting Style: Defense",
+          "source": "Fighter 1",
+          "text": "While wearing armor, +1 AC (already in 19)."
+        },
+        {
+          "name": "Second Wind",
+          "source": "Fighter 1",
+          "text": "Bonus action, 1/rest: regain 1d10+1 HP.",
+          "uses": "1/rest"
+        },
+        {
+          "name": "Military Rank",
+          "source": "Soldier",
+          "text": "Soldiers loyal to your former rank recognize your authority and influence."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Chain mail",
+          "qty": 1
+        },
+        {
+          "name": "Shield",
+          "qty": 1
+        },
+        {
+          "name": "Longsword",
+          "qty": 1
+        },
+        {
+          "name": "Javelin",
+          "qty": 3
+        },
+        {
+          "name": "Explorer’s pack",
+          "qty": 1
+        }
+      ],
+      "gp": 12,
+      "personality": {
+        "trait": "Counts exits. Sleeps in the mail.",
+        "ideal": "Hold the line so someone else gets home.",
+        "bond": "A dead sergeant’s token in his pouch.",
+        "flaw": "Would rather take a hit than admit he was wrong."
+      },
+      "appearance": "Human man, early forties, iron-grey stubble, a pale scar along the jaw.",
+      "passivePerception": 13,
+      "passiveInsight": 11,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Fighter",
+      "saves": "Str +4, Con +5",
+      "speed": "30 ft.",
+      "attacks": [
+        "Longsword. +4 to hit; 1d8+2 slashing; versatile 1d10+2; one attack",
+        "Javelin. +4 to hit; 1d6+2 piercing; thrown 30/120; 3 carried"
+      ],
+      "features": [
+        "Fighting Style: Defense: While wearing armor, +1 AC (already in 19).",
+        "Second Wind: Bonus action, 1/rest: regain 1d10+1 HP.",
+        "Military Rank: Soldiers loyal to your former rank recognize your authority and influence."
+      ],
+      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Explorer’s pack, 12 gp",
+      "hpBonusPerLevel": 0,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-pell",
+      "name": "Sister Pell Bramble",
+      "className": "Cleric",
+      "subclass": "Life Domain",
+      "race": "Hill Dwarf",
+      "background": "Acolyte",
+      "role": "Healer and support",
+      "recommended": true,
+      "portrait": "assets/pregens/pell.jpg",
+      "alignment": "Lawful Good",
+      "scores": {
+        "STR": 14,
+        "DEX": 8,
+        "CON": 16,
+        "INT": 10,
+        "WIS": 14,
+        "CHA": 12
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": -1,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 3,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "CHA": {
+          "bonus": 3,
+          "proficient": true
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "skills": "Insight +4, Medicine +4, Persuasion +3, Religion +2",
+      "ac": 18,
+      "acNotes": "chain mail 16 + shield 2",
+      "initiative": -1,
+      "speedFt": 25,
+      "hp": 12,
+      "hitDice": "1d8",
+      "darkvision": 60,
+      "proficiencies": {
+        "armor": [
+          "light",
+          "medium",
+          "heavy",
+          "shields"
+        ],
+        "weapons": [
+          "simple weapons",
+          "warhammer (dwarf)"
+        ],
+        "tools": [
+          "smith’s tools"
+        ],
+        "languages": [
+          "Common",
+          "Dwarvish",
+          "Celestial"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Warhammer",
+          "bonus": 4,
+          "damage": "1d8+2",
+          "type": "bludgeoning",
+          "notes": "versatile 1d10+2"
+        },
+        {
+          "name": "Sacred Flame",
+          "bonus": 0,
+          "damage": "1d8",
+          "type": "radiant",
+          "notes": "Dex DC 12; 60 ft.; cover does not help"
+        }
+      ],
+      "bonusActions": [
+        "Healing Word: 1d4+5 HP total with Disciple of Life, 60 ft."
+      ],
+      "reactions": [],
+      "spellcasting": {
+        "ability": "Wisdom",
+        "saveDC": 12,
+        "attack": 4,
+        "slots": {
+          "1": 2
+        },
+        "focus": "holy symbol",
+        "prepareCount": "3 prepared Cleric spells (Wis + level), plus Life Domain Bless and Cure Wounds.",
+        "prepared": [
+          "Bless",
+          "Cure Wounds",
+          "Healing Word",
+          "Shield of Faith",
+          "Detect Magic"
+        ],
+        "cantrips": [
+          "Sacred Flame",
+          "Guidance",
+          "Spare the Dying"
+        ]
+      },
+      "spellList": [
+        {
+          "level": 0,
+          "name": "Sacred Flame",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Dex DC 12 or 1d8 radiant. Cover does not help."
+        },
+        {
+          "level": 0,
+          "name": "Guidance",
+          "time": "action",
+          "range": "touch",
+          "effect": "Concentration 1 min. Target adds 1d4 to one ability check."
+        },
+        {
+          "level": 0,
+          "name": "Spare the Dying",
+          "time": "action",
+          "range": "touch",
+          "effect": "A living creature at 0 HP becomes stable."
+        },
+        {
+          "level": 1,
+          "name": "Bless",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Concentration 1 min. Up to 3 creatures add 1d4 to attacks and saves. Domain."
+        },
+        {
+          "level": 1,
+          "name": "Cure Wounds",
+          "time": "action",
+          "range": "touch",
+          "effect": "1d8+2 HP, plus Disciple of Life +3 (total 1d8+5). Domain."
+        },
+        {
+          "level": 1,
+          "name": "Healing Word",
+          "time": "bonus",
+          "range": "60 ft.",
+          "effect": "1d4+2 HP, plus Disciple of Life +3 (total 1d4+5)."
+        },
+        {
+          "level": 1,
+          "name": "Shield of Faith",
+          "time": "bonus",
+          "range": "60 ft.",
+          "effect": "Concentration 10 min. +2 AC."
+        },
+        {
+          "level": 1,
+          "name": "Detect Magic",
+          "time": "action",
+          "range": "self",
+          "effect": "Concentration 10 min. Sense magic in 30 ft. Ritual."
+        }
+      ],
+      "featureList": [
+        {
+          "name": "Bonus Proficiency",
+          "source": "Life 1",
+          "text": "Proficient with heavy armor."
+        },
+        {
+          "name": "Disciple of Life",
+          "source": "Life 1",
+          "text": "When you restore HP with a 1st-level or higher spell, extra HP = 2 + the spell’s level."
+        },
+        {
+          "name": "Dwarven Resilience",
+          "source": "Hill Dwarf",
+          "text": "Advantage on saves vs poison. Resistance to poison damage. Darkvision 60 ft. Speed 25 is not reduced by heavy armor."
+        },
+        {
+          "name": "Dwarven Toughness",
+          "source": "Hill Dwarf",
+          "text": "+1 HP per level (already in 39)."
+        },
+        {
+          "name": "Shelter of the Faithful",
+          "source": "Acolyte",
+          "text": "You and companions can receive free healing and care at a temple of your faith."
+        },
+        {
+          "name": "Spellcasting",
+          "source": "Cleric 1",
+          "text": "Wis DC 12, +4 to hit. Two 1st-level slots. Prepare 3 Cleric spells; domain spells are always prepared."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Chain mail"
+        },
+        {
+          "name": "Shield"
+        },
+        {
+          "name": "Warhammer"
+        },
+        {
+          "name": "Holy symbol"
+        },
+        {
+          "name": "Healer’s kit"
+        },
+        {
+          "name": "Acolyte’s vestments"
+        }
+      ],
+      "gp": 15,
+      "personality": {
+        "trait": "Touches the iron of a lantern the way other people touch a holy symbol.",
+        "ideal": "Mend what you can. Do not pretend a cage is a blessing.",
+        "bond": "The chapel at Briar Glen still owes her a letter.",
+        "flaw": "Will spend a spell slot on a stranger before she keeps one for herself."
+      },
+      "appearance": "Hill dwarf woman, copper braid, kind tired eyes, warhammer looped at the hip.",
+      "passivePerception": 12,
+      "passiveInsight": 14,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Cleric (Life Domain)",
+      "saves": "Wis +4, Cha +3",
+      "speed": "25 ft.",
+      "attacks": [
+        "Warhammer. +4 to hit; 1d8+2 bludgeoning; versatile 1d10+2",
+        "Sacred Flame. +0 to hit; 1d8 radiant; Dex DC 12; 60 ft.; cover does not help"
+      ],
+      "features": [
+        "Bonus Proficiency: Proficient with heavy armor.",
+        "Disciple of Life: When you restore HP with a 1st-level or higher spell, extra HP = 2 + the spell’s level.",
+        "Dwarven Resilience: Advantage on saves vs poison. Resistance to poison damage. Darkvision 60 ft. Speed 25 is not reduced by heavy armor.",
+        "Dwarven Toughness: +1 HP per level (already in 39).",
+        "Shelter of the Faithful: You and companions can receive free healing and care at a temple of your faith.",
+        "Spellcasting: Wis DC 12, +4 to hit. Two 1st-level slots. Prepare 3 Cleric spells; domain spells are always prepared."
+      ],
+      "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer’s kit, Acolyte’s vestments, 15 gp",
+      "hpBonusPerLevel": 1,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-nyx",
+      "name": "Nyx Keller",
+      "className": "Rogue",
+      "subclass": null,
+      "race": "Lightfoot Halfling",
+      "background": "Criminal",
+      "role": "Scout and striker",
+      "recommended": true,
+      "portrait": "assets/pregens/nyx.jpg",
+      "alignment": "Chaotic Neutral",
+      "scores": {
+        "STR": 8,
+        "DEX": 14,
+        "CON": 14,
+        "INT": 12,
+        "WIS": 13,
+        "CHA": 12
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": -1,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "CON": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 3,
+          "proficient": true
+        },
+        "WIS": {
+          "bonus": 1,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": 1,
+          "proficient": false
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 6,
+          "proficient": true,
+          "expertise": true
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 6,
+          "proficient": true,
+          "expertise": true
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "skills": "Acrobatics +4, Deception +3, Investigation +3, Perception +3, Sleight Of Hand +6 (ex), Stealth +6 (ex)",
+      "ac": 14,
+      "acNotes": "studded leather 12 + Dex 2",
+      "initiative": 2,
+      "speedFt": 25,
+      "hp": 10,
+      "hitDice": "1d8",
+      "darkvision": 0,
+      "proficiencies": {
+        "armor": [
+          "light armor"
+        ],
+        "weapons": [
+          "simple weapons",
+          "hand crossbows",
+          "longswords",
+          "rapiers",
+          "shortswords"
+        ],
+        "tools": [
+          "thieves’ tools (expertise +7)",
+          "dice set",
+          " forgery kit"
+        ],
+        "languages": [
+          "Common",
+          "Halfling",
+          "Thieves’ Cant"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Rapier",
+          "bonus": 4,
+          "damage": "1d8+2",
+          "type": "piercing",
+          "notes": "finesse; Sneak Attack +1d6 if legal"
+        },
+        {
+          "name": "Shortbow",
+          "bonus": 4,
+          "damage": "1d6+2",
+          "type": "piercing",
+          "notes": "range 80/320; same Sneak Attack rule"
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [],
+      "featureList": [
+        {
+          "name": "Expertise",
+          "source": "Rogue 1",
+          "text": "Double proficiency for Stealth and Sleight of Hand (already reflected)."
+        },
+        {
+          "name": "Sneak Attack",
+          "source": "Rogue 1",
+          "text": "Once per turn, +1d6 damage with a finesse or ranged weapon when Sneak Attack conditions are met."
+        },
+        {
+          "name": "Thieves’ Cant",
+          "source": "Rogue 1",
+          "text": "Secret rogue jargon and coded signs."
+        },
+        {
+          "name": "Lucky",
+          "source": "Halfling",
+          "text": "When you roll a 1 on an attack, check, or save, reroll and use the new roll."
+        },
+        {
+          "name": "Brave",
+          "source": "Halfling",
+          "text": "Advantage on saves against being frightened."
+        },
+        {
+          "name": "Halfling Nimbleness",
+          "source": "Halfling",
+          "text": "Move through the space of any creature of a size larger than yours."
+        },
+        {
+          "name": "Naturally Stealthy",
+          "source": "Lightfoot",
+          "text": "You can attempt to hide even when you are obscured only by a creature one size larger than you."
+        },
+        {
+          "name": "Criminal Contact",
+          "source": "Criminal",
+          "text": "You have a reliable contact who can pass messages through the criminal network."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Studded leather"
+        },
+        {
+          "name": "Rapier"
+        },
+        {
+          "name": "Shortbow"
+        },
+        {
+          "name": "Arrows",
+          "qty": 20
+        },
+        {
+          "name": "Thieves’ tools"
+        },
+        {
+          "name": "Crowbar"
+        }
+      ],
+      "gp": 18,
+      "personality": {
+        "trait": "Smiles when people lock things. Locks are a kind of invitation.",
+        "ideal": "Nobody should own a secret that can eat a town.",
+        "bond": "Still owes Tamsin a bottle from two winters ago.",
+        "flaw": "Will pick a pocket to see if she can, even when she does not need to."
+      },
+      "appearance": "Lightfoot halfling, short dark hair, rain-dark leather, a grin that is not always kind.",
+      "passivePerception": 13,
+      "passiveInsight": 11,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Rogue",
+      "saves": "Dex +4, Int +3",
+      "speed": "25 ft.",
+      "attacks": [
+        "Rapier. +4 to hit; 1d8+2 piercing; finesse; Sneak Attack +1d6 if legal",
+        "Shortbow. +4 to hit; 1d6+2 piercing; range 80/320; same Sneak Attack rule"
+      ],
+      "features": [
+        "Expertise: Double proficiency for Stealth and Sleight of Hand (already reflected).",
+        "Sneak Attack: Once per turn, +1d6 damage with a finesse or ranged weapon when Sneak Attack conditions are met.",
+        "Thieves’ Cant: Secret rogue jargon and coded signs.",
+        "Lucky: When you roll a 1 on an attack, check, or save, reroll and use the new roll.",
+        "Brave: Advantage on saves against being frightened.",
+        "Halfling Nimbleness: Move through the space of any creature of a size larger than yours.",
+        "Naturally Stealthy: You can attempt to hide even when you are obscured only by a creature one size larger than you.",
+        "Criminal Contact: You have a reliable contact who can pass messages through the criminal network."
+      ],
+      "gear": "Studded leather, Rapier, Shortbow, 20× Arrows, Thieves’ tools, Crowbar, 18 gp",
+      "hpBonusPerLevel": 0,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-ivo",
+      "name": "Ivo Ashletter",
+      "className": "Wizard",
+      "subclass": null,
+      "race": "High Elf",
+      "background": "Sage",
+      "role": "Damage and control",
+      "recommended": true,
+      "portrait": "assets/pregens/ivo.jpg",
+      "alignment": "Neutral",
+      "scores": {
+        "STR": 8,
+        "DEX": 14,
+        "CON": 14,
+        "INT": 14,
+        "WIS": 12,
+        "CHA": 10
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": -1,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "WIS": {
+          "bonus": 3,
+          "proficient": true
+        },
+        "CHA": {
+          "bonus": 0,
+          "proficient": false
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "skills": "Arcana +4, History +4, Insight +3, Investigation +4",
+      "ac": 12,
+      "acNotes": "unarmored 10 + Dex 2; 15 with Mage Armor",
+      "initiative": 2,
+      "speedFt": 30,
+      "hp": 8,
+      "hitDice": "1d6",
+      "darkvision": 60,
+      "proficiencies": {
+        "armor": [],
+        "weapons": [
+          "daggers",
+          "darts",
+          "slings",
+          "quarterstaffs",
+          "light crossbows",
+          "longsword (elf)",
+          "shortsword (elf)",
+          "shortbow (elf)",
+          "longbow (elf)"
+        ],
+        "tools": [],
+        "languages": [
+          "Common",
+          "Elvish",
+          "Draconic",
+          "Celestial"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Fire Bolt",
+          "bonus": 4,
+          "damage": "1d10",
+          "type": "fire",
+          "notes": "ranged spell, 120 ft.; ignites flammable objects"
+        },
+        {
+          "name": "Dagger",
+          "bonus": 4,
+          "damage": "1d4+2",
+          "type": "piercing",
+          "notes": "finesse, thrown 20/60"
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [
+        "Shield (if prepared and a slot remains): +5 AC until your next turn starts; stops Magic Missile."
+      ],
+      "spellcasting": {
+        "ability": "Intelligence",
+        "saveDC": 12,
+        "attack": 4,
+        "slots": {
+          "1": 2
+        },
+        "focus": "arcane focus",
+        "prepareCount": "3 prepared Wizard spells (Int + level). Spellbook contains 6 first-level spells.",
+        "prepared": [
+          "Mage Armor",
+          "Magic Missile",
+          "Shield"
+        ],
+        "cantrips": [
+          "Fire Bolt",
+          "Mage Hand",
+          "Prestidigitation",
+          "Minor Illusion"
+        ]
+      },
+      "spellList": [
+        {
+          "level": 0,
+          "name": "Fire Bolt",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "Ranged spell +4; 1d10 fire."
+        },
+        {
+          "level": 0,
+          "name": "Mage Hand",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Spectral hand, 1 minute, 10 lb., no attack."
+        },
+        {
+          "level": 0,
+          "name": "Prestidigitation",
+          "time": "action",
+          "range": "10 ft.",
+          "effect": "Tiny sensory trick, 1 hour or instant."
+        },
+        {
+          "level": 0,
+          "name": "Minor Illusion",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Sound or image, 5-ft cube, 1 minute. High-elf extra cantrip."
+        },
+        {
+          "level": 1,
+          "name": "Mage Armor",
+          "time": "action",
+          "range": "touch",
+          "effect": "8 hours. Unarmored AC = 13 + Dex (15)."
+        },
+        {
+          "level": 1,
+          "name": "Magic Missile",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "3 darts, 1d4+1 force each, automatic hit."
+        },
+        {
+          "level": 1,
+          "name": "Shield",
+          "time": "reaction",
+          "range": "self",
+          "effect": "+5 AC until your next turn starts. Also stops Magic Missile."
+        },
+        {
+          "level": 1,
+          "name": "Burning Hands",
+          "time": "action",
+          "range": "self (15-ft cone)",
+          "effect": "Dex DC 12, 3d6 fire, half on success."
+        },
+        {
+          "level": 1,
+          "name": "Detect Magic",
+          "time": "action",
+          "range": "self",
+          "effect": "Ritual. Concentration 10 min. Sense magic in 30 ft."
+        },
+        {
+          "level": 1,
+          "name": "Feather Fall",
+          "time": "reaction",
+          "range": "60 ft.",
+          "effect": "Up to five falling creatures descend safely for up to 1 minute."
+        }
+      ],
+      "featureList": [
+        {
+          "name": "Spellcasting",
+          "source": "Wizard 1",
+          "text": "Int DC 12, +4. Two 1st-level slots. Prepare 3 spells from a 6-spell spellbook."
+        },
+        {
+          "name": "Arcane Recovery",
+          "source": "Wizard 1",
+          "text": "Once per day after a short rest, recover one expended 1st-level spell slot."
+        },
+        {
+          "name": "Fey Ancestry",
+          "source": "High Elf",
+          "text": "Advantage vs charm. Magic cannot put you to sleep. Darkvision 60 ft. Trance: 4 hours instead of sleep."
+        },
+        {
+          "name": "Researcher",
+          "source": "Sage",
+          "text": "If you do not know a piece of lore, you usually know where to find it."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Spellbook"
+        },
+        {
+          "name": "Dagger"
+        },
+        {
+          "name": "Arcane focus (crystal)"
+        },
+        {
+          "name": "Scholar’s pack"
+        },
+        {
+          "name": "Bottle of ink"
+        }
+      ],
+      "gp": 22,
+      "personality": {
+        "trait": "Writes the last word he heard before he forgets it. Habit. Not a joke.",
+        "ideal": "A seal that needs a village’s silence is a bad seal.",
+        "bond": "The priory library still has a book he did not finish.",
+        "flaw": "Will stop in a fight to read an inscription."
+      },
+      "appearance": "High elf, ink on the fingers, scholar’s coat gone to weather.",
+      "passivePerception": 11,
+      "passiveInsight": 13,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Wizard",
+      "saves": "Int +4, Wis +3",
+      "speed": "30 ft.",
+      "attacks": [
+        "Fire Bolt. +4 to hit; 1d10 fire; ranged spell, 120 ft.; ignites flammable objects",
+        "Dagger. +4 to hit; 1d4+2 piercing; finesse, thrown 20/60"
+      ],
+      "features": [
+        "Spellcasting: Int DC 12, +4. Two 1st-level slots. Prepare 3 spells from a 6-spell spellbook.",
+        "Arcane Recovery: Once per day after a short rest, recover one expended 1st-level spell slot.",
+        "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60 ft. Trance: 4 hours instead of sleep.",
+        "Researcher: If you do not know a piece of lore, you usually know where to find it."
+      ],
+      "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar’s pack, Bottle of ink, 22 gp",
+      "hpBonusPerLevel": 0,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-kael",
+      "name": "Kael Thornwake",
+      "className": "Ranger",
+      "subclass": null,
+      "race": "Wood Elf",
+      "background": "Outlander",
+      "role": "Ranged hunter",
+      "recommended": true,
+      "portrait": "assets/pregens/kael.jpg",
+      "alignment": "Neutral Good",
+      "scores": {
+        "STR": 12,
+        "DEX": 14,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 14,
+        "CHA": 8
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 3,
+          "proficient": true
+        },
+        "DEX": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "CON": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": -1,
+          "proficient": false
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        }
+      },
+      "skills": "Athletics +3, Nature +2, Perception +4, Stealth +4, Survival +4",
+      "ac": 16,
+      "acNotes": "scale mail 14 + Dex 2 (medium, max 2)",
+      "initiative": 2,
+      "speedFt": 35,
+      "hp": 12,
+      "hitDice": "1d10",
+      "darkvision": 60,
+      "proficiencies": {
+        "armor": [
+          "light",
+          "medium",
+          "shields"
+        ],
+        "weapons": [
+          "simple weapons",
+          "martial weapons"
+        ],
+        "tools": [],
+        "languages": [
+          "Common",
+          "Elvish",
+          "Sylvan"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Longbow",
+          "bonus": 4,
+          "damage": "1d8+2",
+          "type": "piercing",
+          "notes": "range 150/600; two-handed"
+        },
+        {
+          "name": "Shortsword",
+          "bonus": 4,
+          "damage": "1d6+2",
+          "type": "piercing",
+          "notes": "finesse"
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [],
+      "featureList": [
+        {
+          "name": "Favored Enemy: Undead",
+          "source": "Ranger 1",
+          "text": "Advantage on Survival to track undead and on Int checks to recall about them."
+        },
+        {
+          "name": "Natural Explorer: Forest",
+          "source": "Ranger 1",
+          "text": "In forests: 2× food, ignore difficult terrain (you), advantage on initiative if not incapacitated, travel benefits for the group."
+        },
+        {
+          "name": "Mask of the Wild",
+          "source": "Wood Elf",
+          "text": "Hide when only lightly obscured by foliage, heavy rain, falling snow, mist, or other natural phenomena."
+        },
+        {
+          "name": "Fey Ancestry",
+          "source": "Elf",
+          "text": "Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. Trance 4 hours."
+        },
+        {
+          "name": "Wanderer",
+          "source": "Outlander",
+          "text": "You can always recall the layout of surrounding territory and find food and water for yourself and five others when the land can provide."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Scale mail"
+        },
+        {
+          "name": "Longbow"
+        },
+        {
+          "name": "Arrows",
+          "qty": 20
+        },
+        {
+          "name": "Shortsword"
+        },
+        {
+          "name": "Explorer’s pack"
+        }
+      ],
+      "gp": 11,
+      "personality": {
+        "trait": "Speaks after he has counted the birds. If the birds are gone, he speaks faster.",
+        "ideal": "The wood does not owe anyone a lantern.",
+        "bond": "A sister who stopped writing from Saltmere.",
+        "flaw": "Will not sleep inside a sealed room."
+      },
+      "appearance": "Wood elf, green cloak gone dark with rain, longbow taller than some doors.",
+      "passivePerception": 14,
+      "passiveInsight": 12,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Ranger",
+      "saves": "Str +3, Dex +4",
+      "speed": "35 ft.",
+      "attacks": [
+        "Longbow. +4 to hit; 1d8+2 piercing; range 150/600; two-handed",
+        "Shortsword. +4 to hit; 1d6+2 piercing; finesse"
+      ],
+      "features": [
+        "Favored Enemy: Undead: Advantage on Survival to track undead and on Int checks to recall about them.",
+        "Natural Explorer: Forest: In forests: 2× food, ignore difficult terrain (you), advantage on initiative if not incapacitated, travel benefits for the group.",
+        "Mask of the Wild: Hide when only lightly obscured by foliage, heavy rain, falling snow, mist, or other natural phenomena.",
+        "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. Trance 4 hours.",
+        "Wanderer: You can always recall the layout of surrounding territory and find food and water for yourself and five others when the land can provide."
+      ],
+      "gear": "Scale mail, Longbow, 20× Arrows, Shortsword, Explorer’s pack, 11 gp",
+      "hpBonusPerLevel": 0,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-hester",
+      "name": "Hester Brine",
+      "className": "Paladin",
+      "subclass": null,
+      "race": "Human",
+      "background": "Folk Hero",
+      "role": "Face and second front line",
+      "recommended": true,
+      "portrait": "assets/pregens/hester.jpg",
+      "alignment": "Lawful Good",
+      "scores": {
+        "STR": 14,
+        "DEX": 8,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 16
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": -1,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 3,
+          "proficient": true
+        },
+        "CHA": {
+          "bonus": 5,
+          "proficient": true
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "skills": "Athletics +4, Insight +3, Persuasion +5, Religion +2",
+      "ac": 18,
+      "acNotes": "chain mail 16 + shield 2",
+      "initiative": -1,
+      "speedFt": 30,
+      "hp": 12,
+      "hitDice": "1d10",
+      "darkvision": 0,
+      "proficiencies": {
+        "armor": [
+          "all armor",
+          "shields"
+        ],
+        "weapons": [
+          "simple weapons",
+          "martial weapons"
+        ],
+        "tools": [
+          "smith’s tools",
+          "land vehicles"
+        ],
+        "languages": [
+          "Common",
+          "Celestial"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Longsword",
+          "bonus": 4,
+          "damage": "1d8+2",
+          "type": "slashing",
+          "notes": "versatile 1d10+2"
+        },
+        {
+          "name": "Javelin",
+          "bonus": 4,
+          "damage": "1d6+2",
+          "type": "piercing",
+          "notes": "thrown 30/120"
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [],
+      "featureList": [
+        {
+          "name": "Divine Sense",
+          "source": "Paladin 1",
+          "text": "Action. 4 uses (1 + Cha). Until the end of your next turn, sense qualifying celestials, fiends, undead, and consecrated/desecrated places within 60 ft. not behind total cover.",
+          "uses": "4/LR"
+        },
+        {
+          "name": "Lay on Hands",
+          "source": "Paladin 1",
+          "text": "Action. Pool of 5 HP. Heal from the pool, or spend 5 HP to neutralize one poison or disease.",
+          "uses": "5 HP pool"
+        },
+        {
+          "name": "Rustic Hospitality",
+          "source": "Folk Hero",
+          "text": "Common folk will hide you from the law or anyone searching, if you are not putting them in undue danger."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Chain mail"
+        },
+        {
+          "name": "Shield"
+        },
+        {
+          "name": "Longsword"
+        },
+        {
+          "name": "Javelin",
+          "qty": 3
+        },
+        {
+          "name": "Holy symbol (iron lantern)"
+        }
+      ],
+      "gp": 14,
+      "personality": {
+        "trait": "Keeps her oaths short so she can keep them.",
+        "ideal": "A village should not have to rent its safety from a secret.",
+        "bond": "The miller’s family in her home hamlet still writes.",
+        "flaw": "Will not lie even when a lie would keep someone alive."
+      },
+      "appearance": "Human woman, mid-thirties, cropped black hair, an iron lantern on a chain instead of a sunburst.",
+      "passivePerception": 11,
+      "passiveInsight": 13,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Paladin",
+      "saves": "Wis +3, Cha +5",
+      "speed": "30 ft.",
+      "attacks": [
+        "Longsword. +4 to hit; 1d8+2 slashing; versatile 1d10+2",
+        "Javelin. +4 to hit; 1d6+2 piercing; thrown 30/120"
+      ],
+      "features": [
+        "Divine Sense: Action. 4 uses (1 + Cha). Until the end of your next turn, sense qualifying celestials, fiends, undead, and consecrated/desecrated places within 60 ft. not behind total cover.",
+        "Lay on Hands: Action. Pool of 5 HP. Heal from the pool, or spend 5 HP to neutralize one poison or disease.",
+        "Rustic Hospitality: Common folk will hide you from the law or anyone searching, if you are not putting them in undue danger."
+      ],
+      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Holy symbol (iron lantern), 14 gp",
+      "hpBonusPerLevel": 0,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-rook",
+      "name": "Rook Helmer",
+      "className": "Barbarian",
+      "subclass": null,
+      "race": "Half-Orc",
+      "background": "Outlander",
+      "role": "Rage striker",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Chaotic Neutral",
+      "scores": {
+        "STR": 14,
+        "DEX": 14,
+        "CON": 16,
+        "INT": 8,
+        "WIS": 12,
+        "CHA": 10
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "DEX": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 5,
+          "proficient": true
+        },
+        "INT": {
+          "bonus": -1,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 1,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": 0,
+          "proficient": false
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        }
+      },
+      "skills": "Athletics +4, Intimidation +2, Perception +3, Survival +3",
+      "ac": 15,
+      "acNotes": "Unarmored Defense 10+Dex 2+Con 3",
+      "initiative": 2,
+      "speedFt": 30,
+      "hp": 15,
+      "hitDice": "1d12",
+      "darkvision": 60,
+      "proficiencies": {
+        "armor": [
+          "light",
+          "medium",
+          "shields"
+        ],
+        "weapons": [
+          "simple weapons",
+          "martial weapons"
+        ],
+        "tools": [],
+        "languages": [
+          "Common",
+          "Orc",
+          "Giant"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Greataxe",
+          "bonus": 4,
+          "damage": "1d12+2",
+          "type": "slashing",
+          "notes": "two-handed; +2 damage while raging (1d12+4)"
+        },
+        {
+          "name": "Javelin",
+          "bonus": 4,
+          "damage": "1d6+2",
+          "type": "piercing",
+          "notes": "thrown 30/120"
+        }
+      ],
+      "bonusActions": [
+        "Enter Rage (2/long rest)."
+      ],
+      "reactions": [],
+      "featureList": [
+        {
+          "name": "Rage",
+          "source": "Barbarian 1",
+          "text": "Bonus action, 2/long rest, up to 1 minute. Advantage on Strength checks/saves; +2 melee Strength damage; resistance to bludgeoning, piercing, and slashing.",
+          "uses": "2/LR"
+        },
+        {
+          "name": "Unarmored Defense",
+          "source": "Barbarian 1",
+          "text": "AC = 10 + Dex + Con while not wearing armor (15). Shield allowed."
+        },
+        {
+          "name": "Relentless Endurance",
+          "source": "Half-Orc",
+          "text": "1/long rest, when you drop to 0 HP and don’t die outright, drop to 1 HP instead.",
+          "uses": "1/long rest"
+        },
+        {
+          "name": "Savage Attacks",
+          "source": "Half-Orc",
+          "text": "On a melee crit, roll one extra weapon damage die."
+        },
+        {
+          "name": "Wanderer",
+          "source": "Outlander",
+          "text": "Always know the surrounding territory; find food and water for six when the land allows."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Greataxe"
+        },
+        {
+          "name": "Javelin",
+          "qty": 4
+        },
+        {
+          "name": "Explorer’s pack"
+        }
+      ],
+      "gp": 9,
+      "personality": {
+        "trait": "Laughs once, then hits.",
+        "ideal": "Die on your feet.",
+        "bond": "A brother who took the other road.",
+        "flaw": "Cannot walk away from a dare."
+      },
+      "appearance": "Half-orc, grey-green, a split lip that never quite closed.",
+      "passivePerception": 13,
+      "passiveInsight": 11,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Barbarian",
+      "saves": "Str +4, Con +5",
+      "speed": "30 ft.",
+      "attacks": [
+        "Greataxe. +4 to hit; 1d12+2 slashing; two-handed; +2 damage while raging (1d12+4)",
+        "Javelin. +4 to hit; 1d6+2 piercing; thrown 30/120"
+      ],
+      "features": [
+        "Rage: Bonus action, 2/long rest, up to 1 minute. Advantage on Strength checks/saves; +2 melee Strength damage; resistance to bludgeoning, piercing, and slashing.",
+        "Unarmored Defense: AC = 10 + Dex + Con while not wearing armor (15). Shield allowed.",
+        "Relentless Endurance: 1/long rest, when you drop to 0 HP and don’t die outright, drop to 1 HP instead.",
+        "Savage Attacks: On a melee crit, roll one extra weapon damage die.",
+        "Wanderer: Always know the surrounding territory; find food and water for six when the land allows."
+      ],
+      "gear": "Greataxe, 4× Javelin, Explorer’s pack, 9 gp",
+      "hpBonusPerLevel": 0,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-sable",
+      "name": "Sable Quinn",
+      "className": "Bard",
+      "subclass": null,
+      "race": "Half-Elf",
+      "background": "Entertainer",
+      "role": "Face, support, and control",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Chaotic Good",
+      "scores": {
+        "STR": 8,
+        "DEX": 14,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 14
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": -1,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "CON": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 1,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": 4,
+          "proficient": true
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 6,
+          "proficient": true,
+          "expertise": true
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": true,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 6,
+          "proficient": true,
+          "expertise": true
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "skills": "Acrobatics +4, Deception +6 (ex), Insight +3, Investigation +2, Perception +3, Persuasion +6 (ex), Stealth +4",
+      "ac": 14,
+      "acNotes": "studded leather 12 + Dex 2",
+      "initiative": 2,
+      "speedFt": 30,
+      "hp": 10,
+      "hitDice": "1d8",
+      "darkvision": 60,
+      "proficiencies": {
+        "armor": [
+          "light armor"
+        ],
+        "weapons": [
+          "simple weapons",
+          "hand crossbows",
+          "longswords",
+          "rapiers",
+          "shortswords"
+        ],
+        "tools": [
+          "lute",
+          "flute",
+          "drum",
+          "disguise kit"
+        ],
+        "languages": [
+          "Common",
+          "Elvish",
+          "Halfling"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Rapier",
+          "bonus": 4,
+          "damage": "1d8+2",
+          "type": "piercing",
+          "notes": "finesse"
+        },
+        {
+          "name": "Vicious Mockery",
+          "bonus": 0,
+          "damage": "1d4",
+          "type": "psychic",
+          "notes": "Wis DC 12; 60 ft.; disadvantage on next attack on fail"
+        }
+      ],
+      "bonusActions": [
+        "Bardic Inspiration (d6, 2/long rest): grant a creature within 60 ft. a d6 usable on one attack, check, or save within 10 minutes."
+      ],
+      "reactions": [],
+      "spellcasting": {
+        "ability": "Charisma",
+        "saveDC": 12,
+        "attack": 4,
+        "slots": {
+          "1": 2
+        },
+        "focus": "lute",
+        "prepareCount": "Known Bard spells: 4. Cantrips: 2.",
+        "prepared": [
+          "Healing Word",
+          "Faerie Fire",
+          "Dissonant Whispers",
+          "Thunderwave"
+        ],
+        "cantrips": [
+          "Vicious Mockery",
+          "Minor Illusion"
+        ]
+      },
+      "spellList": [
+        {
+          "level": 0,
+          "name": "Vicious Mockery",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Wis DC 12 or 1d4 psychic and disadvantage on its next attack."
+        },
+        {
+          "level": 0,
+          "name": "Minor Illusion",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Sound or image, 5-ft cube, 1 minute."
+        },
+        {
+          "level": 1,
+          "name": "Healing Word",
+          "time": "bonus",
+          "range": "60 ft.",
+          "effect": "1d4+2 HP."
+        },
+        {
+          "level": 1,
+          "name": "Faerie Fire",
+          "time": "action",
+          "range": "60 ft. (20-ft cube)",
+          "effect": "Dex DC 12 or outlined in light; attacks against it have advantage. Concentration 1 min."
+        },
+        {
+          "level": 1,
+          "name": "Dissonant Whispers",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Wis DC 12 or 3d6 psychic and use reaction to move away; half damage on success."
+        },
+        {
+          "level": 1,
+          "name": "Thunderwave",
+          "time": "action",
+          "range": "self (15-ft cube)",
+          "effect": "Con DC 12 or 2d8 thunder and push 10 ft.; half damage on success."
+        }
+      ],
+      "featureList": [
+        {
+          "name": "Bardic Inspiration",
+          "source": "Bard 1",
+          "text": "Bonus action, 2/long rest (Cha). d6 lasts 10 minutes and can be added to one attack, check, or save.",
+          "uses": "2/LR"
+        },
+        {
+          "name": "Spellcasting",
+          "source": "Bard 1",
+          "text": "Cha DC 12, +4. Two 1st-level slots; four 1st-level spells known and two cantrips."
+        },
+        {
+          "name": "Fey Ancestry",
+          "source": "Half-Elf",
+          "text": "Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. +2 Cha / +1 Dex / +1 Con already in scores."
+        },
+        {
+          "name": "By Popular Demand",
+          "source": "Entertainer",
+          "text": "You can always find a place to perform; free lodging at the inn where you perform."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Studded leather"
+        },
+        {
+          "name": "Rapier"
+        },
+        {
+          "name": "Lute"
+        },
+        {
+          "name": "Diplomat’s pack"
+        }
+      ],
+      "gp": 16,
+      "personality": {
+        "trait": "Fills silences so other people do not have to.",
+        "ideal": "A story that needs a cage is the wrong story.",
+        "bond": "A song unfinished because the subject forgot their name.",
+        "flaw": "Cannot resist an audience."
+      },
+      "appearance": "Half-elf, sharp cheekbones, a lute case scarred by weather.",
+      "passivePerception": 13,
+      "passiveInsight": 13,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Bard",
+      "saves": "Dex +4, Cha +4",
+      "speed": "30 ft.",
+      "attacks": [
+        "Rapier. +4 to hit; 1d8+2 piercing; finesse",
+        "Vicious Mockery. +0 to hit; 1d4 psychic; Wis DC 12; 60 ft.; disadvantage on next attack on fail"
+      ],
+      "features": [
+        "Bardic Inspiration: Bonus action, 2/long rest (Cha). d6 lasts 10 minutes and can be added to one attack, check, or save.",
+        "Spellcasting: Cha DC 12, +4. Two 1st-level slots; four 1st-level spells known and two cantrips.",
+        "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. +2 Cha / +1 Dex / +1 Con already in scores.",
+        "By Popular Demand: You can always find a place to perform; free lodging at the inn where you perform."
+      ],
+      "gear": "Studded leather, Rapier, Lute, Diplomat’s pack, 16 gp",
+      "hpBonusPerLevel": 0,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-bram",
+      "name": "Bram Willow",
+      "className": "Druid",
+      "subclass": null,
+      "race": "Human",
+      "background": "Hermit",
+      "role": "Control and utility caster",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Neutral",
+      "scores": {
+        "STR": 10,
+        "DEX": 12,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 14,
+        "CHA": 8
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": 1,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 2,
+          "proficient": true
+        },
+        "WIS": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "CHA": {
+          "bonus": -1,
+          "proficient": false
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        }
+      },
+      "skills": "Medicine +4, Nature +2, Perception +4, Survival +4",
+      "ac": 15,
+      "acNotes": "hide 12 + Dex 1 + wooden shield 2",
+      "initiative": 1,
+      "speedFt": 30,
+      "hp": 10,
+      "hitDice": "1d8",
+      "darkvision": 0,
+      "proficiencies": {
+        "armor": [
+          "light",
+          "medium",
+          "shields (nonmetal)"
+        ],
+        "weapons": [
+          "clubs",
+          "daggers",
+          "darts",
+          "javelins",
+          "maces",
+          "quarterstaffs",
+          "scimitars",
+          "sickles",
+          "slings",
+          "spears"
+        ],
+        "tools": [
+          "herbalism kit"
+        ],
+        "languages": [
+          "Common",
+          "Druidic",
+          "Sylvan"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Shillelagh staff",
+          "bonus": 4,
+          "damage": "1d8+2",
+          "type": "bludgeoning",
+          "notes": "bonus to activate, 1 minute, uses Wis"
+        },
+        {
+          "name": "Produce Flame",
+          "bonus": 4,
+          "damage": "1d8",
+          "type": "fire",
+          "notes": "ranged spell 30 ft., or hold as a light"
+        }
+      ],
+      "bonusActions": [
+        "Shillelagh: bonus action, 1 minute, staff is magical 1d8+Wis.",
+        "Healing Word if prepared: 1d4+2 HP at 60 ft."
+      ],
+      "reactions": [],
+      "spellcasting": {
+        "ability": "Wisdom",
+        "saveDC": 12,
+        "attack": 4,
+        "slots": {
+          "1": 2
+        },
+        "focus": "druidic focus",
+        "prepareCount": "3 prepared Druid spells (Wis + level). Cantrips: 2.",
+        "prepared": [
+          "Entangle",
+          "Goodberry",
+          "Healing Word"
+        ],
+        "cantrips": [
+          "Produce Flame",
+          "Shillelagh"
+        ]
+      },
+      "spellList": [
+        {
+          "level": 0,
+          "name": "Produce Flame",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Light, or hurl +4 / 1d8 fire."
+        },
+        {
+          "level": 0,
+          "name": "Shillelagh",
+          "time": "bonus",
+          "range": "touch",
+          "effect": "Staff becomes magical 1d8+2 using Wisdom, 1 minute."
+        },
+        {
+          "level": 1,
+          "name": "Entangle",
+          "time": "action",
+          "range": "90 ft. (20-ft square)",
+          "effect": "Str DC 12 or restrained. Difficult terrain. Concentration 1 min."
+        },
+        {
+          "level": 1,
+          "name": "Goodberry",
+          "time": "action",
+          "range": "touch",
+          "effect": "Create 10 berries; each restores 1 HP and provides nourishment."
+        },
+        {
+          "level": 1,
+          "name": "Healing Word",
+          "time": "bonus",
+          "range": "60 ft.",
+          "effect": "1d4+2 HP."
+        }
+      ],
+      "featureList": [
+        {
+          "name": "Druidic",
+          "source": "Druid 1",
+          "text": "Know the secret Druidic language and signs."
+        },
+        {
+          "name": "Spellcasting",
+          "source": "Druid 1",
+          "text": "Wis DC 12, +4. Two 1st-level slots. Prepare 3 Druid spells; know 2 cantrips."
+        },
+        {
+          "name": "Discovery",
+          "source": "Hermit",
+          "text": "The quiet seclusion of your hermitage gave you a unique and powerful discovery — here: you can always find potable water if it exists within a mile."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Hide armor"
+        },
+        {
+          "name": "Shield (wood)"
+        },
+        {
+          "name": "Quarterstaff"
+        },
+        {
+          "name": "Druidic focus"
+        },
+        {
+          "name": "Explorer’s pack"
+        }
+      ],
+      "gp": 12,
+      "personality": {
+        "trait": "Listens to wells the way other people listen to sermons.",
+        "ideal": "What grows back is the only honest miracle.",
+        "bond": "A grove cut for lantern-oil.",
+        "flaw": "Will not burn wood if a spell can do the work."
+      },
+      "appearance": "Human, moss-stained cloak, staff of living willow.",
+      "passivePerception": 14,
+      "passiveInsight": 12,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Druid",
+      "saves": "Int +2, Wis +4",
+      "speed": "30 ft.",
+      "attacks": [
+        "Shillelagh staff. +4 to hit; 1d8+2 bludgeoning; bonus to activate, 1 minute, uses Wis",
+        "Produce Flame. +4 to hit; 1d8 fire; ranged spell 30 ft., or hold as a light"
+      ],
+      "features": [
+        "Druidic: Know the secret Druidic language and signs.",
+        "Spellcasting: Wis DC 12, +4. Two 1st-level slots. Prepare 3 Druid spells; know 2 cantrips.",
+        "Discovery: The quiet seclusion of your hermitage gave you a unique and powerful discovery — here: you can always find potable water if it exists within a mile."
+      ],
+      "gear": "Hide armor, Shield (wood), Quarterstaff, Druidic focus, Explorer’s pack, 12 gp",
+      "hpBonusPerLevel": 0,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-sora",
+      "name": "Sora Palewalk",
+      "className": "Monk",
+      "subclass": null,
+      "race": "Human",
+      "background": "Hermit",
+      "role": "Mobile striker",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Lawful Neutral",
+      "scores": {
+        "STR": 10,
+        "DEX": 14,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 16,
+        "CHA": 8
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 2,
+          "proficient": true
+        },
+        "DEX": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "CON": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 3,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": -1,
+          "proficient": false
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "skills": "Acrobatics +4, Athletics +2, Insight +5, Stealth +4",
+      "ac": 15,
+      "acNotes": "10 + Dex 2 + Wis 3",
+      "initiative": 2,
+      "speedFt": 40,
+      "hp": 10,
+      "hitDice": "1d8",
+      "darkvision": 0,
+      "proficiencies": {
+        "armor": [],
+        "weapons": [
+          "simple weapons",
+          "shortswords"
+        ],
+        "tools": [
+          "flute",
+          "herbalism kit"
+        ],
+        "languages": [
+          "Common",
+          "Elvish"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Unarmed strike",
+          "bonus": 4,
+          "damage": "1d4+2",
+          "type": "bludgeoning",
+          "notes": "Martial Arts: bonus unarmed strike after attacking"
+        },
+        {
+          "name": "Dart",
+          "bonus": 4,
+          "damage": "1d4+2",
+          "type": "piercing",
+          "notes": "thrown 20/60"
+        }
+      ],
+      "bonusActions": [
+        "Martial Arts: one unarmed strike after you attack with an unarmed strike or monk weapon."
+      ],
+      "reactions": [],
+      "featureList": [
+        {
+          "name": "Unarmored Defense",
+          "source": "Monk 1",
+          "text": "AC = 10 + Dex + Wis while unarmored and not using a shield (15)."
+        },
+        {
+          "name": "Martial Arts",
+          "source": "Monk 1",
+          "text": "Use Dex for monk weapons/unarmed strikes; Martial Arts die d4; bonus unarmed strike after qualifying Attack action."
+        },
+        {
+          "name": "Discovery",
+          "source": "Hermit",
+          "text": "You know a quiet path into any walled town if you have a day to watch it."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Darts",
+          "qty": 10
+        },
+        {
+          "name": "Explorer’s pack"
+        }
+      ],
+      "gp": 8,
+      "personality": {
+        "trait": "Counts breaths instead of counting coin.",
+        "ideal": "Do not hold what you cannot carry.",
+        "bond": "A teacher who walked into mist and did not walk out.",
+        "flaw": "Will not strike a turned back, even a guilty one."
+      },
+      "appearance": "Human, cropped hair, bare forearms, rain on old scars.",
+      "passivePerception": 13,
+      "passiveInsight": 15,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Monk",
+      "saves": "Str +2, Dex +4",
+      "speed": "40 ft.",
+      "attacks": [
+        "Unarmed strike. +4 to hit; 1d4+2 bludgeoning; Martial Arts: bonus unarmed strike after attacking",
+        "Dart. +4 to hit; 1d4+2 piercing; thrown 20/60"
+      ],
+      "features": [
+        "Unarmored Defense: AC = 10 + Dex + Wis while unarmored and not using a shield (15).",
+        "Martial Arts: Use Dex for monk weapons/unarmed strikes; Martial Arts die d4; bonus unarmed strike after qualifying Attack action.",
+        "Discovery: You know a quiet path into any walled town if you have a day to watch it."
+      ],
+      "gear": "10× Darts, Explorer’s pack, 8 gp",
+      "hpBonusPerLevel": 0,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-vexa",
+      "name": "Vexa Ember",
+      "className": "Sorcerer",
+      "subclass": "Draconic Bloodline (Red)",
+      "race": "Dragonborn (red)",
+      "background": "Folk Hero",
+      "role": "Burst damage",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Chaotic Good",
+      "scores": {
+        "STR": 10,
+        "DEX": 14,
+        "CON": 16,
+        "INT": 8,
+        "WIS": 10,
+        "CHA": 14
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 5,
+          "proficient": true
+        },
+        "INT": {
+          "bonus": -1,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": 4,
+          "proficient": true
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 1,
+          "proficient": true,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "skills": "Arcana +1, Insight +2, Intimidation +4, Persuasion +4",
+      "ac": 15,
+      "acNotes": "Draconic Resilience 13 + Dex 2",
+      "initiative": 2,
+      "speedFt": 30,
+      "hp": 10,
+      "hitDice": "1d6",
+      "darkvision": 0,
+      "proficiencies": {
+        "armor": [],
+        "weapons": [
+          "daggers",
+          "darts",
+          "slings",
+          "quarterstaffs",
+          "light crossbows"
+        ],
+        "tools": [
+          "smith’s tools",
+          "land vehicles"
+        ],
+        "languages": [
+          "Common",
+          "Draconic"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Fire Bolt",
+          "bonus": 4,
+          "damage": "1d10",
+          "type": "fire",
+          "notes": "ranged spell 120 ft."
+        },
+        {
+          "name": "Breath Weapon",
+          "bonus": 0,
+          "damage": "2d6",
+          "type": "fire",
+          "notes": "1/short rest; 15-ft cone; Dex DC 13; half on success"
+        }
+      ],
+      "bonusActions": [],
+      "reactions": [],
+      "spellcasting": {
+        "ability": "Charisma",
+        "saveDC": 12,
+        "attack": 4,
+        "slots": {
+          "1": 2
+        },
+        "focus": "arcane focus",
+        "prepareCount": "Known Sorcerer spells: 2. Cantrips: 4.",
+        "prepared": [
+          "Burning Hands",
+          "Magic Missile"
+        ],
+        "cantrips": [
+          "Fire Bolt",
+          "Prestidigitation",
+          "Light",
+          "Mage Hand"
+        ]
+      },
+      "spellList": [
+        {
+          "level": 0,
+          "name": "Fire Bolt",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "+4, 1d10 fire."
+        },
+        {
+          "level": 0,
+          "name": "Prestidigitation",
+          "time": "action",
+          "range": "10 ft.",
+          "effect": "Tiny magical trick."
+        },
+        {
+          "level": 0,
+          "name": "Light",
+          "time": "action",
+          "range": "touch",
+          "effect": "Object shines 20 ft. bright / 20 ft. dim for 1 hour."
+        },
+        {
+          "level": 0,
+          "name": "Mage Hand",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Spectral hand."
+        },
+        {
+          "level": 1,
+          "name": "Burning Hands",
+          "time": "action",
+          "range": "self (15-ft cone)",
+          "effect": "Dex DC 12, 3d6 fire, half on success."
+        },
+        {
+          "level": 1,
+          "name": "Magic Missile",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "3 darts, 1d4+1 force each, automatic hit."
+        }
+      ],
+      "featureList": [
+        {
+          "name": "Spellcasting",
+          "source": "Sorcerer 1",
+          "text": "Cha DC 12, +4. Two 1st-level slots, two 1st-level spells known, four cantrips."
+        },
+        {
+          "name": "Draconic Resilience",
+          "source": "Draconic 1",
+          "text": "AC 13 + Dex while unarmored (15). +1 HP per sorcerer level (already included)."
+        },
+        {
+          "name": "Dragon Ancestor (Red)",
+          "source": "Draconic 1",
+          "text": "Speak Draconic; red-dragon ancestry is associated with fire."
+        },
+        {
+          "name": "Breath Weapon",
+          "source": "Dragonborn",
+          "text": "1/short rest. 15-ft cone fire, Dex DC 13 (8+PB+Con), 2d6, half on success.",
+          "uses": "1/short rest"
+        },
+        {
+          "name": "Damage Resistance",
+          "source": "Dragonborn",
+          "text": "Resistance to fire."
+        },
+        {
+          "name": "Rustic Hospitality",
+          "source": "Folk Hero",
+          "text": "Common folk hide you if you are not endangering them."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Arcane focus (ember-glass shard)"
+        },
+        {
+          "name": "Dungeoneer’s pack"
+        }
+      ],
+      "gp": 19,
+      "personality": {
+        "trait": "Keeps her hands warm on purpose.",
+        "ideal": "Fire that you aim is better than fire that you hide in a lantern.",
+        "bond": "A forge that burned down with her name on the lintel.",
+        "flaw": "Scorches first, apologizes if anyone is still standing."
+      },
+      "appearance": "Red dragonborn, soot along the scales, a shard of amber at her throat.",
+      "passivePerception": 10,
+      "passiveInsight": 12,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Sorcerer (Draconic Bloodline (Red))",
+      "saves": "Con +5, Cha +4",
+      "speed": "30 ft.",
+      "attacks": [
+        "Fire Bolt. +4 to hit; 1d10 fire; ranged spell 120 ft.",
+        "Breath Weapon. +0 to hit; 2d6 fire; 1/short rest; 15-ft cone; Dex DC 13; half on success"
+      ],
+      "features": [
+        "Spellcasting: Cha DC 12, +4. Two 1st-level slots, two 1st-level spells known, four cantrips.",
+        "Draconic Resilience: AC 13 + Dex while unarmored (15). +1 HP per sorcerer level (already included).",
+        "Dragon Ancestor (Red): Speak Draconic; red-dragon ancestry is associated with fire.",
+        "Breath Weapon: 1/short rest. 15-ft cone fire, Dex DC 13 (8+PB+Con), 2d6, half on success.",
+        "Damage Resistance: Resistance to fire.",
+        "Rustic Hospitality: Common folk hide you if you are not endangering them."
+      ],
+      "gear": "Arcane focus (ember-glass shard), Dungeoneer’s pack, 19 gp",
+      "hpBonusPerLevel": 1,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    },
+    {
+      "id": "pregen-mael",
+      "name": "Mael Dusk",
+      "className": "Warlock",
+      "subclass": "The Fiend",
+      "race": "Tiefling",
+      "background": "Charlatan",
+      "role": "Short-rest blaster",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Neutral",
+      "scores": {
+        "STR": 8,
+        "DEX": 14,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 12,
+        "CHA": 14
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": -1,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 3,
+          "proficient": true
+        },
+        "CHA": {
+          "bonus": 4,
+          "proficient": true
+        }
+      },
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": -1,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "skills": "Arcana +2, Deception +4, Intimidation +4, Investigation +2",
+      "ac": 13,
+      "acNotes": "leather 11 + Dex 2",
+      "initiative": 2,
+      "speedFt": 30,
+      "hp": 10,
+      "hitDice": "1d8",
+      "darkvision": 60,
+      "proficiencies": {
+        "armor": [
+          "light armor"
+        ],
+        "weapons": [
+          "simple weapons"
+        ],
+        "tools": [
+          "disguise kit",
+          "forgery kit"
+        ],
+        "languages": [
+          "Common",
+          "Infernal"
+        ]
+      },
+      "attackList": [
+        {
+          "name": "Eldritch Blast",
+          "bonus": 4,
+          "damage": "1d10",
+          "type": "force",
+          "notes": "120 ft.; one beam"
+        },
+        {
+          "name": "Dagger",
+          "bonus": 4,
+          "damage": "1d4+2",
+          "type": "piercing",
+          "notes": "finesse, thrown 20/60"
+        }
+      ],
+      "bonusActions": [
+        "Hex (if the Pact Magic slot remains): +1d6 necrotic on hits against the marked target; concentration."
+      ],
+      "reactions": [],
+      "spellcasting": {
+        "ability": "Charisma",
+        "saveDC": 12,
+        "attack": 4,
+        "slots": {
+          "1": 1
+        },
+        "focus": "arcane focus",
+        "prepareCount": "Pact Magic: 1 first-level slot, returns on a short rest. 2 Warlock spells known; 2 Warlock cantrips plus racial Thaumaturgy.",
+        "prepared": [
+          "Hex",
+          "Armor of Agathys"
+        ],
+        "cantrips": [
+          "Eldritch Blast",
+          "Prestidigitation",
+          "Thaumaturgy"
+        ]
+      },
+      "spellList": [
+        {
+          "level": 0,
+          "name": "Eldritch Blast",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "+4, 1d10 force. One beam."
+        },
+        {
+          "level": 0,
+          "name": "Prestidigitation",
+          "time": "action",
+          "range": "10 ft.",
+          "effect": "Minor magical trick."
+        },
+        {
+          "level": 0,
+          "name": "Thaumaturgy",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Tiefling racial cantrip."
+        },
+        {
+          "level": 1,
+          "name": "Hex",
+          "time": "bonus",
+          "range": "90 ft.",
+          "effect": "Concentration 1 hour. +1d6 necrotic damage when you hit the target; disadvantage on checks using one chosen ability."
+        },
+        {
+          "level": 1,
+          "name": "Armor of Agathys",
+          "time": "action",
+          "range": "self",
+          "effect": "1 hour. Gain 5 temp HP; a creature that hits you with a melee attack while you have them takes 5 cold."
+        }
+      ],
+      "featureList": [
+        {
+          "name": "Pact Magic",
+          "source": "Warlock 1",
+          "text": "One 1st-level Pact Magic slot; it returns on a short or long rest. Cha DC 12, +4."
+        },
+        {
+          "name": "Dark One’s Blessing",
+          "source": "Fiend 1",
+          "text": "When you reduce a hostile creature to 0 HP, gain 3 temporary HP (Cha mod 2 + Warlock level 1)."
+        },
+        {
+          "name": "Infernal Legacy",
+          "source": "Tiefling",
+          "text": "Thaumaturgy at will. Fire resistance and Darkvision 60 ft. Hellish Rebuke arrives at character level 3."
+        },
+        {
+          "name": "False Identity",
+          "source": "Charlatan",
+          "text": "You have a second identity with papers and acquaintances. You can forge documents as long as you have seen an example."
+        }
+      ],
+      "equipment": [
+        {
+          "name": "Leather armor"
+        },
+        {
+          "name": "Dagger"
+        },
+        {
+          "name": "Book of Shadows"
+        },
+        {
+          "name": "Arcane focus"
+        }
+      ],
+      "gp": 20,
+      "personality": {
+        "trait": "Keeps the contract in a pocket he can burn.",
+        "ideal": "A bad bargain is still a bargain until you write a better one.",
+        "bond": "A name he sold and wants back.",
+        "flaw": "Will not admit he is afraid of the dark he can see through."
+      },
+      "appearance": "Tiefling, ash-grey, a book bound in something that is not leather.",
+      "passivePerception": 11,
+      "passiveInsight": 11,
+      "level": 1,
+      "rules": "5E 2014 SRD",
+      "xp": 0,
+      "proficiency": 2,
+      "class": "Warlock (The Fiend)",
+      "saves": "Wis +3, Cha +4",
+      "speed": "30 ft.",
+      "attacks": [
+        "Eldritch Blast. +4 to hit; 1d10 force; 120 ft.; one beam",
+        "Dagger. +4 to hit; 1d4+2 piercing; finesse, thrown 20/60"
+      ],
+      "features": [
+        "Pact Magic: One 1st-level Pact Magic slot; it returns on a short or long rest. Cha DC 12, +4.",
+        "Dark One’s Blessing: When you reduce a hostile creature to 0 HP, gain 3 temporary HP (Cha mod 2 + Warlock level 1).",
+        "Infernal Legacy: Thaumaturgy at will. Fire resistance and Darkvision 60 ft. Hellish Rebuke arrives at character level 3.",
+        "False Identity: You have a second identity with papers and acquaintances. You can forge documents as long as you have seen an example."
+      ],
+      "gear": "Leather armor, Dagger, Book of Shadows, Arcane focus, 20 gp",
+      "hpBonusPerLevel": 0,
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared-pregen root."
+        }
+      ]
+    }
+  ]
+}
