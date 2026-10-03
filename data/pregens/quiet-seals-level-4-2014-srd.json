@@ -502,7 +502,7 @@
       ],
       "bonusActions": [
         "Spiritual Weapon (if cast): melee spell +5, 1d8+3 force, 20 ft.",
-        "Healing Word (if a 1st-level slot remains): 1d4+5 HP, 60 ft. Disciple of Life: extra +3 HP."
+        "Healing Word (if a 1st-level slot remains): 1d4+6 HP total at 1st level (Wisdom +3, Disciple of Life +3), 60 ft."
       ],
       "reactions": [],
       "spellcasting": {
