@@ -175,6 +175,50 @@ function validatePack(path, edition) {
       }
     }
 
+
+    if (edition === "2024") {
+      const background = String(pc.background || "");
+      const coreBackgrounds = new Set(["Acolyte","Criminal","Sage","Soldier","Guide","Farmer"]);
+      if (["Brann Oakholt","Sister Pell Bramble","Nyx Keller","Ivo Ashletter","Kael Thornwake","Hester Brine"].includes(pc.name) && !coreBackgrounds.has(background)) {
+        errors.push(who + ": legacy/non-2024 background label leaked into 2024 root: " + background);
+      }
+
+      const spells = Object.fromEntries((pc.spellList || []).map(s => [s.name, s]));
+      if (spells["Cure Wounds"] && !/2d8/i.test(spells["Cure Wounds"].effect || "")) {
+        errors.push(who + ": 2024 Cure Wounds must use 2d8 base healing");
+      }
+      if (spells["Healing Word"] && !/2d4/i.test(spells["Healing Word"].effect || "")) {
+        errors.push(who + ": 2024 Healing Word must use 2d4 base healing");
+      }
+      if (spells["Spiritual Weapon"] && !/concentration/i.test(spells["Spiritual Weapon"].effect || "")) {
+        errors.push(who + ": 2024 Spiritual Weapon must require Concentration");
+      }
+      if (spells["Goodberry"] && !/Bonus Action/i.test(spells["Goodberry"].effect || "")) {
+        errors.push(who + ": 2024 Goodberry must state Bonus Action to eat a berry");
+      }
+      if (spells["Spare the Dying"] && String(spells["Spare the Dying"].range || "").toLowerCase() === "touch") {
+        errors.push(who + ": 2024 Spare the Dying starts at 15 ft., not touch");
+      }
+
+      const alert = (pc.featureList || []).find(f => f.name === "Alert");
+      if (alert && (/\+5 Initiative/i.test(alert.text || "") || /cannot be surprised/i.test(alert.text || ""))) {
+        errors.push(who + ": legacy 2014 Alert text leaked into 2024 pregen");
+      }
+    }
+
+    if (edition === "2014") {
+      const spells = Object.fromEntries((pc.spellList || []).map(s => [s.name, s]));
+      if (spells["Cure Wounds"] && /2d8/i.test(spells["Cure Wounds"].effect || "")) {
+        errors.push(who + ": 2024 Cure Wounds leaked into 2014 pregen");
+      }
+      if (spells["Healing Word"] && /2d4/i.test(spells["Healing Word"].effect || "")) {
+        errors.push(who + ": 2024 Healing Word leaked into 2014 pregen");
+      }
+      if (spells["Spiritual Weapon"] && /concentration/i.test(spells["Spiritual Weapon"].effect || "") && !/no concentration/i.test(spells["Spiritual Weapon"].effect || "")) {
+        errors.push(who + ": 2024 Spiritual Weapon concentration leaked into 2014 pregen");
+      }
+    }
+
     const editionText = JSON.stringify({rules:pc.rules,ruleset:pc.ruleset,conversionNote:pc.conversionNote});
     if (edition === "2014" && /2024|5\.2/i.test(editionText)) errors.push(who + ": 2024 marker leaked into 2014 pack");
     if (edition === "2024" && !/2024|5\.2/i.test(editionText)) errors.push(who + ": missing explicit 2024 rules marker");
