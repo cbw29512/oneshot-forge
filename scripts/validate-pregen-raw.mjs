@@ -320,6 +320,7 @@ validatePack("data/pregens/shared/2014/level-02.json", "2014");
 validatePack("data/pregens/quiet-seals-level-4-2014-srd.json", "2014");
 validatePack("data/pregens/shared/2024/level-01.json", "2024");
 validatePack("data/pregens/quiet-seals-level-4-2024-srd.json", "2024");
+validateDirectProgression("data/pregens/shared/2014/level-01.json", "data/pregens/shared/2014/level-02.json", 2);
 
 if (errors.length) {
   console.error("Pregen RAW validation failed:");
@@ -327,5 +328,3 @@ if (errors.length) {
   process.exit(1);
 }
 console.log("Pregen RAW validation OK: derived stats, weapon dice, attack bonuses, saves, skills, spell math, hit dice, and edition isolation.");
-
-validateDirectProgression("data/pregens/shared/2014/level-01.json", "data/pregens/shared/2014/level-02.json", 2);
