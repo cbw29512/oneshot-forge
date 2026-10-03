@@ -1,0 +1,14 @@
+{
+  "name": "99centoneshots",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:site": "node scripts/smoke-site.mjs"
+  },
+  "dependencies": {
+    "stripe": "^18.5.0"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^4.2.5"
+  }
+}
