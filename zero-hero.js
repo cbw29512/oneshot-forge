@@ -456,6 +456,8 @@
 
     $("quest-age").textContent="Age "+chapter.age;
     $("quest-title").textContent=chapter.title;
+    $("quest-life-event").textContent=chapter.lifeEvent+" · "+chapter.tone;
+    $("quest-group").textContent=chapter.groupActivity;
     $("quest-objective").textContent=chapter.objective;
     $("quest-pressure").textContent=chapter.pressure;
     $("quest-choice").textContent=chapter.choice;
