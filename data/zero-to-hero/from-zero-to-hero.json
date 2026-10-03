@@ -1247,7 +1247,8 @@
       "tieRule": "Break ties first by the higher kept d20. If still tied for a podium place, make one story-only d20 tiebreak roll; no Development Point is awarded.",
       "criticalSuccessDecoration": "A critical success may add a Legendary Finish badge to the card but grants no extra scrapbook mechanic.",
       "criticalFailureDecoration": "A critical failure should prefer an event-specific mishap/consolation title when the character finishes outside the podium.",
-      "noDevelopment": "Competition scrapbook placement and cards grant no Development Points, proficiencies, ability increases, or other mechanical benefits."
+      "noDevelopment": "Competition scrapbook placement and cards grant no Development Points, proficiencies, ability increases, or other mechanical benefits.",
+      "consolationAssignment": "For 4th–6th place, use consolation entries in order: 4th gets #1, 5th gets #2, 6th gets #3, unless an event-specific place/field-size special award overrides it."
     },
     "cardFields": [
       "title",
@@ -1408,7 +1409,14 @@
             "category": "Mishap",
             "memory": "The official result says fifth. The handmade consolation ribbon says sixth. Nobody will explain why."
           }
-        ]
+        ],
+        "specialAwards": {
+          "5-of-5": {
+            "title": "6th Place in a Five-Person Race",
+            "category": "Mishap",
+            "memory": "Official result: fifth of five. The handmade consolation ribbon still says sixth. Nobody will explain why."
+          }
+        }
       },
       {
         "id": "sack-haul",
