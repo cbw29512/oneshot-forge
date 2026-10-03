@@ -12,8 +12,8 @@ ADVENTURE.timeline = [
   ["2:45–3:10", "Three-phase boss and the Birthday Hero's returned wish"]
 ];
 
-const scene = (id, title, minutes, theme, readAloud, details, checks, wendy, transition, extras={}) => ({
-  id, title, minutes, theme, readAloud, details, checks, wendy, transition, ...extras
+const scene = (id, title, minutes, theme, readAloud, details, checks, birthdayHero, transition, extras={}) => ({
+  id, title, minutes, theme, readAloud, details, checks, birthdayHero, transition, ...extras
 });
 
 ADVENTURE.rooms = [
