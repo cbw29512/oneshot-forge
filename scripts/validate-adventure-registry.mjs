@@ -32,6 +32,10 @@ try {
     if (product.format === "download-bundle") {
       if (registryIds.has(product.id) || product.runnerUrl) errors.push(`${product.id}: bundle must not claim a web runner`);
       if (!product.downloadUrl || !fs.existsSync(path.join(root, product.downloadUrl))) errors.push(`${product.id}: missing bundle download`);
+    } else if (product.format === "standalone-browser") {
+      if (registryIds.has(product.id)) errors.push(`${product.id}: standalone browser runner must not also claim authored-package registry entry`);
+      const runnerPath = String(product.runnerUrl || "").split("?")[0].split("#")[0];
+      if (!runnerPath || !fs.existsSync(path.join(root, runnerPath))) errors.push(`${product.id}: missing standalone browser runner ${product.runnerUrl || "(none)"}`);
     } else if (!registryIds.has(product.id)) errors.push(`product ${product.id} is missing from adventure registry`);
     if (!product.productUrl || !fs.existsSync(path.join(root, product.productUrl))) {
       errors.push(`product ${product.id} has missing productUrl ${product.productUrl || "(none)"}`);
