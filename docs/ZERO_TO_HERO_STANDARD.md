@@ -157,6 +157,80 @@ Character Advantage follows the normal Advantage procedure: roll two d20s and us
 
 Failure to earn Character Advantage does **not** impose Disadvantage. The player simply makes the normal hard check.
 
+## 5C. Upbringing Lean — same scores, different odds
+
+Every Level-0 character still begins with:
+
+**STR 9 · DEX 9 · CON 9 · INT 9 · WIS 9 · CHA 9**
+
+Upbringing changes **roll probability**, not the starting scores.
+
+Before the first Growth Beat, choose one balanced **Upbringing Lean**. The twelve presets are shaped around the twelve 2014/2024 core class directions, but they do **not** select or lock a Level-1 class.
+
+Every preset has exactly:
+- **2 Favored abilities** — Upbringing Advantage;
+- **2 Neutral abilities** — normal roll;
+- **2 Challenging abilities** — Upbringing Disadvantage.
+
+The profile locks after the character's first resolved Growth Beat and lasts through the Level-0 campaign.
+
+### Twelve balanced presets
+
+| Likely path | Favored | Neutral | Challenging |
+| --- | --- | --- | --- |
+| Barbarian | STR, CON | DEX, CHA | INT, WIS |
+| Bard | DEX, CHA | INT, WIS | STR, CON |
+| Cleric | WIS, CON | STR, CHA | DEX, INT |
+| Druid | WIS, CON | DEX, INT | STR, CHA |
+| Fighter | STR, CON | DEX, CHA | INT, WIS |
+| Monk | DEX, WIS | CON, INT | STR, CHA |
+| Paladin | STR, CHA | CON, WIS | DEX, INT |
+| Ranger | DEX, WIS | STR, CON | INT, CHA |
+| Rogue | DEX, INT | CON, CHA | STR, WIS |
+| Sorcerer | CHA, CON | DEX, WIS | STR, INT |
+| Warlock | CHA, INT | CON, WIS | STR, DEX |
+| Wizard | INT, WIS | DEX, CHA | STR, CON |
+
+The duplicated broad shapes are intentional. A Fighter-lean and Barbarian-lean child can both have grown up strong and durable while still becoming very different people through cards, choices, mentors, and later class selection.
+
+### Character Advantage interaction
+
+Use standard advantage/disadvantage cancellation:
+
+- Favored + no other modifier → **Advantage**;
+- Neutral + no other modifier → **Normal**;
+- Challenging + no other modifier → **Disadvantage**;
+- Neutral + Character Advantage → **Advantage**;
+- Challenging + Character Advantage → **Normal**;
+- Favored + Character Advantage → still **Advantage**, never double Advantage.
+
+Any Advantage source and any Disadvantage source cancel to a normal roll. Multiple sources never stack.
+
+This preserves the earlier Character Advantage system: strong fiction-grounded play can help a child overcome an upbringing weakness, but it cannot create super-Advantage.
+
+### Fairness principle
+
+The presets are equal in **quantity of probability lanes**, not identical in what they are good at.
+
+A strength-oriented child and an arcane-oriented child can both have STR 9. The strength-oriented child may roll STR with Advantage; the arcane-oriented child may roll the same STR 9 with Disadvantage.
+
+That makes upbringing matter before the numbers diverge.
+
+Competition and mini-adventure design must rotate ability demands so no one profile dominates the whole campaign. A particular contest may favor one childhood more than another; the campaign as a whole must provide meaningful chances for physical, agile, enduring, intellectual, perceptive, and social characters.
+
+### Level-1 boundary
+
+Upbringing Lean is a **Level-0 house rule only**.
+
+At Level 1:
+- it grants no permanent Advantage or Disadvantage;
+- it grants no proficiency or save proficiency;
+- it grants no ability-score increase;
+- it grants no feat, spell, or class feature;
+- it does not force the character into the likely class path.
+
+The scrapbook preserves the upbringing as history. The selected 2014 or 2024 Level-1 rules become authoritative.
+
 ## 6. Growing-up sheet
 
 The Level-0 sheet tracks:
@@ -498,7 +572,13 @@ From Zero to Hero is not production-ready until:
 - developmental DCs respect the age-band floors 15 / 16 / 17;
 - Character Advantage is available only for specific fiction-grounded play, never acting skill;
 - Advantage rolls two d20s and uses the higher result, does not stack, and records why it was earned;
-- failure to earn Character Advantage never imposes Disadvantage;
+- failure to earn Character Advantage never imposes roleplay-based Disadvantage;
+- exactly 12 Upbringing Lean presets exist, one for each core class direction;
+- every Upbringing Lean partitions all six abilities into exactly 2 Favored / 2 Neutral / 2 Challenging lanes;
+- Upbringing Lean never changes the six starting 9s;
+- the profile locks after the first Growth Beat and does not lock the eventual Level-1 class;
+- Upbringing Advantage/Disadvantage uses normal cancellation with Character Advantage and never stacks;
+- Upbringing Lean expires mechanically at Level 1;
 - success awards +1 flexible point;
 - failure awards +1 off-path Lesson Point;
 - critical success awards +2 flexible points total;

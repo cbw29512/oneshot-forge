@@ -19,7 +19,7 @@
 
   function blankState() {
     return {
-      version:6,
+      version:7,
       chapterIndex:0,
       age:12,
       identity:{
@@ -38,6 +38,8 @@
       timeline:[],
       yearbook:{},
       scrapbookCards:[],
+      upbringingProfile:"",
+      upbringingLocked:false,
       graduationEdition:null
     };
   }
@@ -74,8 +76,8 @@
   }
 
   function migrateState(parsed) {
-    if(!parsed || ![1,2,3,4,5,6].includes(parsed.version)) return blankState();
-    if(parsed.version===3 || parsed.version===4 || parsed.version===5 || parsed.version===6) {
+    if(!parsed || ![1,2,3,4,5,6,7].includes(parsed.version)) return blankState();
+    if(parsed.version===3 || parsed.version===4 || parsed.version===5 || parsed.version===6 || parsed.version===7) {
       parsed.wallet ||= {flexible:0,lessons:blankAbilityMap(0)};
       parsed.wallet.lessons ||= blankAbilityMap(0);
       parsed.invested ||= blankAbilityMap(0);
@@ -86,7 +88,9 @@
       parsed.criticalBonusEarned=Number(parsed.criticalBonusEarned||0);
       parsed.yearbook ||= {};
       parsed.scrapbookCards ||= [];
-      parsed.version=6;
+      parsed.upbringingProfile ||= "";
+      parsed.upbringingLocked=Boolean(parsed.upbringingProfile && (parsed.upbringingLocked||Number(parsed.growthUsed||0)>0));
+      parsed.version=7;
       state=parsed;
       recomputeScores();
       return state;
@@ -102,6 +106,8 @@
     migrated.timeline=parsed.timeline||[];
     migrated.yearbook=parsed.yearbook||{};
     migrated.scrapbookCards=parsed.scrapbookCards||[];
+    migrated.upbringingProfile=parsed.upbringingProfile||"";
+    migrated.upbringingLocked=Boolean(migrated.upbringingProfile && (parsed.upbringingLocked||Number(parsed.growthUsed||0)>0));
     migrated.graduationEdition=parsed.graduationEdition||null;
 
     for(const a of ABILITIES) {
@@ -124,6 +130,37 @@
 
   function saveState() {
     localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+  }
+
+  function upbringingProfile() {
+    return campaign.upbringingLeans?.profiles?.find(p=>p.id===state.upbringingProfile)||null;
+  }
+
+  function upbringingDisposition(ability) {
+    const profile=upbringingProfile();
+    if(!profile) return "neutral";
+    if(profile.advantage.includes(ability)) return "advantage";
+    if(profile.disadvantage.includes(ability)) return "disadvantage";
+    return "neutral";
+  }
+
+  function effectiveRollMode(ability,characterAdvantage=false) {
+    const disposition=upbringingDisposition(ability);
+    const hasAdvantage=disposition==="advantage" || Boolean(characterAdvantage);
+    const hasDisadvantage=disposition==="disadvantage";
+    if(hasAdvantage && hasDisadvantage) return "normal";
+    if(hasAdvantage) return "advantage";
+    if(hasDisadvantage) return "disadvantage";
+    return "normal";
+  }
+
+  function rollModeLabel(mode) {
+    return mode==="advantage" ? "Advantage" : mode==="disadvantage" ? "Disadvantage" : "Normal";
+  }
+
+  function upbringingLabel(ability) {
+    const disposition=upbringingDisposition(ability);
+    return disposition==="advantage" ? "Favored" : disposition==="disadvantage" ? "Challenging" : "Neutral";
   }
 
   function scrapbookDevelopmentText(resolved) {
@@ -169,6 +206,9 @@
       attemptedAbility:resolved.attemptedAbility,
       rollOutcome:resolved.outcome,
       advantageReason:resolved.advantageReason||"",
+      upbringingProfile:resolved.upbringingProfile||state.upbringingProfile||"",
+      upbringingDisposition:resolved.upbringingDisposition||upbringingDisposition(resolved.attemptedAbility),
+      rollMode:resolved.rollMode||(resolved.advantage?"advantage":"normal"),
       developmentType:resolved.outcome,
       flexiblePoints:Number(resolved.flexibleEarned||0),
       lessonAbility:resolved.lessonAbility||"",
@@ -313,7 +353,7 @@
     const key=chapter.id+":"+beat.id;
     if(state.resolvedBeats[key]) return;
 
-    const {roll1,roll2,keptRoll,advantage,advantageReason,total}=rollData;
+    const {roll1,roll2,keptRoll,advantage,characterAdvantage,advantageReason,rollMode,upbringingDisposition:disposition,total}=rollData;
     const rule=campaign.development.pointsByOutcome[outcome];
     let shifted=0;
 
@@ -333,10 +373,11 @@
 
     if(outcome==="criticalSuccess") state.criticalBonusEarned+=1;
 
+    state.upbringingLocked=true;
     state.growthUsed+=1;
     state.chapterGrowth[chapter.id]=Number(state.chapterGrowth[chapter.id]||0)+1;
     state.resolvedBeats[key]={
-      attemptedAbility,roll:keptRoll,roll1,roll2,keptRoll,advantage,advantageReason,total,outcome,lessonAbility,
+      attemptedAbility,roll:keptRoll,roll1,roll2,keptRoll,advantage,characterAdvantage,advantageReason,rollMode,upbringingProfile:state.upbringingProfile,upbringingDisposition:disposition,total,outcome,lessonAbility,
       flexibleEarned:Number(rule.flexible||0),
       lessonEarned:Number(rule.lesson||0),
       shifted
@@ -353,7 +394,7 @@
 
     state.timeline.push({
       type:"check",age:chapter.age,chapter:chapter.title,beat:beat.title,
-      ability:attemptedAbility,lessonAbility,roll:keptRoll,roll1,roll2,advantage,advantageReason,total,dc:beat.dc,outcome,
+      ability:attemptedAbility,lessonAbility,roll:keptRoll,roll1,roll2,advantage,characterAdvantage,advantageReason,rollMode,upbringingProfile:state.upbringingProfile,upbringingDisposition:disposition,total,dc:beat.dc,outcome,
       result:beat.outcomes[outcome],growthText,
       scoreAfter:state.scores[attemptedAbility]
     });
@@ -362,18 +403,35 @@
     render();
   }
 
-  function resolveBeat(chapter,beat,attemptedAbility,roll1,roll2=null,advantage=false,advantageReason="",lessonAbility=null) {
+  function resolveBeat(chapter,beat,attemptedAbility,roll1,roll2=null,characterAdvantage=false,advantageReason="",lessonAbility=null) {
     const key=chapter.id+":"+beat.id;
     if(state.resolvedBeats[key]) return {done:true};
+    if(!state.upbringingProfile) return {error:"Choose an Upbringing Lean before the first developmental check."};
     if(!ABILITIES.includes(attemptedAbility)) return {error:"Choose an approach."};
     if(!Number.isInteger(roll1)||roll1<1||roll1>20) return {error:"Enter the first d20 result from 1 to 20."};
-    if(advantage && (!Number.isInteger(roll2)||roll2<1||roll2>20)) return {error:"Advantage requires two d20 results from 1 to 20."};
-    if(advantage && String(advantageReason||"").trim().length<5) return {error:"Record the specific character or scene reason that earned Advantage."};
+    if(characterAdvantage && String(advantageReason||"").trim().length<5) return {error:"Record the specific character or scene reason that earned Character Advantage."};
 
-    const keptRoll=advantage?Math.max(roll1,roll2):roll1;
+    const disposition=upbringingDisposition(attemptedAbility);
+    const rollMode=effectiveRollMode(attemptedAbility,characterAdvantage);
+    const needsTwoDice=rollMode!=="normal";
+    if(needsTwoDice && (!Number.isInteger(roll2)||roll2<1||roll2>20)) return {error:rollModeLabel(rollMode)+" requires two d20 results from 1 to 20."};
+
+    const keptRoll=rollMode==="advantage" ? Math.max(roll1,roll2)
+      : rollMode==="disadvantage" ? Math.min(roll1,roll2)
+      : roll1;
     const total=keptRoll+mod(state.scores[attemptedAbility]);
     const outcome=outcomeFor(keptRoll,total,beat.dc);
-    const rollData={roll1,roll2:advantage?roll2:null,keptRoll,advantage:Boolean(advantage),advantageReason:String(advantageReason||"").trim(),total};
+    const rollData={
+      roll1,
+      roll2:needsTwoDice?roll2:null,
+      keptRoll,
+      advantage:rollMode==="advantage",
+      characterAdvantage:Boolean(characterAdvantage),
+      advantageReason:String(advantageReason||"").trim(),
+      rollMode,
+      upbringingDisposition:disposition,
+      total
+    };
 
     if((outcome==="failure"||outcome==="criticalFailure") && !lessonAbility) {
       return {needsLesson:true,outcome,total,rollData};
@@ -394,6 +452,35 @@
       el.value=state.identity[key]||"";
       el.oninput=()=>{state.identity[key]=el.value;saveState();renderHeaderOnly();};
     }
+  }
+
+  function bindUpbringing() {
+    const select=$("char-upbringing");
+    const summary=$("upbringing-summary");
+    if(!select||!summary) return;
+
+    select.innerHTML='<option value="">Choose an upbringing lean…</option>'+campaign.upbringingLeans.profiles.map(profile=>
+      '<option value="'+esc(profile.id)+'">'+esc(profile.likelyPath)+' — '+esc(profile.advantage.join(" / "))+'</option>'
+    ).join("");
+    select.value=state.upbringingProfile||"";
+    select.disabled=Boolean(state.upbringingLocked);
+    select.onchange=()=>{
+      if(state.upbringingLocked) return;
+      state.upbringingProfile=select.value;
+      saveState();
+      render();
+    };
+
+    const profile=upbringingProfile();
+    if(!profile) {
+      summary.innerHTML='<strong>No upbringing selected.</strong> All six scores still begin at 9. Choose one balanced lean before the first Growth Check.';
+      return;
+    }
+    summary.innerHTML='<div><b>'+esc(profile.label)+'</b><span>'+esc(profile.description)+'</span></div>'+
+      '<div class="upbringing-lanes"><span class="lane favored">Advantage: '+esc(profile.advantage.join(", "))+'</span>'+
+      '<span class="lane neutral">Neutral: '+esc(profile.neutral.join(", "))+'</span>'+
+      '<span class="lane challenging">Disadvantage: '+esc(profile.disadvantage.join(", "))+'</span></div>'+
+      '<small>'+(state.upbringingLocked?'Locked after first Growth Beat. ':'Not locked until the first Growth Beat. ')+'This does not lock the Level-1 class.</small>';
   }
 
   function renderHeaderOnly() {
@@ -419,7 +506,8 @@
       const lessonButton=lesson>0&&canInvest(a)
         ? '<button type="button" class="button small spend-point" data-source="lesson" data-ability="'+a+'">Spend lesson ('+lesson+')</button>'
         : "";
-      return '<article class="ability-card"><div><strong>'+a+'</strong><span>'+esc(campaign.development.abilityGuide[a])+'</span></div><b>'+score+'</b><em>'+signed(mod(score))+'</em><small>'+progress+'</small><div class="ability-spend">'+flexButton+lessonButton+'</div></article>';
+      const lane=upbringingDisposition(a);
+      return '<article class="ability-card ability-'+lane+'"><div><strong>'+a+'</strong><span>'+esc(campaign.development.abilityGuide[a])+'</span><mark class="ability-lane '+lane+'">'+upbringingLabel(a)+'</mark></div><b>'+score+'</b><em>'+signed(mod(score))+'</em><small>'+progress+'</small><div class="ability-spend">'+flexButton+lessonButton+'</div></article>';
     }).join("");
 
     document.querySelectorAll(".spend-point").forEach(btn=>{
@@ -447,13 +535,17 @@
           '</article>';
       }
       const lesson=e.lessonAbility?' · lesson: '+e.lessonAbility:"";
-      const rollText=e.advantage
+      const savedMode=e.rollMode||(e.advantage?"advantage":"normal");
+      const rollText=savedMode==="advantage"
         ? 'Advantage ['+e.roll1+', '+e.roll2+'] → '+e.roll
-        : 'd20 '+e.roll;
-      const advantageText=e.advantageReason?'<p><b>Advantage:</b> '+esc(e.advantageReason)+'</p>':"";
+        : savedMode==="disadvantage"
+          ? 'Disadvantage ['+e.roll1+', '+e.roll2+'] → '+e.roll
+          : 'd20 '+e.roll;
+      const advantageText=e.advantageReason?'<p><b>Character Advantage:</b> '+esc(e.advantageReason)+'</p>':"";
+      const upbringingText=e.upbringingDisposition?'<p><b>Upbringing:</b> '+esc(upbringingLabel(e.ability))+' ('+esc(e.ability)+')</p>':"";
       return '<article><strong>Age '+e.age+' · '+esc(e.chapter)+'</strong><span>'+esc(e.beat)+' — '+e.ability+
         ' · '+rollText+' '+signed(e.total-e.roll)+' = '+e.total+' vs DC '+e.dc+
-        ' · '+labelOutcome(e.outcome)+lesson+'</span>'+advantageText+'<p>'+esc(e.growthText||"")+'</p><p>'+esc(e.result)+'</p></article>';
+        ' · '+labelOutcome(e.outcome)+lesson+'</span>'+upbringingText+advantageText+'<p>'+esc(e.growthText||"")+'</p><p>'+esc(e.result)+'</p></article>';
     }).join("");
   }
 
@@ -470,16 +562,20 @@
         : done.outcome==="success"
           ? "+1 flexible DP"
           : "+1 "+done.lessonAbility+" Lesson DP"+(done.shifted?" · shifted 1 invested point":"");
-      const rollText=done.advantage?'Advantage ['+done.roll1+', '+done.roll2+'] → '+done.roll:'d20 '+done.roll;
-      const advantageReason=done.advantageReason?'<p><b>Advantage earned:</b> '+esc(done.advantageReason)+'</p>':"";
-      return '<article class="growth-beat done"><p class="beat-index">Growth '+(index+1)+' of 3 · complete</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="resolved"><b>'+done.attemptedAbility+' · '+labelOutcome(done.outcome)+'</b><span>'+rollText+' → total '+done.total+' vs DC '+beat.dc+' · '+esc(growth)+'</span>'+advantageReason+'<p>'+esc(beat.outcomes[done.outcome])+'</p></div></article>';
+      const doneMode=done.rollMode||(done.advantage?"advantage":"normal");
+      const rollText=doneMode==="advantage"?'Advantage ['+done.roll1+', '+done.roll2+'] → '+done.roll
+        : doneMode==="disadvantage"?'Disadvantage ['+done.roll1+', '+done.roll2+'] → '+done.roll
+        :'d20 '+done.roll;
+      const advantageReason=done.advantageReason?'<p><b>Character Advantage:</b> '+esc(done.advantageReason)+'</p>':"";
+      const upbringingReason=done.upbringingDisposition?'<p><b>Upbringing lane:</b> '+esc(upbringingLabel(done.attemptedAbility))+'</p>':"";
+      return '<article class="growth-beat done"><p class="beat-index">Growth '+(index+1)+' of 3 · complete</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="resolved"><b>'+done.attemptedAbility+' · '+labelOutcome(done.outcome)+'</b><span>'+rollText+' → total '+done.total+' vs DC '+beat.dc+' · '+esc(growth)+'</span>'+upbringingReason+advantageReason+'<p>'+esc(beat.outcomes[done.outcome])+'</p></div></article>';
     }
 
     const approaches=ABILITIES.map(a=>
       '<button type="button" class="approach" data-ability="'+a+'" data-beat="'+esc(beat.id)+'"><b>'+a+'</b><span>'+esc(beat.approaches[a])+'</span></button>'
     ).join("");
 
-    return '<article class="growth-beat"><p class="beat-index">Growth '+(index+1)+' of 3 · DC '+beat.dc+'</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="approach-grid">'+approaches+'</div><div class="roll-box" id="roll-'+esc(beat.id)+'" hidden><label>Chosen approach <strong class="chosen-ability"></strong></label><label class="advantage-toggle"><input class="advantage-check" type="checkbox"> Character Advantage earned</label><div class="advantage-fields" hidden><label>Why this earned Advantage <input class="advantage-reason" type="text" maxlength="180" placeholder="Bond, fear, mentor lesson, prior history, scene feature, meaningful risk…"></label></div><div class="dice-entry"><label>First d20 <input class="d20-input d20-first" type="number" min="1" max="20" inputmode="numeric" placeholder="1–20"></label><label class="second-d20" hidden>Second d20 <input class="d20-input d20-second" type="number" min="1" max="20" inputmode="numeric" placeholder="1–20"></label></div><button type="button" class="button ember resolve-roll">Resolve developmental check</button><p class="muted">Base checks are intentionally hard. Ground the action in who the character is or what they have learned to earn Advantage. Success earns flexible growth; failure earns an off-path lesson; critical success earns an extra point; critical failure can redirect invested growth.</p><div class="lesson-picker" hidden></div></div></article>';
+    return '<article class="growth-beat"><p class="beat-index">Growth '+(index+1)+' of 3 · DC '+beat.dc+'</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="approach-grid">'+approaches+'</div><div class="roll-box" id="roll-'+esc(beat.id)+'" hidden><label>Chosen approach <strong class="chosen-ability"></strong></label><div class="upbringing-roll-state"><span class="upbringing-disposition">Upbringing: Neutral</span><strong class="effective-roll-mode">Normal roll</strong></div><label class="advantage-toggle"><input class="advantage-check" type="checkbox"> Character Advantage earned</label><div class="advantage-fields" hidden><label>Why this earned Advantage <input class="advantage-reason" type="text" maxlength="180" placeholder="Bond, fear, mentor lesson, prior history, scene feature, meaningful risk…"></label></div><div class="dice-entry"><label>First d20 <input class="d20-input d20-first" type="number" min="1" max="20" inputmode="numeric" placeholder="1–20"></label><label class="second-d20" hidden>Second d20 <input class="d20-input d20-second" type="number" min="1" max="20" inputmode="numeric" placeholder="1–20"></label></div><button type="button" class="button ember resolve-roll">Resolve developmental check</button><p class="muted">Base checks are intentionally hard. Your Upbringing Lean supplies a fixed Favored/Neutral/Challenging lane; character-grounded play can add Advantage, which may improve Neutral to Advantage or cancel a Challenging lane to Normal. Success earns flexible growth; failure earns an off-path lesson; critical success earns an extra point; critical failure can redirect invested growth.</p><div class="lesson-picker" hidden></div></div></article>';
   }
 
   function showLessonPicker(chapter,beat,box,attemptedAbility,rollData,outcome,total) {
@@ -499,6 +595,20 @@
   }
 
   function wireBeats(chapter) {
+    function refreshRollBox(box) {
+      const ability=box.dataset.ability;
+      if(!ability) return;
+      const characterAdvantage=box.querySelector(".advantage-check").checked;
+      const disposition=upbringingDisposition(ability);
+      const mode=effectiveRollMode(ability,characterAdvantage);
+      box.querySelector(".upbringing-disposition").textContent="Upbringing: "+upbringingLabel(ability);
+      box.querySelector(".effective-roll-mode").textContent=rollModeLabel(mode)+" roll";
+      box.dataset.rollMode=mode;
+      const second=box.querySelector(".second-d20");
+      second.hidden=mode==="normal";
+      if(mode==="normal") box.querySelector(".d20-second").value="";
+    }
+
     document.querySelectorAll(".approach").forEach(btn=>btn.addEventListener("click",()=>{
       const beatId=btn.dataset.beat;
       const box=$("roll-"+beatId);
@@ -507,17 +617,15 @@
       box.querySelector(".chosen-ability").textContent=btn.dataset.ability;
       box.querySelector(".lesson-picker").hidden=true;
       document.querySelectorAll('[data-beat="'+CSS.escape(beatId)+'"]').forEach(x=>x.classList.toggle("selected",x===btn));
-      box.querySelector(".d20-input").focus();
+      refreshRollBox(box);
+      box.querySelector(".d20-first").focus();
     }));
 
     document.querySelectorAll(".advantage-check").forEach(check=>check.addEventListener("change",()=>{
       const box=check.closest(".roll-box");
       box.querySelector(".advantage-fields").hidden=!check.checked;
-      box.querySelector(".second-d20").hidden=!check.checked;
-      if(!check.checked) {
-        box.querySelector(".advantage-reason").value="";
-        box.querySelector(".d20-second").value="";
-      }
+      if(!check.checked) box.querySelector(".advantage-reason").value="";
+      refreshRollBox(box);
     }));
 
     document.querySelectorAll(".resolve-roll").forEach(btn=>btn.addEventListener("click",()=>{
@@ -525,11 +633,12 @@
       const beatId=box.id.replace(/^roll-/,"");
       const beat=chapter.growthBeats.find(x=>x.id===beatId);
       const ability=box.dataset.ability;
-      const advantage=box.querySelector(".advantage-check").checked;
+      const characterAdvantage=box.querySelector(".advantage-check").checked;
+      const mode=effectiveRollMode(ability,characterAdvantage);
       const roll1=Number(box.querySelector(".d20-first").value);
-      const roll2=advantage?Number(box.querySelector(".d20-second").value):null;
-      const reason=advantage?box.querySelector(".advantage-reason").value:"";
-      const result=resolveBeat(chapter,beat,ability,roll1,roll2,advantage,reason);
+      const roll2=mode!=="normal"?Number(box.querySelector(".d20-second").value):null;
+      const reason=characterAdvantage?box.querySelector(".advantage-reason").value:"";
+      const result=resolveBeat(chapter,beat,ability,roll1,roll2,characterAdvantage,reason);
       if(result?.error) {
         alert(result.error);
         return;
@@ -696,7 +805,8 @@
         ? '<div class="scrapbook-place">'+esc(card.placement)+ordinal(card.placement)+' of '+esc(card.fieldSize)+'</div>'
         : "";
       const badge=card.badge?'<span class="scrapbook-badge">'+esc(card.badge)+'</span>':"";
-      const advantage=card.advantageReason?'<p class="scrapbook-small"><b>Advantage:</b> '+esc(brief(card.advantageReason,95))+'</p>':"";
+      const advantage=card.advantageReason?'<p class="scrapbook-small"><b>Character Advantage:</b> '+esc(brief(card.advantageReason,95))+'</p>':"";
+      const upbringing=card.upbringingDisposition?'<p class="scrapbook-small"><b>Upbringing:</b> '+esc(upbringingLabel(card.attemptedAbility))+' · '+esc(rollModeLabel(card.rollMode||"normal"))+'</p>':"";
       const lesson=card.lessonAbility?'<p class="scrapbook-small"><b>Lesson:</b> '+esc(card.lessonAbility)+(card.shiftedFrom?' · shifted from '+esc(card.shiftedFrom):"")+'</p>':"";
       return '<article class="scrapbook-card" data-card-id="'+esc(card.id)+'">'+
         '<header><div><span class="scrapbook-age">AGE '+card.age+'</span><span class="scrapbook-category">'+esc(card.category)+'</span></div>'+badge+'</header>'+
@@ -705,7 +815,7 @@
         '<p class="scrapbook-memory">'+esc(brief(card.memory,180))+'</p>'+
         '<div class="scrapbook-development"><span>BUILT ME</span><strong>'+esc(development)+'</strong></div>'+
         '<p class="scrapbook-small"><b>Approach:</b> '+esc(card.attemptedAbility||"Story")+' · '+esc(labelOutcome(card.rollOutcome||"memory"))+'</p>'+
-        advantage+lesson+
+        upbringing+advantage+lesson+
         '<footer>'+esc(card.chapter)+'</footer>'+
       '</article>';
     }).join("");
@@ -758,6 +868,7 @@
     const aspiration=state.identity.aspiration.trim()||"The road ahead is still being discovered.";
     const edition=state.graduationEdition;
     const tier=graduationTier(value);
+    const profile=upbringingProfile();
     const counts=graduationOutcomeCounts();
 
     $("certificate-title").textContent=keepsake.certificateTitle;
@@ -768,6 +879,7 @@
       '<div><span>Home</span><strong>Hearthcross</strong></div>'+
       '<div><span>Ancestry / species</span><strong>'+esc(ancestry)+'</strong></div>'+
       '<div><span>Ruleset</span><strong>'+esc(edition)+'</strong></div>'+
+      '<div><span>Level-0 upbringing</span><strong>'+esc(profile?.likelyPath||"Not recorded")+'-shaped</strong></div>'+
       '<div><span>Base-array value</span><strong>'+value+' / '+ceiling+'</strong></div>'+
       '<div><span>Origin result</span><strong>'+esc(tier)+'</strong></div>'+
       '<div><span>Critical successes</span><strong>'+counts.criticalSuccess+'</strong></div>';
@@ -780,6 +892,7 @@
       '<div><span>Family / guardians</span><strong>'+esc(brief(family,120))+'</strong></div>'+
       '<div><span>Childhood work</span><strong>'+esc(brief(state.identity.chores,120)||"Not recorded")+'</strong></div>'+
       '<div><span>Final aspiration</span><strong>'+esc(brief(aspiration,160))+'</strong></div>'+
+      '<div><span>Level-0 upbringing lean</span><strong>'+esc(profile?.label||"Not recorded")+'</strong></div>'+
       '<div><span>Final base array</span><strong>'+ABILITIES.map(a=>a+" "+state.scores[a]).join(" · ")+' · '+value+' points</strong></div>';
 
     $("chronicle-years").innerHTML=campaign.chapters.map(chapter=>{
@@ -898,6 +1011,7 @@
   }
 
   function render() {
+    bindUpbringing();
     renderHeaderOnly();
     renderAbilities();
     renderTimeline();
@@ -914,6 +1028,7 @@
     syncDevelopmentCards();
     saveState();
     bindIdentity();
+    bindUpbringing();
     renderVillage();
     render();
 
@@ -926,6 +1041,7 @@
       localStorage.removeItem(STORAGE_KEY);
       state=blankState();
       bindIdentity();
+      bindUpbringing();
       render();
     };
   }
