@@ -20,6 +20,14 @@ const fixedAverageByDie = {6:4,8:5,10:6,12:7};
 const pointBuyCostByScore = {8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
 const CORE_CLASSES = new Set(["Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"]);
 
+function expected2024MagicItemBudget(level) {
+  if (level === 1) return {common:0,uncommon:0,rare:0,veryRare:0};
+  if (level <= 4) return {common:1,uncommon:0,rare:0,veryRare:0};
+  if (level <= 10) return {common:1,uncommon:1,rare:0,veryRare:0};
+  if (level <= 16) return {common:2,uncommon:3,rare:1,veryRare:0};
+  return {common:2,uncommon:4,rare:3,veryRare:1};
+}
+
 function pointBuyCost(scores) {
   let total = 0;
   for (const ability of ["STR","DEX","CON","INT","WIS","CHA"]) {
@@ -242,6 +250,29 @@ function validatePack(path, edition) {
 
 
     if (edition === "2024") {
+      if (path.includes("data/pregens/shared/2024/")) {
+        const expectedBudget = expected2024MagicItemBudget(level);
+        const budget = pc.magicItemBudget || {};
+        for (const rarity of ["common","uncommon","rare","veryRare"]) {
+          if (Number(budget[rarity] || 0) !== expectedBudget[rarity]) {
+            errors.push(who + ": magic-item budget mismatch for " + rarity + ": " + Number(budget[rarity] || 0) + " vs " + expectedBudget[rarity]);
+          }
+        }
+        const counts = {common:0,uncommon:0,rare:0,veryRare:0};
+        for (const item of pc.magicItems || []) {
+          const rarity = String(item.rarity || "").toLowerCase().replaceAll(" ","");
+          const key = rarity === "veryrare" ? "veryRare" : rarity;
+          if (!(key in counts)) errors.push(who + ": unsupported magic-item rarity " + item.rarity);
+          else counts[key] += 1;
+          if (!item.name || !item.reason) errors.push(who + ": every shared magic item needs a name and build-fit reason");
+        }
+        for (const rarity of ["common","uncommon","rare","veryRare"]) {
+          if (counts[rarity] !== expectedBudget[rarity]) {
+            errors.push(who + ": magicItems count mismatch for " + rarity + ": " + counts[rarity] + " vs " + expectedBudget[rarity]);
+          }
+        }
+      }
+
       if (level < 3 && pc.subclass) {
         errors.push(who + ": 2024 subclass appears before level 3: " + pc.subclass);
       }
@@ -332,8 +363,10 @@ validatePack("data/pregens/shared/2014/level-01.json", "2014");
 validatePack("data/pregens/shared/2014/level-02.json", "2014");
 validatePack("data/pregens/quiet-seals-level-4-2014-srd.json", "2014");
 validatePack("data/pregens/shared/2024/level-01.json", "2024");
+validatePack("data/pregens/shared/2024/level-02.json", "2024");
 validatePack("data/pregens/quiet-seals-level-4-2024-srd.json", "2024");
 validateDirectProgression("data/pregens/shared/2014/level-01.json", "data/pregens/shared/2014/level-02.json", 2);
+validateDirectProgression("data/pregens/shared/2024/level-01.json", "data/pregens/shared/2024/level-02.json", 2);
 
 if (errors.length) {
   console.error("Pregen RAW validation failed:");
