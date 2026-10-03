@@ -644,7 +644,7 @@
       '<div><span>Critical successes</span><strong>'+counts.criticalSuccess+'</strong></div>';
     $("certificate-aspiration").innerHTML='<span>At the threshold of adventure:</span> “'+esc(brief(aspiration,220))+'”';
     $("certificate-signatures").innerHTML=keepsake.signatureLines.map(label=>'<div><span></span><small>'+esc(label)+'</small></div>').join("");
-    $("certificate-boundary").textContent=keepsake.ruleBoundary;
+    $("certificate-boundary").textContent=campaign.graduationKeepsakes.ruleBoundary;
 
     $("chronicle-subtitle").textContent=name+" · Hearthcross · Ages 12–18 · "+edition+" graduation path";
     $("chronicle-identity").innerHTML=
@@ -683,7 +683,7 @@
       '<div><strong>'+counts.criticalFailure+'</strong><span>critical failures</span></div>'+
       '<div><strong>'+state.criticalBonusEarned+'</strong><span>critical bonus DP earned</span></div>'+
       '<div><strong>'+value+'</strong><span>final point-buy value</span></div>';
-    $("chronicle-boundary").textContent=keepsake.ruleBoundary;
+    $("chronicle-boundary").textContent=campaign.graduationKeepsakes.ruleBoundary;
   }
 
   function printZeroHero(mode) {
