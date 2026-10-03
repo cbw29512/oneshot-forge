@@ -53,8 +53,25 @@ for(const n of d.village.npcs){
   }
 }
 
+if(!d.lifeFirstDesign||d.lifeFirstDesign.ordinaryLifeYears?.join(",")!=="12,13,14,15") fail("life-first ordinary years must be ages 12–15");
+if(!/whole group/i.test(d.lifeFirstDesign.groupRule||"")) fail("life-first design must explicitly keep the whole group involved");
 if(!Array.isArray(d.chapters)||d.chapters.length!==7) fail("must have seven yearly chapters");
 if(d.chapters.map(x=>x.age).join(",")!=="12,13,14,15,16,17,18") fail("chapter ages must be 12 through 18");
+const expectedLifeEvents={
+  12:"community chores",
+  13:"village dance",
+  14:"fair and competitions",
+  15:"work and mentorship",
+  16:"first trip away from home",
+  17:"community emergency",
+  18:"coming-of-age celebration and final crisis"
+};
+for(const c of d.chapters){
+  if(c.lifeEvent!==expectedLifeEvents[c.age]) fail("age "+c.age+" life event drifted from the life-first campaign rhythm");
+  if(!c.groupActivity||c.groupActivity.length<40) fail(c.id+" needs a clear whole-group reason to be involved");
+}
+const earlyText=JSON.stringify(d.chapters.filter(c=>c.age<=15)).toLowerCase();
+for(const banned of ["monster attack","raider","kill the","mandatory combat","world-saving"]) if(earlyText.includes(banned)) fail("ages 12–15 drifted away from ordinary village life: "+banned);
 let opportunities=0;
 for(const c of d.chapters){
   if(!c.objective||!c.pressure||!c.choice||!c.consequence) fail(c.id+" missing runnable chapter fields");
@@ -123,4 +140,4 @@ for(const score of Object.keys(raise).map(Number)){
  if(dev.startingPointBuyCost+dev.baseOpportunities!==dev.minimumGraduationValue) fail("6 starting value + 21 base growth must equal the 27-point floor");
 if(dev.maximumGraduationValue-dev.minimumGraduationValue!==3) fail("Zero-to-Hero heroic headroom must remain exactly 3 point-buy value");
 
-console.log("From Zero to Hero OK — 27-point minimum, absolute 30-point cap, hard DC curve, character-grounded Advantage, differentiated outcomes, hard lessons, edition-isolated graduation.");
+console.log("From Zero to Hero OK — life-first village arc, whole-group chapters, 27–30 point range, hard DC curve, Character Advantage, differentiated outcomes, edition-isolated graduation.");
