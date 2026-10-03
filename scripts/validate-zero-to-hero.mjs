@@ -121,6 +121,24 @@ if(d.scrapbook?.competitionStandard?.supportedPlayerCount?.join(",")!=="4,5,6") 
 if(d.scrapbook?.competitionStandard?.podiumPlaces?.join(",")!=="1,2,3") fail("competition podium must remain 1st/2nd/3rd");
 if(d.scrapbook?.competitionStandard?.cardForEveryPlayer!==true||d.scrapbook?.competitionStandard?.uniqueConsolationWithinEvent!==true) fail("every competitor must receive a unique result card");
 if(!/placement itself grants no extra Development Points/i.test(d.scrapbook?.competitionStandard?.noDevelopment||"")) fail("competition placement must not add extra DP");
+if(d.scrapbook?.competitionStandard?.coreFairnessSlate?.required!==true) fail("Hearthcross Six fairness slate must be required");
+if(d.scrapbook?.competitionStandard?.coreFairnessSlate?.primaryAbilities?.join(",")!=="STR,DEX,CON,INT,WIS,CHA") fail("Hearthcross Six fairness slate must cover all six abilities exactly once");
+if(d.scrapbook?.competitionStandard?.coreFairnessSlate?.exactContestPerAbility!==1) fail("Hearthcross Six must keep exactly one core contest per ability");
+if(!/final check total/i.test(d.scrapbook?.competitionStandard?.rankingRule||"")||!/kept d20/i.test(d.scrapbook?.competitionStandard?.rankingRule||"")) fail("core competition ranking rule missing");
+const fairnessCore=d.scrapbook?.competitions?.filter(c=>c.developmentCore);
+if(fairnessCore?.length!==6) fail("exactly six competitions must be marked developmentCore");
+const fairnessAbilities=fairnessCore.map(c=>c.primaryAbility).sort();
+if(fairnessAbilities.join(",")!==["CHA","CON","DEX","INT","STR","WIS"].join(",")) fail("fairness-core competitions must contain one STR/DEX/CON/INT/WIS/CHA contest");
+for(const contest of fairnessCore){
+  if(contest.allowedAbilities?.length!==1||contest.allowedAbilities[0]!==contest.primaryAbility) fail(contest.id+" must use one primary ability for placement fairness");
+}
+for(const profile of d.upbringingLeans.profiles){
+  const favored=fairnessCore.filter(c=>profile.advantage.includes(c.primaryAbility)).length;
+  const neutral=fairnessCore.filter(c=>profile.neutral.includes(c.primaryAbility)).length;
+  const challenging=fairnessCore.filter(c=>profile.disadvantage.includes(c.primaryAbility)).length;
+  if(favored!==2||neutral!==2||challenging!==2) fail(profile.id+" must see exactly 2 Favored / 2 Neutral / 2 Challenging core competitions");
+}
+
 if(!Array.isArray(d.scrapbook?.competitions)||d.scrapbook.competitions.length<6) fail("scrapbook competition library is too small");
 for(const competition of d.scrapbook.competitions){
   for(const place of ["1","2","3"]) if(!competition.awards?.[place]?.title) fail(competition.id+" missing podium card "+place);
@@ -215,4 +233,4 @@ for(const score of Object.keys(raise).map(Number)){
  if(dev.startingPointBuyCost+dev.baseOpportunities!==dev.minimumGraduationValue) fail("6 starting value + 21 base growth must equal the 27-point floor");
 if(dev.maximumGraduationValue-dev.minimumGraduationValue!==3) fail("Zero-to-Hero heroic headroom must remain exactly 3 point-buy value");
 
-console.log("From Zero to Hero OK — equal 2/2/2 Upbringing Leans, scrapbook-led development, 4–6 player competition awards, life-first village arc, 27–30 point range, edition-isolated graduation.");
+console.log("From Zero to Hero OK — equal 2/2/2 Upbringing Leans, mathematically balanced Hearthcross Six, scrapbook-led development, 4–6 player adventure play, 27–30 point range, edition-isolated graduation.");
