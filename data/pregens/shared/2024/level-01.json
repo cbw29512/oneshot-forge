@@ -349,7 +349,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-brann",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-pell",
@@ -772,7 +775,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-pell",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-nyx",
@@ -1120,7 +1126,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-nyx",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-ivo",
@@ -1568,7 +1577,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-ivo",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-kael",
@@ -1943,7 +1955,10 @@
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
       ],
-      "initiativeBonusOverride": 2
+      "initiativeBonusOverride": 2,
+      "lineageRootId": "pregen-kael",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-hester",
@@ -2306,7 +2321,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-hester",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-rook",
@@ -2629,7 +2647,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-rook",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-sable",
@@ -3046,7 +3067,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-sable",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-bram",
@@ -3474,7 +3498,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-bram",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-sora",
@@ -3789,7 +3816,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-sora",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-vexa",
@@ -4190,7 +4220,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-vexa",
+      "branchId": "base",
+      "parentCharacterId": null
     },
     {
       "id": "pregen-mael",
@@ -4597,7 +4630,10 @@
           "level": 1,
           "note": "Canonical shared 2024 root built directly under 2024 rules."
         }
-      ]
+      ],
+      "lineageRootId": "pregen-mael",
+      "branchId": "base",
+      "parentCharacterId": null
     }
   ]
 }
