@@ -14,7 +14,7 @@ if(adventure.metadata?.id!=="from-zero-to-hero-hearthcross-years") fail("wrong a
 if(adventure.metadata?.defaultPartySize!==4) fail("default party must remain four players");
 if(adventure.metadata?.partySizeRange!=="4–6 players") fail("supported party range must remain 4–6");
 if(adventure.tableContract?.supportedPlayers?.join(",")!=="4,5,6") fail("table contract must support 4/5/6 players");
-if(!/Every player gets one Development Check/i.test(adventure.tableContract?.spotlightRule||"")) fail("shared spotlight contract missing");
+if(!/every player gets one distinct Development Check/i.test(adventure.tableContract?.spotlightRule||"")) fail("shared spotlight contract missing");
 
 if(!Array.isArray(adventure.chapters)||adventure.chapters.length!==7) fail("adventure must have seven yearly chapters");
 if(adventure.chapters.map(c=>c.age).join(",")!=="12,13,14,15,16,17,18") fail("adventure ages must run 12–18");
