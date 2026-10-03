@@ -120,10 +120,12 @@ def feat(name, source, text, uses=""):
     return d
 
 
-def atk(name, bonus, damage, typ, notes=""):
+def atk(name, bonus, damage, typ, notes="", attack_bonus_override=0):
     d = {"name": name, "bonus": bonus, "damage": damage, "type": typ}
     if notes:
         d["notes"] = notes
+    if attack_bonus_override:
+        d["attackBonusOverride"] = attack_bonus_override
     return d
 
 
@@ -384,7 +386,7 @@ def kael():
             "languages": ["Common", "Elvish", "Sylvan"],
         },
         "attackList": [
-            atk("Longbow", 7, "1d8+3", "piercing", "Archery included; range 150/600; two-handed. Extra Attack is ranger 5 — one shot."),
+            atk("Longbow", 7, "1d8+3", "piercing", "Archery included; range 150/600; two-handed. Extra Attack is ranger 5 — one shot.", attack_bonus_override=2),
             atk("Shortsword", 5, "1d6+3", "piercing", "finesse"),
         ],
         "bonusActions": ["Hunter’s Mark (if a 1st-level slot remains): bonus, concentration 1 hour. +1d6 damage vs one target; advantage to track it."],
