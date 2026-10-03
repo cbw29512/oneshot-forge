@@ -107,7 +107,9 @@
         "minimumGraduationValue",
         "baseGrowthNeverLost",
         "maturitySettlementRule",
-        "challengeProfile"
+        "challengeProfile",
+        "maximumGraduationValue",
+        "statGrowthCapRule"
       ],
       "properties": {
         "startingPointBuyCost": {
@@ -275,6 +277,13 @@
               "minLength": 20
             }
           }
+        },
+        "maximumGraduationValue": {
+          "const": 30
+        },
+        "statGrowthCapRule": {
+          "type": "string",
+          "minLength": 20
         }
       }
     },

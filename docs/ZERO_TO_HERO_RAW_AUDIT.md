@@ -127,7 +127,7 @@ Lesson Points remain locked to their tagged ability where they can still be spen
 
 At exactly 27, the character has the complete baseline development budget.
 
-If the base array exceeds 27 because critical-success bonus points were spent, label it **Heroic / house-rule ability generation**.
+If the base array is 28–30 because critical-success bonus points were spent, label it **Heroic / house-rule ability generation**. The Level-0 array may never exceed 30. Extra Development Points earned after reaching that ceiling remain nonmechanical/unspent and cannot carry hidden power into Level 1.
 
 Once the array is frozen, all later mechanics must be legal for the selected 2014 or 2024 ruleset.
 
@@ -150,6 +150,8 @@ CI must reject any implementation that:
 - mixes 2014 and 2024 graduation mechanics;
 - allows graduation below 27 after all 21 base opportunities;
 - allows Maturity Settlement to create points that were not already earned;
-- claims an above-27 base array is normal RAW point buy.
+- claims an above-27 base array is normal RAW point buy;
+- permits any Level-0 base array above 30;
+- converts Development Points remaining after the 30-point ceiling into hidden Level-1 mechanical power.
 
-**Audit conclusion:** pass/fail has a meaningful mechanical identity without lowering the baseline character budget. Failure redirects growth; critical failure can reshape the build; critical success can make it slightly stronger. Completing the full origin campaign always guarantees at least a 27-point-buy-equivalent base array. The Level-0 ability-generation method remains transparently house rule, while the post-graduation game stays edition-locked.
+**Audit conclusion:** pass/fail has a meaningful mechanical identity without lowering the baseline character budget. Failure redirects growth; critical failure can reshape the build; critical success can make it slightly stronger. Completing the full origin campaign always guarantees at least a 27-point-buy-equivalent base array, with an absolute 30-point ceiling. The Level-0 ability-generation method remains transparently house rule, while the post-graduation game stays edition-locked.
