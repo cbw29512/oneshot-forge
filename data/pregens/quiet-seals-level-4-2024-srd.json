@@ -1006,7 +1006,7 @@
         {
           "name": "Weapon Mastery",
           "source": "Rogue 1",
-          "text": "Rapier (Vex) and Shortbow (Slow). Vex: hit gives Advantage on your next attack against that creature before your next turn."
+          "text": "Rapier (Vex) and Shortbow (Vex). Vex: after you hit and deal damage, you have Advantage on your next attack against that creature before the end of your next turn."
         },
         {
           "name": "Sneak Attack",
@@ -1092,7 +1092,7 @@
         "Shortbow. +5 to hit; 1d6+3 piercing; range 80/320; same Sneak Attack rule"
       ],
       "features": [
-        "Weapon Mastery: Rapier (Vex) and Shortbow (Slow). Vex: hit gives Advantage on your next attack against that creature before your next turn.",
+        "Weapon Mastery: Rapier (Vex) and Shortbow (Vex). Vex: after you hit and deal damage, you have Advantage on your next attack against that creature before the end of your next turn.",
         "Sneak Attack: Once per turn +2d6 when you hit with a Finesse or Ranged weapon and have Advantage, or an ally is within 5 ft. of the target and you don’t have Disadvantage.",
         "Cunning Action: Bonus Action: Dash, Disengage, or Hide.",
         "Fast Hands: Cunning Action: Use an Object, Sleight of Hand, or thieves’ tools on a lock or trap.",
@@ -1105,7 +1105,7 @@
       "gear": "Studded leather, Rapier, Shortbow, 20× Arrows, Thieves’ tools, Crowbar, 18 gp",
       "masteries": [
         "Rapier: Vex",
-        "Shortbow: Slow"
+        "Shortbow: Vex"
       ],
       "ruleset": "2024",
       "conversionNote": "2014 Thief rebuilt on 2024 Rogue 4 / Thief 3 / Halfling / Criminal. Cunning Strike is level 5 — not on this sheet.",
@@ -2218,6 +2218,11 @@
           "name": "Resourceful",
           "source": "Human",
           "text": "Heroic Inspiration after a Long Rest."
+        },
+        {
+          "name": "Savage Attacker",
+          "source": "Human Versatile origin feat",
+          "text": "Once per turn when you hit with a weapon, roll the weapon’s damage dice twice and use either roll."
         }
       ],
       "equipment": [
@@ -2269,7 +2274,8 @@
         "Sacred Weapon: Channel Divinity. 10 minutes. Melee weapon: add Cha (+3) to attack rolls, deal Radiant if you choose, sheds light.",
         "Oath Spells: Always prepared: Protection from Evil and Good, Shield of Faith.",
         "Tough: +2 HP per level (already included: 44 HP).",
-        "Resourceful: Heroic Inspiration after a Long Rest."
+        "Resourceful: Heroic Inspiration after a Long Rest.",
+        "Savage Attacker: Once per turn when you hit with a weapon, roll the weapon’s damage dice twice and use either roll."
       ],
       "gear": "Chain mail, Shield, Longsword, 3× Javelin, Holy symbol (iron lantern), 14 gp",
       "masteries": [
