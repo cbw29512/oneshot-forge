@@ -13,7 +13,7 @@ ADVENTURE.timeline = [
   ["2:55–3:00","Return the wish and present the dragon card"]
 ];
 
-const room = (id,title,minutes,theme,readAloud,details,checks,trap,puzzle,tactics,wendy,transition,dialogue=[],objectives=[]) => ({id,title,minutes,theme,readAloud,details,checks,trap,puzzle,tactics,wendy,transition,dialogue,objectives});
+const room = (id,title,minutes,theme,readAloud,details,checks,trap,puzzle,tactics,birthdayHero,transition,dialogue=[],objectives=[]) => ({id,title,minutes,theme,readAloud,details,checks,trap,puzzle,tactics,birthdayHero,transition,dialogue,objectives});
 
 ADVENTURE.rooms = [
   existingById.inn,
@@ -35,7 +35,7 @@ ADVENTURE.rooms = [
     "Wrapping Cocoon: crossing the central ribbon without exchanging a gift triggers DC 13 Dexterity. Failure: restrained; escape DC 12 Strength or Dexterity. Cutting free deals no damage; fire frees the target but deals 1 fire damage.",
     "Each hero chooses a gift and gives it to another hero. Once everyone has given or received sincerely, the door opens. Never require a roll for the core solution.",
     "Animated Presents gang up on isolated heroes and use their ribbons to shove creatures toward the snare.",
-    "A gift labeled WENDY cannot be opened by the Birthday Hero. When she gives it away, Wish Fragment II appears: BUT FOR ONE MORE ADVENTURE.",
+    "A gift bearing the Birthday Hero's name cannot be opened by the Birthday Hero. When they give it away, Wish Fragment II appears: BUT FOR ONE MORE ADVENTURE.",
     "Glowing ribbon stitches itself into a bridge leading to the Balloon Gallery."),
   room("balloon-gallery","Room 4: The Balloon Gallery","20 minutes","Joy",
     "Balloons fill the chamber from floor to ceiling. Each translucent sphere shows a moving memory: shared meals, ridiculous jokes, hard-won victories, and quiet kindnesses. Three black balloons drift among them, their strings ending in sparking fuses.",
