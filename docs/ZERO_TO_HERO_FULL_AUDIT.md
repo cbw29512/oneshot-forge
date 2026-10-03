@@ -248,6 +248,16 @@ Critical failure:
 
 ### Pass
 
+The competition award workflow is now implemented in the player sheet. After a contest, the player can record:
+- contest;
+- field size (4–6);
+- official placement;
+- optional personal note.
+
+The sheet generates the correct podium, consolation, mishap, or special joke card from the authoritative competition library. Re-recording the same contest updates that card instead of duplicating it.
+
+Competition award cards are explicitly story-only and display **no extra DP**. They may still become future Character Advantage evidence when the memory specifically matters.
+
 The scrapbook is now the authoritative development ledger.
 
 Every resolved Growth Beat creates exactly one Development Card.
@@ -392,8 +402,9 @@ Zero to Hero should not be called fully finished until:
 1. the new DM adventure validator is green;
 2. the competition fairness validator proves one core contest per ability;
 3. the DM runner and player sheet cross-link correctly;
-4. post-merge Pages deploy succeeds;
-5. certified Level-1 graduation packs are wired for the intended 2014/2024 choices.
+4. the competition-award recorder passes its UI/ledger gate;
+5. post-merge Pages deploy succeeds;
+6. certified Level-1 graduation packs are wired for the intended 2014/2024 choices.
 
 ## Audit conclusion
 
