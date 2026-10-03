@@ -919,8 +919,8 @@
       "skills": "Acrobatics +5, Deception +3, Investigation +3, Perception +3, Sleight Of Hand +7 (ex), Stealth +7 (ex)",
       "ac": 15,
       "acNotes": "studded leather 12 + Dex 3",
-      "initiative": 8,
-      "speedFt": 25,
+      "initiative": 5,
+      "speedFt": 30,
       "hp": 31,
       "hitDice": "4d8",
       "darkvision": 0,
@@ -1011,7 +1011,7 @@
         {
           "name": "Alert",
           "source": "Criminal origin feat",
-          "text": "+5 Initiative (already 8). You cannot be surprised. Other creatures do not gain Advantage on you for being hidden from you."
+          "text": "Initiative Proficiency: add your Proficiency Bonus to Initiative (already +5 total). Initiative Swap: after rolling, you can swap Initiative with one willing ally in the same combat if neither is Incapacitated."
         }
       ],
       "equipment": [
@@ -1051,7 +1051,7 @@
       "proficiency": 2,
       "class": "Rogue (Thief)",
       "saves": "Dex +5, Int +3",
-      "speed": "25 ft.",
+      "speed": "30 ft.",
       "attacks": [
         "Rapier. +5 to hit; 1d8+3 piercing; finesse; Sneak Attack +2d6 if advantage or an ally is within 5 ft. of the target and you don’t have disadvantage",
         "Shortbow. +5 to hit; 1d6+3 piercing; range 80/320; same Sneak Attack rule"
@@ -1065,7 +1065,7 @@
         "Lucky: When you roll a 1 on a d20 test, reroll and use the new roll.",
         "Brave: Advantage on saves against Frightened. Advantage vs Frightened; you can also move through a larger creature’s space.",
         "Naturally Stealthy: You can take Hide when you have merely Three-Quarters cover behind a creature at least one size larger.",
-        "Alert: +5 Initiative (already 8). You cannot be surprised. Other creatures do not gain Advantage on you for being hidden from you."
+        "Alert: Initiative Proficiency: add your Proficiency Bonus to Initiative (already +5 total). Initiative Swap: after rolling, you can swap Initiative with one willing ally in the same combat if neither is Incapacitated."
       ],
       "gear": "Studded leather, Rapier, Shortbow, 20× Arrows, Thieves’ tools, Crowbar, 18 gp",
       "masteries": [
@@ -1073,7 +1073,8 @@
         "Shortbow: Slow"
       ],
       "ruleset": "2024",
-      "conversionNote": "2014 Thief rebuilt on 2024 Rogue 4 / Thief 3 / Halfling / Criminal. Cunning Strike is level 5 — not on this sheet."
+      "conversionNote": "2014 Thief rebuilt on 2024 Rogue 4 / Thief 3 / Halfling / Criminal. Cunning Strike is level 5 — not on this sheet.",
+      "initiativeBonusOverride": 2
     },
     {
       "id": "pregen-ivo",
