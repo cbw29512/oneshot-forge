@@ -16,6 +16,20 @@
     );
   }
 
+  function dualEditionReady(product) {
+    const rules = product.rulesSupport || {};
+    return Boolean(
+      Array.isArray(rules.requiredEditions) &&
+      rules.requiredEditions.includes("2014") &&
+      rules.requiredEditions.includes("2024") &&
+      rules.editionLockedSelection === true &&
+      rules.adventure2014Certified === true &&
+      rules.pregens2014Certified === true &&
+      rules.adventure2024Certified === true &&
+      rules.pregens2024Certified === true
+    );
+  }
+
   function releaseGate(product) {
     const gate = product.releaseGate || {};
     const commerce = commerceFor(product);
@@ -24,6 +38,7 @@
       gate.approved &&
       gate.dmPlaytestApproved &&
       gate.checkoutConfigured &&
+      dualEditionReady(product) &&
       deliveryReady(product) &&
       commerce.provider &&
       commerce.checkoutUrl &&
