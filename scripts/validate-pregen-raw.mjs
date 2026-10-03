@@ -209,7 +209,12 @@ function validatePack(path, edition) {
       if (typeof attack.bonus === "number") {
         const str = abilityMod(pc.scores.STR);
         const dex = abilityMod(pc.scores.DEX);
-        const ability = weapon.ability === "DEX" ? dex : weapon.ability === "FINESSE" ? Math.max(str,dex) : str;
+        const overrideAbility = String(attack.attackAbilityOverride || "").toUpperCase();
+        const ability = overrideAbility === "DEX" ? dex
+          : overrideAbility === "STR" ? str
+          : weapon.ability === "DEX" ? dex
+          : weapon.ability === "FINESSE" ? Math.max(str,dex)
+          : str;
         const magic = Number(attack.magicBonus || 0);
         const override = Number(attack.attackBonusOverride || 0);
         const expected = ability + pb + magic + override;
