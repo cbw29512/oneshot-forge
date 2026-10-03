@@ -16,6 +16,7 @@ const readJson = path => {
 
 const abilityMod = score => Math.floor((Number(score) - 10) / 2);
 const expectedPB = level => level <= 4 ? 2 : level <= 8 ? 3 : level <= 12 ? 4 : level <= 16 ? 5 : 6;
+const fixedAverageByDie = {6:4,8:5,10:6,12:7};
 
 const WEAPONS = {
   "club": {die:"1d4", ability:"STR"},
@@ -133,6 +134,13 @@ function validatePack(path, edition) {
     else if (Number(hd[1]) !== level) errors.push(who + ": hitDice count " + hd[1] + " should equal level " + level);
 
     if (!Number.isInteger(pc.hp) || pc.hp < 1) errors.push(who + ": invalid HP " + pc.hp);
+    if (hd) {
+      const die = Number(hd[2]);
+      const con = abilityMod(pc.scores.CON);
+      const perLevelBonus = Number(pc.hpBonusPerLevel || 0);
+      const expectedHP = die + con + perLevelBonus + (level - 1) * (fixedAverageByDie[die] + con + perLevelBonus);
+      if (pc.hp !== expectedHP) errors.push(who + ": HP " + pc.hp + " should be " + expectedHP + " using fixed-average advancement and recorded per-level bonuses");
+    }
     if (!Number.isInteger(pc.ac) || pc.ac < 8 || pc.ac > 30) errors.push(who + ": implausible AC " + pc.ac);
 
     for (const attack of pc.attackList || []) {
