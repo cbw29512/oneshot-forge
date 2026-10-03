@@ -66,7 +66,10 @@ def pell(pc):
 
 
 def nyx(pc):
-    pc["initiative"] = 8  # Alert +5
+    pc["initiative"] = 5  # Dex +3 + PB +2 from 2024 Alert
+    pc["initiativeBonusOverride"] = 2
+    pc["speedFt"] = 30
+    pc["speed"] = "30 ft."
     pc["featureList"] = [
         feat("Weapon Mastery", "Rogue 1", "Rapier (Vex) and Shortbow (Slow). Vex: hit gives Advantage on your next attack against that creature before your next turn."),
         feat("Sneak Attack", "Rogue 1", "Once per turn +2d6 when you hit with a Finesse or Ranged weapon and have Advantage, or an ally is within 5 ft. of the target and you don’t have Disadvantage."),
@@ -76,7 +79,7 @@ def nyx(pc):
         feat("Lucky", "Halfling", "When you roll a 1 on a d20 test, reroll and use the new roll."),
         feat("Brave", "Halfling", "Advantage on saves against Frightened. Advantage vs Frightened; you can also move through a larger creature’s space."),
         feat("Naturally Stealthy", "Halfling", "You can take Hide when you have merely Three-Quarters cover behind a creature at least one size larger."),
-        feat("Alert", "Criminal origin feat", "+5 Initiative (already 8). You cannot be surprised. Other creatures do not gain Advantage on you for being hidden from you."),
+        feat("Alert", "Criminal origin feat", "Initiative Proficiency: add your Proficiency Bonus to Initiative (already +5 total). Initiative Swap: after rolling, you can swap Initiative with one willing ally in the same combat if neither is Incapacitated."),
     ]
     pc["masteries"] = ["Rapier: Vex", "Shortbow: Slow"]
     return patch_common(pc, "2014 Thief rebuilt on 2024 Rogue 4 / Thief 3 / Halfling / Criminal. Cunning Strike is level 5 — not on this sheet.")
