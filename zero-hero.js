@@ -172,6 +172,7 @@
     const key=chapter.id+":"+beat.id;
     if(state.resolvedBeats[key]) return;
 
+    const total=roll+mod(state.scores[attemptedAbility]);
     const rule=campaign.development.pointsByOutcome[outcome];
     let shifted=0;
 
@@ -191,7 +192,6 @@
 
     if(outcome==="criticalSuccess") state.criticalBonusEarned+=1;
 
-    const total=roll+mod(state.scores[attemptedAbility]);
     state.growthUsed+=1;
     state.chapterGrowth[chapter.id]=Number(state.chapterGrowth[chapter.id]||0)+1;
     state.resolvedBeats[key]={
