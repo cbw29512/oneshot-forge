@@ -95,6 +95,24 @@ for(const c of d.chapters){
 }
 if(opportunities!==21) fail("must contain exactly 21 base Development Opportunities");
 
+if(d.scrapbook?.enabled!==true) fail("character scrapbook must be enabled");
+if(d.scrapbook?.mechanicalBenefit!==true||d.scrapbook?.mechanicalRole!=="authoritative development ledger") fail("scrapbook must be the authoritative development ledger");
+if(d.scrapbook?.noExtraPower!==true) fail("scrapbook may not double-award development");
+if(d.scrapbook?.developmentCard?.requiredEveryGrowthBeat!==true||d.scrapbook?.developmentCard?.exactlyOnePerBeatPerCharacter!==true) fail("every Growth Beat must create exactly one Development Card");
+if(d.scrapbook?.yearbookCards?.mechanical!==false) fail("extra Yearbook/memory cards must remain nonmechanical");
+if(d.scrapbook?.printFormat?.cardSize!=="2.5 x 3.5 in"||d.scrapbook?.printFormat?.cardsPerLetterPage!==9) fail("scrapbook print format must remain 2.5x3.5, nine per Letter page");
+if(d.scrapbook?.competitionStandard?.supportedPlayerCount?.join(",")!=="4,5,6") fail("scrapbook competitions must support 4–6 players");
+if(d.scrapbook?.competitionStandard?.podiumPlaces?.join(",")!=="1,2,3") fail("competition podium must remain 1st/2nd/3rd");
+if(d.scrapbook?.competitionStandard?.cardForEveryPlayer!==true||d.scrapbook?.competitionStandard?.uniqueConsolationWithinEvent!==true) fail("every competitor must receive a unique result card");
+if(!/placement itself grants no extra Development Points/i.test(d.scrapbook?.competitionStandard?.noDevelopment||"")) fail("competition placement must not add extra DP");
+if(!Array.isArray(d.scrapbook?.competitions)||d.scrapbook.competitions.length<6) fail("scrapbook competition library is too small");
+for(const competition of d.scrapbook.competitions){
+  for(const place of ["1","2","3"]) if(!competition.awards?.[place]?.title) fail(competition.id+" missing podium card "+place);
+  if(!Array.isArray(competition.consolations)||competition.consolations.length<3) fail(competition.id+" needs 4th/5th/6th consolation cards");
+}
+const oneLegged=d.scrapbook.competitions.find(x=>x.id==="one-legged-dash");
+if(oneLegged?.specialAwards?.["5-of-5"]?.title!=="6th Place in a Five-Person Race") fail("one-legged-race joke award missing while official placement must remain 5 of 5");
+
 if(!d.graduation?.["2014"]||!d.graduation?.["2024"]) fail("both edition graduation contracts required");
 if(d.graduationKeepsakes?.enabled!==true) fail("graduation keepsakes must be enabled");
 if(d.graduationKeepsakes?.mechanicalBenefit!==false) fail("graduation keepsakes must never grant mechanical benefit");
@@ -106,6 +124,7 @@ for(const k of ["abilityArray","proficiencies","heirloom","mentor","mechanics"])
 
 if(!/development wallet/i.test(page)) fail("public page must explain the development wallet");
 if(!/group-resolution-note/.test(page)||!/yearbook-host/.test(page)) fail("public page must expose shared-beat and Yearbook continuity surfaces");
+for(const id of ["scrapbook-panel","scrapbook-grid","scrapbook-count","print-scrapbook"]) if(!page.includes('id="'+id+'"')) fail("character scrapbook UI missing "+id);
 for(const id of ["graduation-keepsakes","graduation-certificate","origin-chronicle","print-certificate","print-graduation-packet"]) if(!page.includes('id="'+id+'"')) fail("graduation keepsake UI missing "+id);
 if(!/30-point maximum/i.test(page)) fail("public page must disclose the absolute 30-point maximum");
 if(!/How Character Advantage is earned/.test(page)||!/No roleplay Disadvantage/.test(page)) fail("public page must explain fair Character Advantage criteria");
@@ -119,7 +138,13 @@ if(!/btn\.disabled=!ready/.test(script)) fail("edition buttons must remain disab
 if(!/settleMaturityCredits/.test(script)) fail("Maturity Settlement implementation missing");
 if(!/state\.wallet\.flexible\+=reclaimed/.test(script)) fail("stranded earned growth must return to the flexible wallet");
 if(!/state\.invested\[ability\]-=partial/.test(script)) fail("partial stranded investment recovery missing");
-if(!/version:5/.test(script)) fail("Yearbook continuity state version missing");
+if(!/version:6/.test(script)) fail("scrapbook development-ledger state version missing");
+if(!/scrapbookCards:\[\]/.test(script)) fail("scrapbook card state missing");
+if(!/upsertDevelopmentCard\(chapter,beat,state\.resolvedBeats\[key\]\)/.test(script)) fail("resolved Growth Beats must create Development Cards");
+if(!/developmentCardId/.test(script)||!/syncDevelopmentCards/.test(script)) fail("scrapbook development-card reconciliation path missing");
+if(!/scrapbookDevelopmentText/.test(script)||!/flexiblePoints/.test(script)||!/lessonPoints/.test(script)||!/shiftedFrom/.test(script)||!/shiftedTo/.test(script)) fail("Development Cards must preserve mechanical growth effects");
+if(!/renderScrapbook/.test(script)) fail("scrapbook renderer missing");
+if(!/printZeroHero\("print-scrapbook"\)/.test(script)) fail("scrapbook print mode missing");
 if(!/yearbook:\{\}/.test(script)) fail("Yearbook state missing");
 if(!/yearbookComplete/.test(script)||!/saveYearbook/.test(script)) fail("Yearbook completion/save logic missing");
 if(!/next\.disabled=used!==3 \|\| !yearbookComplete\(chapter\)/.test(script)) fail("age advancement must wait for Yearbook completion");
@@ -164,4 +189,4 @@ for(const score of Object.keys(raise).map(Number)){
  if(dev.startingPointBuyCost+dev.baseOpportunities!==dev.minimumGraduationValue) fail("6 starting value + 21 base growth must equal the 27-point floor");
 if(dev.maximumGraduationValue-dev.minimumGraduationValue!==3) fail("Zero-to-Hero heroic headroom must remain exactly 3 point-buy value");
 
-console.log("From Zero to Hero OK — life-first village arc, shared Growth Beats, Yearbook continuity, 27–30 point range, two-page commemorative graduation packet, edition-isolated graduation.");
+console.log("From Zero to Hero OK — scrapbook-led character development, 4–6 player competition awards, life-first village arc, shared Growth Beats, 27–30 point range, graduation keepsakes, edition-isolated graduation.");
