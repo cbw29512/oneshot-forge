@@ -1249,7 +1249,22 @@
       "criticalFailureDecoration": "A critical failure should prefer an event-specific mishap/consolation title when the character finishes outside the podium.",
       "noDevelopment": "Competition placement itself grants no extra Development Points. The competition's Development Card carries only the growth result already produced by that character's Development Check.",
       "consolationAssignment": "For 4th–6th place, use consolation entries in order: 4th gets #1, 5th gets #2, 6th gets #3, unless an event-specific place/field-size special award overrides it.",
-      "cardBuildRule": "Every competitor receives one scrapbook card. That same card is the Development Card for the competition Growth Beat when the competition is a Growth Beat. Podium/consolation title records placement; development fields record how the character actually grew from the check."
+      "cardBuildRule": "Every competitor receives one scrapbook card. That same card is the Development Card for the competition Growth Beat when the competition is a Growth Beat. Podium/consolation title records placement; development fields record how the character actually grew from the check.",
+      "coreFairnessSlate": {
+        "required": true,
+        "primaryAbilities": [
+          "STR",
+          "DEX",
+          "CON",
+          "INT",
+          "WIS",
+          "CHA"
+        ],
+        "exactContestPerAbility": 1,
+        "rule": "The six core development competitions contain exactly one STR, DEX, CON, INT, WIS, and CHA contest. Because every Upbringing Lean has exactly 2 Favored, 2 Neutral, and 2 Challenging abilities, every profile experiences exactly 2 Favored, 2 Neutral, and 2 Challenging core competitions.",
+        "optionalSideContests": "Optional extra contests may award scrapbook memories and placements but must not add Development Points unless they replace a declared Growth Beat under the same six-ability fairness audit."
+      },
+      "rankingRule": "For a core competition, every contestant rolls the same primary ability. Use normal Upbringing Lean and Character Advantage cancellation. Rank by final check total, then kept d20, then a story-only d20 tiebreak. This keeps the contest comparable while preserving different childhood odds."
     },
     "cardFields": [
       "title",
@@ -1278,10 +1293,7 @@
         "age": 14,
         "chapterId": "age-14-harvest-games",
         "allowedAbilities": [
-          "DEX",
-          "CON",
-          "WIS",
-          "CHA"
+          "DEX"
         ],
         "prompt": "A ridiculous looping dash around hay bales, market stalls, and painted wooden rats. Speed helps, but route-reading, endurance, and crowd sense can matter too.",
         "awards": {
@@ -1317,7 +1329,11 @@
             "category": "Consolation",
             "memory": "You finished. The painted rat mascot somehow looked smug about it."
           }
-        ]
+        ],
+        "developmentCore": true,
+        "primaryAbility": "DEX",
+        "fairnessLaneLabel": "Agility",
+        "placementMethod": "All contestants use the same primary ability. Rank by final check total; break ties by higher kept d20, then one story-only d20 tiebreak if needed. Placement itself adds no Development Points."
       },
       {
         "id": "pie-eating",
@@ -1325,9 +1341,7 @@
         "age": 14,
         "chapterId": "age-14-harvest-games",
         "allowedAbilities": [
-          "CON",
-          "WIS",
-          "CHA"
+          "CON"
         ],
         "prompt": "No hands. Too much berry pie. An audience that gets louder as judgment gets worse.",
         "awards": {
@@ -1363,7 +1377,11 @@
             "category": "Consolation",
             "memory": "A solemn promise made while covered in crumbs."
           }
-        ]
+        ],
+        "developmentCore": true,
+        "primaryAbility": "CON",
+        "fairnessLaneLabel": "Endurance",
+        "placementMethod": "All contestants use the same primary ability. Rank by final check total; break ties by higher kept d20, then one story-only d20 tiebreak if needed. Placement itself adds no Development Points."
       },
       {
         "id": "one-legged-dash",
@@ -1417,7 +1435,11 @@
             "category": "Mishap",
             "memory": "Official result: fifth of five. The handmade consolation ribbon still says sixth. Nobody will explain why."
           }
-        }
+        },
+        "developmentCore": false,
+        "storyOnlyCompetition": true,
+        "primaryAbility": "DEX",
+        "placementMethod": "Optional side contest. Award placement/memory cards only; it is not one of the six fairness-core development contests."
       },
       {
         "id": "sack-haul",
@@ -1425,9 +1447,7 @@
         "age": 14,
         "chapterId": "age-14-harvest-games",
         "allowedAbilities": [
-          "STR",
-          "CON",
-          "INT"
+          "STR"
         ],
         "prompt": "Move awkward grain sacks through a short obstacle lane without splitting them or yourself.",
         "awards": {
@@ -1463,7 +1483,11 @@
             "category": "Consolation",
             "memory": "The race ended before your determination did."
           }
-        ]
+        ],
+        "developmentCore": true,
+        "primaryAbility": "STR",
+        "fairnessLaneLabel": "Power",
+        "placementMethod": "All contestants use the same primary ability. Rank by final check total; break ties by higher kept d20, then one story-only d20 tiebreak if needed. Placement itself adds no Development Points."
       },
       {
         "id": "riddle-table",
@@ -1471,9 +1495,7 @@
         "age": 14,
         "chapterId": "age-14-harvest-games",
         "allowedAbilities": [
-          "INT",
-          "WIS",
-          "CHA"
+          "INT"
         ],
         "prompt": "Three riddles, one trick question, and a judge who enjoys watching confident people realize they misunderstood the wording.",
         "awards": {
@@ -1509,7 +1531,11 @@
             "category": "Consolation",
             "memory": "A tiny wooden quill awarded for refusing to leave the table."
           }
-        ]
+        ],
+        "developmentCore": true,
+        "primaryAbility": "INT",
+        "fairnessLaneLabel": "Reason",
+        "placementMethod": "All contestants use the same primary ability. Rank by final check total; break ties by higher kept d20, then one story-only d20 tiebreak if needed. Placement itself adds no Development Points."
       },
       {
         "id": "lantern-decorating",
@@ -1517,9 +1543,6 @@
         "age": 13,
         "chapterId": "age-13-spring-dance",
         "allowedAbilities": [
-          "DEX",
-          "INT",
-          "WIS",
           "CHA"
         ],
         "prompt": "Build, paint, fold, or decorate a spring lantern before the evening dance.",
@@ -1555,6 +1578,58 @@
             "title": "Still Lit at Midnight",
             "category": "Consolation",
             "memory": "It did not win, but it outlasted several prettier lanterns."
+          }
+        ],
+        "developmentCore": true,
+        "primaryAbility": "CHA",
+        "fairnessLaneLabel": "Presentation",
+        "placementMethod": "All contestants use the same primary ability. Rank by final check total; break ties by higher kept d20, then one story-only d20 tiebreak if needed. Placement itself adds no Development Points."
+      },
+      {
+        "id": "hearthcross-scavenger-hunt",
+        "name": "Hearthcross Scavenger Hunt",
+        "age": 14,
+        "chapterId": "age-14-harvest-games",
+        "developmentCore": true,
+        "primaryAbility": "WIS",
+        "fairnessLaneLabel": "Awareness",
+        "allowedAbilities": [
+          "WIS"
+        ],
+        "prompt": "Teams receive six ordinary village clues and must notice what everyone else walks past: tracks, weather signs, shop marks, animal behavior, and hidden landmarks.",
+        "placementMethod": "All contestants use WIS. Rank by final check total; break ties by higher kept d20, then one story-only d20 tiebreak if needed. Placement itself adds no Development Points.",
+        "awards": {
+          "1": {
+            "title": "Eyes of Hearthcross",
+            "category": "Podium",
+            "memory": "You found the last clue before anyone else realized where to look."
+          },
+          "2": {
+            "title": "Second to Notice",
+            "category": "Podium",
+            "memory": "One clue behind, and still seeing more than most people did."
+          },
+          "3": {
+            "title": "Third Trail Home",
+            "category": "Podium",
+            "memory": "A podium finish built on patience and noticing the small things."
+          }
+        },
+        "consolations": [
+          {
+            "title": "Followed the Wrong Goose",
+            "category": "Mishap",
+            "memory": "The goose seemed extremely confident. The goose was not part of the contest."
+          },
+          {
+            "title": "Found Something Else Useful",
+            "category": "Consolation",
+            "memory": "Not the clue, but still something nobody else noticed."
+          },
+          {
+            "title": "Participation Magnifying Glass",
+            "category": "Consolation",
+            "memory": "A wooden lens frame awarded for refusing to stop looking."
           }
         ]
       }
