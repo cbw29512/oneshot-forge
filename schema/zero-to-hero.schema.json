@@ -15,7 +15,8 @@
     "lifeFirstDesign",
     "continuity",
     "graduationKeepsakes",
-    "scrapbook"
+    "scrapbook",
+    "upbringingLeans"
   ],
   "properties": {
     "id": {
@@ -734,6 +735,104 @@
             "rule": {
               "type": "string",
               "minLength": 30
+            }
+          }
+        }
+      }
+    },
+    "upbringingLeans": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "level0Only",
+        "locksAfterFirstGrowthBeat",
+        "doesNotLockClass",
+        "startingScoresUnaffected",
+        "fairnessRule",
+        "interactionRule",
+        "characterAdvantageInteraction",
+        "level1Boundary",
+        "profiles"
+      ],
+      "properties": {
+        "enabled": {
+          "const": true
+        },
+        "level0Only": {
+          "const": true
+        },
+        "locksAfterFirstGrowthBeat": {
+          "const": true
+        },
+        "doesNotLockClass": {
+          "const": true
+        },
+        "startingScoresUnaffected": {
+          "const": true
+        },
+        "fairnessRule": {
+          "type": "string",
+          "minLength": 40
+        },
+        "interactionRule": {
+          "type": "string",
+          "minLength": 40
+        },
+        "characterAdvantageInteraction": {
+          "type": "string",
+          "minLength": 40
+        },
+        "level1Boundary": {
+          "type": "string",
+          "minLength": 40
+        },
+        "profiles": {
+          "type": "array",
+          "minItems": 12,
+          "maxItems": 12,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "likelyPath",
+              "description",
+              "advantage",
+              "neutral",
+              "disadvantage"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "likelyPath": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string",
+                "minLength": 30
+              },
+              "advantage": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "uniqueItems": true
+              },
+              "neutral": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "uniqueItems": true
+              },
+              "disadvantage": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "uniqueItems": true
+              }
             }
           }
         }
