@@ -87,6 +87,37 @@ function firstDie(text="") {
   return String(text).match(/\b(?:\d+d\d+|\d+)\b/i)?.[0]?.toLowerCase() || null;
 }
 
+function validateDirectProgression(parentPath, childPath, expectedLevel) {
+  const parent = readJson(parentPath);
+  const child = readJson(childPath);
+  if (!parent || !child) return;
+  if (child.level !== expectedLevel) errors.push(childPath + ": pack level should be " + expectedLevel);
+  if (child.lineageSource !== parentPath) errors.push(childPath + ": lineageSource must point to " + parentPath);
+  const byId = new Map((parent.characters || []).map(pc => [pc.id, pc]));
+  if ((child.characters || []).length !== (parent.characters || []).length) {
+    errors.push(childPath + ": character count drifted from parent");
+  }
+  for (const pc of child.characters || []) {
+    const prev = byId.get(pc.id);
+    if (!prev) { errors.push(childPath + ": new/rebuilt character id " + pc.id + " is not in parent"); continue; }
+    for (const field of ["name","className","race","background","portrait","appearance"]) {
+      if (JSON.stringify(pc[field]) !== JSON.stringify(prev[field])) {
+        errors.push(childPath + " :: " + pc.name + ": persistent identity field drifted: " + field);
+      }
+    }
+    if (JSON.stringify(pc.personality) !== JSON.stringify(prev.personality)) {
+      errors.push(childPath + " :: " + pc.name + ": personality drifted between levels");
+    }
+    if (JSON.stringify(pc.scores) !== JSON.stringify(prev.scores)) {
+      errors.push(childPath + " :: " + pc.name + ": ability scores changed at level " + expectedLevel + " without an advancement gate");
+    }
+    const history = pc.advancementHistory || [];
+    if (!history.some(entry => Number(entry.level) === expectedLevel)) {
+      errors.push(childPath + " :: " + pc.name + ": missing advancementHistory entry for level " + expectedLevel);
+    }
+  }
+}
+
 function validatePack(path, edition) {
   const pack = readJson(path);
   if (!pack) return;
@@ -296,3 +327,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log("Pregen RAW validation OK: derived stats, weapon dice, attack bonuses, saves, skills, spell math, hit dice, and edition isolation.");
+
+validateDirectProgression("data/pregens/shared/2014/level-01.json", "data/pregens/shared/2014/level-02.json", 2);
