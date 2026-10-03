@@ -37,6 +37,7 @@ def brann(pc):
         feat("Skillful", "Human", "One extra skill proficiency (already on the sheet)."),
     ]
     pc["hp"] = 48
+    pc["hpBonusPerLevel"] = 2
     pc["hitDice"] = "4d10"
     pc["bonusActions"] = ["Second Wind (3 uses): regain 1d10+4 HP."]
     pc["masteries"] = ["Longsword: Sap (hit: target has Disadvantage on its next attack before your next turn)", "Javelin: Slow (hit and damage: target’s Speed −10 ft. until your next turn)"]
@@ -156,6 +157,7 @@ def hester(pc):
     ]
     pc["background"] = "Farmer"
     pc["hp"] = 44
+    pc["hpBonusPerLevel"] = 2
     pc["spellcasting"]["prepareCount"] = "5 prepared Paladin spells at level 4, plus Oath of Devotion spells and Divine Smite always prepared."
     pc["spellcasting"]["prepared"] = ["Bless", "Command", "Compelled Duel", "Cure Wounds", "Heroism", "Protection from Evil and Good", "Shield of Faith", "Divine Smite"]
     pc["spellList"] = [
