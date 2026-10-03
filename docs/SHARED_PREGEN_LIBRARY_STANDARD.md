@@ -140,3 +140,44 @@ An adventure declares:
 - optional alternates.
 
 The storefront then exposes the matching edition + level pool only.
+
+
+## Adventure edition binding
+
+Edition selection happens at the **adventure level**, before pregens are shown.
+
+A released one-shot must support both 2014 and 2024 as separate certified play modes.
+
+When the GM chooses **2014**:
+- load the 2014 adventure rules package;
+- load only 2014 monster/NPC/stat/rules references;
+- load only 2014 spells, features, feats, equipment, and magic-item rules;
+- show only the matching 2014 pregen pool at the adventure's level;
+- print only 2014-compatible character sheets and references.
+
+When the GM chooses **2024**:
+- load the 2024 adventure rules package;
+- load only 2024 monster/NPC/stat/rules references;
+- load only 2024 spells, features, feats, equipment, and magic-item rules;
+- show only the matching 2024 pregen pool at the adventure's level;
+- print only 2024-compatible character sheets and references.
+
+### No mixed-edition state
+
+The runner MUST NOT permit:
+- a 2014 adventure with 2024 pregens;
+- a 2024 adventure with 2014 pregens;
+- same-name spells/features/items silently crossing editions;
+- cached character selections from one edition appearing in the other.
+
+Changing edition must refresh all edition-bound adventure and character data.
+
+### Paid-release invariant
+
+A one-shot is not sellable until **both edition packages are certified**:
+- 2014 adventure package ready;
+- 2014 level-matched pregen pool ready;
+- 2024 adventure package ready;
+- 2024 level-matched pregen pool ready.
+
+A product may be playtested in one edition before the other is finished, but it cannot be marked as the finished paid product until both pass their release gates.
