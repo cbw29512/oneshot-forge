@@ -1,5 +1,26 @@
-const {generateBones}=require("../forge-bones.js");
-const {createFleshRequest,assertBonesUnchanged}=require("../forge-flesh.js");
+const fs = require("node:fs");
+const path = require("node:path");
+const vm = require("node:vm");
+
+function loadBrowserModule(relPath) {
+  const fullPath = path.resolve(__dirname, relPath);
+  const source = fs.readFileSync(fullPath, "utf8");
+  const sandbox = {
+    module: { exports: {} },
+    exports: {},
+    globalThis: {},
+    console,
+    crypto: globalThis.crypto,
+    Uint32Array,
+    Date,
+    Math
+  };
+  vm.runInNewContext(source, sandbox, { filename: fullPath });
+  return sandbox.module.exports;
+}
+
+const { generateBones } = loadBrowserModule("../forge-bones.js");
+const { createFleshRequest, assertBonesUnchanged } = loadBrowserModule("../forge-flesh.js");
 
 function assert(value,message){ if(!value) throw new Error(message); }
 
