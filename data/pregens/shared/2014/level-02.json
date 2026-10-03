@@ -1977,7 +1977,7 @@
         {
           "name": "Spellcasting",
           "source": "Paladin 2",
-          "text": "Cha DC 12, +4. Two 1st-level spell slots; prepare 3 Paladin spells."
+          "text": "Cha DC 13, +5. Two 1st-level spell slots; prepare 4 Paladin spells."
         },
         {
           "name": "Divine Smite",
@@ -2029,7 +2029,7 @@
         "Lay on Hands: Action. Pool of 5 HP. Heal from the pool, or spend 5 HP to neutralize one poison or disease.",
         "Rustic Hospitality: Common folk will hide you from the law or anyone searching, if you are not putting them in undue danger.",
         "Fighting Style: Dueling: +2 damage with a one-handed melee weapon while wielding no other weapon (shield is allowed; included in longsword damage).",
-        "Spellcasting: Cha DC 12, +4. Two 1st-level spell slots; prepare 3 Paladin spells.",
+        "Spellcasting: Cha DC 13, +5. Two 1st-level spell slots; prepare 4 Paladin spells.",
         "Divine Smite: When you hit with a melee weapon, expend a spell slot for +2d8 radiant damage; +1d8 against a Fiend or Undead."
       ],
       "gear": "Chain mail, Shield, Longsword, 3× Javelin, Holy symbol (iron lantern), 14 gp",
@@ -2046,17 +2046,18 @@
       ],
       "spellcasting": {
         "ability": "Charisma",
-        "saveDC": 12,
-        "attack": 4,
+        "saveDC": 13,
+        "attack": 5,
         "slots": {
           "1": 2
         },
         "focus": "holy symbol",
-        "prepareCount": "3 prepared Paladin spells (Cha + half Paladin level, minimum 1).",
+        "prepareCount": "4 prepared Paladin spells (Cha + half Paladin level, minimum 1).",
         "prepared": [
           "Bless",
           "Cure Wounds",
-          "Heroism"
+          "Heroism",
+          "Shield of Faith"
         ],
         "cantrips": []
       },
@@ -2073,14 +2074,21 @@
           "name": "Cure Wounds",
           "time": "action",
           "range": "touch",
-          "effect": "Restore 1d8+2 HP."
+          "effect": "Restore 1d8+3 HP."
         },
         {
           "level": 1,
           "name": "Heroism",
           "time": "action",
           "range": "touch",
-          "effect": "Concentration up to 1 minute. Target is immune to frightened and gains 2 temporary HP at the start of each turn."
+          "effect": "Concentration up to 1 minute. Target is immune to frightened and gains 3 temporary HP at the start of each turn."
+        },
+        {
+          "level": 1,
+          "name": "Shield of Faith",
+          "time": "bonus",
+          "range": "60 ft.",
+          "effect": "Concentration up to 10 minutes. Target gains +2 AC."
         }
       ]
     },
