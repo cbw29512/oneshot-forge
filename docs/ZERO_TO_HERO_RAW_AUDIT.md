@@ -15,9 +15,9 @@ The normal 5E point-buy table values a score of 9 at 1 point.
 
 Six starting 9s therefore represent a value of 6.
 
-The campaign has 21 base Development Opportunities. If each produces one normal development point and no critical-success bonus is spent, the character can reach the normal 27-point target:
+The campaign has 21 base Development Opportunities. Each opportunity always contributes one baseline development point regardless of success or failure, so completing the campaign guarantees the normal 27-point floor before any critical-success bonus growth:
 
-**6 starting value + 21 development = 27.**
+**6 starting value + 21 baseline development = 27 minimum.**
 
 The Level-0 score cap remains 15 before edition-specific origin adjustments.
 
@@ -55,6 +55,8 @@ Example:
 A future Fighter tries to overpower a dangerous mechanism with Strength and critically fails. The scene teaches caution and observation. One invested STR point can move to WIS, and the new Lesson Point is also locked to WIS.
 
 The character did not become weaker overall; the experience changed the direction of development.
+
+Even repeated critical failures cannot reduce the completed campaign below the 27-point baseline. Five critical failures can produce a noticeably different ability distribution, but the player still graduates with at least the full 27-point-buy-equivalent base array.
 
 ## Critical success
 
@@ -100,9 +102,13 @@ Before generating Level 1, show:
 - partial invested development that has not yet completed a score increase;
 - total critical-success bonus points earned.
 
-If the base array is 27 point-buy value or lower and every score is 15 or lower, it is **within the normal point-buy envelope**, although the route used to generate it was still the Level-0 house rule.
+Graduation is blocked below **27 point-buy value**.
 
-If the base array exceeds 27, label it **Heroic / house-rule ability generation**.
+Lesson Points remain locked to their tagged ability where they can still be spent. If a Lesson Point is blocked by the pre-origin cap, or invested progress is stranded below a two-point increase, **Maturity Settlement** may return only that already-earned stranded growth to the flexible wallet. It creates no new development.
+
+At exactly 27, the character has the complete baseline development budget.
+
+If the base array exceeds 27 because critical-success bonus points were spent, label it **Heroic / house-rule ability generation**.
 
 Once the array is frozen, all later mechanics must be legal for the selected 2014 or 2024 ruleset.
 
@@ -119,6 +125,8 @@ CI must reject any implementation that:
 - permits a Lesson Point to be assigned to the attempted ability;
 - silently converts familiarity into proficiency;
 - mixes 2014 and 2024 graduation mechanics;
+- allows graduation below 27 after all 21 base opportunities;
+- allows Maturity Settlement to create points that were not already earned;
 - claims an above-27 base array is normal RAW point buy.
 
-**Audit conclusion:** pass/fail now has a meaningful mechanical identity without making ordinary failure erase character growth. Critical failure can reshape the build; critical success can make it slightly stronger. The resulting Level-0 ability-generation method remains transparently house rule, while the post-graduation game stays edition-locked.
+**Audit conclusion:** pass/fail has a meaningful mechanical identity without lowering the baseline character budget. Failure redirects growth; critical failure can reshape the build; critical success can make it slightly stronger. Completing the full origin campaign always guarantees at least a 27-point-buy-equivalent base array. The Level-0 ability-generation method remains transparently house rule, while the post-graduation game stays edition-locked.
