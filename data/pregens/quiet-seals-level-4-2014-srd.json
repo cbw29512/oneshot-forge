@@ -299,7 +299,8 @@
         "Ability Score Improvement: Already applied in the scores on this sheet.",
         "Military Rank: Soldiers loyal to your former rank still recognize you. You can invoke that rank for food, lodging, or an audience with officers."
       ],
-      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Explorer’s pack, 12 gp"
+      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Explorer’s pack, 12 gp",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-pell",
@@ -715,7 +716,8 @@
         "Shelter of the Faithful: You and companions can receive free healing and care at a temple of your faith.",
         "Spellcasting: Wis DC 13, +5 to hit. Slots 4/3. Prepare Wis mod + level = 7, plus domain spells."
       ],
-      "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer’s kit, Acolyte’s vestments, 15 gp"
+      "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer’s kit, Acolyte’s vestments, 15 gp",
+      "hpBonusPerLevel": 1
     },
     {
       "id": "pregen-nyx",
@@ -1023,7 +1025,8 @@
         "Naturally Stealthy: You can attempt to hide even when you are obscured only by a creature one size larger than you.",
         "Criminal Contact: You have a reliable contact who can pass messages through the criminal network."
       ],
-      "gear": "Studded leather, Rapier, Shortbow, 20× Arrows, Thieves’ tools, Crowbar, 18 gp"
+      "gear": "Studded leather, Rapier, Shortbow, 20× Arrows, Thieves’ tools, Crowbar, 18 gp",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-ivo",
@@ -1417,7 +1420,8 @@
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60 ft. Trance: 4 hours instead of sleep.",
         "Researcher: If you do not know a piece of lore, you usually know where to find it."
       ],
-      "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar’s pack, Bottle of ink, 22 gp"
+      "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar’s pack, Bottle of ink, 22 gp",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-kael",
@@ -1751,7 +1755,8 @@
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. Trance 4 hours.",
         "Wanderer: You can always recall the layout of surrounding territory and find food and water for yourself and five others when the land can provide."
       ],
-      "gear": "Scale mail, Longbow, 20× Arrows, Shortsword, Explorer’s pack, 11 gp"
+      "gear": "Scale mail, Longbow, 20× Arrows, Shortsword, Explorer’s pack, 11 gp",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-hester",
@@ -2104,7 +2109,8 @@
         "Channel Divinity: Turn the Unholy: Action, 1/rest. Fiends and undead within 30 ft. that see/hear you: Wis DC 13 or turned 1 minute.",
         "Rustic Hospitality: Common folk will hide you from the law or anyone searching, if you are not putting them in undue danger."
       ],
-      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Holy symbol (iron lantern), 14 gp"
+      "gear": "Chain mail, Shield, Longsword, 3× Javelin, Holy symbol (iron lantern), 14 gp",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-rook",
@@ -2394,7 +2400,8 @@
         "Savage Attacks: On a melee crit, roll one extra weapon damage die.",
         "Wanderer: Always know the surrounding territory; find food and water for six when the land allows."
       ],
-      "gear": "Greataxe, 4× Javelin, Explorer’s pack, 9 gp"
+      "gear": "Greataxe, 4× Javelin, Explorer’s pack, 9 gp",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-sable",
@@ -2789,7 +2796,8 @@
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. +2 Cha / +1 Dex / +1 Con already in scores.",
         "By Popular Demand: You can always find a place to perform; free lodging at the inn where you perform."
       ],
-      "gear": "Studded leather, Rapier, Lute, Diplomat’s pack, 16 gp"
+      "gear": "Studded leather, Rapier, Lute, Diplomat’s pack, 16 gp",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-bram",
@@ -3190,7 +3198,8 @@
         "Circle Spells (Forest): Barkskin and Spider Climb always prepared, do not count against prepares.",
         "Discovery: The quiet seclusion of your hermitage gave you a unique and powerful discovery — here: you can always find potable water if it exists within a mile."
       ],
-      "gear": "Hide armor, Shield (wood), Quarterstaff, Druidic focus, Explorer’s pack, 12 gp"
+      "gear": "Hide armor, Shield (wood), Quarterstaff, Druidic focus, Explorer’s pack, 12 gp",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-sora",
@@ -3476,7 +3485,8 @@
         "Slow Fall: Reaction: reduce fall damage by 20 (5 × monk level).",
         "Discovery: You know a quiet path into any walled town if you have a day to watch it."
       ],
-      "gear": "10× Darts, Explorer’s pack, 8 gp"
+      "gear": "10× Darts, Explorer’s pack, 8 gp",
+      "hpBonusPerLevel": 0
     },
     {
       "id": "pregen-vexa",
@@ -3853,7 +3863,8 @@
         "Damage Resistance: Resistance to fire.",
         "Rustic Hospitality: Common folk hide you if you are not endangering them."
       ],
-      "gear": "Arcane focus (ember-glass shard), Dungeoneer’s pack, 19 gp"
+      "gear": "Arcane focus (ember-glass shard), Dungeoneer’s pack, 19 gp",
+      "hpBonusPerLevel": 1
     },
     {
       "id": "pregen-mael",
@@ -4249,7 +4260,8 @@
         "False Identity: You have a second identity with papers and acquaintances. You can forge documents as long as you have seen an example.",
         "Not yet: Dark One’s Own Luck: You do not have this. It arrives at warlock 6. Do not use it."
       ],
-      "gear": "Leather armor, Dagger, Book of Shadows, Arcane focus, 20 gp"
+      "gear": "Leather armor, Dagger, Book of Shadows, Arcane focus, 20 gp",
+      "hpBonusPerLevel": 0
     }
   ]
 }
