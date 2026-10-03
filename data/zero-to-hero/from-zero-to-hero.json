@@ -1219,5 +1219,336 @@
       "critical successes and hard lessons"
     ],
     "ruleBoundary": "The graduation keepsakes are commemorative only. They grant no feat, proficiency, ASI, spell, class feature, equipment entitlement, magic-item property, or other mechanical benefit."
+  },
+  "scrapbook": {
+    "enabled": true,
+    "mechanicalBenefit": false,
+    "printFormat": {
+      "cardSize": "2.5 x 3.5 in",
+      "cardsPerLetterPage": 9,
+      "layout": "3 x 3 portrait Letter sheet",
+      "cutFriendly": true
+    },
+    "competitionStandard": {
+      "supportedPlayerCount": [
+        4,
+        5,
+        6
+      ],
+      "cardForEveryPlayer": true,
+      "podiumPlaces": [
+        1,
+        2,
+        3
+      ],
+      "consolationFromPlace": 4,
+      "uniqueConsolationWithinEvent": true,
+      "placementLabel": "Always record official place and field size, such as 4th of 6.",
+      "tieRule": "Break ties first by the higher kept d20. If still tied for a podium place, make one story-only d20 tiebreak roll; no Development Point is awarded.",
+      "criticalSuccessDecoration": "A critical success may add a Legendary Finish badge to the card but grants no extra scrapbook mechanic.",
+      "criticalFailureDecoration": "A critical failure should prefer an event-specific mishap/consolation title when the character finishes outside the podium.",
+      "noDevelopment": "Competition scrapbook placement and cards grant no Development Points, proficiencies, ability increases, or other mechanical benefits."
+    },
+    "cardFields": [
+      "title",
+      "age",
+      "event",
+      "placement",
+      "fieldSize",
+      "category",
+      "memory",
+      "chapter",
+      "badge",
+      "playerNote"
+    ],
+    "categories": [
+      "Podium",
+      "Consolation",
+      "Mishap",
+      "Bond",
+      "Milestone",
+      "Reputation"
+    ],
+    "competitions": [
+      {
+        "id": "rat-race",
+        "name": "The Rat Race",
+        "age": 14,
+        "chapterId": "age-14-harvest-games",
+        "allowedAbilities": [
+          "DEX",
+          "CON",
+          "WIS",
+          "CHA"
+        ],
+        "prompt": "A ridiculous looping dash around hay bales, market stalls, and painted wooden rats. Speed helps, but route-reading, endurance, and crowd sense can matter too.",
+        "awards": {
+          "1": {
+            "title": "Winner of the Rat Race",
+            "category": "Podium",
+            "memory": "Fastest through the fairground course when it counted."
+          },
+          "2": {
+            "title": "Rat Race Runner-Up",
+            "category": "Podium",
+            "memory": "One turn, one stumble, or one breath away from first."
+          },
+          "3": {
+            "title": "Third by a Tail",
+            "category": "Podium",
+            "memory": "Made the podium and will absolutely claim it was closer than it looked."
+          }
+        },
+        "consolations": [
+          {
+            "title": "Lost a Shoe, Finished Anyway",
+            "category": "Consolation",
+            "memory": "One shoe stayed behind. You did not."
+          },
+          {
+            "title": "Wrong Turn at the Turnip Stall",
+            "category": "Mishap",
+            "memory": "For several seconds, you were winning a completely different race."
+          },
+          {
+            "title": "The Rat Was Faster",
+            "category": "Consolation",
+            "memory": "You finished. The painted rat mascot somehow looked smug about it."
+          }
+        ]
+      },
+      {
+        "id": "pie-eating",
+        "name": "Pie-Eating Contest",
+        "age": 14,
+        "chapterId": "age-14-harvest-games",
+        "allowedAbilities": [
+          "CON",
+          "WIS",
+          "CHA"
+        ],
+        "prompt": "No hands. Too much berry pie. An audience that gets louder as judgment gets worse.",
+        "awards": {
+          "1": {
+            "title": "Hearthcross Pie Champion",
+            "category": "Podium",
+            "memory": "A clean victory purchased at considerable personal dignity."
+          },
+          "2": {
+            "title": "Second Helping",
+            "category": "Podium",
+            "memory": "Runner-up, with enough pie consumed to question every decision that led here."
+          },
+          "3": {
+            "title": "Crust and Honor",
+            "category": "Podium",
+            "memory": "Third place, still upright, technically proud."
+          }
+        },
+        "consolations": [
+          {
+            "title": "Face Full of Pie",
+            "category": "Mishap",
+            "memory": "At some point the contest stopped being about winning and became about surviving the photograph."
+          },
+          {
+            "title": "Too Much, Too Fast",
+            "category": "Consolation",
+            "memory": "An important lesson about enthusiasm, pacing, and berry filling."
+          },
+          {
+            "title": "Never Again (Until Next Year)",
+            "category": "Consolation",
+            "memory": "A solemn promise made while covered in crumbs."
+          }
+        ]
+      },
+      {
+        "id": "one-legged-dash",
+        "name": "One-Legged Dash",
+        "age": 14,
+        "chapterId": "age-14-harvest-games",
+        "allowedAbilities": [
+          "STR",
+          "DEX",
+          "CON",
+          "CHA"
+        ],
+        "prompt": "Hop, wobble, shout, recover, and somehow cross the finish line while the village laughs with you.",
+        "awards": {
+          "1": {
+            "title": "One-Legged Dash Champion",
+            "category": "Podium",
+            "memory": "Balance, stubbornness, and a very tired hopping leg earned first place."
+          },
+          "2": {
+            "title": "Silver Hop",
+            "category": "Podium",
+            "memory": "Second place and only slightly less graceful than the winner."
+          },
+          "3": {
+            "title": "Bronze Knee",
+            "category": "Podium",
+            "memory": "Third place, a ribbon, and a new appreciation for having two legs."
+          }
+        },
+        "consolations": [
+          {
+            "title": "Participation Ribbon, Earned the Hard Way",
+            "category": "Consolation",
+            "memory": "You did not make the podium. You did make it to the finish."
+          },
+          {
+            "title": "Technically Finished",
+            "category": "Mishap",
+            "memory": "The judges eventually agreed that your final movement counted as crossing the line."
+          },
+          {
+            "title": "6th Place in a Five-Person Race",
+            "category": "Mishap",
+            "memory": "The official result says fifth. The handmade consolation ribbon says sixth. Nobody will explain why."
+          }
+        ]
+      },
+      {
+        "id": "sack-haul",
+        "name": "Sack Haul",
+        "age": 14,
+        "chapterId": "age-14-harvest-games",
+        "allowedAbilities": [
+          "STR",
+          "CON",
+          "INT"
+        ],
+        "prompt": "Move awkward grain sacks through a short obstacle lane without splitting them or yourself.",
+        "awards": {
+          "1": {
+            "title": "Strongest Back at the Fair",
+            "category": "Podium",
+            "memory": "First across with the sack intact."
+          },
+          "2": {
+            "title": "Second Sack Standing",
+            "category": "Podium",
+            "memory": "Almost first, definitely sore tomorrow."
+          },
+          "3": {
+            "title": "Third and Still Carrying",
+            "category": "Podium",
+            "memory": "Podium finish with all the grain still inside the sack."
+          }
+        },
+        "consolations": [
+          {
+            "title": "Carried the Wrong Sack",
+            "category": "Mishap",
+            "memory": "Impressive effort. Wrong pile."
+          },
+          {
+            "title": "Grain Trail Award",
+            "category": "Consolation",
+            "memory": "Your sack finished lighter than it started."
+          },
+          {
+            "title": "Most Determined Walk Home",
+            "category": "Consolation",
+            "memory": "The race ended before your determination did."
+          }
+        ]
+      },
+      {
+        "id": "riddle-table",
+        "name": "Riddle Table",
+        "age": 14,
+        "chapterId": "age-14-harvest-games",
+        "allowedAbilities": [
+          "INT",
+          "WIS",
+          "CHA"
+        ],
+        "prompt": "Three riddles, one trick question, and a judge who enjoys watching confident people realize they misunderstood the wording.",
+        "awards": {
+          "1": {
+            "title": "Sharpest Mind at the Table",
+            "category": "Podium",
+            "memory": "First to solve the final riddle without falling for the trick."
+          },
+          "2": {
+            "title": "Almost Outsmarted the Judge",
+            "category": "Podium",
+            "memory": "Second place, which the judge insists is 'the first incorrect answer.'"
+          },
+          "3": {
+            "title": "Third Thought Was the Charm",
+            "category": "Podium",
+            "memory": "The answer arrived eventually, and in time for a ribbon."
+          }
+        },
+        "consolations": [
+          {
+            "title": "Confidently Incorrect",
+            "category": "Mishap",
+            "memory": "The answer was delivered beautifully. It was also wrong."
+          },
+          {
+            "title": "Solved the Wrong Riddle",
+            "category": "Consolation",
+            "memory": "An excellent solution to a question nobody asked."
+          },
+          {
+            "title": "Participation Quill",
+            "category": "Consolation",
+            "memory": "A tiny wooden quill awarded for refusing to leave the table."
+          }
+        ]
+      },
+      {
+        "id": "lantern-decorating",
+        "name": "Lantern Decorating Contest",
+        "age": 13,
+        "chapterId": "age-13-spring-dance",
+        "allowedAbilities": [
+          "DEX",
+          "INT",
+          "WIS",
+          "CHA"
+        ],
+        "prompt": "Build, paint, fold, or decorate a spring lantern before the evening dance.",
+        "awards": {
+          "1": {
+            "title": "Best Spring Lantern",
+            "category": "Podium",
+            "memory": "The lantern everyone pointed out when the lights came on."
+          },
+          "2": {
+            "title": "Second Brightest",
+            "category": "Podium",
+            "memory": "Beautiful enough to make first place nervous."
+          },
+          "3": {
+            "title": "Third Light of Spring",
+            "category": "Podium",
+            "memory": "A podium ribbon and a lantern worth keeping."
+          }
+        },
+        "consolations": [
+          {
+            "title": "Most Glue on One Person",
+            "category": "Mishap",
+            "memory": "Some of the lantern survived too."
+          },
+          {
+            "title": "Abstract Lantern Award",
+            "category": "Consolation",
+            "memory": "Nobody understood it. Several people claimed that was the point."
+          },
+          {
+            "title": "Still Lit at Midnight",
+            "category": "Consolation",
+            "memory": "It did not win, but it outlasted several prettier lanterns."
+          }
+        ]
+      }
+    ]
   }
 }
