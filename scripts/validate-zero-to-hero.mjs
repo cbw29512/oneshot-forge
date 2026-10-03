@@ -13,6 +13,22 @@ if(d.rules?.naturalExtremesNeverOverrideTotal!==true) fail("normal total-vs-DC r
 if(d.start?.age!==12||d.start?.className!=="Level 0") fail("must start age 12 at Level 0");
 for(const a of ab) if(d.start?.scores?.[a]!==9) fail(a+" must start at 9");
 
+if(d.upbringingLeans?.enabled!==true||d.upbringingLeans?.level0Only!==true) fail("Upbringing Lean must be enabled and Level-0-only");
+if(d.upbringingLeans?.locksAfterFirstGrowthBeat!==true) fail("Upbringing Lean must lock after the first Growth Beat");
+if(d.upbringingLeans?.doesNotLockClass!==true) fail("Upbringing Lean may not lock the Level-1 class");
+if(d.upbringingLeans?.startingScoresUnaffected!==true) fail("Upbringing Lean may not alter starting scores");
+if(!Array.isArray(d.upbringingLeans?.profiles)||d.upbringingLeans.profiles.length!==12) fail("exactly twelve class-shaped Upbringing Lean presets required");
+const expectedPaths=["Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"];
+if(d.upbringingLeans.profiles.map(p=>p.likelyPath).sort().join(",")!==expectedPaths.sort().join(",")) fail("Upbringing Lean presets must cover all twelve core class directions");
+for(const profile of d.upbringingLeans.profiles){
+  if(profile.advantage?.length!==2||profile.neutral?.length!==2||profile.disadvantage?.length!==2) fail(profile.id+" must have exactly 2 Advantage / 2 Neutral / 2 Disadvantage abilities");
+  const lanes=[...profile.advantage,...profile.neutral,...profile.disadvantage];
+  if(lanes.length!==6||new Set(lanes).size!==6||lanes.some(a=>!ab.includes(a))) fail(profile.id+" must partition all six abilities exactly once");
+}
+if(!/Any Advantage source plus any Disadvantage source resolves to a normal roll/i.test(d.upbringingLeans?.interactionRule||"")) fail("Upbringing advantage/disadvantage cancellation rule missing");
+if(!/cannot create double Advantage/i.test(d.upbringingLeans?.characterAdvantageInteraction||"")) fail("Character Advantage stacking guard missing");
+if(!/grants no Level-1/i.test(d.upbringingLeans?.level1Boundary||"")) fail("Upbringing Level-1 boundary missing");
+
 const dev=d.development;
 if(dev?.startingPointBuyCost!==6) fail("six starting 9s must carry point-buy value 6");
 if(dev?.baseOpportunities!==21) fail("must have 21 base Development Opportunities");
@@ -128,6 +144,8 @@ for(const id of ["scrapbook-panel","scrapbook-grid","scrapbook-count","print-scr
 for(const id of ["graduation-keepsakes","graduation-certificate","origin-chronicle","print-certificate","print-graduation-packet"]) if(!page.includes('id="'+id+'"')) fail("graduation keepsake UI missing "+id);
 if(!/30-point maximum/i.test(page)) fail("public page must disclose the absolute 30-point maximum");
 if(!/How Character Advantage is earned/.test(page)||!/No roleplay Disadvantage/.test(page)) fail("public page must explain fair Character Advantage criteria");
+if(!/id="char-upbringing"/.test(page)||!/id="upbringing-summary"/.test(page)) fail("public sheet must expose Upbringing Lean selection and summary");
+if(!/two abilities are Favored \(Advantage\), two are Neutral, and two are Challenging \(Disadvantage\)/.test(page)) fail("public page must explain the 2/2/2 Upbringing fairness structure");
 if(!/critical failure can redirect/i.test(page)) fail("public page must disclose critical-failure redirection");
 if(!/Heroic \/ house-rule ability generation/.test(script)) fail("graduation must label above-27 arrays as house rule");
 if(!/maximumGraduationValue\|\|30/.test(script)) fail("script must read the 30-point ceiling");
@@ -138,7 +156,15 @@ if(!/btn\.disabled=!ready/.test(script)) fail("edition buttons must remain disab
 if(!/settleMaturityCredits/.test(script)) fail("Maturity Settlement implementation missing");
 if(!/state\.wallet\.flexible\+=reclaimed/.test(script)) fail("stranded earned growth must return to the flexible wallet");
 if(!/state\.invested\[ability\]-=partial/.test(script)) fail("partial stranded investment recovery missing");
-if(!/version:6/.test(script)) fail("scrapbook development-ledger state version missing");
+if(!/version:7/.test(script)) fail("Upbringing Lean state version missing");
+if(!/upbringingProfile:""/.test(script)||!/upbringingLocked:false/.test(script)) fail("Upbringing Lean state missing");
+if(!/function upbringingDisposition/.test(script)||!/function effectiveRollMode/.test(script)) fail("Upbringing roll-mode helpers missing");
+if(!/Math\.min\(roll1,roll2\)/.test(script)) fail("Upbringing Disadvantage must keep the lower d20");
+if(!/Math\.max\(roll1,roll2\)/.test(script)) fail("Advantage must keep the higher d20");
+if(!/hasAdvantage && hasDisadvantage/.test(script)) fail("Advantage and Disadvantage must cancel to normal");
+if(!/state\.upbringingLocked=true/.test(script)) fail("Upbringing Lean must lock after first resolved Growth Beat");
+if(!/Choose an Upbringing Lean before the first developmental check/.test(script)) fail("Growth checks must require an Upbringing Lean");
+if(!/upbringingDisposition:disposition/.test(script)||!/upbringingProfile:state\.upbringingProfile/.test(script)) fail("Development results must record Upbringing Lean context");
 if(!/scrapbookCards:\[\]/.test(script)) fail("scrapbook card state missing");
 if(!/upsertDevelopmentCard\(chapter,beat,state\.resolvedBeats\[key\]\)/.test(script)) fail("resolved Growth Beats must create Development Cards");
 if(!/developmentCardId/.test(script)||!/syncDevelopmentCards/.test(script)) fail("scrapbook development-card reconciliation path missing");
@@ -165,7 +191,7 @@ if(!/Math\.max\(roll1,roll2\)/.test(script)) fail("Advantage must use the higher
 if(!/advantageReason/.test(script)||!/Character Advantage earned/.test(script)) fail("Advantage reason capture missing");
 if(!/Advantage requires two d20 results/.test(script)) fail("Advantage must require two d20 inputs");
 if(!/Record the specific character or scene reason/.test(script)) fail("Advantage must require a fiction-grounded reason");
-if(/disadvantage/i.test(script)) fail("Zero-to-Hero script must not introduce roleplay Disadvantage");
+if(/roleplay disadvantage/i.test(script)) fail("script must not introduce roleplay-based Disadvantage");
 if(/finalReflection|reflectionRemaining|canFinishReflection/.test(script)) fail("superseded Final Reflection logic must not remain");
 if(!/criticalBonusEarned\+=1/.test(script)) fail("critical-success bonus tracking missing");
 if(!/27-point minimum · 30-point maximum/.test(script)) fail("graduation summary must state the locked 27–30 range");
@@ -189,4 +215,4 @@ for(const score of Object.keys(raise).map(Number)){
  if(dev.startingPointBuyCost+dev.baseOpportunities!==dev.minimumGraduationValue) fail("6 starting value + 21 base growth must equal the 27-point floor");
 if(dev.maximumGraduationValue-dev.minimumGraduationValue!==3) fail("Zero-to-Hero heroic headroom must remain exactly 3 point-buy value");
 
-console.log("From Zero to Hero OK — scrapbook-led character development, 4–6 player competition awards, life-first village arc, shared Growth Beats, 27–30 point range, graduation keepsakes, edition-isolated graduation.");
+console.log("From Zero to Hero OK — equal 2/2/2 Upbringing Leans, scrapbook-led development, 4–6 player competition awards, life-first village arc, 27–30 point range, edition-isolated graduation.");
