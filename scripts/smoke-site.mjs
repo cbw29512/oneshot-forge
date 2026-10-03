@@ -81,7 +81,7 @@ if (!app.includes("reactions.accusation")) errors.push("GM runner no longer surf
 
 const lantern = read("adventures/the-lantern-below.html");
 if (!lantern.includes("Start adventure")) errors.push("adventure page missing Start adventure");
-for (const rel of ["about.html", "privacy.html", "contact.html", "forge.html", "cards.html", "cards.js", "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg", "data/adventures/the-lantern-below.oneshot.json", "data/adventures/the-well-that-would-not-dry.oneshot.json", "data/adventures/the-owlbear-egg.oneshot.json", "data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json", "data/adventures/beneath-the-eastern-watchtower.oneshot.json", "adventures/the-owlbear-egg.html", "adventures/birthday-one-shot.html", "birthday-one-shot/index.html", "birthday-one-shot/data.js", "birthday-one-shot/app.js", "birthday-one-shot/styles.css", "adventures/whispers-of-the-oakhaven-hollow.html", "adventures/beneath-the-eastern-watchtower.html", "assets/maps/oakhaven/bramble-guard-grid.svg", "assets/maps/oakhaven/heart-tree-grid.svg", "assets/maps/oakhaven/flooded-sally-tunnel-grid.svg", "assets/maps/oakhaven/gloam-sluice-grid.svg", "data/adventures/the-black-orchard.oneshot.json", "adventures/the-black-orchard.html", "assets/maps/oakhaven/black-orchard-rows-grid.svg", "assets/maps/oakhaven/rootheart-quarry-grid.svg", "data/adventures/the-ashen-bridge.oneshot.json", "adventures/the-ashen-bridge.html", "assets/maps/oakhaven/ashen-bridge-grid.svg", "assets/maps/oakhaven/ashhouse-mortar-handout.svg", "data/adventures/the-bell-beneath-the-mere.oneshot.json", "adventures/the-bell-beneath-the-mere.html", "assets/maps/oakhaven/drowned-bell-house-grid.svg", "assets/maps/oakhaven/founder-diversion-handout.svg", "adventure-registry.js"]) read(rel);
+for (const rel of ["about.html", "privacy.html", "contact.html", "forge.html", "cards.html", "cards.js", "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg", "data/adventures/the-lantern-below.oneshot.json", "data/adventures/the-well-that-would-not-dry.oneshot.json", "data/adventures/the-owlbear-egg.oneshot.json", "data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json", "data/adventures/beneath-the-eastern-watchtower.oneshot.json", "adventures/the-owlbear-egg.html", "adventures/birthday-one-shot.html", "birthday-one-shot/index.html", "birthday-one-shot/data.js", "birthday-one-shot/app.js", "birthday-one-shot/personalization.js", "birthday-one-shot/styles.css", "adventures/whispers-of-the-oakhaven-hollow.html", "adventures/beneath-the-eastern-watchtower.html", "assets/maps/oakhaven/bramble-guard-grid.svg", "assets/maps/oakhaven/heart-tree-grid.svg", "assets/maps/oakhaven/flooded-sally-tunnel-grid.svg", "assets/maps/oakhaven/gloam-sluice-grid.svg", "data/adventures/the-black-orchard.oneshot.json", "adventures/the-black-orchard.html", "assets/maps/oakhaven/black-orchard-rows-grid.svg", "assets/maps/oakhaven/rootheart-quarry-grid.svg", "data/adventures/the-ashen-bridge.oneshot.json", "adventures/the-ashen-bridge.html", "assets/maps/oakhaven/ashen-bridge-grid.svg", "assets/maps/oakhaven/ashhouse-mortar-handout.svg", "data/adventures/the-bell-beneath-the-mere.oneshot.json", "adventures/the-bell-beneath-the-mere.html", "assets/maps/oakhaven/drowned-bell-house-grid.svg", "assets/maps/oakhaven/founder-diversion-handout.svg", "adventure-registry.js"]) read(rel);
 if (!index.includes("the-lantern-below")) errors.push("homepage missing active Lantern card");
 if (!index.includes("the-owlbear-egg")) errors.push("homepage missing Owlbear Egg preview card");
 if (!index.includes("birthday-one-shot")) errors.push("homepage missing Birthday One Shot preview card");
@@ -98,6 +98,18 @@ for (const href of hrefs) {
   if (clean && !fs.existsSync(path.join(root, clean))) errors.push("broken homepage link " + href);
 }
 
+
+
+const birthdayPersonalization = read("birthday-one-shot/personalization.js");
+for (const required of [
+  "99centoneshots:birthday-hero-name",
+  "localStorage.setItem",
+  "localStorage.removeItem",
+  "Birthday Hero",
+  "window.location.reload()"
+]) {
+  if (!birthdayPersonalization.includes(required)) errors.push("Birthday personalization missing: " + required);
+}
 
 const owlbearPage = read("adventures/the-owlbear-egg.html");
 if (!owlbearPage.includes("cards.html?id=the-owlbear-egg")) errors.push("Owlbear page missing printable cards link");
