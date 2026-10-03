@@ -180,7 +180,8 @@
         "pregens2014Certified": false,
         "adventure2024Certified": false,
         "pregens2024Certified": false
-      }
+      },
+      "format": "standalone-browser"
     },
     {
       "id": "whispers-of-the-oakhaven-hollow",
