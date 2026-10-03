@@ -1,30 +1,50 @@
 import fs from "node:fs";
 
-const file="data/zero-to-hero/from-zero-to-hero.json";
-const d=JSON.parse(fs.readFileSync(file,"utf8"));
+const d=JSON.parse(fs.readFileSync("data/zero-to-hero/from-zero-to-hero.json","utf8"));
+const page=fs.readFileSync("zero-hero.html","utf8");
+const script=fs.readFileSync("zero-hero.js","utf8");
 const fail=m=>{console.error("Zero-to-Hero validation failed:",m);process.exit(1);};
 const ab=["STR","DEX","CON","INT","WIS","CHA"];
 
 if(d.id!=="from-zero-to-hero") fail("wrong id");
-if(d.rules?.mode!=="level-0-house-rule"||d.rules?.criticalChecksHouseRule!==true||d.rules?.editionIsolation!==true) fail("Level-0 isolation/critical house-rule flags missing");
+if(d.rules?.mode!=="level-0-house-rule"||d.rules?.criticalChecksHouseRule!==true||d.rules?.editionIsolation!==true) fail("Level-0 isolation flags missing");
+if(d.rules?.naturalExtremesNeverOverrideTotal!==true) fail("normal total-vs-DC resolution must stay authoritative");
+
 if(d.start?.age!==12||d.start?.className!=="Level 0") fail("must start age 12 at Level 0");
 for(const a of ab) if(d.start?.scores?.[a]!==9) fail(a+" must start at 9");
-if(d.development?.totalPoints!==21||d.development?.pointsPerChapter!==3||d.development?.maxPreOriginScore!==15) fail("development budget must be 21 / 3 per chapter / cap 15");
-if(d.development?.startingPointBuyCost!==6||d.development?.finalPointBuyBudget!==27) fail("RAW point-buy bridge must be 6 starting / 27 final");
-for(const s of [9,10,11,12,13,14]) if(!d.development?.costToRaise?.[String(s)]) fail("missing cost for score "+s);
-for(const o of ["criticalSuccess","success","failure","criticalFailure"]){
-  if(d.development?.growthPointsByOutcome?.[o]!==1) fail(o+" must award exactly one Development Point");
-  if(d.development?.permanentBuildDeltaByOutcome?.[o]!==0) fail(o+" may not change permanent build power");
+
+const dev=d.development;
+if(dev?.startingPointBuyCost!==6) fail("six starting 9s must carry point-buy value 6");
+if(dev?.baseOpportunities!==21) fail("must have 21 base Development Opportunities");
+if(dev?.normalTargetValue!==27) fail("normal target must remain 27 point-buy value");
+if(dev?.maxPreOriginScore!==15) fail("pre-origin cap must remain 15");
+if(dev?.wallet!==true) fail("development wallet must be enabled");
+for(const s of [9,10,11,12,13,14]) if(!dev?.costToRaise?.[String(s)]) fail("missing raise cost for "+s);
+
+const expected={
+  criticalSuccess:{flexible:2,lesson:0,shiftInvested:0},
+  success:{flexible:1,lesson:0,shiftInvested:0},
+  failure:{flexible:0,lesson:1,shiftInvested:0},
+  criticalFailure:{flexible:0,lesson:1,shiftInvested:1}
+};
+for(const [outcome,want] of Object.entries(expected)){
+  const got=dev?.pointsByOutcome?.[outcome];
+  if(!got) fail("missing wallet result for "+outcome);
+  for(const k of ["flexible","lesson","shiftInvested"]) if(got[k]!==want[k]) fail(outcome+" "+k+" must be "+want[k]);
 }
-if(d.development?.finalReflection?.enabled!==true||d.development?.finalReflection?.requiresExactBudget!==true) fail("Final Reflection exact-budget rule missing");
-if(d.rules?.naturalExtremesNeverOverrideTotal!==true) fail("natural extremes must not override normal total-vs-DC resolution");
+if(!/different from the attempted ability/i.test(dev?.lessonRule||"")) fail("lesson rule must require an off-path ability");
+if(!/move one already-invested/i.test(dev?.criticalFailureRule||"")) fail("critical-failure redirection rule missing");
+if(!/extra flexible Development Point/i.test(dev?.criticalSuccessBonusRule||"")) fail("critical-success bonus rule missing");
+
 if(!Array.isArray(d.village?.npcs)||d.village.npcs.length<12) fail("village requires at least 12 recurring NPCs");
 for(const n of d.village.npcs){
-  for(const k of ["id","name","role","appearance","voice","wants","fears","secret","teaches","provides","change"]) if(!n[k]|| (Array.isArray(n[k])&&!n[k].length)) fail("NPC "+(n.id||"?")+" missing "+k);
+  for(const k of ["id","name","role","appearance","voice","wants","fears","secret","teaches","provides","change"]){
+    if(!n[k]||(Array.isArray(n[k])&&!n[k].length)) fail("NPC "+(n.id||"?")+" missing "+k);
+  }
 }
+
 if(!Array.isArray(d.chapters)||d.chapters.length!==7) fail("must have seven yearly chapters");
-const ages=d.chapters.map(x=>x.age);
-if(ages.join(",")!=="12,13,14,15,16,17,18") fail("chapter ages must be 12 through 18");
+if(d.chapters.map(x=>x.age).join(",")!=="12,13,14,15,16,17,18") fail("chapter ages must be 12 through 18");
 let opportunities=0;
 for(const c of d.chapters){
   if(!c.objective||!c.pressure||!c.choice||!c.consequence) fail(c.id+" missing runnable chapter fields");
@@ -33,72 +53,34 @@ for(const c of d.chapters){
     opportunities++;
     if(!Number.isInteger(b.dc)||b.dc<5||b.dc>20) fail(b.id+" invalid DC");
     for(const a of ab) if(!b.approaches?.[a]) fail(b.id+" missing "+a+" approach");
-    for(const o of ["criticalSuccess","success","failure","criticalFailure"]) if(!b.outcomes?.[o]) fail(b.id+" missing "+o+" outcome");
+    for(const o of Object.keys(expected)) if(!b.outcomes?.[o]) fail(b.id+" missing "+o+" outcome");
   }
 }
-if(opportunities!==21) fail("must contain exactly 21 Development Opportunities");
+if(opportunities!==21) fail("must contain exactly 21 base Development Opportunities");
+
 if(!d.graduation?.["2014"]||!d.graduation?.["2024"]) fail("both edition graduation contracts required");
-if(d.graduation?.rawDefault!==true) fail("RAW graduation must be default");
 if(d.graduation["2014"].forbidden.join(" ").includes("2014 background")) fail("2014 graduation contract appears corrupted");
-if(d.graduation.originLegacy?.bonusFeatDefault!==false||d.graduation.originLegacy?.enabledByDefault!==false) fail("mechanical Origin Legacy must be opt-in, not default");
-for(const k of ["abilityArray","proficiencies","heirloom","mentor"]) if(!d.graduation?.rawAudit?.[k]) fail("RAW graduation audit missing "+k);
-const page=fs.readFileSync("zero-hero.html","utf8");
-const script=fs.readFileSync("zero-hero.js","utf8");
-if(!/From Zero to Hero/.test(page)||!/21/.test(page)||!/Level-0-only story rule/.test(page)) fail("public growth sheet lacks rule disclosure");
-if(!/oneshot-forge:zero-hero:v1/.test(script)||!/criticalSuccess/.test(script)||!/criticalFailure/.test(script)) fail("growth state/outcomes missing");
-if(!/state\.scores\[ability\] >= campaign\.development\.maxPreOriginScore/.test(script)) fail("score cap guard missing");
-if(!/const succeeded = total >= dc/.test(script)) fail("developmental checks must resolve normal total-vs-DC first");
-if(/if \(roll === 20\) return "criticalSuccess"/.test(script)||/if \(roll === 1\) return "criticalFailure"/.test(script)) fail("natural 20/1 may not automatically override ability-check totals");
-if(!/growthAwarded:1/.test(script)) fail("resolved beats must record equal +1 growth");
-if(!/baseArrayCost/.test(script)||!/reflectionRemaining/.test(script)||!/canFinishReflection/.test(script)) fail("Final Reflection RAW budget audit is not implemented");
-if(!/btn\.disabled = remaining !== 0/.test(script)) fail("edition graduation must stay locked until the 27-point array is complete");
+for(const k of ["abilityArray","proficiencies","heirloom","mentor","mechanics"]) if(!d.graduation?.rawAudit?.[k]) fail("graduation audit missing "+k);
 
-// Exhaustively prove that every legal distribution of 21 growth choices can finish at exactly 27 points.
+if(!/development wallet/i.test(page)) fail("public page must explain the development wallet");
+if(!/critical failure can redirect/i.test(page)) fail("public page must disclose critical-failure redirection");
+if(!/Heroic \/ house-rule ability generation/.test(script)) fail("graduation must label above-27 arrays as house rule");
+if(!/version:3/.test(script)) fail("wallet state version missing");
+if(!/wallet:\{flexible:0,lessons:blankAbilityMap\(0\)\}/.test(script)) fail("wallet state missing");
+if(!/state\.wallet\.flexible\+=Number\(rule\.flexible\|\|0\)/.test(script)) fail("flexible award path missing");
+if(!/state\.wallet\.lessons\[lessonAbility\]\+=Number\(rule\.lesson\)/.test(script)) fail("Lesson Point award path missing");
+if(!/lessonAbility===attemptedAbility/.test(script)) fail("lesson ability must be prevented from matching attempted ability");
+if(!/state\.invested\[attemptedAbility\]-=1/.test(script)||!/state\.invested\[lessonAbility\]\+=1/.test(script)) fail("critical-failure invested-point redirect missing");
+if(!/state\.scores\[ability\] < campaign\.development\.maxPreOriginScore/.test(script)) fail("ability cap guard missing");
+if(!/const succeeded=total>=dc/.test(script)) fail("checks must resolve normal total-vs-DC first");
+if(/finalReflection|reflectionRemaining|canFinishReflection/.test(script)) fail("superseded Final Reflection logic must not remain");
+if(!/criticalBonusEarned\+=1/.test(script)) fail("critical-success bonus tracking missing");
+
+// Prove the point-buy curve used by the wallet remains aligned with the 5E 8–15 table.
 const pointCost={8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
-const raiseCost=score=>pointCost[score+1]-pointCost[score];
-function applyCount(count){
-  let score=9, partial=0;
-  for(let i=0;i<count;i++){
-    if(score>=15) return null;
-    partial++;
-    const need=d.development.costToRaise[String(score)];
-    if(partial>=need){ partial-=need; score++; }
-  }
-  return {score,partial};
+const raise={9:1,10:1,11:1,12:1,13:2,14:2};
+for(const score of Object.keys(raise).map(Number)){
+  if(pointCost[score+1]-pointCost[score]!==dev.costToRaise[String(score)]) fail("wallet raise cost drift at "+score);
 }
-function canFinish(scores,remaining,memo=new Set()){
-  if(remaining===0) return true;
-  if(remaining<0) return false;
-  const key=scores.join(",")+"|"+remaining;
-  if(memo.has(key)) return false;
-  memo.add(key);
-  for(let i=0;i<scores.length;i++){
-    if(scores[i]>=15) continue;
-    const delta=raiseCost(scores[i]);
-    if(delta>remaining) continue;
-    const next=[...scores]; next[i]++;
-    if(canFinish(next,remaining-delta,memo)) return true;
-  }
-  return false;
-}
-let auditedDistributions=0;
-function walk(prefix,left,slots){
-  if(slots===1){
-    const counts=[...prefix,left];
-    if(left>8) return;
-    const applied=counts.map(applyCount);
-    if(applied.some(x=>!x)) return;
-    const scores=applied.map(x=>x.score);
-    const spent=scores.reduce((sum,score)=>sum+pointCost[score],0);
-    if(spent>27) fail("development distribution exceeds RAW point-buy budget: "+counts.join(","));
-    const remaining=27-spent;
-    if(!canFinish(scores,remaining)) fail("Final Reflection cannot complete distribution: "+counts.join(","));
-    auditedDistributions++;
-    return;
-  }
-  for(let n=0;n<=Math.min(8,left);n++) walk([...prefix,n],left-n,slots-1);
-}
-walk([],21,6);
-if(!auditedDistributions) fail("no development distributions audited");
 
-console.log("From Zero to Hero OK — 7 chapters, 21 equal-growth beats, "+auditedDistributions+" development distributions RAW-budget audited, outcome-neutral progression, edition-isolated graduation.");
+console.log("From Zero to Hero OK — development wallet, differentiated outcomes, hard-lesson redirection, 21 base opportunities, edition-isolated graduation.");
