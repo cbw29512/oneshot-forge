@@ -16,7 +16,8 @@
     "continuity",
     "graduationKeepsakes",
     "scrapbook",
-    "upbringingLeans"
+    "upbringingLeans",
+    "preClassShell"
   ],
   "properties": {
     "id": {
@@ -905,6 +906,114 @@
               }
             }
           }
+        }
+      }
+    },
+    "preClassShell": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "shellName",
+        "lockRequiredBeforeFirstGrowthBeat",
+        "immutableFields",
+        "startingAbilityRule",
+        "editionRule",
+        "raceSpeciesRule",
+        "intrinsicTraitRule",
+        "gatedTraitRule",
+        "abilityAdjustmentRule",
+        "historyRule",
+        "rawPlaceholders",
+        "homebrewFields",
+        "level1Rule"
+      ],
+      "properties": {
+        "enabled": {
+          "const": true
+        },
+        "shellName": {
+          "const": "Level-0 Pre-Class Character"
+        },
+        "lockRequiredBeforeFirstGrowthBeat": {
+          "const": true
+        },
+        "immutableFields": {
+          "type": "array",
+          "minItems": 8,
+          "uniqueItems": true
+        },
+        "startingAbilityRule": {
+          "type": "string",
+          "minLength": 40
+        },
+        "editionRule": {
+          "type": "string",
+          "minLength": 40
+        },
+        "raceSpeciesRule": {
+          "type": "string",
+          "minLength": 40
+        },
+        "intrinsicTraitRule": {
+          "type": "string",
+          "minLength": 50
+        },
+        "gatedTraitRule": {
+          "type": "string",
+          "minLength": 50
+        },
+        "abilityAdjustmentRule": {
+          "type": "object",
+          "required": [
+            "2014",
+            "2024"
+          ],
+          "properties": {
+            "2014": {
+              "type": "string",
+              "minLength": 40
+            },
+            "2024": {
+              "type": "string",
+              "minLength": 40
+            }
+          }
+        },
+        "historyRule": {
+          "type": "string",
+          "minLength": 40
+        },
+        "rawPlaceholders": {
+          "type": "array",
+          "minItems": 12,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "filledBy"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "filledBy": {
+                "type": "string",
+                "minLength": 10
+              }
+            }
+          }
+        },
+        "homebrewFields": {
+          "type": "array",
+          "minItems": 7
+        },
+        "level1Rule": {
+          "type": "string",
+          "minLength": 50
         }
       }
     }

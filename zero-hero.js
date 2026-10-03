@@ -19,7 +19,7 @@
 
   function blankState() {
     return {
-      version:7,
+      version:8,
       chapterIndex:0,
       age:12,
       identity:{
@@ -27,6 +27,17 @@
         values:"",fears:"",training:"",
         possessions:"Ordinary clothing and household possessions only.",
         relationships:"",reputation:"",choices:""
+      },
+      preclass:{
+        rulesEdition:"",
+        raceSpecies:"",
+        size:"",
+        speed:"",
+        senses:"",
+        intrinsicTraits:"",
+        levelGatedTraits:"",
+        sourceNote:"",
+        locked:false
       },
       scores:blankAbilityMap(9),
       invested:blankAbilityMap(0),
@@ -76,8 +87,8 @@
   }
 
   function migrateState(parsed) {
-    if(!parsed || ![1,2,3,4,5,6,7].includes(parsed.version)) return blankState();
-    if(parsed.version===3 || parsed.version===4 || parsed.version===5 || parsed.version===6 || parsed.version===7) {
+    if(!parsed || ![1,2,3,4,5,6,7,8].includes(parsed.version)) return blankState();
+    if(parsed.version===3 || parsed.version===4 || parsed.version===5 || parsed.version===6 || parsed.version===7 || parsed.version===8) {
       parsed.wallet ||= {flexible:0,lessons:blankAbilityMap(0)};
       parsed.wallet.lessons ||= blankAbilityMap(0);
       parsed.invested ||= blankAbilityMap(0);
@@ -90,7 +101,19 @@
       parsed.scrapbookCards ||= [];
       parsed.upbringingProfile ||= "";
       parsed.upbringingLocked=Boolean(parsed.upbringingProfile && (parsed.upbringingLocked||Number(parsed.growthUsed||0)>0));
-      parsed.version=7;
+      parsed.preclass ||= {
+        rulesEdition:"",
+        raceSpecies:parsed.identity?.ancestry||"",
+        size:"",
+        speed:"",
+        senses:"",
+        intrinsicTraits:"",
+        levelGatedTraits:"",
+        sourceNote:"",
+        locked:false
+      };
+      parsed.preclass.locked=Boolean(parsed.preclass.locked);
+      parsed.version=8;
       state=parsed;
       recomputeScores();
       return state;
@@ -100,6 +123,11 @@
     migrated.chapterIndex=Number(parsed.chapterIndex||0);
     migrated.age=Number(parsed.age||12);
     migrated.identity={...migrated.identity,...(parsed.identity||{})};
+    migrated.preclass={
+      ...migrated.preclass,
+      ...(parsed.preclass||{}),
+      raceSpecies:parsed.preclass?.raceSpecies||parsed.identity?.ancestry||""
+    };
     migrated.growthUsed=Number(parsed.growthUsed||0);
     migrated.chapterGrowth=parsed.chapterGrowth||{};
     migrated.resolvedBeats=parsed.resolvedBeats||{};
@@ -130,6 +158,93 @@
 
   function saveState() {
     localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+  }
+
+  function preclassReadyToLock() {
+    return ["2014","2024"].includes(state.preclass?.rulesEdition) && String(state.preclass?.raceSpecies||"").trim().length>0;
+  }
+
+  function lockPreclassShell() {
+    if(state.preclass?.locked) return;
+    if(!preclassReadyToLock()) {
+      alert("Choose the 2014 or 2024 rules edition and enter the character's race/species before locking the Level-0 shell.");
+      return;
+    }
+    const race=String(state.preclass.raceSpecies||"").trim();
+    const edition=state.preclass.rulesEdition;
+    if(!confirm("Lock "+race+" under the "+edition+" rules for this character? Race/species and edition cannot change later without resetting the Level-0 character.")) return;
+    state.preclass.raceSpecies=race;
+    state.preclass.locked=true;
+    state.identity.ancestry=race;
+    state.graduationEdition=edition;
+    saveState();
+    render();
+  }
+
+  function bindPreclassShell() {
+    if(!state.preclass) return;
+    const fields={
+      "preclass-edition":"rulesEdition",
+      "preclass-race":"raceSpecies",
+      "preclass-size":"size",
+      "preclass-speed":"speed",
+      "preclass-senses":"senses",
+      "preclass-intrinsic":"intrinsicTraits",
+      "preclass-gated":"levelGatedTraits",
+      "preclass-source":"sourceNote"
+    };
+    for(const [id,key] of Object.entries(fields)) {
+      const el=$(id);
+      if(!el) continue;
+      el.value=state.preclass[key]||"";
+      el.disabled=Boolean(state.preclass.locked);
+      el.oninput=()=>{
+        if(state.preclass.locked) return;
+        state.preclass[key]=el.value;
+        if(key==="raceSpecies") state.identity.ancestry=el.value;
+        saveState();
+        renderHeaderOnly();
+        renderPreclassStatus();
+      };
+      el.onchange=el.oninput;
+    }
+    const lock=$("lock-preclass-shell");
+    if(lock) {
+      lock.disabled=Boolean(state.preclass.locked)||!preclassReadyToLock();
+      lock.textContent=state.preclass.locked?"Race/species + edition locked":"Lock race/species + edition";
+      lock.onclick=lockPreclassShell;
+    }
+    renderPreclassStatus();
+    renderRawPlaceholders();
+  }
+
+  function renderPreclassStatus() {
+    const status=$("preclass-lock-status");
+    const copy=$("preclass-lock-copy");
+    if(!status||!copy) return;
+    if(state.preclass?.locked) {
+      status.textContent="LOCKED";
+      status.classList.add("locked");
+      copy.innerHTML='<strong>'+esc(state.preclass.raceSpecies)+'</strong> · '+esc(state.preclass.rulesEdition)+' rules · class still unchosen. Resetting the whole Level-0 character is the only way to change this identity shell.';
+    } else {
+      status.textContent="UNLOCKED";
+      status.classList.remove("locked");
+      copy.textContent=preclassReadyToLock()
+        ? "Ready to lock. This is permanent for the current Level-0 character."
+        : "Choose the rules edition and race/species first. Locking is required before the first Growth Beat.";
+    }
+  }
+
+  function renderRawPlaceholders() {
+    const host=$("raw-placeholder-grid");
+    if(!host) return;
+    const edition=state.preclass?.rulesEdition||"locked edition";
+    host.innerHTML=(campaign.preClassShell?.rawPlaceholders||[]).map(slot=>
+      '<article><span>WAITING FOR RAW</span><strong>'+esc(slot.label)+'</strong><p>'+esc(slot.filledBy)+'</p></article>'
+    ).join("")+
+    '<article class="deferred-adjustment"><span>HOUSE-RULE BRIDGE</span><strong>Deferred ability adjustment</strong><p>'+
+      esc(state.preclass?.rulesEdition ? campaign.preClassShell.abilityAdjustmentRule[state.preclass.rulesEdition] : "Choose 2014 or 2024 to show the edition-specific ability-adjustment handoff.")+
+    '</p></article>';
   }
 
   function upbringingProfile() {
@@ -406,6 +521,7 @@
   function resolveBeat(chapter,beat,attemptedAbility,roll1,roll2=null,characterAdvantage=false,advantageReason="",lessonAbility=null) {
     const key=chapter.id+":"+beat.id;
     if(state.resolvedBeats[key]) return {done:true};
+    if(!state.preclass?.locked) return {error:"Lock the Level-0 race/species and rules edition before the first developmental check."};
     if(!state.upbringingProfile) return {error:"Choose an Upbringing Lean before the first developmental check."};
     if(!ABILITIES.includes(attemptedAbility)) return {error:"Choose an approach."};
     if(!Number.isInteger(roll1)||roll1<1||roll1>20) return {error:"Enter the first d20 result from 1 to 20."};
@@ -443,12 +559,13 @@
 
   function bindIdentity() {
     const map={
-      "char-name":"name","char-ancestry":"ancestry","char-family":"family","char-chores":"chores",
+      "char-name":"name","char-family":"family","char-chores":"chores",
       "char-aspiration":"aspiration","char-values":"values","char-fears":"fears","char-training":"training",
       "char-possessions":"possessions","char-relationships":"relationships","char-reputation":"reputation","char-choices":"choices"
     };
     for(const [id,key] of Object.entries(map)) {
       const el=$(id);
+      if(!el) continue;
       el.value=state.identity[key]||"";
       el.oninput=()=>{state.identity[key]=el.value;saveState();renderHeaderOnly();};
     }
@@ -485,7 +602,8 @@
 
   function renderHeaderOnly() {
     $("sheet-name").textContent=state.identity.name||"Unnamed child";
-    $("sheet-meta").textContent="Age "+state.age+" · Level 0 · Hearthcross";
+    const shellBits=["Age "+state.age,"Level 0",state.preclass?.raceSpecies||"Race/species not locked",state.preclass?.rulesEdition?state.preclass.rulesEdition+" target":"Edition not locked","Hearthcross"];
+    $("sheet-meta").textContent=shellBits.join(" · ");
     $("growth-count").textContent=state.growthUsed+" / "+campaign.development.baseOpportunities;
     const wallet=$("development-wallet");
     if(wallet) {
@@ -949,17 +1067,17 @@
     const value=baseArrayCost();
     const floor=Number(campaign.development.minimumGraduationValue||27);
     const ceiling=maximumArrayValue();
-    const ready=complete && value>=floor && value<=ceiling && totalLessonWallet()===0 && Boolean(state.graduationEdition);
+    const ready=complete && value>=floor && value<=ceiling && totalLessonWallet()===0 && Boolean(state.preclass?.locked) && Boolean(state.preclass?.rulesEdition);
 
     host.hidden=!ready;
     if(!ready) return;
 
     const keepsake=campaign.graduationKeepsakes;
     const name=state.identity.name.trim()||"Unnamed Character";
-    const ancestry=state.identity.ancestry.trim()||"Unrecorded ancestry / species";
+    const ancestry=String(state.preclass?.raceSpecies||state.identity.ancestry||"").trim()||"Unrecorded race / species";
     const family=state.identity.family.trim()||"Family / guardians not recorded";
     const aspiration=state.identity.aspiration.trim()||"The road ahead is still being discovered.";
-    const edition=state.graduationEdition;
+    const edition=state.preclass?.rulesEdition||state.graduationEdition;
     const tier=graduationTier(value);
     const profile=upbringingProfile();
     const counts=graduationOutcomeCounts();
@@ -1050,7 +1168,7 @@
     const unspent=totalWallet();
     const audit=$("raw-audit");
     const reflection=$("reflection-host");
-    const ready=value>=floor && value<=ceiling && lessons===0;
+    const ready=value>=floor && value<=ceiling && lessons===0 && Boolean(state.preclass?.locked) && Boolean(state.preclass?.rulesEdition);
 
     audit.innerHTML='<h3>Ability-generation audit</h3><p><strong>Current base array point-buy value: '+value+'.</strong> Zero-to-Hero range: <strong>'+floor+'–'+ceiling+'</strong>.</p>'+
       (shortfall
@@ -1081,29 +1199,33 @@
 
     const showEdition=ed=>{
       const g=campaign.graduation[ed];
-      $("graduation-summary").innerHTML='<h3>'+ed+' graduation contract</h3><ol>'+g.order.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol><p><strong>Frozen Level-0 base array ('+baseArrayCost()+' point-buy value):</strong> '+ABILITIES.map(a=>a+' '+state.scores[a]).join(" · ")+'</p><p class="zero-house-note"><strong>27-point minimum · 30-point maximum:</strong> failures can reshape the character, and critical successes can make the array exceptional, but Level-0 stat development can never leave the '+floor+'–'+ceiling+' range.</p><p class="zero-house-note"><strong>Rules boundary:</strong> From Zero to Hero determines the base scores. From this point forward, species/race, background, class, HP, proficiency, spells, feats, equipment and later advancement use the selected '+ed+' rules only. Training, mentors and heirlooms stay narrative unless a legal rule or explicitly enabled house rule grants mechanics.</p><p><strong>Graduation keepsakes unlocked:</strong> the Hearthcross certificate and Origin Chronicle below are commemorative only.</p>';
+      $("graduation-summary").innerHTML='<h3>'+ed+' graduation contract</h3><p><strong>Immutable identity:</strong> '+esc(state.preclass.raceSpecies)+' under the '+esc(ed)+' rules. Race/species is not reselected at graduation.</p><ol>'+g.order.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol><p><strong>Frozen Level-0 base array ('+baseArrayCost()+' point-buy value):</strong> '+ABILITIES.map(a=>a+' '+state.scores[a]).join(" · ")+'</p><p class="zero-house-note"><strong>27-point minimum · 30-point maximum:</strong> the six-9 start and Level-0 development are homebrew. The edition-specific ability adjustment is applied only after this base array is frozen.</p><p class="zero-house-note"><strong>RAW placeholder handoff:</strong> background, class, HP/Hit Die, saves, proficiencies, spells, feats, equipment and other adventuring mechanics must now come from legal '+ed+' sources unless the table explicitly names another homebrew.</p><p><strong>Graduation keepsakes unlocked:</strong> the Hearthcross certificate and Origin Chronicle below are commemorative only.</p>';
     };
 
+    const targetEdition=state.preclass?.rulesEdition||"";
     document.querySelectorAll("[data-edition]").forEach(btn=>{
-      btn.disabled=!ready;
-      btn.classList.toggle("selected",state.graduationEdition===btn.dataset.edition);
+      const isTarget=btn.dataset.edition===targetEdition;
+      btn.hidden=!isTarget;
+      btn.disabled=!ready||!isTarget;
+      btn.classList.toggle("selected",isTarget);
       btn.onclick=()=>{
-        if(!ready) return;
-        const ed=btn.dataset.edition;
-        state.graduationEdition=ed;
+        if(!ready||!isTarget) return;
+        state.graduationEdition=targetEdition;
         saveState();
-        showEdition(ed);
+        showEdition(targetEdition);
         renderGraduationKeepsakes();
       };
     });
 
-    if(ready && state.graduationEdition && campaign.graduation[state.graduationEdition]) {
-      showEdition(state.graduationEdition);
+    if(ready && targetEdition && campaign.graduation[targetEdition]) {
+      state.graduationEdition=targetEdition;
+      showEdition(targetEdition);
     }
     renderGraduationKeepsakes();
   }
 
   function render() {
+    bindPreclassShell();
     bindUpbringing();
     renderHeaderOnly();
     renderAbilities();
@@ -1121,6 +1243,7 @@
     syncDevelopmentCards();
     saveState();
     bindIdentity();
+    bindPreclassShell();
     bindUpbringing();
     renderVillage();
     render();
@@ -1134,6 +1257,7 @@
       localStorage.removeItem(STORAGE_KEY);
       state=blankState();
       bindIdentity();
+      bindPreclassShell();
       bindUpbringing();
       render();
     };

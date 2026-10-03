@@ -93,10 +93,18 @@
     $("beat-title").textContent = beat.title;
     $("beat-minutes").textContent = beat.minutes+" min";
     $("beat-purpose").textContent = beat.purpose;
+    $("beat-location").textContent = beat.location || "";
     $("beat-readaloud").textContent = beat.readAloud;
     $("beat-runsteps").innerHTML = beat.runSteps.map(step => "<li>"+esc(step)+"</li>").join("");
     $("scrapbook-prompt").textContent = beat.scrapbookPrompt;
     $("beat-consequence").textContent = beat.consequence;
+    $("advance-when").textContent = beat.advanceWhen || "When every player has acted and the scene's main problem is resolved.";
+    $("four-player-jobs").innerHTML = (beat.fourPlayerJobs||[]).map((job,i)=>'<article><span>Player '+(i+1)+'</span><p>'+esc(job)+'</p></article>').join("");
+    $("npc-dialogue").innerHTML = (beat.npcDialogue||[]).map(npc=>
+      '<article><h3>'+esc(npc.npc)+'</h3><p class="muted">'+esc(npc.voice||"")+'</p><ul>'+((npc.lines||[]).map(line=>'<li>“'+esc(line)+'”</li>').join(""))+'</ul></article>'
+    ).join("") || '<p class="muted">No featured NPC dialogue in this beat.</p>';
+    $("mystery-clues").innerHTML = (beat.mysteryClues||[]).map(clue=>'<li>'+esc(clue)+'</li>').join("") || '<li>No hidden Watchstone clue in this beat.</li>';
+    $("beat-branches").innerHTML = (beat.branches||[]).map(branch=>'<li>'+esc(branch)+'</li>').join("") || '<li>Carry the recorded consequence forward.</li>';
 
     const order = spotlightOrder();
     $("spotlight-order").innerHTML =
@@ -122,6 +130,12 @@
   }
 
   function renderReference() {
+    $("mystery-truth").textContent = adventure.campaignMystery?.dmTruth || "";
+    $("mystery-theme").textContent = adventure.campaignMystery?.theme || "";
+    $("mystery-no-villain").textContent = adventure.campaignMystery?.noVillainRule || "";
+    $("clue-ladder").innerHTML = (adventure.campaignMystery?.clueLadder||[]).map(clue=>
+      '<article><strong>Age '+clue.age+'</strong><p>'+esc(clue.clue)+'</p><small><b>Now:</b> '+esc(clue.meaningNow)+'<br><b>Later:</b> '+esc(clue.meaningLater)+'</small></article>'
+    ).join("");
     $("six-purpose").textContent = adventure.hearthcrossSix.purpose;
     $("six-grid").innerHTML = adventure.hearthcrossSix.contests.map(c =>
       '<article><span>'+esc(c.ability)+'</span><strong>'+esc(c.name)+'</strong></article>'

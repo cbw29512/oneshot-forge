@@ -1,0 +1,239 @@
+{
+  "schema": "oneshot-forge-zero-hero-starters/0.1",
+  "title": "From Zero to Hero — Hearthcross Starter Children",
+  "defaultPartySize": 4,
+  "supportedPartySize": [
+    4,
+    5,
+    6
+  ],
+  "rulesNote": "These are Level-0 pre-class characters. Every ability begins at 9. Race/species identity is fixed. No class, background, proficiency package, feat, spellcasting package, or adventuring equipment is assigned. The table locks 2014 or 2024 before play and applies only the explicitly documented Level-0 house rules until graduation.",
+  "defaultParty": [
+    "tod-hale",
+    "merlon-quill",
+    "halley-brindle",
+    "mira-alder"
+  ],
+  "alternates": [
+    "fen-bell",
+    "lark-cask"
+  ],
+  "characters": [
+    {
+      "id": "tod-hale",
+      "name": "Tod Hale",
+      "raceSpecies": "Human",
+      "age": 12,
+      "tagline": "Big for his age, always carrying something that should have taken two people.",
+      "upbringingProfile": "fighter",
+      "favored": [
+        "STR",
+        "CON"
+      ],
+      "neutral": [
+        "DEX",
+        "CHA"
+      ],
+      "challenging": [
+        "INT",
+        "WIS"
+      ],
+      "scores": {
+        "STR": 9,
+        "DEX": 9,
+        "CON": 9,
+        "INT": 9,
+        "WIS": 9,
+        "CHA": 9
+      },
+      "family": "Raised by Mara Hale and a sprawling household that measures a good day by how much work got done.",
+      "chores": "Firewood, fence posts, grain sacks, animal pens, hauling market tables.",
+      "aspiration": "Wants to be the person people call when something heavy, dangerous, or difficult needs doing.",
+      "values": "Reliability, protecting younger kids, finishing the job.",
+      "fears": "Looking foolish when he does not understand something; being seen as only muscle.",
+      "relationships": "Friendly rivalry with Kess Reed; protective of Nima Bell; respects Captain Orren.",
+      "possessions": "Work gloves too large for him, a bent copper token from his father, ordinary clothes.",
+      "startingHook": "Tod volunteered the whole group for Spring Chore Day before asking anyone else."
+    },
+    {
+      "id": "merlon-quill",
+      "name": "Merlon Quill",
+      "raceSpecies": "Elf",
+      "age": 12,
+      "tagline": "Quiet until there is a puzzle, secret, or argument he thinks everyone else is getting wrong.",
+      "upbringingProfile": "warlock",
+      "favored": [
+        "INT",
+        "CHA"
+      ],
+      "neutral": [
+        "CON",
+        "WIS"
+      ],
+      "challenging": [
+        "STR",
+        "DEX"
+      ],
+      "scores": {
+        "STR": 9,
+        "DEX": 9,
+        "CON": 9,
+        "INT": 9,
+        "WIS": 9,
+        "CHA": 9
+      },
+      "family": "Lives above Quill House among ledgers, copied letters, old maps, and relatives who answer questions with more questions.",
+      "chores": "Copying lists, sorting records, delivering messages, reading labels aloud for customers.",
+      "aspiration": "Wants to discover something nobody in Hearthcross has understood before.",
+      "values": "Curiosity, clever answers, keeping promises once he gives them.",
+      "fears": "Being ordinary; getting caught pretending he knows more than he does.",
+      "relationships": "Looks up to Sera Quill; trades sketches and theories with Nima; Kess calls him 'Professor.'",
+      "possessions": "Charcoal pencil, folded scrap notebook, smooth black stone from the riverbank.",
+      "startingHook": "Merlon noticed the old Watchstone markings before the campaign begins but has no idea what they mean."
+    },
+    {
+      "id": "halley-brindle",
+      "name": "Halley Brindle",
+      "raceSpecies": "Halfling",
+      "age": 12,
+      "tagline": "Small, quick, practical, and usually already standing where everyone else is trying to get.",
+      "upbringingProfile": "rogue",
+      "favored": [
+        "DEX",
+        "INT"
+      ],
+      "neutral": [
+        "CON",
+        "CHA"
+      ],
+      "challenging": [
+        "STR",
+        "WIS"
+      ],
+      "scores": {
+        "STR": 9,
+        "DEX": 9,
+        "CON": 9,
+        "INT": 9,
+        "WIS": 9,
+        "CHA": 9
+      },
+      "family": "Raised around Tavi Brindle's market stall, where every box has a place and every customer thinks they are the most important one.",
+      "chores": "Change-making, packing parcels, climbing shelves, tying bundles, finding missing stock.",
+      "aspiration": "Wants enough freedom and coin that nobody can tell her where she has to stay.",
+      "values": "Competence, fairness in a bargain, getting herself and friends out of trouble.",
+      "fears": "Being trapped by obligation; needing help and not getting it.",
+      "relationships": "Teases Tod constantly; admires Tavi; has a complicated friendship with Rusk Thorn.",
+      "possessions": "Twine, three mismatched buttons, a tiny folding ruler, ordinary clothes.",
+      "startingHook": "Halley knows shortcuts through Crossmarket that adults forget children can fit through."
+    },
+    {
+      "id": "mira-alder",
+      "name": "Mira Alder",
+      "raceSpecies": "Dwarf",
+      "age": 12,
+      "tagline": "Patient, hard to rattle, and already the child adults trust around animals and injuries.",
+      "upbringingProfile": "cleric",
+      "favored": [
+        "WIS",
+        "CON"
+      ],
+      "neutral": [
+        "STR",
+        "CHA"
+      ],
+      "challenging": [
+        "DEX",
+        "INT"
+      ],
+      "scores": {
+        "STR": 9,
+        "DEX": 9,
+        "CON": 9,
+        "INT": 9,
+        "WIS": 9,
+        "CHA": 9
+      },
+      "family": "Splits time between Bram Alder's edge-of-town homestead and helping at Venn's Remedies.",
+      "chores": "Bee boxes, herb drying, water buckets, checking traps without springing them, sitting with sick neighbors.",
+      "aspiration": "Wants to become someone who can keep people alive when everyone else panics.",
+      "values": "Patience, honesty about pain, doing necessary work without praise.",
+      "fears": "Making the wrong judgment when someone depends on her.",
+      "relationships": "Bram trusts her outdoors; Maela gives her small jobs; Nima asks her to come along when sketching strange places.",
+      "possessions": "Waxed cloth pouch, wooden bee charm, ordinary clothes.",
+      "startingHook": "Mira has noticed that animals give the Watchstone a wider berth than people do."
+    },
+    {
+      "id": "fen-bell",
+      "name": "Fen Bell",
+      "raceSpecies": "Human",
+      "age": 12,
+      "tagline": "Always outside, always listening, and certain the long way around is usually more interesting.",
+      "upbringingProfile": "ranger",
+      "favored": [
+        "DEX",
+        "WIS"
+      ],
+      "neutral": [
+        "STR",
+        "CON"
+      ],
+      "challenging": [
+        "INT",
+        "CHA"
+      ],
+      "scores": {
+        "STR": 9,
+        "DEX": 9,
+        "CON": 9,
+        "INT": 9,
+        "WIS": 9,
+        "CHA": 9
+      },
+      "family": "Older cousin to Nima Bell, raised in a household that repairs nets, carts, and anything travelers break on the road.",
+      "chores": "Checking trail markers, carrying messages to farms, feeding animals, retrieving lost tools.",
+      "aspiration": "Wants to see what is beyond Bellmere and come back knowing the roads better than anyone.",
+      "values": "Awareness, independence, never leaving someone lost.",
+      "fears": "Crowded rooms; being responsible for someone getting hurt because he missed a sign.",
+      "relationships": "Close with Nima; likes Bram's silence; distrusts Rusk's shortcuts.",
+      "possessions": "Weathered scarf, bird feather collection, ordinary clothes.",
+      "startingHook": "Fen knows the river changes sound before a storm and says the Watchstone changes with it."
+    },
+    {
+      "id": "lark-cask",
+      "name": "Lark Cask",
+      "raceSpecies": "Elf",
+      "age": 12,
+      "tagline": "Can turn a chore into a performance and an argument into a room full of people listening.",
+      "upbringingProfile": "bard",
+      "favored": [
+        "DEX",
+        "CHA"
+      ],
+      "neutral": [
+        "INT",
+        "WIS"
+      ],
+      "challenging": [
+        "STR",
+        "CON"
+      ],
+      "scores": {
+        "STR": 9,
+        "DEX": 9,
+        "CON": 9,
+        "INT": 9,
+        "WIS": 9,
+        "CHA": 9
+      },
+      "family": "Raised between the Cask & Anvil work yard and the Fox & Ferry common room, with more adults giving advice than any child needs.",
+      "chores": "Serving tables, painting signs, carrying messages, polishing tools, entertaining younger children.",
+      "aspiration": "Wants to be remembered for something people tell stories about.",
+      "values": "Loyalty, humor, making a bad room better.",
+      "fears": "Being ignored; letting a joke hurt someone and not knowing how to fix it.",
+      "relationships": "Competes with Kess for attention; Jory lets Lark announce small events; Wren expects real work after the jokes.",
+      "possessions": "Paint-stained ribbon, wooden whistle, ordinary clothes.",
+      "startingHook": "Lark has already promised to make this year's Spring Chore Day 'less boring.'"
+    }
+  ]
+}

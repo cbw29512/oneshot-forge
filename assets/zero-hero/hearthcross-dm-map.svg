@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+<title id="title">Hearthcross DM Map</title>
+<desc id="desc">A DM-only map of Hearthcross showing the hidden Watchstone relief system, clue sites, blocked conduits, storm risk, and smuggler cut.</desc>
+<defs>
+  <style>
+    .paper{fill:#f4ead6}.road{stroke:#9b7d5c;stroke-width:18;fill:none;stroke-linecap:round}.path{stroke:#b89b77;stroke-width:8;fill:none;stroke-linecap:round;stroke-dasharray:16 12}
+    .river{stroke:#7fa2ad;stroke-width:38;fill:none;stroke-linecap:round}.green{fill:#c7d1a2;stroke:#586246;stroke-width:4}
+    .house{fill:#e2cda7;stroke:#4a3025;stroke-width:3}.roof{fill:#9a5f45;stroke:#4a3025;stroke-width:3}.tree{fill:#87936a;stroke:#465139;stroke-width:3}
+    .stone{fill:#a69b8b;stroke:#4c4640;stroke-width:4}.label{font-family:Georgia,serif;font-size:25px;fill:#2e251e;font-weight:700}.small{font-family:Georgia,serif;font-size:19px;fill:#4d4035}.tiny{font-family:Arial,sans-serif;font-size:15px;fill:#5d5146}
+    .secret{stroke:#a33f32;stroke-width:12;fill:none;stroke-linecap:round;stroke-dasharray:18 10}.secret2{stroke:#b76d2b;stroke-width:7;fill:none;stroke-linecap:round;stroke-dasharray:10 8}.risk{fill:#c44b3e;fill-opacity:.15;stroke:#a33f32;stroke-width:2;stroke-dasharray:9 8}
+    .clue{fill:#ffe6a8;stroke:#805c18;stroke-width:3}.num{font-family:Arial,sans-serif;font-size:16px;font-weight:900;text-anchor:middle;dominant-baseline:middle;fill:#2d241d}
+  </style>
+  <g id="h"><rect class="house" x="-30" y="-20" width="60" height="40"/><path class="roof" d="M-38 -18 L0 -48 L38 -18 Z"/></g>
+  <g id="t"><circle class="tree" cx="0" cy="-8" r="17"/><circle class="tree" cx="-12" cy="1" r="12"/><circle class="tree" cx="12" cy="1" r="12"/></g>
+</defs>
+<rect class="paper" width="1400" height="900"/>
+<path class="river" d="M50 700 C230 650 320 735 485 690 C645 645 755 735 920 700 C1080 665 1175 740 1360 690"/>
+<path class="road" d="M70 450 C310 440 400 460 650 450 C850 440 1030 415 1350 390"/><path class="road" d="M690 450 C705 555 720 650 740 845"/><path class="path" d="M690 450 C625 360 590 275 560 95"/>
+<ellipse class="green" cx="690" cy="430" rx="190" ry="145"/>
+<circle class="stone" cx="690" cy="315" r="24"/>
+<text class="label" x="725" y="320">Watchstone / Relief Cap</text><text class="label" x="605" y="445">Common Green</text>
+
+<g transform="translate(470 430)"><use href="#h"/><text class="small" x="-90" y="55">Crossmarket</text></g>
+<g transform="translate(435 330)"><use href="#h"/><text class="small" x="-76" y="55">Quill House</text></g>
+<g transform="translate(900 360)"><use href="#h"/><text class="small" x="-77" y="55">Cask &amp; Anvil</text></g>
+<g transform="translate(970 470)"><use href="#h"/><text class="small" x="-95" y="55">Venn's Remedies</text></g>
+<g transform="translate(540 570)"><use href="#h"/><text class="small" x="-75" y="55">Fox &amp; Ferry</text></g>
+<g transform="translate(820 560)"><use href="#h"/><text class="small" x="-125" y="55">Shrine</text></g>
+<g transform="translate(610 520)"><use href="#h"/><text class="small" x="-70" y="55">Market Pavilion</text></g>
+<g transform="translate(330 155)"><use href="#t"/></g><g transform="translate(390 120)"><use href="#t"/></g><g transform="translate(450 175)"><use href="#t"/></g><g transform="translate(510 120)"><use href="#t"/></g><g transform="translate(285 220)"><use href="#t"/></g><g transform="translate(365 235)"><use href="#t"/></g><g transform="translate(455 245)"><use href="#t"/></g>
+<text class="label" x="300" y="95">Alderwood</text><text class="label" x="1080" y="745">Hearth River</text><text class="label" x="1110" y="350">Bellmere Road →</text>
+
+<!-- Hidden relief system -->
+<path class="secret" d="M690 315 C650 250 610 200 520 155"/>
+<path class="secret" d="M690 315 C675 390 650 455 610 520 C560 560 500 520 440 470"/>
+<path class="secret" d="M690 315 C700 430 710 550 735 695"/>
+<text class="small" x="500" y="135" fill="#8f3028">NORTH ARM · Alderwood Vent</text>
+<text class="small" x="390" y="500" fill="#8f3028">EAST ARM · Market Conduit</text>
+<text class="small" x="765" y="655" fill="#8f3028">SOUTH ARM · River Spill</text>
+<path class="secret2" d="M505 470 C455 505 425 545 390 590"/><text class="tiny" x="285" y="610">Rusk's smuggler cut / fresh rubble</text>
+
+<!-- risk zones -->
+<ellipse class="risk" cx="610" cy="520" rx="135" ry="70"/><ellipse class="risk" cx="760" cy="650" rx="155" ry="65"/>
+<text class="tiny" x="555" y="590">Age-17 market flood risk</text><text class="tiny" x="770" y="730">South spill backflow risk</text>
+
+<!-- clue markers -->
+<g><circle class="clue" cx="680" cy="350" r="16"/><text class="num" x="680" y="350">12</text></g>
+<g><circle class="clue" cx="730" cy="300" r="16"/><text class="num" x="730" y="300">13</text></g>
+<g><circle class="clue" cx="520" cy="155" r="16"/><text class="num" x="520" y="155">14</text></g>
+<g><circle class="clue" cx="610" cy="520" r="16"/><text class="num" x="610" y="520">15</text></g>
+<g><circle class="clue" cx="1210" cy="390" r="16"/><text class="num" x="1210" y="390">16</text></g>
+<g><circle class="clue" cx="505" cy="470" r="16"/><text class="num" x="505" y="470">17</text></g>
+<g><circle class="clue" cx="690" cy="315" r="16"/><text class="num" x="690" y="315">18</text></g>
+
+<text class="tiny" x="50" y="55">HEARTHCROSS · DM MAP · KEEP HIDDEN</text>
+<text class="tiny" x="50" y="80">Red dashed lines are the forgotten three-arm relief system. Gold circles mark the age when each clue becomes available.</text>
+<g transform="translate(1010 80)">
+ <rect x="0" y="0" width="330" height="190" rx="10" fill="#efe2c8" stroke="#7b6249" stroke-width="2"/>
+ <text class="small" x="18" y="30">DM key</text>
+ <line class="secret" x1="20" y1="58" x2="85" y2="58"/><text class="tiny" x="100" y="63">Hidden relief arm</text>
+ <line class="secret2" x1="20" y1="88" x2="85" y2="88"/><text class="tiny" x="100" y="93">Smuggler cut</text>
+ <circle class="clue" cx="52" cy="120" r="14"/><text class="num" x="52" y="120">14</text><text class="tiny" x="100" y="125">Clue year marker</text>
+ <rect class="risk" x="20" y="145" width="65" height="22"/><text class="tiny" x="100" y="162">Flood / failure risk zone</text>
+</g>
+</svg>
