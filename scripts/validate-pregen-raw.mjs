@@ -152,9 +152,10 @@ function validatePack(path, edition) {
         const dex = abilityMod(pc.scores.DEX);
         const ability = weapon.ability === "DEX" ? dex : weapon.ability === "FINESSE" ? Math.max(str,dex) : str;
         const magic = Number(attack.magicBonus || 0);
-        const expected = ability + pb + magic;
+        const override = Number(attack.attackBonusOverride || 0);
+        const expected = ability + pb + magic + override;
         if (attack.bonus !== expected) {
-          errors.push(who + ": " + attack.name + " attack bonus " + attack.bonus + " should be " + expected + " (ability + PB" + (magic ? " + magic" : "") + ")");
+          errors.push(who + ": " + attack.name + " attack bonus " + attack.bonus + " should be " + expected + " (ability + PB" + (magic ? " + magic" : "") + (override ? " + sourced bonus" : "") + ")");
         }
       }
       if (weapon.versatile && attack.notes && /versatile/i.test(attack.notes) && !attack.notes.toLowerCase().includes(weapon.versatile)) {
