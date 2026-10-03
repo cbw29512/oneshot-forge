@@ -352,6 +352,58 @@ Training/familiarity does not become free proficiency. Mentors do not provide au
 
 A future **Heroic Legacy** option may add a separate bounded reward, but it must be visibly labeled house rule and may never be confused with RAW graduation mechanics.
 
+## 11A. Graduation keepsake packet
+
+Completing the Level-0 campaign unlocks a printable **two-page graduation packet** after the character has a legal 27–30 base array and selects the 2014 or 2024 graduation path.
+
+### Page 1 — Hearthcross Coming-of-Age Certificate
+
+The certificate records:
+- character name;
+- Hearthcross as the home community;
+- age range 12–18;
+- ancestry/species identity as entered by the player;
+- selected 2014 or 2024 graduation path;
+- frozen Level-0 base ability array;
+- final point-buy value;
+- baseline vs Heroic/house-rule array label;
+- final aspiration;
+- critical-success count;
+- signature lines for Player, Dungeon Master, Mentor/Guardian, and Hearthcross Witness.
+
+Until certified Level-1 class conversion is actually wired, the certificate must say the character is **ready for certified Level-1 creation**. It may not claim a class, subclass, feat, proficiency, spell, or other Level-1 mechanic that has not been generated and certified.
+
+### Page 2 — Origin Chronicle
+
+The Origin Chronicle summarizes:
+- family/guardians and childhood work;
+- the seven Yearbook memories from ages 12–18;
+- meaningful relationship and aspiration changes;
+- final relationships, reputation/scars, values, and fears;
+- training/familiarities;
+- possessions/heirloom history;
+- important choices;
+- critical successes, successes, failures/hard lessons, critical failures, critical-bonus DP earned, and final point-buy value.
+
+The Chronicle is a summary. The full Growing-Up Sheet and Yearbook remain the authoritative detailed history.
+
+### Mechanical boundary
+
+The certificate and Chronicle are **commemorative only**.
+
+They grant no:
+- feat;
+- proficiency;
+- ASI;
+- spell;
+- class feature;
+- equipment entitlement;
+- magic-item property;
+- bonus Development Point;
+- or any other mechanical benefit.
+
+Printing, signing, or possessing a graduation keepsake can never change the character's rules state.
+
 ## 12. Safety and tone
 
 The characters begin as adolescents. Early chapters should use age-appropriate stakes: family, community, accidents, weather, animals, mysteries, competitions, chores, rescue, social conflict, and limited danger.
@@ -383,4 +435,7 @@ From Zero to Hero is not production-ready until:
 - familiarity cannot silently become proficiency;
 - 2014 and 2024 graduation mechanics stay isolated;
 - the custom sheet persists and prints;
+- graduation unlocks a two-page certificate + Origin Chronicle packet only after a valid 27–30 array and edition selection;
+- graduation keepsakes remain explicitly commemorative and grant zero mechanical benefit;
+- the certificate cannot claim an unwired Level-1 class or mechanic;
 - no Level-0 critical rule leaks into ordinary Level-1+ checks.

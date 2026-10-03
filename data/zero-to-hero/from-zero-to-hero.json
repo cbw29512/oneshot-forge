@@ -1184,5 +1184,40 @@
         "choiceSensitive": "The final crisis locks the Hearthcross state carried into Level 1."
       }
     ]
+  },
+  "graduationKeepsakes": {
+    "enabled": true,
+    "mechanicalBenefit": false,
+    "certificateTitle": "Hearthcross Coming-of-Age Certificate",
+    "certificateSubtitle": "From Zero to Hero · Completion of the Level-0 Origin Years",
+    "certificateStatement": "Recognizes the character's completed childhood origin campaign and readiness to begin certified Level-1 creation in the selected 2014 or 2024 ruleset.",
+    "chronicleTitle": "Origin Chronicle",
+    "pages": 2,
+    "signatureLines": [
+      "Player",
+      "Dungeon Master",
+      "Mentor / Guardian",
+      "Hearthcross Witness"
+    ],
+    "requiredCertificateFields": [
+      "name",
+      "ageRange",
+      "home",
+      "ruleset",
+      "baseArray",
+      "pointBuyValue",
+      "aspiration"
+    ],
+    "chronicleSections": [
+      "childhood identity",
+      "seven yearly memories",
+      "relationships",
+      "reputation and scars",
+      "training and familiarities",
+      "possessions and heirloom history",
+      "important choices",
+      "critical successes and hard lessons"
+    ],
+    "ruleBoundary": "The graduation keepsakes are commemorative only. They grant no feat, proficiency, ASI, spell, class feature, equipment entitlement, magic-item property, or other mechanical benefit."
   }
 }

@@ -13,7 +13,8 @@
     "chapters",
     "graduation",
     "lifeFirstDesign",
-    "continuity"
+    "continuity",
+    "graduationKeepsakes"
   ],
   "properties": {
     "id": {
@@ -458,6 +459,66 @@
           "type": "array",
           "minItems": 7,
           "maxItems": 7
+        }
+      }
+    },
+    "graduationKeepsakes": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "mechanicalBenefit",
+        "certificateTitle",
+        "certificateSubtitle",
+        "certificateStatement",
+        "chronicleTitle",
+        "pages",
+        "signatureLines",
+        "requiredCertificateFields",
+        "chronicleSections",
+        "ruleBoundary"
+      ],
+      "properties": {
+        "enabled": {
+          "const": true
+        },
+        "mechanicalBenefit": {
+          "const": false
+        },
+        "certificateTitle": {
+          "type": "string",
+          "minLength": 5
+        },
+        "certificateSubtitle": {
+          "type": "string",
+          "minLength": 10
+        },
+        "certificateStatement": {
+          "type": "string",
+          "minLength": 20
+        },
+        "chronicleTitle": {
+          "type": "string",
+          "minLength": 5
+        },
+        "pages": {
+          "const": 2
+        },
+        "signatureLines": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "requiredCertificateFields": {
+          "type": "array",
+          "minItems": 7
+        },
+        "chronicleSections": {
+          "type": "array",
+          "minItems": 8
+        },
+        "ruleBoundary": {
+          "type": "string",
+          "minLength": 40
         }
       }
     }

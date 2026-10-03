@@ -96,11 +96,17 @@ for(const c of d.chapters){
 if(opportunities!==21) fail("must contain exactly 21 base Development Opportunities");
 
 if(!d.graduation?.["2014"]||!d.graduation?.["2024"]) fail("both edition graduation contracts required");
+if(d.graduationKeepsakes?.enabled!==true) fail("graduation keepsakes must be enabled");
+if(d.graduationKeepsakes?.mechanicalBenefit!==false) fail("graduation keepsakes must never grant mechanical benefit");
+if(d.graduationKeepsakes?.pages!==2) fail("graduation packet must remain two pages");
+if(d.graduationKeepsakes?.signatureLines?.join(",")!=="Player,Dungeon Master,Mentor / Guardian,Hearthcross Witness") fail("graduation signature lines drifted");
+for(const word of ["feat","proficiency","ASI","spell","class feature","magic-item"]) if(!d.graduationKeepsakes?.ruleBoundary?.includes(word)) fail("graduation keepsake rule boundary missing "+word);
 if(d.graduation["2014"].forbidden.join(" ").includes("2014 background")) fail("2014 graduation contract appears corrupted");
 for(const k of ["abilityArray","proficiencies","heirloom","mentor","mechanics"]) if(!d.graduation?.rawAudit?.[k]) fail("graduation audit missing "+k);
 
 if(!/development wallet/i.test(page)) fail("public page must explain the development wallet");
 if(!/group-resolution-note/.test(page)||!/yearbook-host/.test(page)) fail("public page must expose shared-beat and Yearbook continuity surfaces");
+for(const id of ["graduation-keepsakes","graduation-certificate","origin-chronicle","print-certificate","print-graduation-packet"]) if(!page.includes('id="'+id+'"')) fail("graduation keepsake UI missing "+id);
 if(!/30-point maximum/i.test(page)) fail("public page must disclose the absolute 30-point maximum");
 if(!/How Character Advantage is earned/.test(page)||!/No roleplay Disadvantage/.test(page)) fail("public page must explain fair Character Advantage criteria");
 if(!/critical failure can redirect/i.test(page)) fail("public page must disclose critical-failure redirection");
@@ -118,6 +124,11 @@ if(!/yearbook:\{\}/.test(script)) fail("Yearbook state missing");
 if(!/yearbookComplete/.test(script)||!/saveYearbook/.test(script)) fail("Yearbook completion/save logic missing");
 if(!/next\.disabled=used!==3 \|\| !yearbookComplete\(chapter\)/.test(script)) fail("age advancement must wait for Yearbook completion");
 if(!/type:"yearbook"/.test(script)) fail("Yearbook history entries must be persisted");
+if(!/renderGraduationKeepsakes/.test(script)) fail("graduation keepsake renderer missing");
+if(!/ready for certified Level-1 creation/.test(script)) fail("certificate must stop at certified Level-1 readiness until class wiring exists");
+if(!/graduationKeepsakes\.ruleBoundary/.test(script)) fail("certificate/chronicle must display the no-mechanical-benefit boundary");
+if(!/printZeroHero\("print-certificate"\)/.test(script)||!/printZeroHero\("print-graduation-packet"\)/.test(script)) fail("graduation print modes missing");
+if(!/state\.graduationEdition/.test(script)) fail("graduation keepsakes must record selected edition");
 if(!/wallet:\{flexible:0,lessons:blankAbilityMap\(0\)\}/.test(script)) fail("wallet state missing");
 if(!/state\.wallet\.flexible\+=Number\(rule\.flexible\|\|0\)/.test(script)) fail("flexible award path missing");
 if(!/state\.wallet\.lessons\[lessonAbility\]\+=Number\(rule\.lesson\)/.test(script)) fail("Lesson Point award path missing");
@@ -153,4 +164,4 @@ for(const score of Object.keys(raise).map(Number)){
  if(dev.startingPointBuyCost+dev.baseOpportunities!==dev.minimumGraduationValue) fail("6 starting value + 21 base growth must equal the 27-point floor");
 if(dev.maximumGraduationValue-dev.minimumGraduationValue!==3) fail("Zero-to-Hero heroic headroom must remain exactly 3 point-buy value");
 
-console.log("From Zero to Hero OK — life-first village arc, shared per-player Growth Beats, Yearbook continuity, 27–30 point range, Character Advantage, differentiated outcomes, edition-isolated graduation.");
+console.log("From Zero to Hero OK — life-first village arc, shared Growth Beats, Yearbook continuity, 27–30 point range, two-page commemorative graduation packet, edition-isolated graduation.");
