@@ -6,12 +6,12 @@
   <title>From Zero to Hero — One-Shot Forge</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
   <link rel="stylesheet" href="styles.css?v=20261002e">
-  <link rel="stylesheet" href="zero-hero.css?v=20261003e">
+  <link rel="stylesheet" href="zero-hero.css?v=20261003f">
 </head>
 <body class="zero-hero-page">
   <header class="land-bar print-hide">
     <a class="brand" href="./"><img src="assets/mark-lantern.jpg" alt="" width="36" height="36"><span>One-Shot Forge</span></a>
-    <nav class="land-nav"><a href="./">Adventures</a><a href="zero-hero-kit.html">Start Here</a><a class="button small secondary" href="zero-hero-adventure.html">DM Adventure</a><button class="button small secondary" id="print-growth" type="button">Print growth sheet</button><button class="button small" id="reset-growth" type="button">Reset Level 0</button></nav>
+    <nav class="land-nav"><a href="./">Adventures</a><a class="button small secondary" href="zero-hero-adventure.html">DM Adventure</a><button class="button small secondary" id="print-growth" type="button">Print growth sheet</button><button class="button small" id="reset-growth" type="button">Reset Level 0</button></nav>
   </header>
   <main class="zero-shell">
     <section class="zero-hero-intro print-hide">
@@ -30,9 +30,37 @@
         <div class="growth-progress"><strong id="growth-count">0 / 21</strong><span>growth opportunities resolved</span><div id="development-wallet" class="wallet-summary">0 flexible · 0 lesson · 0 critical bonus earned</div></div>
       </header>
 
+      <section class="preclass-shell" id="preclass-shell">
+        <div class="preclass-head">
+          <div>
+            <p class="eyebrow ember">LEVEL-0 PRE-CLASS CHARACTER</p>
+            <h3>Lock who you are before deciding what class you become</h3>
+            <p>Race/species and rules edition are identity-level choices. Class, background, HP, saves, proficiencies, equipment, spells, and feats remain empty RAW slots until graduation.</p>
+          </div>
+          <span id="preclass-lock-status" class="preclass-status">UNLOCKED</span>
+        </div>
+        <div class="preclass-grid">
+          <label>Rules edition<select id="preclass-edition"><option value="">Choose 2014 or 2024…</option><option value="2014">2014</option><option value="2024">2024</option></select></label>
+          <label>Race / species<input id="preclass-race" maxlength="60" placeholder="Immutable identity"></label>
+          <label>Size<input id="preclass-size" maxlength="40" placeholder="From your rules source"></label>
+          <label>Speed<input id="preclass-speed" maxlength="40" placeholder="From your rules source"></label>
+          <label class="wide">Senses<textarea id="preclass-senses" rows="2" maxlength="300" placeholder="Source-verified innate senses; do not paste long proprietary rules text"></textarea></label>
+          <label class="wide">Innate race/species traits active at Level 0<textarea id="preclass-intrinsic" rows="4" maxlength="800" placeholder="Only traits that are truly innate and not gated by class, proficiency bonus, or character level"></textarea></label>
+          <label class="wide">Recorded now, dormant until legally available<textarea id="preclass-gated" rows="3" maxlength="800" placeholder="Level-gated, PB-gated, class-gated, or otherwise unavailable traits"></textarea></label>
+          <label class="wide">Rules source note<input id="preclass-source" maxlength="180" placeholder="Example: owned book / SRD source / page note for your table"></label>
+        </div>
+        <div class="preclass-lock-row">
+          <button type="button" class="button ember" id="lock-preclass-shell">Lock race/species + edition</button>
+          <p id="preclass-lock-copy" class="muted">Required before the first Growth Beat. Locking does not choose a class.</p>
+        </div>
+        <div class="raw-slot-wrap">
+          <p class="eyebrow">RAW SLOTS WAITING FOR GRADUATION</p>
+          <div id="raw-placeholder-grid" class="raw-placeholder-grid"></div>
+        </div>
+      </section>
+
       <div class="identity-grid">
         <label>Name<input id="char-name" maxlength="50" placeholder="Character name"></label>
-        <label>Ancestry / species<input id="char-ancestry" maxlength="50" placeholder="Choose identity; mechanics wait for graduation"></label>
         <label>Family / guardians<input id="char-family" maxlength="90" placeholder="Who raised you?"></label>
         <label>Childhood work / chores<input id="char-chores" maxlength="90" placeholder="What do you do around Hearthcross?"></label>
         <label class="wide upbringing-select">Upbringing Lean <select id="char-upbringing"><option value="">Choose an upbringing lean…</option></select><small>All six abilities still start at 9. This changes only Level-0 roll odds and does not lock your eventual class.</small></label>
@@ -102,10 +130,10 @@
     <section class="graduation-panel print-hide" id="graduation-panel" hidden>
       <p class="eyebrow ember">AGE 18 COMPLETE</p>
       <h2>Graduate to Level 1</h2>
-      <p>Spend development until the base array reaches at least the guaranteed 27-point floor, then freeze the Level-0 array. Critical failures may redirect where growth landed but can never reduce that minimum. Critical-success bonuses can push the array above 27, but never above the absolute 30-point cap; anything above 27 is labeled Heroic / house-rule ability generation. After that, the selected edition's Level-1 rules apply without mixing editions.</p>
+      <p>Spend development until the base array reaches at least the guaranteed 27-point floor, then freeze the Level-0 array. Race/species and rules edition were already locked at age 12 and do not change here. Critical-success bonuses can push the array above 27, but never above the absolute 30-point cap. After the base array is frozen, the waiting RAW slots are filled from the locked edition without mixing rulesets.</p>
       <div id="raw-audit"></div>
       <div id="reflection-host"></div>
-      <div class="graduation-actions"><button type="button" class="button" data-edition="2014">Prepare 2014 graduation</button><button type="button" class="button ember" data-edition="2024">Prepare 2024 graduation</button></div>
+      <div class="graduation-actions"><button type="button" class="button" data-edition="2014">Prepare locked 2014 graduation</button><button type="button" class="button ember" data-edition="2024">Prepare locked 2024 graduation</button></div>
       <div id="graduation-summary"></div>
     </section>
 
@@ -152,6 +180,6 @@
       <details><summary>Hearthcross village cast & locations</summary><div id="village-host"></div></details>
     </section>
   </main>
-  <script src="zero-hero.js?v=20261003e"></script>
+  <script src="zero-hero.js?v=20261003f"></script>
 </body>
 </html>
