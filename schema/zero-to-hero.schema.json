@@ -14,7 +14,8 @@
     "graduation",
     "lifeFirstDesign",
     "continuity",
-    "graduationKeepsakes"
+    "graduationKeepsakes",
+    "scrapbook"
   ],
   "properties": {
     "id": {
@@ -519,6 +520,150 @@
         "ruleBoundary": {
           "type": "string",
           "minLength": 40
+        }
+      }
+    },
+    "scrapbook": {
+      "type": "object",
+      "required": [
+        "enabled",
+        "mechanicalBenefit",
+        "printFormat",
+        "competitionStandard",
+        "cardFields",
+        "categories",
+        "competitions"
+      ],
+      "properties": {
+        "enabled": {
+          "const": true
+        },
+        "mechanicalBenefit": {
+          "const": false
+        },
+        "printFormat": {
+          "type": "object",
+          "required": [
+            "cardSize",
+            "cardsPerLetterPage",
+            "layout",
+            "cutFriendly"
+          ],
+          "properties": {
+            "cardSize": {
+              "const": "2.5 x 3.5 in"
+            },
+            "cardsPerLetterPage": {
+              "const": 9
+            },
+            "layout": {
+              "const": "3 x 3 portrait Letter sheet"
+            },
+            "cutFriendly": {
+              "const": true
+            }
+          }
+        },
+        "competitionStandard": {
+          "type": "object",
+          "required": [
+            "supportedPlayerCount",
+            "cardForEveryPlayer",
+            "podiumPlaces",
+            "consolationFromPlace",
+            "uniqueConsolationWithinEvent",
+            "placementLabel",
+            "tieRule",
+            "criticalSuccessDecoration",
+            "criticalFailureDecoration",
+            "noDevelopment"
+          ],
+          "properties": {
+            "supportedPlayerCount": {
+              "const": [
+                4,
+                5,
+                6
+              ]
+            },
+            "cardForEveryPlayer": {
+              "const": true
+            },
+            "podiumPlaces": {
+              "const": [
+                1,
+                2,
+                3
+              ]
+            },
+            "consolationFromPlace": {
+              "const": 4
+            },
+            "uniqueConsolationWithinEvent": {
+              "const": true
+            }
+          }
+        },
+        "cardFields": {
+          "type": "array",
+          "minItems": 10
+        },
+        "categories": {
+          "type": "array",
+          "minItems": 6
+        },
+        "competitions": {
+          "type": "array",
+          "minItems": 6,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "age",
+              "chapterId",
+              "allowedAbilities",
+              "prompt",
+              "awards",
+              "consolations"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "age": {
+                "type": "integer",
+                "minimum": 12,
+                "maximum": 18
+              },
+              "chapterId": {
+                "type": "string"
+              },
+              "allowedAbilities": {
+                "type": "array",
+                "minItems": 2
+              },
+              "prompt": {
+                "type": "string",
+                "minLength": 20
+              },
+              "awards": {
+                "type": "object",
+                "required": [
+                  "1",
+                  "2",
+                  "3"
+                ]
+              },
+              "consolations": {
+                "type": "array",
+                "minItems": 3
+              }
+            }
+          }
         }
       }
     }
