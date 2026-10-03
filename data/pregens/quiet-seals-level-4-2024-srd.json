@@ -537,9 +537,9 @@
         }
       ],
       "bonusActions": [
-        "Spiritual Weapon if cast: +5, 1d8+3 force.",
-        "Healing Word if a slot remains: 1d4+5 HP plus Disciple of Life.",
-        "Stonecunning: Tremorsense 60 ft., 10 minutes, 1/LR on stone."
+        "Spiritual Weapon if cast: concentration up to 1 minute; +5 melee spell attack, 1d8+3 force.",
+        "Healing Word: 2d4+6 HP total at 1st level with Disciple of Life.",
+        "Stonecunning: Tremorsense 60 ft., 10 minutes, 2/LR at this level, on/touching stone."
       ],
       "reactions": [],
       "spellcasting": {
@@ -551,23 +551,27 @@
           "2": 3
         },
         "focus": "holy symbol",
-        "prepareCount": "7 (Wis 3 + cleric 4); domain spells always prepared and do not count",
+        "prepareCount": "7 prepared Cleric spells at level 4, plus always-prepared Life Domain spells; Magic Initiate spells are separate.",
         "cantrips": [
           "Sacred Flame",
           "Guidance",
           "Light",
-          "Spare the Dying"
+          "Spare the Dying",
+          "Mending",
+          "Thaumaturgy"
         ],
         "prepared": [
+          "Command",
+          "Detect Magic",
+          "Guiding Bolt",
+          "Healing Word",
+          "Hold Person",
+          "Shield of Faith",
+          "Spiritual Weapon",
+          "Aid",
           "Bless",
           "Cure Wounds",
-          "Healing Word",
-          "Shield of Faith",
-          "Detect Magic",
-          "Spiritual Weapon",
-          "Lesser Restoration",
-          "Aid",
-          "Hold Person"
+          "Lesser Restoration"
         ]
       },
       "spellList": [
@@ -596,8 +600,8 @@
           "level": 0,
           "name": "Spare the Dying",
           "time": "action",
-          "range": "touch",
-          "effect": "A living creature at 0 HP becomes stable."
+          "range": "15 ft.",
+          "effect": "A creature in range at 0 HP becomes Stable. Range increases at character levels 5, 11, and 17."
         },
         {
           "level": 1,
@@ -611,14 +615,14 @@
           "name": "Cure Wounds",
           "time": "action",
           "range": "touch",
-          "effect": "1d8+3 HP, plus Disciple of Life +3 (total 1d8+6). Domain."
+          "effect": "2d8+3 HP, plus Disciple of Life +3 (total 2d8+6) with a 1st-level slot. Life Domain."
         },
         {
           "level": 1,
           "name": "Healing Word",
           "time": "bonus",
           "range": "60 ft.",
-          "effect": "1d4+3 HP, plus Disciple of Life +3 (total 1d4+6)."
+          "effect": "2d4+3 HP, plus Disciple of Life +3 (total 2d4+6) with a 1st-level slot."
         },
         {
           "level": 1,
@@ -639,7 +643,7 @@
           "name": "Spiritual Weapon",
           "time": "bonus",
           "range": "60 ft.",
-          "effect": "1 min, no concentration. Spell attack +5, 1d8+3 force. Domain."
+          "effect": "Concentration up to 1 minute. Melee spell attack +5, 1d8+3 force; Bonus Action on later turns to move up to 20 ft. and attack again."
         },
         {
           "level": 2,
@@ -661,6 +665,34 @@
           "time": "action",
           "range": "60 ft.",
           "effect": "Concentration 1 min. Wis DC 13 or paralyzed. Repeat save at end of turn."
+        },
+        {
+          "level": 0,
+          "name": "Mending",
+          "time": "1 minute",
+          "range": "touch",
+          "effect": "Repair one break or tear in an object, up to 1 foot in any dimension."
+        },
+        {
+          "level": 0,
+          "name": "Thaumaturgy",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Create one minor divine wonder from the spell’s listed options for up to 1 minute."
+        },
+        {
+          "level": 1,
+          "name": "Command",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Wis DC 13 or the target follows one listed one-word command on its next turn."
+        },
+        {
+          "level": 1,
+          "name": "Guiding Bolt",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "Ranged spell +5; 4d6 radiant, and the next attack against the target before the end of your next turn has Advantage."
         }
       ],
       "featureList": [
@@ -672,17 +704,17 @@
         {
           "name": "Spellcasting",
           "source": "Cleric 1",
-          "text": "Wis DC 13, +5. Slots 4/3. Prepare Wis + level = 7, plus domain spells."
+          "text": "Wis DC 13, +5. Slots 4/3. Level 4 Cleric prepares 7 Cleric spells; Life Domain spells are always prepared in addition."
         },
         {
           "name": "Disciple of Life",
           "source": "Life 3",
-          "text": "When a 1st-level or higher spell you cast restores HP, extra HP = 2 + the spell’s level."
+          "text": "When a spell cast with a spell slot restores HP, add 2 + the slot level to that healing on the turn you cast it."
         },
         {
           "name": "Channel Divinity",
           "source": "Cleric 2",
-          "text": "2 uses. Regain 1 on a Short Rest, all on a Long Rest. Turn Undead or Preserve Life (restore 20 HP split, 30 ft., not undead/constructs, up to half max each).",
+          "text": "2 uses. Regain 1 on a Short Rest, all on a Long Rest. Options: Divine Spark (1d8+Wis healing or Con-save Radiant/Necrotic damage), Turn Undead, or Life Domain Preserve Life (20 HP split among Bloodied creatures within 30 ft., no target above half HP).",
           "uses": "2"
         },
         {
@@ -698,12 +730,13 @@
         {
           "name": "Magic Initiate (Cleric)",
           "source": "Acolyte origin feat",
-          "text": "One extra cleric cantrip (Guidance is covered). 1st-level Healing Word 1/Long Rest without a slot, and you can still spend slots on it."
+          "text": "Two additional Cleric cantrips: Mending and Thaumaturgy. Healing Word is always prepared and can be cast 1/Long Rest without a slot; spell slots can also cast it."
         },
         {
           "name": "Stonecunning",
           "source": "Dwarf",
-          "text": "Bonus Action: Tremorsense 60 ft. for 10 minutes, 1/Long Rest, on stone."
+          "text": "Bonus Action: Tremorsense 60 ft. for 10 minutes while on/touching stone. Uses equal Proficiency Bonus (2), all regained on a Long Rest.",
+          "uses": "2/LR"
         }
       ],
       "equipment": [
@@ -749,17 +782,17 @@
       ],
       "features": [
         "Divine Order: Protector: Martial weapons and Heavy armor (already using chain mail).",
-        "Spellcasting: Wis DC 13, +5. Slots 4/3. Prepare Wis + level = 7, plus domain spells.",
-        "Disciple of Life: When a 1st-level or higher spell you cast restores HP, extra HP = 2 + the spell’s level.",
-        "Channel Divinity: 2 uses. Regain 1 on a Short Rest, all on a Long Rest. Turn Undead or Preserve Life (restore 20 HP split, 30 ft., not undead/constructs, up to half max each).",
+        "Spellcasting: Wis DC 13, +5. Slots 4/3. Level 4 Cleric prepares 7 Cleric spells; Life Domain spells are always prepared in addition.",
+        "Disciple of Life: When a spell cast with a spell slot restores HP, add 2 + the slot level to that healing on the turn you cast it.",
+        "Channel Divinity: 2 uses. Regain 1 on a Short Rest, all on a Long Rest. Options: Divine Spark (1d8+Wis healing or Con-save Radiant/Necrotic damage), Turn Undead, or Life Domain Preserve Life (20 HP split among Bloodied creatures within 30 ft., no target above half HP).",
         "Dwarven Resilience: Resistance to Poison damage. Advantage on saves to avoid or end Poisoned. Darkvision 120 ft.",
         "Dwarven Toughness: +1 HP per level (already in 39). Speed 30.",
-        "Magic Initiate (Cleric): One extra cleric cantrip (Guidance is covered). 1st-level Healing Word 1/Long Rest without a slot, and you can still spend slots on it.",
-        "Stonecunning: Bonus Action: Tremorsense 60 ft. for 10 minutes, 1/Long Rest, on stone."
+        "Magic Initiate (Cleric): Two additional Cleric cantrips: Mending and Thaumaturgy. Healing Word is always prepared and can be cast 1/Long Rest without a slot; spell slots can also cast it.",
+        "Stonecunning: Bonus Action: Tremorsense 60 ft. for 10 minutes while on/touching stone. Uses equal Proficiency Bonus (2), all regained on a Long Rest."
       ],
       "gear": "Chain mail, Shield, Warhammer, Holy symbol, Healer’s kit, Acolyte’s vestments, 15 gp",
       "ruleset": "2024",
-      "conversionNote": "2014 Life Cleric rebuilt on 2024 Cleric 4 (subclass at 3) / Dwarf / Acolyte. Channel Divinity is 2 uses."
+      "conversionNote": "2014 Life Cleric identity rebuilt on 2024 Cleric 4 / Life Domain 3 / Dwarf / Acolyte with 2024-native spell preparation and spell text."
     },
     {
       "id": "pregen-nyx",
@@ -1483,7 +1516,7 @@
       "className": "Ranger",
       "subclass": "Hunter",
       "race": "Wood Elf",
-      "background": "Outlander",
+      "background": "Guide",
       "role": "Ranged hunter",
       "recommended": true,
       "portrait": "assets/pregens/kael.jpg",
@@ -1685,12 +1718,15 @@
           "1": 3
         },
         "focus": "druidic focus (optional)",
-        "prepareCount": "Hunter’s Mark always prepared. 3 first-level slots. 2 free Hunter’s Mark / Long Rest.",
+        "prepareCount": "5 prepared Ranger spells at level 4, plus Hunter’s Mark always prepared. 3 first-level slots; 2 free Hunter’s Mark casts per Long Rest.",
         "cantrips": [],
         "prepared": [
           "Hunter’s Mark",
+          "Cure Wounds",
+          "Ensnaring Strike",
+          "Fog Cloud",
           "Goodberry",
-          "Cure Wounds"
+          "Longstrider"
         ]
       },
       "spellList": [
@@ -1705,15 +1741,36 @@
           "level": 1,
           "name": "Goodberry",
           "time": "action",
-          "range": "touch",
-          "effect": "10 berries, 1 HP each, 24 hours. A creature can eat one as an action."
+          "range": "self",
+          "effect": "Create 10 berries for 24 hours. A creature uses a Bonus Action to eat one, regaining 1 HP and gaining a day’s nourishment."
         },
         {
           "level": 1,
           "name": "Cure Wounds",
           "time": "action",
           "range": "touch",
-          "effect": "1d8+2 HP."
+          "effect": "2d8+2 HP."
+        },
+        {
+          "level": 1,
+          "name": "Ensnaring Strike",
+          "time": "bonus",
+          "range": "self",
+          "effect": "After you hit with a weapon attack, vines can Restrain the target on a failed Strength save; concentration up to 1 minute."
+        },
+        {
+          "level": 1,
+          "name": "Fog Cloud",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "Concentration up to 1 hour; create a heavily obscured 20-ft-radius sphere of fog."
+        },
+        {
+          "level": 1,
+          "name": "Longstrider",
+          "time": "action",
+          "range": "touch",
+          "effect": "For 1 hour, the target’s Speed increases by 10 ft."
         }
       ],
       "featureList": [
@@ -1819,7 +1876,7 @@
         "Shortsword: Vex"
       ],
       "ruleset": "2024",
-      "conversionNote": "2014 Hunter rebuilt on 2024 Ranger 4 / Hunter 3 / Wood Elf / Guide. Extra Attack is level 5."
+      "conversionNote": "2014 Hunter identity rebuilt on 2024 Ranger 4 / Hunter 3 / Wood Elf / Guide with 2024 prepared-spell rules. Extra Attack is level 5."
     },
     {
       "id": "pregen-hester",
@@ -1827,7 +1884,7 @@
       "className": "Paladin",
       "subclass": "Oath of Devotion",
       "race": "Human",
-      "background": "Folk Hero",
+      "background": "Farmer",
       "role": "Face and second front line",
       "recommended": true,
       "portrait": "assets/pregens/hester.jpg",
@@ -2032,14 +2089,17 @@
           "1": 3
         },
         "focus": "holy symbol",
-        "prepareCount": "Cha mod + half paladin level (min 1) = 3+2 = 5, plus oath spells.",
+        "prepareCount": "5 prepared Paladin spells at level 4, plus Oath of Devotion spells and Divine Smite always prepared.",
         "cantrips": [],
         "prepared": [
           "Bless",
+          "Command",
+          "Compelled Duel",
           "Cure Wounds",
           "Heroism",
           "Protection from Evil and Good",
-          "Sanctuary"
+          "Shield of Faith",
+          "Divine Smite"
         ]
       },
       "spellList": [
@@ -2048,35 +2108,56 @@
           "name": "Bless",
           "time": "action",
           "range": "30 ft.",
-          "effect": "Concentration 1 min. Up to 3 creatures add 1d4 to attacks and saves."
+          "effect": "Concentration up to 1 minute. Up to 3 creatures add 1d4 to attack rolls and saving throws."
+        },
+        {
+          "level": 1,
+          "name": "Command",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Wis DC 13 or the target follows one listed one-word command on its next turn."
+        },
+        {
+          "level": 1,
+          "name": "Compelled Duel",
+          "time": "bonus",
+          "range": "30 ft.",
+          "effect": "Concentration up to 1 minute. Wis DC 13 or the target is drawn into a duel with you under the spell’s restrictions."
         },
         {
           "level": 1,
           "name": "Cure Wounds",
           "time": "action",
           "range": "touch",
-          "effect": "1d8+3 HP."
+          "effect": "2d8+3 HP."
         },
         {
           "level": 1,
           "name": "Heroism",
           "time": "action",
           "range": "touch",
-          "effect": "Concentration 1 min. Immune to frightened; 3 temp HP at the start of each turn."
+          "effect": "Concentration up to 1 minute. Target is immune to Frightened and gains 3 Temp HP at the start of each of its turns."
         },
         {
           "level": 1,
           "name": "Protection from Evil and Good",
           "time": "action",
           "range": "touch",
-          "effect": "Concentration 10 min. Aberrations, celestials, elementals, fey, fiends, undead: disadvantage to hit the target; target can’t be charmed, frightened, or possessed by them. Oath."
+          "effect": "Concentration up to 10 minutes. Protects against Aberrations, Celestials, Elementals, Fey, Fiends, and Undead. Oath."
         },
         {
           "level": 1,
-          "name": "Sanctuary",
+          "name": "Shield of Faith",
           "time": "bonus",
-          "range": "30 ft.",
-          "effect": "1 min. Attackers must Wis DC 13 or choose a new target. Ends if the warded creature attacks or casts a spell that affects an enemy. Oath."
+          "range": "60 ft.",
+          "effect": "Concentration up to 10 minutes. Target gains +2 AC. Oath."
+        },
+        {
+          "level": 1,
+          "name": "Divine Smite",
+          "time": "bonus after hit",
+          "range": "self",
+          "effect": "Immediately after a melee weapon or Unarmed Strike hit: +2d8 radiant; +1d8 more against a Fiend or Undead. 1 free cast/LR, otherwise a slot."
         }
       ],
       "featureList": [
@@ -2190,7 +2271,7 @@
         "Javelin: Slow"
       ],
       "ruleset": "2024",
-      "conversionNote": "2014 Devotion Paladin rebuilt on 2024 Paladin 4. Smite is a spell. Extra Attack is level 5. Turn the Unholy is not the 2024 Channel option — Sacred Weapon and Divine Sense are."
+      "conversionNote": "2014 Devotion Paladin identity rebuilt on 2024 Paladin 4 / Oath of Devotion 3 / Human / Farmer with 2024 prepared-spell and Smite rules. Extra Attack is level 5."
     }
   ]
 }
