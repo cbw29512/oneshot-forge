@@ -448,7 +448,7 @@ def hester():
             atk("Javelin", 5, "1d6+3", "piercing", "thrown 30/120"),
         ],
         "bonusActions": [
-            "Divine Smite is not a bonus — it is on hit. Sacred Weapon (Channel): bonus action, 1 minute, attacks with one weapon use +5 (Cha) instead of Str, and the weapon is magical.",
+            "Divine Smite is not a bonus — it is on hit. Sacred Weapon uses an action, lasts 1 minute, adds Cha (+3) to attack rolls with the chosen weapon, and makes it magical.",
         ],
         "reactions": [],
         "spellcasting": {
