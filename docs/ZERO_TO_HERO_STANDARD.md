@@ -224,6 +224,44 @@ Each yearly mini-adventure requires:
 
 Combat is sparse. When combat occurs, it has a job beyond reducing HP and provides noncombatant/support roles for characters who are not developing martially.
 
+## 8A. Life-first campaign rhythm
+
+From Zero to Hero is **not seven conventional adventures scaled down for children**. The first half is ordinary village life with gameable problems.
+
+The default seven-year rhythm is:
+
+1. **Age 12 — Spring Chore Day:** shared household/community work, small mishaps, first adult trust.
+2. **Age 13 — The Spring Dance:** setup, friendships, awkward social problems, celebration.
+3. **Age 14 — Harvest Fair & Team Games:** competition, stalls, teamwork, handling victory or embarrassment.
+4. **Age 15 — Apprentice Week:** mentors, crafts, real work, mistakes under supervision.
+5. **Age 16 — The Road to Bellmere:** first unsupervised trip away from Hearthcross and first taste of the wider world.
+6. **Age 17 — The Long Storm:** first serious community emergency where adults genuinely rely on the group.
+7. **Age 18 — The Last Spring Dance:** coming-of-age celebration, unfinished relationships, then the final crisis/calling.
+
+### Group-first rule
+
+Every mini-adventure must give the whole party a natural reason to be together before the first roll. Do not create a single "main character" while the other youths watch.
+
+Each chapter should include:
+- a shared group responsibility;
+- simultaneous or divisible jobs;
+- room for all six ability approaches;
+- social/relationship play as well as task play;
+- at least one decision the group makes together;
+- consequences that can persist into later years.
+
+### Childhood danger rule
+
+Ages **12–15** are ordinary-life chapters. They may contain accidents, embarrassment, weather, animals, broken equipment, arguments, lost property, or other believable complications, but they should not default to lethal combat, monster attacks, raids, or world-saving stakes.
+
+Age **16** can introduce travel risk and independence but remains low-danger by default.
+
+Age **17** is the first default serious community-danger chapter.
+
+Age **18** may contain the origin campaign's true crisis because the characters are now at the threshold of Level 1.
+
+The purpose is escalation by **life stage**, not escalation because every session needs a bigger villain.
+
 ## 9. Graduation: 2014
 
 Level-0 produces the **pre-origin base ability array**.

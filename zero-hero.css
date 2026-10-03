@@ -20,3 +20,5 @@
 .dice-entry{display:flex;gap:.8rem;flex-wrap:wrap;margin:.45rem 0 .7rem}
 .dice-entry label{display:flex;flex-direction:column;gap:.25rem;font-weight:700}
 .dice-entry input{width:7rem;padding:.45rem;font:inherit}
+
+.quest-life-event{text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:800;color:#e0b27e;margin:.15rem 0}.quest-group{background:#35291f;border-left:4px solid #a46b3f;padding:.65rem .75rem;border-radius:.35rem;margin:.65rem 0;max-width:52rem}
