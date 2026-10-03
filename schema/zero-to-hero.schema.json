@@ -12,7 +12,8 @@
     "village",
     "chapters",
     "graduation",
-    "lifeFirstDesign"
+    "lifeFirstDesign",
+    "continuity"
   ],
   "properties": {
     "id": {
@@ -392,6 +393,71 @@
         "groupRule": {
           "type": "string",
           "minLength": 30
+        }
+      }
+    },
+    "continuity": {
+      "type": "object",
+      "required": [
+        "growthBeatParticipation",
+        "yearbook",
+        "betweenYears",
+        "villageTimeline"
+      ],
+      "properties": {
+        "growthBeatParticipation": {
+          "type": "object",
+          "required": [
+            "rule",
+            "noEarlyClose",
+            "rotateSpotlight",
+            "supportAllowed",
+            "supportRule",
+            "reframingRule"
+          ],
+          "properties": {
+            "noEarlyClose": {
+              "const": true
+            },
+            "rotateSpotlight": {
+              "const": true
+            },
+            "supportAllowed": {
+              "const": true
+            }
+          }
+        },
+        "yearbook": {
+          "type": "object",
+          "required": [
+            "requiredAfterEachChapter",
+            "grantsDevelopment",
+            "prompts",
+            "advantageLink"
+          ],
+          "properties": {
+            "requiredAfterEachChapter": {
+              "const": true
+            },
+            "grantsDevelopment": {
+              "const": false
+            },
+            "prompts": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4
+            }
+          }
+        },
+        "betweenYears": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6
+        },
+        "villageTimeline": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7
         }
       }
     }
