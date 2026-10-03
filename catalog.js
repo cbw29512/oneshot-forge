@@ -7,13 +7,28 @@
     return product.commerce || {};
   }
 
+  function deliveryReady(product) {
+    const delivery = product.delivery || {};
+    return Boolean(
+      (!delivery.browserRequiredForPaid || delivery.browserReady) &&
+      (!delivery.zipRequiredForPaid || delivery.zipReady) &&
+      delivery.printReady
+    );
+  }
+
   function releaseGate(product) {
     const gate = product.releaseGate || {};
     const commerce = commerceFor(product);
     return Boolean(
-      product.sellable && gate.approved && gate.checkoutConfigured &&
-      commerce.provider && commerce.checkoutUrl &&
-      commerce.entitlementMode === "server-verified" && commerce.entitlementVerificationUrl
+      product.sellable &&
+      gate.approved &&
+      gate.dmPlaytestApproved &&
+      gate.checkoutConfigured &&
+      deliveryReady(product) &&
+      commerce.provider &&
+      commerce.checkoutUrl &&
+      commerce.entitlementMode === "server-verified" &&
+      commerce.entitlementVerificationUrl
     );
   }
 
@@ -41,8 +56,9 @@
   function labelFor(product, entitlement) {
     if (entitlement === "owned") return "Owned · Ready to run";
     if (releaseGate(product)) return `${money.format(product.priceCents / 100)} · Ready to buy`;
+    if (product.currentAccess === "free-starter") return "FREE STARTER · Complete adventure";
     if (product.currentAccess === "free-preview") return product.format === "download-bundle"
-      ? "Free preview · PDF bundle" : "Live · Free preview";
+      ? "Review build · Download kit" : "Playtest preview · Not for sale";
     return "Coming after review";
   }
 
