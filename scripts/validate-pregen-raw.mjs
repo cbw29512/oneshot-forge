@@ -120,8 +120,11 @@ function validatePack(path, edition) {
     if (pc.passivePerception !== expectedPP) errors.push(who + ": passive Perception " + pc.passivePerception + " should be " + expectedPP);
     if (pc.passiveInsight !== expectedPI) errors.push(who + ": passive Insight " + pc.passiveInsight + " should be " + expectedPI);
 
-    if (typeof pc.initiative === "number" && pc.initiative !== abilityMod(pc.scores.DEX)) {
-      errors.push(who + ": initiative bonus " + pc.initiative + " should be Dex modifier " + abilityMod(pc.scores.DEX) + " unless explicit initiativeBonusOverride is recorded");
+    if (typeof pc.initiative === "number") {
+      const expectedInitiative = abilityMod(pc.scores.DEX) + Number(pc.initiativeBonusOverride || 0);
+      if (pc.initiative !== expectedInitiative) {
+        errors.push(who + ": initiative bonus " + pc.initiative + " should be " + expectedInitiative + " from Dex plus recorded initiative bonuses");
+      }
     }
 
     const hitDiceText = String(pc.hitDice || "");
