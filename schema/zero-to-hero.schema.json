@@ -106,7 +106,8 @@
         "criticalSuccessBonusRule",
         "minimumGraduationValue",
         "baseGrowthNeverLost",
-        "maturitySettlementRule"
+        "maturitySettlementRule",
+        "challengeProfile"
       ],
       "properties": {
         "startingPointBuyCost": {
@@ -220,6 +221,60 @@
         "maturitySettlementRule": {
           "type": "string",
           "minLength": 20
+        },
+        "challengeProfile": {
+          "type": "object",
+          "required": [
+            "dcByAgeBand",
+            "roleplayAdvantage",
+            "advantageStacks",
+            "criteria",
+            "restriction",
+            "noRoleplayDisadvantage",
+            "resolution"
+          ],
+          "properties": {
+            "dcByAgeBand": {
+              "type": "object",
+              "required": [
+                "12-13",
+                "14-16",
+                "17-18"
+              ],
+              "properties": {
+                "12-13": {
+                  "const": 15
+                },
+                "14-16": {
+                  "const": 16
+                },
+                "17-18": {
+                  "const": 17
+                }
+              }
+            },
+            "roleplayAdvantage": {
+              "const": true
+            },
+            "advantageStacks": {
+              "const": false
+            },
+            "criteria": {
+              "type": "array",
+              "minItems": 3
+            },
+            "restriction": {
+              "type": "string",
+              "minLength": 20
+            },
+            "noRoleplayDisadvantage": {
+              "const": true
+            },
+            "resolution": {
+              "type": "string",
+              "minLength": 20
+            }
+          }
         }
       }
     },
