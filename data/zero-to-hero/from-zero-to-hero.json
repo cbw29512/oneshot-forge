@@ -1222,7 +1222,7 @@
   },
   "scrapbook": {
     "enabled": true,
-    "mechanicalBenefit": false,
+    "mechanicalBenefit": true,
     "printFormat": {
       "cardSize": "2.5 x 3.5 in",
       "cardsPerLetterPage": 9,
@@ -1247,8 +1247,9 @@
       "tieRule": "Break ties first by the higher kept d20. If still tied for a podium place, make one story-only d20 tiebreak roll; no Development Point is awarded.",
       "criticalSuccessDecoration": "A critical success may add a Legendary Finish badge to the card but grants no extra scrapbook mechanic.",
       "criticalFailureDecoration": "A critical failure should prefer an event-specific mishap/consolation title when the character finishes outside the podium.",
-      "noDevelopment": "Competition scrapbook placement and cards grant no Development Points, proficiencies, ability increases, or other mechanical benefits.",
-      "consolationAssignment": "For 4th–6th place, use consolation entries in order: 4th gets #1, 5th gets #2, 6th gets #3, unless an event-specific place/field-size special award overrides it."
+      "noDevelopment": "Competition placement itself grants no extra Development Points. The competition's Development Card carries only the growth result already produced by that character's Development Check.",
+      "consolationAssignment": "For 4th–6th place, use consolation entries in order: 4th gets #1, 5th gets #2, 6th gets #3, unless an event-specific place/field-size special award overrides it.",
+      "cardBuildRule": "Every competitor receives one scrapbook card. That same card is the Development Card for the competition Growth Beat when the competition is a Growth Beat. Podium/consolation title records placement; development fields record how the character actually grew from the check."
     },
     "cardFields": [
       "title",
@@ -1557,6 +1558,46 @@
           }
         ]
       }
-    ]
+    ],
+    "mechanicalRole": "authoritative development ledger",
+    "noExtraPower": true,
+    "rule": "Every resolved Growth Beat creates exactly one Development Card for that character. The card records the actual development consequence already awarded by the growth system. Cards do not add extra Development Points beyond that result; they are the persistent source-of-truth explaining how the character was built.",
+    "developmentCard": {
+      "requiredEveryGrowthBeat": true,
+      "exactlyOnePerBeatPerCharacter": true,
+      "fields": [
+        "title",
+        "age",
+        "chapter",
+        "event",
+        "category",
+        "memory",
+        "attemptedAbility",
+        "rollOutcome",
+        "advantageReason",
+        "developmentType",
+        "flexiblePoints",
+        "lessonAbility",
+        "lessonPoints",
+        "shiftedFrom",
+        "shiftedTo",
+        "placement",
+        "fieldSize",
+        "badge",
+        "playerNote"
+      ],
+      "outcomeMapping": {
+        "criticalSuccess": "Card records +2 Flexible Development Points.",
+        "success": "Card records +1 Flexible Development Point.",
+        "failure": "Card records +1 off-path Lesson Point in the chosen lesson ability.",
+        "criticalFailure": "Card records +1 off-path Lesson Point and any 1-point invested-development redirection."
+      },
+      "auditRule": "The sum of Development Card effects must reconcile exactly with the character's Development wallet, invested development, critical bonus count, and hard-lesson redirects."
+    },
+    "yearbookCards": {
+      "enabled": true,
+      "mechanical": false,
+      "rule": "Yearbook, bond, reputation, and pure memory cards may be added in addition to Development Cards, but they carry no Development Points unless they are also the card for a resolved Growth Beat."
+    }
   }
 }
