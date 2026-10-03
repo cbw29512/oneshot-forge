@@ -7,7 +7,7 @@
   <meta name="description" content="Run the seven-chapter From Zero to Hero Level-0 origin adventure in Hearthcross.">
   <link rel="canonical" href="https://cbw29512.github.io/oneshot-forge/zero-hero-adventure.html">
   <link rel="stylesheet" href="styles.css?v=20261002e">
-  <link rel="stylesheet" href="zero-hero-adventure.css?v=20261003a">
+  <link rel="stylesheet" href="zero-hero-adventure.css?v=20261003b">
 </head>
 <body class="zero-adventure-body">
   <a class="skip-link" href="#scene-card">Skip to current scene</a>
@@ -81,6 +81,11 @@
           <p id="beat-purpose"></p>
         </section>
 
+        <section class="location-box">
+          <p class="box-label">Location</p>
+          <p id="beat-location"></p>
+        </section>
+
         <section>
           <p class="box-label">Read this to the players</p>
           <blockquote class="boxed-text" id="beat-readaloud"></blockquote>
@@ -90,11 +95,27 @@
           <p class="box-label">Spotlight order</p>
           <p id="spotlight-order"></p>
           <p class="muted">Every player gets one Development Check before this beat closes. A success changes the scene; it never removes another player's turn.</p>
+          <div id="four-player-jobs" class="four-player-jobs"></div>
         </section>
 
         <section class="dm-box">
           <p class="box-label">Run this beat in order</p>
           <ol id="beat-runsteps"></ol>
+        </section>
+
+        <section class="npc-scene-box">
+          <p class="box-label">NPC voices</p>
+          <div id="npc-dialogue" class="npc-dialogue"></div>
+        </section>
+
+        <details class="mystery-clue-box">
+          <summary>DM clue / hidden thread</summary>
+          <ul id="mystery-clues"></ul>
+        </details>
+
+        <section class="branch-box">
+          <p class="box-label">Consequences & branches</p>
+          <ul id="beat-branches"></ul>
         </section>
 
         <section class="growth-reference">
@@ -113,6 +134,11 @@
           <p><strong>Consequence carried forward:</strong> <span id="beat-consequence"></span></p>
         </section>
 
+        <section class="advance-box">
+          <p class="box-label">Move on when</p>
+          <p id="advance-when"></p>
+        </section>
+
         <div class="scene-nav">
           <button class="button secondary" id="prev-beat" type="button">← Previous</button>
           <span id="absolute-progress" class="muted">1 / 21</span>
@@ -128,7 +154,14 @@
       </article>
 
       <details class="panel adventure-reference print-hide">
-        <summary>DM reference: Hearthcross Six & graduation</summary>
+        <summary>DM reference: mystery, Hearthcross Six & graduation</summary>
+        <section>
+          <h3>The Watchstone Breathes — DM truth</h3>
+          <p id="mystery-truth"></p>
+          <p><strong>Theme:</strong> <span id="mystery-theme"></span></p>
+          <p><strong>No-villain rule:</strong> <span id="mystery-no-villain"></span></p>
+          <div id="clue-ladder" class="clue-ladder"></div>
+        </section>
         <section>
           <h3>Hearthcross Six</h3>
           <p id="six-purpose"></p>
@@ -142,6 +175,6 @@
     </section>
   </main>
 
-  <script src="zero-hero-adventure.js?v=20261003a"></script>
+  <script src="zero-hero-adventure.js?v=20261003b"></script>
 </body>
 </html>
