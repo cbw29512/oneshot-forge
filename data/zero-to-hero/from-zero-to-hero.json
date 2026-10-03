@@ -1584,7 +1584,10 @@
         "placement",
         "fieldSize",
         "badge",
-        "playerNote"
+        "playerNote",
+        "upbringingProfile",
+        "upbringingDisposition",
+        "rollMode"
       ],
       "outcomeMapping": {
         "criticalSuccess": "Card records +2 Flexible Development Points.",
@@ -1592,7 +1595,7 @@
         "failure": "Card records +1 off-path Lesson Point in the chosen lesson ability.",
         "criticalFailure": "Card records +1 off-path Lesson Point and any 1-point invested-development redirection."
       },
-      "auditRule": "The sum of Development Card effects must reconcile exactly with the character's Development wallet, invested development, critical bonus count, and hard-lesson redirects."
+      "auditRule": "The sum of Development Card effects must reconcile exactly with the character's Development wallet, invested development, critical bonus count, and hard-lesson redirects. Each card also records the Level-0 Upbringing Lean lane and effective roll mode that shaped the odds without changing the starting ability score."
     },
     "yearbookCards": {
       "enabled": true,
