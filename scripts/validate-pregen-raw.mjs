@@ -18,6 +18,7 @@ const abilityMod = score => Math.floor((Number(score) - 10) / 2);
 const expectedPB = level => level <= 4 ? 2 : level <= 8 ? 3 : level <= 12 ? 4 : level <= 16 ? 5 : 6;
 const fixedAverageByDie = {6:4,8:5,10:6,12:7};
 const pointBuyCostByScore = {8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
+const CORE_CLASSES = new Set(["Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"]);
 
 function pointBuyCost(scores) {
   let total = 0;
@@ -92,6 +93,14 @@ function validatePack(path, edition) {
   if (!Array.isArray(pack.characters) || !pack.characters.length) {
     errors.push(path + ": no characters");
     return;
+  }
+
+  if (/data\/pregens\/shared\/(?:2014|2024)\/level-01\.json$/.test(path)) {
+    const classes = pack.characters.map(pc => pc.className);
+    const classSet = new Set(classes);
+    if (pack.characters.length !== 12 || classSet.size !== 12 || [...CORE_CLASSES].some(cls => !classSet.has(cls))) {
+      errors.push(path + ": shared Level 1 must contain exactly one of each core class");
+    }
   }
 
   for (const pc of pack.characters) {
@@ -197,6 +206,12 @@ function validatePack(path, edition) {
 
 
     if (edition === "2024") {
+      if (level < 3 && pc.subclass) {
+        errors.push(who + ": 2024 subclass appears before level 3: " + pc.subclass);
+      }
+      if (level < 3 && /\([^)]*(?:Champion|Life|Thief|Evocation|Hunter|Devotion|Berserker|Lore|Moon|Land|Open Hand|Draconic|Fiend)[^)]*\)/i.test(String(pc.class || ""))) {
+        errors.push(who + ": 2024 class label leaks subclass identity before level 3: " + pc.class);
+      }
       if (pc.abilityBuild) {
         const build = pc.abilityBuild;
         if (build.method !== "point-buy") errors.push(who + ": 2024 abilityBuild must use point-buy");
