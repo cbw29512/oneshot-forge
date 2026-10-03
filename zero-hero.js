@@ -588,8 +588,121 @@
     ).join("")+'</div>';
   }
 
+  function brief(value,max=180) {
+    const textValue=String(value||"").trim();
+    return textValue.length>max ? textValue.slice(0,max-1).trimEnd()+"…" : textValue;
+  }
+
+  function graduationOutcomeCounts() {
+    const rows=Object.values(state.resolvedBeats||{});
+    return {
+      criticalSuccess:rows.filter(x=>x.outcome==="criticalSuccess").length,
+      success:rows.filter(x=>x.outcome==="success").length,
+      failure:rows.filter(x=>x.outcome==="failure").length,
+      criticalFailure:rows.filter(x=>x.outcome==="criticalFailure").length
+    };
+  }
+
+  function graduationTier(value) {
+    return value>Number(campaign.development.minimumGraduationValue||27)
+      ? "Heroic / house-rule ability generation"
+      : "Full baseline development";
+  }
+
+  function renderGraduationKeepsakes() {
+    const host=$("graduation-keepsakes");
+    if(!host) return;
+
+    const complete=state.chapterIndex>=campaign.chapters.length;
+    const value=baseArrayCost();
+    const floor=Number(campaign.development.minimumGraduationValue||27);
+    const ceiling=maximumArrayValue();
+    const ready=complete && value>=floor && value<=ceiling && totalLessonWallet()===0 && Boolean(state.graduationEdition);
+
+    host.hidden=!ready;
+    if(!ready) return;
+
+    const keepsake=campaign.graduationKeepsakes;
+    const name=state.identity.name.trim()||"Unnamed Character";
+    const ancestry=state.identity.ancestry.trim()||"Unrecorded ancestry / species";
+    const family=state.identity.family.trim()||"Family / guardians not recorded";
+    const aspiration=state.identity.aspiration.trim()||"The road ahead is still being discovered.";
+    const edition=state.graduationEdition;
+    const tier=graduationTier(value);
+    const counts=graduationOutcomeCounts();
+
+    $("certificate-title").textContent=keepsake.certificateTitle;
+    $("certificate-name").textContent=name;
+    $("certificate-copy").textContent=name+" of Hearthcross, having grown from age 12 to age 18 through seven years of shared village life, has completed the From Zero to Hero origin years and stands ready for certified Level-1 creation under the "+edition+" ruleset.";
+    $("certificate-array").innerHTML=ABILITIES.map(a=>'<div><span>'+a+'</span><strong>'+state.scores[a]+'</strong></div>').join("");
+    $("certificate-details").innerHTML=
+      '<div><span>Home</span><strong>Hearthcross</strong></div>'+
+      '<div><span>Ancestry / species</span><strong>'+esc(ancestry)+'</strong></div>'+
+      '<div><span>Ruleset</span><strong>'+esc(edition)+'</strong></div>'+
+      '<div><span>Base-array value</span><strong>'+value+' / '+ceiling+'</strong></div>'+
+      '<div><span>Origin result</span><strong>'+esc(tier)+'</strong></div>'+
+      '<div><span>Critical successes</span><strong>'+counts.criticalSuccess+'</strong></div>';
+    $("certificate-aspiration").innerHTML='<span>At the threshold of adventure:</span> “'+esc(brief(aspiration,220))+'”';
+    $("certificate-signatures").innerHTML=keepsake.signatureLines.map(label=>'<div><span></span><small>'+esc(label)+'</small></div>').join("");
+    $("certificate-boundary").textContent=keepsake.ruleBoundary;
+
+    $("chronicle-subtitle").textContent=name+" · Hearthcross · Ages 12–18 · "+edition+" graduation path";
+    $("chronicle-identity").innerHTML=
+      '<div><span>Family / guardians</span><strong>'+esc(brief(family,120))+'</strong></div>'+
+      '<div><span>Childhood work</span><strong>'+esc(brief(state.identity.chores,120)||"Not recorded")+'</strong></div>'+
+      '<div><span>Final aspiration</span><strong>'+esc(brief(aspiration,160))+'</strong></div>'+
+      '<div><span>Final base array</span><strong>'+ABILITIES.map(a=>a+" "+state.scores[a]).join(" · ")+' · '+value+' points</strong></div>';
+
+    $("chronicle-years").innerHTML=campaign.chapters.map(chapter=>{
+      const y=state.yearbook?.[chapter.id]||{};
+      const parts=[];
+      if(y.relationship) parts.push("Relationship: "+brief(y.relationship,110));
+      if(y.aspirationStatus==="changed"&&y.aspiration) parts.push("Aspiration changed: "+brief(y.aspiration,110));
+      if(y.interlude) parts.push("Between years: "+brief(y.interlude,110));
+      return '<article><div class="chronicle-year-label"><b>Age '+chapter.age+'</b><span>'+esc(chapter.title)+'</span></div>'+
+        '<p>'+esc(brief(y.memory,190)||"No memory recorded.")+'</p>'+
+        (parts.length?'<small>'+esc(parts.join(" · "))+'</small>':"")+
+        '</article>';
+    }).join("");
+
+    $("chronicle-people").innerHTML=
+      '<p><b>Relationships:</b> '+esc(brief(state.identity.relationships,300)||"Not recorded")+'</p>'+
+      '<p><b>Reputation / scars:</b> '+esc(brief(state.identity.reputation,240)||"Not recorded")+'</p>'+
+      '<p><b>Values:</b> '+esc(brief(state.identity.values,220)||"Not recorded")+'</p>'+
+      '<p><b>Fears:</b> '+esc(brief(state.identity.fears,180)||"Not recorded")+'</p>';
+
+    $("chronicle-growth").innerHTML=
+      '<p><b>Training / familiarities:</b> '+esc(brief(state.identity.training,280)||"Not recorded")+'</p>'+
+      '<p><b>Possessions / heirloom history:</b> '+esc(brief(state.identity.possessions,280)||"Not recorded")+'</p>'+
+      '<p><b>Important choices:</b> '+esc(brief(state.identity.choices,280)||"Not recorded")+'</p>';
+
+    $("chronicle-outcomes").innerHTML=
+      '<div><strong>'+counts.criticalSuccess+'</strong><span>critical successes</span></div>'+
+      '<div><strong>'+counts.success+'</strong><span>successes</span></div>'+
+      '<div><strong>'+counts.failure+'</strong><span>hard lessons</span></div>'+
+      '<div><strong>'+counts.criticalFailure+'</strong><span>critical failures</span></div>'+
+      '<div><strong>'+state.criticalBonusEarned+'</strong><span>critical bonus DP earned</span></div>'+
+      '<div><strong>'+value+'</strong><span>final point-buy value</span></div>';
+    $("chronicle-boundary").textContent=keepsake.ruleBoundary;
+  }
+
+  function printZeroHero(mode) {
+    const classes=["print-growth","print-certificate","print-graduation-packet"];
+    classes.forEach(c=>document.body.classList.remove(c));
+    document.body.classList.add(mode);
+    const cleanup=()=>{
+      classes.forEach(c=>document.body.classList.remove(c));
+      window.removeEventListener("afterprint",cleanup);
+    };
+    window.addEventListener("afterprint",cleanup);
+    window.print();
+  }
+
   function renderGraduation() {
-    if(state.chapterIndex<campaign.chapters.length) return;
+    if(state.chapterIndex<campaign.chapters.length) {
+      if($("graduation-keepsakes")) $("graduation-keepsakes").hidden=true;
+      return;
+    }
 
     const value=baseArrayCost();
     const floor=Number(campaign.development.minimumGraduationValue||27);
@@ -631,17 +744,28 @@
     const settle=$("settle-maturity");
     if(settle) settle.onclick=settleMaturityCredits;
 
+    const showEdition=ed=>{
+      const g=campaign.graduation[ed];
+      $("graduation-summary").innerHTML='<h3>'+ed+' graduation contract</h3><ol>'+g.order.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol><p><strong>Frozen Level-0 base array ('+baseArrayCost()+' point-buy value):</strong> '+ABILITIES.map(a=>a+' '+state.scores[a]).join(" · ")+'</p><p class="zero-house-note"><strong>27-point minimum · 30-point maximum:</strong> failures can reshape the character, and critical successes can make the array exceptional, but Level-0 stat development can never leave the '+floor+'–'+ceiling+' range.</p><p class="zero-house-note"><strong>Rules boundary:</strong> From Zero to Hero determines the base scores. From this point forward, species/race, background, class, HP, proficiency, spells, feats, equipment and later advancement use the selected '+ed+' rules only. Training, mentors and heirlooms stay narrative unless a legal rule or explicitly enabled house rule grants mechanics.</p><p><strong>Graduation keepsakes unlocked:</strong> the Hearthcross certificate and Origin Chronicle below are commemorative only.</p>';
+    };
+
     document.querySelectorAll("[data-edition]").forEach(btn=>{
       btn.disabled=!ready;
+      btn.classList.toggle("selected",state.graduationEdition===btn.dataset.edition);
       btn.onclick=()=>{
         if(!ready) return;
         const ed=btn.dataset.edition;
         state.graduationEdition=ed;
         saveState();
-        const g=campaign.graduation[ed];
-        $("graduation-summary").innerHTML='<h3>'+ed+' graduation contract</h3><ol>'+g.order.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol><p><strong>Frozen Level-0 base array ('+baseArrayCost()+' point-buy value):</strong> '+ABILITIES.map(a=>a+' '+state.scores[a]).join(" · ")+'</p><p class="zero-house-note"><strong>27-point minimum · 30-point maximum:</strong> failures can reshape the character, and critical successes can make the array exceptional, but Level-0 stat development can never leave the '+floor+'–'+ceiling+' range.</p><p class="zero-house-note"><strong>Rules boundary:</strong> From Zero to Hero determines the base scores. From this point forward, species/race, background, class, HP, proficiency, spells, feats, equipment and later advancement use the selected '+ed+' rules only. Training, mentors and heirlooms stay narrative unless a legal rule or explicitly enabled house rule grants mechanics.</p>';
+        showEdition(ed);
+        renderGraduationKeepsakes();
       };
     });
+
+    if(ready && state.graduationEdition && campaign.graduation[state.graduationEdition]) {
+      showEdition(state.graduationEdition);
+    }
+    renderGraduationKeepsakes();
   }
 
   function render() {
@@ -661,7 +785,9 @@
     renderVillage();
     render();
 
-    $("print-growth").onclick=()=>window.print();
+    $("print-growth").onclick=()=>printZeroHero("print-growth");
+    $("print-certificate").onclick=()=>printZeroHero("print-certificate");
+    $("print-graduation-packet").onclick=()=>printZeroHero("print-graduation-packet");
     $("reset-growth").onclick=()=>{
       if(!confirm("Reset this Level-0 character and erase all growth history on this browser?")) return;
       localStorage.removeItem(STORAGE_KEY);
