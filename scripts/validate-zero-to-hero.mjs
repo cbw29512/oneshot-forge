@@ -17,6 +17,9 @@ const dev=d.development;
 if(dev?.startingPointBuyCost!==6) fail("six starting 9s must carry point-buy value 6");
 if(dev?.baseOpportunities!==21) fail("must have 21 base Development Opportunities");
 if(dev?.normalTargetValue!==27) fail("normal target must remain 27 point-buy value");
+if(dev?.minimumGraduationValue!==27) fail("graduation floor must remain 27 point-buy value");
+if(dev?.baseGrowthNeverLost!==true) fail("base development may never be lost");
+if(!/stranded/i.test(dev?.maturitySettlementRule||"")||!/Graduation is blocked/i.test(dev?.maturitySettlementRule||"")) fail("maturity settlement / graduation-floor rule missing");
 if(dev?.maxPreOriginScore!==15) fail("pre-origin cap must remain 15");
 if(dev?.wallet!==true) fail("development wallet must be enabled");
 for(const s of [9,10,11,12,13,14]) if(!dev?.costToRaise?.[String(s)]) fail("missing raise cost for "+s);
@@ -65,6 +68,12 @@ for(const k of ["abilityArray","proficiencies","heirloom","mentor","mechanics"])
 if(!/development wallet/i.test(page)) fail("public page must explain the development wallet");
 if(!/critical failure can redirect/i.test(page)) fail("public page must disclose critical-failure redirection");
 if(!/Heroic \/ house-rule ability generation/.test(script)) fail("graduation must label above-27 arrays as house rule");
+if(!/minimumGraduationValue\|\|27/.test(script)) fail("graduation must read the 27-point floor");
+if(!/const ready=value>=floor && lessons===0/.test(script)) fail("graduation must be blocked below the floor or with unresolved Lesson Points");
+if(!/btn\.disabled=!ready/.test(script)) fail("edition buttons must remain disabled until the floor is secured");
+if(!/settleMaturityCredits/.test(script)) fail("Maturity Settlement implementation missing");
+if(!/state\.wallet\.flexible\+=reclaimed/.test(script)) fail("stranded earned growth must return to the flexible wallet");
+if(!/state\.invested\[ability\]-=partial/.test(script)) fail("partial stranded investment recovery missing");
 if(!/version:3/.test(script)) fail("wallet state version missing");
 if(!/wallet:\{flexible:0,lessons:blankAbilityMap\(0\)\}/.test(script)) fail("wallet state missing");
 if(!/state\.wallet\.flexible\+=Number\(rule\.flexible\|\|0\)/.test(script)) fail("flexible award path missing");
@@ -75,6 +84,7 @@ if(!/state\.scores\[ability\] < campaign\.development\.maxPreOriginScore/.test(s
 if(!/const succeeded=total>=dc/.test(script)) fail("checks must resolve normal total-vs-DC first");
 if(/finalReflection|reflectionRemaining|canFinishReflection/.test(script)) fail("superseded Final Reflection logic must not remain");
 if(!/criticalBonusEarned\+=1/.test(script)) fail("critical-success bonus tracking missing");
+if(!/27-point minimum guaranteed/.test(script)) fail("graduation summary must state the minimum guarantee");
 
 // Prove the point-buy curve used by the wallet remains aligned with the 5E 8–15 table.
 const pointCost={8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
@@ -83,4 +93,15 @@ for(const score of Object.keys(raise).map(Number)){
   if(pointCost[score+1]-pointCost[score]!==dev.costToRaise[String(score)]) fail("wallet raise cost drift at "+score);
 }
 
-console.log("From Zero to Hero OK — development wallet, differentiated outcomes, hard-lesson redirection, 21 base opportunities, edition-isolated graduation.");
+// Baseline conservation proof: every non-critical-success result still contributes one base point,
+ // critical success contributes that same base point plus one bonus, and critical-failure redirection is 1-for-1.
+ const baseFromOutcomes=[
+   expected.success.flexible+expected.success.lesson,
+   expected.failure.flexible+expected.failure.lesson,
+   expected.criticalFailure.flexible+expected.criticalFailure.lesson
+ ];
+ if(baseFromOutcomes.some(x=>x!==1)) fail("success/failure/critical-failure must each preserve one baseline Development Point");
+ if(expected.criticalSuccess.flexible+expected.criticalSuccess.lesson!==2) fail("critical success must be one baseline point plus one bonus");
+ if(dev.startingPointBuyCost+dev.baseOpportunities!==dev.minimumGraduationValue) fail("6 starting value + 21 base growth must equal the 27-point floor");
+
+console.log("From Zero to Hero OK — 27-point minimum guaranteed, differentiated outcomes conserved, hard-lesson redirection, critical bonuses, edition-isolated graduation.");

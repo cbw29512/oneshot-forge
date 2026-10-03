@@ -136,6 +136,41 @@
     return Math.max(0,state.invested[ability]-spentToReach(state.scores[ability]));
   }
 
+  function totalPendingInvestedProgress() {
+    return ABILITIES.reduce((sum,a)=>sum+pendingInvestedProgress(a),0);
+  }
+
+  function cappedLessonPoints() {
+    return ABILITIES.reduce((sum,a)=>sum+(canInvest(a)?0:Number(state.wallet.lessons[a]||0)),0);
+  }
+
+  function settleMaturityCredits() {
+    if(state.chapterIndex<campaign.chapters.length) return;
+    let reclaimed=0;
+
+    for(const ability of ABILITIES) {
+      const partial=pendingInvestedProgress(ability);
+      if(partial>0) {
+        state.invested[ability]-=partial;
+        reclaimed+=partial;
+      }
+      if(!canInvest(ability) && state.wallet.lessons[ability]>0) {
+        reclaimed+=Number(state.wallet.lessons[ability]||0);
+        state.wallet.lessons[ability]=0;
+      }
+    }
+
+    if(!reclaimed) return;
+    state.wallet.flexible+=reclaimed;
+    recomputeScores();
+    state.timeline.push({
+      type:"maturity",age:18,chapter:"Maturity Settlement",
+      result:reclaimed+" stranded Development Point"+(reclaimed===1?"":"s")+" returned to the flexible wallet. No development was lost."
+    });
+    saveState();
+    render();
+  }
+
   function canInvest(ability) {
     return state.scores[ability] < campaign.development.maxPreOriginScore;
   }
@@ -290,6 +325,9 @@
       if(e.type==="spend") {
         return '<article><strong>Age '+e.age+' · '+esc(e.chapter)+'</strong><span>'+e.ability+' now '+e.scoreAfter+'</span><p>'+esc(e.result)+'</p></article>';
       }
+      if(e.type==="maturity") {
+        return '<article><strong>Age '+e.age+' · '+esc(e.chapter)+'</strong><p>'+esc(e.result)+'</p></article>';
+      }
       const lesson=e.lessonAbility?' · lesson: '+e.lessonAbility:"";
       return '<article><strong>Age '+e.age+' · '+esc(e.chapter)+'</strong><span>'+esc(e.beat)+' — '+e.ability+
         ' d20 '+e.roll+' '+signed(e.total-e.roll)+' = '+e.total+' vs DC '+e.dc+
@@ -411,30 +449,51 @@
     if(state.chapterIndex<campaign.chapters.length) return;
 
     const value=baseArrayCost();
-    const over=Math.max(0,value-campaign.development.normalTargetValue);
-    const pending=ABILITIES.reduce((sum,a)=>sum+pendingInvestedProgress(a),0);
+    const floor=Number(campaign.development.minimumGraduationValue||27);
+    const over=Math.max(0,value-floor);
+    const shortfall=Math.max(0,floor-value);
+    const pending=totalPendingInvestedProgress();
+    const lessons=totalLessonWallet();
+    const cappedLessons=cappedLessonPoints();
     const unspent=totalWallet();
     const audit=$("raw-audit");
     const reflection=$("reflection-host");
+    const ready=value>=floor && lessons===0;
 
-    audit.innerHTML='<h3>Ability-generation audit</h3><p><strong>Current base array point-buy value: '+value+'.</strong> Normal 5E point-buy target: '+campaign.development.normalTargetValue+'.</p>'+
-      (over
-        ? '<p class="zero-house-note"><strong>Heroic / house-rule ability generation:</strong> this is '+over+' point'+(over===1?'':'s')+' above normal point-buy because critical-success bonus growth was spent. The ability-generation method is house rule; post-graduation rules remain edition-locked.</p>'
-        : '<p class="zero-house-note"><strong>Within the normal point-buy envelope.</strong> The growth method is still Level-0 house rule, but this base array does not exceed normal point-buy value.</p>');
+    audit.innerHTML='<h3>Ability-generation audit</h3><p><strong>Current base array point-buy value: '+value+'.</strong> Zero-to-Hero graduation floor: <strong>'+floor+'</strong>.</p>'+
+      (shortfall
+        ? '<p class="zero-house-note"><strong>'+shortfall+' point'+(shortfall===1?'':'s')+' still need to become ability scores.</strong> Critical failures can redirect development, but they can never make the finished character fall below the '+floor+'-point floor.</p>'
+        : over
+          ? '<p class="zero-house-note"><strong>Heroic / house-rule ability generation:</strong> this is '+over+' point'+(over===1?'':'s')+' above the '+floor+'-point floor because critical-success bonus growth was spent.</p>'
+          : '<p class="zero-house-note"><strong>Minimum development secured:</strong> the character has reached the full '+floor+'-point floor.</p>');
 
-    reflection.innerHTML='<p><strong>Unspent wallet:</strong> '+state.wallet.flexible+' flexible · '+totalLessonWallet()+' lesson. <strong>Partial invested progress:</strong> '+pending+'.</p>'+
-      (unspent||pending
-        ? '<p class="muted">You may graduate with points unspent, but they do not become hidden Level-1 bonuses. Spend them now if you want them reflected in the final ability array.</p>'
-        : '<p class="muted">All earned development is currently reflected in the ability array.</p>');
+    let settleButton="";
+    if(pending>0 || cappedLessons>0) {
+      settleButton='<button type="button" class="button small secondary" id="settle-maturity">Return stranded growth to flexible pool</button>';
+    }
+
+    reflection.innerHTML='<p><strong>Unspent wallet:</strong> '+state.wallet.flexible+' flexible · '+lessons+' lesson. <strong>Partial invested progress:</strong> '+pending+'.</p>'+
+      (lessons
+        ? '<p class="muted">Spend remaining Lesson Points in their tagged abilities. If a lesson is blocked by the 15 cap, the settlement control converts only that stranded lesson to flexible growth.</p>'
+        : shortfall
+          ? '<p class="muted">Spend flexible points until the base array reaches at least '+floor+'. The character cannot graduate below that floor.</p>'
+          : unspent||pending
+            ? '<p class="muted">The minimum is secured. Extra unspent growth may be spent now or left unused; it never becomes a hidden Level-1 bonus.</p>'
+            : '<p class="muted">All earned development is currently reflected in the ability array.</p>')+
+      settleButton;
+
+    const settle=$("settle-maturity");
+    if(settle) settle.onclick=settleMaturityCredits;
 
     document.querySelectorAll("[data-edition]").forEach(btn=>{
-      btn.disabled=false;
+      btn.disabled=!ready;
       btn.onclick=()=>{
+        if(!ready) return;
         const ed=btn.dataset.edition;
         state.graduationEdition=ed;
         saveState();
         const g=campaign.graduation[ed];
-        $("graduation-summary").innerHTML='<h3>'+ed+' graduation contract</h3><ol>'+g.order.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol><p><strong>Frozen Level-0 base array:</strong> '+ABILITIES.map(a=>a+' '+state.scores[a]).join(" · ")+'</p><p class="zero-house-note"><strong>Rules boundary:</strong> From Zero to Hero determines the base scores. From this point forward, species/race, background, class, HP, proficiency, spells, feats, equipment and later advancement use the selected '+ed+' rules only. Training, mentors and heirlooms stay narrative unless a legal rule or explicitly enabled house rule grants mechanics.</p>';
+        $("graduation-summary").innerHTML='<h3>'+ed+' graduation contract</h3><ol>'+g.order.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol><p><strong>Frozen Level-0 base array ('+baseArrayCost()+' point-buy value):</strong> '+ABILITIES.map(a=>a+' '+state.scores[a]).join(" · ")+'</p><p class="zero-house-note"><strong>27-point minimum guaranteed:</strong> failures and critical failures changed where this character developed, not whether the character received the full baseline development budget.</p><p class="zero-house-note"><strong>Rules boundary:</strong> From Zero to Hero determines the base scores. From this point forward, species/race, background, class, HP, proficiency, spells, feats, equipment and later advancement use the selected '+ed+' rules only. Training, mentors and heirlooms stay narrative unless a legal rule or explicitly enabled house rule grants mechanics.</p>';
       };
     });
   }

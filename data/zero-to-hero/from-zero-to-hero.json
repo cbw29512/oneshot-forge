@@ -66,7 +66,7 @@
       }
     },
     "lessonRule": "A Lesson Point is locked to an ability different from the attempted ability and chosen because the failed scene plausibly taught that lesson.",
-    "criticalFailureRule": "In addition to its Lesson Point, move one already-invested Development Point from the attempted ability into the same lesson ability when possible. This changes direction, not total earned power.",
+    "criticalFailureRule": "In addition to its Lesson Point, move one already-invested Development Point from the attempted ability into the same lesson ability when possible. This can lower one ability and raise another, but never reduces total earned development or the 27-point graduation floor.",
     "criticalSuccessBonusRule": "Critical success earns one extra flexible Development Point. There is no artificial cap; the natural roll frequency is the limiter.",
     "abilityGuide": {
       "STR": "Force, lift, wrestle, break, haul.",
@@ -75,7 +75,10 @@
       "INT": "Study, reason, engineer, recall, or solve.",
       "WIS": "Notice, judge, empathize, track, or survive.",
       "CHA": "Persuade, inspire, deceive, perform, or lead."
-    }
+    },
+    "minimumGraduationValue": 27,
+    "baseGrowthNeverLost": true,
+    "maturitySettlementRule": "After all 21 base Development Opportunities are resolved, any stranded Lesson Points blocked by the 15 cap and any stranded partial invested progress that has not completed an ability increase may be converted into Flexible Maturity Points. Graduation is blocked until the pre-origin array has at least 27 point-buy value. Critical failures may redirect where development lands, but can never reduce the 27-point minimum."
   },
   "village": {
     "id": "hearthcross",
@@ -1013,7 +1016,7 @@
     },
     "rawDefault": false,
     "rawAudit": {
-      "abilityArray": "From Zero to Hero ability generation is a house rule. A base array at or below 27 point-buy value and with scores no higher than 15 remains within the normal point-buy envelope; critical-success bonus spending can deliberately exceed that envelope and must be labeled Heroic/house-rule.",
+      "abilityArray": "From Zero to Hero ability generation is a house rule. After all 21 base opportunities, the character is guaranteed a minimum base-array point-buy value of 27, with no pre-origin score above 15. Any spent critical-success bonus points may raise the array above 27 and must be labeled Heroic/house-rule.",
       "proficiencies": "Training/familiarity remains narrative until a legal 2014 race/background/class or 2024 species/background/class choice grants the proficiency.",
       "heirloom": "Heirloom remains mundane/narrative unless the selected ruleset or an explicitly enabled house rule grants a mechanical property.",
       "mentor": "Mentors are narrative contacts and grant no automatic numerical bonus unless an explicit house rule says otherwise.",
