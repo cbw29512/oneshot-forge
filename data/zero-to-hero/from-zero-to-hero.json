@@ -10,7 +10,7 @@
     "criticalFailureNatural": 1,
     "failureFailsForward": true,
     "editionIsolation": true,
-    "note": "Developmental checks use normal 5E total-vs-DC success/failure. A natural 20 on a successful check or natural 1 on a failed check adds a Level-0-only narrative critical tier; it never overrides the total and never changes growth awarded.",
+    "note": "Developmental checks use normal 5E total-vs-DC success/failure. From Zero to Hero then applies its house-rule growth result: success earns flexible development, failure earns an off-path Lesson Point, natural-20 critical success earns one extra flexible point, and natural-1 critical failure can redirect one already-invested point from the attempted ability into the lesson ability.",
     "naturalExtremesNeverOverrideTotal": true
   },
   "start": {
@@ -29,8 +29,9 @@
     "possessions": "Ordinary clothing and household items justified by family/home. No adventuring package."
   },
   "development": {
-    "totalPoints": 21,
-    "pointsPerChapter": 3,
+    "startingPointBuyCost": 6,
+    "baseOpportunities": 21,
+    "normalTargetValue": 27,
     "maxPreOriginScore": 15,
     "costToRaise": {
       "9": 1,
@@ -40,8 +41,33 @@
       "13": 2,
       "14": 2
     },
-    "awardOnAttempt": true,
-    "criticalsAffectStoryNotGrowthBudget": true,
+    "wallet": true,
+    "spendTiming": "between resolved growth beats and before graduation",
+    "pointsByOutcome": {
+      "criticalSuccess": {
+        "flexible": 2,
+        "lesson": 0,
+        "shiftInvested": 0
+      },
+      "success": {
+        "flexible": 1,
+        "lesson": 0,
+        "shiftInvested": 0
+      },
+      "failure": {
+        "flexible": 0,
+        "lesson": 1,
+        "shiftInvested": 0
+      },
+      "criticalFailure": {
+        "flexible": 0,
+        "lesson": 1,
+        "shiftInvested": 1
+      }
+    },
+    "lessonRule": "A Lesson Point is locked to an ability different from the attempted ability and chosen because the failed scene plausibly taught that lesson.",
+    "criticalFailureRule": "In addition to its Lesson Point, move one already-invested Development Point from the attempted ability into the same lesson ability when possible. This changes direction, not total earned power.",
+    "criticalSuccessBonusRule": "Critical success earns one extra flexible Development Point. There is no artificial cap; the natural roll frequency is the limiter.",
     "abilityGuide": {
       "STR": "Force, lift, wrestle, break, haul.",
       "DEX": "Balance, sneak, climb, aim, or use precise hands.",
@@ -49,38 +75,6 @@
       "INT": "Study, reason, engineer, recall, or solve.",
       "WIS": "Notice, judge, empathize, track, or survive.",
       "CHA": "Persuade, inspire, deceive, perform, or lead."
-    },
-    "startingPointBuyCost": 6,
-    "finalPointBuyBudget": 27,
-    "growthPointsByOutcome": {
-      "criticalSuccess": 1,
-      "success": 1,
-      "failure": 1,
-      "criticalFailure": 1
-    },
-    "permanentBuildDeltaByOutcome": {
-      "criticalSuccess": 0,
-      "success": 0,
-      "failure": 0,
-      "criticalFailure": 0
-    },
-    "finalReflection": {
-      "enabled": true,
-      "purpose": "Convert any incomplete high-score development marks into the remainder of the earned 27-point base array without another roll.",
-      "requiresExactBudget": true,
-      "maxScore": 15
-    },
-    "rollImpactPolicy": {
-      "ordinary": "Changes immediate fictional outcome/cost only.",
-      "critical": "May improve or worsen the fictional consequence by one tier, but cannot alter permanent build power.",
-      "prohibited": [
-        "extra or lost Development Points",
-        "automatic proficiency",
-        "feat",
-        "spell or class feature",
-        "permanent magic-item property",
-        "graduation eligibility"
-      ]
     }
   },
   "village": {
@@ -1017,12 +1011,13 @@
       "bonusFeatDefault": false,
       "mentor": "Persistent narrative contact; no automatic numerical bonus in RAW mode."
     },
-    "rawDefault": true,
+    "rawDefault": false,
     "rawAudit": {
-      "abilityArray": "Final pre-origin array must equal exactly 27 point-buy points with every score 8–15; From Zero to Hero uses 9 as its visible childhood floor and a final no-roll Reflection step for incomplete development marks.",
-      "proficiencies": "Training/familiarity is narrative until a legal 2014 race/background/class or 2024 species/background/class choice grants the proficiency.",
-      "heirloom": "In RAW mode an heirloom is mundane/narrative unless the selected ruleset legally grants that item. Magical awakening is optional house-rule content only.",
-      "mentor": "Mentors are narrative contacts and grant no automatic numerical bonus in RAW mode."
+      "abilityArray": "From Zero to Hero ability generation is a house rule. A base array at or below 27 point-buy value and with scores no higher than 15 remains within the normal point-buy envelope; critical-success bonus spending can deliberately exceed that envelope and must be labeled Heroic/house-rule.",
+      "proficiencies": "Training/familiarity remains narrative until a legal 2014 race/background/class or 2024 species/background/class choice grants the proficiency.",
+      "heirloom": "Heirloom remains mundane/narrative unless the selected ruleset or an explicitly enabled house rule grants a mechanical property.",
+      "mentor": "Mentors are narrative contacts and grant no automatic numerical bonus unless an explicit house rule says otherwise.",
+      "mechanics": "After the base ability array is frozen, all species/race, background, class, proficiency, HP, spell, feat, equipment, and later advancement rules must follow the selected 2014 or 2024 ruleset exactly."
     }
   }
 }
