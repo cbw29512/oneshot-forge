@@ -4,9 +4,9 @@
   "edition": "2024",
   "level": 1,
   "series": "99¢ One-Shots Shared Pregens",
-  "status": "foundation-in-progress",
+  "status": "foundation-complete-awaiting-certification",
   "lineageSource": "Existing OneShot Forge identities rebuilt natively under 2024 rules.",
-  "note": "First six persistent Level-1 roots for the shared 2024 library. Remaining six class identities are added before Level 1 is marked complete.",
+  "note": "Twelve persistent Level-1 roots for the shared 2024 pregen library. No subclass is applied before its 2024 legal subclass level.",
   "recommendedParty": [
     "pregen-brann",
     "pregen-pell",
@@ -2301,6 +2301,2296 @@
         "rare": 0,
         "veryRare": 0
       },
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared 2024 root built directly under 2024 rules."
+        }
+      ]
+    },
+    {
+      "id": "pregen-rook",
+      "name": "Rook Helmer",
+      "className": "Barbarian",
+      "race": "Orc",
+      "background": "Soldier",
+      "role": "Raging front-line bruiser",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Chaotic Neutral",
+      "personality": {
+        "trait": "Laughs once, then hits.",
+        "ideal": "Die on your feet.",
+        "bond": "A brother who took the other road.",
+        "flaw": "Cannot walk away from a dare."
+      },
+      "appearance": "Half-orc, grey-green, a split lip that never quite closed.",
+      "reactions": [],
+      "gp": 9,
+      "darkvision": 120,
+      "magicItems": [],
+      "magicItemBudget": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "veryRare": 0
+      },
+      "class": "Barbarian",
+      "subclass": null,
+      "scores": {
+        "STR": 17,
+        "DEX": 13,
+        "CON": 15,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "abilityBuild": {
+        "method": "point-buy",
+        "base": {
+          "STR": 15,
+          "DEX": 13,
+          "CON": 14,
+          "INT": 10,
+          "WIS": 10,
+          "CHA": 10
+        },
+        "background": "Soldier",
+        "allowed": [
+          "STR",
+          "DEX",
+          "CON"
+        ],
+        "increases": {
+          "STR": 2,
+          "CON": 1
+        }
+      },
+      "ac": 13,
+      "acNotes": "Unarmored Defense 10 + Dex 1 + Con 2",
+      "initiative": 1,
+      "speedFt": 30,
+      "hp": 14,
+      "proficiencies": {
+        "armor": [
+          "light",
+          "medium",
+          "shields"
+        ],
+        "weapons": [
+          "simple",
+          "martial"
+        ],
+        "tools": [
+          "gaming set"
+        ],
+        "languages": [
+          "Common",
+          "Orc",
+          "Giant"
+        ]
+      },
+      "equipment": [
+        {
+          "name": "Greataxe"
+        },
+        {
+          "name": "Handaxe",
+          "qty": 4
+        },
+        {
+          "name": "Explorer’s pack"
+        }
+      ],
+      "attackList": [
+        {
+          "name": "Greataxe",
+          "bonus": 5,
+          "damage": "1d12+3",
+          "type": "slashing",
+          "notes": "Cleave mastery; +2 damage while raging (1d12+5)"
+        },
+        {
+          "name": "Handaxe",
+          "bonus": 5,
+          "damage": "1d6+3",
+          "type": "slashing",
+          "notes": "Vex mastery; Light, thrown 20/60; +2 damage while raging on melee Strength hits"
+        }
+      ],
+      "bonusActions": [
+        "Rage (2/Long Rest): gain the level-1 Rage benefits.",
+        "Adrenaline Rush (2/Long Rest): Dash as a Bonus Action and gain 2 temporary HP."
+      ],
+      "featureList": [
+        {
+          "name": "Rage",
+          "source": "Barbarian 1",
+          "text": "2 uses per Long Rest. Bonus Action to enter Rage; +2 Rage Damage on Strength-based weapon/unarmed damage, Advantage on Strength checks/saves, and resistance to Bludgeoning, Piercing, and Slashing.",
+          "uses": "2/LR"
+        },
+        {
+          "name": "Unarmored Defense",
+          "source": "Barbarian 1",
+          "text": "While not wearing armor, AC = 10 + Dex + Con; shield allowed (AC 13 without one)."
+        },
+        {
+          "name": "Weapon Mastery",
+          "source": "Barbarian 1",
+          "text": "Two weapon masteries; this loadout uses Greataxe (Cleave) and Handaxe (Vex)."
+        },
+        {
+          "name": "Adrenaline Rush",
+          "source": "Orc",
+          "text": "Bonus Action Dash and gain temporary HP equal to Proficiency Bonus. Uses equal PB (2), regain on Long Rest.",
+          "uses": "2/LR"
+        },
+        {
+          "name": "Relentless Endurance",
+          "source": "Orc",
+          "text": "1/Long Rest, when reduced to 0 HP but not killed outright, drop to 1 HP instead.",
+          "uses": "1/LR"
+        },
+        {
+          "name": "Savage Attacker",
+          "source": "Soldier origin feat",
+          "text": "Once per turn when you hit with a weapon, roll the weapon’s damage dice twice and use either roll."
+        }
+      ],
+      "masteries": [
+        "Greataxe: Cleave",
+        "Handaxe: Vex"
+      ],
+      "conversionNote": "Rook’s 2014 Half-Orc identity is represented by the 2024 Orc species; Berserker branch begins at Barbarian 3.",
+      "level": 1,
+      "xp": 0,
+      "proficiency": 2,
+      "rules": "5E 2024 SRD 5.2.1",
+      "ruleset": "2024",
+      "edition": "2024",
+      "hpBonusPerLevel": 0,
+      "hitDice": "1d12",
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        }
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 5,
+          "proficient": true
+        },
+        "DEX": {
+          "bonus": 1,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": 0,
+          "proficient": false
+        }
+      },
+      "passivePerception": 12,
+      "passiveInsight": 10,
+      "speed": "30 ft.",
+      "saves": "Str +5, Con +4",
+      "skills": "Athletics +5, Intimidation +2, Perception +2, Survival +2",
+      "features": [
+        "Rage: 2 uses per Long Rest. Bonus Action to enter Rage; +2 Rage Damage on Strength-based weapon/unarmed damage, Advantage on Strength checks/saves, and resistance to Bludgeoning, Piercing, and Slashing.",
+        "Unarmored Defense: While not wearing armor, AC = 10 + Dex + Con; shield allowed (AC 13 without one).",
+        "Weapon Mastery: Two weapon masteries; this loadout uses Greataxe (Cleave) and Handaxe (Vex).",
+        "Adrenaline Rush: Bonus Action Dash and gain temporary HP equal to Proficiency Bonus. Uses equal PB (2), regain on Long Rest.",
+        "Relentless Endurance: 1/Long Rest, when reduced to 0 HP but not killed outright, drop to 1 HP instead.",
+        "Savage Attacker: Once per turn when you hit with a weapon, roll the weapon’s damage dice twice and use either roll."
+      ],
+      "attacks": [
+        "Greataxe. +5 to hit; 1d12+3 slashing; Cleave mastery; +2 damage while raging (1d12+5)",
+        "Handaxe. +5 to hit; 1d6+3 slashing; Vex mastery; Light, thrown 20/60; +2 damage while raging on melee Strength hits"
+      ],
+      "gear": "Greataxe, 4× Handaxe, Explorer’s pack, 9 gp",
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared 2024 root built directly under 2024 rules."
+        }
+      ]
+    },
+    {
+      "id": "pregen-sable",
+      "name": "Sable Quinn",
+      "className": "Bard",
+      "race": "Elf (High Elf Lineage)",
+      "background": "Acolyte",
+      "role": "Support, control, and social expert",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Chaotic Good",
+      "personality": {
+        "trait": "Fills silences so other people do not have to.",
+        "ideal": "A story that needs a cage is the wrong story.",
+        "bond": "A song unfinished because the subject forgot their name.",
+        "flaw": "Cannot resist an audience."
+      },
+      "appearance": "Half-elf, sharp cheekbones, a lute case scarred by weather.",
+      "reactions": [],
+      "gp": 16,
+      "darkvision": 60,
+      "magicItems": [],
+      "magicItemBudget": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "veryRare": 0
+      },
+      "class": "Bard",
+      "subclass": null,
+      "scores": {
+        "STR": 10,
+        "DEX": 14,
+        "CON": 13,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 17
+      },
+      "abilityBuild": {
+        "method": "point-buy",
+        "base": {
+          "STR": 10,
+          "DEX": 14,
+          "CON": 13,
+          "INT": 10,
+          "WIS": 10,
+          "CHA": 15
+        },
+        "background": "Acolyte",
+        "allowed": [
+          "INT",
+          "WIS",
+          "CHA"
+        ],
+        "increases": {
+          "CHA": 2,
+          "WIS": 1
+        }
+      },
+      "ac": 13,
+      "acNotes": "leather armor 11 + Dex 2",
+      "initiative": 2,
+      "speedFt": 30,
+      "hp": 9,
+      "proficiencies": {
+        "armor": [
+          "light"
+        ],
+        "weapons": [
+          "simple"
+        ],
+        "tools": [
+          "lute",
+          "flute",
+          "drum",
+          "calligrapher’s supplies"
+        ],
+        "languages": [
+          "Common",
+          "Elvish",
+          "Halfling"
+        ]
+      },
+      "equipment": [
+        {
+          "name": "Leather armor"
+        },
+        {
+          "name": "Dagger",
+          "qty": 2
+        },
+        {
+          "name": "Lute"
+        },
+        {
+          "name": "Entertainer’s pack"
+        }
+      ],
+      "attackList": [
+        {
+          "name": "Dagger",
+          "bonus": 4,
+          "damage": "1d4+2",
+          "type": "piercing",
+          "notes": "finesse, light, thrown 20/60"
+        },
+        {
+          "name": "Vicious Mockery",
+          "bonus": 0,
+          "damage": "1d6",
+          "type": "psychic",
+          "notes": "Wis DC 13; target also has Disadvantage on its next attack before your next turn"
+        }
+      ],
+      "spellcasting": {
+        "ability": "Charisma",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": {
+          "1": 2
+        },
+        "focus": "musical instrument",
+        "prepareCount": "4 prepared Bard spells at level 1; Magic Initiate (Cleric) spell is separate.",
+        "prepared": [
+          "Healing Word",
+          "Dissonant Whispers",
+          "Faerie Fire",
+          "Thunderwave",
+          "Bless"
+        ],
+        "cantrips": [
+          "Vicious Mockery",
+          "Minor Illusion",
+          "Prestidigitation",
+          "Guidance",
+          "Thaumaturgy"
+        ]
+      },
+      "spellList": [
+        {
+          "level": 0,
+          "name": "Vicious Mockery",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Wis DC 13; 1d6 psychic and Disadvantage on the target’s next attack before your next turn."
+        },
+        {
+          "level": 0,
+          "name": "Minor Illusion",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Create a sound or small image."
+        },
+        {
+          "level": 0,
+          "name": "Prestidigitation",
+          "time": "action",
+          "range": "10 ft.",
+          "effect": "High Elf lineage cantrip; create a minor magical effect."
+        },
+        {
+          "level": 0,
+          "name": "Guidance",
+          "time": "action",
+          "range": "touch",
+          "effect": "Magic Initiate cantrip; Concentration up to 1 minute, add 1d4 to one eligible ability check."
+        },
+        {
+          "level": 0,
+          "name": "Thaumaturgy",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Magic Initiate cantrip; create a minor divine wonder."
+        },
+        {
+          "level": 1,
+          "name": "Healing Word",
+          "time": "bonus",
+          "range": "60 ft.",
+          "effect": "Restore 2d4+3 HP."
+        },
+        {
+          "level": 1,
+          "name": "Dissonant Whispers",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Wis DC 13; psychic damage and forced reaction movement on a failed save."
+        },
+        {
+          "level": 1,
+          "name": "Faerie Fire",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Concentration up to 1 minute; creatures failing Dex DC 13 are outlined and attacks against them have Advantage."
+        },
+        {
+          "level": 1,
+          "name": "Thunderwave",
+          "time": "action",
+          "range": "self (15-ft cube)",
+          "effect": "Con DC 13; thunder damage and push on failure, half damage on success."
+        },
+        {
+          "level": 1,
+          "name": "Bless",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Magic Initiate spell; Concentration up to 1 minute. 1 free cast/LR or use spell slots."
+        }
+      ],
+      "bonusActions": [
+        "Bardic Inspiration (d6): grant one creature within 60 ft. an Inspiration die; 3 uses/Long Rest.",
+        "Healing Word if a slot remains."
+      ],
+      "featureList": [
+        {
+          "name": "Bardic Inspiration",
+          "source": "Bard 1",
+          "text": "Bonus Action; give a creature within 60 ft. a d6 Bardic Inspiration die. Uses equal Charisma modifier (3), regained on Long Rest.",
+          "uses": "3/LR"
+        },
+        {
+          "name": "Spellcasting",
+          "source": "Bard 1",
+          "text": "Cha DC 13, +5. Two Bard cantrips, four prepared Bard spells, and two 1st-level slots."
+        },
+        {
+          "name": "Fey Ancestry",
+          "source": "Elf",
+          "text": "Advantage on saves to avoid or end Charmed."
+        },
+        {
+          "name": "Trance",
+          "source": "Elf",
+          "text": "Magic can’t put you to sleep; complete a Long Rest in 4 hours of trance."
+        },
+        {
+          "name": "High Elf Lineage",
+          "source": "Elf",
+          "text": "Prestidigitation at level 1; additional lineage spells arrive at later character levels."
+        },
+        {
+          "name": "Magic Initiate (Cleric)",
+          "source": "Acolyte origin feat",
+          "text": "Guidance and Thaumaturgy; Bless is prepared, has 1 free cast/LR, and can also use spell slots."
+        }
+      ],
+      "masteries": [],
+      "conversionNote": "Sable’s 2014 Half-Elf identity is represented by a 2024 Elf; College of Lore branch begins at Bard 3.",
+      "level": 1,
+      "xp": 0,
+      "proficiency": 2,
+      "rules": "5E 2024 SRD 5.2.1",
+      "ruleset": "2024",
+      "edition": "2024",
+      "hpBonusPerLevel": 0,
+      "hitDice": "1d8",
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": 4,
+          "proficient": true
+        },
+        "CON": {
+          "bonus": 1,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": 5,
+          "proficient": true
+        }
+      },
+      "passivePerception": 12,
+      "passiveInsight": 12,
+      "speed": "30 ft.",
+      "saves": "Dex +4, Cha +5",
+      "skills": "Acrobatics +4, Insight +2, Perception +2, Performance +5, Persuasion +5, Religion +2",
+      "features": [
+        "Bardic Inspiration: Bonus Action; give a creature within 60 ft. a d6 Bardic Inspiration die. Uses equal Charisma modifier (3), regained on Long Rest.",
+        "Spellcasting: Cha DC 13, +5. Two Bard cantrips, four prepared Bard spells, and two 1st-level slots.",
+        "Fey Ancestry: Advantage on saves to avoid or end Charmed.",
+        "Trance: Magic can’t put you to sleep; complete a Long Rest in 4 hours of trance.",
+        "High Elf Lineage: Prestidigitation at level 1; additional lineage spells arrive at later character levels.",
+        "Magic Initiate (Cleric): Guidance and Thaumaturgy; Bless is prepared, has 1 free cast/LR, and can also use spell slots."
+      ],
+      "attacks": [
+        "Dagger. +4 to hit; 1d4+2 piercing; finesse, light, thrown 20/60",
+        "Vicious Mockery. +0 to hit; 1d6 psychic; Wis DC 13; target also has Disadvantage on its next attack before your next turn"
+      ],
+      "gear": "Leather armor, 2× Dagger, Lute, Entertainer’s pack, 16 gp",
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared 2024 root built directly under 2024 rules."
+        }
+      ]
+    },
+    {
+      "id": "pregen-bram",
+      "name": "Bram Willow",
+      "className": "Druid",
+      "race": "Human",
+      "background": "Acolyte",
+      "role": "Future shapeshifter, healer, and nature tank",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Neutral",
+      "personality": {
+        "trait": "Listens to wells the way other people listen to sermons.",
+        "ideal": "What grows back is the only honest miracle.",
+        "bond": "A grove cut for lantern-oil.",
+        "flaw": "Will not burn wood if a spell can do the work."
+      },
+      "appearance": "Human, moss-stained cloak, staff of living willow.",
+      "reactions": [],
+      "gp": 12,
+      "darkvision": 0,
+      "magicItems": [],
+      "magicItemBudget": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "veryRare": 0
+      },
+      "class": "Druid",
+      "subclass": null,
+      "scores": {
+        "STR": 10,
+        "DEX": 13,
+        "CON": 14,
+        "INT": 11,
+        "WIS": 17,
+        "CHA": 10
+      },
+      "abilityBuild": {
+        "method": "point-buy",
+        "base": {
+          "STR": 10,
+          "DEX": 13,
+          "CON": 14,
+          "INT": 10,
+          "WIS": 15,
+          "CHA": 10
+        },
+        "background": "Acolyte",
+        "allowed": [
+          "INT",
+          "WIS",
+          "CHA"
+        ],
+        "increases": {
+          "WIS": 2,
+          "INT": 1
+        }
+      },
+      "ac": 15,
+      "acNotes": "leather armor 11 + Dex 1 + shield 2, plus Warden medium-armor training available for later upgrades",
+      "initiative": 1,
+      "speedFt": 30,
+      "hp": 12,
+      "proficiencies": {
+        "armor": [
+          "light",
+          "shields",
+          "medium (Primal Order: Warden)"
+        ],
+        "weapons": [
+          "simple",
+          "martial (Primal Order: Warden)"
+        ],
+        "tools": [
+          "herbalism kit",
+          "calligrapher’s supplies"
+        ],
+        "languages": [
+          "Common",
+          "Druidic",
+          "Sylvan"
+        ]
+      },
+      "equipment": [
+        {
+          "name": "Leather armor"
+        },
+        {
+          "name": "Shield"
+        },
+        {
+          "name": "Sickle"
+        },
+        {
+          "name": "Quarterstaff (Druidic Focus)"
+        },
+        {
+          "name": "Explorer’s pack"
+        },
+        {
+          "name": "Herbalism kit"
+        }
+      ],
+      "attackList": [
+        {
+          "name": "Shillelagh staff",
+          "bonus": 5,
+          "damage": "1d8+3",
+          "type": "bludgeoning",
+          "notes": "after Shillelagh; uses Wisdom and is magical"
+        },
+        {
+          "name": "Produce Flame",
+          "bonus": 5,
+          "damage": "1d8",
+          "type": "fire",
+          "notes": "ranged spell attack"
+        }
+      ],
+      "spellcasting": {
+        "ability": "Wisdom",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": {
+          "1": 2
+        },
+        "focus": "druidic focus",
+        "prepareCount": "4 prepared Druid spells at level 1; Speak with Animals is always prepared; Magic Initiate spell is separate.",
+        "prepared": [
+          "Cure Wounds",
+          "Entangle",
+          "Faerie Fire",
+          "Healing Word",
+          "Speak with Animals",
+          "Bless"
+        ],
+        "cantrips": [
+          "Produce Flame",
+          "Shillelagh",
+          "Guidance",
+          "Thaumaturgy"
+        ]
+      },
+      "spellList": [
+        {
+          "level": 0,
+          "name": "Produce Flame",
+          "time": "action",
+          "range": "self/60 ft.",
+          "effect": "Create flame for light or make a ranged spell attack for 1d8 fire."
+        },
+        {
+          "level": 0,
+          "name": "Shillelagh",
+          "time": "bonus",
+          "range": "self",
+          "effect": "Empower a club or quarterstaff for 1 minute; use Wisdom for attacks/damage and a d8 damage die."
+        },
+        {
+          "level": 0,
+          "name": "Guidance",
+          "time": "action",
+          "range": "touch",
+          "effect": "Magic Initiate cantrip; Concentration up to 1 minute; add 1d4 to one eligible ability check."
+        },
+        {
+          "level": 0,
+          "name": "Thaumaturgy",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Magic Initiate cantrip."
+        },
+        {
+          "level": 1,
+          "name": "Cure Wounds",
+          "time": "action",
+          "range": "touch",
+          "effect": "Restore 2d8+3 HP."
+        },
+        {
+          "level": 1,
+          "name": "Entangle",
+          "time": "action",
+          "range": "90 ft.",
+          "effect": "Concentration; area becomes Difficult Terrain and creatures can become Restrained on failed Strength saves."
+        },
+        {
+          "level": 1,
+          "name": "Faerie Fire",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Concentration; creatures failing Dex DC 13 are outlined and attacks against them have Advantage."
+        },
+        {
+          "level": 1,
+          "name": "Healing Word",
+          "time": "bonus",
+          "range": "60 ft.",
+          "effect": "Restore 2d4+3 HP."
+        },
+        {
+          "level": 1,
+          "name": "Speak with Animals",
+          "time": "action",
+          "range": "self",
+          "effect": "Always prepared from Druidic; communicate with Beasts for 10 minutes."
+        },
+        {
+          "level": 1,
+          "name": "Bless",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Magic Initiate spell; 1 free cast/LR or use spell slots."
+        }
+      ],
+      "bonusActions": [
+        "Shillelagh: empower the quarterstaff for 1 minute.",
+        "Healing Word if a slot remains."
+      ],
+      "featureList": [
+        {
+          "name": "Spellcasting",
+          "source": "Druid 1",
+          "text": "Wis DC 13, +5. Two Druid cantrips, four prepared Druid spells, and two 1st-level slots."
+        },
+        {
+          "name": "Druidic",
+          "source": "Druid 1",
+          "text": "Know Druidic and always have Speak with Animals prepared."
+        },
+        {
+          "name": "Primal Order: Warden",
+          "source": "Druid 1",
+          "text": "Gain Martial weapon proficiency and Medium armor training."
+        },
+        {
+          "name": "Magic Initiate (Cleric)",
+          "source": "Acolyte origin feat",
+          "text": "Guidance and Thaumaturgy; Bless is prepared, has 1 free cast/LR, and can also use spell slots."
+        },
+        {
+          "name": "Resourceful",
+          "source": "Human",
+          "text": "Gain Heroic Inspiration after each Long Rest."
+        },
+        {
+          "name": "Tough",
+          "source": "Human Versatile origin feat",
+          "text": "+2 HP per character level."
+        },
+        {
+          "name": "Skillful",
+          "source": "Human",
+          "text": "Gain one additional skill proficiency (Survival here)."
+        }
+      ],
+      "masteries": [],
+      "conversionNote": "Bram is rebuilt as a 2024 Human Druid with Warden for the eventual Circle of the Moon tank branch; subclass begins at Druid 3.",
+      "level": 1,
+      "xp": 0,
+      "proficiency": 2,
+      "rules": "5E 2024 SRD 5.2.1",
+      "ruleset": "2024",
+      "edition": "2024",
+      "hpBonusPerLevel": 2,
+      "hitDice": "1d8",
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 1,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        }
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": 1,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 2,
+          "proficient": true
+        },
+        "WIS": {
+          "bonus": 5,
+          "proficient": true
+        },
+        "CHA": {
+          "bonus": 0,
+          "proficient": false
+        }
+      },
+      "passivePerception": 15,
+      "passiveInsight": 15,
+      "speed": "30 ft.",
+      "saves": "Int +2, Wis +5",
+      "skills": "Insight +5, Nature +2, Perception +5, Religion +2, Survival +5",
+      "features": [
+        "Spellcasting: Wis DC 13, +5. Two Druid cantrips, four prepared Druid spells, and two 1st-level slots.",
+        "Druidic: Know Druidic and always have Speak with Animals prepared.",
+        "Primal Order: Warden: Gain Martial weapon proficiency and Medium armor training.",
+        "Magic Initiate (Cleric): Guidance and Thaumaturgy; Bless is prepared, has 1 free cast/LR, and can also use spell slots.",
+        "Resourceful: Gain Heroic Inspiration after each Long Rest.",
+        "Tough: +2 HP per character level.",
+        "Skillful: Gain one additional skill proficiency (Survival here)."
+      ],
+      "attacks": [
+        "Shillelagh staff. +5 to hit; 1d8+3 bludgeoning; after Shillelagh; uses Wisdom and is magical",
+        "Produce Flame. +5 to hit; 1d8 fire; ranged spell attack"
+      ],
+      "gear": "Leather armor, Shield, Sickle, Quarterstaff (Druidic Focus), Explorer’s pack, Herbalism kit, 12 gp",
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared 2024 root built directly under 2024 rules."
+        }
+      ]
+    },
+    {
+      "id": "pregen-sora",
+      "name": "Sora Palewalk",
+      "className": "Monk",
+      "race": "Human",
+      "background": "Criminal",
+      "role": "Mobile unarmed striker",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Lawful Neutral",
+      "personality": {
+        "trait": "Counts breaths instead of counting coin.",
+        "ideal": "Do not hold what you cannot carry.",
+        "bond": "A teacher who walked into mist and did not walk out.",
+        "flaw": "Will not strike a turned back, even a guilty one."
+      },
+      "appearance": "Human, cropped hair, bare forearms, rain on old scars.",
+      "reactions": [],
+      "gp": 8,
+      "darkvision": 0,
+      "magicItems": [],
+      "magicItemBudget": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "veryRare": 0
+      },
+      "class": "Monk",
+      "subclass": null,
+      "scores": {
+        "STR": 10,
+        "DEX": 17,
+        "CON": 14,
+        "INT": 10,
+        "WIS": 14,
+        "CHA": 10
+      },
+      "abilityBuild": {
+        "method": "point-buy",
+        "base": {
+          "STR": 10,
+          "DEX": 15,
+          "CON": 13,
+          "INT": 10,
+          "WIS": 14,
+          "CHA": 10
+        },
+        "background": "Criminal",
+        "allowed": [
+          "DEX",
+          "CON",
+          "INT"
+        ],
+        "increases": {
+          "DEX": 2,
+          "CON": 1
+        }
+      },
+      "ac": 15,
+      "acNotes": "Unarmored Defense 10 + Dex 3 + Wis 2",
+      "initiative": 5,
+      "initiativeBonusOverride": 2,
+      "speedFt": 30,
+      "hp": 12,
+      "proficiencies": {
+        "armor": [],
+        "weapons": [
+          "simple",
+          "martial weapons with Light property"
+        ],
+        "tools": [
+          "thieves’ tools",
+          "flute"
+        ],
+        "languages": [
+          "Common",
+          "Elvish"
+        ]
+      },
+      "equipment": [
+        {
+          "name": "Spear"
+        },
+        {
+          "name": "Dagger",
+          "qty": 5
+        },
+        {
+          "name": "Explorer’s pack"
+        }
+      ],
+      "attackList": [
+        {
+          "name": "Unarmed Strike",
+          "bonus": 5,
+          "damage": "1d6+3",
+          "type": "bludgeoning",
+          "notes": "Martial Arts; can make one as a Bonus Action after attacking"
+        },
+        {
+          "name": "Spear",
+          "bonus": 5,
+          "damage": "1d6+3",
+          "type": "piercing",
+          "notes": "versatile 1d8+3"
+        }
+      ],
+      "bonusActions": [
+        "Martial Arts: after the Attack action, make one Unarmed Strike.",
+        "Alert affects Initiative but uses no action."
+      ],
+      "featureList": [
+        {
+          "name": "Martial Arts",
+          "source": "Monk 1",
+          "text": "Use Dexterity for Unarmed Strikes and Monk weapons; Martial Arts die d6; after the Attack action, make one Unarmed Strike as a Bonus Action."
+        },
+        {
+          "name": "Unarmored Defense",
+          "source": "Monk 1",
+          "text": "While unarmored and not using a shield, AC = 10 + Dex + Wis (15)."
+        },
+        {
+          "name": "Alert",
+          "source": "Criminal origin feat",
+          "text": "Add PB to Initiative (+5 total here) and can swap Initiative with a willing ally after rolling."
+        },
+        {
+          "name": "Resourceful",
+          "source": "Human",
+          "text": "Gain Heroic Inspiration after each Long Rest."
+        },
+        {
+          "name": "Tough",
+          "source": "Human Versatile origin feat",
+          "text": "+2 HP per character level (already included)."
+        },
+        {
+          "name": "Skillful",
+          "source": "Human",
+          "text": "Gain one additional skill proficiency (Perception here)."
+        }
+      ],
+      "masteries": [],
+      "conversionNote": "2024-native Human Criminal Monk root; Warrior of the Open Hand branch begins at Monk 3.",
+      "level": 1,
+      "xp": 0,
+      "proficiency": 2,
+      "rules": "5E 2024 SRD 5.2.1",
+      "ruleset": "2024",
+      "edition": "2024",
+      "hpBonusPerLevel": 2,
+      "hitDice": "1d8",
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 4,
+          "proficient": true,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 2,
+          "proficient": true
+        },
+        "DEX": {
+          "bonus": 5,
+          "proficient": true
+        },
+        "CON": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": 0,
+          "proficient": false
+        }
+      },
+      "passivePerception": 14,
+      "passiveInsight": 14,
+      "speed": "30 ft.",
+      "saves": "Str +2, Dex +5",
+      "skills": "Acrobatics +5, Insight +4, Perception +4, Sleight Of Hand +5, Stealth +5",
+      "features": [
+        "Martial Arts: Use Dexterity for Unarmed Strikes and Monk weapons; Martial Arts die d6; after the Attack action, make one Unarmed Strike as a Bonus Action.",
+        "Unarmored Defense: While unarmored and not using a shield, AC = 10 + Dex + Wis (15).",
+        "Alert: Add PB to Initiative (+5 total here) and can swap Initiative with a willing ally after rolling.",
+        "Resourceful: Gain Heroic Inspiration after each Long Rest.",
+        "Tough: +2 HP per character level (already included).",
+        "Skillful: Gain one additional skill proficiency (Perception here)."
+      ],
+      "attacks": [
+        "Unarmed Strike. +5 to hit; 1d6+3 bludgeoning; Martial Arts; can make one as a Bonus Action after attacking",
+        "Spear. +5 to hit; 1d6+3 piercing; versatile 1d8+3"
+      ],
+      "gear": "Spear, 5× Dagger, Explorer’s pack, 8 gp",
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared 2024 root built directly under 2024 rules."
+        }
+      ]
+    },
+    {
+      "id": "pregen-vexa",
+      "name": "Vexa Ember",
+      "className": "Sorcerer",
+      "race": "Dragonborn (Red)",
+      "background": "Acolyte",
+      "role": "Ranged arcane blaster",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Chaotic Good",
+      "personality": {
+        "trait": "Keeps her hands warm on purpose.",
+        "ideal": "Fire that you aim is better than fire that you hide in a lantern.",
+        "bond": "A forge that burned down with her name on the lintel.",
+        "flaw": "Scorches first, apologizes if anyone is still standing."
+      },
+      "appearance": "Red dragonborn, soot along the scales, a shard of amber at her throat.",
+      "reactions": [],
+      "gp": 19,
+      "darkvision": 60,
+      "magicItems": [],
+      "magicItemBudget": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "veryRare": 0
+      },
+      "class": "Sorcerer",
+      "subclass": null,
+      "scores": {
+        "STR": 10,
+        "DEX": 14,
+        "CON": 13,
+        "INT": 10,
+        "WIS": 11,
+        "CHA": 17
+      },
+      "abilityBuild": {
+        "method": "point-buy",
+        "base": {
+          "STR": 10,
+          "DEX": 14,
+          "CON": 13,
+          "INT": 10,
+          "WIS": 10,
+          "CHA": 15
+        },
+        "background": "Acolyte",
+        "allowed": [
+          "INT",
+          "WIS",
+          "CHA"
+        ],
+        "increases": {
+          "CHA": 2,
+          "WIS": 1
+        }
+      },
+      "ac": 12,
+      "acNotes": "unarmored 10 + Dex 2",
+      "initiative": 2,
+      "speedFt": 30,
+      "hp": 7,
+      "proficiencies": {
+        "armor": [],
+        "weapons": [
+          "simple"
+        ],
+        "tools": [
+          "calligrapher’s supplies"
+        ],
+        "languages": [
+          "Common",
+          "Draconic",
+          "Primordial"
+        ]
+      },
+      "equipment": [
+        {
+          "name": "Arcane focus (ember-glass shard)"
+        },
+        {
+          "name": "Dagger",
+          "qty": 2
+        },
+        {
+          "name": "Dungeoneer’s pack"
+        }
+      ],
+      "attackList": [
+        {
+          "name": "Sorcerous Burst",
+          "bonus": 5,
+          "damage": "1d8",
+          "type": "variable",
+          "notes": "ranged Sorcerer spell attack; choose Acid, Cold, Fire, Lightning, Poison, Psychic, or Thunder"
+        },
+        {
+          "name": "Breath Weapon",
+          "bonus": 0,
+          "damage": "1d10",
+          "type": "fire",
+          "notes": "replace one attack; 15-ft cone; Dex DC 11; 2 uses/Long Rest"
+        }
+      ],
+      "spellcasting": {
+        "ability": "Charisma",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": {
+          "1": 2
+        },
+        "focus": "arcane focus",
+        "prepareCount": "2 prepared Sorcerer spells and 4 Sorcerer cantrips; Magic Initiate spell is separate.",
+        "prepared": [
+          "Burning Hands",
+          "Magic Missile",
+          "Bless"
+        ],
+        "cantrips": [
+          "Sorcerous Burst",
+          "Fire Bolt",
+          "Mage Hand",
+          "Prestidigitation",
+          "Guidance",
+          "Thaumaturgy"
+        ]
+      },
+      "spellList": [
+        {
+          "level": 0,
+          "name": "Sorcerous Burst",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "Ranged spell +5; 1d8 damage of a chosen listed type, with the spell’s exploding-die rule."
+        },
+        {
+          "level": 0,
+          "name": "Fire Bolt",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "Ranged spell +5; 1d10 fire."
+        },
+        {
+          "level": 0,
+          "name": "Mage Hand",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Create a spectral hand."
+        },
+        {
+          "level": 0,
+          "name": "Prestidigitation",
+          "time": "action",
+          "range": "10 ft.",
+          "effect": "Create a minor magical effect."
+        },
+        {
+          "level": 0,
+          "name": "Guidance",
+          "time": "action",
+          "range": "touch",
+          "effect": "Magic Initiate cantrip; Concentration up to 1 minute."
+        },
+        {
+          "level": 0,
+          "name": "Thaumaturgy",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Magic Initiate cantrip."
+        },
+        {
+          "level": 1,
+          "name": "Burning Hands",
+          "time": "action",
+          "range": "self (15-ft cone)",
+          "effect": "Dex DC 13; 3d6 fire, half on success."
+        },
+        {
+          "level": 1,
+          "name": "Magic Missile",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "Three darts; each automatically deals 1d4+1 force."
+        },
+        {
+          "level": 1,
+          "name": "Bless",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Magic Initiate spell; 1 free cast/LR or use spell slots."
+        }
+      ],
+      "bonusActions": [
+        "Innate Sorcery (2/Long Rest): for 1 minute, +1 Sorcerer spell save DC and Advantage on Sorcerer spell attack rolls."
+      ],
+      "featureList": [
+        {
+          "name": "Spellcasting",
+          "source": "Sorcerer 1",
+          "text": "Cha DC 13, +5. Four Sorcerer cantrips, two prepared Sorcerer spells, and two 1st-level slots."
+        },
+        {
+          "name": "Innate Sorcery",
+          "source": "Sorcerer 1",
+          "text": "Bonus Action, 2/Long Rest: for 1 minute, Sorcerer spell save DC +1 and Advantage on Sorcerer spell attack rolls.",
+          "uses": "2/LR"
+        },
+        {
+          "name": "Draconic Ancestry: Red",
+          "source": "Dragonborn",
+          "text": "Fire ancestry determines Breath Weapon damage type and grants Fire resistance."
+        },
+        {
+          "name": "Breath Weapon",
+          "source": "Dragonborn",
+          "text": "When taking the Attack action, replace one attack with a 15-ft cone; Dex save DC 11, 1d10 fire at level 1. Uses equal PB (2) per Long Rest.",
+          "uses": "2/LR"
+        },
+        {
+          "name": "Damage Resistance",
+          "source": "Dragonborn",
+          "text": "Resistance to Fire damage."
+        },
+        {
+          "name": "Magic Initiate (Cleric)",
+          "source": "Acolyte origin feat",
+          "text": "Guidance and Thaumaturgy; Bless is prepared, has 1 free cast/LR, and can also use spell slots."
+        }
+      ],
+      "masteries": [],
+      "conversionNote": "2024-native Red Dragonborn Acolyte Sorcerer root; Draconic Sorcery branch begins at Sorcerer 3.",
+      "level": 1,
+      "xp": 0,
+      "proficiency": 2,
+      "rules": "5E 2024 SRD 5.2.1",
+      "ruleset": "2024",
+      "edition": "2024",
+      "hpBonusPerLevel": 0,
+      "hitDice": "1d6",
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 3,
+          "proficient": true
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "CHA": {
+          "bonus": 5,
+          "proficient": true
+        }
+      },
+      "passivePerception": 10,
+      "passiveInsight": 12,
+      "speed": "30 ft.",
+      "saves": "Con +3, Cha +5",
+      "skills": "Arcana +2, Insight +2, Persuasion +5, Religion +2",
+      "features": [
+        "Spellcasting: Cha DC 13, +5. Four Sorcerer cantrips, two prepared Sorcerer spells, and two 1st-level slots.",
+        "Innate Sorcery: Bonus Action, 2/Long Rest: for 1 minute, Sorcerer spell save DC +1 and Advantage on Sorcerer spell attack rolls.",
+        "Draconic Ancestry: Red: Fire ancestry determines Breath Weapon damage type and grants Fire resistance.",
+        "Breath Weapon: When taking the Attack action, replace one attack with a 15-ft cone; Dex save DC 11, 1d10 fire at level 1. Uses equal PB (2) per Long Rest.",
+        "Damage Resistance: Resistance to Fire damage.",
+        "Magic Initiate (Cleric): Guidance and Thaumaturgy; Bless is prepared, has 1 free cast/LR, and can also use spell slots."
+      ],
+      "attacks": [
+        "Sorcerous Burst. +5 to hit; 1d8 variable; ranged Sorcerer spell attack; choose Acid, Cold, Fire, Lightning, Poison, Psychic, or Thunder",
+        "Breath Weapon. +0 to hit; 1d10 fire; replace one attack; 15-ft cone; Dex DC 11; 2 uses/Long Rest"
+      ],
+      "gear": "Arcane focus (ember-glass shard), 2× Dagger, Dungeoneer’s pack, 19 gp",
+      "advancementHistory": [
+        {
+          "level": 1,
+          "note": "Canonical shared 2024 root built directly under 2024 rules."
+        }
+      ]
+    },
+    {
+      "id": "pregen-mael",
+      "name": "Mael Dusk",
+      "className": "Warlock",
+      "race": "Tiefling (Infernal Legacy)",
+      "background": "Acolyte",
+      "role": "Sustained ranged magical blaster",
+      "recommended": false,
+      "portrait": "",
+      "alignment": "Neutral",
+      "personality": {
+        "trait": "Keeps the contract in a pocket he can burn.",
+        "ideal": "A bad bargain is still a bargain until you write a better one.",
+        "bond": "A name he sold and wants back.",
+        "flaw": "Will not admit he is afraid of the dark he can see through."
+      },
+      "appearance": "Tiefling, ash-grey, a book bound in something that is not leather.",
+      "reactions": [],
+      "gp": 20,
+      "darkvision": 60,
+      "magicItems": [],
+      "magicItemBudget": {
+        "common": 0,
+        "uncommon": 0,
+        "rare": 0,
+        "veryRare": 0
+      },
+      "class": "Warlock",
+      "subclass": null,
+      "scores": {
+        "STR": 10,
+        "DEX": 14,
+        "CON": 13,
+        "INT": 10,
+        "WIS": 11,
+        "CHA": 17
+      },
+      "abilityBuild": {
+        "method": "point-buy",
+        "base": {
+          "STR": 10,
+          "DEX": 14,
+          "CON": 13,
+          "INT": 10,
+          "WIS": 10,
+          "CHA": 15
+        },
+        "background": "Acolyte",
+        "allowed": [
+          "INT",
+          "WIS",
+          "CHA"
+        ],
+        "increases": {
+          "CHA": 2,
+          "WIS": 1
+        }
+      },
+      "ac": 13,
+      "acNotes": "leather armor 11 + Dex 2",
+      "initiative": 2,
+      "speedFt": 30,
+      "hp": 9,
+      "proficiencies": {
+        "armor": [
+          "light"
+        ],
+        "weapons": [
+          "simple"
+        ],
+        "tools": [
+          "calligrapher’s supplies"
+        ],
+        "languages": [
+          "Common",
+          "Infernal",
+          "Abyssal"
+        ]
+      },
+      "equipment": [
+        {
+          "name": "Leather armor"
+        },
+        {
+          "name": "Dagger",
+          "qty": 2
+        },
+        {
+          "name": "Arcane focus"
+        },
+        {
+          "name": "Scholar’s pack"
+        }
+      ],
+      "attackList": [
+        {
+          "name": "Eldritch Blast",
+          "bonus": 5,
+          "damage": "1d10",
+          "type": "force",
+          "notes": "ranged Warlock spell attack; one beam at level 1"
+        },
+        {
+          "name": "Dagger",
+          "bonus": 4,
+          "damage": "1d4+2",
+          "type": "piercing",
+          "notes": "finesse, light, thrown 20/60"
+        }
+      ],
+      "spellcasting": {
+        "ability": "Charisma",
+        "saveDC": 13,
+        "attack": 5,
+        "slots": {
+          "1": 1
+        },
+        "focus": "arcane focus",
+        "prepareCount": "Pact Magic: 2 prepared Warlock spells and 1 level-1 Pact slot; 2 Warlock cantrips. Magic Initiate spell is separate.",
+        "prepared": [
+          "Hex",
+          "Armor of Agathys",
+          "Bless"
+        ],
+        "cantrips": [
+          "Eldritch Blast",
+          "Prestidigitation",
+          "Thaumaturgy",
+          "Guidance",
+          "Fire Bolt",
+          "Mage Hand",
+          "Minor Illusion"
+        ]
+      },
+      "spellList": [
+        {
+          "level": 0,
+          "name": "Eldritch Blast",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "Ranged spell +5; one beam dealing 1d10 force."
+        },
+        {
+          "level": 0,
+          "name": "Prestidigitation",
+          "time": "action",
+          "range": "10 ft.",
+          "effect": "Create a minor magical effect."
+        },
+        {
+          "level": 0,
+          "name": "Thaumaturgy",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Tiefling trait and Magic Initiate cantrip; create a minor supernatural effect."
+        },
+        {
+          "level": 0,
+          "name": "Guidance",
+          "time": "action",
+          "range": "touch",
+          "effect": "Magic Initiate cantrip; Concentration up to 1 minute."
+        },
+        {
+          "level": 0,
+          "name": "Fire Bolt",
+          "time": "action",
+          "range": "120 ft.",
+          "effect": "Infernal Legacy cantrip; ranged spell attack using Charisma, 1d10 fire."
+        },
+        {
+          "level": 0,
+          "name": "Mage Hand",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Pact of the Tome cantrip."
+        },
+        {
+          "level": 0,
+          "name": "Minor Illusion",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Pact of the Tome cantrip."
+        },
+        {
+          "level": 1,
+          "name": "Hex",
+          "time": "bonus",
+          "range": "90 ft.",
+          "effect": "Concentration; deal +1d6 Necrotic whenever you hit the marked target and hinder checks with one chosen ability."
+        },
+        {
+          "level": 1,
+          "name": "Armor of Agathys",
+          "time": "bonus",
+          "range": "self",
+          "effect": "Gain 5 temporary HP; while any remain, a melee attacker that hits you takes 5 Cold damage."
+        },
+        {
+          "level": 1,
+          "name": "Bless",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Magic Initiate spell; 1 free cast/LR or use Pact Magic slot."
+        }
+      ],
+      "bonusActions": [
+        "Hex if the Pact slot remains.",
+        "Armor of Agathys if the Pact slot remains."
+      ],
+      "featureList": [
+        {
+          "name": "Pact Magic",
+          "source": "Warlock 1",
+          "text": "Cha DC 13, +5. Two prepared Warlock spells and one level-1 Pact Magic slot, regained on a Short or Long Rest."
+        },
+        {
+          "name": "Eldritch Invocations",
+          "source": "Warlock 1",
+          "text": "One invocation at level 1. This root takes Pact of the Tome to preserve Mael’s Book-of-Shadows identity."
+        },
+        {
+          "name": "Pact of the Tome",
+          "source": "Eldritch Invocation",
+          "text": "Conjure a Book of Shadows; it grants three chosen cantrips and two level-1 Ritual spells while the book is with you."
+        },
+        {
+          "name": "Infernal Legacy",
+          "source": "Tiefling",
+          "text": "Fire Bolt at level 1; Hellish Rebuke and Darkness arrive at later character levels. Fire resistance."
+        },
+        {
+          "name": "Magic Initiate (Cleric)",
+          "source": "Acolyte origin feat",
+          "text": "Guidance and Thaumaturgy; Bless is prepared, has 1 free cast/LR, and can also use spell slots."
+        }
+      ],
+      "masteries": [],
+      "conversionNote": "2024-native Infernal Tiefling Acolyte Warlock root; Fiend Patron branch begins at Warlock 3. Pact of the Tome is the level-1 invocation.",
+      "level": 1,
+      "xp": 0,
+      "proficiency": 2,
+      "rules": "5E 2024 SRD 5.2.1",
+      "ruleset": "2024",
+      "edition": "2024",
+      "hpBonusPerLevel": 0,
+      "hitDice": "1d8",
+      "skillsMap": {
+        "acrobatics": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "animal handling": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "arcana": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "athletics": {
+          "ability": "STR",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "deception": {
+          "ability": "CHA",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "history": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "insight": {
+          "ability": "WIS",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "intimidation": {
+          "ability": "CHA",
+          "bonus": 5,
+          "proficient": true,
+          "expertise": false
+        },
+        "investigation": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "medicine": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "nature": {
+          "ability": "INT",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "perception": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        },
+        "performance": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "persuasion": {
+          "ability": "CHA",
+          "bonus": 3,
+          "proficient": false,
+          "expertise": false
+        },
+        "religion": {
+          "ability": "INT",
+          "bonus": 2,
+          "proficient": true,
+          "expertise": false
+        },
+        "sleight of hand": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "stealth": {
+          "ability": "DEX",
+          "bonus": 2,
+          "proficient": false,
+          "expertise": false
+        },
+        "survival": {
+          "ability": "WIS",
+          "bonus": 0,
+          "proficient": false,
+          "expertise": false
+        }
+      },
+      "saveMap": {
+        "STR": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "DEX": {
+          "bonus": 2,
+          "proficient": false
+        },
+        "CON": {
+          "bonus": 1,
+          "proficient": false
+        },
+        "INT": {
+          "bonus": 0,
+          "proficient": false
+        },
+        "WIS": {
+          "bonus": 2,
+          "proficient": true
+        },
+        "CHA": {
+          "bonus": 5,
+          "proficient": true
+        }
+      },
+      "passivePerception": 10,
+      "passiveInsight": 12,
+      "speed": "30 ft.",
+      "saves": "Wis +2, Cha +5",
+      "skills": "Deception +5, Insight +2, Intimidation +5, Religion +2",
+      "features": [
+        "Pact Magic: Cha DC 13, +5. Two prepared Warlock spells and one level-1 Pact Magic slot, regained on a Short or Long Rest.",
+        "Eldritch Invocations: One invocation at level 1. This root takes Pact of the Tome to preserve Mael’s Book-of-Shadows identity.",
+        "Pact of the Tome: Conjure a Book of Shadows; it grants three chosen cantrips and two level-1 Ritual spells while the book is with you.",
+        "Infernal Legacy: Fire Bolt at level 1; Hellish Rebuke and Darkness arrive at later character levels. Fire resistance.",
+        "Magic Initiate (Cleric): Guidance and Thaumaturgy; Bless is prepared, has 1 free cast/LR, and can also use spell slots."
+      ],
+      "attacks": [
+        "Eldritch Blast. +5 to hit; 1d10 force; ranged Warlock spell attack; one beam at level 1",
+        "Dagger. +4 to hit; 1d4+2 piercing; finesse, light, thrown 20/60"
+      ],
+      "gear": "Leather armor, 2× Dagger, Arcane focus, Scholar’s pack, 20 gp",
       "advancementHistory": [
         {
           "level": 1,
