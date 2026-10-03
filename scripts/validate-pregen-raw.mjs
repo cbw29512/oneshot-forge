@@ -273,6 +273,14 @@ function validatePack(path, edition) {
         }
       }
       const background = String(pc.background || "");
+      if (path.includes("data/pregens/shared/2024/")) {
+        if (!new Set(["Acolyte","Criminal","Sage","Soldier"]).has(background)) {
+          errors.push(who + ": shared 2024 background must be from Basic Rules commercial lane: " + background);
+        }
+        if (/Half-Elf|Half-Orc/i.test(String(pc.race || ""))) {
+          errors.push(who + ": legacy species label is not valid for the native 2024 shared root: " + pc.race);
+        }
+      }
       const coreBackgrounds = new Set(["Acolyte","Criminal","Sage","Soldier","Guide","Farmer"]);
       if (["Brann Oakholt","Sister Pell Bramble","Nyx Keller","Ivo Ashletter","Kael Thornwake","Hester Brine"].includes(pc.name) && !coreBackgrounds.has(background)) {
         errors.push(who + ": legacy/non-2024 background label leaked into 2024 root: " + background);
