@@ -17,6 +17,17 @@ const readJson = path => {
 const abilityMod = score => Math.floor((Number(score) - 10) / 2);
 const expectedPB = level => level <= 4 ? 2 : level <= 8 ? 3 : level <= 12 ? 4 : level <= 16 ? 5 : 6;
 const fixedAverageByDie = {6:4,8:5,10:6,12:7};
+const pointBuyCostByScore = {8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
+
+function pointBuyCost(scores) {
+  let total = 0;
+  for (const ability of ["STR","DEX","CON","INT","WIS","CHA"]) {
+    const score = Number(scores?.[ability]);
+    if (!(score in pointBuyCostByScore)) return null;
+    total += pointBuyCostByScore[score];
+  }
+  return total;
+}
 
 const WEAPONS = {
   "club": {die:"1d4", ability:"STR"},
@@ -186,6 +197,30 @@ function validatePack(path, edition) {
 
 
     if (edition === "2024") {
+      if (pc.abilityBuild) {
+        const build = pc.abilityBuild;
+        if (build.method !== "point-buy") errors.push(who + ": 2024 abilityBuild must use point-buy");
+        const cost = pointBuyCost(build.base);
+        if (cost == null) errors.push(who + ": 2024 point-buy base must use scores 8–15");
+        else if (cost !== 27) errors.push(who + ": 2024 point-buy base costs " + cost + " points; canonical shared roots must use exactly 27");
+        const allowed = new Set(build.allowed || []);
+        const increases = build.increases || {};
+        const incValues = Object.values(increases).map(Number);
+        const incTotal = incValues.reduce((sum, n) => sum + n, 0);
+        const sorted = [...incValues].sort((a,b)=>b-a).join(",");
+        if (incTotal !== 3 || !["2,1","1,1,1"].includes(sorted)) {
+          errors.push(who + ": 2024 background increases must total +3 as +2/+1 or +1/+1/+1");
+        }
+        for (const ability of Object.keys(increases)) {
+          if (!allowed.has(ability)) errors.push(who + ": background increase " + ability + " is not in allowed abilities");
+        }
+        for (const ability of ["STR","DEX","CON","INT","WIS","CHA"]) {
+          const expected = Number(build.base?.[ability]) + Number(increases?.[ability] || 0);
+          if (pc.scores?.[ability] !== expected) {
+            errors.push(who + ": abilityBuild final score mismatch for " + ability + ": sheet " + pc.scores?.[ability] + " vs " + expected);
+          }
+        }
+      }
       const background = String(pc.background || "");
       const coreBackgrounds = new Set(["Acolyte","Criminal","Sage","Soldier","Guide","Farmer"]);
       if (["Brann Oakholt","Sister Pell Bramble","Nyx Keller","Ivo Ashletter","Kael Thornwake","Hester Brine"].includes(pc.name) && !coreBackgrounds.has(background)) {
@@ -236,6 +271,7 @@ function validatePack(path, edition) {
 
 validatePack("data/pregens/shared/2014/level-01.json", "2014");
 validatePack("data/pregens/quiet-seals-level-4-2014-srd.json", "2014");
+validatePack("data/pregens/shared/2024/level-01.json", "2024");
 validatePack("data/pregens/quiet-seals-level-4-2024-srd.json", "2024");
 
 if (errors.length) {
