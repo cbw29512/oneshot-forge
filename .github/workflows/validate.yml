@@ -119,6 +119,8 @@ jobs:
         run: node scripts/validate-cards.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Validate printable pregen packets
         run: node scripts/validate-pregen-print.mjs
+      - name: Validate pregen RAW mechanics
+        run: node scripts/validate-pregen-raw.mjs
       - name: Certify active stage-card rendering
         run: node scripts/validate-runner-zero-prep.mjs
       - name: Certify guided Owlbear run flow
