@@ -48,21 +48,35 @@ def pell(pc):
     pc["darkvision"] = 120
     pc["featureList"] = [
         feat("Divine Order: Protector", "Cleric 1", "Martial weapons and Heavy armor (already using chain mail)."),
-        feat("Spellcasting", "Cleric 1", "Wis DC 13, +5. Slots 4/3. Prepare Wis + level = 7, plus domain spells."),
-        feat("Disciple of Life", "Life 3", "When a 1st-level or higher spell you cast restores HP, extra HP = 2 + the spell’s level."),
-        feat("Channel Divinity", "Cleric 2", "2 uses. Regain 1 on a Short Rest, all on a Long Rest. Turn Undead or Preserve Life (restore 20 HP split, 30 ft., not undead/constructs, up to half max each).", "2"),
+        feat("Spellcasting", "Cleric 1", "Wis DC 13, +5. Slots 4/3. Level 4 Cleric prepares 7 Cleric spells; Life Domain spells are always prepared in addition."),
+        feat("Disciple of Life", "Life 3", "When a spell cast with a spell slot restores HP, add 2 + the slot level to that healing on the turn you cast it."),
+        feat("Channel Divinity", "Cleric 2", "2 uses. Regain 1 on a Short Rest, all on a Long Rest. Options: Divine Spark (1d8+Wis healing or Con-save Radiant/Necrotic damage), Turn Undead, or Life Domain Preserve Life (20 HP split among Bloodied creatures within 30 ft., no target above half HP).", "2"),
         feat("Dwarven Resilience", "Dwarf", "Resistance to Poison damage. Advantage on saves to avoid or end Poisoned. Darkvision 120 ft."),
         feat("Dwarven Toughness", "Dwarf", "+1 HP per level (already in 39). Speed 30."),
-        feat("Magic Initiate (Cleric)", "Acolyte origin feat", "One extra cleric cantrip (Guidance is covered). 1st-level Healing Word 1/Long Rest without a slot, and you can still spend slots on it."),
-        feat("Stonecunning", "Dwarf", "Bonus Action: Tremorsense 60 ft. for 10 minutes, 1/Long Rest, on stone."),
+        feat("Magic Initiate (Cleric)", "Acolyte origin feat", "Two additional Cleric cantrips: Mending and Thaumaturgy. Healing Word is always prepared and can be cast 1/Long Rest without a slot; spell slots can also cast it."),
+        feat("Stonecunning", "Dwarf", "Bonus Action: Tremorsense 60 ft. for 10 minutes while on/touching stone. Uses equal Proficiency Bonus (2), all regained on a Long Rest.", "2/LR"),
     ]
     pc["bonusActions"] = [
-        "Spiritual Weapon if cast: +5, 1d8+3 force.",
-        "Healing Word if a slot remains: 1d4+5 HP plus Disciple of Life.",
-        "Stonecunning: Tremorsense 60 ft., 10 minutes, 1/LR on stone.",
+        "Spiritual Weapon if cast: concentration up to 1 minute; +5 melee spell attack, 1d8+3 force.",
+        "Healing Word: 2d4+6 HP total at 1st level with Disciple of Life.",
+        "Stonecunning: Tremorsense 60 ft., 10 minutes, 2/LR at this level, on/touching stone.",
     ]
     pc["speed"] = "30 ft."
-    return patch_common(pc, "2014 Life Cleric rebuilt on 2024 Cleric 4 (subclass at 3) / Dwarf / Acolyte. Channel Divinity is 2 uses.")
+    pc["spellcasting"]["prepareCount"] = "7 prepared Cleric spells at level 4, plus always-prepared Life Domain spells; Magic Initiate spells are separate."
+    pc["spellcasting"]["cantrips"] = ["Sacred Flame", "Guidance", "Light", "Spare the Dying", "Mending", "Thaumaturgy"]
+    pc["spellcasting"]["prepared"] = ["Command", "Detect Magic", "Guiding Bolt", "Healing Word", "Hold Person", "Shield of Faith", "Spiritual Weapon", "Aid", "Bless", "Cure Wounds", "Lesser Restoration"]
+    by_name = {s["name"]: s for s in pc["spellList"]}
+    by_name["Spare the Dying"].update({"range": "15 ft.", "effect": "A creature in range at 0 HP becomes Stable. Range increases at character levels 5, 11, and 17."})
+    by_name["Cure Wounds"].update({"effect": "2d8+3 HP, plus Disciple of Life +3 (total 2d8+6) with a 1st-level slot. Life Domain."})
+    by_name["Healing Word"].update({"effect": "2d4+3 HP, plus Disciple of Life +3 (total 2d4+6) with a 1st-level slot."})
+    by_name["Spiritual Weapon"].update({"effect": "Concentration up to 1 minute. Melee spell attack +5, 1d8+3 force; Bonus Action on later turns to move up to 20 ft. and attack again."})
+    pc["spellList"].extend([
+        {"level": 0, "name": "Mending", "time": "1 minute", "range": "touch", "effect": "Repair one break or tear in an object, up to 1 foot in any dimension."},
+        {"level": 0, "name": "Thaumaturgy", "time": "action", "range": "30 ft.", "effect": "Create one minor divine wonder from the spell’s listed options for up to 1 minute."},
+        {"level": 1, "name": "Command", "time": "action", "range": "60 ft.", "effect": "Wis DC 13 or the target follows one listed one-word command on its next turn."},
+        {"level": 1, "name": "Guiding Bolt", "time": "action", "range": "120 ft.", "effect": "Ranged spell +5; 4d6 radiant, and the next attack against the target before the end of your next turn has Advantage."}
+    ])
+    return patch_common(pc, "2014 Life Cleric identity rebuilt on 2024 Cleric 4 / Life Domain 3 / Dwarf / Acolyte with 2024-native spell preparation and spell text.")
 
 
 def nyx(pc):
@@ -113,8 +127,18 @@ def kael(pc):
     pc["skillsMap"]["perception"]["bonus"] = 6
     pc["passivePerception"] = 16
     pc["masteries"] = ["Longbow: Slow", "Shortsword: Vex"]
-    pc["spellcasting"]["prepareCount"] = "Hunter’s Mark always prepared. 3 first-level slots. 2 free Hunter’s Mark / Long Rest."
-    return patch_common(pc, "2014 Hunter rebuilt on 2024 Ranger 4 / Hunter 3 / Wood Elf / Guide. Extra Attack is level 5.")
+    pc["background"] = "Guide"
+    pc["spellcasting"]["prepareCount"] = "5 prepared Ranger spells at level 4, plus Hunter’s Mark always prepared. 3 first-level slots; 2 free Hunter’s Mark casts per Long Rest."
+    pc["spellcasting"]["prepared"] = ["Hunter’s Mark", "Cure Wounds", "Ensnaring Strike", "Fog Cloud", "Goodberry", "Longstrider"]
+    by_name = {s["name"]: s for s in pc["spellList"]}
+    by_name["Cure Wounds"].update({"effect": "2d8+2 HP."})
+    by_name["Goodberry"].update({"range": "self", "effect": "Create 10 berries for 24 hours. A creature uses a Bonus Action to eat one, regaining 1 HP and gaining a day’s nourishment."})
+    pc["spellList"].extend([
+        {"level": 1, "name": "Ensnaring Strike", "time": "bonus", "range": "self", "effect": "After you hit with a weapon attack, vines can Restrain the target on a failed Strength save; concentration up to 1 minute."},
+        {"level": 1, "name": "Fog Cloud", "time": "action", "range": "120 ft.", "effect": "Concentration up to 1 hour; create a heavily obscured 20-ft-radius sphere of fog."},
+        {"level": 1, "name": "Longstrider", "time": "action", "range": "touch", "effect": "For 1 hour, the target’s Speed increases by 10 ft."}
+    ])
+    return patch_common(pc, "2014 Hunter identity rebuilt on 2024 Ranger 4 / Hunter 3 / Wood Elf / Guide with 2024 prepared-spell rules. Extra Attack is level 5.")
 
 
 def hester(pc):
@@ -130,14 +154,27 @@ def hester(pc):
         feat("Tough", "Farmer / Folk Hero origin feat", "+2 HP per level (already included: 44 HP)."),
         feat("Resourceful", "Human", "Heroic Inspiration after a Long Rest."),
     ]
+    pc["background"] = "Farmer"
     pc["hp"] = 44
+    pc["spellcasting"]["prepareCount"] = "5 prepared Paladin spells at level 4, plus Oath of Devotion spells and Divine Smite always prepared."
+    pc["spellcasting"]["prepared"] = ["Bless", "Command", "Compelled Duel", "Cure Wounds", "Heroism", "Protection from Evil and Good", "Shield of Faith", "Divine Smite"]
+    pc["spellList"] = [
+        {"level": 1, "name": "Bless", "time": "action", "range": "30 ft.", "effect": "Concentration up to 1 minute. Up to 3 creatures add 1d4 to attack rolls and saving throws."},
+        {"level": 1, "name": "Command", "time": "action", "range": "60 ft.", "effect": "Wis DC 13 or the target follows one listed one-word command on its next turn."},
+        {"level": 1, "name": "Compelled Duel", "time": "bonus", "range": "30 ft.", "effect": "Concentration up to 1 minute. Wis DC 13 or the target is drawn into a duel with you under the spell’s restrictions."},
+        {"level": 1, "name": "Cure Wounds", "time": "action", "range": "touch", "effect": "2d8+3 HP."},
+        {"level": 1, "name": "Heroism", "time": "action", "range": "touch", "effect": "Concentration up to 1 minute. Target is immune to Frightened and gains 3 Temp HP at the start of each of its turns."},
+        {"level": 1, "name": "Protection from Evil and Good", "time": "action", "range": "touch", "effect": "Concentration up to 10 minutes. Protects against Aberrations, Celestials, Elementals, Fey, Fiends, and Undead. Oath."},
+        {"level": 1, "name": "Shield of Faith", "time": "bonus", "range": "60 ft.", "effect": "Concentration up to 10 minutes. Target gains +2 AC. Oath."},
+        {"level": 1, "name": "Divine Smite", "time": "bonus after hit", "range": "self", "effect": "Immediately after a melee weapon or Unarmed Strike hit: +2d8 radiant; +1d8 more against a Fiend or Undead. 1 free cast/LR, otherwise a slot."}
+    ]
     pc["bonusActions"] = [
         "Lay on Hands (touch).",
         "Divine Smite after a melee hit (spell; 1 free/LR then slots).",
         "Sacred Weapon (Channel).",
     ]
     pc["masteries"] = ["Longsword: Sap", "Javelin: Slow"]
-    return patch_common(pc, "2014 Devotion Paladin rebuilt on 2024 Paladin 4. Smite is a spell. Extra Attack is level 5. Turn the Unholy is not the 2024 Channel option — Sacred Weapon and Divine Sense are.")
+    return patch_common(pc, "2014 Devotion Paladin identity rebuilt on 2024 Paladin 4 / Oath of Devotion 3 / Human / Farmer with 2024 prepared-spell and Smite rules. Extra Attack is level 5.")
 
 
 def stringify(pc):
