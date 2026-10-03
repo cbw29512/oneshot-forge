@@ -67,7 +67,7 @@
     },
     "lessonRule": "A Lesson Point is locked to an ability different from the attempted ability and chosen because the failed scene plausibly taught that lesson.",
     "criticalFailureRule": "In addition to its Lesson Point, move one already-invested Development Point from the attempted ability into the same lesson ability when possible. This can lower one ability and raise another, but never reduces total earned development or the 27-point graduation floor.",
-    "criticalSuccessBonusRule": "Critical success earns one extra flexible Development Point. There is no artificial cap; the natural roll frequency is the limiter.",
+    "criticalSuccessBonusRule": "Critical success earns one extra flexible Development Point. Bonus development may raise the final base array above the guaranteed 27-point floor, but never above the absolute 30-point cap.",
     "abilityGuide": {
       "STR": "Force, lift, wrestle, break, haul.",
       "DEX": "Balance, sneak, climb, aim, or use precise hands.",
@@ -96,7 +96,9 @@
       "restriction": "The same generic justification cannot be repeated indefinitely. The advantage must be specific to the current scene and character history.",
       "noRoleplayDisadvantage": true,
       "resolution": "With Advantage, roll two d20s and use the higher result. The kept die is the natural result used for the Level-0 critical-success/critical-failure tier."
-    }
+    },
+    "maximumGraduationValue": 30,
+    "statGrowthCapRule": "The Level-0 base ability array may never exceed a point-buy value of 30. Development Points can continue to be earned after the cap, but they cannot be converted into additional ability-score power."
   },
   "village": {
     "id": "hearthcross",
@@ -1034,7 +1036,7 @@
     },
     "rawDefault": false,
     "rawAudit": {
-      "abilityArray": "From Zero to Hero ability generation is a house rule. After all 21 base opportunities, the character is guaranteed a minimum base-array point-buy value of 27, with no pre-origin score above 15. Any spent critical-success bonus points may raise the array above 27 and must be labeled Heroic/house-rule.",
+      "abilityArray": "From Zero to Hero ability generation is a house rule. After all 21 base opportunities, the character is guaranteed a minimum base-array point-buy value of 27 and may never exceed a maximum value of 30, with no pre-origin score above 15.",
       "proficiencies": "Training/familiarity remains narrative until a legal 2014 race/background/class or 2024 species/background/class choice grants the proficiency.",
       "heirloom": "Heirloom remains mundane/narrative unless the selected ruleset or an explicitly enabled house rule grants a mechanical property.",
       "mentor": "Mentors are narrative contacts and grant no automatic numerical bonus unless an explicit house rule says otherwise.",
