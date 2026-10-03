@@ -102,7 +102,7 @@ if(!/Record the specific character or scene reason/.test(script)) fail("Advantag
 if(/disadvantage/i.test(script)) fail("Zero-to-Hero script must not introduce roleplay Disadvantage");
 if(/finalReflection|reflectionRemaining|canFinishReflection/.test(script)) fail("superseded Final Reflection logic must not remain");
 if(!/criticalBonusEarned\+=1/.test(script)) fail("critical-success bonus tracking missing");
-if(!/27-point minimum guaranteed/.test(script)) fail("graduation summary must state the minimum guarantee");
+if(!/27-point minimum · 30-point maximum/.test(script)) fail("graduation summary must state the locked 27–30 range");
 
 // Prove the point-buy curve used by the wallet remains aligned with the 5E 8–15 table.
 const pointCost={8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
