@@ -782,10 +782,97 @@
     ).join("")+'</div>';
   }
 
+  function competitionAwardFor(competition,placement,fieldSize) {
+    const special=competition.specialAwards?.[placement+"-of-"+fieldSize];
+    if(special) return special;
+    if(placement<=3) return competition.awards?.[String(placement)]||null;
+    const index=Math.max(0,placement-4);
+    return competition.consolations?.[index]||competition.consolations?.at(-1)||null;
+  }
+
+  function renderCompetitionAwardTool() {
+    const contest=$("competition-select");
+    const size=$("competition-field-size");
+    const place=$("competition-place");
+    const note=$("competition-note");
+    const preview=$("competition-preview");
+    const add=$("add-competition-card");
+    if(!contest||!size||!place||!preview||!add) return;
+
+    const competitions=campaign.scrapbook?.competitions||[];
+    contest.innerHTML=competitions.map(c=>'<option value="'+esc(c.id)+'">'+esc(c.name)+(c.developmentCore?' · '+esc(c.primaryAbility):' · side contest')+'</option>').join("");
+
+    const syncPlaces=()=>{
+      const fieldSize=Number(size.value);
+      const current=Math.min(fieldSize,Math.max(1,Number(place.value)||1));
+      place.innerHTML=Array.from({length:fieldSize},(_,i)=>'<option value="'+(i+1)+'">'+(i+1)+ordinal(i+1)+'</option>').join("");
+      place.value=String(current);
+      updatePreview();
+    };
+
+    const updatePreview=()=>{
+      const competition=competitions.find(c=>c.id===contest.value);
+      if(!competition) { preview.textContent=""; return; }
+      const fieldSize=Number(size.value);
+      const placement=Number(place.value)||1;
+      const award=competitionAwardFor(competition,placement,fieldSize);
+      if(!award) { preview.textContent="No award is defined for this result."; return; }
+      preview.innerHTML='<strong>'+esc(award.title)+'</strong> · official result '+placement+ordinal(placement)+' of '+fieldSize+' · '+esc(award.memory);
+    };
+
+    size.onchange=syncPlaces;
+    contest.onchange=updatePreview;
+    place.onchange=updatePreview;
+    syncPlaces();
+
+    add.onclick=()=>{
+      const competition=competitions.find(c=>c.id===contest.value);
+      if(!competition) return;
+      const fieldSize=Number(size.value);
+      const placement=Number(place.value);
+      if(![4,5,6].includes(fieldSize)||placement<1||placement>fieldSize) return;
+      const award=competitionAwardFor(competition,placement,fieldSize);
+      if(!award) return;
+      const chapter=campaign.chapters.find(c=>c.id===competition.chapterId);
+      const id="competition:"+competition.id;
+      const existing=state.scrapbookCards.find(card=>card.id===id);
+      const card={
+        id,
+        type:"competition",
+        mechanical:false,
+        age:Number(competition.age||chapter?.age||state.age),
+        chapter:chapter?.title||"Hearthcross competition",
+        chapterId:competition.chapterId||"",
+        event:competition.name,
+        title:award.title,
+        category:award.category||"Consolation",
+        memory:award.memory,
+        attemptedAbility:competition.primaryAbility||"",
+        rollOutcome:"",
+        advantageReason:"",
+        developmentType:"story",
+        flexiblePoints:0,
+        lessonAbility:"",
+        lessonPoints:0,
+        shiftedFrom:"",
+        shiftedTo:"",
+        placement,
+        fieldSize,
+        badge:placement===1?"1st Place":placement===2?"2nd Place":placement===3?"3rd Place":"",
+        playerNote:String(note.value||"").trim()
+      };
+      if(existing) Object.assign(existing,card);
+      else state.scrapbookCards.push(card);
+      saveState();
+      renderScrapbook();
+    };
+  }
+
   function renderScrapbook() {
     const host=$("scrapbook-grid");
     if(!host) return;
     syncDevelopmentCards();
+    renderCompetitionAwardTool();
     const cards=[...state.scrapbookCards].sort((a,b)=>(a.age-b.age)||String(a.chapter).localeCompare(String(b.chapter))||String(a.event).localeCompare(String(b.event)));
     $("scrapbook-count").textContent=cards.length+" card"+(cards.length===1?"":"s");
     if(!cards.length) {
@@ -800,7 +887,9 @@
             shifted:Boolean(card.shiftedFrom&&card.shiftedTo),
             attemptedAbility:card.shiftedFrom||card.attemptedAbility
           })
-        : "Story memory";
+        : card.type==="competition"
+          ? "Competition memory · no extra DP"
+          : "Story memory";
       const place=card.placement&&card.fieldSize
         ? '<div class="scrapbook-place">'+esc(card.placement)+ordinal(card.placement)+' of '+esc(card.fieldSize)+'</div>'
         : "";
@@ -808,14 +897,18 @@
       const advantage=card.advantageReason?'<p class="scrapbook-small"><b>Character Advantage:</b> '+esc(brief(card.advantageReason,95))+'</p>':"";
       const upbringing=card.upbringingDisposition?'<p class="scrapbook-small"><b>Upbringing:</b> '+esc(upbringingLabel(card.attemptedAbility))+' · '+esc(rollModeLabel(card.rollMode||"normal"))+'</p>':"";
       const lesson=card.lessonAbility?'<p class="scrapbook-small"><b>Lesson:</b> '+esc(card.lessonAbility)+(card.shiftedFrom?' · shifted from '+esc(card.shiftedFrom):"")+'</p>':"";
+      const approachLine=card.type==="competition"
+        ? '<p class="scrapbook-small"><b>Contest ability:</b> '+esc(card.attemptedAbility||"—")+'</p>'
+        : '<p class="scrapbook-small"><b>Approach:</b> '+esc(card.attemptedAbility||"Story")+' · '+esc(labelOutcome(card.rollOutcome||"memory"))+'</p>';
+      const playerNote=card.playerNote?'<p class="scrapbook-small"><b>My note:</b> '+esc(brief(card.playerNote,120))+'</p>':"";
       return '<article class="scrapbook-card" data-card-id="'+esc(card.id)+'">'+
         '<header><div><span class="scrapbook-age">AGE '+card.age+'</span><span class="scrapbook-category">'+esc(card.category)+'</span></div>'+badge+'</header>'+
         '<h3>'+esc(card.title)+'</h3>'+
         '<p class="scrapbook-event">'+esc(card.event||card.chapter)+'</p>'+place+
         '<p class="scrapbook-memory">'+esc(brief(card.memory,180))+'</p>'+
-        '<div class="scrapbook-development"><span>BUILT ME</span><strong>'+esc(development)+'</strong></div>'+
-        '<p class="scrapbook-small"><b>Approach:</b> '+esc(card.attemptedAbility||"Story")+' · '+esc(labelOutcome(card.rollOutcome||"memory"))+'</p>'+
-        upbringing+advantage+lesson+
+        '<div class="scrapbook-development"><span>'+(card.type==="competition"?"REMEMBERED AS":"BUILT ME")+'</span><strong>'+esc(development)+'</strong></div>'+
+        approachLine+
+        upbringing+advantage+lesson+playerNote+
         '<footer>'+esc(card.chapter)+'</footer>'+
       '</article>';
     }).join("");

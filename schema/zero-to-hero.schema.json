@@ -584,7 +584,9 @@
             "criticalFailureDecoration",
             "noDevelopment",
             "cardBuildRule",
-            "consolationAssignment"
+            "consolationAssignment",
+            "coreFairnessSlate",
+            "rankingRule"
           ],
           "properties": {
             "supportedPlayerCount": {
@@ -609,6 +611,46 @@
             },
             "uniqueConsolationWithinEvent": {
               "const": true
+            },
+            "coreFairnessSlate": {
+              "type": "object",
+              "required": [
+                "required",
+                "primaryAbilities",
+                "exactContestPerAbility",
+                "rule",
+                "optionalSideContests"
+              ],
+              "properties": {
+                "required": {
+                  "const": true
+                },
+                "primaryAbilities": {
+                  "const": [
+                    "STR",
+                    "DEX",
+                    "CON",
+                    "INT",
+                    "WIS",
+                    "CHA"
+                  ]
+                },
+                "exactContestPerAbility": {
+                  "const": 1
+                },
+                "rule": {
+                  "type": "string",
+                  "minLength": 40
+                },
+                "optionalSideContests": {
+                  "type": "string",
+                  "minLength": 30
+                }
+              }
+            },
+            "rankingRule": {
+              "type": "string",
+              "minLength": 40
             }
           }
         },
@@ -633,7 +675,9 @@
               "allowedAbilities",
               "prompt",
               "awards",
-              "consolations"
+              "consolations",
+              "primaryAbility",
+              "placementMethod"
             ],
             "properties": {
               "id": {
@@ -669,6 +713,32 @@
               "consolations": {
                 "type": "array",
                 "minItems": 3
+              },
+              "developmentCore": {
+                "type": "boolean"
+              },
+              "storyOnlyCompetition": {
+                "type": "boolean"
+              },
+              "primaryAbility": {
+                "enum": [
+                  "STR",
+                  "DEX",
+                  "CON",
+                  "INT",
+                  "WIS",
+                  "CHA"
+                ]
+              },
+              "placementMethod": {
+                "type": "string",
+                "minLength": 20
+              },
+              "fairnessLaneLabel": {
+                "type": "string"
+              },
+              "specialAwards": {
+                "type": "object"
               }
             }
           }

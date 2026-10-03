@@ -458,6 +458,55 @@ Critical success may add a **Legendary Finish** badge. Critical failure should p
 
 Scrapbook cards print at **2.5 × 3.5 inches**, nine cards per portrait Letter sheet in a cut-friendly 3 × 3 layout.
 
+## 8D. Hearthcross Years — DM adventure contract
+
+The Level-0 rules are not complete as a product unless a DM can run them as an actual adventure.
+
+The canonical playable origin adventure is **From Zero to Hero: The Hearthcross Years**.
+
+Default table:
+- **4 players**
+- supports **4–6**
+- 7 yearly chapters
+- 3 Growth Beats per chapter
+- exactly 21 Development Checks per character across the campaign
+
+The DM adventure and player Growth Sheet are separate surfaces:
+- **DM Adventure** owns pacing, read-aloud, scene order, spotlight rotation, NPC pressure, persistent consequences, competition procedures, and the final crisis.
+- **Player Growth Sheet** owns Upbringing Lean, dice mode, Development Points, Lesson Points, stat investment, scrapbook ledger, Yearbook, and graduation math.
+
+The DM runner must bind every playable scene to the authoritative Growth Beat in `data/zero-to-hero/from-zero-to-hero.json`. It may explain or stage the scene but may not invent a different DC, outcome table, or development rule.
+
+### Default four-player spotlight
+
+For four players, rotate who acts first from Growth Beat to Growth Beat.
+
+A successful first check may improve the fictional position, but the beat does not close until all four players receive one distinct Development Check.
+
+For five or six players, add distinct tasks, witnesses, deliveries, hazards, or simultaneous fronts. **Do not increase the DC merely because more players attended.**
+
+### Hearthcross Six competition fairness
+
+The six core competition contests must remain exactly:
+
+| Ability | Contest |
+| --- | --- |
+| STR | Sack Haul |
+| DEX | The Rat Race |
+| CON | Pie-Eating Contest |
+| INT | Riddle Table |
+| WIS | Hearthcross Scavenger Hunt |
+| CHA | Lantern Presentation |
+
+For placement, every contestant in the same contest uses the same primary ability.
+
+This is intentional: because each Upbringing Lean contains exactly 2 Favored, 2 Neutral, and 2 Challenging abilities, one contest per ability guarantees every profile exactly:
+- 2 Favored core competitions;
+- 2 Neutral core competitions;
+- 2 Challenging core competitions.
+
+Optional side contests can exist for extra scrapbook memories. They may not silently create additional Development Points outside the 21-opportunity budget.
+
 ## 9. Graduation: 2014
 
 Level-0 produces the **pre-origin base ability array**.

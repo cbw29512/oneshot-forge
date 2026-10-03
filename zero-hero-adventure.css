@@ -1,0 +1,67 @@
+body.zero-adventure-body{background:#17120e;color:#f4eadc}
+.zero-adventure-topbar{align-items:flex-start;gap:1rem}
+.zero-adventure-actions{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
+.zero-adventure-shell{max-width:90rem;margin:1rem auto 4rem;padding:0 1rem;display:grid;grid-template-columns:18rem minmax(0,1fr);gap:1rem}
+.zero-adventure-sidebar{display:flex;flex-direction:column;gap:1rem;position:sticky;top:1rem;align-self:start}
+.zero-adventure-sidebar .panel,.zero-adventure-main>.panel,.adventure-reference{background:#241c16;border:1px solid #5e4938;border-radius:.85rem;padding:1rem}
+.zero-adventure-sidebar label{display:block;font-weight:800;margin:.3rem 0}
+.zero-adventure-sidebar select{width:100%;font:inherit;padding:.55rem;background:#fff;color:#17120e;border-radius:.35rem;border:1px solid #9d846d}
+.chapter-list{display:flex;flex-direction:column;gap:.4rem}
+.chapter-jump{appearance:none;text-align:left;background:#34271f;color:#f4eadc;border:1px solid #5d493a;border-radius:.5rem;padding:.55rem .6rem;cursor:pointer}
+.chapter-jump span{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:#c5ad98}
+.chapter-jump strong{display:block;margin-top:.1rem}
+.chapter-jump.active{background:#efe0c8;color:#23180f;border-color:#c69b63}
+.chapter-jump.active span{color:#6c4d32}
+.fairness-card strong{color:#f0c58e}
+.zero-adventure-main{min-width:0;display:flex;flex-direction:column;gap:1rem}
+.chapter-intro-head,.scene-head,.growth-reference-head{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
+.chapter-intro h2,.scene-panel h2{margin:.1rem 0}
+.chapter-goal{font-weight:700;font-size:1.05rem}
+.boxed-text{display:block;background:#f4eadc;color:#201811;border-left:5px solid #b07543;border-radius:.45rem;padding:1rem 1.1rem;font:1rem/1.55 Georgia,serif;margin:.7rem 0}
+.dm-box,.spotlight-box,.growth-reference,.scrapbook-callout{border-radius:.6rem;padding:.85rem;margin:.85rem 0}
+.dm-box{background:#30251d;border:1px solid #604c3b}
+.spotlight-box{background:#eadcc4;color:#241911;border-left:5px solid #8d613a}
+.growth-reference{background:#fffaf0;color:#1d1813;border:2px solid #8c704f}
+.scrapbook-callout{background:#e9e2cf;color:#20180f;border-left:5px solid #6e7a4d}
+.box-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900;margin:.05rem 0 .35rem}
+.dc-chip{display:inline-block;background:#6d4323;color:#fff5e7;border-radius:999px;padding:.35rem .55rem;white-space:nowrap}
+.approach-reference{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin-top:.7rem}
+.approach-reference article,.outcome-reference article{border:1px solid #d4c2a4;background:#fff;padding:.55rem;border-radius:.4rem}
+.approach-reference b{display:inline-block;background:#3e3125;color:#fff;padding:.18rem .35rem;border-radius:.25rem}
+.approach-reference p,.outcome-reference p{margin:.3rem 0 0;line-height:1.35}
+.outcome-reference{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin-top:.5rem}
+.outcome-reference article:nth-child(1){border-left:4px solid #507141}
+.outcome-reference article:nth-child(4){border-left:4px solid #8c3f35}
+.scene-nav{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-top:1rem;border-top:1px solid #5a493b;padding-top:.85rem}
+.chapter-close blockquote{font:italic 1rem/1.5 Georgia,serif;margin:.5rem 0}
+.six-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem}
+.six-grid article{background:#34271f;border:1px solid #5c4939;border-radius:.45rem;padding:.55rem}
+.six-grid span{display:block;font-weight:900;color:#f0c58e}
+.six-grid strong{display:block;margin-top:.15rem}
+.adventure-reference summary{cursor:pointer;font-weight:900;font-size:1.05rem}
+.adventure-reference section{margin-top:1rem}
+@media(max-width:900px){
+ .zero-adventure-shell{grid-template-columns:1fr}
+ .zero-adventure-sidebar{position:static}
+ .approach-reference{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .six-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:620px){
+ .zero-adventure-topbar,.chapter-intro-head,.scene-head,.growth-reference-head{flex-direction:column}
+ .zero-adventure-actions{justify-content:flex-start}
+ .approach-reference,.outcome-reference,.six-grid{grid-template-columns:1fr}
+ .scene-nav{flex-wrap:wrap}
+}
+@media print{
+ @page{size:Letter portrait;margin:.45in}
+ .topbar,.zero-adventure-sidebar,.adventure-reference,.scene-nav{display:none!important}
+ body.zero-adventure-body{background:#fff!important;color:#111!important}
+ .zero-adventure-shell{display:block!important;max-width:none!important;margin:0!important;padding:0!important}
+ .zero-adventure-main>.panel{background:#fff!important;color:#111!important;border:0!important;padding:0!important}
+ .chapter-intro,.chapter-close{display:block!important}
+ .scene-panel{break-before:auto}
+ .boxed-text{background:#f3f3f3!important;color:#111!important;border-color:#555!important}
+ .dm-box{background:#fff!important;color:#111!important;border:1px solid #777!important}
+ .spotlight-box,.growth-reference,.scrapbook-callout{background:#fff!important;color:#111!important;border:1px solid #777!important}
+ .approach-reference article,.outcome-reference article{background:#fff!important;color:#111!important}
+}
