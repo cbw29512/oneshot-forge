@@ -1,4 +1,21 @@
-const { generate } = require("../generator.js");
+const fs = require("node:fs");
+const path = require("node:path");
+const vm = require("node:vm");
+
+const generatorPath = path.resolve(__dirname, "../generator.js");
+const generatorSource = fs.readFileSync(generatorPath, "utf8");
+const sandbox = {
+  module: { exports: {} },
+  exports: {},
+  globalThis: {},
+  console,
+  crypto: globalThis.crypto,
+  Uint32Array,
+  Date,
+  Math
+};
+vm.runInNewContext(generatorSource, sandbox, { filename: generatorPath });
+const { generate } = sandbox.module.exports;
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
