@@ -6,7 +6,7 @@
   <title>From Zero to Hero — One-Shot Forge</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
   <link rel="stylesheet" href="styles.css?v=20261002e">
-  <link rel="stylesheet" href="zero-hero.css?v=20261003c">
+  <link rel="stylesheet" href="zero-hero.css?v=20261003d">
 </head>
 <body class="zero-hero-page">
   <header class="land-bar print-hide">
@@ -19,7 +19,7 @@
       <h1>From Zero to Hero</h1>
       <p class="lede">Begin around age 12 with six 9s, no class, and an ordinary life in Hearthcross. Seven yearly mini-adventures build a Development Point wallet through choices, success, failure, and hard lessons. Spend those points when you decide who the character is becoming.</p>
       <div class="zero-rule-strip"><span>7 yearly chapters</span><span>21 growth opportunities</span><span>development wallet</span><span>27-point minimum</span><span>30-point maximum</span><span>pre-origin cap 15</span></div>
-      <p class="zero-house-note"><strong>Level-0 growth rule:</strong> base success is intentionally uncommon. A character-grounded approach can earn Advantage. Success gives flexible development; failure teaches something different; critical success earns an extra point; critical failure can redirect one already-invested point into an unexpected ability. Completing all 21 base growth opportunities guarantees at least a 27-point-buy-equivalent base array. The Level-0 base array can never exceed 30 point-buy value, no matter how many critical successes occur. Failure changes the path, not the minimum power.</p>
+      <p class="zero-house-note"><strong>Level-0 growth rule:</strong> everyone begins with the same six 9s, but a balanced Upbringing Lean gives Advantage on two abilities, Disadvantage on two, and leaves two neutral. Base success is intentionally uncommon. A character-grounded approach can earn Character Advantage. Success gives flexible development; failure teaches something different; critical success earns an extra point; critical failure can redirect one already-invested point into an unexpected ability. Completing all 21 base growth opportunities guarantees at least a 27-point-buy-equivalent base array. The Level-0 base array can never exceed 30 point-buy value, no matter how many critical successes occur. Failure changes the path, not the minimum power.</p>
       <details class="advantage-guide"><summary>How Character Advantage is earned</summary><div><p>Advantage rewards a specific approach that fits the character and the scene. It never requires acting talent, accents, or a long speech.</p><ul><li>Use an established bond, fear, value, aspiration, relationship, mentor lesson, familiarity, possession, or earlier consequence.</li><li>Use a concrete feature of the scene or accept a meaningful cost or risk that makes the plan more credible.</li><li>Explain what the character actually does. A generic justification repeated every check does not qualify.</li></ul><p><strong>No roleplay Disadvantage:</strong> failing to earn Advantage leaves the normal hard check in place; it does not add a penalty.</p></div></details>
     </section>
 
@@ -34,10 +34,12 @@
         <label>Ancestry / species<input id="char-ancestry" maxlength="50" placeholder="Choose identity; mechanics wait for graduation"></label>
         <label>Family / guardians<input id="char-family" maxlength="90" placeholder="Who raised you?"></label>
         <label>Childhood work / chores<input id="char-chores" maxlength="90" placeholder="What do you do around Hearthcross?"></label>
+        <label class="wide upbringing-select">Upbringing Lean <select id="char-upbringing"><option value="">Choose an upbringing lean…</option></select><small>All six abilities still start at 9. This changes only Level-0 roll odds and does not lock your eventual class.</small></label>
+        <div class="wide upbringing-summary" id="upbringing-summary"></div>
         <label class="wide">What I am striving to become<textarea id="char-aspiration" rows="2" maxlength="180" placeholder="A knight? A healer? Someone who sees the world? This may change."></textarea></label>
       </div>
 
-      <section><h3>Abilities growing through play</h3><p class="muted">Flexible points may be spent on any ability. Lesson points are locked to the ability learned through failure. Higher scores cost more development, matching the 5E point-buy curve.</p><div class="ability-growth" id="ability-growth"></div></section>
+      <section><h3>Abilities growing through play</h3><p class="muted">Every character begins with six 9s. Upbringing changes the dice, not the starting numbers: two abilities are Favored (Advantage), two are Neutral, and two are Challenging (Disadvantage). Character Advantage can improve a Neutral check or cancel a Challenging one, but never stacks into double Advantage. Flexible points may be spent on any ability; Lesson points are locked by failure.</p><div class="ability-growth" id="ability-growth"></div></section>
 
       <div class="growth-columns">
         <section><h3>Who I am becoming</h3>
@@ -135,6 +137,6 @@
       <details><summary>Hearthcross village cast & locations</summary><div id="village-host"></div></details>
     </section>
   </main>
-  <script src="zero-hero.js?v=20261003c"></script>
+  <script src="zero-hero.js?v=20261003d"></script>
 </body>
 </html>
