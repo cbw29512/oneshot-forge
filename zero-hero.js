@@ -1,9 +1,10 @@
 (() => {
   "use strict";
+
   const STORAGE_KEY = "oneshot-forge:zero-hero:v1";
   const ABILITIES = ["STR","DEX","CON","INT","WIS","CHA"];
   const POINT_BUY_COST = {8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
-  const els = {};
+
   let campaign = null;
   let state = null;
 
@@ -12,222 +13,367 @@
   const mod = score => Math.floor((Number(score) - 10) / 2);
   const signed = n => (n >= 0 ? "+" : "") + n;
 
+  function blankAbilityMap(value=0) {
+    return Object.fromEntries(ABILITIES.map(a => [a,value]));
+  }
+
   function blankState() {
     return {
-      version:2, chapterIndex:0, age:12,
-      identity:{name:"",ancestry:"",family:"",chores:"",aspiration:"",values:"",fears:"",training:"",possessions:"Ordinary clothing and household possessions only.",relationships:"",reputation:"",choices:""},
-      scores:{STR:9,DEX:9,CON:9,INT:9,WIS:9,CHA:9},
-      marks:{STR:0,DEX:0,CON:0,INT:0,WIS:0,CHA:0},
+      version:3,
+      chapterIndex:0,
+      age:12,
+      identity:{
+        name:"",ancestry:"",family:"",chores:"",aspiration:"",
+        values:"",fears:"",training:"",
+        possessions:"Ordinary clothing and household possessions only.",
+        relationships:"",reputation:"",choices:""
+      },
+      scores:blankAbilityMap(9),
+      invested:blankAbilityMap(0),
+      wallet:{flexible:0,lessons:blankAbilityMap(0)},
       growthUsed:0,
+      criticalBonusEarned:0,
       chapterGrowth:{},
       resolvedBeats:{},
       timeline:[],
-      graduationEdition:null,
-      reflectionStarted:false
+      graduationEdition:null
     };
-  }
-
-  function loadState() {
-    try {
-      const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-      if (parsed && (parsed.version === 1 || parsed.version === 2)) {
-        state = parsed;
-        state.version = 2;
-        state.reflectionStarted = Boolean(state.reflectionStarted);
-      } else {
-        state = blankState();
-      }
-    } catch { state = blankState(); }
-  }
-  function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-
-  function costFor(score) {
-    return Number(campaign.development.costToRaise[String(score)] || 0);
   }
 
   function pointBuyCost(score) {
     return Number(POINT_BUY_COST[Number(score)] ?? NaN);
   }
 
-  function baseArrayCost(scores = state.scores) {
-    return ABILITIES.reduce((sum, ability) => sum + pointBuyCost(scores[ability]), 0);
+  function costFor(score) {
+    return Number(campaign.development.costToRaise[String(score)] || 0);
   }
 
-  function reflectionRemaining() {
-    return Math.max(0, Number(campaign.development.finalPointBuyBudget || 27) - baseArrayCost());
-  }
-
-  function canFinishReflection(scores, remaining, memo = new Map()) {
-    if (remaining === 0) return true;
-    if (remaining < 0) return false;
-    const key = ABILITIES.map(a => scores[a]).join(",") + "|" + remaining;
-    if (memo.has(key)) return memo.get(key);
-    for (const ability of ABILITIES) {
-      const score = scores[ability];
-      if (score >= campaign.development.maxPreOriginScore) continue;
-      const delta = pointBuyCost(score + 1) - pointBuyCost(score);
-      if (delta > remaining) continue;
-      const next = {...scores, [ability]: score + 1};
-      if (canFinishReflection(next, remaining - delta, memo)) {
-        memo.set(key, true);
-        return true;
-      }
+  function scoreFromInvested(points) {
+    let score=9;
+    let remaining=Math.max(0,Number(points)||0);
+    while(score < campaign.development.maxPreOriginScore) {
+      const need=costFor(score);
+      if(!need || remaining < need) break;
+      remaining-=need;
+      score+=1;
     }
-    memo.set(key, false);
-    return false;
+    return score;
   }
 
-  function reflectionOptions() {
-    const remaining = reflectionRemaining();
-    return ABILITIES.filter(ability => {
-      const score = state.scores[ability];
-      if (score >= campaign.development.maxPreOriginScore) return false;
-      const delta = pointBuyCost(score + 1) - pointBuyCost(score);
-      if (delta > remaining) return false;
-      const next = {...state.scores, [ability]: score + 1};
-      return canFinishReflection(next, remaining - delta);
-    });
+  function spentToReach(score) {
+    return pointBuyCost(score) - pointBuyCost(9);
   }
 
-  function applyReflection(ability) {
-    const remaining = reflectionRemaining();
-    if (!state.reflectionStarted || remaining <= 0 || !reflectionOptions().includes(ability)) return;
-    const before = state.scores[ability];
-    const delta = pointBuyCost(before + 1) - pointBuyCost(before);
-    state.scores[ability] = before + 1;
+  function recomputeScores() {
+    for(const ability of ABILITIES) {
+      state.invested[ability]=Math.max(0,Number(state.invested[ability]||0));
+      state.scores[ability]=scoreFromInvested(state.invested[ability]);
+    }
+  }
+
+  function migrateState(parsed) {
+    if(!parsed || ![1,2,3].includes(parsed.version)) return blankState();
+    if(parsed.version===3) {
+      parsed.wallet ||= {flexible:0,lessons:blankAbilityMap(0)};
+      parsed.wallet.lessons ||= blankAbilityMap(0);
+      parsed.invested ||= blankAbilityMap(0);
+      for(const a of ABILITIES) {
+        parsed.wallet.lessons[a]=Number(parsed.wallet.lessons[a]||0);
+        parsed.invested[a]=Number(parsed.invested[a]||0);
+      }
+      parsed.criticalBonusEarned=Number(parsed.criticalBonusEarned||0);
+      parsed.version=3;
+      state=parsed;
+      recomputeScores();
+      return state;
+    }
+
+    const migrated=blankState();
+    migrated.chapterIndex=Number(parsed.chapterIndex||0);
+    migrated.age=Number(parsed.age||12);
+    migrated.identity={...migrated.identity,...(parsed.identity||{})};
+    migrated.growthUsed=Number(parsed.growthUsed||0);
+    migrated.chapterGrowth=parsed.chapterGrowth||{};
+    migrated.resolvedBeats=parsed.resolvedBeats||{};
+    migrated.timeline=parsed.timeline||[];
+    migrated.graduationEdition=parsed.graduationEdition||null;
+
+    for(const a of ABILITIES) {
+      const oldScore=Number(parsed.scores?.[a]||9);
+      const oldMark=Number(parsed.marks?.[a]||0);
+      migrated.invested[a]=Math.max(0,(pointBuyCost(oldScore)-pointBuyCost(9))+oldMark);
+    }
+    state=migrated;
+    recomputeScores();
+    return state;
+  }
+
+  function loadState() {
+    try {
+      state=migrateState(JSON.parse(localStorage.getItem(STORAGE_KEY)||"null"));
+    } catch {
+      state=blankState();
+    }
+  }
+
+  function saveState() {
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+  }
+
+  function totalLessonWallet() {
+    return ABILITIES.reduce((sum,a)=>sum+Number(state.wallet.lessons[a]||0),0);
+  }
+
+  function totalWallet() {
+    return Number(state.wallet.flexible||0)+totalLessonWallet();
+  }
+
+  function baseArrayCost() {
+    return ABILITIES.reduce((sum,a)=>sum+pointBuyCost(state.scores[a]),0);
+  }
+
+  function pendingInvestedProgress(ability) {
+    return Math.max(0,state.invested[ability]-spentToReach(state.scores[ability]));
+  }
+
+  function canInvest(ability) {
+    return state.scores[ability] < campaign.development.maxPreOriginScore;
+  }
+
+  function investPoint(ability,source) {
+    if(!ABILITIES.includes(ability)||!canInvest(ability)) return;
+    if(source==="flexible") {
+      if(state.wallet.flexible<1) return;
+      state.wallet.flexible-=1;
+    } else if(source==="lesson") {
+      if(state.wallet.lessons[ability]<1) return;
+      state.wallet.lessons[ability]-=1;
+    } else return;
+
+    state.invested[ability]+=1;
+    recomputeScores();
     state.timeline.push({
-      type:"reflection", age:18, chapter:"Final Reflection", ability,
-      result:"No roll. Reassigned " + delta + " already-earned development credit" + (delta === 1 ? "" : "s") + " to complete the legal 27-point base array.",
+      type:"spend",age:state.age,chapter:"Development",
+      ability,result:(source==="flexible"?"Flexible":"Lesson")+" Development Point invested in "+ability+".",
       scoreAfter:state.scores[ability]
     });
     saveState();
     render();
   }
 
-  function awardDevelopment(ability) {
-    const score = state.scores[ability];
-    if (score >= campaign.development.maxPreOriginScore) throw new Error(ability + " is already at the Level-0 cap of 15.");
-    state.marks[ability] = Number(state.marks[ability] || 0) + 1;
-    const needed = costFor(score);
-    if (needed && state.marks[ability] >= needed) {
-      state.marks[ability] -= needed;
-      state.scores[ability] += 1;
-    }
-    state.growthUsed += 1;
-  }
-
   function outcomeFor(roll,total,dc) {
-    const succeeded = total >= dc;
-    if (succeeded && roll === 20) return "criticalSuccess";
-    if (!succeeded && roll === 1) return "criticalFailure";
+    const succeeded=total>=dc;
+    if(succeeded && roll===20) return "criticalSuccess";
+    if(!succeeded && roll===1) return "criticalFailure";
     return succeeded ? "success" : "failure";
   }
 
-  function resolveBeat(chapter, beat, ability, roll) {
-    const key = chapter.id + ":" + beat.id;
-    if (state.resolvedBeats[key]) return;
-    if (!ABILITIES.includes(ability)) return;
-    if (!Number.isInteger(roll) || roll < 1 || roll > 20) return;
-    if (state.scores[ability] >= campaign.development.maxPreOriginScore) {
-      alert(ability + " is already 15. Solve this growth opportunity using a different approach.");
-      return;
+  function finalizeBeat(chapter,beat,attemptedAbility,roll,outcome,lessonAbility=null) {
+    const key=chapter.id+":"+beat.id;
+    if(state.resolvedBeats[key]) return;
+
+    const total=roll+mod(state.scores[attemptedAbility]);
+    const rule=campaign.development.pointsByOutcome[outcome];
+    let shifted=0;
+
+    state.wallet.flexible+=Number(rule.flexible||0);
+
+    if(Number(rule.lesson||0)>0) {
+      if(!lessonAbility || lessonAbility===attemptedAbility || !canInvest(lessonAbility)) return;
+      state.wallet.lessons[lessonAbility]+=Number(rule.lesson);
     }
-    const total = roll + mod(state.scores[ability]);
-    const outcome = outcomeFor(roll,total,beat.dc);
-    awardDevelopment(ability);
-    state.resolvedBeats[key] = {ability,roll,total,outcome,growthAwarded:1};
-    state.chapterGrowth[chapter.id] = Number(state.chapterGrowth[chapter.id] || 0) + 1;
+
+    if(Number(rule.shiftInvested||0)>0 && state.invested[attemptedAbility]>0 && lessonAbility && canInvest(lessonAbility)) {
+      state.invested[attemptedAbility]-=1;
+      state.invested[lessonAbility]+=1;
+      shifted=1;
+      recomputeScores();
+    }
+
+    if(outcome==="criticalSuccess") state.criticalBonusEarned+=1;
+
+    state.growthUsed+=1;
+    state.chapterGrowth[chapter.id]=Number(state.chapterGrowth[chapter.id]||0)+1;
+    state.resolvedBeats[key]={
+      attemptedAbility,roll,total,outcome,lessonAbility,
+      flexibleEarned:Number(rule.flexible||0),
+      lessonEarned:Number(rule.lesson||0),
+      shifted
+    };
+
+    const growthText=outcome==="criticalSuccess"
+      ? "+2 flexible Development Points"
+      : outcome==="success"
+        ? "+1 flexible Development Point"
+        : outcome==="failure"
+          ? "+1 "+lessonAbility+" Lesson Point"
+          : "+1 "+lessonAbility+" Lesson Point"+(shifted?" and 1 invested "+attemptedAbility+" point shifted to "+lessonAbility:"");
+
     state.timeline.push({
-      age:chapter.age,chapter:chapter.title,beat:beat.title,ability,roll,total,dc:beat.dc,outcome,
-      result:beat.outcomes[outcome],scoreAfter:state.scores[ability]
+      type:"check",age:chapter.age,chapter:chapter.title,beat:beat.title,
+      ability:attemptedAbility,lessonAbility,roll,total,dc:beat.dc,outcome,
+      result:beat.outcomes[outcome],growthText,
+      scoreAfter:state.scores[attemptedAbility]
     });
+
     saveState();
     render();
   }
 
+  function resolveBeat(chapter,beat,attemptedAbility,roll,lessonAbility=null) {
+    const key=chapter.id+":"+beat.id;
+    if(state.resolvedBeats[key]) return {done:true};
+    if(!ABILITIES.includes(attemptedAbility)) return {error:"Choose an approach."};
+    if(!Number.isInteger(roll)||roll<1||roll>20) return {error:"Enter a d20 result from 1 to 20."};
+
+    const total=roll+mod(state.scores[attemptedAbility]);
+    const outcome=outcomeFor(roll,total,beat.dc);
+
+    if((outcome==="failure"||outcome==="criticalFailure") && !lessonAbility) {
+      return {needsLesson:true,outcome,total};
+    }
+
+    finalizeBeat(chapter,beat,attemptedAbility,roll,outcome,lessonAbility);
+    return {done:true};
+  }
+
   function bindIdentity() {
-    const map = {
+    const map={
       "char-name":"name","char-ancestry":"ancestry","char-family":"family","char-chores":"chores",
       "char-aspiration":"aspiration","char-values":"values","char-fears":"fears","char-training":"training",
       "char-possessions":"possessions","char-relationships":"relationships","char-reputation":"reputation","char-choices":"choices"
     };
-    for (const [id,key] of Object.entries(map)) {
-      const el = $(id); el.value = state.identity[key] || "";
-      el.oninput = () => { state.identity[key] = el.value; saveState(); renderHeaderOnly(); };
+    for(const [id,key] of Object.entries(map)) {
+      const el=$(id);
+      el.value=state.identity[key]||"";
+      el.oninput=()=>{state.identity[key]=el.value;saveState();renderHeaderOnly();};
     }
   }
 
   function renderHeaderOnly() {
-    $("sheet-name").textContent = state.identity.name || "Unnamed child";
-    $("sheet-meta").textContent = "Age " + state.age + " · Level 0 · Hearthcross";
-    $("growth-count").textContent = state.growthUsed + " / " + campaign.development.totalPoints;
+    $("sheet-name").textContent=state.identity.name||"Unnamed child";
+    $("sheet-meta").textContent="Age "+state.age+" · Level 0 · Hearthcross";
+    $("growth-count").textContent=state.growthUsed+" / "+campaign.development.baseOpportunities;
+    const wallet=$("development-wallet");
+    if(wallet) {
+      wallet.innerHTML='<strong>'+state.wallet.flexible+'</strong> flexible · <strong>'+totalLessonWallet()+'</strong> lesson · <strong>'+state.criticalBonusEarned+'</strong> critical bonus earned';
+    }
   }
 
   function renderAbilities() {
-    $("ability-growth").innerHTML = ABILITIES.map(a => {
-      const score=state.scores[a], needed=costFor(score), marks=state.marks[a]||0;
-      const guide=campaign.development.abilityGuide[a];
-      const meter = score >= 15 ? "CAP REACHED" : marks + " / " + needed + " toward " + (score + 1);
-      return '<article class="ability-card"><div><strong>'+a+'</strong><span>'+esc(guide)+'</span></div><b>'+score+'</b><em>'+signed(mod(score))+'</em><small>'+meter+'</small></article>';
+    $("ability-growth").innerHTML=ABILITIES.map(a=>{
+      const score=state.scores[a];
+      const pending=pendingInvestedProgress(a);
+      const need=score>=15?0:costFor(score);
+      const lesson=state.wallet.lessons[a]||0;
+      const progress=score>=15?"CAP REACHED":pending+" / "+need+" invested toward "+(score+1);
+      const flexButton=state.wallet.flexible>0&&canInvest(a)
+        ? '<button type="button" class="button small secondary spend-point" data-source="flexible" data-ability="'+a+'">Spend flexible</button>'
+        : "";
+      const lessonButton=lesson>0&&canInvest(a)
+        ? '<button type="button" class="button small spend-point" data-source="lesson" data-ability="'+a+'">Spend lesson ('+lesson+')</button>'
+        : "";
+      return '<article class="ability-card"><div><strong>'+a+'</strong><span>'+esc(campaign.development.abilityGuide[a])+'</span></div><b>'+score+'</b><em>'+signed(mod(score))+'</em><small>'+progress+'</small><div class="ability-spend">'+flexButton+lessonButton+'</div></article>';
     }).join("");
+
+    document.querySelectorAll(".spend-point").forEach(btn=>{
+      btn.onclick=()=>investPoint(btn.dataset.ability,btn.dataset.source);
+    });
   }
 
   function renderTimeline() {
-    if (!state.timeline.length) {
-      $("timeline").innerHTML = '<p class="muted">Your history is blank. The first mini-adventure will write it.</p>';
+    if(!state.timeline.length) {
+      $("timeline").innerHTML='<p class="muted">Your history is blank. The first mini-adventure will write it.</p>';
       return;
     }
-    $("timeline").innerHTML = state.timeline.map(e => {
-      if (e.type === "reflection") {
-        return '<article><strong>Age '+e.age+' · '+esc(e.chapter)+'</strong><span>'+e.ability+' now '+e.scoreAfter+' · no roll</span><p>'+esc(e.result)+'</p></article>';
+    $("timeline").innerHTML=state.timeline.map(e=>{
+      if(e.type==="spend") {
+        return '<article><strong>Age '+e.age+' · '+esc(e.chapter)+'</strong><span>'+e.ability+' now '+e.scoreAfter+'</span><p>'+esc(e.result)+'</p></article>';
       }
+      const lesson=e.lessonAbility?' · lesson: '+e.lessonAbility:"";
       return '<article><strong>Age '+e.age+' · '+esc(e.chapter)+'</strong><span>'+esc(e.beat)+' — '+e.ability+
-        ' d20 '+e.roll+' '+signed(modFromTotal(e.total,e.roll))+' = '+e.total+' vs DC '+e.dc+
-        ' · '+labelOutcome(e.outcome)+' · +1 Development Point · '+e.ability+' now '+e.scoreAfter+'</span><p>'+esc(e.result)+'</p></article>';
+        ' d20 '+e.roll+' '+signed(e.total-e.roll)+' = '+e.total+' vs DC '+e.dc+
+        ' · '+labelOutcome(e.outcome)+lesson+'</span><p>'+esc(e.growthText||"")+'</p><p>'+esc(e.result)+'</p></article>';
     }).join("");
   }
-  function modFromTotal(total, roll){ return total-roll; }
-  function labelOutcome(x){ return ({criticalSuccess:"Critical success",success:"Success",failure:"Failure",criticalFailure:"Critical failure"})[x] || x; }
 
-  function renderBeat(chapter, beat, index) {
+  function labelOutcome(x) {
+    return ({criticalSuccess:"Critical success",success:"Success",failure:"Failure",criticalFailure:"Critical failure"})[x]||x;
+  }
+
+  function renderBeat(chapter,beat,index) {
     const key=chapter.id+":"+beat.id;
     const done=state.resolvedBeats[key];
-    if (done) {
-      return '<article class="growth-beat done"><p class="beat-index">Growth '+(index+1)+' of 3 · complete</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="resolved"><b>'+done.ability+' · '+labelOutcome(done.outcome)+'</b><span>d20 '+done.roll+' → total '+done.total+' vs DC '+beat.dc+' · +1 Development Point regardless of result</span><p>'+esc(beat.outcomes[done.outcome])+'</p></div></article>';
+    if(done) {
+      const growth=done.outcome==="criticalSuccess"
+        ? "+2 flexible DP"
+        : done.outcome==="success"
+          ? "+1 flexible DP"
+          : "+1 "+done.lessonAbility+" Lesson DP"+(done.shifted?" · shifted 1 invested point":"");
+      return '<article class="growth-beat done"><p class="beat-index">Growth '+(index+1)+' of 3 · complete</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="resolved"><b>'+done.attemptedAbility+' · '+labelOutcome(done.outcome)+'</b><span>d20 '+done.roll+' → total '+done.total+' vs DC '+beat.dc+' · '+esc(growth)+'</span><p>'+esc(beat.outcomes[done.outcome])+'</p></div></article>';
     }
-    const approachCards=ABILITIES.map(a => '<button type="button" class="approach" data-ability="'+a+'" data-beat="'+esc(beat.id)+'"><b>'+a+'</b><span>'+esc(beat.approaches[a])+'</span></button>').join("");
-    return '<article class="growth-beat"><p class="beat-index">Growth '+(index+1)+' of 3 · DC '+beat.dc+'</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="approach-grid">'+approachCards+'</div><div class="roll-box" id="roll-'+esc(beat.id)+'" hidden><label>Chosen approach <strong class="chosen-ability"></strong></label><label>d20 result <input class="d20-input" type="number" min="1" max="20" inputmode="numeric" placeholder="1–20"></label><button type="button" class="button ember resolve-roll">Resolve developmental check</button><p class="muted">The attempt earns one Development Point. The roll determines success, failure, or a critical consequence.</p></div></article>';
+
+    const approaches=ABILITIES.map(a=>
+      '<button type="button" class="approach" data-ability="'+a+'" data-beat="'+esc(beat.id)+'"><b>'+a+'</b><span>'+esc(beat.approaches[a])+'</span></button>'
+    ).join("");
+
+    return '<article class="growth-beat"><p class="beat-index">Growth '+(index+1)+' of 3 · DC '+beat.dc+'</p><h3>'+esc(beat.title)+'</h3><p>'+esc(beat.prompt)+'</p><div class="approach-grid">'+approaches+'</div><div class="roll-box" id="roll-'+esc(beat.id)+'" hidden><label>Chosen approach <strong class="chosen-ability"></strong></label><label>d20 result <input class="d20-input" type="number" min="1" max="20" inputmode="numeric" placeholder="1–20"></label><button type="button" class="button ember resolve-roll">Resolve developmental check</button><p class="muted">Success earns flexible growth. Failure earns growth somewhere else. Critical success earns an extra point. Critical failure can redirect an already-invested point.</p><div class="lesson-picker" hidden></div></div></article>';
+  }
+
+  function showLessonPicker(chapter,beat,box,attemptedAbility,roll,outcome,total) {
+    const host=box.querySelector(".lesson-picker");
+    const options=ABILITIES.filter(a=>a!==attemptedAbility&&canInvest(a));
+    host.hidden=false;
+    host.innerHTML='<div class="zero-house-note"><strong>'+labelOutcome(outcome)+'. What did the character learn instead?</strong><br>Choose a different ability justified by the consequence. The lesson point is locked there.'+
+      (outcome==="criticalFailure"&&state.invested[attemptedAbility]>0
+        ? ' One already-invested '+attemptedAbility+' point will also shift to that ability.'
+        : '')+'</div><div class="lesson-actions">'+
+      options.map(a=>'<button type="button" class="button small secondary choose-lesson" data-lesson="'+a+'">'+a+' — '+esc(campaign.development.abilityGuide[a])+'</button>').join("")+
+      '</div>';
+
+    host.querySelectorAll(".choose-lesson").forEach(btn=>{
+      btn.onclick=()=>finalizeBeat(chapter,beat,attemptedAbility,roll,outcome,btn.dataset.lesson);
+    });
   }
 
   function wireBeats(chapter) {
-    document.querySelectorAll(".approach").forEach(btn => btn.addEventListener("click", () => {
+    document.querySelectorAll(".approach").forEach(btn=>btn.addEventListener("click",()=>{
       const beatId=btn.dataset.beat;
       const box=$("roll-"+beatId);
       box.hidden=false;
       box.dataset.ability=btn.dataset.ability;
       box.querySelector(".chosen-ability").textContent=btn.dataset.ability;
-      document.querySelectorAll('[data-beat="'+CSS.escape(beatId)+'"]').forEach(x => x.classList.toggle("selected", x===btn));
+      box.querySelector(".lesson-picker").hidden=true;
+      document.querySelectorAll('[data-beat="'+CSS.escape(beatId)+'"]').forEach(x=>x.classList.toggle("selected",x===btn));
       box.querySelector(".d20-input").focus();
     }));
-    document.querySelectorAll(".resolve-roll").forEach(btn => btn.addEventListener("click", () => {
+
+    document.querySelectorAll(".resolve-roll").forEach(btn=>btn.addEventListener("click",()=>{
       const box=btn.closest(".roll-box");
       const beatId=box.id.replace(/^roll-/,"");
       const beat=chapter.growthBeats.find(x=>x.id===beatId);
+      const ability=box.dataset.ability;
       const roll=Number(box.querySelector(".d20-input").value);
-      resolveBeat(chapter,beat,box.dataset.ability,roll);
+      const result=resolveBeat(chapter,beat,ability,roll);
+      if(result?.error) {
+        alert(result.error);
+        return;
+      }
+      if(result?.needsLesson) showLessonPicker(chapter,beat,box,ability,roll,result.outcome,result.total);
     }));
   }
 
   function renderQuest() {
     const chapter=campaign.chapters[state.chapterIndex];
-    if (!chapter) {
+    if(!chapter) {
       $("quest-title").textContent="Origin campaign complete";
-      $("quest-objective").textContent="Your Level-0 history is ready for graduation.";
+      $("quest-objective").textContent="Spend any remaining Development Points, then freeze your Level-0 array for graduation.";
       $("beat-host").innerHTML="";
       $("advance-year").hidden=true;
       $("graduation-panel").hidden=false;
       return;
     }
+
     $("quest-age").textContent="Age "+chapter.age;
     $("quest-title").textContent=chapter.title;
     $("quest-objective").textContent=chapter.objective;
@@ -235,78 +381,88 @@
     $("quest-choice").textContent=chapter.choice;
     $("quest-consequence").textContent=chapter.consequence;
     $("beat-host").innerHTML=chapter.growthBeats.map((b,i)=>renderBeat(chapter,b,i)).join("");
+
     const used=Number(state.chapterGrowth[chapter.id]||0);
     const next=$("advance-year");
-    next.hidden=false; next.disabled=used!==campaign.development.pointsPerChapter;
-    next.textContent = chapter.age === 18 ? "Complete Level 0 →" : "Finish age "+chapter.age+" → age "+(chapter.age+1);
+    next.hidden=false;
+    next.disabled=used!==3;
+    next.textContent=chapter.age===18?"Complete Level 0 →":"Finish age "+chapter.age+" → age "+(chapter.age+1);
     next.onclick=()=>{
-      if (used!==3) return;
-      if (chapter.age === 18) {
-        state.reflectionStarted = true;
-        state.marks = {STR:0,DEX:0,CON:0,INT:0,WIS:0,CHA:0};
-      }
-      state.chapterIndex += 1;
-      state.age = campaign.chapters[state.chapterIndex]?.age || 18;
-      saveState(); render();
+      if(used!==3) return;
+      state.chapterIndex+=1;
+      state.age=campaign.chapters[state.chapterIndex]?.age||18;
+      saveState();
+      render();
       window.scrollTo({top:document.querySelector(".quest-panel").offsetTop-20,behavior:"smooth"});
     };
+
     $("graduation-panel").hidden=true;
     wireBeats(chapter);
   }
 
   function renderVillage() {
     const v=campaign.village;
-    $("village-host").innerHTML='<p>'+esc(v.pitch)+'</p><div class="npc-grid">'+v.npcs.map(n =>
+    $("village-host").innerHTML='<p>'+esc(v.pitch)+'</p><div class="npc-grid">'+v.npcs.map(n=>
       '<article><h3>'+esc(n.name)+'</h3><p><b>'+esc(n.role)+'</b></p><p>'+esc(n.appearance)+'</p><p><b>Voice:</b> '+esc(n.voice)+'</p><p><b>Wants:</b> '+esc(n.wants)+'</p><p><b>Fears:</b> '+esc(n.fears)+'</p><p><b>Secret:</b> '+esc(n.secret)+'</p><p><b>Can teach:</b> '+esc(n.teaches.join(", "))+'</p><p><b>Over the years:</b> '+esc(n.change)+'</p></article>'
     ).join("")+'</div>';
   }
 
   function renderGraduation() {
-    const complete = state.chapterIndex >= campaign.chapters.length;
-    if (!complete) return;
-    const spent = baseArrayCost();
-    const target = Number(campaign.development.finalPointBuyBudget || 27);
-    const remaining = reflectionRemaining();
-    const audit = $("raw-audit");
-    const reflection = $("reflection-host");
-    audit.innerHTML = '<h3>RAW base-array audit</h3><p><strong>'+spent+' / '+target+' point-buy points converted.</strong> Every roll outcome awarded the same growth. Scores remain at or below '+campaign.development.maxPreOriginScore+' before edition-specific origin adjustments.</p>';
+    if(state.chapterIndex<campaign.chapters.length) return;
 
-    if (remaining > 0) {
-      const options = reflectionOptions();
-      reflection.innerHTML = '<div class="zero-house-note"><strong>Final Reflection: '+remaining+' earned point-buy credit'+(remaining===1?'':'s')+' remain.</strong><br>No roll is made. Choose how the last pieces of growing up settle into the character. This adds no new budget; it only converts already-earned development so every graduate reaches the same legal 27-point base budget.</div><div class="reflection-actions">'+
-        options.map(a => {
-          const delta = pointBuyCost(state.scores[a]+1)-pointBuyCost(state.scores[a]);
-          return '<button type="button" class="button small secondary reflection-choice" data-reflect="'+a+'">'+a+' '+state.scores[a]+' → '+(state.scores[a]+1)+' ('+delta+' credit'+(delta===1?'':'s')+')</button>';
-        }).join("")+'</div>';
-      document.querySelectorAll(".reflection-choice").forEach(btn => btn.onclick=()=>applyReflection(btn.dataset.reflect));
-    } else {
-      reflection.innerHTML = '<p class="zero-house-note"><strong>Base array certified:</strong> exactly '+target+' point-buy points. RAW graduation may proceed.</p>';
-    }
+    const value=baseArrayCost();
+    const over=Math.max(0,value-campaign.development.normalTargetValue);
+    const pending=ABILITIES.reduce((sum,a)=>sum+pendingInvestedProgress(a),0);
+    const unspent=totalWallet();
+    const audit=$("raw-audit");
+    const reflection=$("reflection-host");
 
-    document.querySelectorAll("[data-edition]").forEach(btn => {
-      btn.disabled = remaining !== 0;
+    audit.innerHTML='<h3>Ability-generation audit</h3><p><strong>Current base array point-buy value: '+value+'.</strong> Normal 5E point-buy target: '+campaign.development.normalTargetValue+'.</p>'+
+      (over
+        ? '<p class="zero-house-note"><strong>Heroic / house-rule ability generation:</strong> this is '+over+' point'+(over===1?'':'s')+' above normal point-buy because critical-success bonus growth was spent. The ability-generation method is house rule; post-graduation rules remain edition-locked.</p>'
+        : '<p class="zero-house-note"><strong>Within the normal point-buy envelope.</strong> The growth method is still Level-0 house rule, but this base array does not exceed normal point-buy value.</p>');
+
+    reflection.innerHTML='<p><strong>Unspent wallet:</strong> '+state.wallet.flexible+' flexible · '+totalLessonWallet()+' lesson. <strong>Partial invested progress:</strong> '+pending+'.</p>'+
+      (unspent||pending
+        ? '<p class="muted">You may graduate with points unspent, but they do not become hidden Level-1 bonuses. Spend them now if you want them reflected in the final ability array.</p>'
+        : '<p class="muted">All earned development is currently reflected in the ability array.</p>');
+
+    document.querySelectorAll("[data-edition]").forEach(btn=>{
+      btn.disabled=false;
       btn.onclick=()=>{
-        if (reflectionRemaining() !== 0) return;
-        const ed=btn.dataset.edition; state.graduationEdition=ed; saveState();
+        const ed=btn.dataset.edition;
+        state.graduationEdition=ed;
+        saveState();
         const g=campaign.graduation[ed];
-        $("graduation-summary").innerHTML='<h3>'+ed+' RAW graduation contract</h3><ol>'+g.order.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol><p><strong>Certified pre-origin array ('+baseArrayCost()+'/27):</strong> '+ABILITIES.map(a=>a+' '+state.scores[a]).join(" · ")+'</p><p class="zero-house-note"><strong>RAW mode:</strong> Level-0 familiarity, mentors, reputation and heirlooms remain narrative unless a legal '+ed+' character-creation option grants the mechanical benefit. No extra feat, proficiency, ASI, class feature, spell or magic property is added by default.</p><p class="zero-house-note">Class conversion remains gated to certified Level-1 class packs. Zero-to-Hero will not invent or mix edition mechanics.</p>';
+        $("graduation-summary").innerHTML='<h3>'+ed+' graduation contract</h3><ol>'+g.order.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ol><p><strong>Frozen Level-0 base array:</strong> '+ABILITIES.map(a=>a+' '+state.scores[a]).join(" · ")+'</p><p class="zero-house-note"><strong>Rules boundary:</strong> From Zero to Hero determines the base scores. From this point forward, species/race, background, class, HP, proficiency, spells, feats, equipment and later advancement use the selected '+ed+' rules only. Training, mentors and heirlooms stay narrative unless a legal rule or explicitly enabled house rule grants mechanics.</p>';
       };
     });
   }
 
   function render() {
-    renderHeaderOnly(); renderAbilities(); renderTimeline(); renderQuest(); renderGraduation();
+    renderHeaderOnly();
+    renderAbilities();
+    renderTimeline();
+    renderQuest();
+    renderGraduation();
   }
 
   async function init() {
     const res=await fetch("data/zero-to-hero/from-zero-to-hero.json",{cache:"no-store"});
     if(!res.ok) throw new Error("Unable to load From Zero to Hero data.");
     campaign=await res.json();
-    loadState(); bindIdentity(); renderVillage(); render();
+    loadState();
+    bindIdentity();
+    renderVillage();
+    render();
+
     $("print-growth").onclick=()=>window.print();
     $("reset-growth").onclick=()=>{
       if(!confirm("Reset this Level-0 character and erase all growth history on this browser?")) return;
-      localStorage.removeItem(STORAGE_KEY); state=blankState(); bindIdentity(); render();
+      localStorage.removeItem(STORAGE_KEY);
+      state=blankState();
+      bindIdentity();
+      render();
     };
   }
 

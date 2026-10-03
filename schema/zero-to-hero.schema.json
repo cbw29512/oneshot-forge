@@ -94,33 +94,34 @@
     "development": {
       "type": "object",
       "required": [
-        "totalPoints",
-        "pointsPerChapter",
+        "startingPointBuyCost",
+        "baseOpportunities",
+        "normalTargetValue",
         "maxPreOriginScore",
         "costToRaise",
-        "startingPointBuyCost",
-        "finalPointBuyBudget",
-        "growthPointsByOutcome",
-        "permanentBuildDeltaByOutcome",
-        "finalReflection"
+        "wallet",
+        "pointsByOutcome",
+        "lessonRule",
+        "criticalFailureRule",
+        "criticalSuccessBonusRule"
       ],
       "properties": {
-        "totalPoints": {
+        "startingPointBuyCost": {
+          "const": 6
+        },
+        "baseOpportunities": {
           "const": 21
         },
-        "pointsPerChapter": {
-          "const": 3
+        "normalTargetValue": {
+          "const": 27
         },
         "maxPreOriginScore": {
           "const": 15
         },
-        "startingPointBuyCost": {
-          "const": 6
+        "wallet": {
+          "const": true
         },
-        "finalPointBuyBudget": {
-          "const": 27
-        },
-        "growthPointsByOutcome": {
+        "pointsByOutcome": {
           "type": "object",
           "required": [
             "criticalSuccess",
@@ -130,54 +131,80 @@
           ],
           "properties": {
             "criticalSuccess": {
-              "const": 1
+              "type": "object",
+              "required": [
+                "flexible",
+                "lesson",
+                "shiftInvested"
+              ],
+              "properties": {
+                "flexible": {
+                  "const": 2
+                },
+                "lesson": {
+                  "const": 0
+                },
+                "shiftInvested": {
+                  "const": 0
+                }
+              }
             },
             "success": {
-              "const": 1
+              "type": "object",
+              "required": [
+                "flexible",
+                "lesson",
+                "shiftInvested"
+              ],
+              "properties": {
+                "flexible": {
+                  "const": 1
+                },
+                "lesson": {
+                  "const": 0
+                },
+                "shiftInvested": {
+                  "const": 0
+                }
+              }
             },
             "failure": {
-              "const": 1
+              "type": "object",
+              "required": [
+                "flexible",
+                "lesson",
+                "shiftInvested"
+              ],
+              "properties": {
+                "flexible": {
+                  "const": 0
+                },
+                "lesson": {
+                  "const": 1
+                },
+                "shiftInvested": {
+                  "const": 0
+                }
+              }
             },
             "criticalFailure": {
-              "const": 1
-            }
-          }
-        },
-        "permanentBuildDeltaByOutcome": {
-          "type": "object",
-          "required": [
-            "criticalSuccess",
-            "success",
-            "failure",
-            "criticalFailure"
-          ],
-          "properties": {
-            "criticalSuccess": {
-              "const": 0
-            },
-            "success": {
-              "const": 0
-            },
-            "failure": {
-              "const": 0
-            },
-            "criticalFailure": {
-              "const": 0
-            }
-          }
-        },
-        "finalReflection": {
-          "type": "object",
-          "required": [
-            "enabled",
-            "requiresExactBudget"
-          ],
-          "properties": {
-            "enabled": {
-              "const": true
-            },
-            "requiresExactBudget": {
-              "const": true
+              "type": "object",
+              "required": [
+                "flexible",
+                "lesson",
+                "shiftInvested"
+              ],
+              "properties": {
+                "flexible": {
+                  "const": 0
+                },
+                "lesson": {
+                  "const": 1
+                },
+                "shiftInvested": {
+                  "const": 1
+                }
+              }
             }
           }
         }
@@ -196,7 +223,6 @@
       "required": [
         "2014",
         "2024",
-        "rawDefault",
         "rawAudit"
       ]
     }

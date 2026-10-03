@@ -31,17 +31,15 @@ Every Level-0 character begins with:
 
 Species/ancestry identity exists at Level 0, but edition-specific mechanical traits are applied only by the certified graduation path.
 
-## 3. Ability development budget
+## 3. Development wallet and ability growth
 
-Starting all six scores at 9 consumes the equivalent of 6 points of a normal 27-point-buy array. From Zero to Hero therefore awards exactly **21 Development Points** across the complete origin campaign.
+Every Level-0 character begins with six 9s. On the normal 5E point-buy table, that starting array has a value of 6 points. The seven mini-adventures contain 21 Development Opportunities.
 
-There are seven yearly mini-adventures. Each character has exactly three Development Opportunities in each chapter.
+The player does **not** automatically apply growth to the ability they rolled. Growth enters a visible wallet and is spent between scenes whenever the player chooses.
 
-**7 chapters × 3 opportunities = 21 Development Points.**
+Ability costs mirror the normal point-buy curve from the age-12 floor:
 
-A Development Point is assigned to the ability the player actually relied on in the scene.
-
-| Current score | Development Points required for next score |
+| Increase | Development cost |
 | --- | ---: |
 | 9 → 10 | 1 |
 | 10 → 11 | 1 |
@@ -50,11 +48,11 @@ A Development Point is assigned to the ability the player actually relied on in 
 | 13 → 14 | 2 |
 | 14 → 15 | 2 |
 
-15 is the Level-0 pre-origin cap. A player may not assign a Development Point to an ability already at 15; the character must solve the next growth opportunity in another way.
+15 is the Level-0 pre-origin cap.
 
-The resulting array remains within the normal point-buy envelope before edition-specific origin adjustments.
+With no critical-success bonuses, resolving all 21 opportunities yields the equivalent of a normal 27-point budget: the starting six-point array plus 21 earned development points.
 
-Because a score of 13 or 14 costs two Development Points to raise, a character can finish age 18 with one or more incomplete marks. Those marks are **not lost**. Before graduation, a no-roll **Final Reflection** step pools any incomplete marks and spends the remainder of the earned budget until the pre-origin array equals exactly the normal **27-point point-buy budget**, with no score above 15. This prevents different approach patterns from accidentally producing weaker graduates. Final Reflection adds no new points; it only converts already-earned development into a complete legal base array.
+Critical successes can add bonus Development Points beyond that normal target. If those bonus points are spent so the final base array exceeds normal 27-point-buy value, the array must be labeled **Heroic / house-rule ability generation**. All 2014/2024 mechanics applied after the array is frozen remain edition-locked and RAW unless another house rule is explicitly enabled.
 
 ## 4. Development follows behavior
 
@@ -71,46 +69,41 @@ Every Growth Beat must support multiple plausible approaches. No scene has one c
 
 ## 5. Level-0 developmental checks
 
-Developmental checks keep the normal 5E resolution procedure:
+Developmental checks keep normal 5E total-vs-DC resolution:
 
 1. roll the d20;
-2. add the relevant ability modifier and only legitimately earned proficiency/circumstantial modifiers;
+2. add the relevant modifier and any legitimately earned circumstance/proficiency modifier;
 3. compare the total to the authored DC;
 4. total meeting/exceeding the DC succeeds; a lower total fails.
 
-From Zero to Hero adds one isolated **narrative critical tier**:
+From Zero to Hero then converts the result into development:
 
-- if a successful check also rolled a natural 20, it is a **critical success**;
-- if a failed check also rolled a natural 1, it is a **critical failure**;
-- a natural 20 does **not** turn a failed total into a success;
-- a natural 1 does **not** turn a successful total into a failure.
+| Outcome | Growth |
+| --- | --- |
+| **Critical success** | **+2 Flexible Development Points** |
+| **Success** | **+1 Flexible Development Point** |
+| **Failure** | **+1 Lesson Point** locked to a different ability justified by what the character learned |
+| **Critical failure** | **+1 Lesson Point** to a different ability, plus move **1 already-invested point** from the attempted ability into that lesson ability when possible |
 
-This is intentionally closer to normal 2014/2024 resolution. The extra "critical" label is still a Level-0 house rule and disappears at Level 1.
+A successful natural 20 is a critical success. A failed natural 1 is a critical failure. The extra critical labels are Level-0 house rules; they do not alter normal Level-1+ check rules.
 
-### Equal Growth rule
+### Why failure still matters
 
-Every genuine Development Opportunity grants **exactly one Development Point** for the chosen approach whether the outcome is:
+Failure is not "no advancement." The character develops, but the lesson can take them somewhere they did not intend.
 
-- critical success;
-- success;
-- failure; or
-- critical failure.
+Example: a child tries to solve a crisis with Strength and critically fails. The consequence teaches caution, observation, empathy, endurance, planning, or another ability justified by the scene. One already-invested STR point can move to that off-path ability, and the new Lesson Point is locked there as well.
 
-There is **no growth bonus for success** and **no growth penalty for failure**. Luck changes the fiction, not permanent character power.
+This means a critical failure can visibly pull a future martial character away from Strength and toward Wisdom, Intelligence, Charisma, Constitution, or Dexterity without deleting the character's total earned development.
 
-An outcome may never directly grant or remove:
-- Development Points;
-- ability-score points;
-- proficiency;
-- a feat;
-- a spell;
-- a class feature;
-- a permanent magic-item property;
-- graduation eligibility.
+### Growth boundaries
 
-Ordinary success/failure changes the immediate fictional result or cost. A critical result may improve or worsen that fictional consequence by **one tier**. A critical success can save an extra resource, improve a relationship, reveal extra information, or create one temporary local edge. A critical failure can create a scar, damaged relationship, lost resource, clock pressure, or harder follow-up. Neither may create a permanent build-power gap.
-
-Failure must fail forward and may not brick the campaign or arbitrarily kill a child character.
+- Flexible points may be spent on any ability below 15.
+- Lesson Points may be spent only on their tagged ability.
+- The lesson ability must differ from the attempted ability.
+- Critical failure redirects at most one previously invested point per developmental check.
+- If the attempted ability has no invested point to redirect, the critical failure still grants its Lesson Point but creates no negative point balance.
+- Roll outcomes may change relationships, reputation, scars, possessions, clocks, and village state in addition to these growth effects.
+- Failure must still fail forward; no result can brick the campaign.
 
 ## 5A. Training, familiarity, and proficiency
 
@@ -216,23 +209,24 @@ For 2024 graduation:
 6. carry forward story identity, relationships, mentor, scars, reputation, and eligible learned proficiencies only where the graduation rules explicitly allow them;
 7. do not import 2014 race/background mechanics.
 
-## 11. RAW Graduation and optional Origin Legacy
+## 11. Graduation boundary and optional Origin Legacy
 
-**RAW Graduation is the default.**
+From Zero to Hero ability generation is explicitly a **Level-0 house rule**.
 
-In RAW Graduation mode:
-- no extra feat is granted;
-- no extra ASI is granted;
-- no extra proficiency is granted;
-- no class feature or spell is granted early;
-- an heirloom remains mundane/narrative unless the selected ruleset legally grants the item;
-- a mentor is a narrative contact and provides no automatic numerical bonus.
+At graduation the site audits the final base array:
+- **27 point-buy value or less:** within the normal point-buy envelope, although the route used to generate it was still the Level-0 house rule;
+- **above 27:** visibly labeled **Heroic / house-rule ability generation**, normally caused by spent critical-success bonus points;
+- no pre-origin score may exceed 15.
 
-A separate **Heroic Legacy** switch may later enable a bounded house-rule reward such as a dormant/scaling heirloom. That mode must be visibly labeled non-RAW and is off by default.
+Once the base array is frozen, the selected edition becomes authoritative.
 
-A bonus feat is never a default Level-0 reward. This is especially important in 2024, where backgrounds already provide an Origin feat.
+For 2014, legal race/species traits and adjustments, background, class, HP, proficiencies, equipment, spells, feats, and later advancement must follow the 2014 ruleset.
 
-Mentors/contacts are narrative resources, not unlimited problem solvers.
+For 2024, legal species, background ability adjustments, Origin feat, class, HP, proficiencies, equipment, spells, feats, and later advancement must follow the 2024 ruleset.
+
+Training/familiarity does not become free proficiency. Mentors do not provide automatic numerical bonuses. An heirloom remains mundane/narrative unless a legal rule or explicitly enabled house rule grants it mechanics.
+
+A future **Heroic Legacy** option may add a separate bounded reward, but it must be visibly labeled house rule and may never be confused with RAW graduation mechanics.
 
 ## 12. Safety and tone
 
@@ -244,18 +238,18 @@ Consequences can matter without making child death the normal failure state. Sta
 
 From Zero to Hero is not production-ready until:
 - the data contract validates;
-- all seven chapters exist;
-- ages run 12 through 18;
-- exactly 21 Development Opportunities exist;
-- every Growth Beat has DC and four outcome bands;
-- every Growth Beat supports all six ability approaches or documents why one is impossible;
-- scores cannot exceed 15 before graduation;
-- the normal total-vs-DC result is resolved before any Level-0 critical story tier;
-- all four roll outcomes award exactly one Development Point;
-- no roll outcome can alter permanent build power;
-- incomplete marks are converted by Final Reflection so the base array audits to exactly 27 point-buy points;
+- all seven chapters exist and ages run 12 through 18;
+- exactly 21 base Development Opportunities exist;
+- every Growth Beat has an explicit DC, all six approaches, and four outcome bands;
+- success awards +1 flexible point;
+- failure awards +1 off-path Lesson Point;
+- critical success awards +2 flexible points total;
+- critical failure awards +1 off-path Lesson Point and redirects at most one already-invested point from the attempted ability;
+- no ability exceeds 15 before edition-specific adjustments;
+- the wallet may be spent between growth scenes;
+- the site displays flexible, lesson, and critical-bonus growth separately;
+- the final base array is audited and clearly labeled if it exceeds normal 27-point-buy value;
 - familiarity cannot silently become proficiency;
-- RAW Graduation is the default and optional Legacy rewards are off by default;
-- 2014 and 2024 graduation paths are isolated;
+- 2014 and 2024 graduation mechanics stay isolated;
 - the custom sheet persists and prints;
-- no Level-0 rule leaks into ordinary adventure checks.
+- no Level-0 critical rule leaks into ordinary Level-1+ checks.

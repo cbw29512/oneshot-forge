@@ -6,7 +6,7 @@
   <title>From Zero to Hero — One-Shot Forge</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
   <link rel="stylesheet" href="styles.css?v=20261002e">
-  <link rel="stylesheet" href="zero-hero.css?v=20261002b">
+  <link rel="stylesheet" href="zero-hero.css?v=20261002c">
 </head>
 <body class="zero-hero-page">
   <header class="land-bar print-hide">
@@ -17,15 +17,15 @@
     <section class="zero-hero-intro print-hide">
       <p class="eyebrow ember">LEVEL 0 HOUSE RULE · 2014 / 2024 GRADUATION</p>
       <h1>From Zero to Hero</h1>
-      <p class="lede">Begin around age 12 with six 9s, no class, and an ordinary life in Hearthcross. Seven yearly mini-adventures build the character through choices. At age 18, graduate into a certified Level-1 character for the selected edition.</p>
-      <div class="zero-rule-strip"><span>7 yearly chapters</span><span>3 growth checks each</span><span>21 development points</span><span>pre-origin cap 15</span></div>
-      <p class="zero-house-note"><strong>Level-0-only story rule:</strong> success and failure still use normal d20 + modifier vs DC. A natural 20 on a successful developmental check or natural 1 on a failed one adds a critical story tier only. Every outcome awards the same +1 Development Point.</p>
+      <p class="lede">Begin around age 12 with six 9s, no class, and an ordinary life in Hearthcross. Seven yearly mini-adventures build a Development Point wallet through choices, success, failure, and hard lessons. Spend those points when you decide who the character is becoming.</p>
+      <div class="zero-rule-strip"><span>7 yearly chapters</span><span>21 growth opportunities</span><span>development wallet</span><span>pre-origin cap 15</span></div>
+      <p class="zero-house-note"><strong>Level-0 growth rule:</strong> success gives flexible development; failure teaches something different; critical success earns an extra point; critical failure can redirect one already-invested point into an unexpected ability. The Level-0 stat-generation method is house rule. After graduation, 2014 and 2024 mechanics remain strictly separated.</p>
     </section>
 
     <section class="growth-sheet" id="growth-sheet">
       <header class="growth-head">
         <div><p class="eyebrow">FROM ZERO TO HERO · GROWING-UP SHEET</p><h2 id="sheet-name">Unnamed child</h2><p id="sheet-meta">Age 12 · Level 0 · Hearthcross</p></div>
-        <div class="growth-progress"><strong id="growth-count">0 / 21</strong><span>development points</span></div>
+        <div class="growth-progress"><strong id="growth-count">0 / 21</strong><span>growth opportunities resolved</span><div id="development-wallet" class="wallet-summary">0 flexible · 0 lesson · 0 critical bonus earned</div></div>
       </header>
 
       <div class="identity-grid">
@@ -36,7 +36,7 @@
         <label class="wide">What I am striving to become<textarea id="char-aspiration" rows="2" maxlength="180" placeholder="A knight? A healer? Someone who sees the world? This may change."></textarea></label>
       </div>
 
-      <section><h3>Abilities growing through play</h3><div class="ability-growth" id="ability-growth"></div></section>
+      <section><h3>Abilities growing through play</h3><p class="muted">Flexible points may be spent on any ability. Lesson points are locked to the ability learned through failure. Higher scores cost more development, matching the 5E point-buy curve.</p><div class="ability-growth" id="ability-growth"></div></section>
 
       <div class="growth-columns">
         <section><h3>Who I am becoming</h3>
@@ -66,7 +66,7 @@
     <section class="graduation-panel print-hide" id="graduation-panel" hidden>
       <p class="eyebrow ember">AGE 18 COMPLETE</p>
       <h2>Graduate to Level 1</h2>
-      <p>Your Level-0 base array is frozen. First complete the RAW point-buy audit. Then choose the edition; the normal certified Level-1 package applies that edition's legal origin/background/species/class rules without mixing editions.</p>
+      <p>Spend any remaining development you want reflected in the character, then freeze the Level-0 base array. The site will show whether the result stays within the normal 27-point-buy envelope or became a heroic house-rule array through critical-success bonuses. After that, the selected edition's Level-1 rules apply without mixing editions.</p>
       <div id="raw-audit"></div>
       <div id="reflection-host"></div>
       <div class="graduation-actions"><button type="button" class="button" data-edition="2014">Prepare 2014 graduation</button><button type="button" class="button ember" data-edition="2024">Prepare 2024 graduation</button></div>
@@ -77,6 +77,6 @@
       <details><summary>Hearthcross village cast & locations</summary><div id="village-host"></div></details>
     </section>
   </main>
-  <script src="zero-hero.js?v=20261002b"></script>
+  <script src="zero-hero.js?v=20261002c"></script>
 </body>
 </html>

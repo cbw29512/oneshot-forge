@@ -1,181 +1,124 @@
 # From Zero to Hero — RAW & Development Audit
 
 **Audit date:** 2026-10-02  
-**Scope:** Level-0 development, 2014 graduation boundary, 2024 graduation boundary, pass/fail fairness.
+**Scope:** Level-0 development, pass/fail differentiation, 2014/2024 graduation boundary.
 
 ## Executive result
 
-From Zero to Hero is intentionally a **Level-0 house-rule campaign**. It cannot itself be called RAW because neither the 2014 nor 2024 core rules define this age-12-to-Level-1 growth procedure.
+From Zero to Hero is intentionally a **Level-0 house-rule origin system**. The finished Level-1 character then uses the selected 2014 or 2024 ruleset for race/species, background, class, HP, proficiency, spells, feats, equipment, and later advancement.
 
-The release target is therefore:
+The ability-generation route itself is not RAW. The site therefore audits and labels the final base array instead of pretending otherwise.
 
-> **House-rule journey, RAW destination.**
+## Starting math
 
-The moment a character graduates, the generated Level-1 sheet must be legal under the selected edition with no silent Level-0 bonuses.
+The normal 5E point-buy table values a score of 9 at 1 point.
 
-## Authoritative rules checked
+Six starting 9s therefore represent a value of 6.
 
-### 2014
+The campaign has 21 base Development Opportunities. If each produces one normal development point and no critical-success bonus is spent, the character can reach the normal 27-point target:
 
-D&D Basic Rules 2014 / SRD 5.1 point buy:
-- 27 points;
-- scores cost 0/1/2/3/4/5/7/9 for 8 through 15;
-- 15 is the pre-racial maximum under point buy.
+**6 starting value + 21 development = 27.**
 
-Official Basic Rules:
-https://www.dndbeyond.com/sources/dnd/basic-rules-2014/step-by-step-characters
+The Level-0 score cap remains 15 before edition-specific origin adjustments.
 
-2014 ability checks resolve by d20 + modifier vs DC. A natural 1 is not an automatic failure on an ability check, and ability checks do not score critical hits.
+## Development wallet
 
-Official Sage Advice Compendium:
-https://www.dndbeyond.com/sources/sac/sage-advice-compendium
+Players accumulate growth instead of automatically assigning it to the ability rolled.
 
-### 2024 / SRD 5.2.1
+| Outcome | Development result |
+| --- | --- |
+| Critical success | +2 Flexible Development Points |
+| Success | +1 Flexible Development Point |
+| Failure | +1 Lesson Point locked to a different ability |
+| Critical failure | +1 Lesson Point locked to a different ability, plus redirect 1 already-invested point from the attempted ability into that lesson ability when possible |
 
-SRD 5.2.1 uses the same 27-point point-cost table for generated ability scores.
+Flexible points may be spent on any ability below 15.
 
-Official SRD 5.2.1 Character Creation:
-https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf
+Lesson Points can only be spent on the ability attached to the lesson.
 
-2024 backgrounds provide the ability-score increases, an Origin feat, skill proficiencies, a tool proficiency, and equipment/GP choice. Species do not supply the normal 2024 background ASI.
+The player may spend accumulated points between growth scenes and before graduation.
 
-Official 2024 Character Origins:
-https://www.dndbeyond.com/sources/dnd/br-2024/character-origins
+## Why success and failure are mechanically different
 
-2024 D20 Tests resolve by total vs target number. Automatic natural-20 hit / natural-1 miss language applies to attack rolls, not all ability checks.
+A success says, in effect:
 
-Official 2024 Playing the Game:
-https://www.dndbeyond.com/sources/dnd/br-2024/playing-the-game
+> I solved the problem and can decide where that confidence/practice becomes growth.
 
-## Finding 1 — starting six 9s is mathematically compatible
+A failure says:
 
-Under point buy, a 9 costs 1 point.
+> I still learned, but the lesson may not be the one I wanted.
 
-Six starting 9s therefore represent 6 of the normal 27 points.
+A critical failure is the strongest expression of that idea. It does not erase overall earned development. Instead, it can pull one already-invested point out of the ability used for the failed attempt and move that investment into the different ability taught by the consequence.
 
-That leaves exactly:
+Example:
 
-**27 - 6 = 21**
+A future Fighter tries to overpower a dangerous mechanism with Strength and critically fails. The scene teaches caution and observation. One invested STR point can move to WIS, and the new Lesson Point is also locked to WIS.
 
-development credits for the Level-0 campaign.
+The character did not become weaker overall; the experience changed the direction of development.
 
-This is why the campaign uses seven yearly chapters with three growth opportunities each:
+## Critical success
 
-**7 × 3 = 21.**
+A critical success earns one extra flexible point beyond the ordinary success point.
 
-The growth cost from 9 through 15 mirrors the official point-buy cost curve:
-- 9→10: 1
-- 10→11: 1
-- 11→12: 1
-- 12→13: 1
-- 13→14: 2
-- 14→15: 2
+There is no artificial critical-bonus cap in the current design. Natural d20 frequency supplies the practical limiter.
 
-## Finding 2 — pass/fail must not change build power
+If critical-success bonus points are spent so the final base ability array has a point-buy value above 27, the website must label it:
 
-Previous design already awarded one Development Point on any attempt, which was directionally correct.
+**Heroic / house-rule ability generation**
 
-The contract is now explicit:
+It may not be presented as standard RAW point buy.
 
-| Outcome | Development Points | Permanent build delta |
-| --- | ---: | ---: |
-| Critical success | 1 | 0 |
-| Success | 1 | 0 |
-| Failure | 1 | 0 |
-| Critical failure | 1 | 0 |
+## D20 resolution boundary
 
-A check can change the fiction, but it cannot directly grant or remove:
-- ability points;
-- proficiency;
-- feat;
-- spell;
-- class feature;
-- permanent magic-item property;
-- graduation eligibility.
+The check itself still resolves using the normal 5E procedure:
 
-This prevents lucky players from becoming mechanically stronger than unlucky players.
+**d20 + relevant modifiers vs DC.**
 
-## Finding 3 — critical outcomes needed a RAW boundary correction
+From Zero to Hero then applies its Level-0 development outcome.
 
-Normal 2014/2024 ability checks are total-vs-DC checks. Natural 20/1 do not generally auto-resolve an ability check.
+The extra critical-success/critical-failure treatment is a Level-0 house rule and must not leak into ordinary Level-1+ ability checks.
 
-From Zero to Hero therefore resolves the normal result first.
+## Training and proficiency
 
-Only after that:
-- successful total + natural 20 = **critical success story tier**;
-- failed total + natural 1 = **critical failure story tier**.
+Practice with skills, weapons, tools, languages, magic, hunting, medicine, crafting, and similar activities is tracked as **familiarity/history**.
 
-The extra critical tier is still a Level-0 house rule, but it no longer replaces normal 5E success/failure resolution.
+That familiarity is not automatically a 5E proficiency.
 
-## Finding 4 — incomplete high-score marks could create unequal graduates
-
-Because 13→14 and 14→15 cost two credits, some perfectly valid development patterns can end age 18 with incomplete marks.
-
-Those characters would otherwise finish below the full 27-point budget even though they completed all 21 growth opportunities.
-
-Fix: **Final Reflection**.
-
-After the last mini-adventure:
-1. no more development points are awarded;
-2. incomplete marks return to the already-earned point-buy remainder;
-3. the player allocates that remainder without a roll;
-4. no score may exceed 15;
-5. graduation remains locked until the base array audits to exactly 27 points.
-
-CI exhaustively tests all legal 21-choice distributions and verifies that Final Reflection can finish each one at 27 points.
-
-## Finding 5 — training must not become free proficiency
-
-Level-0 can record:
-- weapon practice;
-- skill practice;
-- tools;
-- languages;
-- apprentice work;
-- mentor instruction.
-
-These are **familiarity/history**, not proficiency bonus sources.
-
-At RAW graduation they only become mechanical when the selected legal package grants them:
+At Level 1 it becomes mechanical only if a legal option in the selected edition grants it:
 - 2014 race/background/class;
 - 2024 species/background/class.
 
-If no legal choice grants it, it remains character history.
+Otherwise it remains part of the character's history.
 
-## Finding 6 — heirlooms and mentors must be nonmechanical by default
+## Graduation audit
 
-A magical heirloom, bonus feat, extra ASI, or extra proficiency would make the finished Level-1 character non-RAW unless some legal rule grants it.
+Before generating Level 1, show:
+- final base ability array;
+- point-buy value of that array;
+- unspent Flexible Points;
+- unspent Lesson Points;
+- partial invested development that has not yet completed a score increase;
+- total critical-success bonus points earned.
 
-Therefore **RAW Graduation is default**:
-- heirloom = mundane/narrative;
-- mentor = narrative contact;
-- no bonus feat;
-- no extra ASI;
-- no extra proficiency;
-- no free spell/class feature/magic property.
+If the base array is 27 point-buy value or lower and every score is 15 or lower, it is **within the normal point-buy envelope**, although the route used to generate it was still the Level-0 house rule.
 
-A future **Heroic Legacy** mode may explicitly enable those as house rules. It must be opt-in and visibly marked non-RAW.
+If the base array exceeds 27, label it **Heroic / house-rule ability generation**.
 
-## Development rails
+Once the array is frozen, all later mechanics must be legal for the selected 2014 or 2024 ruleset.
 
-### 1. Ability rail
-Exactly 21 earned development credits plus the six-point starting floor. Roll outcome never changes the amount.
+## Release invariants
 
-### 2. Training rail
-Repeated behavior, apprenticeship, and time-skip choices create familiarity tags. Single-roll success does not grant proficiency.
+CI must reject any implementation that:
+- changes the six starting 9s;
+- removes the 15 pre-origin cap;
+- changes the 21 base growth opportunities;
+- awards success anything other than +1 flexible point;
+- awards failure anything other than +1 off-path Lesson Point;
+- awards critical success anything other than +2 flexible points total;
+- lets critical failure redirect more than one already-invested point;
+- permits a Lesson Point to be assigned to the attempted ability;
+- silently converts familiarity into proficiency;
+- mixes 2014 and 2024 graduation mechanics;
+- claims an above-27 base array is normal RAW point buy.
 
-### 3. Story rail
-Success/failure can change relationships, reputation, scars, village state, mentor trust, possessions, and narrative heirloom history. These are meaningful but mechanically neutral in RAW Graduation mode.
-
-## Release requirements
-
-Before Level-1 conversion is considered finished:
-- Level-0 state must show 21/21 development opportunities completed;
-- base array must cost exactly 27 point-buy points and contain only scores 8–15 before edition adjustments;
-- 2014 and 2024 origin mechanics must stay separate;
-- natural 20/1 Level-0 story tiers must never leak into normal ability-check rules;
-- no familiarity may become an extra proficiency without a legal source;
-- RAW Graduation must add no house-rule reward;
-- generated Level-1 sheets must pass the normal pregen/ruleset certification for that edition.
-
-**Audit verdict:** the Level-0 layer remains intentionally house-rule; the corrected boundary can produce a fully RAW Level-1 base character once certified edition-specific graduation packs are wired.
+**Audit conclusion:** pass/fail now has a meaningful mechanical identity without making ordinary failure erase character growth. Critical failure can reshape the build; critical success can make it slightly stronger. The resulting Level-0 ability-generation method remains transparently house rule, while the post-graduation game stays edition-locked.
