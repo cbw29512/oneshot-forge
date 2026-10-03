@@ -6,7 +6,7 @@
   <title>From Zero to Hero — One-Shot Forge</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
   <link rel="stylesheet" href="styles.css?v=20261002e">
-  <link rel="stylesheet" href="zero-hero.css?v=20261003a">
+  <link rel="stylesheet" href="zero-hero.css?v=20261003b">
 </head>
 <body class="zero-hero-page">
   <header class="land-bar print-hide">
@@ -76,10 +76,49 @@
       <div id="graduation-summary"></div>
     </section>
 
+    <section class="graduation-keepsakes" id="graduation-keepsakes" hidden>
+      <div class="keepsake-controls print-hide">
+        <div><p class="eyebrow ember">GRADUATION KEEPSAKES</p><h2>Your Hearthcross graduation packet</h2><p>Two commemorative pages built from the character's actual seven-year history. These pages grant no mechanical benefit.</p></div>
+        <div class="keepsake-actions"><button type="button" class="button secondary" id="print-certificate">Print certificate</button><button type="button" class="button ember" id="print-graduation-packet">Print full packet</button></div>
+      </div>
+
+      <article class="certificate-page keepsake-page" id="graduation-certificate" aria-label="Hearthcross Coming-of-Age Certificate">
+        <div class="certificate-inner">
+          <div class="certificate-seal" aria-hidden="true"><span>HC</span><small>HEARTHCROSS</small></div>
+          <p class="certificate-kicker">THE VILLAGE OF HEARTHCROSS</p>
+          <h2 id="certificate-title">Hearthcross Coming-of-Age Certificate</h2>
+          <p class="certificate-subtitle">From Zero to Hero · Completion of the Level-0 Origin Years</p>
+          <p class="certificate-lead">This certifies that</p>
+          <h3 id="certificate-name">Unnamed character</h3>
+          <p class="certificate-copy" id="certificate-copy"></p>
+          <div id="certificate-array" class="certificate-array"></div>
+          <div class="certificate-details" id="certificate-details"></div>
+          <blockquote id="certificate-aspiration"></blockquote>
+          <div class="signature-grid" id="certificate-signatures"></div>
+          <p class="certificate-boundary" id="certificate-boundary"></p>
+        </div>
+      </article>
+
+      <article class="chronicle-page keepsake-page" id="origin-chronicle" aria-label="Origin Chronicle">
+        <header class="chronicle-head">
+          <div><p class="eyebrow">FROM ZERO TO HERO</p><h2>Origin Chronicle</h2><p id="chronicle-subtitle"></p></div>
+          <div class="chronicle-mark">12 → 18</div>
+        </header>
+        <div class="chronicle-identity" id="chronicle-identity"></div>
+        <section><h3>Seven years in Hearthcross</h3><div class="chronicle-years" id="chronicle-years"></div></section>
+        <div class="chronicle-columns">
+          <section><h3>People & consequences</h3><div id="chronicle-people"></div></section>
+          <section><h3>Training, possessions & choices</h3><div id="chronicle-growth"></div></section>
+        </div>
+        <section class="chronicle-summary"><h3>What the years taught</h3><div id="chronicle-outcomes"></div></section>
+        <p class="chronicle-boundary" id="chronicle-boundary"></p>
+      </article>
+    </section>
+
     <section class="village-panel print-hide">
       <details><summary>Hearthcross village cast & locations</summary><div id="village-host"></div></details>
     </section>
   </main>
-  <script src="zero-hero.js?v=20261003a"></script>
+  <script src="zero-hero.js?v=20261003b"></script>
 </body>
 </html>
