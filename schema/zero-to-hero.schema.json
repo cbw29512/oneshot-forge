@@ -528,6 +528,11 @@
       "required": [
         "enabled",
         "mechanicalBenefit",
+        "mechanicalRole",
+        "noExtraPower",
+        "rule",
+        "developmentCard",
+        "yearbookCards",
         "printFormat",
         "competitionStandard",
         "cardFields",
@@ -539,7 +544,7 @@
           "const": true
         },
         "mechanicalBenefit": {
-          "const": false
+          "const": true
         },
         "printFormat": {
           "type": "object",
@@ -576,7 +581,9 @@
             "tieRule",
             "criticalSuccessDecoration",
             "criticalFailureDecoration",
-            "noDevelopment"
+            "noDevelopment",
+            "cardBuildRule",
+            "consolationAssignment"
           ],
           "properties": {
             "supportedPlayerCount": {
@@ -662,6 +669,71 @@
                 "type": "array",
                 "minItems": 3
               }
+            }
+          }
+        },
+        "mechanicalRole": {
+          "const": "authoritative development ledger"
+        },
+        "noExtraPower": {
+          "const": true
+        },
+        "rule": {
+          "type": "string",
+          "minLength": 50
+        },
+        "developmentCard": {
+          "type": "object",
+          "required": [
+            "requiredEveryGrowthBeat",
+            "exactlyOnePerBeatPerCharacter",
+            "fields",
+            "outcomeMapping",
+            "auditRule"
+          ],
+          "properties": {
+            "requiredEveryGrowthBeat": {
+              "const": true
+            },
+            "exactlyOnePerBeatPerCharacter": {
+              "const": true
+            },
+            "fields": {
+              "type": "array",
+              "minItems": 17
+            },
+            "outcomeMapping": {
+              "type": "object",
+              "required": [
+                "criticalSuccess",
+                "success",
+                "failure",
+                "criticalFailure"
+              ]
+            },
+            "auditRule": {
+              "type": "string",
+              "minLength": 40
+            }
+          }
+        },
+        "yearbookCards": {
+          "type": "object",
+          "required": [
+            "enabled",
+            "mechanical",
+            "rule"
+          ],
+          "properties": {
+            "enabled": {
+              "const": true
+            },
+            "mechanical": {
+              "const": false
+            },
+            "rule": {
+              "type": "string",
+              "minLength": 30
             }
           }
         }
