@@ -56,10 +56,10 @@
         "dmPlaytestApproved": false
       },
       "commerce": {
-        "provider": null,
-        "checkoutUrl": null,
+        "provider": "stripe",
+        "checkoutUrl": "/api/stripe/checkout",
         "entitlementMode": "server-verified",
-        "entitlementVerificationUrl": null
+        "entitlementVerificationUrl": "/api/stripe/entitlement"
       },
       "delivery": {
         "browserRequiredForPaid": true,
@@ -90,10 +90,10 @@
         "dmPlaytestApproved": false
       },
       "commerce": {
-        "provider": null,
-        "checkoutUrl": null,
+        "provider": "stripe",
+        "checkoutUrl": "/api/stripe/checkout",
         "entitlementMode": "server-verified",
-        "entitlementVerificationUrl": null
+        "entitlementVerificationUrl": "/api/stripe/entitlement"
       },
       "delivery": {
         "browserRequiredForPaid": true,
@@ -124,10 +124,10 @@
         "dmPlaytestApproved": false
       },
       "commerce": {
-        "provider": null,
-        "checkoutUrl": null,
+        "provider": "stripe",
+        "checkoutUrl": "/api/stripe/checkout",
         "entitlementMode": "server-verified",
-        "entitlementVerificationUrl": null
+        "entitlementVerificationUrl": "/api/stripe/entitlement"
       },
       "delivery": {
         "browserRequiredForPaid": true,
@@ -158,10 +158,10 @@
         "dmPlaytestApproved": false
       },
       "commerce": {
-        "provider": null,
-        "checkoutUrl": null,
+        "provider": "stripe",
+        "checkoutUrl": "/api/stripe/checkout",
         "entitlementMode": "server-verified",
-        "entitlementVerificationUrl": null
+        "entitlementVerificationUrl": "/api/stripe/entitlement"
       },
       "delivery": {
         "browserRequiredForPaid": true,
@@ -192,10 +192,10 @@
         "dmPlaytestApproved": false
       },
       "commerce": {
-        "provider": null,
-        "checkoutUrl": null,
+        "provider": "stripe",
+        "checkoutUrl": "/api/stripe/checkout",
         "entitlementMode": "server-verified",
-        "entitlementVerificationUrl": null
+        "entitlementVerificationUrl": "/api/stripe/entitlement"
       },
       "delivery": {
         "browserRequiredForPaid": true,
@@ -226,10 +226,10 @@
         "dmPlaytestApproved": false
       },
       "commerce": {
-        "provider": null,
-        "checkoutUrl": null,
+        "provider": "stripe",
+        "checkoutUrl": "/api/stripe/checkout",
         "entitlementMode": "server-verified",
-        "entitlementVerificationUrl": null
+        "entitlementVerificationUrl": "/api/stripe/entitlement"
       },
       "delivery": {
         "browserRequiredForPaid": true,
@@ -260,10 +260,10 @@
         "dmPlaytestApproved": false
       },
       "commerce": {
-        "provider": null,
-        "checkoutUrl": null,
+        "provider": "stripe",
+        "checkoutUrl": "/api/stripe/checkout",
         "entitlementMode": "server-verified",
-        "entitlementVerificationUrl": null
+        "entitlementVerificationUrl": "/api/stripe/entitlement"
       },
       "delivery": {
         "browserRequiredForPaid": true,
@@ -299,10 +299,10 @@
         "dmPlaytestApproved": false
       },
       "commerce": {
-        "provider": null,
-        "checkoutUrl": null,
+        "provider": "stripe",
+        "checkoutUrl": "/api/stripe/checkout",
         "entitlementMode": "server-verified",
-        "entitlementVerificationUrl": null
+        "entitlementVerificationUrl": "/api/stripe/entitlement"
       },
       "delivery": {
         "browserRequiredForPaid": true,
