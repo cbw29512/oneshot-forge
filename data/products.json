@@ -201,6 +201,36 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "right-to-owlbear-arms",
+      "title": "Right to OwlBear Arms",
+      "format": "download-bundle",
+      "bundleVersion": "1.1",
+      "rulesEdition": "2014 / SRD 5.1",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": null,
+      "downloadUrl": "assets/bundles/right-to-owlbear-arms-v1.1.zip",
+      "productUrl": "adventures/right-to-owlbear-arms.html",
+      "auditUrl": "docs/OWLBEAR_ARMS_AUDIT.md",
+      "level": 6,
+      "party": "5 players",
+      "playTime": "5–7 hours",
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
 }

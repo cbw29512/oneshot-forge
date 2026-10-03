@@ -100,3 +100,12 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - The clean-print fixed Letter pregen format is now canonical: see `docs/PREGEN_PRINT_STANDARD.md`.
 - Scene narration, location description, NPC voice, monster behavior, and printable cards are governed by `docs/PRESENTATION_STANDARD.md`.
 - Current polish target: bring The Owlbear Egg through the presentation gate without changing its approved consequence structure.
+
+
+## 2026-10-03 — OwlBear Arms import and kit convenience audit
+
+- Imported Right to OwlBear Arms v1.1 from FlorenceRPGWebsite at a6148e4. Original ZIP and 13 extracted files are preserved; 12 manifest hashes and original Git blob SHA are checked in CI.
+- Added a distinct level-6 / five-player / 2014 PDF-bundle product, catalog card, original Grubbleclaw artwork, Start Here, individual PDF links, and reveal/print guidance. No empty runner package or unrelated pregen link.
+- Target $0.99; free review preview, approval/checkout/sellable remain false. See OWLBEAR_ARMS_AUDIT.md: Tomas chronology, defense/training rules, encounter math, custom-item clarity, and full hero/spell references block paid readiness.
+- Hearthcross Start Here now has three linked setup steps, visible navigation, practical printing links, and clear Level-0/Level-1 disclosure. Fixed dark-on-dark DM instructions using the certified paper/ink palette.
+- Next for OwlBear Arms: resolve the story chronology and exact defense procedure in a new version, then rebuild complete heroes and enemy references. Preserve v1.1 provenance. Existing scheduled production priorities remain unchanged.

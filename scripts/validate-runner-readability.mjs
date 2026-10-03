@@ -63,6 +63,11 @@ for (const required of [
   if (!required.test(css)) errors.push("runner GM readability rule is missing or no longer uses the certified high-contrast palette");
 }
 
+const hearthcrossCss = fs.readFileSync("zero-hero-adventure.css", "utf8");
+if (!/\.zero-adventure-body \.dm-box\s*\{[^}]*background:var\(--gm-paper\);color:var\(--gm-ink\)/s.test(hearthcrossCss)) {
+  errors.push("Hearthcross DM instructions must use the certified paper/ink palette");
+}
+
 if (errors.length) {
   console.error("Runner readability validation failed:");
   errors.forEach(error => console.error(" -", error));

@@ -28,7 +28,11 @@ try {
   const registryIds = new Set(Object.keys(registry || {}));
 
   for (const product of products.products || []) {
-    if (!registryIds.has(product.id)) errors.push(`product ${product.id} is missing from adventure registry`);
+    // PDF bundles have their own checked file manifest; never invent an empty runner package.
+    if (product.format === "download-bundle") {
+      if (registryIds.has(product.id) || product.runnerUrl) errors.push(`${product.id}: bundle must not claim a web runner`);
+      if (!product.downloadUrl || !fs.existsSync(path.join(root, product.downloadUrl))) errors.push(`${product.id}: missing bundle download`);
+    } else if (!registryIds.has(product.id)) errors.push(`product ${product.id} is missing from adventure registry`);
     if (!product.productUrl || !fs.existsSync(path.join(root, product.productUrl))) {
       errors.push(`product ${product.id} has missing productUrl ${product.productUrl || "(none)"}`);
     }

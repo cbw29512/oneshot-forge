@@ -26,18 +26,23 @@ const printCenter = read("print.html");
 for (const product of products.products || []) {
   const cardMarker = `data-product-id="${product.id}"`;
   if (!index.includes(cardMarker)) errors.push(`${product.id}: missing catalog card`);
-  if (!index.includes(`href="run.html?id=${product.id}"`)) errors.push(`${product.id}: catalog lacks direct Run now path`);
+  const bundle = product.format === "download-bundle";
+  const startUrl = bundle ? product.downloadUrl : `run.html?id=${product.id}`;
+  if (!index.includes(`href="${startUrl}"`)) errors.push(`${product.id}: catalog lacks direct start/download path`);
   if (!index.includes(`href="${product.productUrl}"`)) errors.push(`${product.id}: catalog lacks details path`);
 
   const productPage = read(product.productUrl);
   if (productPage && !productPage.includes("styles.css?v=20261002e")) {
     errors.push(`${product.id}: landing page is not pinned to production gameplay styling`);
   }
-  if (productPage && !productPage.includes(`run.html?id=${product.id}`)) {
+  if (productPage && !productPage.includes(bundle ? product.downloadUrl : `run.html?id=${product.id}`)) {
     errors.push(`${product.id}: landing page lacks direct runner path`);
   }
-  if (productPage && !productPage.includes(`print.html?id=${product.id}`)) {
+  if (productPage && !productPage.includes(bundle ? 'id="print-materials"' : `print.html?id=${product.id}`)) {
     errors.push(`${product.id}: landing page lacks print-center path`);
+  }
+  if (bundle && (!productPage.includes('id="start-here"') || !productPage.includes("2014"))) {
+    errors.push(`${product.id}: bundle lacks setup or edition guidance`);
   }
   if (productPage && !/class="cover"|class="adventure-cover-art/.test(productPage)) {
     errors.push(`${product.id}: landing page lacks a production visual identity`);

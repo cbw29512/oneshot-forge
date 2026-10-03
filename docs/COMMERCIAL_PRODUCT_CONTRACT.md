@@ -16,6 +16,19 @@ Each product records:
 - current access mode
 - explicit approval and checkout gates
 
+## Delivery format and state
+
+Products without `format` use the existing Adventure Package and web runner.
+`format: "download-bundle"` records an imported PDF kit with `runnerUrl: null`,
+`downloadUrl` pointing to a real local ZIP, `rulesEdition`, `bundleVersion`, and
+`auditUrl`. The catalog downloads the kit; its page supplies Start Here and print
+materials. It must never create a fake runner entry.
+
+CI verifies imported bytes and individual files against the source manifest.
+Migration is not rules certification. Known audit blockers keep `status: review`,
+`sellable: false`, and approval closed. Payment invariants apply to both formats.
+PDF downloads create no game state; interactive progress remains runner-owned.
+
 ## Release invariant
 
 A product is sellable only when all of these are true:

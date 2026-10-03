@@ -1,0 +1,67 @@
+{
+  "package": "Right to OwlBear Arms - Complete Adventure Bundle",
+  "version": "1.1",
+  "archive_file_count": 13,
+  "files": [
+    {
+      "path": "01_Adventure/Right_To_Bear_Arms_Adventure.pdf",
+      "size_bytes": 517168,
+      "sha256": "b42acdcdea325f144bc421e241fead16a95be3c1a0db82de5ba0731abdf6be9e"
+    },
+    {
+      "path": "02_Pregenerated_Heroes/Right_To_Bear_Arms_Pregenerated_Heroes_Level_6.pdf",
+      "size_bytes": 15231,
+      "sha256": "7fb3bf5726fb52fbd9588f4e958de4d84c1784cda7a2b4ad95b589f6421836d5"
+    },
+    {
+      "path": "03_Maps/Brindlebarrow_Village_Defense_Map_DM.pdf",
+      "size_bytes": 252310,
+      "sha256": "08cbb8854ec3622bee718b2aa42f3d5c4907321531f5aecbf26870d5ffefb0dd"
+    },
+    {
+      "path": "03_Maps/Old_Cobb_Survivor_Map_PLAYER.pdf",
+      "size_bytes": 249184,
+      "sha256": "7db6f383f9e74cd33f4d20b229eef3443eba415974250e5a33f72760a46bb2e0"
+    },
+    {
+      "path": "03_Maps/Owlbear_Lair_Full_Layout_DM.pdf",
+      "size_bytes": 248268,
+      "sha256": "61369fcbf5a69ae2f4ff13857bcc0c284029649a9c0b9d49509d2e3f8589c02c"
+    },
+    {
+      "path": "04_Handouts/Right_To_Bear_Arms_Player_Handouts.pdf",
+      "size_bytes": 4354,
+      "sha256": "23d952240e73eb8cb996f95a2351be443c5fa4c3aec076e4f1a1aa4547bd115d"
+    },
+    {
+      "path": "05_NPC_Cards/Right_To_Bear_Arms_NPC_Cards_Duplex.pdf",
+      "size_bytes": 363331,
+      "sha256": "3155c3482158a51dc2a1e724891d9c1e021fd7e8095143bf041f14bd05b9a033"
+    },
+    {
+      "path": "06_DM_Aids/Final_Clue_Flow_DM.pdf",
+      "size_bytes": 2250,
+      "sha256": "c3ca178826a6f224c5e4433f28ff7cbaf5e8b4a99dee283fbe1af09812438566"
+    },
+    {
+      "path": "06_DM_Aids/Magistrate_Grubbleclaw_Visual_DM.pdf",
+      "size_bytes": 256074,
+      "sha256": "7fa6467196153e240c0639896fff3d7f35224a5099afb6e596ceba03f10477b6"
+    },
+    {
+      "path": "07_Source/Right_To_Bear_Arms_Editable_DM_Packet.docx",
+      "size_bytes": 45932,
+      "sha256": "f415017bd6ab5166ac8a16b24d26381b9532773f07c3a20700b0ef2e3efd1bf4"
+    },
+    {
+      "path": "SRD_ATTRIBUTION.txt",
+      "size_bytes": 262,
+      "sha256": "ab5580dcb828427eb2acfdc051979d001948ceb3a37567709802da491e24cf61"
+    },
+    {
+      "path": "START_HERE.txt",
+      "size_bytes": 1660,
+      "sha256": "4a4442be077e45aed5aa78ca3fb3ed2d240cbf887c7d3f9e1b7f756a74ef7732"
+    }
+  ]
+}

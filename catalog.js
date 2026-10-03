@@ -41,7 +41,8 @@
   function labelFor(product, entitlement) {
     if (entitlement === "owned") return "Owned · Ready to run";
     if (releaseGate(product)) return `${money.format(product.priceCents / 100)} · Ready to buy`;
-    if (product.currentAccess === "free-preview") return "Live · Free preview";
+    if (product.currentAccess === "free-preview") return product.format === "download-bundle"
+      ? "Free preview · PDF bundle" : "Live · Free preview";
     return "Coming after review";
   }
 
@@ -67,6 +68,7 @@
     const resume = hasLocalProgress(product.id);
     action.textContent = canSell
       ? `Buy ${money.format(product.priceCents / 100)}`
+      : product.format === "download-bundle" ? "Download complete kit"
       : resume ? "Resume game" : "Run now";
     action.dataset.commercialState = owned ? "owned" : canSell ? "sellable" : "preview";
 

@@ -1,0 +1,7 @@
+.owlbear-hero{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(15rem,1fr);gap:2rem;align-items:start}
+.owlbear-hero .adventure-cover-art{display:block;width:100%;height:auto;border-radius:.75rem;border:1px solid var(--line);box-shadow:0 10px 40px #0005}
+.owlbear-hero .lede{max-width:40rem}
+.bundle-status{padding:1rem;border:1px solid #b9a48b;border-radius:.5rem;background:var(--gm-paper);color:var(--gm-ink);line-height:1.65}
+.owlbear-kit-body .kit-card span{line-height:1.55}
+@media(max-width:800px){.owlbear-hero{grid-template-columns:1fr}.owlbear-hero .adventure-cover-art{max-width:22rem;justify-self:center}}
+@media print{.owlbear-hero{grid-template-columns:1fr}.owlbear-hero .adventure-cover-art{display:none}.bundle-status{background:#fff;color:#111}}
