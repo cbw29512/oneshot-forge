@@ -89,7 +89,7 @@
       parsed.yearbook ||= {};
       parsed.scrapbookCards ||= [];
       parsed.upbringingProfile ||= "";
-      parsed.upbringingLocked=Boolean(parsed.upbringingLocked||Number(parsed.growthUsed||0)>0);
+      parsed.upbringingLocked=Boolean(parsed.upbringingProfile && (parsed.upbringingLocked||Number(parsed.growthUsed||0)>0));
       parsed.version=7;
       state=parsed;
       recomputeScores();
@@ -107,7 +107,7 @@
     migrated.yearbook=parsed.yearbook||{};
     migrated.scrapbookCards=parsed.scrapbookCards||[];
     migrated.upbringingProfile=parsed.upbringingProfile||"";
-    migrated.upbringingLocked=Boolean(parsed.upbringingLocked||Number(parsed.growthUsed||0)>0);
+    migrated.upbringingLocked=Boolean(migrated.upbringingProfile && (parsed.upbringingLocked||Number(parsed.growthUsed||0)>0));
     migrated.graduationEdition=parsed.graduationEdition||null;
 
     for(const a of ABILITIES) {
@@ -805,7 +805,8 @@
         ? '<div class="scrapbook-place">'+esc(card.placement)+ordinal(card.placement)+' of '+esc(card.fieldSize)+'</div>'
         : "";
       const badge=card.badge?'<span class="scrapbook-badge">'+esc(card.badge)+'</span>':"";
-      const advantage=card.advantageReason?'<p class="scrapbook-small"><b>Advantage:</b> '+esc(brief(card.advantageReason,95))+'</p>':"";
+      const advantage=card.advantageReason?'<p class="scrapbook-small"><b>Character Advantage:</b> '+esc(brief(card.advantageReason,95))+'</p>':"";
+      const upbringing=card.upbringingDisposition?'<p class="scrapbook-small"><b>Upbringing:</b> '+esc(upbringingLabel(card.attemptedAbility))+' · '+esc(rollModeLabel(card.rollMode||"normal"))+'</p>':"";
       const lesson=card.lessonAbility?'<p class="scrapbook-small"><b>Lesson:</b> '+esc(card.lessonAbility)+(card.shiftedFrom?' · shifted from '+esc(card.shiftedFrom):"")+'</p>':"";
       return '<article class="scrapbook-card" data-card-id="'+esc(card.id)+'">'+
         '<header><div><span class="scrapbook-age">AGE '+card.age+'</span><span class="scrapbook-category">'+esc(card.category)+'</span></div>'+badge+'</header>'+
@@ -814,7 +815,7 @@
         '<p class="scrapbook-memory">'+esc(brief(card.memory,180))+'</p>'+
         '<div class="scrapbook-development"><span>BUILT ME</span><strong>'+esc(development)+'</strong></div>'+
         '<p class="scrapbook-small"><b>Approach:</b> '+esc(card.attemptedAbility||"Story")+' · '+esc(labelOutcome(card.rollOutcome||"memory"))+'</p>'+
-        advantage+lesson+
+        upbringing+advantage+lesson+
         '<footer>'+esc(card.chapter)+'</footer>'+
       '</article>';
     }).join("");
@@ -867,6 +868,7 @@
     const aspiration=state.identity.aspiration.trim()||"The road ahead is still being discovered.";
     const edition=state.graduationEdition;
     const tier=graduationTier(value);
+    const profile=upbringingProfile();
     const counts=graduationOutcomeCounts();
 
     $("certificate-title").textContent=keepsake.certificateTitle;
@@ -877,6 +879,7 @@
       '<div><span>Home</span><strong>Hearthcross</strong></div>'+
       '<div><span>Ancestry / species</span><strong>'+esc(ancestry)+'</strong></div>'+
       '<div><span>Ruleset</span><strong>'+esc(edition)+'</strong></div>'+
+      '<div><span>Level-0 upbringing</span><strong>'+esc(profile?.likelyPath||"Not recorded")+'-shaped</strong></div>'+
       '<div><span>Base-array value</span><strong>'+value+' / '+ceiling+'</strong></div>'+
       '<div><span>Origin result</span><strong>'+esc(tier)+'</strong></div>'+
       '<div><span>Critical successes</span><strong>'+counts.criticalSuccess+'</strong></div>';
@@ -889,6 +892,7 @@
       '<div><span>Family / guardians</span><strong>'+esc(brief(family,120))+'</strong></div>'+
       '<div><span>Childhood work</span><strong>'+esc(brief(state.identity.chores,120)||"Not recorded")+'</strong></div>'+
       '<div><span>Final aspiration</span><strong>'+esc(brief(aspiration,160))+'</strong></div>'+
+      '<div><span>Level-0 upbringing lean</span><strong>'+esc(profile?.label||"Not recorded")+'</strong></div>'+
       '<div><span>Final base array</span><strong>'+ABILITIES.map(a=>a+" "+state.scores[a]).join(" · ")+' · '+value+' points</strong></div>';
 
     $("chronicle-years").innerHTML=campaign.chapters.map(chapter=>{
