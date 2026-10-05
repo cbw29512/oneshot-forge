@@ -1228,7 +1228,7 @@
       },
       {
         "id": "rec-skip-wagon",
-        "trigger": "The party refuses to inspect Elmorrow's wagon",
+        "trigger": "The party skips or refuses to inspect Elmorrow's wagon",
         "response": "His beast crate stamp and acquisition papers fall into view as he tries to load the egg. The fake-druid truth is still exposed before the final choice.",
         "stateChanges": [
           "clue-elmorrow-fake remains delivered"
