@@ -41,6 +41,20 @@ Every authored or generated adventure must pass all three of these checks before
 - A scene may use an authored DC, but the action being resolved, the ability/skill suggested, and the outcome must make sense in the fiction.
 - Pregens and encounter math must be audited against the same edition used by the adventure.
 
+### No single point of failure
+Every required revelation, route, objective, or finale-enabling fact must remain discoverable if any one NPC is unavailable.
+
+For each required fact:
+- author at least three independent delivery routes;
+- at least one route must not require a living, cooperative NPC;
+- physical/environmental backups may include notes, journals, maps, tracks, inscriptions, receipts, tools, wounds, residue, bodies, possessions, mechanisms, room state, or other world evidence;
+- an NPC's carried possessions may preserve the clue if that NPC dies;
+- another witness may repeat the information only if that witness learned it independently;
+- killing, alienating, frightening off, or bypassing one NPC must never brick the adventure;
+- the GM recovery notes must state how the table reaches the surviving clue path when a critical NPC is unavailable.
+
+Do not count three differently worded conversations with the same NPC as three sources. Do not count two NPCs who only know the fact because the same NPC told them unless the adventure establishes that redundancy independently.
+
 ### Checks must move the game
 Every called-for check must do at least one of the following:
 - reveal useful information;
