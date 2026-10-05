@@ -53,6 +53,19 @@ try {
   errors.push("could not validate Lantern free-starter contract: " + error.message);
 }
 
+try {
+  const contract = JSON.parse(productsText);
+  for (const product of contract.products || []) {
+    if (!product.productUrl?.endsWith(".html")) continue;
+    const page = read(product.productUrl);
+    if (!page.includes("99¢ One-Shots")) {
+      errors.push(`${product.id}: product page must use 99¢ One-Shots customer-facing brand`);
+    }
+  }
+} catch (error) {
+  errors.push("could not validate product-page branding: " + error.message);
+}
+
 const catalog = read("catalog.js");
 for (const required of [
   "checkoutConfigured", "gate.approved", "commerce.checkoutUrl", 'commerce.entitlementMode === "server-verified"',
