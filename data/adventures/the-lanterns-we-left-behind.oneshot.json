@@ -1064,7 +1064,7 @@
       },
       {
         "id": "rec-rush-final",
-        "trigger": "The party reaches Memorial Hill without all resolution clues.",
+        "trigger": "The party skips or rushes earlier investigation and reaches the final scene without all resolution clues.",
         "response": "The gate mechanisms are visibly labeled LIGHT / RECORD / SHUT and the First Road-Bearer repeats the three words before initiative.",
         "stateChanges": [
           "All finale routes remain visible.",
@@ -1074,7 +1074,7 @@
     ]
   },
   "pathPressure": {
-    "principle": "Prepared remembrance reduces final pressure and preloads Restore/Register, while rushed play retains every ending at greater psychic cost.",
+    "principle": "Prepared remembrance reduces final pressure and preloads Restore/Register, while rushed play retains every ending at greater psychic cost. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
     "prepared": [
       "Six recovered blank lanterns grant one Restore success.",
       "Crossroads memorial jobs grant one automatic Register station.",
