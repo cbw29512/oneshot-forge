@@ -23,7 +23,8 @@
     "pitch": "Rosebridge's Festival of Bonds honors every chosen connection in town. This year organizers kept only romantic ribbons—and the Heartloom has begun tying people together against their will.",
     "openingLocation": "Rosebridge festival bridge",
     "gmSummary": "The Heartloom is an old enchanted loom beneath Rosebridge used during the Festival of Bonds. Traditionally townsfolk tie ribbons naming any meaningful bond: siblings, friends, teachers, partners, teammates, caretakers. This year festival chair Celia Thorn narrowed the public display to romantic pairs to make the event more marketable. Hundreds of friendship, family, and mentorship ribbons were boxed away. The Heartloom responds by trying to 'complete' the missing pattern literally: glowing cords bind strangers, pull separated people together, and distort the bridge. The party must discover what was removed, recover the boxed ribbons, help several affected relationships speak for themselves, and decide whether Rosebridge restores the broad tradition, replaces the magical loom with a voluntary civic ritual, or cuts the enchantment entirely.",
-    "background": "Rosebridge was founded by refugees who survived because unrelated households chose to become kin. The Heartloom was woven to celebrate chosen bonds, not romance specifically. Over centuries the festival became increasingly decorative. Celia Thorn, hoping to turn it into a destination event, redesigned the display around couples and quietly stored all other ribbons in the guild archive. The loom interprets those omissions as broken strands and begins physically forcing connections to fill the gaps."
+    "background": "Rosebridge was founded by refugees who survived because unrelated households chose to become kin. The Heartloom was woven to celebrate chosen bonds, not romance specifically. Over centuries the festival became increasingly decorative. Celia Thorn, hoping to turn it into a destination event, redesigned the display around couples and quietly stored all other ribbons in the guild archive. The loom interprets those omissions as broken strands and begins physically forcing connections to fill the gaps.",
+    "campaignFrame": "Maestra Vell brings a Hearthford student delegation to Rosebridge's Festival of Bonds and calls on the party when the Heartloom begins forcing labels onto people. The party returns to Hearthford with Vell remembering whether they defended self-defined bonds and consent."
   },
   "quest": {
     "type": "investigate / protect festival / choose",
@@ -77,6 +78,56 @@
     ]
   },
   "npcs": [
+    {
+      "id": "npc-maestra-vell",
+      "name": "Maestra Vell",
+      "role": "Hearthford schoolteacher and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Patient until she is not."
+      ],
+      "wants": [
+        "The children should keep their own names, labels, and choices.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Maestra Vell, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“This matters back in Hearthford too.”",
+        "“Finish the job. Then we go home.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
     {
       "id": "npc-celia-thorn",
       "name": "Celia Thorn",
@@ -451,6 +502,7 @@
       ],
       "advanceWhen": "The party goes to the ribbon archive to inspect the missing categories and festival plans.",
       "npcIds": [
+        "npc-maestra-vell",
         "npc-celia-thorn",
         "npc-tomas-reed"
       ],
@@ -670,6 +722,7 @@
       ],
       "advanceWhen": "The Heartloom is restored, rewritten, or severed.",
       "npcIds": [
+        "npc-maestra-vell",
         "npc-celia-thorn",
         "npc-juniper-vale",
         "npc-tomas-reed",
@@ -733,6 +786,7 @@
       ],
       "advanceWhen": "The restored festival and rewards are recorded.",
       "npcIds": [
+        "npc-maestra-vell",
         "npc-celia-thorn",
         "npc-juniper-vale",
         "npc-tomas-reed"
@@ -768,6 +822,7 @@
       ],
       "advanceWhen": "The rewritten rules and rewards are recorded.",
       "npcIds": [
+        "npc-maestra-vell",
         "npc-juniper-vale",
         "npc-tomas-reed",
         "npc-heartloom"
@@ -804,6 +859,7 @@
       ],
       "advanceWhen": "Rewards and the future nonmagical festival are recorded.",
       "npcIds": [
+        "npc-maestra-vell",
         "npc-celia-thorn",
         "npc-juniper-vale",
         "npc-tomas-reed"
@@ -1065,6 +1121,10 @@
       "npc-heartloom": {
         "status": "active",
         "attitude": "pattern-seeking"
+      },
+      "npc-maestra-vell": {
+        "status": "alive",
+        "attitude": "familiar"
       }
     },
     "locationState": {},
@@ -1306,5 +1366,15 @@
     ],
     "stageCount": 6
   },
-  "cards": []
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-maestra-vell"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Maestra Vell's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
 }
