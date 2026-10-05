@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policy": "Fill new authored one-shots from level 1 through 20 before repeating a level.",
-  "nextLevel": 5,
+  "nextLevel": 6,
   "assignments": [
     {
       "level": 1,
@@ -25,6 +25,12 @@
       "level": 4,
       "adventureId": "the-year-that-wouldnt-end",
       "title": "The Year That Wouldn't End",
+      "status": "review"
+    },
+    {
+      "level": 5,
+      "adventureId": "the-heartloom-of-rosebridge",
+      "title": "The Heartloom of Rosebridge",
       "status": "review"
     }
   ]
