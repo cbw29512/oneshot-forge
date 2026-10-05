@@ -1,0 +1,1342 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-last-treat-of-gloamwick",
+    "title": "The Last Treat of Gloamwick",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 3,
+    "partySize": 4,
+    "partySizeRange": "3–6 players",
+    "durationMinutes": 210,
+    "tone": [
+      "Halloween folk mystery",
+      "spooky fun",
+      "community choice"
+    ]
+  },
+  "series": {
+    "title": "Holiday One-Shots",
+    "holiday": "Halloween",
+    "standalone": true
+  },
+  "setup": {
+    "pitch": "During Gloamwick's masked lantern parade, three children vanish and every doorstep's final sweet disappears before midnight. The pumpkin-headed figure seen leading the children away may be the only thing keeping them alive.",
+    "openingLocation": "Gloamwick festival square",
+    "gmSummary": "Gloamwick's Night of Masks is protected by an old custom: every household leaves one final sweet beneath a lit doorstep lantern until midnight. The sweets are not payment to one monster; they are a communal offering to the town's forgotten dead. Festival steward Corin Bale ordered volunteers to collect the untouched sweets early so they could be repurposed for the closing feast. That broke the custom. A hungry spirit called the Last Guest formed from neglected mourning masks and began following the children's lantern parade. Old Grin, the pumpkin-headed Doorstep Keeper created by the original custom, led three children into the abandoned Marrowplay Playhouse to protect them. Witnesses saw only a frightening figure taking children and assumed Old Grin was the threat. The party can learn the truth through people, physical evidence, an old festival ledger, the playhouse, and the spirit's behavior. At midnight the Last Guest reaches the square. The party may restore the doorstep offering, remember the forgotten dead by name, or destroy the Last Guest by force. Each ending changes what Gloamwick celebrates next year.",
+    "background": "A century ago, plague and winter left several Gloamwick families without descendants to tend their graves. Survivors created the Night of Masks so every household would remember not only its own dead but anyone left without a door to return to. Children received sweets from each house, but the final sweet stayed beneath the lantern for the Uninvited until midnight. Over generations the ritual became a cheerful custom whose purpose was mostly forgotten. Old Grin, a harmless guardian spirit shaped by carved lanterns, masks, and generations of children, continued walking the route each year. This year Corin Bale modernized the festival and ordered volunteers to collect untouched sweets at ten o'clock. The Last Guest woke hungry."
+  },
+  "quest": {
+    "type": "rescue / investigate / Halloween ritual",
+    "objective": "Find the missing children, discover what broke Gloamwick's Night of Masks, and stop the Last Guest before the midnight bell finishes.",
+    "stakes": "Three children, the festival crowd, and a century-old protective tradition are at risk. Solving the crisis determines what Gloamwick remembers next Halloween.",
+    "deadline": "MIDNIGHT BELL: show four unlit bell marks. Fill one after the square, Lantern Lane, sweetshop, and playhouse. When the fourth fills, the Last Guest enters the final scene immediately.",
+    "successConditions": [
+      "The three missing children are brought safely back or kept safe through the finale.",
+      "The party deliberately resolves the Last Guest by offering, remembrance, destruction, or an equivalent authored-cost solution.",
+      "The party learns why the last-treat custom mattered."
+    ],
+    "failureConditions": [
+      "The party abandons the children and town after learning the Last Guest is approaching.",
+      "The midnight crisis is ignored until the festival crowd is overrun."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-last-treat",
+        "text": "The final sweet left beneath each doorstep lantern until midnight is part of Gloamwick's protective remembrance ritual."
+      },
+      {
+        "id": "fact-collection-broke-ward",
+        "text": "Festival volunteers collected the final sweets early on Corin Bale's order, breaking the communal offering."
+      },
+      {
+        "id": "fact-old-grin-protector",
+        "text": "Old Grin did not kidnap the children; he led them to the abandoned playhouse to hide them from the Last Guest."
+      },
+      {
+        "id": "fact-last-guest",
+        "text": "The Last Guest is a hungry spirit formed from forgotten mourning masks and neglected dead; it follows the broken offering route."
+      },
+      {
+        "id": "fact-three-resolutions",
+        "text": "The Last Guest can be stopped by restoring the offering, completing a remembrance by name, or destroying its mask-heart."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-corin-order",
+        "text": "Corin Bale ordered the early collection because he believed unused sweets looked wasteful and wanted a larger closing feast.",
+        "revealCondition": "Read his signed collection sheet, confront him with the volunteers' baskets, or inspect the festival committee ledger."
+      },
+      {
+        "id": "secret-old-grin-origin",
+        "text": "Old Grin is an accumulated guardian spirit created by generations of carved lanterns, masks, and children's trust rather than a single dead person.",
+        "revealCondition": "Read the founder ledger, speak with Old Grin, or complete the remembrance route."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-nessa-vale",
+      "name": "Nessa Vale",
+      "role": "festival marshal and frantic quest giver",
+      "personality": [
+        "decisive",
+        "protective",
+        "embarrassed by panic"
+      ],
+      "voiceCues": [
+        "short commands while frightened",
+        "counts children and lanterns aloud"
+      ],
+      "wants": [
+        "Find the missing children",
+        "Keep the crowd from stampeding",
+        "Understand what changed this year"
+      ],
+      "fears": [
+        "A child being harmed",
+        "The festival turning into a witch hunt"
+      ],
+      "knows": [
+        "Three children vanished from the Lantern Lane route",
+        "Witnesses saw a pumpkin-headed figure nearby",
+        "The final-sweet baskets were collected earlier than usual"
+      ],
+      "believes": [
+        "Old Grin may be responsible because she does not know the old custom's purpose"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "What the Last Guest is",
+        "Why the old offering worked"
+      ],
+      "revealRules": [
+        {
+          "fact": "The children vanished on Lantern Lane.",
+          "when": "The party asks where they were last seen."
+        },
+        {
+          "fact": "Final-sweet baskets were moved early.",
+          "when": "The party asks what was different this year."
+        }
+      ],
+      "questFunction": "Launches the rescue, gives the route, and represents the town's fear without being required for any later revelation.",
+      "description": "A broad-shouldered festival marshal in a half-fastened fox mask, orange sash, and mud-splashed boots, gripping a parade roster hard enough to tear it.",
+      "tableDialogue": [
+        "“Three children. Mina Rook, Pell Dane, and little Orsa Bell. I need names coming back, not rumors.”",
+        "“Yes, people saw the pumpkin-head. No, that does not mean we start burning every mask in town.”",
+        "“Something changed tonight. Find me the change.”"
+      ],
+      "reactions": {
+        "agreement": "Hands over the parade roster, marks the children's last-known stop, and clears the party through the crowd.",
+        "refusal": "Gives them the children's names anyway and turns to organize a civilian search; the crisis continues without a contract.",
+        "accusation": "Admits she approved Corin's new collection schedule without asking why the old timing mattered.",
+        "danger": "Evacuates civilians into the stone guildhall and keeps the square clear for the finale."
+      }
+    },
+    {
+      "id": "npc-corin-bale",
+      "name": "Corin Bale",
+      "role": "festival steward whose efficiency broke the custom",
+      "personality": [
+        "organized",
+        "defensive",
+        "not malicious"
+      ],
+      "voiceCues": [
+        "talks in schedules and quantities",
+        "corrects the word superstition to tradition when scared"
+      ],
+      "wants": [
+        "Keep the festival orderly",
+        "Avoid being blamed for harm",
+        "Fix his mistake once he understands it"
+      ],
+      "fears": [
+        "Being remembered as the man who ruined Night of Masks",
+        "The crowd learning he ordered the collection"
+      ],
+      "knows": [
+        "He ordered volunteers to collect every untouched sweet at ten o'clock",
+        "The sweets were moved to the closing-feast pantry",
+        "Nothing like this happened in prior years"
+      ],
+      "believes": [
+        "The last-treat custom was symbolic and wasteful"
+      ],
+      "secrets": [
+        "He signed the collection order personally"
+      ],
+      "lies": [
+        "Initially says the committee agreed collectively, although the written order bears only his signature"
+      ],
+      "cannotKnow": [
+        "Old Grin's true nature",
+        "The exact mechanics of stopping the Last Guest"
+      ],
+      "revealRules": [
+        {
+          "fact": "He ordered the collection.",
+          "when": "Shown the signed sheet, confronted by a volunteer, or pressed after the pantry is found."
+        }
+      ],
+      "questFunction": "Embodies the well-meant change that caused the crisis and can help restore the offering without being the only source of that truth.",
+      "description": "A narrow man in a spotless black crow mask and harvest-red waistcoat, carrying a clipboard, two keys, and a sugar-stained schedule he keeps folding smaller.",
+      "tableDialogue": [
+        "“Untouched food was going into the street. I moved it to the feast. That was the whole decision.”",
+        "“If an old rule mattered, somebody should have written why.”",
+        "“Tell me where the sweets go. I will carry every basket myself.”"
+      ],
+      "reactions": {
+        "agreement": "Unlocks the feast pantry and assigns volunteers to move sweets wherever the party directs.",
+        "refusal": "Stays out of the way but leaves his keys and schedule with Nessa.",
+        "accusation": "Stops defending the committee once shown the old ledger and admits the collection order was his.",
+        "danger": "Uses festival wagons to move children and elderly townsfolk away from the square."
+      }
+    },
+    {
+      "id": "npc-mina-rook",
+      "name": "Mina Rook",
+      "role": "oldest missing child and eyewitness inside the playhouse",
+      "personality": [
+        "brave",
+        "observant",
+        "trying to keep younger children calm"
+      ],
+      "voiceCues": [
+        "whispers when adults shout",
+        "describes monsters by what they did rather than what they looked like"
+      ],
+      "wants": [
+        "Get Pell and Orsa home",
+        "Convince adults that Old Grin protected them"
+      ],
+      "fears": [
+        "The Last Guest finding the playhouse",
+        "Adults attacking Old Grin on sight"
+      ],
+      "knows": [
+        "Old Grin blocked the pale masks from reaching them",
+        "The Last Guest recoils from lit doorstep lanterns",
+        "The children followed Old Grin voluntarily after it pointed away from the pursuing masks"
+      ],
+      "believes": [
+        "Old Grin is scary but safe"
+      ],
+      "secrets": [
+        "She took one preserved founder sweet from the playhouse display because she thought it might help"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Who ordered the sweet collection",
+        "Why naming the forgotten dead weakens the Last Guest"
+      ],
+      "revealRules": [
+        {
+          "fact": "Old Grin protected the children.",
+          "when": "The party reaches the playhouse or finds Mina's chalk message outside."
+        }
+      ],
+      "questFunction": "Confirms the reversal of apparent monster/victim roles and gives player-facing evidence for the finale.",
+      "description": "A twelve-year-old in a crooked moth mask, clutching a brass candle-lighter in one hand and holding two younger children behind her with the other.",
+      "tableDialogue": [
+        "“He did not take us. He stood between us and the faces with no people inside.”",
+        "“The pale ones would not cross a lit doorstep.”",
+        "“Please do not stab Old Grin before I finish explaining.”"
+      ],
+      "reactions": {
+        "agreement": "Leads the younger children out once the route is safe and gives the party the preserved founder sweet.",
+        "refusal": "Keeps the younger children hidden and points the party toward the playhouse ledger instead.",
+        "accusation": "Insists on showing the clawless scratches and blocked doorway where Old Grin defended them.",
+        "danger": "Gets Pell and Orsa behind scenery and uses the candle-lighter to keep one threshold lit."
+      }
+    },
+    {
+      "id": "npc-old-grin",
+      "name": "Old Grin",
+      "role": "pumpkin-headed Doorstep Keeper and falsely accused guardian",
+      "personality": [
+        "silent",
+        "patient",
+        "protective"
+      ],
+      "voiceCues": [
+        "speaks only in short borrowed phrases",
+        "tilts its lantern-head toward whoever mentions a child by name"
+      ],
+      "wants": [
+        "Keep children behind a lit threshold",
+        "See the last-treat custom restored or replaced by genuine remembrance"
+      ],
+      "fears": [
+        "The Last Guest entering a home through an unlit threshold",
+        "The town destroying the tradition without understanding it"
+      ],
+      "knows": [
+        "The offering is broken",
+        "The Last Guest follows the missing last-treat route",
+        "Naming forgotten dead can satisfy what candy only symbolized"
+      ],
+      "believes": [
+        "A tradition without memory eventually becomes decoration"
+      ],
+      "secrets": [
+        "It is made from the town's accumulated ritual, not the ghost of one person"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Corin's motive for collecting the sweets",
+        "What the party will choose at midnight"
+      ],
+      "revealRules": [
+        {
+          "fact": "The offering or remembrance can stop the Last Guest.",
+          "when": "The party presents a last sweet, reads the founder verse, or speaks a forgotten name."
+        }
+      ],
+      "questFunction": "Reverses the apparent villain role, protects the missing children, and explains the meaning behind the Halloween custom.",
+      "description": "A tall patchwork figure in an old parade coat, with a carved turnip-lantern head glowing amber from within and dozens of faded ribbons tied around its wrists.",
+      "tableDialogue": [
+        "“Last for the door.”",
+        "“Names before midnight.”",
+        "“Children inside. Guest outside.”"
+      ],
+      "reactions": {
+        "agreement": "Opens the playhouse doors, shows the founder ledger, and accompanies the party to the edge of the square.",
+        "refusal": "Keeps protecting the children and points repeatedly toward the founder ledger and preserved threshold display.",
+        "accusation": "Places itself between the party and the children but does not attack unless someone tries to force past it.",
+        "danger": "Uses its body to block doors and shove threats away from children; it never pursues a fleeing creature."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-square",
+      "name": "Gloamwick Festival Square",
+      "description": "A cobbled square crowded with mask stalls, orange lantern poles, musicians' platforms, and a black iron bell tower; the air smells of wax, spice, and rain-damp wool.",
+      "connections": [
+        "loc-lantern-lane",
+        "loc-sweetshop",
+        "loc-playhouse"
+      ]
+    },
+    {
+      "id": "loc-lantern-lane",
+      "name": "Lantern Lane",
+      "description": "A narrow residential street where carved turnips and pumpkins glow beneath crooked eaves; empty sweet bowls sit under nearly every doorway while paper masks scrape along the gutters.",
+      "connections": [
+        "loc-square",
+        "loc-sweetshop",
+        "loc-playhouse"
+      ]
+    },
+    {
+      "id": "loc-sweetshop",
+      "name": "Tallow & Sugar, Closed Confectionery",
+      "description": "An old brick sweetshop turned festival archive, with copper kettles, locked display cases, brittle ledgers, and a pantry floor sticky from a century of boiled sugar.",
+      "connections": [
+        "loc-lantern-lane",
+        "loc-square"
+      ]
+    },
+    {
+      "id": "loc-playhouse",
+      "name": "Marrowplay Playhouse",
+      "description": "A shuttered timber theater with painted moons, sagging velvet curtains, dusty child-sized masks, and three stage doors marked by lantern symbols worn smooth by generations of hands.",
+      "connections": [
+        "loc-lantern-lane",
+        "loc-square"
+      ]
+    },
+    {
+      "id": "loc-bell-gate",
+      "name": "Bell Gate and Old Cemetery Wall",
+      "description": "The festival square narrows beside the old cemetery wall, where the midnight bell hangs above three lantern posts and hundreds of masked townsfolk can be moved behind stone cover.",
+      "connections": [
+        "loc-square"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-last-treat",
+      "revelation": "One final sweet at each lit doorstep was deliberately left untouched until midnight as part of the protective custom.",
+      "required": true,
+      "sources": [
+        "Empty bowls on Lantern Lane each show a single clean circle where the final sweet sat beneath lantern soot.",
+        "The founder ledger in Tallow & Sugar says LAST FOR THE DOOR, UNTIL TWELVE.",
+        "Old Grin repeats 'Last for the door' while pointing from a preserved sweet to a lit threshold."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-collected-early",
+      "revelation": "The final sweets were collected early on Corin Bale's order, breaking the offering route.",
+      "required": true,
+      "sources": [
+        "A signed festival collection sheet in the feast wagon orders all untouched sweets gathered at ten o'clock.",
+        "Sugar baskets stacked in the festival pantry still carry house-number tags from Lantern Lane.",
+        "Corin admits the order when shown the old timing or his signed sheet."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-old-grin-protects",
+      "revelation": "Old Grin protected the missing children rather than abducting them.",
+      "required": true,
+      "sources": [
+        "Mina's chalk arrow outside the playhouse reads PUMPKIN MAN SAVED US with three child handprints.",
+        "The playhouse threshold has pale claw marks outside and Old Grin's boot scuffs facing outward, showing it held the door from inside.",
+        "Mina and the younger children describe Old Grin blocking the pale masks and leading them to shelter."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-last-guest",
+      "revelation": "The Last Guest is following the broken offering route and can cross thresholds whose lantern offering is gone.",
+      "required": true,
+      "sources": [
+        "Lantern Lane soot trails connect each emptied bowl to a moving pattern of pale paper masks.",
+        "The founder ledger warns that THE UNINVITED FOLLOW THE EMPTY LAST PLACE.",
+        "At the playhouse, pale masks gather only beyond the lit threshold and recoil when a preserved sweet is placed beneath it."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-resolutions",
+      "revelation": "At midnight the town can restore the offering, complete remembrance by naming the forgotten dead, or destroy the Last Guest's mask-heart.",
+      "required": true,
+      "sources": [
+        "The founder ledger lists SWEET FOR HUNGER, NAME FOR MEMORY, FIRE FOR WHAT WILL NOT REST.",
+        "The playhouse memorial wall preserves six forgotten family names beside a burned mask-heart diagram.",
+        "Old Grin demonstrates that a named memorial ribbon and a doorstep sweet each weaken the pale masks."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-square",
+      "title": "Masks in the Rain",
+      "purpose": "Launch the missing-child rescue, establish the midnight clock, and make the changed festival procedure visible.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "The parade breaks",
+      "readAloud": "Rain freckles hundreds of painted masks as Gloamwick's lantern parade squeezes through the square. Music stops one instrument at a time. A woman in a fox mask climbs onto a cider barrel and shouts three names into the crowd. No children answer. At the same moment, a wagon rattles past loaded with baskets of untouched sweets gathered from the doorsteps, and the first quarter-mark on the midnight bell is painted black.",
+      "gmNotes": [
+        "Show the four-part MIDNIGHT BELL clock. Fill the first mark when this scene ends.",
+        "Nessa gives the children's names and last-known route freely; no check is required to start the adventure.",
+        "DC 12 Wisdom (Insight) on Nessa: success reveals she is worried about the early sweet collection because it is the only major change this year; failure gives no false conclusion and the parade roster still points to Lantern Lane.",
+        "The signed collection sheet is clipped to the departing wagon. A character can simply read it if they stop the wagon.",
+        "Do not decide that Old Grin is guilty. Witnesses only saw a pumpkin-headed figure moving with the children."
+      ],
+      "runSteps": [
+        {
+          "title": "Name the missing children",
+          "text": "Give Mina Rook, Pell Dane, and Orsa Bell immediately so the rescue feels specific."
+        },
+        {
+          "title": "Put midnight on the table",
+          "text": "Show four clock marks and explain that the final bell is about three hours away."
+        },
+        {
+          "title": "Show what changed",
+          "text": "Let the sweet wagon pass visibly; the party can inspect the signed collection order now or later."
+        }
+      ],
+      "advanceWhen": "The party heads to Lantern Lane or follows the children's marked parade route.",
+      "npcIds": [
+        "npc-nessa-vale",
+        "npc-corin-bale"
+      ],
+      "clueIds": [
+        "clue-last-treat",
+        "clue-collected-early"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-lantern-lane"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-lantern-lane",
+          "label": "Follow the parade route",
+          "description": "Search the doorsteps where the children were last seen."
+        }
+      ]
+    },
+    {
+      "id": "scene-lantern-lane",
+      "title": "The Empty Last Place",
+      "purpose": "Turn the missing-sweets detail into physical evidence and provide the first active supernatural threat.",
+      "locationId": "loc-lantern-lane",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Follow the route",
+      "readAloud": "Lantern Lane should smell like sugar and candle smoke. Instead it smells like wet paper. Every doorstep bowl is empty except for a clean round mark where one sweet rested beneath each lantern. Pale festival masks slide along the gutter against the direction of the rain. At the far end of the street, three sets of children's footprints turn toward the boarded Marrowplay Playhouse while something made of paper faces gathers behind them.",
+      "gmNotes": [
+        "Fill MIDNIGHT BELL 2/4 when the party leaves this scene.",
+        "Three Masklings rise from the gutter. They want sweets and lit thresholds, not bodies.",
+        "A character can toss one handful of festival sweets as an Action; one Maskling spends its next turn consuming them instead of attacking.",
+        "DC 12 Intelligence (Investigation) reveals each bowl held exactly one final sweet after the children's normal treats were taken; on failure, the clean circles remain obvious physical evidence and the sweetshop ledger can explain the pattern.",
+        "The children's tracks and Mina's chalk arrow both point to the playhouse. The soot trail from emptied bowls bends first toward Tallow & Sugar, giving the party a reason to inspect the archive."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the clean circles",
+          "text": "Make the missing final sweet a repeated physical pattern, not a hidden clue."
+        },
+        {
+          "title": "Run or bypass Masklings",
+          "text": "Fight them, distract them with sweets, or move through lit doorways where they hesitate."
+        },
+        {
+          "title": "Offer two leads that converge",
+          "text": "Tracks lead to the playhouse; soot and old festival markings point to Tallow & Sugar for the reason why."
+        }
+      ],
+      "advanceWhen": "The party has the children's playhouse trail and either understands the missing-last-sweet pattern or chooses to investigate the old sweetshop for context.",
+      "npcIds": [],
+      "clueIds": [
+        "clue-last-treat",
+        "clue-collected-early",
+        "clue-last-guest",
+        "clue-old-grin-protects"
+      ],
+      "encounterIds": [
+        "enc-masklings"
+      ],
+      "exits": [
+        "scene-sweetshop"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-sweetshop",
+          "label": "Check the old festival archive",
+          "description": "Follow the soot-marked route to Tallow & Sugar before entering the playhouse."
+        }
+      ]
+    },
+    {
+      "id": "scene-sweetshop",
+      "title": "Last for the Door",
+      "purpose": "Explain the original Halloween custom through a physical puzzle and expose why the early collection mattered.",
+      "locationId": "loc-sweetshop",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Recover the rule",
+      "readAloud": "The old confectionery is dark except for four display lanterns glowing behind dusty glass. Torn ledger strips lie across a copper worktable beside four labeled jars: CHILD, NEIGHBOR, ROAD, and DOOR. A locked pantry chest bears the same bell symbol painted on tonight's festival clock. Someone has spilled fresh sugar across the floor, and tiny footprints lead from the archive shelf toward the playhouse alley.",
+      "gmNotes": [
+        "Puzzle solution: arrange the four ledger strips as CHILD TAKES FIRST / NEIGHBOR SHARES NEXT / ROAD GETS ONE FOR THE LOST / DOOR KEEPS LAST UNTIL TWELVE.",
+        "DC 12 Intelligence (Investigation or History) gives the correct order immediately. Failure does not consume the puzzle; sugar stains on the strip edges reveal the sequence after one wrong arrangement.",
+        "Opening the pantry chest without first placing a sweet in the DOOR jar triggers the Taffy Snare hazard. The chest still opens after the hazard resolves.",
+        "Inside: founder ledger, six memorial ribbons with forgotten family names, a preserved ceremonial sweet, and Corin's duplicate pantry inventory showing this year's collected baskets.",
+        "The ledger provides all three finale routes and confirms the Last Guest follows the empty offering route."
+      ],
+      "runSteps": [
+        {
+          "title": "Let the table solve the custom",
+          "text": "Use the four strips and jars; do not hide the core solution behind a roll."
+        },
+        {
+          "title": "Fail forward after one wrong order",
+          "text": "Reveal the sugar-stain sequence so the scene becomes understanding, not repeated guessing."
+        },
+        {
+          "title": "Put finale options in writing",
+          "text": "The founder ledger explicitly names sweet, name, and fire as three different answers."
+        }
+      ],
+      "advanceWhen": "The founder ledger is recovered or the party deliberately leaves with enough evidence to know the playhouse is the children's destination.",
+      "npcIds": [
+        "npc-corin-bale"
+      ],
+      "clueIds": [
+        "clue-last-treat",
+        "clue-collected-early",
+        "clue-last-guest",
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-playhouse"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-playhouse",
+          "label": "Go to Marrowplay",
+          "description": "Follow the children's tracks and test whether the pumpkin-headed figure is captor or protector."
+        }
+      ]
+    },
+    {
+      "id": "scene-playhouse",
+      "title": "Children Inside, Guest Outside",
+      "purpose": "Recover the children, reverse the apparent villain, and let the party choose whether to trust Old Grin before the finale.",
+      "locationId": "loc-playhouse",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Find the children",
+      "readAloud": "Three knocks answer from behind the playhouse door. A small voice says, “Do not hit him.” The door opens one handspan. Amber light spills across pale claw marks carved into the outside boards. Beyond the gap stands a tall figure with a glowing carved head, both arms spread in front of three children. Behind you, paper masks whisper along the alley but stop where the doorstep lantern reaches.",
+      "gmNotes": [
+        "Fill MIDNIGHT BELL 4/4 when this scene resolves; the finale begins immediately afterward.",
+        "Old Grin does not attack first. Mina immediately says he protected them.",
+        "DC 12 Wisdom (Insight or Animal Handling) is optional: success shows Old Grin's posture is defensive toward the alley, not possessive toward the children; failure changes nothing because Mina, the claw marks, and threshold behavior independently show the truth.",
+        "If attacked, Old Grin shoves and restrains to protect the children. At 10 HP or less it withdraws behind the stage door and drops the founder ribbon bundle; required clues remain.",
+        "Placing the preserved sweet under the threshold causes the pale masks outside to retreat 10 feet. Speaking one memorial name causes the same reaction. Demonstrate both finale mechanics before the party leaves."
+      ],
+      "runSteps": [
+        {
+          "title": "Let Mina speak first",
+          "text": "The first line from the children should contradict the assumed kidnapping immediately."
+        },
+        {
+          "title": "Show physical proof",
+          "text": "Point out that the attack marks are outside and Old Grin's scuffs face outward."
+        },
+        {
+          "title": "Demonstrate two answers",
+          "text": "A doorstep sweet and a memorial name each repel the pale masks so the finale is not a blind mechanic."
+        }
+      ],
+      "advanceWhen": "The children are secured and the party commits to bringing the truth back to the square for midnight.",
+      "npcIds": [
+        "npc-mina-rook",
+        "npc-old-grin"
+      ],
+      "clueIds": [
+        "clue-old-grin-protects",
+        "clue-last-guest",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-old-grin"
+      ],
+      "exits": [
+        "scene-final"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-final",
+          "label": "Return before the last bell",
+          "description": "Bring the children and the recovered custom back to the square."
+        }
+      ]
+    },
+    {
+      "id": "scene-final",
+      "title": "The Last Guest at Midnight",
+      "purpose": "Run a Halloween-specific finale with three complete victory routes and visible consequences.",
+      "locationId": "loc-bell-gate",
+      "pacingClass": "core",
+      "estimatedMinutes": 55,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Midnight",
+      "readAloud": "The first midnight stroke rolls across Gloamwick as you reach the cemetery wall. Every festival lantern gutters at once. Pale masks lift from gutters, roofs, and abandoned costumes, turning toward the square until they form a single tall shape with an empty black face. Three lantern posts stand between it and the crowd. Beneath the bell, Old Grin raises one preserved sweet in one hand and a ribbon covered in forgotten names in the other.",
+      "gmNotes": [
+        "Start the Last Guest at 66 HP. If the party reached this scene after all four clock marks, it also begins with 12 temporary HP from the completed breach.",
+        "At initiative count 20 each round, Empty Threshold: one unlit lantern post goes dark or, if all are lit, the Last Guest pulls one unattended offering 10 feet toward itself.",
+        "OFFERING ROUTE: three lantern posts. A character adjacent to a post can use an Action to place sweets and light it; no check if the party recovered festival sweets. If improvising food, DC 12 Wisdom (Survival) or Charisma (Performance) makes the offering meaningful. Three lit offered posts end hostilities and the Last Guest dissolves into harmless masked figures.",
+        "REMEMBRANCE ROUTE: earn 3 successes before 2 failures using an Action and DC 13 Intelligence (History or Religion), Wisdom (Insight), or Charisma (Performance or Persuasion) while speaking a specific forgotten name or story from the memorial ribbons. Each failure causes 1d6 psychic damage to the acting character and adds one failure. At 2 failures, this route closes for the scene but Offering and Destruction remain legal.",
+        "DESTRUCTION ROUTE: the mask-heart is AC 13, 24 HP and can be targeted once the Last Guest is below half HP or after one lantern post is lit. Destroying the heart drops the Last Guest to 0 HP immediately, but Old Grin also fades and Gloamwick loses the old protection.",
+        "Direct combat to 0 HP is also legal and has the same consequence as destroying the mask-heart.",
+        "The Last Guest never targets the rescued children while another conscious creature is between them and it; its goal is the broken offering route, not child murder."
+      ],
+      "runSteps": [
+        {
+          "title": "Put three jobs on the table",
+          "text": "Tell players they can light offerings, complete remembrance, or fight the mask-heart."
+        },
+        {
+          "title": "Run Empty Threshold",
+          "text": "At initiative 20, visibly pressure the lantern posts rather than adding hidden damage."
+        },
+        {
+          "title": "End when a route completes",
+          "text": "Three offerings, three remembrance successes, or destruction resolves the crisis immediately."
+        }
+      ],
+      "advanceWhen": "The Last Guest is appeased, remembered, or destroyed.",
+      "npcIds": [
+        "npc-nessa-vale",
+        "npc-corin-bale",
+        "npc-mina-rook",
+        "npc-old-grin"
+      ],
+      "clueIds": [
+        "clue-last-treat",
+        "clue-collected-early",
+        "clue-last-guest",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-last-guest"
+      ],
+      "exits": [
+        "scene-resolution-offering",
+        "scene-resolution-names",
+        "scene-resolution-fire"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-offering",
+          "label": "The last treats remain",
+          "description": "Three offered lantern posts end the hunger."
+        },
+        {
+          "target": "scene-resolution-names",
+          "label": "The forgotten are named",
+          "description": "Three remembrance successes replace payment with memory."
+        },
+        {
+          "target": "scene-resolution-fire",
+          "label": "The mask-heart is destroyed",
+          "description": "The threat ends by force, along with Old Grin and the old ward."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-offering",
+      "title": "Resolution: One Left for the Door",
+      "purpose": "Reward restoring the old custom while making the town understand why it exists.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 6,
+      "flowTotal": 6,
+      "flowLabel": "Resolution",
+      "readAloud": "The final bell fades. Across Gloamwick, one sweet appears again beneath every relit doorstep lantern. The pale masks collapse into ordinary paper. Children begin laughing before the adults do. Old Grin tips its glowing head toward the first offered door, then resumes the parade route as if it has been walking it for a hundred years.",
+      "gmNotes": [
+        "Gloamwick keeps the last-treat custom and adds the founder explanation to next year's festival.",
+        "Award 100 gp total and four Festival Favor tokens; each token can be redeemed in town for a mundane service worth up to 10 gp.",
+        "Corin publicly accepts responsibility and organizes the rewritten festival instructions."
+      ],
+      "runSteps": [
+        {
+          "title": "State the changed tradition",
+          "text": "Next year's last treat is explained, not merely repeated."
+        },
+        {
+          "title": "Pay the party",
+          "text": "Award 100 gp and Festival Favor tokens."
+        }
+      ],
+      "advanceWhen": "Rewards are recorded and the party decides whether to join the resumed parade.",
+      "npcIds": [
+        "npc-nessa-vale",
+        "npc-corin-bale",
+        "npc-mina-rook",
+        "npc-old-grin"
+      ],
+      "clueIds": [
+        "clue-last-treat"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-names",
+      "title": "Resolution: No One Uninvited",
+      "purpose": "Reward replacing appeasement with active remembrance.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 6,
+      "flowTotal": 6,
+      "flowLabel": "Resolution",
+      "readAloud": "The last name is spoken before the bell's echo dies. The tall shape breaks into dozens of small paper masks, each turning briefly toward someone in the crowd before drifting down like dry leaves. Old Grin removes one faded ribbon from its wrist and ties it to the cemetery gate. By dawn, people are already copying names from the old ledger.",
+      "gmNotes": [
+        "Gloamwick changes Night of Masks: every household still gives sweets, but the final ritual is reading names at the cemetery gate.",
+        "Award 125 gp total and the Lantern Ribbon, a story charm that grants advantage on one future Charisma check made to calm a frightened crowd in Gloamwick.",
+        "Old Grin remains as a guardian but no longer needs a food offering to hold the Last Guest."
+      ],
+      "runSteps": [
+        {
+          "title": "Make remembrance the new custom",
+          "text": "The town chooses names over an unexplained payment."
+        },
+        {
+          "title": "Pay the deeper solution",
+          "text": "Award 125 gp and the Lantern Ribbon."
+        }
+      ],
+      "advanceWhen": "The new remembrance custom and rewards are recorded.",
+      "npcIds": [
+        "npc-nessa-vale",
+        "npc-corin-bale",
+        "npc-mina-rook",
+        "npc-old-grin"
+      ],
+      "clueIds": [
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-fire",
+      "title": "Resolution: The Masks Burn Clean",
+      "purpose": "Respect the force solution while preserving its cultural cost.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 6,
+      "flowTotal": 6,
+      "flowLabel": "Resolution",
+      "readAloud": "The mask-heart splits with a sound like a hundred paper faces tearing at once. Orange sparks rush upward and vanish before they reach the roofs. Old Grin's lantern dims with them. By the time the square falls quiet, only its empty parade coat remains beside the cemetery wall. The children are safe. The old rule is gone.",
+      "gmNotes": [
+        "Award 100 gp total.",
+        "Gloamwick ends the supernatural last-treat ward and must decide next year whether to rebuild a purely symbolic festival or create a new protection.",
+        "Corin funds permanent lanterns at the cemetery gate in Old Grin's memory."
+      ],
+      "runSteps": [
+        {
+          "title": "Do not punish victory",
+          "text": "The children and town are safe; make the cost cultural and future-facing rather than a gotcha."
+        },
+        {
+          "title": "Leave a new question",
+          "text": "The next Night of Masks will need a new tradition or new protection."
+        }
+      ],
+      "advanceWhen": "Rewards are recorded and Old Grin's fate is acknowledged.",
+      "npcIds": [
+        "npc-nessa-vale",
+        "npc-corin-bale",
+        "npc-mina-rook"
+      ],
+      "clueIds": [
+        "clue-old-grin-protects"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-masklings",
+      "name": "Gutter Masklings",
+      "type": "combat / distraction / bypass",
+      "difficulty": "Low",
+      "summary": "Three hungry paper-mask spirits gather where the last treats were removed.",
+      "resolution": "Defeat them, distract them with sweets, or move between lit thresholds until the party reaches the archive route.",
+      "talkOut": "They cannot converse, but offering a handful of sweets consumes a Maskling's next turn and can end the encounter if all three are fed.",
+      "bypass": "Stay within the pools of three lit door lanterns and move at half speed; the Masklings will not cross those thresholds.",
+      "objective": "Reach the end of Lantern Lane while learning how the spirits respond to sweets and lit thresholds."
+    },
+    {
+      "id": "enc-old-grin",
+      "name": "Old Grin",
+      "type": "social / defensive misunderstanding",
+      "difficulty": "Avoidable",
+      "summary": "A frightening guardian stands between armed adults and the children it protected.",
+      "resolution": "Listen to Mina, inspect the threshold evidence, present the preserved sweet, or force past Old Grin.",
+      "talkOut": "Speaking a missing child's name, showing the founder ledger, or placing a last sweet beneath the threshold causes Old Grin to step aside and point to the memorial ribbons.",
+      "bypass": "If the party refuses to engage, Mina passes the founder ribbon bundle through a side window and confirms the children are safe.",
+      "objective": "Recover the children and understand Old Grin's role without requiring trust in one NPC."
+    },
+    {
+      "id": "enc-last-guest",
+      "name": "The Last Guest",
+      "type": "finale / ritual / combat",
+      "difficulty": "High pressure",
+      "summary": "A composite spirit of forgotten masks reaches Gloamwick at midnight to consume the broken offering route.",
+      "resolution": "Complete three offerings, complete three remembrance successes, destroy the mask-heart, or reduce the Last Guest to 0 HP.",
+      "talkOut": "The Last Guest does not hold a normal conversation, but each specific forgotten name spoken during the remembrance route makes one layer of masks answer and fall away.",
+      "bypass": "There is no safe way to ignore the midnight crisis, but Offering and Remembrance can end it without combat.",
+      "objective": "Choose what Gloamwick's Halloween tradition will mean after tonight."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-last-for-door",
+      "prompt": "Four torn ledger strips and four jars labeled CHILD, NEIGHBOR, ROAD, DOOR must be arranged into the old distribution rule.",
+      "solution": "CHILD TAKES FIRST / NEIGHBOR SHARES NEXT / ROAD GETS ONE FOR THE LOST / DOOR KEEPS LAST UNTIL TWELVE.",
+      "bypass": "DC 12 Investigation or History gives the correct order immediately.",
+      "failForward": "After one wrong arrangement, old sugar stains on the strip edges line up in the correct sequence; the party can finish without another roll."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-taffy-snare",
+      "trigger": "Open the founder pantry chest before placing a sweet in the DOOR jar.",
+      "effect": "Enchanted taffy lashes around the opener: DC 12 Dexterity saving throw or Restrained. Escape DC 12 Strength or Dexterity as an Action. The chest opens either way and no clue is lost.",
+      "failForward": "The hazard demonstrates that the door offering mattered and leaves the archive accessible."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-founder-sweet",
+      "name": "Preserved Founder Sweet",
+      "effect": "Placing it beneath a lit threshold demonstrates the Offering route and makes nearby pale masks recoil."
+    },
+    {
+      "id": "item-memorial-ribbons",
+      "name": "Six Memorial Ribbons",
+      "effect": "Each bears one forgotten family name usable during the Remembrance route."
+    },
+    {
+      "id": "item-lantern-ribbon",
+      "name": "Lantern Ribbon",
+      "effect": "Story reward from the Names ending; once in Gloamwick, grants advantage on one Charisma check to calm a frightened crowd."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-lantern-lane",
+      "name": "Lantern Lane",
+      "asset": null,
+      "regions": [
+        {
+          "id": "lane-west",
+          "sceneId": "scene-lantern-lane",
+          "label": "festival-square entrance"
+        },
+        {
+          "id": "lane-thresholds",
+          "sceneId": "scene-lantern-lane",
+          "label": "three lit threshold safe zones"
+        },
+        {
+          "id": "lane-east",
+          "sceneId": "scene-lantern-lane",
+          "label": "playhouse and archive junction"
+        }
+      ]
+    },
+    {
+      "id": "map-playhouse",
+      "name": "Marrowplay Playhouse",
+      "asset": null,
+      "regions": [
+        {
+          "id": "play-stage",
+          "sceneId": "scene-playhouse",
+          "label": "dusty stage and child shelter"
+        },
+        {
+          "id": "play-threshold",
+          "sceneId": "scene-playhouse",
+          "label": "lit main threshold with outside claw marks"
+        },
+        {
+          "id": "play-side",
+          "sceneId": "scene-playhouse",
+          "label": "side window recovery route"
+        }
+      ]
+    },
+    {
+      "id": "map-bell-gate",
+      "name": "Bell Gate Finale",
+      "asset": null,
+      "regions": [
+        {
+          "id": "gate-west",
+          "sceneId": "scene-final",
+          "label": "crowd evacuation line"
+        },
+        {
+          "id": "gate-posts",
+          "sceneId": "scene-final",
+          "label": "three offering lantern posts"
+        },
+        {
+          "id": "gate-center",
+          "sceneId": "scene-final",
+          "label": "Last Guest approach"
+        },
+        {
+          "id": "gate-wall",
+          "sceneId": "scene-final",
+          "label": "old cemetery wall and memorial ribbons"
+        }
+      ]
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "Required truths move forward through physical evidence if an NPC is unavailable, hostile, or ignored.",
+      "The children remain rescuable even if Old Grin is attacked; Mina, threshold evidence, and memorial objects preserve the reversal.",
+      "Failure changes cost, position, clock, or ending choice but never removes every finale route."
+    ],
+    "routes": [
+      {
+        "id": "rec-nessa-unavailable",
+        "trigger": "Nessa is refused, missing, or otherwise unavailable before the search begins.",
+        "response": "The torn parade roster, three families shouting the children's names, and chalk route arrows send the party to Lantern Lane without her.",
+        "stateChanges": [
+          "The rescue begins without the quest giver.",
+          "clue-old-grin-protects remains discoverable later."
+        ]
+      },
+      {
+        "id": "rec-corin-unavailable",
+        "trigger": "Corin refuses to speak, leaves, or cannot explain the collection.",
+        "response": "His signed collection sheet remains on the feast wagon and duplicate pantry inventory proves the early pickup.",
+        "stateChanges": [
+          "clue-collected-early remains physical.",
+          "The offering route stays available."
+        ]
+      },
+      {
+        "id": "rec-old-grin-hostile",
+        "trigger": "The party attacks Old Grin before hearing Mina.",
+        "response": "Mina shouts the truth, the outside claw marks remain visible, and Old Grin drops the memorial ribbons if forced to retreat.",
+        "stateChanges": [
+          "clue-old-grin-protects and clue-resolutions remain available.",
+          "The children stay behind the lit stage threshold."
+        ]
+      },
+      {
+        "id": "rec-skip-sweetshop",
+        "trigger": "The party goes straight to the playhouse and skips the archive.",
+        "response": "Old Grin has one preserved sweet and the memorial ribbons; Mina's chalk notes plus the playhouse memorial wall reveal the three finale routes. The party loses the extra founder context but not the ending.",
+        "stateChanges": [
+          "The finale remains fully runnable.",
+          "Prepared parties understand the tradition earlier."
+        ]
+      },
+      {
+        "id": "rec-party-rushes-midnight",
+        "trigger": "The party reaches midnight with only partial information.",
+        "response": "The Last Guest visibly recoils from a lit offered threshold and from a spoken memorial name during round 1, demonstrating the two noncombat routes before the party commits.",
+        "stateChanges": [
+          "The finale remains solvable.",
+          "The Last Guest keeps its 12 temporary HP for the completed breach."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared investigation makes the midnight finale safer and clearer, but rushing never locks the ending; the party can still finish by offering, remembrance, or force.",
+    "prepared": [
+      "Recovering festival sweets makes Offering actions automatic at the lantern posts.",
+      "Recovering memorial ribbons provides specific names for the Remembrance route and avoids improvisation.",
+      "Understanding Old Grin prevents an unnecessary guardian fight."
+    ],
+    "rushed": [
+      "Reaching midnight without restored sweets requires DC 12 improvised-offering checks.",
+      "Skipping the archive leaves the Last Guest with 12 temporary HP from the completed breach.",
+      "Attacking Old Grin costs time and removes its help from the square, but does not remove required clues."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 210,
+    "plannedMinutes": 210,
+    "bossReserveMinutes": 55,
+    "cutOrder": [
+      "If 25+ minutes behind, reduce Lantern Lane to two Masklings and reveal the clean last-sweet circles immediately.",
+      "If 15+ minutes behind at Tallow & Sugar, allow one DC 12 check to solve the ledger puzzle immediately.",
+      "Never cut the playhouse reversal, the three finale routes, or the ending consequence."
+    ],
+    "optionalOrder": [
+      "Extended argument with Corin after the signed order is found.",
+      "Additional house-to-house interviews on Lantern Lane.",
+      "Extra historical details from the founder ledger after the three finale routes are clear."
+    ]
+  },
+  "endings": [
+    {
+      "id": "ending-offering",
+      "name": "One Left for the Door",
+      "condition": "Three lantern posts receive meaningful offerings.",
+      "result": "The Last Guest dissolves, Old Grin remains, and Gloamwick keeps the last-treat custom with its purpose restored."
+    },
+    {
+      "id": "ending-names",
+      "name": "No One Uninvited",
+      "condition": "The party completes three remembrance successes before two failures.",
+      "result": "The forgotten dead are named, the Last Guest becomes harmless memorial masks, and the town replaces unexplained appeasement with active remembrance."
+    },
+    {
+      "id": "ending-fire",
+      "name": "The Masks Burn Clean",
+      "condition": "The mask-heart or Last Guest is destroyed.",
+      "result": "The town and children are safe, but Old Grin and the supernatural ward fade; Gloamwick must build a new tradition before next Halloween."
+    }
+  ],
+  "initialState": {
+    "questStage": "missing-children",
+    "currentSceneId": "scene-square",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-nessa-vale": {
+        "status": "alive",
+        "attitude": "urgent"
+      },
+      "npc-corin-bale": {
+        "status": "alive",
+        "attitude": "defensive"
+      },
+      "npc-mina-rook": {
+        "status": "hidden",
+        "attitude": "protective"
+      },
+      "npc-old-grin": {
+        "status": "guarding",
+        "attitude": "protective"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-founder-sweet": "sweetshop-chest",
+      "item-memorial-ribbons": "sweetshop-playhouse-duplicate",
+      "item-lantern-ribbon": "unearned"
+    },
+    "eventState": {
+      "midnightMarks": 0,
+      "childrenSafe": false,
+      "oldGrinTrusted": false,
+      "lastGuestState": "approaching"
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures and ritual procedures use the complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the 2014 SRD package selected by the runner."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures and ritual procedures use the complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the 2024 SRD package selected by the runner; do not import 2014 class features."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-last-treat-of-gloamwick",
+    "version": "0.1.0",
+    "target": {
+      "level": 3,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-square-insight",
+      "check-lane-pattern",
+      "check-ledger",
+      "check-playhouse-read",
+      "check-remembrance"
+    ],
+    "checks": [
+      {
+        "id": "check-square-insight",
+        "sceneId": "scene-square",
+        "label": "Identify what changed this year",
+        "dc": 12,
+        "ability": "Wisdom (Insight)",
+        "success": "Nessa's attention keeps returning to the early sweet collection; she identifies it as the only major procedural change.",
+        "failure": "No false conclusion is given. The signed collection sheet and Lantern Lane evidence remain available."
+      },
+      {
+        "id": "check-lane-pattern",
+        "sceneId": "scene-lantern-lane",
+        "label": "Read the empty-bowl pattern",
+        "dc": 12,
+        "ability": "Intelligence (Investigation)",
+        "success": "Each bowl held exactly one final sweet after the normal treats were taken.",
+        "failure": "The clean circles remain visible and the founder ledger explains the same pattern in the next scene."
+      },
+      {
+        "id": "check-ledger",
+        "sceneId": "scene-sweetshop",
+        "label": "Reconstruct the old distribution rule",
+        "dc": 12,
+        "ability": "Intelligence (Investigation or History)",
+        "success": "Immediately assemble the four ledger strips in the correct order.",
+        "failure": "After one wrong arrangement, matching sugar stains reveal the correct sequence; the puzzle cannot dead-end."
+      },
+      {
+        "id": "check-playhouse-read",
+        "sceneId": "scene-playhouse",
+        "label": "Read Old Grin's posture",
+        "dc": 12,
+        "ability": "Wisdom (Insight or Animal Handling)",
+        "success": "Old Grin is guarding the threshold against the alley rather than guarding the children from escape.",
+        "failure": "Mina, the outside claw marks, and threshold behavior still independently establish the truth."
+      },
+      {
+        "id": "check-remembrance",
+        "sceneId": "scene-final",
+        "label": "Complete one remembrance action",
+        "dc": 13,
+        "ability": "Intelligence (History or Religion), Wisdom (Insight), or Charisma (Performance or Persuasion)",
+        "success": "One layer of masks falls away and one remembrance success is recorded.",
+        "failure": "The acting character takes 1d6 psychic damage and one remembrance failure is recorded; at two failures this route closes but Offering and Destruction remain legal."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-masklings",
+        "objective": "Cross Lantern Lane and learn how the spirits respond to sweets and lit thresholds.",
+        "start": "Three pale paper masks rise from the gutter between the party and the archive junction.",
+        "bypass": "Feed all three with sweets or move at half speed from one lit threshold safe zone to the next.",
+        "creatures": [
+          {
+            "name": "Gutter Maskling",
+            "count": 3,
+            "ac": 12,
+            "hp": 11,
+            "speed": "30 ft., climb 20 ft.",
+            "attack": "Paper Cut +4 to hit, 1d4+2 slashing plus 1 psychic.",
+            "trait": "Threshold-Shy: cannot willingly enter the 5-foot space directly beneath a lit doorstep lantern. A handful of sweets offered as an Action consumes its next turn.",
+            "tactics": "Swarm whoever carries sweets, then retreat from lit thresholds instead of pursuing recklessly."
+          }
+        ],
+        "end": "The Masklings are defeated, fed, or bypassed and the party reaches the archive/playhouse junction."
+      },
+      {
+        "id": "enc-old-grin",
+        "objective": "Recover the children and determine whether Old Grin is guardian or threat.",
+        "start": "Old Grin stands inside the lit playhouse threshold with the children behind it.",
+        "bypass": "Mina can pass the ribbons and truth through the side window if the party will not enter.",
+        "creatures": [
+          {
+            "name": "Old Grin",
+            "count": 1,
+            "ac": 14,
+            "hp": 38,
+            "speed": "30 ft.",
+            "attack": "Open-Hand Shove +4 to hit; target is pushed 10 ft. instead of taking damage.",
+            "trait": "Guardian Only: Old Grin does not make damaging attacks against creatures that are not directly threatening the children.",
+            "tactics": "Block doors, shove armed intruders away from children, and withdraw behind the stage door at 10 HP or less."
+          }
+        ],
+        "end": "The children are secured and the party has access to the memorial ribbons and finale truth."
+      },
+      {
+        "id": "enc-last-guest",
+        "objective": "Resolve the midnight crisis by Offering, Remembrance, or Destruction.",
+        "start": "The Last Guest forms at the cemetery wall as the midnight bell begins.",
+        "bypass": "Offering and Remembrance are complete noncombat victory routes.",
+        "creatures": [
+          {
+            "name": "The Last Guest",
+            "count": 1,
+            "ac": 14,
+            "hp": 66,
+            "speed": "30 ft., fly 20 ft. (hover)",
+            "attack": "Empty Face +5 to hit, 2d6+3 psychic.",
+            "trait": "Mask-Heart: once below half HP or after one lantern post is lit, AC 13, 24 HP; destroying it reduces the Last Guest to 0 HP and also ends Old Grin.",
+            "tactics": "Pressure unattended lantern posts, attack characters performing ritual actions, and avoid chasing anyone who retreats behind a lit offered threshold."
+          }
+        ],
+        "end": "Three offering posts are lit, three remembrance successes are achieved, or the Last Guest reaches 0 HP."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-taffy-snare",
+        "sceneId": "scene-sweetshop",
+        "trigger": "Open the founder pantry chest before placing a sweet in the DOOR jar.",
+        "save": "DC 12 Dexterity saving throw.",
+        "failure": "The opener is Restrained by enchanted taffy; escape DC 12 Strength or Dexterity as an Action.",
+        "success": "The character avoids the taffy and opens the chest normally.",
+        "failForward": "The chest opens either way and all required clues remain available."
+      },
+      {
+        "id": "hazard-empty-threshold",
+        "sceneId": "scene-final",
+        "trigger": "Initiative count 20 while the Last Guest remains unresolved.",
+        "save": "No save; this is visible objective pressure.",
+        "failure": "One unlit lantern post goes dark or one unattended offering is pulled 10 feet toward the Last Guest.",
+        "success": "If all three posts are lit and attended, no offering is moved.",
+        "failForward": "This pressures actions but never removes Remembrance or Destruction routes."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-offering",
+        "when": "The Offering ending resolves the Last Guest.",
+        "reward": "100 gp total and four Festival Favor tokens worth mundane Gloamwick services."
+      },
+      {
+        "id": "reward-names",
+        "when": "The Remembrance ending resolves the Last Guest.",
+        "reward": "125 gp total and the Lantern Ribbon story charm."
+      },
+      {
+        "id": "reward-fire",
+        "when": "The Last Guest or mask-heart is destroyed.",
+        "reward": "100 gp total; Old Grin fades and the town funds new cemetery lanterns."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-lantern-lane",
+        "dimensions": "90 × 35 ft. residential lane; 5-ft. grid.",
+        "features": [
+          "west festival-square entry",
+          "three lit threshold safe zones",
+          "gutter Maskling starts",
+          "east archive/playhouse junction"
+        ]
+      },
+      {
+        "sceneId": "scene-playhouse",
+        "dimensions": "60 × 50 ft. timber theater; 5-ft. grid.",
+        "features": [
+          "main lit threshold",
+          "stage and curtain cover",
+          "children shelter behind scenery",
+          "side-window recovery route"
+        ]
+      },
+      {
+        "sceneId": "scene-final",
+        "dimensions": "80 × 70 ft. square beside cemetery wall; 5-ft. grid.",
+        "features": [
+          "three lantern posts",
+          "cemetery wall",
+          "crowd evacuation line",
+          "Last Guest entry",
+          "bell tower"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One Halloween rescue-and-investigation spine that reveals a false monster, then branches only at the midnight resolution.",
+    "mainSpine": [
+      "scene-square",
+      "scene-lantern-lane",
+      "scene-sweetshop",
+      "scene-playhouse",
+      "scene-final"
+    ],
+    "allowedBranchScenes": [
+      "scene-final"
+    ],
+    "terminalScenes": [
+      "scene-resolution-offering",
+      "scene-resolution-names",
+      "scene-resolution-fire"
+    ],
+    "stageCount": 6
+  },
+  "cards": []
+}
