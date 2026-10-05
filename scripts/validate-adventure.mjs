@@ -60,7 +60,7 @@ for (const clue of adventure.clues || []) {
   }
   if (clue.required) {
     const blob = (clue.sources || []).join(" ").toLowerCase();
-    const physical = /note|journal|track|inscription|record|ward|mist|evidence|chamber|crypt|chapel|mechanism|ritual|residue|object|bell/.test(blob);
+    const physical = /note|journal|ledger|sheet|track|footprint|mark|soot|inscription|record|diagram|wall|basket|ward|mist|evidence|chamber|crypt|chapel|mechanism|ritual|residue|object|bell/.test(blob);
     if (!physical) errors.push(`required clue ${clue.id} needs at least one physical backup (notes, tracks, inscriptions) so it does not hinge on one NPC`);
   }
 }
