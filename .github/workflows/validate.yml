@@ -64,6 +64,7 @@ jobs:
           node scripts/validate-adventure.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
           node scripts/validate-adventure.mjs data/adventures/the-last-treat-of-gloamwick.oneshot.json
           node scripts/validate-adventure.mjs data/adventures/the-empty-chair-of-harvesthome.oneshot.json
+          node scripts/validate-adventure.mjs data/adventures/the-gift-that-never-arrived.oneshot.json
       - name: Certify zero-prep stage cards
         run: |
           node scripts/validate-stage-cards.mjs data/adventures/the-lantern-below.oneshot.json
@@ -76,6 +77,7 @@ jobs:
           node scripts/validate-stage-cards.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
           node scripts/validate-stage-cards.mjs data/adventures/the-last-treat-of-gloamwick.oneshot.json
           node scripts/validate-stage-cards.mjs data/adventures/the-empty-chair-of-harvesthome.oneshot.json
+          node scripts/validate-stage-cards.mjs data/adventures/the-gift-that-never-arrived.oneshot.json
       - name: Audit Lantern GM table readiness
         run: node scripts/validate-table-readiness.mjs data/adventures/the-lantern-below.oneshot.json
       - name: Audit Lantern clue delivery
@@ -134,7 +136,8 @@ jobs:
             data/adventures/the-ashen-bridge.oneshot.json \
             data/adventures/the-bell-beneath-the-mere.oneshot.json \
             data/adventures/the-last-treat-of-gloamwick.oneshot.json \
-            data/adventures/the-empty-chair-of-harvesthome.oneshot.json; do
+            data/adventures/the-empty-chair-of-harvesthome.oneshot.json \
+            data/adventures/the-gift-that-never-arrived.oneshot.json; do
             node scripts/validate-narrative-integrity.mjs "$adventure"
           done
       - name: Audit Gloamwick table readiness
@@ -151,6 +154,12 @@ jobs:
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-empty-chair-of-harvesthome.oneshot.json
       - name: Audit Harvesthome spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-empty-chair-of-harvesthome.oneshot.json
+      - name: Audit winter holiday table readiness
+        run: node scripts/validate-table-readiness.mjs data/adventures/the-gift-that-never-arrived.oneshot.json
+      - name: Audit winter holiday clue delivery
+        run: node scripts/validate-clue-delivery.mjs data/adventures/the-gift-that-never-arrived.oneshot.json
+      - name: Audit winter holiday presentation
+        run: node scripts/validate-presentation.mjs data/adventures/the-gift-that-never-arrived.oneshot.json
       - name: Validate adventure registry
         run: node scripts/validate-adventure-registry.mjs
       - name: Validate catalog zero-prep baseline
