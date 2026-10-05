@@ -1041,17 +1041,25 @@
       },
       {
         "id": "rec-rush-final",
-        "trigger": "The party reaches the observatory without all resolution clues.",
+        "trigger": "The party skips or rushes earlier investigation and reaches the final scene without all resolution clues.",
         "response": "Controls are visibly labeled RESTORE / REVIEW / DISCONNECT and the Ninth Echo names Ground, Reform, Sever before initiative.",
         "stateChanges": [
           "All final routes remain visible.",
           "Prepared investigation still grants advantages and automatic stations."
         ]
+      },
+      {
+        "id": "rec-early-attack-the-graduation-that-open",
+        "trigger": "The party attacks the Ninth Echo before understanding the substituted capstone.",
+        "response": "The Echo defends the observatory, but beacon records, version history, Mira's grounding model, and emergency controls still preserve Restore, Reform, and Disconnect.",
+        "stateChanges": [
+          "Required evidence and finale access remain available."
+        ]
       }
     ]
   },
   "pathPressure": {
-    "principle": "Level 9 utility magic can accelerate rescue and access, but evidence, grounding logic, and institutional end-state choices still matter.",
+    "principle": "Level 9 utility magic can accelerate rescue and access, but evidence, grounding logic, and institutional end-state choices still matter. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
     "prepared": [
       "A tested grounding model grants one prepared Restore success.",
       "Rescuing all three lab jobs prevents extra Echo Fragments.",
