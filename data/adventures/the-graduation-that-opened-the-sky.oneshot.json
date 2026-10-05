@@ -927,7 +927,7 @@
     {
       "id": "map-capstone-hall",
       "name": "Ninefold Capstone Hall",
-      "asset": null,
+      "asset": "assets/maps/special/ninefold-capstone-hall-grid.svg",
       "regions": [
         {
           "id": "hall-eight",
@@ -949,7 +949,7 @@
     {
       "id": "map-projection-labs",
       "name": "Ninefold Projection Labs",
-      "asset": null,
+      "asset": "assets/maps/special/ninefold-projection-labs-grid.svg",
       "regions": [
         {
           "id": "labs-students",
@@ -971,7 +971,7 @@
     {
       "id": "map-observatory",
       "name": "Ninefold Sky Observatory",
-      "asset": null,
+      "asset": "assets/maps/special/ninefold-observatory-grid.svg",
       "regions": [
         {
           "id": "obs-pylons",
