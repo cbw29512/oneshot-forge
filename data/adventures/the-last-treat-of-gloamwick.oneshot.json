@@ -23,7 +23,8 @@
     "pitch": "During Gloamwick's masked lantern parade, three children vanish and every doorstep's final sweet disappears before midnight. The pumpkin-headed figure seen leading the children away may be the only thing keeping them alive.",
     "openingLocation": "Gloamwick festival square",
     "gmSummary": "Gloamwick's Night of Masks is protected by an old custom: every household leaves one final sweet beneath a lit doorstep lantern until midnight. The sweets are not payment to one monster; they are a communal offering to the town's forgotten dead. Festival steward Corin Bale ordered volunteers to collect the untouched sweets early so they could be repurposed for the closing feast. That broke the custom. A hungry spirit called the Last Guest formed from neglected mourning masks and began following the children's lantern parade. Old Grin, the pumpkin-headed Doorstep Keeper created by the original custom, led three children into the abandoned Marrowplay Playhouse to protect them. Witnesses saw only a frightening figure taking children and assumed Old Grin was the threat. The party can learn the truth through people, physical evidence, an old festival ledger, the playhouse, and the spirit's behavior. At midnight the Last Guest reaches the square. The party may restore the doorstep offering, remember the forgotten dead by name, or destroy the Last Guest by force. Each ending changes what Gloamwick celebrates next year.",
-    "background": "A century ago, plague and winter left several Gloamwick families without descendants to tend their graves. Survivors created the Night of Masks so every household would remember not only its own dead but anyone left without a door to return to. Children received sweets from each house, but the final sweet stayed beneath the lantern for the Uninvited until midnight. Over generations the ritual became a cheerful custom whose purpose was mostly forgotten. Old Grin, a harmless guardian spirit shaped by carved lanterns, masks, and generations of children, continued walking the route each year. This year Corin Bale modernized the festival and ordered volunteers to collect untouched sweets at ten o'clock. The Last Guest woke hungry."
+    "background": "A century ago, plague and winter left several Gloamwick families without descendants to tend their graves. Survivors created the Night of Masks so every household would remember not only its own dead but anyone left without a door to return to. Children received sweets from each house, but the final sweet stayed beneath the lantern for the Uninvited until midnight. Over generations the ritual became a cheerful custom whose purpose was mostly forgotten. Old Grin, a harmless guardian spirit shaped by carved lanterns, masks, and generations of children, continued walking the route each year. This year Corin Bale modernized the festival and ordered volunteers to collect untouched sweets at ten o'clock. The Last Guest woke hungry.",
+    "campaignFrame": "Mayor Cald Wren sends the party from Hearthford to nearby Gloamwick after the harvest-road messenger arrives. When the night ends, they return to Hearthford and Wren remembers how they handled the town's fear."
   },
   "quest": {
     "type": "rescue / investigate / Halloween ritual",
@@ -77,6 +78,56 @@
     ]
   },
   "npcs": [
+    {
+      "id": "npc-cald-wren",
+      "name": "Mayor Cald Wren",
+      "role": "Hearthford mayor and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Short sentences. Counts coin in his head while he talks."
+      ],
+      "wants": [
+        "Trade, quiet, no panic.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Mayor Cald Wren, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“This matters back in Hearthford too.”",
+        "“Finish the job. Then we go home.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
     {
       "id": "npc-nessa-vale",
       "name": "Nessa Vale",
@@ -457,6 +508,7 @@
       ],
       "advanceWhen": "The party heads to Lantern Lane or follows the children's marked parade route.",
       "npcIds": [
+        "npc-cald-wren",
         "npc-nessa-vale",
         "npc-corin-bale"
       ],
@@ -676,6 +728,7 @@
       ],
       "advanceWhen": "The Last Guest is appeased, remembered, or destroyed.",
       "npcIds": [
+        "npc-cald-wren",
         "npc-nessa-vale",
         "npc-corin-bale",
         "npc-mina-rook",
@@ -741,6 +794,7 @@
       ],
       "advanceWhen": "Rewards are recorded and the party decides whether to join the resumed parade.",
       "npcIds": [
+        "npc-cald-wren",
         "npc-nessa-vale",
         "npc-corin-bale",
         "npc-mina-rook",
@@ -780,6 +834,7 @@
       ],
       "advanceWhen": "The new remembrance custom and rewards are recorded.",
       "npcIds": [
+        "npc-cald-wren",
         "npc-nessa-vale",
         "npc-corin-bale",
         "npc-mina-rook",
@@ -819,6 +874,7 @@
       ],
       "advanceWhen": "Rewards are recorded and Old Grin's fate is acknowledged.",
       "npcIds": [
+        "npc-cald-wren",
         "npc-nessa-vale",
         "npc-corin-bale",
         "npc-mina-rook"
@@ -1095,6 +1151,10 @@
       "npc-old-grin": {
         "status": "guarding",
         "attitude": "protective"
+      },
+      "npc-cald-wren": {
+        "status": "alive",
+        "attitude": "familiar"
       }
     },
     "locationState": {},
@@ -1338,5 +1398,15 @@
     ],
     "stageCount": 6
   },
-  "cards": []
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-cald-wren"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Mayor Cald Wren's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
 }
