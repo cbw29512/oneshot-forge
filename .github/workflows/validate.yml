@@ -140,6 +140,8 @@ jobs:
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-last-treat-of-gloamwick.oneshot.json
       - name: Audit Gloamwick spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-last-treat-of-gloamwick.oneshot.json
+      - name: Validate one-shot level coverage
+        run: node scripts/validate-level-coverage.mjs
       - name: Validate adventure registry
         run: node scripts/validate-adventure-registry.mjs
       - name: Validate catalog zero-prep baseline
