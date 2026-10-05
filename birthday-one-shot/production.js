@@ -39,7 +39,7 @@ ADVENTURE.rooms = [
     "Glowing ribbon stitches itself into a bridge leading to the Balloon Gallery."),
   room("balloon-gallery","Room 4: The Balloon Gallery","20 minutes","Joy",
     "Balloons fill the chamber from floor to ceiling. Each translucent sphere shows a moving memory: shared meals, ridiculous jokes, hard-won victories, and quiet kindnesses. Three black balloons drift among them, their strings ending in sparking fuses.",
-    ["Three true Birthday Hero memories bear a tiny gold dragon emblem.","A Balloon Swarm hides near the ceiling and attacks only if two wrong balloons are popped.","Tilly can appear here and warn: ‘Memories are carried, not collected.’"],
+    ["Three true Birthday Hero memories bear a tiny gold dragon emblem.","A Balloon Swarm hides near the ceiling and attacks after two wrong balloons are popped.","Tilly can appear here and warn: ‘Memories are carried, not collected.’"],
     ["DC 12 Perception: black balloons cast shadows in the wrong direction.","DC 13 Investigation: the dragon-emblem balloons react to the Birthday Hero's voice.","DC 12 Performance or Persuasion: telling a joyful Birthday Hero story lowers one correct balloon."],
     "Balloon Lift: touching a silver string triggers DC 13 Dexterity. Failure: lifted 20 feet and restrained. Each destroyed balloon lowers the target 5 feet; falling deals normal damage.",
     "Lower all three dragon balloons without popping them. A true memory is ideal, but an invented in-character memory is valid if it celebrates the Birthday Hero's courage, kindness, or humor.",
