@@ -23,7 +23,8 @@
     "pitch": "Founding Day is supposed to end with seven signal rockets fired from the old fort. Someone has rewired the launch racks, and the final rocket now points at the packed harbor instead of the sky.",
     "openingLocation": "Brightwater parade square",
     "gmSummary": "Brightwater's Founding Day commemorates the night seven warning rockets saved the town from a coastal raid. Modern celebrations reenact the signals with harmless festival fireworks launched from the old cliff fort. This year councilor Darric Vale ordered the signal sequence modernized into a synchronized harbor spectacle. Contractor Sera Flint quietly reused deteriorated military launch tubes to cut costs, while activist dockworker Bren Oss sabotaged one rack intending only to force cancellation and draw attention to unsafe working conditions. Their separate choices interact catastrophically: the seventh rocket's guidance cradle now points toward the harbor fuel barges, and several earlier rockets can ignite old powder stores beneath the fort. The party must uncover both failures, evacuate or secure the harbor, repair or redesign the launch sequence, and decide whether Founding Day ends with a safe traditional signal, a new public-safety demonstration, or the permanent retirement of the explosive ritual.",
-    "background": "Brightwater's original seven rockets were emergency signals: one for sighting, one for evacuation, one for militia muster, one for harbor chain, one for fire crews, one for shelter, and one for all-clear. The modern festival reduced them to spectacle. Dockworkers have repeatedly complained that the fort powder tunnels and launch racks are unsafe. Bren sabotaged one guidance brace to force an inspection, not realizing Sera had connected the final rack to a larger demonstration charge. Darric suppressed the latest engineering report because canceling the fireworks would embarrass the council."
+    "background": "Brightwater's original seven rockets were emergency signals: one for sighting, one for evacuation, one for militia muster, one for harbor chain, one for fire crews, one for shelter, and one for all-clear. The modern festival reduced them to spectacle. Dockworkers have repeatedly complained that the fort powder tunnels and launch racks are unsafe. Bren sabotaged one guidance brace to force an inspection, not realizing Sera had connected the final rack to a larger demonstration charge. Darric suppressed the latest engineering report because canceling the fireworks would embarrass the council.",
+    "campaignFrame": "Captain Brune Holt leads Hearthford's visiting watch detail at Brightwater's Founding Day and puts the party on the launch-yard danger when the seventh rack turns toward the harbor. The party returns to Hearthford with Brune's trust shaped by how they handled public safety and blame."
   },
   "quest": {
     "type": "investigate / public safety / timed finale",
@@ -77,6 +78,56 @@
     ]
   },
   "npcs": [
+    {
+      "id": "npc-brune-holt",
+      "name": "Captain Brune Holt",
+      "role": "Hearthford watch captain and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Does not shout. Repeats the last order."
+      ],
+      "wants": [
+        "Bring people home first; assign blame after the danger is contained.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Captain Brune Holt, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“This matters back in Hearthford too.”",
+        "“Finish the job. Then we go home.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
     {
       "id": "npc-darric-vale",
       "name": "Darric Vale",
@@ -464,6 +515,7 @@
       ],
       "advanceWhen": "The party reaches the old fort launch yard to inspect the racks and ignition system.",
       "npcIds": [
+        "npc-brune-holt",
         "npc-darric-vale",
         "npc-sera-flint"
       ],
@@ -680,6 +732,7 @@
       ],
       "advanceWhen": "The festival signal is safely fired, rewritten, or retired.",
       "npcIds": [
+        "npc-brune-holt",
         "npc-darric-vale",
         "npc-sera-flint",
         "npc-bren-oss",
@@ -743,6 +796,7 @@
       ],
       "advanceWhen": "Accountability and rewards are recorded.",
       "npcIds": [
+        "npc-brune-holt",
         "npc-darric-vale",
         "npc-sera-flint",
         "npc-bren-oss"
@@ -778,6 +832,7 @@
       ],
       "advanceWhen": "The new signal protocol and rewards are recorded.",
       "npcIds": [
+        "npc-brune-holt",
         "npc-darric-vale",
         "npc-sera-flint",
         "npc-bren-oss",
@@ -814,6 +869,7 @@
       ],
       "advanceWhen": "The new non-explosive standard and rewards are recorded.",
       "npcIds": [
+        "npc-brune-holt",
         "npc-darric-vale",
         "npc-sera-flint",
         "npc-bren-oss"
@@ -1086,6 +1142,10 @@
       "npc-signal-keeper": {
         "status": "dormant",
         "attitude": "procedural"
+      },
+      "npc-brune-holt": {
+        "status": "alive",
+        "attitude": "familiar"
       }
     },
     "locationState": {},
@@ -1317,5 +1377,15 @@
     ],
     "stageCount": 6
   },
-  "cards": []
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-brune-holt"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Captain Brune Holt's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
 }
