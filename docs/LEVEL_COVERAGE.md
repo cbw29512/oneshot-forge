@@ -18,10 +18,10 @@ New authored one-shots should deliberately cover every character level from 1 th
 | ---: | --- | --- |
 | 1 | The Last Treat of Gloamwick | Review preview |
 | 2 | The Empty Chair of Harvesthome | Review preview |
-| 3 | — | Unassigned |
-| 4 | — | Unassigned |
-| 5 | — | Unassigned |
-| 6 | — | Unassigned |
+| 3 | The Gift That Never Arrived | Review preview |
+| 4 | The Year That Wouldn't End | Review preview |
+| 5 | The Heartloom of Rosebridge | Review preview |
+| 6 | The First Egg of Greenhollow | Review preview |
 | 7 | — | Unassigned |
 | 8 | — | Unassigned |
 | 9 | — | Unassigned |
@@ -37,4 +37,4 @@ New authored one-shots should deliberately cover every character level from 1 th
 | 19 | — | Unassigned |
 | 20 | — | Unassigned |
 
-The next new adventure should target Level 3.
+The next new adventure should target Level 7.
