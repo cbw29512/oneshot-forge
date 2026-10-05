@@ -19,6 +19,9 @@ if (!index.includes("og:image")) errors.push("homepage missing Open Graph image"
 if (!index.includes('src="catalog.js')) errors.push("homepage must hydrate from product contract");
 if (!index.includes("99¢ One-Shots")) errors.push("homepage must use 99¢ One-Shots customer-facing brand");
 if (!index.includes("Start free. Then pick a 99¢ night.")) errors.push("homepage must state the free-starter/99¢ offer");
+if (!index.includes("SPECIAL PLAYTEST BOXED SET")) errors.push("homepage must distinguish Hearthcross from the one-shot catalog");
+if (!index.includes("7 SESSIONS")) errors.push("homepage must disclose Hearthcross campaign length");
+if (!index.includes("Not for sale")) errors.push("homepage must keep Hearthcross commercial state explicit");
 
 const productsText = read("data/products.json");
 try {
