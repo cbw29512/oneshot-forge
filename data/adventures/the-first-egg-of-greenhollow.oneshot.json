@@ -881,7 +881,7 @@
     {
       "id": "map-orchard",
       "name": "Greenhollow Old Orchard",
-      "asset": null,
+      "asset": "assets/maps/holiday/greenhollow-orchard-grid.svg",
       "regions": [
         {
           "id": "orchard-cellar",
@@ -903,7 +903,7 @@
     {
       "id": "map-manor",
       "name": "Morn Conservatory",
-      "asset": null,
+      "asset": "assets/maps/holiday/greenhollow-conservatory-grid.svg",
       "regions": [
         {
           "id": "manor-case",
@@ -925,7 +925,7 @@
     {
       "id": "map-dawn-field",
       "name": "Greenhollow Dawn Field",
-      "asset": null,
+      "asset": "assets/maps/holiday/greenhollow-dawn-field-grid.svg",
       "regions": [
         {
           "id": "field-furrow",
