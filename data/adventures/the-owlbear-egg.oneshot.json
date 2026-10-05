@@ -56,7 +56,7 @@
       },
       {
         "id": "fact-father-rations",
-        "text": "The father owlbear will stop the attack and leave if given the party's remaining rations."
+        "text": "The father owlbear will stop attacking the village if the party uses its remaining rations to lure him out of the square. He retreats to the ridge line, still tracking the stolen egg, rather than abandoning his offspring."
       },
       {
         "id": "fact-father-death",
@@ -491,7 +491,7 @@
       "readAloud": "The argument ends when the stable wall bursts outward in a spray of splinters, straw, and frightened horses. A gaunt owlbear crashes into the square—mud-black feathers, ribs showing through its hide, foam stringing from its beak—and two villagers with boar spears rush it before anyone can stop them. One spear snaps; one villager hits the mud; the other disappears beneath beak and claws. Then the creature freezes, lifts its bloody head, and turns toward the smell of your remaining food.",
       "gmNotes": [
         "If the party does nothing, the father kills the spear villagers, smashes the granary and bakehouse, and destroys Briar Hollow. Take the village-destroyed branch.",
-        "If the party throws its remaining rations, the father immediately stops attacking, devours them, and leaves. The party goes without food; the village cannot replace the rations.",
+        "If the party throws its remaining rations toward the village edge, the father immediately breaks off the attack, follows the food out of the square, devours it, and retreats to the ridge line. He remains alive and still wants the egg; the party goes without food and the village cannot replace the rations.",
         "If the party kills the father, inspection makes the payoff explicit: he is feverish and diseased. Mara/Pell confirms the carcass is unsafe to eat, so killing him does not solve the food shortage. Immediately answer with the mother's scream from the ridge.",
         "Creative solutions are allowed, but resolve them back into one of three states: father leaves alive, father dies, or village is destroyed.",
         "Do not apply starvation exhaustion immediately just because the party skipped one meal; use normal food-deprivation rules if time extends beyond this adventure.",
@@ -508,7 +508,7 @@
         },
         {
           "title": "If they feed him",
-          "text": "No check. He eats all remaining party rations and leaves the village. The party will be hungry."
+          "text": "No check. Throwing the remaining rations toward the village edge lures him out of the square. He eats, retreats to the ridge line, and remains part of the surviving-parent state. The party will be hungry."
         },
         {
           "title": "If they fight",
@@ -519,7 +519,7 @@
           "text": "Do not soft-pedal it. He destroys the village; advance to the failure resolution."
         }
       ],
-      "advanceWhen": "The father leaves, dies, or destroys Briar Hollow.",
+      "advanceWhen": "The father is driven out of the square alive, dies, or destroys Briar Hollow.",
       "npcIds": [
         "npc-sella-vane",
         "npc-torren-vale",
@@ -979,10 +979,10 @@
       "type": "combat / sacrifice choice",
       "difficulty": "Low by XP (700 XP); high consequence if ignored",
       "summary": "The starving, feverish father tracks the stolen egg into town and tears through anyone between him, food, and the egg.",
-      "resolution": "Feed him the party's remaining rations, kill him, drive him off creatively, or refuse to intervene.",
+      "resolution": "Lure him out of the square with the party's remaining rations, kill him, drive him off creatively, or refuse to intervene.",
       "talkOut": "He cannot be reasoned with, but food overrides his rage.",
-      "bypass": "Throw the party's remaining rations into the square. He devours them and leaves.",
-      "special": "Ragged Exhaustion gives Disadvantage on attack rolls, ability checks, and saving throws. If the party does nothing, two spear-bearing villagers are killed immediately and the father destroys Briar Hollow. If killed, his feverish carcass is unsafe to eat and the mother's scream answers from the ridge.",
+      "bypass": "Throw the party's remaining rations toward the village edge. He follows, devours them outside the square, and retreats to the ridge line while continuing to track the egg.",
+      "special": "Fever-Weakened (original monster trait, not the Exhaustion condition) gives Disadvantage on attack rolls, ability checks, and saving throws. If the party does nothing, two spear-bearing villagers are killed immediately and the father destroys Briar Hollow. If killed, his feverish carcass is unsafe to eat and the mother's scream answers from the ridge.",
       "objective": "Stop the starving father before he destroys Briar Hollow, using food, force, or another concrete way to drive him off."
     },
     {
@@ -1237,7 +1237,7 @@
       {
         "id": "rec-creative-father",
         "trigger": "The party resolves the father with an unexpected plan",
-        "response": "Classify the result as father alive/leaves, father dead, or village destroyed, then continue from that state.",
+        "response": "Classify the result as father alive/driven from the square, father dead, or village destroyed, then continue from that state.",
         "stateChanges": [
           "no new branch is added"
         ]
