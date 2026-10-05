@@ -903,7 +903,7 @@
     {
       "id": "map-lantern-lane",
       "name": "Lantern Lane",
-      "asset": null,
+      "asset": "assets/maps/holiday/gloamwick-lantern-lane-grid.svg",
       "regions": [
         {
           "id": "lane-west",
@@ -925,7 +925,7 @@
     {
       "id": "map-playhouse",
       "name": "Marrowplay Playhouse",
-      "asset": null,
+      "asset": "assets/maps/holiday/gloamwick-playhouse-grid.svg",
       "regions": [
         {
           "id": "play-stage",
@@ -947,7 +947,7 @@
     {
       "id": "map-bell-gate",
       "name": "Bell Gate Finale",
-      "asset": null,
+      "asset": "assets/maps/holiday/gloamwick-bell-gate-grid.svg",
       "regions": [
         {
           "id": "gate-west",
