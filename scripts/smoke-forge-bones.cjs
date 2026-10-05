@@ -23,7 +23,7 @@ for(let i=0;i<250;i++){
 
 const locked=generateBones({
   seed:"LOCK-CHECK",
-  locks:{origin:"locked origin",destination:"locked destination",giver:"locked giver"}
+  locks:{theme:"contested-claim",origin:"locked origin",destination:"locked destination",giver:"locked giver"}
 });
 assert(locked.preview.origin==="locked origin","origin lock changed");
 assert(locked.preview.destination==="locked destination","destination lock changed");
