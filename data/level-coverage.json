@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "policy": "Fill new authored one-shots from level 1 through 20 before repeating a level.",
+  "nextLevel": 2,
+  "assignments": [
+    {
+      "level": 1,
+      "adventureId": "the-last-treat-of-gloamwick",
+      "title": "The Last Treat of Gloamwick",
+      "status": "review"
+    }
+  ]
+}
