@@ -385,7 +385,7 @@
     {
       "id": "loc-archive",
       "name": "Ward Archive",
-      "description": "Versioned research ledgers, beacon assignments, faculty drafts, and locked student disciplinary records line a circular records chamber.",
+      "description": "Versioned research ledgers, beacon assignments, faculty drafts, and locked student disciplinary records line a circular records chamber, with rolling shelves surrounding a central comparison desk and emergency stair.",
       "connections": [
         "loc-capstone",
         "loc-labs",
@@ -395,7 +395,7 @@
     {
       "id": "loc-labs",
       "name": "Projection Labs",
-      "description": "Student experiment rooms flicker with manifested capstone effects and contain trapped graduates behind unstable ward panes.",
+      "description": "Student experiment rooms flicker with manifested capstone effects and contain trapped graduates behind unstable ward panes; overturned benches create cover while sparking conduits and shifting projections complicate movement.",
       "connections": [
         "loc-capstone",
         "loc-archive",
@@ -405,7 +405,7 @@
     {
       "id": "loc-observatory",
       "name": "Ninefold Sky Observatory",
-      "description": "A domed planar chamber with nine ward pylons around a central aperture opening onto the Astral Sea.",
+      "description": "A domed planar chamber with nine ward pylons around a central aperture opening onto the Astral Sea; narrow catwalks connect the stations while gravity shivers near the exposed center.",
       "connections": [
         "loc-court",
         "loc-archive",
