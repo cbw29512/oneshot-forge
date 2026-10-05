@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policy": "Fill new authored one-shots from level 1 through 20 before repeating a level.",
-  "nextLevel": 4,
+  "nextLevel": 5,
   "assignments": [
     {
       "level": 1,
@@ -19,6 +19,12 @@
       "level": 3,
       "adventureId": "the-gift-that-never-arrived",
       "title": "The Gift That Never Arrived",
+      "status": "review"
+    },
+    {
+      "level": 4,
+      "adventureId": "the-year-that-wouldnt-end",
+      "title": "The Year That Wouldn't End",
       "status": "review"
     }
   ]
