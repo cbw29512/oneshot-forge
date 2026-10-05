@@ -1,12 +1,18 @@
 {
   "schemaVersion": 1,
   "policy": "Fill new authored one-shots from level 1 through 20 before repeating a level.",
-  "nextLevel": 2,
+  "nextLevel": 3,
   "assignments": [
     {
       "level": 1,
       "adventureId": "the-last-treat-of-gloamwick",
       "title": "The Last Treat of Gloamwick",
+      "status": "review"
+    },
+    {
+      "level": 2,
+      "adventureId": "the-empty-chair-of-harvesthome",
+      "title": "The Empty Chair of Harvesthome",
       "status": "review"
     }
   ]
