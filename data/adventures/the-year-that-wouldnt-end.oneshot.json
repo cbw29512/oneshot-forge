@@ -1035,11 +1035,19 @@
           "All routes remain visible.",
           "Prepared play still reduces failures."
         ]
+      },
+      {
+        "id": "rec-early-attack-the-year-that-wouldnt-en",
+        "trigger": "The party attacks Edrin before he explains the burned obligations.",
+        "response": "Edrin flees or is subdued; archive carbon sheets, altered schedules, ash fragments, and posted debts preserve the truth and all three finale routes.",
+        "stateChanges": [
+          "Required evidence and finale access remain available."
+        ]
       }
     ]
   },
   "pathPressure": {
-    "principle": "Prepared reconstruction reduces echo pressure and makes noncombat closure easier, while rushing preserves all endings at higher tactical cost.",
+    "principle": "Prepared reconstruction reduces echo pressure and makes noncombat closure easier, while rushing preserves all endings at higher tactical cost. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
     "prepared": [
       "Each reconstructed Debtor Row category removes one local echo and prevents ECHO PRESSURE.",
       "Securing party agreement before the finale can make Forgive stations automatic.",
