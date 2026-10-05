@@ -27,4 +27,79 @@ For generated adventures, `docs/FORGE_CONSTITUTION.md` is authoritative. This qu
 - Pregens must satisfy `docs/PREGEN_PRINT_STANDARD.md`.
 - Read-aloud, NPC/monster cards, location descriptions, and scene transitions must satisfy `docs/PRESENTATION_STANDARD.md`.
 - Public catalog, landing-page, GM-runner, module, print, readability, resume, and deployment behavior must satisfy `docs/PRODUCTION_GAMEPLAY_STANDARD.md`.
+- Holiday and special-occasion releases must also satisfy `docs/HOLIDAY_ONE_SHOTS.md`; seasonal decoration does not replace story, rules, or zero-prep quality.
+- New authored one-shots must follow the Level 1→20 coverage ladder in `docs/LEVEL_COVERAGE.md` until every level has at least one release-quality adventure; do not cluster new work at the same few levels.
+- Before advancing the level ladder, every newly authored one-shot must pass the structural integrity audit: all scene/location/NPC/clue/encounter references resolve, every required clue has at least three independent sources and appears in at least two scenes, every required quick-run check exists, and no package-level reference errors remain. This check is mandatory every time.
+- New ladder adventures must orbit the canonical Hearthford hub and recurring Quiet Seals cast. A one-shot may travel to a nearby village, road, fort, academy, orchard, harbor, or other site, but it must establish the Hearthford connection and reuse at least one canonical recurring NPC (Mayor Cald Wren, Reeve Oda Flint, Captain Brune Holt, Maestra Vell, Joss Amber, Nim Low, Doctor Sera Moss, Idra Quell, Brother Halve, or Old Fenn). New local NPCs are supporting specialists, suspects, victims, antagonists, or witnesses—not replacements for the recurring cast. The party returns to Hearthford or materially changes a Hearthford relationship/state when the night ends.
+- The Level 1–20 ladder is also a D&D teaching curriculum. Across the full set, deliberately cover every core save, major damage type, broad monster family, common condition/control pattern, exploration challenge, social challenge, trap style, puzzle style, red herring, twist, BBEG structure, environmental hazard, resource-pressure pattern, objective-combat pattern, and rules interaction that a new or intermediate table should learn. Individual adventures do not need everything; the catalog must collectively cover the breadth of play without needless repetition. Track this coverage in data and use missing curriculum areas to choose later adventures.
+- Curriculum coverage must be distributed across the Level 1–20 Hearthford ladder. Do not concentrate many unrelated teaching mechanics into one adventure simply to satisfy the coverage ledger.
+- Story relevance is mandatory. A save, damage type, condition, monster family, trap, puzzle, red herring, twist, BBEG mechanic, environmental hazard, or other teaching element belongs in an adventure only when it naturally follows from that adventure's premise, location, antagonists, stakes, and scene logic.
+- Use curriculum gaps to inspire or select future adventure premises that naturally demonstrate the missing concepts; never retrofit arbitrary mechanics into an already coherent story just to check a box.
+- Each adventure should have a small number of primary teaching goals appropriate to its level, plus incidental reinforcement of earlier concepts. The curriculum should feel cumulative: introduce, practice, revisit, and deepen concepts over multiple adventures rather than teaching everything at once.
+- When a mechanic is introduced, provide enough context for a new player or DM to understand why it is happening in the story. When it reappears later, reduce hand-holding and deepen tactical or adjudication complexity.
 - These are release gates, not optional style guidance.
+
+
+## RAW, narrative, and table-forward audit
+
+Every authored or generated adventure must pass all three of these checks before release.
+
+### RAW boundary
+- Label house rules as house rules. Never market or describe them as RAW.
+- When an adventure uses D&D 5e mechanics, identify the selected edition and keep 2014 and 2024 rules separate.
+- Ability checks, saving throws, attacks, conditions, spell effects, creature statistics, equipment, pregens, and other rules-facing instructions must be legal for that edition.
+- A scene may use an authored DC, but the action being resolved, the ability/skill suggested, and the outcome must make sense in the fiction.
+- Pregens and encounter math must be audited against the same edition used by the adventure.
+
+### No single point of failure
+Every required revelation, route, objective, or finale-enabling fact must remain discoverable if any one NPC is unavailable.
+
+For each required fact:
+- author at least three independent delivery routes;
+- at least one route must not require a living, cooperative NPC;
+- physical/environmental backups may include notes, journals, maps, tracks, inscriptions, receipts, tools, wounds, residue, bodies, possessions, mechanisms, room state, or other world evidence;
+- an NPC's carried possessions may preserve the clue if that NPC dies;
+- another witness may repeat the information only if that witness learned it independently;
+- killing, alienating, frightening off, or bypassing one NPC must never brick the adventure;
+- the GM recovery notes must state how the table reaches the surviving clue path when a critical NPC is unavailable.
+
+Do not count three differently worded conversations with the same NPC as three sources. Do not count two NPCs who only know the fact because the same NPC told them unless the adventure establishes that redundancy independently.
+
+### Checks must move the game
+Every called-for check must do at least one of the following:
+- reveal useful information;
+- change the situation;
+- impose or avoid a meaningful cost;
+- open, close, or alter a route;
+- change an NPC's trust, pressure, or behavior;
+- advance or reduce a clock/threat;
+- establish a persistent consequence.
+
+A check that only says "nothing happens" on failure is not release-ready.
+
+Required information cannot depend on one roll. Failure must create a playable next state: partial information, a cost, a complication, a delayed route, an NPC reaction, or another concrete lead.
+
+### NPCs must support play
+Every recurring or scene-critical NPC must have:
+- a clear immediate motive;
+- a consistent relationship to the adventure's actual truth;
+- a table-usable visual or behavioral description;
+- a distinct voice;
+- dialogue that does useful work.
+
+Useful dialogue should communicate at least one of: motive, clue, pressure, stakes, relationship, choice, or consequence. Flavor-only lines are optional; they cannot replace functional dialogue.
+
+NPC dialogue, descriptions, clues, and mechanics must agree with one another. An NPC cannot know, imply, hide, or promise information that contradicts the adventure's established state unless that contradiction is intentional and explained.
+
+### Scene continuity
+For every scene, the DM must be able to answer:
+1. Why are the characters here?
+2. What do they know when the scene starts?
+3. What can they learn or change here?
+4. What happens on success?
+5. What happens on failure?
+6. What moves the table into the next scene?
+7. Which earlier choices or NPC relationships matter here?
+8. Which later scene or consequence does this scene support?
+
+If a scene cannot answer those questions, repair it before adding more content.

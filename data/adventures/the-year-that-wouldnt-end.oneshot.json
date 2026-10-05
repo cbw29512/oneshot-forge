@@ -1,0 +1,1367 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-year-that-wouldnt-end",
+    "title": "The Year That Wouldn't End",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 4,
+    "partySize": 4,
+    "partySizeRange": "3–6 players",
+    "durationMinutes": 210,
+    "tone": [
+      "New Year mystery",
+      "time-loop pressure",
+      "civic promises"
+    ]
+  },
+  "series": {
+    "title": "Holiday One-Shots",
+    "holiday": "New Year",
+    "standalone": true
+  },
+  "setup": {
+    "pitch": "Yearturn burns its old ledger at midnight so the town can begin again. This year somebody burned the unresolved promises too—and the old year refuses to end.",
+    "openingLocation": "Yearturn clock square",
+    "gmSummary": "Yearturn's New Year rite closes one civic ledger and opens another. Fulfilled promises are marked complete; unresolved debts and obligations are copied into the new ledger before the old pages are burned. This year council clerk Edrin March, under pressure to make the town look debt-free, ordered the unresolved pages burned without transfer. At midnight the great clock freezes between bells eleven and twelve. The town begins repeating short slices of the final hour, and figures called Yearlings emerge from ash-written promises. The party must recover surviving fragments, identify which obligations were erased, decide whether to restore them, transform them into a public amnesty compact, or break the clock-bound ritual entirely.",
+    "background": "The ledger tradition began after a corrupt reeve once declared all winter debts erased at midnight while keeping what others owed him. The town created a public carry-forward ceremony so a new year meant renewal without pretending unfinished obligations had vanished. Over centuries this became pageantry. Edrin March wanted Yearturn to announce a clean ledger and attract winter investors. He destroyed the unresolved pages before they were copied. The Old Year is not a god demanding bookkeeping; it is a civic spirit built from repeated public acknowledgment that new beginnings require honest accounting.",
+    "campaignFrame": "Idra Quell brings the party from Hearthford to Yearturn because several erased obligations involve Hearthford traders and caravan contracts. After midnight finally passes, the party returns to Hearthford with Idra knowing exactly what they chose to carry, forgive, or cut loose."
+  },
+  "quest": {
+    "type": "investigate / recover obligations / timed finale",
+    "objective": "Stop the repeating final hour, learn which promises were erased, and decide how Yearturn will enter the new year.",
+    "stakes": "The town is trapped in escalating time echoes, people are reliving painful moments, and erased obligations could become permanent injustice if the ritual is resolved carelessly.",
+    "deadline": "TWELFTH BELL: show four chime marks. Fill one after the square, archive, debtor row, and bellworks. When the fourth fills, the clock attempts the final chime and the Old Year manifests.",
+    "successConditions": [
+      "The erased obligations are recovered or reconstructed well enough for a deliberate decision.",
+      "The repeating hour ends.",
+      "The town enters the new year under Restore, Amnesty, or Break."
+    ],
+    "failureConditions": [
+      "The party abandons the town after learning the repeating hour is worsening.",
+      "The clockworks are destroyed without ending the time echo or accounting for the erased obligations."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-carry-forward",
+        "text": "Unresolved debts and promises are supposed to be copied into the new ledger before the old pages are burned."
+      },
+      {
+        "id": "fact-pages-burned",
+        "text": "Edrin March ordered unresolved pages burned without being copied forward."
+      },
+      {
+        "id": "fact-erased-obligations",
+        "text": "The erased entries include wages owed, a bridge repair promise, medical debt, and a winter fuel allotment."
+      },
+      {
+        "id": "fact-old-year",
+        "text": "The Old Year is enforcing acknowledgment of unfinished obligations, not demanding that every debt be paid exactly as written."
+      },
+      {
+        "id": "fact-three-resolutions",
+        "text": "The town can restore the obligations, replace them with a public amnesty/reparation compact, or break the clock ritual and end supernatural enforcement."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-edrin-motive",
+        "text": "Edrin burned the pages to advertise Yearturn as debt-free to incoming merchants.",
+        "revealCondition": "Find the investor letter, confront Edrin with ash fragments, or read his altered closing schedule."
+      },
+      {
+        "id": "secret-bridge-entry",
+        "text": "One erased promise is the council's overdue bridge repair, not a private debtor's obligation.",
+        "revealCondition": "Recover the bridge crew wage slip, inspect the public works board, or reconstruct the ash ledger."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-idra-quell",
+      "name": "Idra Quell",
+      "role": "Hearthford night-market trader and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Smiles with one side."
+      ],
+      "wants": [
+        "No one gets to profit from making a debt disappear on paper.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Idra Quell, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“You are late. I expected that.”",
+        "“I sold one memory once. That was enough.”",
+        "“Debts are easiest to hide from people who want midnight to arrive.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
+    {
+      "id": "npc-mera-quill",
+      "name": "Mera Quill",
+      "role": "retired ledger keeper and ritual witness",
+      "personality": [
+        "precise",
+        "impatient with euphemism",
+        "protective of records"
+      ],
+      "voiceCues": [
+        "quotes page numbers from memory",
+        "says 'unresolved' instead of 'unpaid'"
+      ],
+      "wants": [
+        "Reconstruct the burned entries",
+        "Stop the clock echoes",
+        "Keep the town from blaming ordinary debtors"
+      ],
+      "fears": [
+        "The council will use the crisis to erase records permanently"
+      ],
+      "knows": [
+        "Carry-forward is mandatory",
+        "The burn happened early",
+        "Archive carbon sheets may preserve fragments"
+      ],
+      "believes": [
+        "A clean beginning requires accurate memory"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "Why Edrin chose this year",
+        "Which ash fragments survived in the bellworks"
+      ],
+      "revealRules": [
+        {
+          "fact": "Unresolved entries must be copied before burning.",
+          "when": "The party asks how the rite normally works."
+        }
+      ],
+      "questFunction": "Explains the process but is never the only source of it.",
+      "description": "An elderly scribe in ink-stained gloves carrying a brass page weight and a bundle of blank new-year forms.",
+      "tableDialogue": [
+        "“A new page is not an empty past.”",
+        "“Carry it forward. Then choose what to forgive.”",
+        "“Do not make debtors pay for a clerk's lie.”"
+      ],
+      "reactions": {
+        "agreement": "Gives access to archive carbon sheets and a reconstruction template.",
+        "refusal": "Leaves the archive key on the council desk and continues helping civilians.",
+        "accusation": "Insists she retired before this year's closing and points to Edrin's signature.",
+        "danger": "Guides people away from echo zones where the same minute keeps repeating."
+      }
+    },
+    {
+      "id": "npc-edrin-march",
+      "name": "Edrin March",
+      "role": "council clerk who burned the unresolved pages",
+      "personality": [
+        "ambitious",
+        "nervous",
+        "still convinced appearances matter"
+      ],
+      "voiceCues": [
+        "calls debt 'liability exposure'",
+        "avoids saying burned"
+      ],
+      "wants": [
+        "Stop the loop",
+        "Avoid criminal blame",
+        "Preserve the town's investment deal"
+      ],
+      "fears": [
+        "The investor delegation seeing the real ledger",
+        "The town discovering public debts were erased too"
+      ],
+      "knows": [
+        "He ordered the burn",
+        "The investor letter demanded clean books",
+        "One ash bundle was carried to the bellworks chimney"
+      ],
+      "believes": [
+        "A symbolic reset could become real if everyone accepted it"
+      ],
+      "secrets": [
+        "He altered the closing schedule"
+      ],
+      "lies": [
+        "Claims the pages were accidentally mixed into the burn stack"
+      ],
+      "cannotKnow": [
+        "How to end the Old Year",
+        "Which obligations the party will restore or forgive"
+      ],
+      "revealRules": [
+        {
+          "fact": "He ordered the early burn.",
+          "when": "Shown the altered schedule, investor letter, or bellworks ash bundle."
+        }
+      ],
+      "questFunction": "Creates the human cause and the political argument for a false clean slate.",
+      "description": "A young clerk in a white New Year sash with soot beneath his fingernails and an expensive new pen he keeps clicking shut.",
+      "tableDialogue": [
+        "“Nobody invests in a town that opens the year owing everyone.”",
+        "“I thought a clean page might become a clean fact.”",
+        "“Yes. I signed the burn order.”"
+      ],
+      "reactions": {
+        "agreement": "Hands over the altered schedule and bellworks chimney key.",
+        "refusal": "Retreats to the council chamber; physical records remain available.",
+        "accusation": "Admits the order but argues that some obligations were impossible to pay anyway.",
+        "danger": "Unlocks the bellworks and orders guards not to obstruct the party."
+      }
+    },
+    {
+      "id": "npc-tess-arden",
+      "name": "Tess Arden",
+      "role": "bridge crew forewoman whose public wage claim was erased",
+      "personality": [
+        "direct",
+        "exhausted",
+        "fair-minded"
+      ],
+      "voiceCues": [
+        "counts workdays instead of coins",
+        "separates her crew's wages from the bridge itself"
+      ],
+      "wants": [
+        "Crew wages acknowledged",
+        "Bridge repair promise restored",
+        "No revenge against ordinary private debtors"
+      ],
+      "fears": [
+        "The town framing all claims as greed"
+      ],
+      "knows": [
+        "Her crew completed emergency work",
+        "Council still owes six workdays",
+        "The bridge repair entry was public, not private"
+      ],
+      "believes": [
+        "Forgiveness only means something after the obligation is admitted"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The investor motive",
+        "How the clock spirit works"
+      ],
+      "revealRules": [
+        {
+          "fact": "Public obligations were burned too.",
+          "when": "The party sees her wage slips or speaks with the crew."
+        }
+      ],
+      "questFunction": "Shows that erased obligations include town responsibilities, not just personal debt.",
+      "description": "A broad-armed carpenter in a patched green cloak with six wooden tally sticks tied to her belt.",
+      "tableDialogue": [
+        "“You can forgive what I am owed after someone admits I am owed it.”",
+        "“The bridge does not care what year the page says.”",
+        "“Do not make this about punishing people who already cannot pay.”"
+      ],
+      "reactions": {
+        "agreement": "Provides wage slips and the public works notice.",
+        "refusal": "Leaves copies pinned to the bridge notice board.",
+        "accusation": "Invites the party to inspect every workday tally.",
+        "danger": "Uses bridge braces to block an echoing cart from striking civilians."
+      }
+    },
+    {
+      "id": "npc-old-year",
+      "name": "The Old Year",
+      "role": "ash-and-clock spirit of acknowledged unfinished business",
+      "personality": [
+        "formal",
+        "literal",
+        "not vindictive"
+      ],
+      "voiceCues": [
+        "speaks in unfinished sentences completed by nearby echoes",
+        "counts bells backward"
+      ],
+      "wants": [
+        "Unfinished obligations acknowledged before closure",
+        "A deliberate rule for what carries forward"
+      ],
+      "fears": [
+        "Being used to enforce endless debt instead of honest accounting"
+      ],
+      "knows": [
+        "Which erased entries remain unresolved",
+        "Restore and Amnesty can both satisfy acknowledgment",
+        "Breaking the clock pact ends its authority"
+      ],
+      "believes": [
+        "Forgiveness without memory is erasure"
+      ],
+      "secrets": [
+        "It exists only because generations repeatedly chose public carry-forward"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Future ability to pay",
+        "Whether the town deserves investor trust"
+      ],
+      "revealRules": [
+        {
+          "fact": "Restore, Amnesty, or Break are all legal.",
+          "when": "The party presents reconstructed entries or enters the final bell chamber."
+        }
+      ],
+      "questFunction": "Creates the loop pressure and supports multiple moral resolutions.",
+      "description": "A figure made from ash-covered ledger pages and brass clock hands, with twelve dim numerals circling its head.",
+      "tableDialogue": [
+        "“Eleven. Not twelve.”",
+        "“Name what remains.”",
+        "“Carry. Forgive. Break.”"
+      ],
+      "reactions": {
+        "agreement": "Stops one echo zone while the party records obligations.",
+        "refusal": "Rewinds the nearest unresolved scene by one minute.",
+        "accusation": "Shows public and private entries together to reject scapegoating.",
+        "danger": "Uses force against ritual interference, not unconscious creatures."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-square",
+      "name": "Yearturn Clock Square",
+      "description": "A crowded winter square beneath the twelve-bell clock tower, with ash braziers, fresh-year banners, and a frozen clock hand between eleven and twelve.",
+      "connections": [
+        "loc-archive",
+        "loc-debtor-row",
+        "loc-bellworks"
+      ]
+    },
+    {
+      "id": "loc-archive",
+      "name": "Council Archive",
+      "description": "A narrow stone records room with carbon sheets, old ledgers, public works files, and a burn schedule pinned under glass.",
+      "connections": [
+        "loc-square",
+        "loc-debtor-row",
+        "loc-bellworks"
+      ]
+    },
+    {
+      "id": "loc-debtor-row",
+      "name": "Bridge and Debtor Row",
+      "description": "A street beside the damaged bridge where wage slips, medical notes, fuel allotments, and household IOUs become trapped in repeating moments.",
+      "connections": [
+        "loc-archive",
+        "loc-bellworks",
+        "loc-square"
+      ]
+    },
+    {
+      "id": "loc-bellworks",
+      "name": "Clocktower Bellworks",
+      "description": "A brass-and-wood machinery chamber above the square, with twelve hammer arms, an ash chute, and the frozen final bell linkage.",
+      "connections": [
+        "loc-archive",
+        "loc-debtor-row",
+        "loc-square"
+      ]
+    },
+    {
+      "id": "loc-final",
+      "name": "Twelfth Bell Chamber",
+      "description": "The upper clock chamber where the final bell hangs over a circular ledger table with three locking slots marked Carry, Forgive, and Cut.",
+      "connections": [
+        "loc-bellworks"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-carry-forward",
+      "revelation": "Unresolved obligations must be copied into the new ledger before the old pages are burned.",
+      "required": true,
+      "sources": [
+        "The archive ritual card says COPY UNRESOLVED / CLOSE FULFILLED / THEN BURN.",
+        "Old ledgers show unresolved entries duplicated into the following year's first pages.",
+        "The bell table has two slots labeled OLD ENTRY and NEW ENTRY connected before the burn slot."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-pages-burned",
+      "revelation": "Edrin ordered unresolved pages burned before transfer.",
+      "required": true,
+      "sources": [
+        "His altered closing schedule moves BURN before COPY and bears his initials.",
+        "Ash fragments in the bellworks contain partial UNRESOLVED stamps.",
+        "The investor letter praises Edrin for presenting a debt-free opening ledger."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-public-debts",
+      "revelation": "The erased pages include public obligations such as wages and bridge repair, not only private debts.",
+      "required": true,
+      "sources": [
+        "Tess's six wage slips match missing ledger serial numbers.",
+        "The public works board references a bridge repair promise absent from the new ledger.",
+        "Archive carbon sheets preserve partial lines for WAGES, BRIDGE, MEDICAL, and FUEL."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-old-year-rule",
+      "revelation": "The Old Year demands acknowledgment of unfinished obligations, not exact repayment before midnight.",
+      "required": true,
+      "sources": [
+        "Past amnesty entries show FORGIVEN AFTER ACKNOWLEDGMENT and still allow the year to close.",
+        "The Old Year ignores entries once they are honestly reconstructed even before payment.",
+        "The final ledger table has separate Carry and Forgive slots."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-resolutions",
+      "revelation": "The loop can end by restoring carry-forward, replacing debts with a public amnesty/reparation compact, or breaking the clock pact.",
+      "required": true,
+      "sources": [
+        "The final table is engraved CARRY / FORGIVE / CUT.",
+        "A prior crisis ledger records all three lawful closures.",
+        "The Old Year says 'Carry. Forgive. Break.' when shown a reconstructed entry."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-square",
+      "title": "Eleven Again",
+      "purpose": "Show the time failure, establish the chime clock, and point the party toward the ledger rather than a generic time curse.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "Midnight stalls",
+      "readAloud": "The eleventh bell rings. Confetti rises. Cups lift. Then the same bell rings again. A dropped red scarf jumps from the snow back into a child's hands. The clock's minute hand jerks backward. Around the burn brazier, ash writes one word across the stones: UNFINISHED.",
+      "gmNotes": [
+        "Show four TWELFTH BELL marks. Fill 1/4 when this scene ends.",
+        "The loop repeats only short local moments, not the entire adventure.",
+        "Mera immediately identifies the ledger rite as the likely source. No check is required to start the investigation.",
+        "DC 12 Intelligence (Investigation) on the burn brazier finds UNRESOLVED stamp fragments. Failure still leaves the ash-writing and archive route obvious.",
+        "Do not let players spend an hour trying to exploit the time loop before the rules are known; echoes are scene pressure, not unrestricted time travel."
+      ],
+      "runSteps": [
+        {
+          "title": "Repeat one visible moment",
+          "text": "Use the scarf or raised cup so everyone understands the clock is rewinding locally."
+        },
+        {
+          "title": "Write UNFINISHED in ash",
+          "text": "Point directly toward obligations, not vague chronomancy."
+        },
+        {
+          "title": "Send them to records",
+          "text": "Mera and the burn schedule point to the archive."
+        }
+      ],
+      "advanceWhen": "The party enters the council archive to inspect the closing ledger procedure.",
+      "npcIds": [
+        "npc-idra-quell",
+        "npc-mera-quill",
+        "npc-edrin-march"
+      ],
+      "clueIds": [
+        "clue-carry-forward",
+        "clue-pages-burned"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-archive"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-archive",
+          "label": "Audit the closing ledger",
+          "description": "Compare the old rite, new ledger, and burn schedule."
+        }
+      ]
+    },
+    {
+      "id": "scene-archive",
+      "title": "Copy Before Burn",
+      "purpose": "Prove the altered order and reconstruct categories of erased obligations.",
+      "locationId": "loc-archive",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Recover the rule",
+      "readAloud": "Rows of old ledgers line the archive wall. The new year's book lies open to a beautiful blank page. Beside it, this year's closing schedule has BURN written above COPY in fresh ink. Under the desk, discarded carbon sheets hold ghostly impressions: WAGES. BRIDGE. MEDICAL. FUEL.",
+      "gmNotes": [
+        "Fill TWELFTH BELL 2/4 when this scene ends.",
+        "DC 13 Intelligence (Investigation or History) reconstructs the normal sequence immediately. Failure costs time but comparison with any prior-year ledger reveals the same order.",
+        "The investor letter and Edrin's initials establish intentional alteration without requiring confession.",
+        "Puzzle: align four carbon sheets to reconstruct missing category headers. After one wrong alignment, punch-hole patterns reveal the correct stack.",
+        "The categories point to Debtor Row and the bridge crew for concrete entries."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the altered schedule",
+          "text": "The human cause is physical evidence."
+        },
+        {
+          "title": "Reconstruct categories",
+          "text": "Wages, bridge, medical, fuel make the stakes broader than private debt."
+        },
+        {
+          "title": "Point to living records",
+          "text": "Debtor Row supplies independent copies and testimony."
+        }
+      ],
+      "advanceWhen": "The party knows unresolved pages were burned early and goes to Debtor Row to reconstruct actual obligations.",
+      "npcIds": [
+        "npc-mera-quill",
+        "npc-edrin-march"
+      ],
+      "clueIds": [
+        "clue-carry-forward",
+        "clue-pages-burned",
+        "clue-public-debts",
+        "clue-old-year-rule"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-row"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-row",
+          "label": "Reconstruct the erased entries",
+          "description": "Use wage slips, notices, and household copies before the next chime."
+        }
+      ]
+    },
+    {
+      "id": "scene-row",
+      "title": "Promises in the Street",
+      "purpose": "Put human consequences behind the ledger categories and prevent the party from treating all debt as morally identical.",
+      "locationId": "loc-debtor-row",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Name what remains",
+      "readAloud": "Debtor Row flickers between moments. A healer hands the same invoice across a doorway three times. A cart wheel breaks, repairs itself, and breaks again. At the bridge, Tess Arden lifts six wooden tally sticks and says, “These are workdays. They do not disappear because the clock got ambitious.”",
+      "gmNotes": [
+        "Fill TWELFTH BELL 3/4 when four obligation categories are reconstructed.",
+        "Recover four categories: bridge/wages, medical debt, winter fuel allotment, one private household loan.",
+        "DC 12 Charisma (Persuasion) can calm a creditor/debtor argument long enough to copy both sides. Failure adds one ECHO PRESSURE mark; the documents remain recoverable.",
+        "The point is acknowledgment, not forcing immediate payment. Make that distinction explicit through Tess and the prior amnesty record.",
+        "Each reconstructed category weakens nearby Yearlings and stops one repeating street moment."
+      ],
+      "runSteps": [
+        {
+          "title": "Recover four categories",
+          "text": "Use independent paper records and people."
+        },
+        {
+          "title": "Separate public from private duty",
+          "text": "Do not let the council hide behind blaming private debtors."
+        },
+        {
+          "title": "Show acknowledgment working",
+          "text": "Each honestly recorded entry stops one echo."
+        }
+      ],
+      "advanceWhen": "The party has enough reconstructed obligations to confront the bellworks and choose how closure should happen.",
+      "npcIds": [
+        "npc-tess-arden"
+      ],
+      "clueIds": [
+        "clue-public-debts",
+        "clue-old-year-rule",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-yearlings"
+      ],
+      "exits": [
+        "scene-bellworks"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-bellworks",
+          "label": "Climb to the bellworks",
+          "description": "Find the remaining ash bundle and the mechanism holding back the twelfth bell."
+        }
+      ]
+    },
+    {
+      "id": "scene-bellworks",
+      "title": "The Missing Twelfth",
+      "purpose": "Expose the last physical evidence and let preparation alter the finale without deciding the moral choice.",
+      "locationId": "loc-bellworks",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Open the last bell",
+      "readAloud": "The clocktower shakes with every failed chime. Eleven hammer arms rest. The twelfth is locked halfway forward by a bar of blackened paper wound around the gear teeth. Beneath the ash chute sits a bundle of half-burned ledger pages tied with Edrin's council cord.",
+      "gmNotes": [
+        "Fill TWELFTH BELL 4/4 when the twelfth hammer is freed; the finale begins immediately.",
+        "DC 13 Dexterity with thieves' tools or Intelligence (Investigation) frees the paper jam safely. Failure deals 1d6 bludgeoning from a snapping gear and still loosens the jam enough for the next attempt to succeed automatically.",
+        "The ash bundle contains enough serial numbers to verify reconstructed entries.",
+        "Removing the jam does not ring the bell immediately; it opens the path to the upper chamber where the party must choose closure.",
+        "If ECHO PRESSURE is 2+, one extra Yearling appears in the finale."
+      ],
+      "runSteps": [
+        {
+          "title": "Recover the ash bundle",
+          "text": "Final proof survives even if Edrin is absent."
+        },
+        {
+          "title": "Free the hammer",
+          "text": "Mechanical failure costs damage, not progression."
+        },
+        {
+          "title": "Open the upper chamber",
+          "text": "The moral decision happens at the ledger table, not through a hidden puzzle."
+        }
+      ],
+      "advanceWhen": "The twelfth hammer is freed and the party enters the final bell chamber with reconstructed obligations.",
+      "npcIds": [
+        "npc-edrin-march"
+      ],
+      "clueIds": [
+        "clue-pages-burned",
+        "clue-public-debts",
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-final"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-final",
+          "label": "Enter the Twelfth Bell chamber",
+          "description": "Choose what Yearturn carries into the new year."
+        }
+      ]
+    },
+    {
+      "id": "scene-final",
+      "title": "Carry, Forgive, or Cut",
+      "purpose": "Resolve the New Year dilemma through honest carry-forward, public amnesty/reparation, or breaking the pact.",
+      "locationId": "loc-final",
+      "pacingClass": "core",
+      "estimatedMinutes": 55,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Twelfth bell",
+      "readAloud": "The upper chamber has no windows, yet fireworks flash across its walls from moments that have not happened. A circular ledger table stands beneath the bell. Three brass slots are labeled CARRY, FORGIVE, and CUT. Ash rises from the floor into a human shape wearing twelve dim numerals like a crown. “Eleven,” it says. “Not twelve. Name what remains.”",
+      "gmNotes": [
+        "The Old Year starts at 64 HP. Add one Yearling if ECHO PRESSURE is 2+.",
+        "CARRY route: place reconstructed obligations into the new ledger and complete 3 Carry actions before 2 failures. Each Action uses DC 13 Intelligence (Investigation/History), Wisdom (Insight), or Charisma (Persuasion) to accurately record terms and responsibility. Failure creates one Yearling or gives an existing Yearling an immediate move; at 2 failures Carry closes but Forgive and Cut remain legal.",
+        "FORGIVE route: create a public amnesty/reparation compact at three stations—public obligations, hardship debts, future dispute process. Each station is automatic if the party already secured agreement from affected parties, otherwise DC 13 Charisma (Persuasion) or Wisdom (Insight). Completing all three ends the loop without preserving exact old balances.",
+        "CUT route: the clock-bound seal can be targeted after one hostile action or one deliberate rejection of the ledger. AC 14, 18 HP. Destroying it drops the Old Year to 0 HP and permanently ends supernatural ledger enforcement.",
+        "Direct combat to 0 HP is legal and has the same consequence as Cut.",
+        "Initiative 20: Reprise. One unresolved echo repeats: a creature must succeed on DC 12 Wisdom save or lose 10 feet of movement and cannot take reactions until its next turn as it repeats its last few seconds."
+      ],
+      "runSteps": [
+        {
+          "title": "State all three routes",
+          "text": "Carry, Forgive, and Cut are visible on the table."
+        },
+        {
+          "title": "Make forgiveness concrete",
+          "text": "Forgive requires responsibility and a future process, not pretending nothing happened."
+        },
+        {
+          "title": "Ring twelve when done",
+          "text": "Any completed route immediately allows the final bell."
+        }
+      ],
+      "advanceWhen": "The town's unresolved obligations are carried, transformed, or removed from supernatural enforcement.",
+      "npcIds": [
+        "npc-idra-quell",
+        "npc-mera-quill",
+        "npc-edrin-march",
+        "npc-tess-arden",
+        "npc-old-year"
+      ],
+      "clueIds": [
+        "clue-carry-forward",
+        "clue-pages-burned",
+        "clue-public-debts",
+        "clue-old-year-rule",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-old-year"
+      ],
+      "exits": [
+        "scene-resolution-carry",
+        "scene-resolution-forgive",
+        "scene-resolution-cut"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-carry",
+          "label": "Carry it forward",
+          "description": "Restore honest obligations to the new ledger."
+        },
+        {
+          "target": "scene-resolution-forgive",
+          "label": "Forgive with acknowledgment",
+          "description": "Replace exact balances with a public amnesty and reparation process."
+        },
+        {
+          "target": "scene-resolution-cut",
+          "label": "Cut the clock pact",
+          "description": "End supernatural enforcement and leave accounting entirely human."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-carry",
+      "title": "Resolution: Written Forward",
+      "purpose": "Reward honest carry-forward without pretending every debt is immediately payable.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The twelfth bell rings once. The new ledger is no longer blank. Names, wages, repairs, fuel, and debts stand on its first pages under one heading: UNRESOLVED, NOT FORGOTTEN. Fireworks finally burst outside in the right order.",
+      "gmNotes": [
+        "Award 130 gp total and four Yearturn Favor tokens.",
+        "The council must publish carried public obligations quarterly.",
+        "Private hardship debts may still be renegotiated later."
+      ],
+      "runSteps": [
+        {
+          "title": "Separate acknowledgment from immediate payment",
+          "text": "The town has honest books, not instant solvency."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 130 gp and Favor tokens."
+        },
+        {
+          "title": "Read the surviving obligations aloud",
+          "text": "Name the carried-forward debts in public so the new year begins with knowledge instead of another hidden ledger."
+        }
+      ],
+      "advanceWhen": "The new ledger and rewards are recorded.",
+      "npcIds": [
+        "npc-idra-quell",
+        "npc-mera-quill",
+        "npc-tess-arden"
+      ],
+      "clueIds": [
+        "clue-carry-forward"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-forgive",
+      "title": "Resolution: A Clean Page with Footnotes",
+      "purpose": "Reward a structured amnesty that does not erase responsibility.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The final bell rings as old balances are crossed out one by one—but none vanish without a note beside them. WAGES TO BE PAID. BRIDGE TO BE REPAIRED. HARDSHIP LOAN FORGIVEN. FUEL GUARANTEED. The Old Year folds into the margin of the new book like ash pressed into paper.",
+      "gmNotes": [
+        "Award 150 gp total and the New Page Seal, a story item granting advantage on one future Yearturn check involving mediation or public records.",
+        "The compact must name how public obligations are repaired even when private hardship debt is forgiven.",
+        "Edrin loses sole control of the closing ledger."
+      ],
+      "runSteps": [
+        {
+          "title": "Write the footnotes",
+          "text": "Every forgiven entry records who absorbs the cost or what replacement obligation remains."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 150 gp and the New Page Seal."
+        },
+        {
+          "title": "Make forgiveness witnessed",
+          "text": "Have each forgiven obligation signed by the person absorbing the cost or accepting the replacement duty."
+        }
+      ],
+      "advanceWhen": "The amnesty/reparation compact and rewards are recorded.",
+      "npcIds": [
+        "npc-idra-quell",
+        "npc-mera-quill",
+        "npc-edrin-march",
+        "npc-tess-arden"
+      ],
+      "clueIds": [
+        "clue-old-year-rule",
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-cut",
+      "title": "Resolution: Midnight Without a Ledger Spirit",
+      "purpose": "Respect ending supernatural enforcement while preserving human accountability.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The clock seal snaps. For one breath, every bell in Yearturn is silent. Then a child in the square pulls the public bell rope by hand, and twelve ordinary chimes roll across the roofs. The new ledger is still blank. Mera sets the recovered wage slips on top of it and says, “Magic is gone. Paper is not.”",
+      "gmNotes": [
+        "Award 130 gp total.",
+        "The supernatural carry-forward pact ends permanently.",
+        "The recovered records still require civic action; destroying the spirit does not erase material obligations."
+      ],
+      "runSteps": [
+        {
+          "title": "Keep the records",
+          "text": "The town still knows what it owes."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 130 gp."
+        },
+        {
+          "title": "Let midnight finally move",
+          "text": "The supernatural ledger goes silent and the clock advances, but the ordinary books remain open for human judgment in the morning."
+        }
+      ],
+      "advanceWhen": "Rewards and the new nonmagical ledger process are recorded.",
+      "npcIds": [
+        "npc-idra-quell",
+        "npc-mera-quill",
+        "npc-edrin-march",
+        "npc-tess-arden"
+      ],
+      "clueIds": [
+        "clue-public-debts"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-yearlings",
+      "name": "Ash Yearlings",
+      "type": "combat / acknowledgment mechanic",
+      "difficulty": "Low",
+      "summary": "Ash-written figures form around erased obligations on Debtor Row.",
+      "resolution": "Defeat them, reconstruct the nearby obligation, or move past after securing the document.",
+      "talkOut": "A Yearling tied to a specific entry collapses immediately when that obligation is accurately recorded aloud and in writing.",
+      "bypass": "Recover the documents and leave; the Yearlings do not pursue beyond their echo zone.",
+      "objective": "Recover four erased obligation categories while demonstrating that acknowledgment weakens the time echoes."
+    },
+    {
+      "id": "enc-old-year",
+      "name": "The Old Year",
+      "type": "finale / ritual / combat",
+      "difficulty": "Moderate",
+      "summary": "The civic spirit blocks the twelfth bell until unfinished obligations are acknowledged or the pact is ended.",
+      "resolution": "Complete Carry, complete Forgive, destroy the clock seal, or reduce the Old Year to 0 HP.",
+      "talkOut": "It accepts accurate carry-forward or structured forgiveness; generic promises are insufficient.",
+      "bypass": "Carry and Forgive are complete noncombat victory routes.",
+      "objective": "Choose how Yearturn enters a new year without using renewal as erasure."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-carbon-stack",
+      "prompt": "Align four carbon sheets so punch holes and mirrored text reconstruct the missing category headers.",
+      "solution": "WAGES / BRIDGE / MEDICAL / FUEL.",
+      "bypass": "DC 13 Investigation or History reconstructs the stack immediately.",
+      "failForward": "After one wrong alignment, the unique punch-hole corners reveal the correct order."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-bell-gear",
+      "trigger": "Free the twelfth hammer without bracing the snapping linkage.",
+      "effect": "DC 13 Dexterity saving throw or take 1d6 bludgeoning damage.",
+      "failForward": "The jam loosens enough that the next attempt succeeds automatically."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-new-page-seal",
+      "name": "New Page Seal",
+      "effect": "Story reward from the Forgive ending; once in Yearturn, grants advantage on one check involving mediation or public records."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-debtor-row",
+      "name": "Debtor Row Echo Zone",
+      "asset": "assets/maps/holiday/yearturn-debtor-row-grid.svg",
+      "regions": [
+        {
+          "id": "row-bridge",
+          "sceneId": "scene-row",
+          "label": "bridge wage echo"
+        },
+        {
+          "id": "row-healer",
+          "sceneId": "scene-row",
+          "label": "medical debt doorway"
+        },
+        {
+          "id": "row-fuel",
+          "sceneId": "scene-row",
+          "label": "fuel allotment cart"
+        }
+      ]
+    },
+    {
+      "id": "map-bellworks",
+      "name": "Clocktower Bellworks",
+      "asset": "assets/maps/holiday/yearturn-bellworks-grid.svg",
+      "regions": [
+        {
+          "id": "bell-gears",
+          "sceneId": "scene-bellworks",
+          "label": "hammer mechanisms"
+        },
+        {
+          "id": "bell-chute",
+          "sceneId": "scene-bellworks",
+          "label": "ash chute"
+        },
+        {
+          "id": "bell-stair",
+          "sceneId": "scene-bellworks",
+          "label": "upper chamber stair"
+        }
+      ]
+    },
+    {
+      "id": "map-final",
+      "name": "Twelfth Bell Chamber",
+      "asset": "assets/maps/holiday/yearturn-twelfth-bell-grid.svg",
+      "regions": [
+        {
+          "id": "final-table",
+          "sceneId": "scene-final",
+          "label": "Carry / Forgive / Cut ledger table"
+        },
+        {
+          "id": "final-bell",
+          "sceneId": "scene-final",
+          "label": "twelfth bell"
+        },
+        {
+          "id": "final-seal",
+          "sceneId": "scene-final",
+          "label": "clock-bound seal"
+        }
+      ]
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "Required obligations are reconstructed from independent paper and physical sources even if one NPC is absent.",
+      "No single debtor or creditor is required to prove the burned categories.",
+      "Failure adds echo pressure, damage, or extra enemies but never removes all final routes."
+    ],
+    "routes": [
+      {
+        "id": "rec-mera-unavailable",
+        "trigger": "Mera is unavailable.",
+        "response": "The archive ritual card, prior ledgers, and final table physically encode the carry-forward rule.",
+        "stateChanges": [
+          "clue-carry-forward remains physical.",
+          "The investigation starts normally."
+        ]
+      },
+      {
+        "id": "rec-edrin-unavailable",
+        "trigger": "Edrin flees or refuses to speak.",
+        "response": "His altered schedule, investor letter, council cord, and ash fragments establish the intentional burn.",
+        "stateChanges": [
+          "clue-pages-burned remains available.",
+          "The finale does not require confession."
+        ]
+      },
+      {
+        "id": "rec-tess-unavailable",
+        "trigger": "Tess cannot speak or refuses cooperation.",
+        "response": "Her wage slips remain on the bridge notice board and match the missing serial numbers; the public works promise is independently posted.",
+        "stateChanges": [
+          "Public debt remains provable.",
+          "No worker testimony is required."
+        ]
+      },
+      {
+        "id": "rec-skip-row",
+        "trigger": "The party skips Debtor Row and goes directly to the bellworks.",
+        "response": "The ash bundle and archive carbon sheets reconstruct all four categories, but ECHO PRESSURE begins at 2 because human context was missed.",
+        "stateChanges": [
+          "The finale remains solvable.",
+          "Rushed play adds pressure."
+        ]
+      },
+      {
+        "id": "rec-rush-final",
+        "trigger": "The party reaches the final chamber without understanding all routes.",
+        "response": "The engraved table and Old Year's first line explicitly name Carry, Forgive, and Break before initiative.",
+        "stateChanges": [
+          "All routes remain visible.",
+          "Prepared play still reduces failures."
+        ]
+      },
+      {
+        "id": "rec-early-attack-the-year-that-wouldnt-en",
+        "trigger": "The party attacks Edrin before he explains the burned obligations.",
+        "response": "Edrin flees or is subdued; archive carbon sheets, altered schedules, ash fragments, and posted debts preserve the truth and all three finale routes.",
+        "stateChanges": [
+          "Required evidence and finale access remain available."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared reconstruction reduces echo pressure and makes noncombat closure easier, while rushing preserves all endings at higher tactical cost. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
+    "prepared": [
+      "Each reconstructed Debtor Row category removes one local echo and prevents ECHO PRESSURE.",
+      "Securing party agreement before the finale can make Forgive stations automatic.",
+      "Recovering the ash bundle verifies serial numbers for Carry actions."
+    ],
+    "rushed": [
+      "Skipping human records starts the finale with ECHO PRESSURE 2.",
+      "Unresolved categories can create additional Yearlings.",
+      "Entering without a compact requires checks at each Forgive station."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 210,
+    "plannedMinutes": 210,
+    "bossReserveMinutes": 55,
+    "cutOrder": [
+      "If 25+ minutes behind, auto-solve the carbon-stack puzzle after one inspection.",
+      "If 15+ minutes behind on Debtor Row, combine medical and fuel reconstruction into one scene beat.",
+      "Never cut the distinction between acknowledgment and payment or the three finale routes."
+    ],
+    "optionalOrder": [
+      "Extended argument with Edrin about investors.",
+      "Extra private-debt examples beyond the four required categories.",
+      "Historical archive research after the lawful closure options are clear."
+    ]
+  },
+  "endings": [
+    {
+      "id": "ending-carry",
+      "name": "Written Forward",
+      "condition": "The party completes Carry.",
+      "result": "Unresolved obligations enter the new ledger honestly and remain open to later payment or renegotiation."
+    },
+    {
+      "id": "ending-forgive",
+      "name": "A Clean Page with Footnotes",
+      "condition": "The party completes Forgive.",
+      "result": "Exact balances are transformed through public amnesty and reparation without erasing responsibility."
+    },
+    {
+      "id": "ending-cut",
+      "name": "Midnight Without a Ledger Spirit",
+      "condition": "The clock seal or Old Year is destroyed.",
+      "result": "Supernatural enforcement ends, but recovered records still require human civic action."
+    }
+  ],
+  "initialState": {
+    "questStage": "midnight-stalled",
+    "currentSceneId": "scene-square",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-mera-quill": {
+        "status": "alive",
+        "attitude": "focused"
+      },
+      "npc-edrin-march": {
+        "status": "alive",
+        "attitude": "defensive"
+      },
+      "npc-tess-arden": {
+        "status": "alive",
+        "attitude": "angry"
+      },
+      "npc-old-year": {
+        "status": "forming",
+        "attitude": "literal"
+      },
+      "npc-idra-quell": {
+        "status": "alive",
+        "attitude": "familiar"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-new-page-seal": "unearned"
+    },
+    "eventState": {
+      "chimeMarks": 0,
+      "echoPressure": 0,
+      "categoriesRecovered": 0
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures and procedures use complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2014 SRD package."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures and procedures use complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2024 SRD package; do not import 2014 class features."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-year-that-wouldnt-end",
+    "version": "0.1.0",
+    "target": {
+      "level": 4,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-burn",
+      "check-archive",
+      "check-row",
+      "check-gear",
+      "check-carry"
+    ],
+    "checks": [
+      {
+        "id": "check-burn",
+        "sceneId": "scene-square",
+        "label": "Read the burn ash",
+        "dc": 12,
+        "ability": "Intelligence (Investigation)",
+        "success": "UNRESOLVED stamp fragments show the wrong pages were burned.",
+        "failure": "The ash still writes UNFINISHED and the archive route remains obvious."
+      },
+      {
+        "id": "check-archive",
+        "sceneId": "scene-archive",
+        "label": "Reconstruct closing order",
+        "dc": 13,
+        "ability": "Intelligence (Investigation or History)",
+        "success": "Copy unresolved entries before burning; prior ledgers verify it.",
+        "failure": "Comparing one prior-year closing page reveals the same sequence after a short delay."
+      },
+      {
+        "id": "check-row",
+        "sceneId": "scene-row",
+        "label": "Calm an echo-zone dispute",
+        "dc": 12,
+        "ability": "Charisma (Persuasion)",
+        "success": "Both sides pause long enough to copy the obligation cleanly.",
+        "failure": "ECHO PRESSURE increases by 1 but the documents remain recoverable."
+      },
+      {
+        "id": "check-gear",
+        "sceneId": "scene-bellworks",
+        "label": "Free the twelfth hammer",
+        "dc": 13,
+        "ability": "Dexterity with thieves' tools or Intelligence (Investigation)",
+        "success": "The jam clears safely.",
+        "failure": "Take 1d6 bludgeoning; the jam loosens and the next attempt succeeds automatically."
+      },
+      {
+        "id": "check-carry",
+        "sceneId": "scene-final",
+        "label": "Complete one Carry action",
+        "dc": 13,
+        "ability": "Intelligence (Investigation or History), Wisdom (Insight), or Charisma (Persuasion)",
+        "success": "One obligation is accurately transferred and one Carry success is recorded.",
+        "failure": "A Yearling appears or moves immediately and one Carry failure is recorded; at two failures Carry closes but Forgive and Cut remain legal."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-yearlings",
+        "objective": "Recover erased obligations while weakening local time echoes.",
+        "start": "Ash figures form around documents caught in repeating moments.",
+        "bypass": "Accurately record the obligation tied to a Yearling to collapse it immediately.",
+        "creatures": [
+          {
+            "name": "Ash Yearling",
+            "count": 3,
+            "ac": 13,
+            "hp": 10,
+            "speed": "30 ft.",
+            "attack": "Ash Hand +4 to hit, 1d6+2 necrotic.",
+            "trait": "Acknowledged: when its linked obligation is accurately recorded aloud and in writing, the Yearling immediately collapses.",
+            "tactics": "Block access to documents and shove characters back into repeating zones."
+          }
+        ],
+        "end": "Four obligation categories are reconstructed or the party leaves with enough records to continue."
+      },
+      {
+        "id": "enc-old-year",
+        "objective": "Close Yearturn's stalled year by Carry, Forgive, or Cut.",
+        "start": "The Old Year forms above the circular ledger table before the twelfth bell.",
+        "bypass": "Carry and Forgive are complete noncombat routes.",
+        "creatures": [
+          {
+            "name": "The Old Year",
+            "count": 1,
+            "ac": 14,
+            "hp": 64,
+            "speed": "30 ft.",
+            "attack": "Clock Hand +5 to hit, 1d10+3 force.",
+            "trait": "Clock Seal: after one successful hostile action or deliberate rejection of the ledger, AC 14, 18 HP; destroying it reduces the Old Year to 0 HP and ends supernatural enforcement.",
+            "tactics": "Pressure ritual actors, create Yearlings on failed Carry actions, and use forced movement away from the ledger table."
+          }
+        ],
+        "end": "Carry succeeds, Forgive completes, or the Old Year reaches 0 HP."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-bell-gear",
+        "sceneId": "scene-bellworks",
+        "trigger": "Work the jammed twelfth hammer without bracing the linkage.",
+        "save": "DC 13 Dexterity saving throw.",
+        "failure": "Take 1d6 bludgeoning damage.",
+        "success": "Avoid the snapping gear.",
+        "failForward": "The jam loosens and the next attempt succeeds automatically."
+      },
+      {
+        "id": "hazard-reprise",
+        "sceneId": "scene-final",
+        "trigger": "Initiative count 20 while the Old Year remains unresolved.",
+        "save": "DC 12 Wisdom saving throw.",
+        "failure": "Lose 10 feet of movement and cannot take reactions until the start of your next turn as you repeat your last few seconds.",
+        "success": "Act normally.",
+        "failForward": "This pressures positioning but never removes any closure route."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-carry",
+        "when": "Carry closes the year.",
+        "reward": "130 gp total and four Yearturn Favor tokens."
+      },
+      {
+        "id": "reward-forgive",
+        "when": "Forgive closes the year.",
+        "reward": "150 gp total and the New Page Seal."
+      },
+      {
+        "id": "reward-cut",
+        "when": "The Old Year is destroyed.",
+        "reward": "130 gp total; supernatural ledger enforcement ends."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-row",
+        "dimensions": "90 × 45 ft. street and bridge approach; 5-ft. grid.",
+        "features": [
+          "bridge wage echo",
+          "healer doorway",
+          "fuel cart",
+          "three Yearling starts",
+          "safe archive exit"
+        ]
+      },
+      {
+        "sceneId": "scene-bellworks",
+        "dimensions": "60 × 60 ft. machinery chamber; 5-ft. grid.",
+        "features": [
+          "eleven resting hammers",
+          "jammed twelfth linkage",
+          "ash chute",
+          "upper stair"
+        ]
+      },
+      {
+        "sceneId": "scene-final",
+        "dimensions": "70 × 70 ft. circular bell chamber; 5-ft. grid.",
+        "features": [
+          "Carry/Forgive/Cut table",
+          "twelfth bell",
+          "clock seal",
+          "Yearling spawn points"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One New Year accounting mystery: diagnose the stalled midnight, reconstruct erased obligations, open the twelfth bell, then branch only at closure.",
+    "mainSpine": [
+      "scene-square",
+      "scene-archive",
+      "scene-row",
+      "scene-bellworks",
+      "scene-final"
+    ],
+    "allowedBranchScenes": [
+      "scene-final"
+    ],
+    "terminalScenes": [
+      "scene-resolution-carry",
+      "scene-resolution-forgive",
+      "scene-resolution-cut"
+    ],
+    "stageCount": 6
+  },
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-idra-quell"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Idra Quell's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
+}

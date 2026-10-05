@@ -23,7 +23,7 @@
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
-        "entitlementMode": "server-verified",
+        "entitlementMode": null,
         "entitlementVerificationUrl": null
       }
     },
@@ -31,7 +31,7 @@
       "id": "the-well-that-would-not-dry",
       "title": "The Well That Would Not Dry",
       "status": "review",
-      "priceCents": 99,
+      "priceCents": 0,
       "currentAccess": "free-preview",
       "sellable": false,
       "runnerUrl": "run.html?id=the-well-that-would-not-dry",
@@ -42,13 +42,13 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
+        "requiresCheckout": false,
         "checkoutConfigured": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
-        "entitlementMode": "server-verified",
+        "entitlementMode": null,
         "entitlementVerificationUrl": null
       }
     },
@@ -56,7 +56,7 @@
       "id": "the-owlbear-egg",
       "title": "The Owlbear Egg",
       "status": "review",
-      "priceCents": 99,
+      "priceCents": 0,
       "currentAccess": "free-preview",
       "sellable": false,
       "runnerUrl": "run.html?id=the-owlbear-egg",
@@ -67,13 +67,13 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
+        "requiresCheckout": false,
         "checkoutConfigured": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
-        "entitlementMode": "server-verified",
+        "entitlementMode": null,
         "entitlementVerificationUrl": null
       }
     },
@@ -82,7 +82,7 @@
       "title": "Birthday One Shot",
       "format": "standalone-browser",
       "status": "review",
-      "priceCents": 99,
+      "priceCents": 0,
       "currentAccess": "free-preview",
       "sellable": false,
       "runnerUrl": "birthday-one-shot/index.html",
@@ -93,13 +93,13 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
+        "requiresCheckout": false,
         "checkoutConfigured": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
-        "entitlementMode": "server-verified",
+        "entitlementMode": null,
         "entitlementVerificationUrl": null
       }
     },
@@ -107,7 +107,7 @@
       "id": "whispers-of-the-oakhaven-hollow",
       "title": "Whispers of the Oakhaven Hollow",
       "status": "review",
-      "priceCents": 99,
+      "priceCents": 0,
       "currentAccess": "free-preview",
       "sellable": false,
       "runnerUrl": "run.html?id=whispers-of-the-oakhaven-hollow",
@@ -118,13 +118,13 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
+        "requiresCheckout": false,
         "checkoutConfigured": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
-        "entitlementMode": "server-verified",
+        "entitlementMode": null,
         "entitlementVerificationUrl": null
       }
     },
@@ -132,7 +132,7 @@
       "id": "beneath-the-eastern-watchtower",
       "title": "Beneath the Eastern Watchtower",
       "status": "review",
-      "priceCents": 99,
+      "priceCents": 0,
       "currentAccess": "free-preview",
       "sellable": false,
       "runnerUrl": "run.html?id=beneath-the-eastern-watchtower",
@@ -143,13 +143,13 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
+        "requiresCheckout": false,
         "checkoutConfigured": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
-        "entitlementMode": "server-verified",
+        "entitlementMode": null,
         "entitlementVerificationUrl": null
       }
     },
@@ -157,7 +157,7 @@
       "id": "the-black-orchard",
       "title": "The Black Orchard",
       "status": "review",
-      "priceCents": 99,
+      "priceCents": 0,
       "currentAccess": "free-preview",
       "sellable": false,
       "runnerUrl": "run.html?id=the-black-orchard",
@@ -168,13 +168,13 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
+        "requiresCheckout": false,
         "checkoutConfigured": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
-        "entitlementMode": "server-verified",
+        "entitlementMode": null,
         "entitlementVerificationUrl": null
       }
     },
@@ -182,7 +182,7 @@
       "id": "the-ashen-bridge",
       "title": "The Ashen Bridge",
       "status": "review",
-      "priceCents": 99,
+      "priceCents": 0,
       "currentAccess": "free-preview",
       "sellable": false,
       "runnerUrl": "run.html?id=the-ashen-bridge",
@@ -193,13 +193,13 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
+        "requiresCheckout": false,
         "checkoutConfigured": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
-        "entitlementMode": "server-verified",
+        "entitlementMode": null,
         "entitlementVerificationUrl": null
       }
     },
@@ -207,7 +207,7 @@
       "id": "the-bell-beneath-the-mere",
       "title": "The Bell Beneath the Mere",
       "status": "review",
-      "priceCents": 99,
+      "priceCents": 0,
       "currentAccess": "free-preview",
       "sellable": false,
       "runnerUrl": "run.html?id=the-bell-beneath-the-mere",
@@ -218,13 +218,13 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
+        "requiresCheckout": false,
         "checkoutConfigured": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
-        "entitlementMode": "server-verified",
+        "entitlementMode": null,
         "entitlementVerificationUrl": null
       }
     },
@@ -235,7 +235,7 @@
       "bundleVersion": "1.1",
       "rulesEdition": "2014 / SRD 5.1",
       "status": "review",
-      "priceCents": 99,
+      "priceCents": 0,
       "currentAccess": "free-preview",
       "sellable": false,
       "runnerUrl": null,
@@ -248,15 +248,283 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
+        "requiresCheckout": false,
         "checkoutConfigured": false
       },
       "commerce": {
         "provider": null,
         "checkoutUrl": null,
-        "entitlementMode": "server-verified",
+        "entitlementMode": null,
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
+      "id": "the-last-treat-of-gloamwick",
+      "title": "The Last Treat of Gloamwick",
+      "status": "review",
+      "priceCents": 0,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-last-treat-of-gloamwick",
+      "productUrl": "adventures/the-last-treat-of-gloamwick.html",
+      "level": 1,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "Halloween"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": false,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": null,
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
+      "id": "the-empty-chair-of-harvesthome",
+      "title": "The Empty Chair of Harvesthome",
+      "status": "review",
+      "priceCents": 0,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-empty-chair-of-harvesthome",
+      "productUrl": "adventures/the-empty-chair-of-harvesthome.html",
+      "level": 2,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "Thanksgiving",
+        "harvest"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": false,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": null,
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
+      "id": "the-gift-that-never-arrived",
+      "title": "The Gift That Never Arrived",
+      "status": "review",
+      "priceCents": 0,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-gift-that-never-arrived",
+      "productUrl": "adventures/the-gift-that-never-arrived.html",
+      "level": 3,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "winter"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": false,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": null,
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
+      "id": "the-year-that-wouldnt-end",
+      "title": "The Year That Wouldn't End",
+      "status": "review",
+      "priceCents": 0,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-year-that-wouldnt-end",
+      "productUrl": "adventures/the-year-that-wouldnt-end.html",
+      "level": 4,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "New Year"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": false,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": null,
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
+      "id": "the-heartloom-of-rosebridge",
+      "title": "The Heartloom of Rosebridge",
+      "status": "review",
+      "priceCents": 0,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-heartloom-of-rosebridge",
+      "productUrl": "adventures/the-heartloom-of-rosebridge.html",
+      "level": 5,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "bonds",
+        "Valentine"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": false,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": null,
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
+      "id": "the-first-egg-of-greenhollow",
+      "title": "The First Egg of Greenhollow",
+      "status": "review",
+      "priceCents": 0,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-first-egg-of-greenhollow",
+      "productUrl": "adventures/the-first-egg-of-greenhollow.html",
+      "level": 6,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "spring",
+        "egg-hunt"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": false,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": null,
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
+      "id": "the-last-rocket-of-founding-day",
+      "title": "The Last Rocket of Founding Day",
+      "status": "review",
+      "priceCents": 0,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-last-rocket-of-founding-day",
+      "productUrl": "adventures/the-last-rocket-of-founding-day.html",
+      "level": 7,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "summer",
+        "Founding Day"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": false,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": null,
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
+      "id": "the-lanterns-we-left-behind",
+      "title": "The Lanterns We Left Behind",
+      "status": "review",
+      "priceCents": 0,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-lanterns-we-left-behind",
+      "productUrl": "adventures/the-lanterns-we-left-behind.html",
+      "level": 8,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "autumn",
+        "remembrance"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": false,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": null,
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
+      "id": "the-graduation-that-opened-the-sky",
+      "title": "The Graduation That Opened the Sky",
+      "status": "review",
+      "priceCents": 0,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-graduation-that-opened-the-sky",
+      "productUrl": "adventures/the-graduation-that-opened-the-sky.html",
+      "level": 9,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "special occasion",
+        "graduation"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": false,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": null,
         "entitlementVerificationUrl": null
       }
     }
-  ]
+  ],
+  "businessModel": "free-ecosystem",
+  "supportModel": "YouTube revenue + voluntary donations / Buy Me a Coffee"
 }

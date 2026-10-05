@@ -367,7 +367,8 @@
       ],
       "clueIds": [
         "clue-load",
-        "clue-seal"
+        "clue-seal",
+        "clue-iron-repair"
       ],
       "encounterIds": [
         "enc-blackwater-lampreys"
@@ -431,7 +432,8 @@
       ],
       "clueIds": [
         "clue-seal",
-        "clue-mere"
+        "clue-mere",
+        "clue-iron-repair"
       ],
       "encounterIds": [
         "enc-bridge-rescue"

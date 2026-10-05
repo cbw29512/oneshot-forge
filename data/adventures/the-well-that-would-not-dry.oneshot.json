@@ -303,7 +303,7 @@
       "estimatedMinutes": 25,
       "readAloud": "Hearthford’s mill smells of wet grain and chalk. Reeve Oda Flint does not sit. She turns a tally-stick in her hands until the numbers face you.\n\n“Saltmere’s well still draws,” she says. “The water does not keep names. Jory Salt drank at dawn and could not say his daughter. Dusk is the bad bucket. If it comes up dry, a house forgets itself. I need you there before that.”\n\nOn the desk, already written: an order to Mill Kade, well-keeper, and a note of fifty gold if the well still knows people by nightfall.",
       "gmNotes": [
-        "Oda is the giver. DC 12 Insight: she is afraid for grain, not for folklore.",
+        "Oda is the giver. DC 12 Insight: on a success, reveal that she is afraid for grain and village survival more than folklore; this makes her practical motive clear and gives the party leverage to ask about shortages. On a failure, she remains guarded but still gives the written order, pay, destination, and dusk deadline; the adventure moves forward unchanged.",
         "If they refuse or kill her, the written order and Jory on the south road still send them. Recovery.",
         "Episode 1 fact: if the lantern was smashed, Oda says the ridge ‘has been thirsty since the flame went’. Cosmetic hunger, same graph.",
         "Pay: 50 gp now, 50 gp when they return with a well that still names people — or with a honest reason it does not."
@@ -344,7 +344,7 @@
       "readAloud": "Saltmere is twenty roofs around a stone well. The bucket is wet. The puddle at the lip does not reflect faces — only the sky.\n\nPeople draw water and do not drink it. They carry it inside and wait. A woman in a waxed coat — Mill Kade — stands between you and the well-house with a hook in her hand.\n\nIn the trough, three shapes sit up. They have the outlines of people who drank here and did not get their names back. They do not speak. They mouth words that have no sound.",
       "gmNotes": [
         "Name-Drowned: 3 creatures, AC 12, 22 HP. See Encounters. They rise if anyone drinks, attacks the well, or shoves Mill aside. They do not chase past the square.",
-        "Talk: Persuasion DC 13 with Mill — she lets them into the well-house if they swear not to break the well. Insight DC 12: she is guilty, not only tired.",
+        "Talk: Persuasion DC 13 with Mill — on success she lets them into the well-house if they swear not to break the well; on failure she refuses entry but the drying-shed Stealth route, Jory's testimony, or confronting the square threat still moves play forward. Insight DC 12: on success reveal that she is guilty, not only tired; on failure give no false conclusion and preserve the other clue routes.",
         "Bypass: Stealth DC 12 group along the drying-shed wall into the well-house. Failure starts the fight 15 feet from the well.",
         "Jory’s cottage is southwest if they ask where the man who forgot a child lives.",
         "Mill is a person (Millicent Kade). Do not call the well-house “the mill.” Oda’s mill is in Hearthford."
@@ -508,9 +508,9 @@
       "gmNotes": [
         "Roll initiative after read-aloud unless they answer immediately with a legal talk-out (then delay initiative).",
         "Draught: AC 14, 72 HP, swim 40. See Encounters.",
-        "Five legal jobs: (1) 0 HP. (2) Reseat the name-stone, Athletics or Religion DC 13, three successes. (3) False name, Deception DC 15. (4) True name with permission, Persuasion DC 13. (5) Smash the well-ring, Strength DC 15 — well dies, town thirsty, Draught 0 HP.",
+        "Five legal jobs: (1) 0 HP. (2) Reseat the name-stone, Athletics or Religion DC 13, three successes. A failed attempt spends the action and adds no success; the Draught remains active. (3) False name, Deception DC 15. On failure the Draught rejects the name and hostilities continue; the route remains available later. (4) True name with permission, Persuasion DC 13. On failure no name is surrendered and the party may try another legal job. (5) Smash the well-ring, Strength DC 15 — success kills the well, leaves the town thirsty, and drops the Draught to 0 HP; failure spends the action and leaves the ring intact.",
         "Talk-out is real. It wants a name. It does not need to be a boss fight.",
-        "Prepared: start at 54 HP. Rushed (skipped cups and Jory): it acts first and the stone is in the water (need a DC 12 Athletics to fetch)."
+        "Prepared: start at 54 HP. Rushed (skipped cups and Jory): it acts first and the stone is in the water. Fetching it takes an action and DC 12 Athletics; failure leaves the stone in the water and the Draught's turn proceeds, but another attempt or another victory route remains legal."
       ],
       "npcIds": [],
       "clueIds": [

@@ -82,4 +82,38 @@ CI should reject regressions in:
 - future-level feature leakage;
 - one-page character composition.
 
-If a generated pregen cannot satisfy this standard, it is a draft, not a sellable/playable pregen.
+If a generated pregen cannot satisfy this standard, it is a draft, not a release-ready/playable pregen.
+
+## Teaching contract
+
+Every optimized pregen must also be teachable.
+
+A player-facing build package must explain:
+- the character's intended job in the party;
+- why each major ability score was prioritized;
+- why the chosen species/background/class/subclass/feat/spell/equipment option fits that job;
+- what each major derived number means and where it came from;
+- what the character normally does before combat, on round 1, and on a typical turn;
+- when to spend limited resources and when to conserve them;
+- major synergies between features;
+- important tradeoffs and reasonable alternatives;
+- common beginner mistakes;
+- what changed from the previous level and what will change next.
+
+The clean printed combat sheet remains fast and uncluttered. Teaching detail belongs in expandable web explanations and/or a companion teaching section rather than being forced onto Page 1.
+
+Every major build decision should be representable as structured rationale data so Ember & Stone can reuse the same explanation in:
+- the website lesson;
+- the matching YouTube lesson;
+- CharacterForge;
+- Hearthford pregen pages;
+- Iron Pit demonstrations when applicable.
+
+Support three presentation depths over the same audited character:
+1. **Guided** — one decision at a time with plain-language explanations and examples.
+2. **Explained** — optimization rationale, numerical impact, synergies, tradeoffs, and alternatives.
+3. **Expert** — compact legal choices and final numbers with optional expandable rationale.
+
+Do not create separate beginner and expert builds unless the optimization goal itself differs. The underlying character must remain the same legal audited build.
+
+Never label a choice simply "best." State what it is optimized for: damage, defense, control, support, exploration, simplicity, or another explicit goal.

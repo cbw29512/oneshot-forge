@@ -11,6 +11,15 @@
     "beneath-the-eastern-watchtower": "data/adventures/beneath-the-eastern-watchtower.oneshot.json",
     "the-black-orchard": "data/adventures/the-black-orchard.oneshot.json",
     "the-ashen-bridge": "data/adventures/the-ashen-bridge.oneshot.json",
-    "the-bell-beneath-the-mere": "data/adventures/the-bell-beneath-the-mere.oneshot.json"
+    "the-bell-beneath-the-mere": "data/adventures/the-bell-beneath-the-mere.oneshot.json",
+    "the-last-treat-of-gloamwick": "data/adventures/the-last-treat-of-gloamwick.oneshot.json",
+    "the-empty-chair-of-harvesthome": "data/adventures/the-empty-chair-of-harvesthome.oneshot.json",
+    "the-gift-that-never-arrived": "data/adventures/the-gift-that-never-arrived.oneshot.json",
+    "the-year-that-wouldnt-end": "data/adventures/the-year-that-wouldnt-end.oneshot.json",
+    "the-heartloom-of-rosebridge": "data/adventures/the-heartloom-of-rosebridge.oneshot.json",
+    "the-first-egg-of-greenhollow": "data/adventures/the-first-egg-of-greenhollow.oneshot.json",
+    "the-last-rocket-of-founding-day": "data/adventures/the-last-rocket-of-founding-day.oneshot.json",
+    "the-lanterns-we-left-behind": "data/adventures/the-lanterns-we-left-behind.oneshot.json",
+    "the-graduation-that-opened-the-sky": "data/adventures/the-graduation-that-opened-the-sky.oneshot.json"
   });
 })();

@@ -1,0 +1,1362 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-gift-that-never-arrived",
+    "title": "The Gift That Never Arrived",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 3,
+    "partySize": 4,
+    "partySizeRange": "3–6 players",
+    "durationMinutes": 210,
+    "tone": [
+      "winter holiday mystery",
+      "gift-giving dilemma",
+      "warm folk fantasy"
+    ]
+  },
+  "series": {
+    "title": "Holiday One-Shots",
+    "holiday": "Winter / Christmas",
+    "standalone": true
+  },
+  "setup": {
+    "pitch": "Wintermere opened its presents before the village's traditional first gift reached the lonely house beyond the snow road. Now every gift is freezing shut again and the town hearths are going cold.",
+    "openingLocation": "Wintermere gift hall",
+    "gmSummary": "Wintermere's Winterlight custom requires one 'First Gift' to be delivered beyond the giver's own household before anyone opens their own gifts. This year the First Gift—a chest of blankets, food, and medicine for the isolated Vale family—was quietly rerouted after the mountain road iced over. Festival master Hollis Vane ordered the hall opened anyway, planning to compensate the family later. The ritual's guardian, the Hearth Warden, interprets the broken sequence literally: gifts refreeze, hearths dim, and the abandoned gift sleigh becomes a moving icebound hazard. The party must uncover what happened, cross the snow road, recover or replace the First Gift, and decide whether Wintermere restores the old obligation, replaces it with a more reliable system, or ends the supernatural custom.",
+    "background": "Generations ago, Wintermere nearly lost an outer family during a blizzard because everyone assumed someone else had checked on them. Afterward the village adopted the First Gift rule: nobody opens a personal gift until one household has carried a practical gift to someone beyond its own walls. Over time, the tradition became cheerful pageantry. This year a real ice fall blocked the Vale road. Hollis Vane, under pressure to keep the celebration on schedule, stored the First Gift in the delivery barn and opened the gift hall anyway. The Vale family is alive but short on medicine and fuel. The Hearth Warden is not trying to punish generosity; it is enforcing the sequence the village asked it to guard.",
+    "campaignFrame": "Doctor Sera Moss sends the party from Hearthford with medicine intended for the isolated Vale household near Wintermere. The party returns to Hearthford after the last bell, and Sera remembers whether they treated the delivery as ceremony or actual care."
+  },
+  "quest": {
+    "type": "investigate / winter rescue / choose",
+    "objective": "Find out why Winterlight failed, reach the Vale house, deliver or replace the First Gift, and resolve the Hearth Warden before the last bell.",
+    "stakes": "Wintermere's hearths are cooling, the Vale family is isolated without needed supplies, and panic may turn a broken tradition into a dangerous winter night.",
+    "deadline": "LAST WINTERLIGHT BELL: show four bell marks. Fill one after the gift hall, delivery barn, snow road, and Vale house. When the fourth fills, the Hearth Warden reaches the town square finale.",
+    "successConditions": [
+      "The Vale household receives meaningful aid or an explicit alternate rescue.",
+      "The party resolves the Hearth Warden by completing, replacing, or ending the First Gift pact.",
+      "The truth about the rerouted delivery becomes known."
+    ],
+    "failureConditions": [
+      "The party knowingly abandons the isolated household and the freezing town.",
+      "The gift hall is allowed to collapse into panic while all recovery routes are ignored."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-first-gift-rule",
+        "text": "Wintermere's gifts are traditionally opened only after the First Gift reaches someone outside the giver's household."
+      },
+      {
+        "id": "fact-delivery-rerouted",
+        "text": "The First Gift was stored in the delivery barn after the Vale road iced over instead of being delivered."
+      },
+      {
+        "id": "fact-vale-needs-aid",
+        "text": "The Vale family is alive and needs medicine, fuel, and blankets more than ceremonial presents."
+      },
+      {
+        "id": "fact-hearth-warden",
+        "text": "The Hearth Warden is enforcing the broken sequence rather than stealing gifts for itself."
+      },
+      {
+        "id": "fact-three-resolutions",
+        "text": "The crisis can end by completing a meaningful First Gift, replacing the custom with a public winter-aid system, or breaking the supernatural pact."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-hollis-order",
+        "text": "Hollis personally ordered the gift hall opened before the First Gift was delivered.",
+        "revealCondition": "Read his schedule, question the barn team, or confront him with the undelivered chest."
+      },
+      {
+        "id": "secret-vale-medicine",
+        "text": "The First Gift includes fever medicine requested specifically for Lysa Vale.",
+        "revealCondition": "Read the gift manifest, inspect the chest, or reach the Vale house."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-sera-moss",
+      "name": "Doctor Sera Moss",
+      "role": "Hearthford physician and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Asks what you ate. Writes it down."
+      ],
+      "wants": [
+        "A winter illness should remain an illness, not become a funeral.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Doctor Sera Moss, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“Before we leave: what did you eat, and when?”",
+        "“Medicine first. Ceremony can wait.”",
+        "“If the road fails, change the route. Do not change who gets helped.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
+    {
+      "id": "npc-hollis-vane",
+      "name": "Hollis Vane",
+      "role": "festival master who broke the sequence",
+      "personality": [
+        "efficient",
+        "well-meaning",
+        "defensive"
+      ],
+      "voiceCues": [
+        "talks in bell times and schedules",
+        "apologizes by proposing logistics"
+      ],
+      "wants": [
+        "Restore heat to town",
+        "Keep Winterlight from becoming a panic",
+        "Get aid to the Vales once the road is safe"
+      ],
+      "fears": [
+        "Being blamed for a child's illness",
+        "The village canceling Winterlight forever"
+      ],
+      "knows": [
+        "He ordered the gift hall opened",
+        "The First Gift is in the delivery barn",
+        "The road crew reported icefall, not a destroyed bridge"
+      ],
+      "believes": [
+        "Waiting would have ruined the festival without helping the Vales"
+      ],
+      "secrets": [
+        "He overruled the old sequence himself"
+      ],
+      "lies": [
+        "Initially says the weather made the delivery impossible rather than merely dangerous"
+      ],
+      "cannotKnow": [
+        "What the Hearth Warden truly is",
+        "Whether the Vale family is currently safe"
+      ],
+      "revealRules": [
+        {
+          "fact": "The First Gift never left town.",
+          "when": "The party asks for the delivery log or challenges his timeline."
+        }
+      ],
+      "questFunction": "Starts the investigation and represents the case for keeping a celebration running under imperfect conditions.",
+      "description": "A silver-haired organizer in a red wool coat with a ring of brass bell keys at his belt and a schedule pinned to his sleeve.",
+      "tableDialogue": [
+        "“The road iced. The hall was full. I made the call.”",
+        "“The gift is safe. I was trying to keep people from standing in the cold for nothing.”",
+        "“If the Vales need it now, then tell me what gets you there.”"
+      ],
+      "reactions": {
+        "agreement": "Hands over the barn key and delivery manifest.",
+        "refusal": "Leaves the public logs available and turns to manage the cooling gift hall.",
+        "accusation": "Admits he broke the order and asks the party to fix the part of the problem he cannot reach.",
+        "danger": "Moves children and elderly villagers into the stone chapel where one hearth still burns."
+      }
+    },
+    {
+      "id": "npc-senna-reed",
+      "name": "Senna Reed",
+      "role": "young sleigh driver who refused the ice road",
+      "personality": [
+        "honest",
+        "ashamed",
+        "practical"
+      ],
+      "voiceCues": [
+        "describes road conditions precisely",
+        "never blames Hollis for her own decision"
+      ],
+      "wants": [
+        "Get the supplies to the Vales safely",
+        "Prove refusing the road was not cowardice"
+      ],
+      "fears": [
+        "Another avalanche",
+        "The Vales believing she forgot them"
+      ],
+      "knows": [
+        "The east road is passable on foot through the pine cut",
+        "The sleigh chest stayed sealed in the barn",
+        "A white-antlered figure appeared after the hall bells rang"
+      ],
+      "believes": [
+        "The old custom matters because it forces someone to check the outer homes"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The Hearth Warden's full rules",
+        "Whether Hollis knew about the medicine"
+      ],
+      "revealRules": [
+        {
+          "fact": "The pine cut bypasses the worst ice.",
+          "when": "The party asks how to reach the Vale house."
+        }
+      ],
+      "questFunction": "Provides a practical rescue route and independent evidence without being required to progress.",
+      "description": "A young driver in a fur-lined green coat with one cheek scraped by ice and a broken sleigh bell tied around her wrist.",
+      "tableDialogue": [
+        "“I turned back because the horses were sliding sideways. I did not forget them.”",
+        "“On foot, use the pine cut. Do not take the ridge.”",
+        "“Something with white antlers watched me unload the chest.”"
+      ],
+      "reactions": {
+        "agreement": "Guides the party to the pine-cut entrance and lends snow rope.",
+        "refusal": "Leaves a charcoal route map nailed to the barn door.",
+        "accusation": "Shows the split runner and bruised horse harness from the failed attempt.",
+        "danger": "Helps townsfolk move firewood to the chapel."
+      }
+    },
+    {
+      "id": "npc-lysa-vale",
+      "name": "Lysa Vale",
+      "role": "isolated household elder needing the First Gift's medicine",
+      "personality": [
+        "dry-humored",
+        "stubborn",
+        "grateful without being sentimental"
+      ],
+      "voiceCues": [
+        "downplays her fever",
+        "asks about town before herself"
+      ],
+      "wants": [
+        "Keep her family warm",
+        "Receive medicine without becoming a symbol in somebody else's argument"
+      ],
+      "fears": [
+        "Her grandchildren crossing the ice road",
+        "The town treating the Vales as helpless"
+      ],
+      "knows": [
+        "No gift arrived",
+        "Their woodpile is low",
+        "A white-antlered figure kept wolves away from the house after dusk"
+      ],
+      "believes": [
+        "The First Gift matters because someone has to physically show up"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "Why Hollis opened the hall",
+        "Where the undelivered chest was stored"
+      ],
+      "revealRules": [
+        {
+          "fact": "The real need is medicine, fuel, and blankets.",
+          "when": "The party reaches the house or reads her earlier supply request."
+        }
+      ],
+      "questFunction": "Turns the ritual into a real rescue and prevents the gift from being purely symbolic.",
+      "description": "An elderly woman under three quilts beside a low fire, still trying to mend a mitten while two grandchildren feed twigs into the stove.",
+      "tableDialogue": [
+        "“If you brought medicine, put it by the kettle. If you brought apologies, stack them by the door.”",
+        "“The custom is not the box. The custom is somebody arriving.”",
+        "“We are cold, not helpless.”"
+      ],
+      "reactions": {
+        "agreement": "Accepts practical aid and gives the party the Vale hearth ribbon.",
+        "refusal": "Insists the children stay inside but directs the party to the empty wood shed and medicine note.",
+        "accusation": "Says plainly that the village forgot the purpose before it forgot the road.",
+        "danger": "Gets the children into the root cellar while adults secure the chimney and door."
+      }
+    },
+    {
+      "id": "npc-hearth-warden",
+      "name": "The Hearth Warden",
+      "role": "white-antlered guardian of the First Gift sequence",
+      "personality": [
+        "literal",
+        "calm",
+        "unyielding"
+      ],
+      "voiceCues": [
+        "speaks in paired phrases",
+        "refers to gifts as 'carried warmth'"
+      ],
+      "wants": [
+        "A real act of aid completed before celebration resumes",
+        "The town to understand arrival matters more than wrapping"
+      ],
+      "fears": [
+        "The custom becoming empty spectacle"
+      ],
+      "knows": [
+        "The Vale house was skipped",
+        "The gift hall opened anyway",
+        "A public winter-aid system could replace the old ritual if it guarantees actual delivery"
+      ],
+      "believes": [
+        "A promise is measured by what happens when weather makes it inconvenient"
+      ],
+      "secrets": [
+        "It formed from generations of completed winter deliveries"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Hollis's private guilt",
+        "Future weather"
+      ],
+      "revealRules": [
+        {
+          "fact": "Completion, replacement, or rejection are all possible.",
+          "when": "The party presents the Vale hearth ribbon, the First Gift chest, or a public aid compact."
+        }
+      ],
+      "questFunction": "Creates the supernatural pressure and allows two noncombat resolutions.",
+      "description": "A tall figure woven from frost-white branches and old gift ribbons, with antlers like bare winter trees and a coal-red glow where a heart would be.",
+      "tableDialogue": [
+        "“Gift carried. Hearth answered.”",
+        "“Wrapped warmth is not warmth.”",
+        "“Finish. Replace. Or break.”"
+      ],
+      "reactions": {
+        "agreement": "Stops freezing one nearby hearth while the party completes the chosen route.",
+        "refusal": "Continues toward the next opened gift table.",
+        "accusation": "Points to the undelivered route rather than defending itself.",
+        "danger": "Uses cold and forced movement but never attacks unconscious creatures."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-gift-hall",
+      "name": "Wintermere Gift Hall",
+      "description": "A timber hall packed with reopened boxes, ribbons, evergreen garlands, and hearths whose flames are shrinking blue; long gift tables create narrow aisles and the main doors open toward Bell Square.",
+      "connections": [
+        "loc-barn",
+        "loc-square"
+      ]
+    },
+    {
+      "id": "loc-barn",
+      "name": "Winterlight Delivery Barn",
+      "description": "A long stable with one ice-scarred sleigh, sealed gift chest, route boards, and snow rope hanging beside the east doors.",
+      "connections": [
+        "loc-gift-hall",
+        "loc-pine-cut"
+      ]
+    },
+    {
+      "id": "loc-pine-cut",
+      "name": "Pine Cut Snow Road",
+      "description": "A narrow path between snow-heavy pines where broken sleigh runners, drifted trail markers, and a frozen creek offer safer passage than the ridge.",
+      "connections": [
+        "loc-barn",
+        "loc-vale-house"
+      ]
+    },
+    {
+      "id": "loc-vale-house",
+      "name": "Vale House",
+      "description": "A stone cottage beyond the fields with a low fire, nearly empty wood shed, and one window marked with the old Winterlight ribbon.",
+      "connections": [
+        "loc-pine-cut",
+        "loc-square"
+      ]
+    },
+    {
+      "id": "loc-square",
+      "name": "Wintermere Bell Square",
+      "description": "The central square beneath a star-shaped bell frame, with gift tables, three public hearth braziers, and the last Winterlight bell overhead.",
+      "connections": [
+        "loc-gift-hall",
+        "loc-vale-house"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-first-gift-rule",
+      "revelation": "Personal gifts are traditionally opened only after the First Gift reaches someone outside the giver's household.",
+      "required": true,
+      "sources": [
+        "A carved beam in the gift hall reads FIRST CARRIED, THEN OPENED.",
+        "The delivery ledger records the First Gift departure time before the hall bell in every prior year.",
+        "The Vale hearth ribbon bears the same two-step symbol: walking boots before an open box."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-rerouted",
+      "revelation": "The First Gift was stored in the delivery barn and never reached the Vale house.",
+      "required": true,
+      "sources": [
+        "The sealed chest remains in the barn with the Vale address tag intact.",
+        "Hollis's schedule marks HALL OPENED beside FIRST GIFT DELAYED.",
+        "Sleigh tracks leave the barn, turn back at the ice road, and return to the same bay."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-vale-needs",
+      "revelation": "The Vale household needs medicine, fuel, and blankets; the First Gift is practical aid, not ceremony.",
+      "required": true,
+      "sources": [
+        "The chest manifest lists fever medicine, two blankets, lamp oil, and dried food.",
+        "A supply request from Lysa Vale is pinned to the delivery ledger.",
+        "At the Vale house the low fire, empty wood shed, and Lysa's fever physically confirm the need."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-warden-rule",
+      "revelation": "The Hearth Warden is enforcing the unfinished delivery sequence rather than stealing gifts.",
+      "required": true,
+      "sources": [
+        "Only gifts opened after the premature hall bell refreeze; the sealed First Gift remains untouched.",
+        "A winter founder plaque says WHEN THE FIRST HEARTH ANSWERS, ALL MAY OPEN.",
+        "At the Vale house the white-antlered figure has driven wolves away rather than harmed the family."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-resolutions",
+      "revelation": "The crisis can end by completing a real First Gift, replacing it with a guaranteed winter-aid system, or breaking the Warden's pact.",
+      "required": true,
+      "sources": [
+        "The founder ledger names CARRY, KEEP, OR CUT THE RIBBON as lawful resolutions.",
+        "The Vale hearth ribbon is embroidered with delivery boots, joined hands, and shears.",
+        "The Hearth Warden repeats 'Finish. Replace. Or break.' when confronted with proof of the failed delivery."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-hall",
+      "title": "Presents Freeze Shut",
+      "purpose": "Launch the broken holiday sequence, establish the last-bell clock, and make the undelivered First Gift visible as the changed condition.",
+      "locationId": "loc-gift-hall",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "Winterlight breaks",
+      "readAloud": "The Winterlight hall is full of torn wrapping paper when the first scream goes up. Frost races backward across opened boxes. Toys, scarves, and books snap shut inside skins of blue ice. Around the room, hearth flames shrink to candle size. Hollis Vane stares at the bell schedule pinned to his sleeve and whispers, “The First Gift never made it.”",
+      "gmNotes": [
+        "Show four LAST WINTERLIGHT BELL marks. Fill 1/4 when this scene ends.",
+        "No check is needed to learn that the First Gift was delayed; Hollis says it immediately once the crisis starts.",
+        "DC 12 Wisdom (Insight): success reveals Hollis personally made the decision to open the hall early; failure gives no false conclusion and his written schedule proves it later.",
+        "The carved beam FIRST CARRIED, THEN OPENED establishes the old sequence in physical evidence.",
+        "Send the party to the delivery barn before the crowd invents a supernatural thief."
+      ],
+      "runSteps": [
+        {
+          "title": "Freeze the opened gifts",
+          "text": "Make the broken order visible rather than abstract."
+        },
+        {
+          "title": "Name the missing delivery",
+          "text": "The First Gift is practical aid for the Vale house."
+        },
+        {
+          "title": "Put the clock down",
+          "text": "Four bells remain before every public hearth goes dark."
+        }
+      ],
+      "advanceWhen": "The party goes to the delivery barn to inspect the undelivered First Gift and route.",
+      "npcIds": [
+        "npc-sera-moss",
+        "npc-hollis-vane"
+      ],
+      "clueIds": [
+        "clue-first-gift-rule",
+        "clue-rerouted"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-barn"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-barn",
+          "label": "Inspect the delivery barn",
+          "description": "Find the First Gift and the route that stopped it."
+        }
+      ]
+    },
+    {
+      "id": "scene-barn",
+      "title": "The Gift Still Here",
+      "purpose": "Prove the practical need, recover the delivery route, and offer a physical preparation choice.",
+      "locationId": "loc-barn",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Recover the route",
+      "readAloud": "The delivery barn smells of horse sweat, pine tar, and cold iron. One sleigh sits crooked on a split runner. Beside it rests a large red chest whose tag reads VALE HOUSE — FIRST GIFT. The seal is unbroken. A route board on the wall shows the east road crossed out in charcoal, with a second line through the pine cut left untouched.",
+      "gmNotes": [
+        "Fill LAST BELL 2/4 when the party leaves.",
+        "Opening the chest is allowed; the ritual is about delivery, not keeping wrapping pristine.",
+        "The manifest clearly lists medicine, blankets, lamp oil, and dried food.",
+        "DC 12 Intelligence (Investigation) on the route board finds Senna's pine-cut notes immediately. Failure costs a few minutes but the charcoal map nailed to the door still provides the route.",
+        "Taking snow rope and splitting supplies into backpacks gives advantage on the first snow-road hazard save; dragging the whole chest preserves ceremony but is harder."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the real contents",
+          "text": "Make the First Gift useful aid rather than a token present."
+        },
+        {
+          "title": "Offer carry choices",
+          "text": "Backpacks are safer; dragging the chest preserves the intact ceremonial delivery."
+        },
+        {
+          "title": "Give the alternate route",
+          "text": "The pine cut is physically mapped even without Senna."
+        }
+      ],
+      "advanceWhen": "The party takes meaningful aid and commits to the pine-cut route toward the Vale house.",
+      "npcIds": [
+        "npc-senna-reed"
+      ],
+      "clueIds": [
+        "clue-first-gift-rule",
+        "clue-rerouted",
+        "clue-vale-needs"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-road"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-road",
+          "label": "Take the pine cut",
+          "description": "Carry the First Gift or equivalent aid through the safer foot route."
+        }
+      ]
+    },
+    {
+      "id": "scene-road",
+      "title": "Snow That Moves Sideways",
+      "purpose": "Make delivery itself a real obstacle and show the Warden protecting the route rather than hunting the party.",
+      "locationId": "loc-pine-cut",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Carry the gift",
+      "readAloud": "Snow hangs heavy in the pines. Halfway through the cut, wind drives sideways across a frozen creek where an old footbridge has twisted off its stones. Beyond it, three lean wolves pace the bank—until a white-antlered figure steps silently between them and the trail to the Vale house. The wolves stop. The figure looks at what you are carrying.",
+      "gmNotes": [
+        "Fill LAST BELL 3/4 when the party reaches the far side.",
+        "Frozen creek crossing: DC 12 Strength (Athletics) or Dexterity (Acrobatics). Success crosses safely; failure deals 1d6 cold/bludgeoning and drops one carried parcel 10 feet downslope, recoverable with an Action.",
+        "If the party took snow rope, the first failed crossing can be rerolled immediately.",
+        "Winter Wolves here are ordinary hungry wolves, not magical winter wolves. The Hearth Warden blocks them if the party is carrying aid toward the Vale house.",
+        "The party may fight the wolves, scare them off, or move while the Warden holds them. The Warden never attacks the party here."
+      ],
+      "runSteps": [
+        {
+          "title": "Make carrying matter",
+          "text": "A failed crossing risks position and supplies, not the entire adventure."
+        },
+        {
+          "title": "Reveal the Warden's behavior",
+          "text": "It protects the Vale route from wolves."
+        },
+        {
+          "title": "Keep multiple solutions",
+          "text": "Fight, scare off, or accept the Warden's protection."
+        }
+      ],
+      "advanceWhen": "The party crosses the frozen creek and reaches the Vale house with at least some meaningful aid.",
+      "npcIds": [
+        "npc-hearth-warden"
+      ],
+      "clueIds": [
+        "clue-warden-rule",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-snow-wolves"
+      ],
+      "exits": [
+        "scene-vale"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-vale",
+          "label": "Reach the Vale house",
+          "description": "Finish the delivery the town skipped."
+        }
+      ]
+    },
+    {
+      "id": "scene-vale",
+      "title": "What the Gift Was For",
+      "purpose": "Complete the rescue, establish that arrival matters more than wrapping, and give the party the material needed for all finale routes.",
+      "locationId": "loc-vale-house",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Answer the hearth",
+      "readAloud": "The Vale house is warm only near the stove. Two children feed it twigs while an older woman lies under layered quilts, trying to repair a mitten. When she sees the medicine among your supplies, she laughs once and says, “Good. Put apologies by the door. Put that by the kettle.” Outside the window, white antlers pass between the pines.",
+      "gmNotes": [
+        "Fill LAST BELL 4/4 when the party decides how the aid is delivered; the finale starts immediately afterward.",
+        "If the party brought the chest intact, opening it here completes the old First Gift act automatically.",
+        "If supplies were split or substituted, the act still counts if the Vales receive meaningful medicine, fuel, warmth, and food. Wrapping is irrelevant.",
+        "DC 12 Wisdom (Medicine) can stabilize Lysa's fever until morning. Failure does not make her die; the medicine still works over time, but she remains too weak to travel.",
+        "Lysa gives the Vale hearth ribbon, which shows the three lawful routes: carry, joined hands, shears."
+      ],
+      "runSteps": [
+        {
+          "title": "Deliver practical aid",
+          "text": "The ritual succeeds because someone arrives with help."
+        },
+        {
+          "title": "Let Lysa redefine the custom",
+          "text": "Use her line that the custom is somebody arriving, not the box."
+        },
+        {
+          "title": "Give the three-route symbol",
+          "text": "The hearth ribbon makes finale choices explicit before returning to town."
+        }
+      ],
+      "advanceWhen": "The Vales have meaningful aid and the party returns toward Wintermere with the hearth ribbon and a chosen approach to the broken custom.",
+      "npcIds": [
+        "npc-lysa-vale",
+        "npc-hearth-warden"
+      ],
+      "clueIds": [
+        "clue-vale-needs",
+        "clue-warden-rule",
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-final"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-final",
+          "label": "Return for the last bell",
+          "description": "Take the completed delivery and its meaning back to Wintermere."
+        }
+      ]
+    },
+    {
+      "id": "scene-final",
+      "title": "The Last Winterlight Bell",
+      "purpose": "Resolve the tradition through delivery, public aid, or rejection of supernatural enforcement.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 55,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Last bell",
+      "readAloud": "The last Winterlight bell hangs above three public braziers whose flames are nearly blue. Frost crawls across every opened gift table. The white-antlered Hearth Warden walks into the square carrying a ribbon stiff with ice. It stops beneath the bell and says, “Gift carried. Hearth answered. Finish. Replace. Or break.”",
+      "gmNotes": [
+        "The Hearth Warden starts at 52 HP.",
+        "FINISH route: if the Vales received meaningful aid, place the Vale hearth ribbon on the bell frame and complete 3 Hearth successes before 2 failures using DC 12 Charisma (Persuasion or Performance), Wisdom (Insight), or concrete acts reconnecting the delivered aid to the town. Each failure extinguishes one public brazier. At 2 failures this route closes but Replace and Break remain legal.",
+        "REPLACE route: create a public winter-aid compact at three stations—route board, supply reserve, household check roster. Each station is an Action and either automatic if the party already secured a concrete plan with Hollis/Senna/Lysa, or DC 12 Intelligence (Investigation), Wisdom (Survival), or Charisma (Persuasion). Three stations end the pact and preserve the Warden as a non-enforcing symbol.",
+        "BREAK route: the frozen ribbon-heart can be targeted after one successful hostile action or one brazier is deliberately extinguished. AC 13, 16 HP; destroying it drops the Warden to 0 HP and ends all supernatural Winterlight effects.",
+        "Direct combat to 0 HP is legal and has the same consequence as BREAK.",
+        "Initiative 20: Closing Hearth. One unattended brazier goes out. If all three are out, every creature in the square takes 1 cold damage at the start of its turn until a brazier is relit with an Action."
+      ],
+      "runSteps": [
+        {
+          "title": "State Finish, Replace, Break",
+          "text": "All three choices are legal and visible."
+        },
+        {
+          "title": "Use braziers as pressure",
+          "text": "The clock changes the battlefield instead of hiding damage."
+        },
+        {
+          "title": "Stop immediately when a route completes",
+          "text": "Do not force combat after the social objective resolves."
+        }
+      ],
+      "advanceWhen": "The First Gift obligation is completed, replaced, or broken.",
+      "npcIds": [
+        "npc-sera-moss",
+        "npc-hollis-vane",
+        "npc-senna-reed",
+        "npc-lysa-vale",
+        "npc-hearth-warden"
+      ],
+      "clueIds": [
+        "clue-first-gift-rule",
+        "clue-rerouted",
+        "clue-vale-needs",
+        "clue-warden-rule",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-hearth-warden"
+      ],
+      "exits": [
+        "scene-resolution-finish",
+        "scene-resolution-replace",
+        "scene-resolution-break"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-finish",
+          "label": "Finish the First Gift",
+          "description": "Keep the old tradition, now understood as a real welfare check."
+        },
+        {
+          "target": "scene-resolution-replace",
+          "label": "Replace it with a winter-aid compact",
+          "description": "Guarantee delivery through routes, reserves, and household checks."
+        },
+        {
+          "target": "scene-resolution-break",
+          "label": "Break the pact",
+          "description": "End supernatural enforcement and leave the duty entirely human."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-finish",
+      "title": "Resolution: First Carried, Then Opened",
+      "purpose": "Reward completing the tradition with clearer purpose.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The Vale ribbon warms in your hands. Across Wintermere, frozen wrapping softens and hearth flames rise orange again. Nobody rushes to open a box. The hall waits while Senna hangs a new route board by the door.",
+      "gmNotes": [
+        "Award 100 gp total and four Wintermere Favor tokens.",
+        "The First Gift remains, but it is rewritten as a mandatory welfare delivery rather than ceremonial pageantry.",
+        "Hollis publicly records the failure and future weather contingency."
+      ],
+      "runSteps": [
+        {
+          "title": "Rewrite the tradition",
+          "text": "Future First Gifts require an actual household check."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 100 gp and Favor tokens."
+        },
+        {
+          "title": "Warm the Vale hearth",
+          "text": "Show the delivered medicine, fuel, and blankets changing the actual household before the town resumes celebration."
+        }
+      ],
+      "advanceWhen": "Rewards and the new written procedure are recorded.",
+      "npcIds": [
+        "npc-sera-moss",
+        "npc-hollis-vane",
+        "npc-senna-reed",
+        "npc-lysa-vale"
+      ],
+      "clueIds": [
+        "clue-first-gift-rule"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-replace",
+      "title": "Resolution: The Winter Roster",
+      "purpose": "Reward replacing one symbolic delivery with a reliable system.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "Three boards go up before the bell stops ringing: routes, reserves, households. The Hearth Warden touches each one with two fingers. Its antlers shed their ice, becoming ordinary winter branches tied with red ribbon. The town's gifts thaw without anyone opening them yet.",
+      "gmNotes": [
+        "Award 120 gp total and the Winter Roster token, a story item granting advantage on one future Wintermere check involving logistics, rescue, or public planning.",
+        "The supernatural enforcement ends, but the Warden remains as a harmless festival figure.",
+        "Senna becomes route captain if she accepts."
+      ],
+      "runSteps": [
+        {
+          "title": "Make the system concrete",
+          "text": "Routes, reserves, and check roster all need named owners."
+        },
+        {
+          "title": "Reward structural repair",
+          "text": "Award 120 gp and the Winter Roster token."
+        },
+        {
+          "title": "Post the winter roster",
+          "text": "Put the new routes, reserve stores, and check-in owners where the whole village can see who is responsible."
+        }
+      ],
+      "advanceWhen": "The three-part compact and rewards are recorded.",
+      "npcIds": [
+        "npc-sera-moss",
+        "npc-hollis-vane",
+        "npc-senna-reed",
+        "npc-lysa-vale",
+        "npc-hearth-warden"
+      ],
+      "clueIds": [
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-break",
+      "title": "Resolution: Gifts Without a Warden",
+      "purpose": "Respect rejecting supernatural enforcement while preserving the human obligation.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The frozen ribbon-heart snaps. The Hearth Warden becomes a scatter of branches and old cloth at the foot of the bell. Every gift thaws. The three public braziers flare only after townsfolk begin carrying firewood and food toward the east road by hand.",
+      "gmNotes": [
+        "Award 100 gp total.",
+        "Wintermere ends the supernatural First Gift pact.",
+        "The Vale rescue still matters; destroying the Warden does not retroactively fulfill material needs."
+      ],
+      "runSteps": [
+        {
+          "title": "Do not erase the rescue",
+          "text": "Aid to outer households remains a human responsibility."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 100 gp."
+        },
+        {
+          "title": "Send someone anyway",
+          "text": "With the Warden gone, have a villager volunteer for the next outer-household delivery to prove care survives without magic."
+        }
+      ],
+      "advanceWhen": "Rewards and the new nonmagical Winterlight practice are recorded.",
+      "npcIds": [
+        "npc-sera-moss",
+        "npc-hollis-vane",
+        "npc-senna-reed",
+        "npc-lysa-vale"
+      ],
+      "clueIds": [
+        "clue-vale-needs"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-snow-wolves",
+      "name": "Pine-Cut Wolves",
+      "type": "combat / scare / protected passage",
+      "difficulty": "Low",
+      "summary": "Three hungry wolves shadow the pine cut while the Hearth Warden blocks them from the Vale route.",
+      "resolution": "Drive them off, fight, distract with food, or move past while the Warden holds the line.",
+      "talkOut": "A DC 12 Wisdom (Animal Handling) check plus food drives the pack away; failure costs the food and they keep distance but remain present.",
+      "bypass": "Move across the creek and continue while the Hearth Warden occupies the wolves.",
+      "objective": "Carry the aid through the snow road without turning the Warden into an assumed enemy."
+    },
+    {
+      "id": "enc-hearth-warden",
+      "name": "The Hearth Warden",
+      "type": "finale / ritual / combat",
+      "difficulty": "Moderate",
+      "summary": "The guardian arrives at the last bell to force a decision about Wintermere's broken First Gift custom.",
+      "resolution": "Complete Finish, complete Replace, destroy the ribbon-heart, or reduce the Warden to 0 HP.",
+      "talkOut": "It accepts concrete proof of delivery or a three-part aid compact; ordinary persuasion without action is insufficient.",
+      "bypass": "Finish and Replace are complete noncombat resolutions.",
+      "objective": "Decide how Wintermere guarantees that isolated households are not forgotten again."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-route-board",
+      "prompt": "Compare the crossed east road, sleigh damage, and old route notes to identify the pine-cut foot route.",
+      "solution": "The ridge road is unsafe for the sleigh, but the pine cut remains passable on foot with rope.",
+      "bypass": "DC 12 Investigation finds the usable route immediately.",
+      "failForward": "Senna's charcoal map remains nailed to the barn door even if the route-board check fails."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-frozen-creek",
+      "trigger": "Cross the twisted frozen-creek section without securing rope or choosing a careful path.",
+      "effect": "DC 12 Athletics or Acrobatics. Failure deals 1d6 cold/bludgeoning and drops one carried parcel 10 feet downslope.",
+      "failForward": "The parcel is recoverable with an Action; no required aid is destroyed."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-vale-ribbon",
+      "name": "Vale Hearth Ribbon",
+      "effect": "Shows the three lawful Winterlight resolutions: delivery boots, joined hands, and shears."
+    },
+    {
+      "id": "item-winter-roster",
+      "name": "Winter Roster Token",
+      "effect": "Story reward from the Replace ending; once in Wintermere, grants advantage on one check involving logistics, rescue, or public planning."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-pine-cut",
+      "name": "Pine Cut Snow Road",
+      "asset": "assets/maps/holiday/wintermere-pine-cut-grid.svg",
+      "regions": [
+        {
+          "id": "road-entry",
+          "sceneId": "scene-road",
+          "label": "barn-side trail"
+        },
+        {
+          "id": "road-creek",
+          "sceneId": "scene-road",
+          "label": "frozen creek crossing"
+        },
+        {
+          "id": "road-wolves",
+          "sceneId": "scene-road",
+          "label": "wolf bank and Warden position"
+        }
+      ]
+    },
+    {
+      "id": "map-vale-house",
+      "name": "Vale House",
+      "asset": "assets/maps/holiday/wintermere-vale-house-grid.svg",
+      "regions": [
+        {
+          "id": "vale-yard",
+          "sceneId": "scene-vale",
+          "label": "snow yard and wood shed"
+        },
+        {
+          "id": "vale-main",
+          "sceneId": "scene-vale",
+          "label": "cottage main room"
+        },
+        {
+          "id": "vale-cellar",
+          "sceneId": "scene-vale",
+          "label": "root-cellar refuge"
+        }
+      ]
+    },
+    {
+      "id": "map-winter-square",
+      "name": "Wintermere Last Bell",
+      "asset": "assets/maps/holiday/wintermere-last-bell-grid.svg",
+      "regions": [
+        {
+          "id": "square-braziers",
+          "sceneId": "scene-final",
+          "label": "three public hearth braziers"
+        },
+        {
+          "id": "square-bell",
+          "sceneId": "scene-final",
+          "label": "Winterlight bell frame"
+        },
+        {
+          "id": "square-gifts",
+          "sceneId": "scene-final",
+          "label": "frozen gift tables"
+        }
+      ]
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "Every required truth survives loss or hostility of any one NPC.",
+      "The First Gift remains practical aid even if the ceremonial chest is damaged or abandoned.",
+      "Failed road checks cost position, damage, or time but never destroy the only rescue route."
+    ],
+    "routes": [
+      {
+        "id": "rec-hollis-unavailable",
+        "trigger": "Hollis is unavailable or refuses to cooperate.",
+        "response": "His schedule, the carved hall beam, and the sealed chest in the delivery barn prove the broken sequence.",
+        "stateChanges": [
+          "The investigation begins without the festival master.",
+          "clue-rerouted remains physical."
+        ]
+      },
+      {
+        "id": "rec-senna-unavailable",
+        "trigger": "Senna cannot guide the party.",
+        "response": "Her charcoal pine-cut map is nailed to the barn door; split runner marks and snow rope still show why the sleigh turned back.",
+        "stateChanges": [
+          "The Vale route remains available.",
+          "Preparation remains possible."
+        ]
+      },
+      {
+        "id": "rec-chest-lost",
+        "trigger": "The ceremonial First Gift chest is destroyed, lost, or left behind.",
+        "response": "Equivalent medicine, fuel, blankets, and food from Wintermere can fulfill the delivery if the party deliberately carries them to the Vales.",
+        "stateChanges": [
+          "The Finish route remains available.",
+          "The ritual is about aid, not packaging."
+        ]
+      },
+      {
+        "id": "rec-warden-attacked",
+        "trigger": "The party attacks the Hearth Warden on the road.",
+        "response": "It withdraws rather than counterattacking until the finale; wolf behavior, founder text, and Vale testimony still reveal its protective role.",
+        "stateChanges": [
+          "clue-warden-rule remains available.",
+          "The finale still offers Finish and Replace."
+        ]
+      },
+      {
+        "id": "rec-rush-final",
+        "trigger": "The party skips or rushes earlier investigation and reaches the final scene without all resolution clues.",
+        "response": "The Warden states 'Finish. Replace. Or break.' and gestures to the Vale ribbon symbols before initiative.",
+        "stateChanges": [
+          "The finale remains solvable.",
+          "Prepared play still provides easier noncombat completion."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Preparation makes the snow route and noncombat finale safer, but the adventure remains finishable if rushed. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
+    "prepared": [
+      "Snow rope allows a reroll on the first failed creek crossing.",
+      "Carrying real medicine/fuel/blankets makes the Vale delivery automatically meaningful.",
+      "A concrete aid plan established before returning makes Replace stations automatic."
+    ],
+    "rushed": [
+      "Dragging the full chest is harder across the creek.",
+      "Skipping the route notes removes the snow-rope reroll.",
+      "Returning without a public aid plan requires checks at the three Replace stations."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 210,
+    "plannedMinutes": 210,
+    "bossReserveMinutes": 55,
+    "cutOrder": [
+      "If 25+ minutes behind, give the pine-cut route automatically in the barn.",
+      "If 15+ minutes behind on the snow road, reduce the wolves to two and let the Warden hold one at bay.",
+      "Never cut the Vale delivery, the Warden's true role, or the three final resolutions."
+    ],
+    "optionalOrder": [
+      "Extended debate with Hollis in the hall.",
+      "Detailed barn inventory beyond practical aid.",
+      "Extra roleplay at the Vale house after medicine and fuel are delivered."
+    ]
+  },
+  "endings": [
+    {
+      "id": "ending-finish",
+      "name": "First Carried, Then Opened",
+      "condition": "The party completes the Finish route.",
+      "result": "The First Gift survives as an explicit welfare delivery and Wintermere writes a weather contingency into the tradition."
+    },
+    {
+      "id": "ending-replace",
+      "name": "The Winter Roster",
+      "condition": "The party completes all three Replace stations.",
+      "result": "Wintermere replaces one ceremonial delivery with routes, reserves, and household checks; the Warden becomes harmless symbolism."
+    },
+    {
+      "id": "ending-break",
+      "name": "Gifts Without a Warden",
+      "condition": "The Hearth Warden or ribbon-heart is destroyed.",
+      "result": "The supernatural pact ends; future outer-household aid becomes entirely a human responsibility."
+    }
+  ],
+  "initialState": {
+    "questStage": "winterlight-broken",
+    "currentSceneId": "scene-hall",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-hollis-vane": {
+        "status": "alive",
+        "attitude": "defensive"
+      },
+      "npc-senna-reed": {
+        "status": "alive",
+        "attitude": "ashamed"
+      },
+      "npc-lysa-vale": {
+        "status": "isolated",
+        "attitude": "wry"
+      },
+      "npc-hearth-warden": {
+        "status": "active",
+        "attitude": "literal"
+      },
+      "npc-sera-moss": {
+        "status": "alive",
+        "attitude": "familiar"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-vale-ribbon": "vale-house",
+      "item-winter-roster": "unearned"
+    },
+    "eventState": {
+      "bellMarks": 0,
+      "publicHearths": 3,
+      "valeAidDelivered": false
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures and procedures use complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2014 SRD package."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures and procedures use complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2024 SRD package; do not import 2014 class features."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-gift-that-never-arrived",
+    "version": "0.1.0",
+    "target": {
+      "level": 3,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-hollis",
+      "check-route",
+      "check-creek",
+      "check-medicine",
+      "check-finish"
+    ],
+    "checks": [
+      {
+        "id": "check-hollis",
+        "sceneId": "scene-hall",
+        "label": "Read Hollis's decision",
+        "dc": 12,
+        "ability": "Wisdom (Insight)",
+        "success": "Hollis personally chose to open the hall before the First Gift arrived.",
+        "failure": "His written schedule and sealed chest prove the same sequence later."
+      },
+      {
+        "id": "check-route",
+        "sceneId": "scene-barn",
+        "label": "Find the pine-cut route",
+        "dc": 12,
+        "ability": "Intelligence (Investigation)",
+        "success": "The pine cut remains passable on foot and avoids the dangerous ridge.",
+        "failure": "Senna's charcoal map on the barn door provides the same route after a short delay."
+      },
+      {
+        "id": "check-creek",
+        "sceneId": "scene-road",
+        "label": "Cross the frozen creek",
+        "dc": 12,
+        "ability": "Strength (Athletics) or Dexterity (Acrobatics)",
+        "success": "Cross safely with all carried aid.",
+        "failure": "Take 1d6 cold/bludgeoning and drop one parcel 10 feet downslope; it remains recoverable."
+      },
+      {
+        "id": "check-medicine",
+        "sceneId": "scene-vale",
+        "label": "Stabilize Lysa's fever",
+        "dc": 12,
+        "ability": "Wisdom (Medicine)",
+        "success": "Lysa's fever eases enough that she can participate in the discussion.",
+        "failure": "The medicine still works over time, but Lysa remains too weak to travel; the adventure continues."
+      },
+      {
+        "id": "check-finish",
+        "sceneId": "scene-final",
+        "label": "Complete one Hearth action",
+        "dc": 12,
+        "ability": "Charisma (Persuasion or Performance) or Wisdom (Insight)",
+        "success": "One Hearth success is recorded and one public brazier flares brighter.",
+        "failure": "One public brazier goes out and one failure is recorded; at two failures Finish closes but Replace and Break remain legal."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-snow-wolves",
+        "objective": "Carry practical aid through the pine cut.",
+        "start": "Three hungry wolves stalk the far creek bank while the Hearth Warden blocks the route toward the Vale house.",
+        "bypass": "Move past while the Warden holds them, or distract the pack with food.",
+        "creatures": [
+          {
+            "name": "Pine Wolf",
+            "count": 3,
+            "ac": 12,
+            "hp": 8,
+            "speed": "40 ft.",
+            "attack": "Bite +4 to hit, 1d6+2 piercing.",
+            "trait": "Hungry, Not Possessed: food or a successful DC 12 Animal Handling check can drive a wolf away.",
+            "tactics": "Circle isolated carriers and retreat if badly hurt; they do not cross fire or pursue into the Vale yard."
+          }
+        ],
+        "end": "The pack is driven off, bypassed, or the party reaches the far trail."
+      },
+      {
+        "id": "enc-hearth-warden",
+        "objective": "Resolve Wintermere's broken First Gift obligation.",
+        "start": "The Warden enters beneath the final bell as the public braziers dim.",
+        "bypass": "Finish and Replace are complete noncombat victory routes.",
+        "creatures": [
+          {
+            "name": "Hearth Warden",
+            "count": 1,
+            "ac": 14,
+            "hp": 52,
+            "speed": "30 ft.",
+            "attack": "Winter Branch +5 to hit, 1d8+3 cold.",
+            "trait": "Frozen Ribbon-Heart: after one successful hostile action or one deliberately extinguished brazier, AC 13, 16 HP; destroying it reduces the Warden to 0 HP and ends the supernatural pact.",
+            "tactics": "Pressure ritual actors, extinguish unattended braziers, and avoid chasing creatures who leave the square."
+          }
+        ],
+        "end": "Finish succeeds, Replace completes, or the Warden reaches 0 HP."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-frozen-creek",
+        "sceneId": "scene-road",
+        "trigger": "Cross the twisted frozen-creek section.",
+        "save": "DC 12 Strength (Athletics) or Dexterity (Acrobatics).",
+        "failure": "Take 1d6 cold/bludgeoning and drop one parcel 10 feet downslope.",
+        "success": "Cross safely.",
+        "failForward": "Dropped aid remains recoverable; the route never disappears."
+      },
+      {
+        "id": "hazard-closing-hearth",
+        "sceneId": "scene-final",
+        "trigger": "Initiative count 20 while the Warden remains unresolved.",
+        "save": "No save; visible objective pressure.",
+        "failure": "One unattended public brazier goes out.",
+        "success": "If every brazier is attended or protected by a completed route action, no brazier goes out.",
+        "failForward": "Even at zero braziers the other finale routes remain available."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-finish",
+        "when": "The Finish ending resolves the crisis.",
+        "reward": "100 gp total and four Wintermere Favor tokens."
+      },
+      {
+        "id": "reward-replace",
+        "when": "The Replace ending resolves the crisis.",
+        "reward": "120 gp total and the Winter Roster token."
+      },
+      {
+        "id": "reward-break",
+        "when": "The Warden is destroyed.",
+        "reward": "100 gp total; future First Gift obligations are entirely nonmagical."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-road",
+        "dimensions": "80 × 50 ft. snowy pine cut; 5-ft. grid.",
+        "features": [
+          "west trail entry",
+          "frozen creek crossing",
+          "downhill parcel drop zone",
+          "far-bank wolf starts",
+          "east trail to Vale house"
+        ]
+      },
+      {
+        "sceneId": "scene-vale",
+        "dimensions": "60 × 50 ft. cottage and yard; 5-ft. grid.",
+        "features": [
+          "front door",
+          "main stove room",
+          "wood shed",
+          "root cellar",
+          "snow road entry"
+        ]
+      },
+      {
+        "sceneId": "scene-final",
+        "dimensions": "80 × 70 ft. bell square; 5-ft. grid.",
+        "features": [
+          "three public braziers",
+          "Winterlight bell frame",
+          "frozen gift tables",
+          "Warden approach",
+          "crowd refuge line"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One winter rescue spine: diagnose the broken sequence, carry real aid, learn the guardian's purpose, and branch only at the final resolution.",
+    "mainSpine": [
+      "scene-hall",
+      "scene-barn",
+      "scene-road",
+      "scene-vale",
+      "scene-final"
+    ],
+    "allowedBranchScenes": [
+      "scene-final"
+    ],
+    "terminalScenes": [
+      "scene-resolution-finish",
+      "scene-resolution-replace",
+      "scene-resolution-break"
+    ],
+    "stageCount": 6
+  },
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-sera-moss"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Doctor Sera Moss's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
+}

@@ -377,7 +377,8 @@
         "enc-memory-husks"
       ],
       "clueIds": [
-        "clue-spirit-nature"
+        "clue-spirit-nature",
+        "clue-priory-location"
       ],
       "entryConditions": [],
       "exits": [
@@ -409,7 +410,7 @@
       "locationId": "loc-priory-yard",
       "readAloud": "Bellweather Priory sits on the ridge like a broken tooth. Two bronze bells have been dragged into the yard and left on their sides; rainwater ticks inside them.\n\nFresh white chalk rings the chapel doors — tight, careful circles, not graffiti. Thorn has eaten the grave-row. Something under that thorn shifts when your weight hits the mud, as if four bodies rolled over in their sleep.\n\nThe culvert mouth, if Tamsin described it, is a dark slot in the east bank outside the wall. The yard is sixty feet of bad ground.",
       "gmNotes": [
-        "Wards: DC 12 Arcana/Religion reads them as protective and recent — Caldus’s work, not a cult.",
+        "Wards: DC 12 Arcana/Religion reads them as protective and recent — Caldus’s work, not a cult. On failure, do not give a false cult reading; the character simply cannot interpret the wards here, and Caldus's chapel notes plus the crypt ritual provide the same truth later.",
         "Grave-Things: four, AC 12, 18 HP (Encounters). They rise if anyone moves more than 10 feet into the yard. They do not pursue beyond the wall.",
         "Bypass: culvert if known. Or DC 12 group Stealth along the grave-edge; failure starts the fight 20 feet away.",
         "Fire: if fire damages a Grave-Thing, that one attacks the fire’s source next turn. They are rooted dead, not an army.",
@@ -499,7 +500,8 @@
       "npcIds": [],
       "encounterIds": [],
       "clueIds": [
-        "clue-caldus-binding"
+        "clue-caldus-binding",
+        "clue-caldus-plan"
       ],
       "entryConditions": [],
       "exits": [
@@ -543,7 +545,8 @@
       ],
       "clueIds": [
         "clue-real-seal",
-        "clue-caldus-plan"
+        "clue-caldus-plan",
+        "clue-caldus-binding"
       ],
       "entryConditions": [],
       "exits": [
@@ -590,7 +593,11 @@
       "encounterIds": [
         "enc-pale-guest"
       ],
-      "clueIds": [],
+      "clueIds": [
+        "clue-real-seal",
+        "clue-caldus-plan",
+        "clue-caldus-binding"
+      ],
       "entryConditions": [],
       "exits": [
         "scene-resolution"

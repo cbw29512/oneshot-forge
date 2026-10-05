@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "policy": "Fill new authored one-shots from level 1 through 20 before repeating a level.",
+  "nextLevel": 10,
+  "assignments": [
+    {
+      "level": 1,
+      "adventureId": "the-last-treat-of-gloamwick",
+      "title": "The Last Treat of Gloamwick",
+      "status": "review"
+    },
+    {
+      "level": 2,
+      "adventureId": "the-empty-chair-of-harvesthome",
+      "title": "The Empty Chair of Harvesthome",
+      "status": "review"
+    },
+    {
+      "level": 3,
+      "adventureId": "the-gift-that-never-arrived",
+      "title": "The Gift That Never Arrived",
+      "status": "review"
+    },
+    {
+      "level": 4,
+      "adventureId": "the-year-that-wouldnt-end",
+      "title": "The Year That Wouldn't End",
+      "status": "review"
+    },
+    {
+      "level": 5,
+      "adventureId": "the-heartloom-of-rosebridge",
+      "title": "The Heartloom of Rosebridge",
+      "status": "review"
+    },
+    {
+      "level": 6,
+      "adventureId": "the-first-egg-of-greenhollow",
+      "title": "The First Egg of Greenhollow",
+      "status": "review"
+    },
+    {
+      "level": 7,
+      "adventureId": "the-last-rocket-of-founding-day",
+      "title": "The Last Rocket of Founding Day",
+      "status": "review"
+    },
+    {
+      "level": 8,
+      "adventureId": "the-lanterns-we-left-behind",
+      "title": "The Lanterns We Left Behind",
+      "status": "review"
+    },
+    {
+      "level": 9,
+      "adventureId": "the-graduation-that-opened-the-sky",
+      "title": "The Graduation That Opened the Sky",
+      "status": "review"
+    }
+  ]
+}

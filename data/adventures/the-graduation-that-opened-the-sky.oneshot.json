@@ -1,0 +1,1371 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-graduation-that-opened-the-sky",
+    "title": "The Graduation That Opened the Sky",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 9,
+    "partySize": 4,
+    "partySizeRange": "3–6 players",
+    "durationMinutes": 210,
+    "tone": [
+      "graduation special",
+      "arcane academy crisis",
+      "institutional mystery"
+    ]
+  },
+  "series": {
+    "title": "Special Occasion One-Shots",
+    "occasion": "Graduation / commencement",
+    "standalone": true
+  },
+  "setup": {
+    "pitch": "Ninefold Academy's graduation ends by lighting nine capstone beacons that seal the school's sky observatory for another year. This year one capstone was erased from the ceremony—and the ninth beacon opens the sky instead.",
+    "openingLocation": "Ninefold Academy commencement court",
+    "gmSummary": "Ninefold Academy's commencement ritual is not merely ceremonial. Nine student capstones are selected each year to provide the ward concepts that close and recalibrate the academy's planar observatory. This year Provost Halden Vey removed expelled student Mira Sol's capstone on grounding unstable portals after she accused a senior professor of plagiarizing her work. Halden substituted an impressive but incomplete faculty demonstration. When the ninth beacon ignites, the observatory tears open into the Astral Sea and fragments of unfinished student magic spill across campus. The party must learn what was omitted, recover Mira's grounding work or reconstruct it independently, stabilize students and faculty, and decide whether the academy restores Mira's capstone, rewrites the graduation ward process under independent oversight, or permanently disconnects the observatory from the commencement rite.",
+    "background": "The Ninefold ceremony began as a practical peer-review safeguard: no observatory cycle closed until nine different students' work had been tested against the ward system. Over generations, the ritual became prestigious theater. Halden treated the capstones as symbolic slots rather than functional checks. Mira's project specifically modeled failure cascades when one ward concept is missing. Removing it created exactly the condition she warned about.",
+    "campaignFrame": "Joss Amber escorts Hearthford apprentices to Ninefold Academy's commencement and notices that the ninth beacon mount does not match the floor channel beneath it. She pulls the party into the investigation, and they return to Hearthford with Joss remembering whether they fixed the institution as well as the machinery."
+  },
+  "quest": {
+    "type": "investigate / planar containment / institutional choice",
+    "objective": "Stabilize the campus, discover why the ninth beacon failed, recover or reconstruct the missing grounding capstone, and decide how Ninefold Academy closes the planar breach.",
+    "stakes": "The observatory is opening into the Astral Sea, student projects are manifesting physically, and the academy's credibility depends on whether it acknowledges the omitted work or hides the cause.",
+    "deadline": "NINE BEACONS: show nine marks. Six are lit at start. Fill one after commencement court, capstone hall, archive/lab, and observatory approach; beacon nine begins the finale breach. At nine unresolved, planar pressure escalates each round.",
+    "successConditions": [
+      "The missing grounding concept is recovered or independently reconstructed.",
+      "Students and civilians are cleared from the observatory danger zone.",
+      "The breach is resolved through Restore, Reform, or Disconnect."
+    ],
+    "failureConditions": [
+      "The party abandons the campus while the breach continues expanding.",
+      "The observatory is destroyed without securing the students trapped in its projection chambers."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-nine-functional",
+        "text": "The nine capstones are functional peer-review ward inputs, not ceremonial decorations."
+      },
+      {
+        "id": "fact-mira-removed",
+        "text": "Provost Halden removed Mira Sol's grounding capstone after her expulsion and substituted an incomplete faculty demonstration."
+      },
+      {
+        "id": "fact-plagiarism",
+        "text": "Mira's expulsion followed her accusation that Professor Orien Pell copied her portal-stability work into a faculty paper."
+      },
+      {
+        "id": "fact-breach-rule",
+        "text": "The planar breach expands because the ward cycle lacks a grounding model; any valid grounding solution can stabilize it, not only Mira personally."
+      },
+      {
+        "id": "fact-three-resolutions",
+        "text": "The crisis can end by restoring Mira's capstone, reforming the ward process under independent review, or disconnecting the observatory from the commencement beacons."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-halden-substitution",
+        "text": "Halden knowingly inserted Orien Pell's demonstration into Mira's capstone slot to avoid reopening the plagiarism dispute.",
+        "revealCondition": "Read the beacon assignment ledger, inspect the substituted sigil, or confront Halden with the archive draft history."
+      },
+      {
+        "id": "secret-mira-copy",
+        "text": "A complete copy of Mira's grounding model survives in three places: her expelled-student locker, the archive version history, and a student study group's copied notes.",
+        "revealCondition": "Search any of those sources."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-joss-amber",
+      "name": "Joss Amber",
+      "role": "Hearthford smith and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Talks to the metal first."
+      ],
+      "wants": [
+        "No mechanism should pretend to be sound when its join is false.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Joss Amber, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“That mount is wrong. Metal knows when it has been made to lie.”",
+        "“Credit the maker before you praise the machine.”",
+        "“Fix the grounding first. Speeches survive delays.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
+    {
+      "id": "npc-halden-vey",
+      "name": "Provost Halden Vey",
+      "role": "academy provost who substituted the missing capstone",
+      "personality": [
+        "controlled",
+        "institution-first",
+        "capable under pressure"
+      ],
+      "voiceCues": [
+        "speaks in policy language",
+        "avoids student names when discussing scandal"
+      ],
+      "wants": [
+        "Close the breach",
+        "Keep students alive",
+        "Prevent the academy from collapsing politically"
+      ],
+      "fears": [
+        "Public proof he knowingly bypassed review",
+        "Losing the observatory permanently"
+      ],
+      "knows": [
+        "Mira's slot was substituted",
+        "The replacement was never fully peer-tested",
+        "Orien's paper overlaps Mira's work"
+      ],
+      "believes": [
+        "The academy could survive one procedural shortcut better than reopening a scandal"
+      ],
+      "secrets": [
+        "He personally approved the substitution"
+      ],
+      "lies": [
+        "Initially calls the substitution an emergency equivalency"
+      ],
+      "cannotKnow": [
+        "Whether Mira will cooperate",
+        "Which independent grounding solution the party may create"
+      ],
+      "revealRules": [
+        {
+          "fact": "He approved the substitution.",
+          "when": "Shown the assignment ledger, sigil mismatch, or archive history."
+        }
+      ],
+      "questFunction": "Creates institutional pressure without being the sole source of the truth.",
+      "description": "A silver-robed administrator with nine enamel pins on his collar, one of them visibly cracked and leaking blue light.",
+      "tableDialogue": [
+        "“Close the breach first. Condemn me after.”",
+        "“The slot was filled. The review was abbreviated.”",
+        "“If you can stabilize it without the observatory, do it.”"
+      ],
+      "reactions": {
+        "agreement": "Opens restricted campus areas and orders evacuation.",
+        "refusal": "Continues emergency command; physical records remain accessible.",
+        "accusation": "Admits the substitution once evidence is shown.",
+        "danger": "Uses academy authority to clear projection chambers and suspend automated beacon ignition."
+      }
+    },
+    {
+      "id": "npc-mira-sol",
+      "name": "Mira Sol",
+      "role": "expelled student and author of the missing grounding capstone",
+      "personality": [
+        "sharp",
+        "angry",
+        "still cares about classmates"
+      ],
+      "voiceCues": [
+        "corrects technical language immediately",
+        "separates helping students from forgiving faculty"
+      ],
+      "wants": [
+        "Keep students alive",
+        "Have authorship acknowledged",
+        "Prevent her work from being used without oversight"
+      ],
+      "fears": [
+        "The academy taking her solution and burying the scandal again"
+      ],
+      "knows": [
+        "Her grounding model",
+        "How the omitted term affects beacon nine",
+        "Where her study group kept copies"
+      ],
+      "believes": [
+        "The process failed because authority overrode peer review"
+      ],
+      "secrets": [
+        "She can rebuild the model from memory if given a functioning ward diagram"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Halden's full political motive",
+        "Current observatory damage"
+      ],
+      "revealRules": [
+        {
+          "fact": "Her grounding model can stabilize the breach, but any correct equivalent model can too.",
+          "when": "The party finds her or reconstructs her notes."
+        }
+      ],
+      "questFunction": "Provides the clearest solution without becoming a single point of failure.",
+      "description": "A young mage in travel clothes with an academy sash cut in half and chalk equations covering one sleeve.",
+      "tableDialogue": [
+        "“My name is not a spell component.”",
+        "“You need the grounding term. You do not need my permission to save lives.”",
+        "“You do need my permission to pretend they wrote it.”"
+      ],
+      "reactions": {
+        "agreement": "Helps rebuild the model if authorship is recorded.",
+        "refusal": "Leaves enough written derivation to reconstruct it independently.",
+        "accusation": "Confirms the plagiarism dispute with dated drafts.",
+        "danger": "Prioritizes trapped students and stabilizes one ward node."
+      }
+    },
+    {
+      "id": "npc-orien-pell",
+      "name": "Professor Orien Pell",
+      "role": "senior professor whose paper copied Mira's work",
+      "personality": [
+        "brilliant",
+        "defensive",
+        "afraid of disgrace"
+      ],
+      "voiceCues": [
+        "uses passive voice",
+        "calls copied ideas 'parallel development'"
+      ],
+      "wants": [
+        "Close the breach",
+        "Avoid professional ruin",
+        "Keep control of the observatory"
+      ],
+      "fears": [
+        "Draft comparison proving plagiarism"
+      ],
+      "knows": [
+        "His demonstration lacks Mira's grounding term",
+        "His faculty paper incorporated her derivation",
+        "The observatory can be physically disconnected"
+      ],
+      "believes": [
+        "Faculty refinement made the work effectively institutional"
+      ],
+      "secrets": [
+        "His draft history preserves Mira's original notation"
+      ],
+      "lies": [
+        "Claims their work developed independently"
+      ],
+      "cannotKnow": [
+        "Where Mira is now",
+        "Which route the party will choose"
+      ],
+      "revealRules": [
+        {
+          "fact": "His demonstration is incomplete and copied from Mira's earlier work.",
+          "when": "Draft histories or notation are compared."
+        }
+      ],
+      "questFunction": "Adds authorship conflict and a technical disconnect route.",
+      "description": "A tired professor in star-pattern robes with one hand wrapped in bandages from a failed ward correction.",
+      "tableDialogue": [
+        "“The mathematics matters more than the signature.”",
+        "“Yes, her notation appears in my drafts.”",
+        "“Disconnect the observatory if you must. Do not let the chamber take another student.”"
+      ],
+      "reactions": {
+        "agreement": "Provides access to observatory cutoffs and his draft archive.",
+        "refusal": "Retreats to the control room; students and records remain accessible.",
+        "accusation": "Admits using Mira's derivation once dates are compared.",
+        "danger": "Helps shut down projection chambers."
+      }
+    },
+    {
+      "id": "npc-ninth-echo",
+      "name": "The Ninth Echo",
+      "role": "planar manifestation of the missing grounding slot",
+      "personality": [
+        "recursive",
+        "analytical",
+        "not malicious"
+      ],
+      "voiceCues": [
+        "repeats incomplete equations",
+        "answers questions with missing variables"
+      ],
+      "wants": [
+        "A stable ninth input",
+        "The ward cycle completed, redesigned, or disconnected"
+      ],
+      "fears": [
+        "None in a human sense"
+      ],
+      "knows": [
+        "The current cycle is underdetermined",
+        "Multiple valid grounding solutions exist",
+        "Restore, Reform, and Disconnect are stable end states"
+      ],
+      "believes": [
+        "An incomplete system continues iterating"
+      ],
+      "secrets": [
+        "It is generated by the broken ward logic, not a conscious outsider"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Authorship ethics",
+        "Institutional politics"
+      ],
+      "revealRules": [
+        {
+          "fact": "Any valid grounding solution can work.",
+          "when": "The party tests Mira's model, a reconstructed equivalent, or reaches the finale."
+        }
+      ],
+      "questFunction": "Turns the missing capstone into visible planar pressure without making Mira personally mandatory.",
+      "description": "A translucent humanoid outline made of floating equations and nine rotating stars, one star always absent.",
+      "tableDialogue": [
+        "“Eight known. Ninth unresolved.”",
+        "“Ground. Reform. Sever.”",
+        "“Identity irrelevant. Stability required.”"
+      ],
+      "reactions": {
+        "agreement": "Stabilizes one nearby ward node after a correct equation is supplied.",
+        "refusal": "Continues spawning incomplete project echoes.",
+        "accusation": "Repeats equations without engaging moral blame.",
+        "danger": "Uses force to move creatures away from unstable nodes rather than pursue them."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-court",
+      "name": "Commencement Court",
+      "description": "A grand courtyard filled with graduates, family banners, nine beacon plinths, and a sky split by a thin silver tear above the observatory.",
+      "connections": [
+        "loc-capstone",
+        "loc-archive",
+        "loc-observatory"
+      ]
+    },
+    {
+      "id": "loc-capstone",
+      "name": "Capstone Hall",
+      "description": "Nine exhibition bays display student projects; one bay contains a polished faculty demonstration over a scraped-off student nameplate.",
+      "connections": [
+        "loc-court",
+        "loc-archive",
+        "loc-labs"
+      ]
+    },
+    {
+      "id": "loc-archive",
+      "name": "Ward Archive",
+      "description": "Versioned research ledgers, beacon assignments, faculty drafts, and locked student disciplinary records line a circular records chamber, with rolling shelves surrounding a central comparison desk and emergency stair.",
+      "connections": [
+        "loc-capstone",
+        "loc-labs",
+        "loc-observatory"
+      ]
+    },
+    {
+      "id": "loc-labs",
+      "name": "Projection Labs",
+      "description": "Student experiment rooms flicker with manifested capstone effects and contain trapped graduates behind unstable ward panes; overturned benches create cover while sparking conduits and shifting projections complicate movement.",
+      "connections": [
+        "loc-capstone",
+        "loc-archive",
+        "loc-observatory"
+      ]
+    },
+    {
+      "id": "loc-observatory",
+      "name": "Ninefold Sky Observatory",
+      "description": "A domed planar chamber with nine ward pylons around a central aperture opening onto the Astral Sea; narrow catwalks connect the stations while gravity shivers near the exposed center.",
+      "connections": [
+        "loc-court",
+        "loc-archive",
+        "loc-labs"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-nine-functional",
+      "revelation": "All nine capstones are functional inputs to the observatory ward cycle.",
+      "required": true,
+      "sources": [
+        "The beacon engineering diagram routes each capstone plinth into one observatory pylon.",
+        "Prior commencement logs record ward tests for all nine capstones before ceremony.",
+        "Capstone Hall floor channels physically connect each exhibition bay to a beacon conduit."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-mira-removed",
+      "revelation": "Mira's grounding capstone was removed and Orien's incomplete demonstration substituted.",
+      "required": true,
+      "sources": [
+        "The beacon assignment ledger crosses out MIRA SOL and inserts ORIEN PELL under Halden's approval.",
+        "The substituted display uses Mira's scratched-off bay but a mismatched faculty sigil.",
+        "Archive version history shows Mira's grounding file removed from the ceremony package."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-plagiarism",
+      "revelation": "Orien's faculty paper incorporates Mira's earlier portal-stability derivation.",
+      "required": true,
+      "sources": [
+        "Dated student drafts contain the same unusual notation months before Orien's paper.",
+        "A study-group copy credits Mira beside the grounding equation.",
+        "Orien's version history imports a block from Mira's archived file."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-grounding-equivalent",
+      "revelation": "The breach requires a valid grounding model, not Mira personally; an equivalent correct solution can work.",
+      "required": true,
+      "sources": [
+        "Mira's notes explicitly define the grounding term as replaceable if boundary conditions are preserved.",
+        "The Ninth Echo accepts independently reconstructed equations.",
+        "A prior observatory emergency log records a temporary faculty-built grounding substitute."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-resolutions",
+      "revelation": "The breach can close by restoring the missing capstone, reforming the ward cycle under independent review, or disconnecting commencement from the observatory.",
+      "required": true,
+      "sources": [
+        "The observatory control ring exposes RESTORE / REVIEW / DISCONNECT modes.",
+        "An emergency ward manual documents all three stable states.",
+        "The Ninth Echo says 'Ground. Reform. Sever.' at the observatory."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-court",
+      "title": "The Ninth Beacon Opens",
+      "purpose": "Launch the planar breach, establish the beacon clock, and show that one graduation slot is wrong.",
+      "locationId": "loc-court",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "Commencement breaks",
+      "readAloud": "Eight beacons burn steady around the graduation court. The ninth ignites—and the sky above Ninefold Academy opens like a silver eye. Graduation caps lift into the air. A tower window reflects stars that are not in this world. On beacon nine, the student nameplate has been replaced by a polished faculty crest.",
+      "gmNotes": [
+        "Show NINE BEACONS with marks 1–6 already filled; fill 7/9 when the party leaves the court.",
+        "The breach is planar and anchored to academy wards, so simple flight or teleportation can reposition characters but does not close it.",
+        "DC 15 Arcana or Investigation identifies the ninth beacon as a mismatched ward input. Failure changes nothing; physical sigils and Capstone Hall make the mismatch obvious.",
+        "Halden authorizes campus access because projection labs are beginning to fail.",
+        "Send the party to Capstone Hall before assuming an external planar attack."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the wrong ninth slot",
+          "text": "The faculty crest over a scraped student plate is visible."
+        },
+        {
+          "title": "Respect high-level mobility",
+          "text": "Teleportation and flight bypass movement obstacles but not missing ward logic."
+        },
+        {
+          "title": "Move to the capstones",
+          "text": "The next question is what input was removed."
+        }
+      ],
+      "advanceWhen": "The party enters Capstone Hall to compare the ninth display with the other eight.",
+      "npcIds": [
+        "npc-joss-amber",
+        "npc-halden-vey"
+      ],
+      "clueIds": [
+        "clue-nine-functional",
+        "clue-mira-removed"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-capstone"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-capstone",
+          "label": "Inspect the nine capstones",
+          "description": "Find what was substituted and why the ward cycle is incomplete."
+        }
+      ]
+    },
+    {
+      "id": "scene-capstone",
+      "title": "The Scraped Nameplate",
+      "purpose": "Prove the substitution and point to surviving copies of Mira's work.",
+      "locationId": "loc-capstone",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Find the missing input",
+      "readAloud": "Eight student bays hum in different colors. The ninth holds an elegant faculty portal model—but its brass base does not fit the floor channel beneath it. At the edge of the bay, someone scraped away a name hard enough to gouge the wood: MIRA SOL.",
+      "gmNotes": [
+        "Fill beacon 8/9 when this scene ends.",
+        "DC 15 Arcana identifies the demonstration's missing grounding term. Failure gives no false equation; archive version history and study notes remain available.",
+        "Search reveals three recovery leads: Mira's expelled-student locker, archive version history, and study-group copy in Projection Labs.",
+        "A magical copy spell or divination can speed retrieval, but authorship and process evidence still matter for the Reform route.",
+        "Manifested capstone fragments begin appearing in Projection Labs, creating rescue pressure."
+      ],
+      "runSteps": [
+        {
+          "title": "Show three recovery routes",
+          "text": "Locker, archive, study group: no single point of failure."
+        },
+        {
+          "title": "Separate solution from authorship",
+          "text": "The math can be reconstructed even if Mira never appears."
+        },
+        {
+          "title": "Open rescue pressure",
+          "text": "Students in Projection Labs need help before the finale."
+        }
+      ],
+      "advanceWhen": "The party goes to the Archive and/or Projection Labs to recover grounding evidence and rescue trapped students.",
+      "npcIds": [
+        "npc-orien-pell"
+      ],
+      "clueIds": [
+        "clue-mira-removed",
+        "clue-plagiarism",
+        "clue-grounding-equivalent"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-archive"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-archive",
+          "label": "Recover the ward history",
+          "description": "Use versioned records to reconstruct the missing grounding work and responsibility."
+        }
+      ]
+    },
+    {
+      "id": "scene-archive",
+      "title": "Version History",
+      "purpose": "Establish authorship, Halden's approval, and a complete reconstructable grounding model.",
+      "locationId": "loc-archive",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Rebuild the ninth term",
+      "readAloud": "The Ward Archive keeps every change. Lines of luminous script hover above crystal ledgers: student drafts, faculty imports, beacon assignments, disciplinary orders. One sequence is impossible to miss. MIRA SOL — GROUNDING MODEL. Exported. Removed. Imported into ORIEN PELL — STABILITY NOTES.",
+      "gmNotes": [
+        "Do not advance beacon nine yet; this scene is preparation before the final ignition.",
+        "DC 15 Investigation/Arcana reconstructs a usable grounding model from version history. Failure means the model is incomplete until one additional source is added from Mira's locker or study-group notes.",
+        "Halden's signed beacon substitution and Orien's import history are independent evidence.",
+        "High-level divinations can reveal authorship faster, but the physical/version records remain necessary if the academy later disputes it.",
+        "Once a valid model exists, the party can use it to stabilize one Projection Lab ward automatically."
+      ],
+      "runSteps": [
+        {
+          "title": "Reconstruct, don't gate",
+          "text": "A failed check means one more source, not dead end."
+        },
+        {
+          "title": "Prove authorship separately",
+          "text": "Dated drafts plus imports survive NPC loss."
+        },
+        {
+          "title": "Take the model to trapped students",
+          "text": "Preparation should save lives before the finale."
+        }
+      ],
+      "advanceWhen": "The party has a valid grounding model or two of its three independent components and moves to the Projection Labs.",
+      "npcIds": [
+        "npc-halden-vey",
+        "npc-orien-pell"
+      ],
+      "clueIds": [
+        "clue-mira-removed",
+        "clue-plagiarism",
+        "clue-grounding-equivalent",
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-labs"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-labs",
+          "label": "Stabilize the Projection Labs",
+          "description": "Rescue students and test the grounding model against live ward failures."
+        }
+      ]
+    },
+    {
+      "id": "scene-labs",
+      "title": "Eight Projects Running Loose",
+      "purpose": "Give Level 9 characters meaningful rescue work and prove the grounding solution before the observatory finale.",
+      "locationId": "loc-labs",
+      "pacingClass": "core",
+      "estimatedMinutes": 40,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Test the model",
+      "readAloud": "The Projection Labs have become eight different emergencies at once: a gravity room turned sideways, animated sculpture blocking an exit, a pocket forest growing through stone, and students trapped behind glassy ward panes while silver stars leak through every crack.",
+      "gmNotes": [
+        "Run three rescue jobs: trapped students, runaway project, unstable ward pane. High-level spells can solve jobs automatically if they clearly address the problem; reward capability rather than invalidating it.",
+        "Without a fitting spell, each job uses DC 15 Arcana/Athletics/Investigation or another justified skill. Failure adds one PLANAR PRESSURE mark but the job remains solvable another way.",
+        "Using the reconstructed grounding model on any ward pane proves it works and grants one prepared Restore success in the finale.",
+        "If Mira is found through Sending, divination, teleportation, or ordinary search, she can assist but is not required.",
+        "When three jobs resolve, beacon nine begins final ignition and the observatory becomes the only remaining unstable node."
+      ],
+      "runSteps": [
+        {
+          "title": "Let Level 9 tools matter",
+          "text": "Teleportation, flight, dispelling, walls, and control magic may auto-solve fitting rescue jobs."
+        },
+        {
+          "title": "Test the grounding model",
+          "text": "Prove it before the finale."
+        },
+        {
+          "title": "Track planar pressure",
+          "text": "Failure increases final hazards rather than blocking rescue."
+        }
+      ],
+      "advanceWhen": "Three lab emergencies are resolved and the party moves to the Sky Observatory as beacon nine reaches full ignition.",
+      "npcIds": [
+        "npc-mira-sol",
+        "npc-ninth-echo"
+      ],
+      "clueIds": [
+        "clue-grounding-equivalent",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-capstone-echoes"
+      ],
+      "exits": [
+        "scene-final"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-final",
+          "label": "Enter the Sky Observatory",
+          "description": "Restore, reform, or disconnect the Ninefold ward cycle."
+        }
+      ]
+    },
+    {
+      "id": "scene-final",
+      "title": "Ground, Reform, or Sever",
+      "purpose": "Resolve the planar crisis through correct ward input, institutional redesign, or permanent disconnection.",
+      "locationId": "loc-observatory",
+      "pacingClass": "core",
+      "estimatedMinutes": 55,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "The ninth beacon",
+      "readAloud": "Beacon nine flares. The observatory dome turns transparent, revealing the Astral Sea directly overhead. Nine ward pylons circle the aperture. Eight burn with student sigils. The ninth is a blank white fire. Three controls rise from the central ring: RESTORE. REVIEW. DISCONNECT. In the breach, an equation-shaped figure turns toward you. “Eight known. Ninth unresolved.”",
+      "gmNotes": [
+        "Ninth Echo starts AC 16, 96 HP. PLANAR PRESSURE adds one minor Echo Fragment per 2 pressure marks.",
+        "RESTORE: install a valid grounding model in pylon nine and complete 3 Grounding actions before 2 failures. One may be prepared from the labs. Each remaining Action uses DC 15 Arcana/Investigation or a concrete spell effect that establishes planar anchoring. Failure deals 2d6 force and adds one failure; at 2 failures Restore closes but Reform and Disconnect remain legal.",
+        "REFORM: establish three independent controls—student authorship audit, external ward review, emergency override. Each station is an Action and DC 15 Investigation/Insight/Persuasion or automatic with decisive evidence plus a willing authority. Three stations reconfigure the observatory so commencement never directly controls it again.",
+        "DISCONNECT: expose the observatory coupling after one deliberate disconnect action. Coupling AC 16, 28 HP, resistant to nonmagical weapon damage. Destroying it closes the breach and permanently severs commencement beacons from the observatory.",
+        "Initiative 20: Astral Shear. Two 15-foot zones shift orientation; creatures there make DC 15 Dexterity save or slide/fall 20 feet toward the aperture edge, stopping at ward railings unless already beyond them.",
+        "Directly reducing the Ninth Echo to 0 HP stabilizes the cycle temporarily but does not choose institutional outcome; the party must still spend one Action on Restore, Reform, or Disconnect to set the lasting state."
+      ],
+      "runSteps": [
+        {
+          "title": "State all three routes",
+          "text": "Restore, Reform, Disconnect are visible."
+        },
+        {
+          "title": "Let high-level magic substitute appropriately",
+          "text": "A spell that genuinely anchors, isolates, transports, or contains may solve a job but not erase the institutional choice."
+        },
+        {
+          "title": "Require a lasting state",
+          "text": "Killing the manifestation alone is temporary."
+        }
+      ],
+      "advanceWhen": "The breach closes under a restored grounding model, reformed ward governance, or permanent disconnection.",
+      "npcIds": [
+        "npc-joss-amber",
+        "npc-halden-vey",
+        "npc-mira-sol",
+        "npc-orien-pell",
+        "npc-ninth-echo"
+      ],
+      "clueIds": [
+        "clue-nine-functional",
+        "clue-mira-removed",
+        "clue-plagiarism",
+        "clue-grounding-equivalent",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-ninth-echo"
+      ],
+      "exits": [
+        "scene-resolution-restore",
+        "scene-resolution-reform",
+        "scene-resolution-disconnect"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-restore",
+          "label": "Restore the ninth capstone",
+          "description": "Credit Mira and complete the intended ward cycle."
+        },
+        {
+          "target": "scene-resolution-reform",
+          "label": "Reform the observatory process",
+          "description": "Keep the observatory but remove commencement from unilateral control."
+        },
+        {
+          "target": "scene-resolution-disconnect",
+          "label": "Disconnect commencement from the observatory",
+          "description": "End the dangerous ritual link permanently."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-restore",
+      "title": "Resolution: Nine Names on the Ring",
+      "purpose": "Reward restoring the missing work with correct authorship.",
+      "locationId": "loc-court",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The silver tear closes from the edges inward. When the dome turns blue again, nine names burn around the observatory ring. Mira Sol's is one of them. The graduates begin cheering only after someone removes Orien Pell's faculty crest from her old bay.",
+      "gmNotes": [
+        "Award 300 gp total and four Ninefold Favor seals.",
+        "Mira's authorship is publicly restored and her expulsion reviewed.",
+        "The nine-capstone peer-review process remains but receives anti-substitution safeguards."
+      ],
+      "runSteps": [
+        {
+          "title": "Put the name back",
+          "text": "Technical repair includes authorship correction."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 300 gp and Favor seals."
+        },
+        {
+          "title": "Ground the ninth beacon",
+          "text": "Install the correct capstone, restore Mira's authorship, and show the observatory aperture closing under the complete nine-part pattern."
+        }
+      ],
+      "advanceWhen": "Authorship, policy correction, and rewards are recorded.",
+      "npcIds": [
+        "npc-joss-amber",
+        "npc-halden-vey",
+        "npc-mira-sol",
+        "npc-orien-pell"
+      ],
+      "clueIds": [
+        "clue-plagiarism"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-reform",
+      "title": "Resolution: Graduation Is Not a Control Panel",
+      "purpose": "Reward structural reform rather than merely restoring one omitted slot.",
+      "locationId": "loc-court",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The observatory relights—but the nine commencement beacons do not. Their conduits now end at a new review dais where student, faculty, and outside warders each hold one key. The graduating class gets its ceremony back. The observatory gets a real safety process.",
+      "gmNotes": [
+        "Award 325 gp total and the Independent Seal, granting advantage on one future Ninefold check involving academic records, magical review, or institutional procedure.",
+        "Commencement becomes symbolic; observatory cycling moves to a separate audited process.",
+        "Mira's authorship dispute is still recorded and adjudicated."
+      ],
+      "runSteps": [
+        {
+          "title": "Name the three controls",
+          "text": "Authorship audit, independent review, emergency override."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 325 gp and Independent Seal."
+        },
+        {
+          "title": "Hand control to independent review",
+          "text": "Separate graduation ceremony controls from technical approval and demonstrate the emergency override before reopening the observatory."
+        }
+      ],
+      "advanceWhen": "The reformed process and rewards are recorded.",
+      "npcIds": [
+        "npc-joss-amber",
+        "npc-halden-vey",
+        "npc-mira-sol",
+        "npc-orien-pell"
+      ],
+      "clueIds": [
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-disconnect",
+      "title": "Resolution: The Sky Is No Longer Part of Graduation",
+      "purpose": "Respect permanent disconnection while preserving the academy.",
+      "locationId": "loc-court",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The last coupling shatters. The observatory aperture closes like an eye. Outside, the nine graduation beacons remain standing—but they are only lights now. Students begin relighting them by hand, one at a time, with no planar machinery attached.",
+      "gmNotes": [
+        "Award 300 gp total.",
+        "Commencement is permanently severed from observatory operations.",
+        "The academy may rebuild a separate observatory control system later under normal review."
+      ],
+      "runSteps": [
+        {
+          "title": "Keep graduation",
+          "text": "The celebration survives without operating dangerous infrastructure."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 300 gp."
+        },
+        {
+          "title": "Hold graduation under an ordinary sky",
+          "text": "Sever the ceremony from the observatory, then let the students finish commencement without dangerous infrastructure acting as a stage effect."
+        }
+      ],
+      "advanceWhen": "The new separation and rewards are recorded.",
+      "npcIds": [
+        "npc-joss-amber",
+        "npc-halden-vey",
+        "npc-mira-sol",
+        "npc-orien-pell"
+      ],
+      "clueIds": [
+        "clue-nine-functional"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-capstone-echoes",
+      "name": "Runaway Capstone Echoes",
+      "type": "rescue / magical hazard / optional combat",
+      "difficulty": "Moderate",
+      "summary": "Student projects manifest physically across the Projection Labs as the ward cycle destabilizes.",
+      "resolution": "Solve three rescue jobs with spells, skills, control effects, or direct combat against hostile manifestations.",
+      "talkOut": "Some manifestations are not sentient; high-level utility magic can resolve fitting jobs automatically.",
+      "bypass": "No full bypass because students are trapped, but jobs can be delegated to Mira/Orien after the party secures a stable ward path.",
+      "objective": "Save students and prove the grounding model under live conditions."
+    },
+    {
+      "id": "enc-ninth-echo",
+      "name": "The Ninth Echo",
+      "type": "finale / planar manifestation / system repair",
+      "difficulty": "High",
+      "summary": "The missing ninth ward input manifests as recursive planar force while the observatory opens to the Astral Sea.",
+      "resolution": "Complete Restore, complete Reform, disconnect the observatory, or temporarily defeat the Echo then choose a lasting state.",
+      "talkOut": "It accepts valid grounding and stable system states but does not negotiate institutional ethics.",
+      "bypass": "Restore and Reform are full noncombat routes; Disconnect can be performed through object damage and control actions.",
+      "objective": "Close the breach and set a durable observatory governance state."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-version-history",
+      "prompt": "Compare student drafts, faculty imports, and beacon assignment history to identify the missing grounding term and authorship chain.",
+      "solution": "Mira's earlier grounding derivation was imported into Orien's work; her ceremony slot was removed and replaced by his incomplete demonstration.",
+      "bypass": "DC 15 Investigation or Arcana reconstructs the chain quickly.",
+      "failForward": "A failed reconstruction only requires one additional source from the locker or study-group copy."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-astral-shear",
+      "trigger": "Initiative count 20 in the observatory while the breach remains unresolved.",
+      "effect": "DC 15 Dexterity save or slide/fall 20 feet toward the aperture edge, stopping at ward railings unless already beyond them.",
+      "failForward": "The hazard changes position but does not erase any resolution route."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-independent-seal",
+      "name": "Independent Seal",
+      "effect": "Story reward from Reform; once at Ninefold Academy, grants advantage on one check involving academic records, magical review, or institutional procedure."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-capstone-hall",
+      "name": "Ninefold Capstone Hall",
+      "asset": "assets/maps/special/ninefold-capstone-hall-grid.svg",
+      "regions": [
+        {
+          "id": "hall-eight",
+          "sceneId": "scene-capstone",
+          "label": "eight student bays"
+        },
+        {
+          "id": "hall-nine",
+          "sceneId": "scene-capstone",
+          "label": "substituted ninth bay"
+        },
+        {
+          "id": "hall-conduits",
+          "sceneId": "scene-capstone",
+          "label": "beacon floor channels"
+        }
+      ]
+    },
+    {
+      "id": "map-projection-labs",
+      "name": "Ninefold Projection Labs",
+      "asset": "assets/maps/special/ninefold-projection-labs-grid.svg",
+      "regions": [
+        {
+          "id": "labs-students",
+          "sceneId": "scene-labs",
+          "label": "trapped students"
+        },
+        {
+          "id": "labs-project",
+          "sceneId": "scene-labs",
+          "label": "runaway capstone manifestation"
+        },
+        {
+          "id": "labs-ward",
+          "sceneId": "scene-labs",
+          "label": "unstable ward pane"
+        }
+      ]
+    },
+    {
+      "id": "map-observatory",
+      "name": "Ninefold Sky Observatory",
+      "asset": "assets/maps/special/ninefold-observatory-grid.svg",
+      "regions": [
+        {
+          "id": "obs-pylons",
+          "sceneId": "scene-final",
+          "label": "nine ward pylons"
+        },
+        {
+          "id": "obs-aperture",
+          "sceneId": "scene-final",
+          "label": "Astral aperture"
+        },
+        {
+          "id": "obs-controls",
+          "sceneId": "scene-final",
+          "label": "Restore/Review/Disconnect ring"
+        },
+        {
+          "id": "obs-coupling",
+          "sceneId": "scene-final",
+          "label": "observatory coupling"
+        }
+      ]
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "Mira is never a single point of failure; her complete grounding work survives in multiple independent copies and can be independently reconstructed.",
+      "High-level spells are allowed to solve movement/rescue subproblems when they genuinely apply.",
+      "Failure adds planar pressure, damage, or extra manifestations but never removes all final routes."
+    ],
+    "routes": [
+      {
+        "id": "rec-halden-unavailable",
+        "trigger": "Halden is unavailable or refuses cooperation.",
+        "response": "Beacon ledger, sigil mismatch, and archive approval history establish the substitution.",
+        "stateChanges": [
+          "clue-mira-removed remains physical.",
+          "Campus access can be gained through emergency conditions."
+        ]
+      },
+      {
+        "id": "rec-mira-unavailable",
+        "trigger": "Mira cannot be contacted or refuses to return.",
+        "response": "Archive version history, locker notes, and study-group copy reconstruct the grounding model independently.",
+        "stateChanges": [
+          "Restore remains available.",
+          "Authorship evidence remains intact."
+        ]
+      },
+      {
+        "id": "rec-orien-unavailable",
+        "trigger": "Orien flees or refuses cooperation.",
+        "response": "Version history and dated imports prove plagiarism; emergency manuals still document Disconnect.",
+        "stateChanges": [
+          "clue-plagiarism remains available.",
+          "Disconnect remains legal."
+        ]
+      },
+      {
+        "id": "rec-teleport-direct",
+        "trigger": "The party teleports directly toward the observatory.",
+        "response": "The observatory is reachable, but without a valid grounding model they cannot complete Restore and PLANAR PRESSURE begins at 2; emergency manual still exposes Reform/Disconnect.",
+        "stateChanges": [
+          "High-level mobility is respected.",
+          "Skipped investigation has a cost but not a dead end."
+        ]
+      },
+      {
+        "id": "rec-rush-final",
+        "trigger": "The party skips or rushes earlier investigation and reaches the final scene without all resolution clues.",
+        "response": "Controls are visibly labeled RESTORE / REVIEW / DISCONNECT and the Ninth Echo names Ground, Reform, Sever before initiative.",
+        "stateChanges": [
+          "All final routes remain visible.",
+          "Prepared investigation still grants advantages and automatic stations."
+        ]
+      },
+      {
+        "id": "rec-early-attack-the-graduation-that-open",
+        "trigger": "The party attacks the Ninth Echo before understanding the substituted capstone.",
+        "response": "The Echo defends the observatory, but beacon records, version history, Mira's grounding model, and emergency controls still preserve Restore, Reform, and Disconnect.",
+        "stateChanges": [
+          "Required evidence and finale access remain available."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Level 9 utility magic can accelerate rescue and access, but evidence, grounding logic, and institutional end-state choices still matter. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
+    "prepared": [
+      "A tested grounding model grants one prepared Restore success.",
+      "Rescuing all three lab jobs prevents extra Echo Fragments.",
+      "Secured authorship and approval evidence can make one Reform station automatic."
+    ],
+    "rushed": [
+      "Direct teleport to the observatory starts PLANAR PRESSURE at 2.",
+      "Skipping the archive requires reconstructing grounding during the finale.",
+      "Unrescued lab zones generate extra Echo Fragments until stabilized."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 210,
+    "plannedMinutes": 210,
+    "bossReserveMinutes": 55,
+    "cutOrder": [
+      "If 25+ minutes behind, combine capstone hall and archive evidence into one discovery sequence.",
+      "If 15+ minutes behind in Projection Labs, let one fitting 5th-level spell auto-resolve two related rescue jobs.",
+      "Never cut redundant copies of Mira's work, authorship evidence, or the three final institutional outcomes."
+    ],
+    "optionalOrder": [
+      "Extended confrontation about plagiarism before the breach is stable.",
+      "Additional capstone manifestations beyond the three rescue jobs.",
+      "Detailed faculty politics after authorship is proven."
+    ]
+  },
+  "endings": [
+    {
+      "id": "ending-restore",
+      "name": "Nine Names on the Ring",
+      "condition": "Restore completes.",
+      "result": "Mira's grounding capstone is restored with proper authorship and the peer-review ritual survives with safeguards."
+    },
+    {
+      "id": "ending-reform",
+      "name": "Graduation Is Not a Control Panel",
+      "condition": "Reform completes.",
+      "result": "Observatory cycling moves to independent audited controls while commencement becomes symbolic."
+    },
+    {
+      "id": "ending-disconnect",
+      "name": "The Sky Is No Longer Part of Graduation",
+      "condition": "The observatory coupling is destroyed.",
+      "result": "Commencement is permanently separated from planar infrastructure."
+    }
+  ],
+  "initialState": {
+    "questStage": "beacon-breach",
+    "currentSceneId": "scene-court",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-halden-vey": {
+        "status": "alive",
+        "attitude": "controlled"
+      },
+      "npc-mira-sol": {
+        "status": "off-campus",
+        "attitude": "angry"
+      },
+      "npc-orien-pell": {
+        "status": "alive",
+        "attitude": "defensive"
+      },
+      "npc-ninth-echo": {
+        "status": "forming",
+        "attitude": "recursive"
+      },
+      "npc-joss-amber": {
+        "status": "alive",
+        "attitude": "familiar"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-independent-seal": "unearned"
+    },
+    "eventState": {
+      "beaconsLit": 6,
+      "planarPressure": 0,
+      "studentsRescued": 0,
+      "groundingModelReady": false
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific planar and ward procedures use complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, spells, and pregens must use the selected 2014 SRD package."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific planar and ward procedures use complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, spells, and pregens must use the selected 2024 SRD package; do not import 2014 class features."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-graduation-that-opened-the-sky",
+    "version": "0.1.0",
+    "target": {
+      "level": 9,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-beacon",
+      "check-capstone",
+      "check-archive",
+      "check-lab",
+      "check-restore"
+    ],
+    "checks": [
+      {
+        "id": "check-beacon",
+        "sceneId": "scene-court",
+        "label": "Read the ninth beacon mismatch",
+        "dc": 15,
+        "ability": "Intelligence (Arcana or Investigation)",
+        "success": "The ninth beacon is using a ward input that does not match its conduit geometry.",
+        "failure": "Capstone Hall's physical mismatch reveals the same fact."
+      },
+      {
+        "id": "check-capstone",
+        "sceneId": "scene-capstone",
+        "label": "Identify the missing grounding term",
+        "dc": 15,
+        "ability": "Intelligence (Arcana)",
+        "success": "The faculty demonstration lacks a grounding boundary condition.",
+        "failure": "Archive history and study notes reveal the missing term later."
+      },
+      {
+        "id": "check-archive",
+        "sceneId": "scene-archive",
+        "label": "Reconstruct Mira's grounding model",
+        "dc": 15,
+        "ability": "Intelligence (Investigation or Arcana)",
+        "success": "Build a valid grounding model from version history.",
+        "failure": "One additional independent source from locker or study-group notes completes it."
+      },
+      {
+        "id": "check-lab",
+        "sceneId": "scene-labs",
+        "label": "Resolve one Projection Lab emergency",
+        "dc": 15,
+        "ability": "Appropriate Arcana, Athletics, Investigation, or a clearly fitting spell",
+        "success": "One rescue job is completed.",
+        "failure": "PLANAR PRESSURE increases by 1; the job remains solvable another way."
+      },
+      {
+        "id": "check-restore",
+        "sceneId": "scene-final",
+        "label": "Complete one Grounding action",
+        "dc": 15,
+        "ability": "Intelligence (Arcana or Investigation) or a genuinely anchoring spell effect",
+        "success": "One Restore success is recorded.",
+        "failure": "Take 2d6 force and record one Restore failure; at two failures Restore closes but Reform and Disconnect remain legal."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-capstone-echoes",
+        "objective": "Rescue students and test the grounding model across three unstable lab jobs.",
+        "start": "Runaway student projects manifest across the Projection Labs.",
+        "bypass": "Appropriate high-level utility/control spells may automatically solve fitting jobs.",
+        "creatures": [
+          {
+            "name": "Capstone Echo",
+            "count": 3,
+            "ac": 15,
+            "hp": 34,
+            "speed": "30 ft., fly 30 ft.",
+            "attack": "Project Burst +7 to hit, 2d8+4 force.",
+            "trait": "Project-Bound: when its associated lab job is stabilized by the correct grounding/control effect, the Echo loses all remaining HP.",
+            "tactics": "Guard unstable experiments and separate rescuers from trapped students."
+          }
+        ],
+        "end": "Three lab jobs are resolved or safely delegated."
+      },
+      {
+        "id": "enc-ninth-echo",
+        "objective": "Close the Astral breach and set a lasting observatory state.",
+        "start": "The Ninth Echo forms as beacon nine fully ignites.",
+        "bypass": "Restore and Reform are complete noncombat routes; Disconnect targets infrastructure.",
+        "creatures": [
+          {
+            "name": "Ninth Echo",
+            "count": 1,
+            "ac": 16,
+            "hp": 96,
+            "speed": "30 ft., fly 40 ft. (hover)",
+            "attack": "Recursive Vector +8 to hit, 2d10+4 force.",
+            "trait": "Incomplete System: reducing the Echo to 0 HP only stabilizes the breach temporarily; one lasting Restore, Reform, or Disconnect action is still required.",
+            "tactics": "Push creatures between ward pylons, protect the blank ninth pylon, and exploit Astral Shear zones."
+          }
+        ],
+        "end": "The breach closes under Restore, Reform, or Disconnect."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-astral-shear",
+        "sceneId": "scene-final",
+        "trigger": "Initiative count 20 while the breach remains unresolved.",
+        "save": "DC 15 Dexterity saving throw in two marked 15-foot zones.",
+        "failure": "Slide/fall 20 feet toward the aperture edge, stopping at ward railings unless already beyond them.",
+        "success": "Hold position.",
+        "failForward": "The hazard changes position but never removes a final route."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-restore",
+        "when": "Restore resolves the breach.",
+        "reward": "300 gp total and four Ninefold Favor seals."
+      },
+      {
+        "id": "reward-reform",
+        "when": "Reform resolves the breach.",
+        "reward": "325 gp total and the Independent Seal."
+      },
+      {
+        "id": "reward-disconnect",
+        "when": "Disconnect resolves the breach.",
+        "reward": "300 gp total; commencement is permanently separated from observatory infrastructure."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-capstone",
+        "dimensions": "90 × 60 ft. exhibition hall; 5-ft. grid.",
+        "features": [
+          "eight student bays",
+          "substituted ninth bay",
+          "beacon floor conduits",
+          "archive exit"
+        ]
+      },
+      {
+        "sceneId": "scene-labs",
+        "dimensions": "90 × 70 ft. projection wing; 5-ft. grid.",
+        "features": [
+          "trapped-student zone",
+          "runaway-project zone",
+          "unstable ward pane",
+          "control dais"
+        ]
+      },
+      {
+        "sceneId": "scene-final",
+        "dimensions": "90-ft.-diameter observatory; 5-ft. grid.",
+        "features": [
+          "nine ward pylons",
+          "central Astral aperture",
+          "Restore/Review/Disconnect controls",
+          "observatory coupling",
+          "ward railings"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One graduation crisis: identify the wrong ninth input, reconstruct the omitted work, prove it in rescues, then branch only at the observatory end state.",
+    "mainSpine": [
+      "scene-court",
+      "scene-capstone",
+      "scene-archive",
+      "scene-labs",
+      "scene-final"
+    ],
+    "allowedBranchScenes": [
+      "scene-final"
+    ],
+    "terminalScenes": [
+      "scene-resolution-restore",
+      "scene-resolution-reform",
+      "scene-resolution-disconnect"
+    ],
+    "stageCount": 6
+  },
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-joss-amber"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Joss Amber's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
+}
