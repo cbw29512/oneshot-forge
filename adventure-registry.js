@@ -18,6 +18,7 @@
     "the-year-that-wouldnt-end": "data/adventures/the-year-that-wouldnt-end.oneshot.json",
     "the-heartloom-of-rosebridge": "data/adventures/the-heartloom-of-rosebridge.oneshot.json",
     "the-first-egg-of-greenhollow": "data/adventures/the-first-egg-of-greenhollow.oneshot.json",
-    "the-last-rocket-of-founding-day": "data/adventures/the-last-rocket-of-founding-day.oneshot.json"
+    "the-last-rocket-of-founding-day": "data/adventures/the-last-rocket-of-founding-day.oneshot.json",
+    "the-lanterns-we-left-behind": "data/adventures/the-lanterns-we-left-behind.oneshot.json"
   });
 })();
