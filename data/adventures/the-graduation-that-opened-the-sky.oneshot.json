@@ -23,7 +23,8 @@
     "pitch": "Ninefold Academy's graduation ends by lighting nine capstone beacons that seal the school's sky observatory for another year. This year one capstone was erased from the ceremony—and the ninth beacon opens the sky instead.",
     "openingLocation": "Ninefold Academy commencement court",
     "gmSummary": "Ninefold Academy's commencement ritual is not merely ceremonial. Nine student capstones are selected each year to provide the ward concepts that close and recalibrate the academy's planar observatory. This year Provost Halden Vey removed expelled student Mira Sol's capstone on grounding unstable portals after she accused a senior professor of plagiarizing her work. Halden substituted an impressive but incomplete faculty demonstration. When the ninth beacon ignites, the observatory tears open into the Astral Sea and fragments of unfinished student magic spill across campus. The party must learn what was omitted, recover Mira's grounding work or reconstruct it independently, stabilize students and faculty, and decide whether the academy restores Mira's capstone, rewrites the graduation ward process under independent oversight, or permanently disconnects the observatory from the commencement rite.",
-    "background": "The Ninefold ceremony began as a practical peer-review safeguard: no observatory cycle closed until nine different students' work had been tested against the ward system. Over generations, the ritual became prestigious theater. Halden treated the capstones as symbolic slots rather than functional checks. Mira's project specifically modeled failure cascades when one ward concept is missing. Removing it created exactly the condition she warned about."
+    "background": "The Ninefold ceremony began as a practical peer-review safeguard: no observatory cycle closed until nine different students' work had been tested against the ward system. Over generations, the ritual became prestigious theater. Halden treated the capstones as symbolic slots rather than functional checks. Mira's project specifically modeled failure cascades when one ward concept is missing. Removing it created exactly the condition she warned about.",
+    "campaignFrame": "Joss Amber escorts Hearthford apprentices to Ninefold Academy's commencement and notices that the ninth beacon mount does not match the floor channel beneath it. She pulls the party into the investigation, and they return to Hearthford with Joss remembering whether they fixed the institution as well as the machinery."
   },
   "quest": {
     "type": "investigate / planar containment / institutional choice",
@@ -77,6 +78,56 @@
     ]
   },
   "npcs": [
+    {
+      "id": "npc-joss-amber",
+      "name": "Joss Amber",
+      "role": "Hearthford smith and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Talks to the metal first."
+      ],
+      "wants": [
+        "No mechanism should pretend to be sound when its join is false.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Joss Amber, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“This matters back in Hearthford too.”",
+        "“Finish the job. Then we go home.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
     {
       "id": "npc-halden-vey",
       "name": "Provost Halden Vey",
@@ -459,6 +510,7 @@
       ],
       "advanceWhen": "The party enters Capstone Hall to compare the ninth display with the other eight.",
       "npcIds": [
+        "npc-joss-amber",
         "npc-halden-vey"
       ],
       "clueIds": [
@@ -675,6 +727,7 @@
       ],
       "advanceWhen": "The breach closes under a restored grounding model, reformed ward governance, or permanent disconnection.",
       "npcIds": [
+        "npc-joss-amber",
         "npc-halden-vey",
         "npc-mira-sol",
         "npc-orien-pell",
@@ -738,6 +791,7 @@
       ],
       "advanceWhen": "Authorship, policy correction, and rewards are recorded.",
       "npcIds": [
+        "npc-joss-amber",
         "npc-halden-vey",
         "npc-mira-sol",
         "npc-orien-pell"
@@ -773,6 +827,7 @@
       ],
       "advanceWhen": "The reformed process and rewards are recorded.",
       "npcIds": [
+        "npc-joss-amber",
         "npc-halden-vey",
         "npc-mira-sol",
         "npc-orien-pell"
@@ -808,6 +863,7 @@
       ],
       "advanceWhen": "The new separation and rewards are recorded.",
       "npcIds": [
+        "npc-joss-amber",
         "npc-halden-vey",
         "npc-mira-sol",
         "npc-orien-pell"
@@ -1063,6 +1119,10 @@
       "npc-ninth-echo": {
         "status": "forming",
         "attitude": "recursive"
+      },
+      "npc-joss-amber": {
+        "status": "alive",
+        "attitude": "familiar"
       }
     },
     "locationState": {},
@@ -1276,5 +1336,15 @@
     ],
     "stageCount": 6
   },
-  "cards": []
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-joss-amber"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Joss Amber's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
 }
