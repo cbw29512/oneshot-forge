@@ -28,7 +28,7 @@ try {
 
   function isWorldEvidence(source) {
     const sourceText = String(source || "").trim().toLowerCase();
-    return /\b(?:notes?|journals?|letters?|ledgers?|maps?|tracks?|footprints?|inscriptions?|records?|receipts?|contracts?|tools?|objects?|possessions?|rooms?|walls?|doors?|mechanisms?|rituals?|residue|ash|mud|trails?|crates?|wagons?|symbols?|marks?|carvings?|runes?|books?|scrolls?|signs?|evidence|chambers?|crypts?|chapels?|bells?|water|debris|tokens?|seals?)\b/.test(sourceText);
+    return /\b(?:notes?|journals?|letters?|ledgers?|sheets?|slips?|invoices?|briefs?|plans?|programs?|drafts?|copies?|versions?|files?|maps?|tracks?|footprints?|inscriptions?|records?|receipts?|contracts?|tools?|objects?|possessions?|rooms?|walls?|doors?|mechanisms?|rituals?|residue|ash|mud|soot|trails?|crates?|wagons?|baskets?|boxes?|cases?|plaques?|tapestries?|mosaics?|cords?|patterns?|channels?|shuttles?|shutters?|symbols?|marks?|carvings?|runes?|books?|scrolls?|signs?|evidence|chambers?|crypts?|chapels?|bells?|water|debris|tokens?|seals?)\b/.test(sourceText);
   }
 
   for (const scene of scenes) {
