@@ -118,8 +118,9 @@
       "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
       "description": "Mayor Cald Wren, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
       "tableDialogue": [
-        "“This matters back in Hearthford too.”",
-        "“Finish the job. Then we go home.”"
+        "“Count the children first. Then count the cost.”",
+        "“No panic until we know what happened.”",
+        "“Bring everyone home. We can argue about coin afterward.”"
       ],
       "reactions": {
         "agreement": "Supports the party and records the outcome for Hearthford.",
@@ -790,6 +791,10 @@
         {
           "title": "Pay the party",
           "text": "Award 100 gp and Festival Favor tokens."
+        },
+        {
+          "title": "Show the first changed doorstep",
+          "text": "At the next observance, have a child deliberately leave the final sweet beneath a lit lantern and explain why."
         }
       ],
       "advanceWhen": "Rewards are recorded and the party decides whether to join the resumed parade.",
@@ -830,6 +835,10 @@
         {
           "title": "Pay the deeper solution",
           "text": "Award 125 gp and the Lantern Ribbon."
+        },
+        {
+          "title": "Let remembrance answer",
+          "text": "Read one recovered family name aloud and show the nearest pale mask lowering as the town repeats it."
         }
       ],
       "advanceWhen": "The new remembrance custom and rewards are recorded.",
@@ -870,6 +879,10 @@
         {
           "title": "Leave a new question",
           "text": "The next Night of Masks will need a new tradition or new protection."
+        },
+        {
+          "title": "Mark the cost of severing",
+          "text": "The mask-heart is gone for good; tell the table plainly that Gloamwick chose freedom from the old protection and must build a new custom."
         }
       ],
       "advanceWhen": "Rewards are recorded and Old Grin's fate is acknowledged.",
