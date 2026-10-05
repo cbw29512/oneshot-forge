@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policy": "Fill new authored one-shots from level 1 through 20 before repeating a level.",
-  "nextLevel": 3,
+  "nextLevel": 4,
   "assignments": [
     {
       "level": 1,
@@ -13,6 +13,12 @@
       "level": 2,
       "adventureId": "the-empty-chair-of-harvesthome",
       "title": "The Empty Chair of Harvesthome",
+      "status": "review"
+    },
+    {
+      "level": 3,
+      "adventureId": "the-gift-that-never-arrived",
+      "title": "The Gift That Never Arrived",
       "status": "review"
     }
   ]
