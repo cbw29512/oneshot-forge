@@ -59,7 +59,7 @@ Holiday products do not need to belong to Quiet Seals. They may be fully standal
 
 ## First build target
 
-The first new holiday adventure is Halloween and occupies Level 1 in the 1–20 ladder. The next new one-shot should target Level 2.
+The Halloween entry occupies Level 1 and the harvest entry occupies Level 2. The next new one-shot should target Level 3.
 
 Design target:
 - 3–4 hours;
