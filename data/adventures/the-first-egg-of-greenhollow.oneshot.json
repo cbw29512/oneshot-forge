@@ -118,8 +118,9 @@
       "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
       "description": "Nim Low, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
       "tableDialogue": [
-        "“This matters back in Hearthford too.”",
-        "“Finish the job. Then we go home.”"
+        "“One, two, three, four… no. Start over.”",
+        "“Seeds first. Shiny egg second.”",
+        "“If everyone puts in a handful, I can count that. Probably.”"
       ],
       "reactions": {
         "agreement": "Supports the party and records the outcome for Hearthford.",
@@ -785,6 +786,10 @@
         {
           "title": "Record reward",
           "text": "Award 180 gp and Favor tokens."
+        },
+        {
+          "title": "Break the shell into the first furrow",
+          "text": "Mix the pooled seed and ash into the soil where everyone can see that the rite feeds spring rather than a display case."
         }
       ],
       "advanceWhen": "Rewards and the clarified rite are recorded.",
@@ -821,6 +826,10 @@
         {
           "title": "Record reward",
           "text": "Award 200 gp and Common Seed token."
+        },
+        {
+          "title": "Fill the three common bins",
+          "text": "Show households contributing to seed, reserve, and distribution stores before anyone declares the new system complete."
         }
       ],
       "advanceWhen": "The seed-bank rules and rewards are recorded.",
@@ -858,6 +867,10 @@
         {
           "title": "Record reward",
           "text": "Award 180 gp."
+        },
+        {
+          "title": "Watch Rootwake become ordinary roots",
+          "text": "The guardian's magic ends, but the town plants the field by hand so spring no longer depends on supernatural enforcement."
         }
       ],
       "advanceWhen": "Rewards and the new nonmagical planting plan are recorded.",
