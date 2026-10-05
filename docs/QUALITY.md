@@ -30,6 +30,7 @@ For generated adventures, `docs/FORGE_CONSTITUTION.md` is authoritative. This qu
 - Holiday and special-occasion releases must also satisfy `docs/HOLIDAY_ONE_SHOTS.md`; seasonal decoration does not replace story, rules, or zero-prep quality.
 - New authored one-shots must follow the Level 1→20 coverage ladder in `docs/LEVEL_COVERAGE.md` until every level has at least one release-quality adventure; do not cluster new work at the same few levels.
 - Before advancing the level ladder, every newly authored one-shot must pass the structural integrity audit: all scene/location/NPC/clue/encounter references resolve, every required clue has at least three independent sources and appears in at least two scenes, every required quick-run check exists, and no package-level reference errors remain. This check is mandatory every time.
+- New ladder adventures must orbit the canonical Hearthford hub and recurring Quiet Seals cast. A one-shot may travel to a nearby village, road, fort, academy, orchard, harbor, or other site, but it must establish the Hearthford connection and reuse at least one canonical recurring NPC (Mayor Cald Wren, Reeve Oda Flint, Captain Brune Holt, Maestra Vell, Joss Amber, Nim Low, Doctor Sera Moss, Idra Quell, Brother Halve, or Old Fenn). New local NPCs are supporting specialists, suspects, victims, antagonists, or witnesses—not replacements for the recurring cast. The party returns to Hearthford or materially changes a Hearthford relationship/state when the night ends.
 - These are release gates, not optional style guidance.
 
 
