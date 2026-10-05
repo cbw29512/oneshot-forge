@@ -118,8 +118,9 @@
       "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
       "description": "Joss Amber, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
       "tableDialogue": [
-        "“This matters back in Hearthford too.”",
-        "“Finish the job. Then we go home.”"
+        "“That mount is wrong. Metal knows when it has been made to lie.”",
+        "“Credit the maker before you praise the machine.”",
+        "“Fix the grounding first. Speeches survive delays.”"
       ],
       "reactions": {
         "agreement": "Supports the party and records the outcome for Hearthford.",
@@ -787,6 +788,10 @@
         {
           "title": "Record reward",
           "text": "Award 300 gp and Favor seals."
+        },
+        {
+          "title": "Ground the ninth beacon",
+          "text": "Install the correct capstone, restore Mira's authorship, and show the observatory aperture closing under the complete nine-part pattern."
         }
       ],
       "advanceWhen": "Authorship, policy correction, and rewards are recorded.",
@@ -823,6 +828,10 @@
         {
           "title": "Record reward",
           "text": "Award 325 gp and Independent Seal."
+        },
+        {
+          "title": "Hand control to independent review",
+          "text": "Separate graduation ceremony controls from technical approval and demonstrate the emergency override before reopening the observatory."
         }
       ],
       "advanceWhen": "The reformed process and rewards are recorded.",
@@ -859,6 +868,10 @@
         {
           "title": "Record reward",
           "text": "Award 300 gp."
+        },
+        {
+          "title": "Hold graduation under an ordinary sky",
+          "text": "Sever the ceremony from the observatory, then let the students finish commencement without dangerous infrastructure acting as a stage effect."
         }
       ],
       "advanceWhen": "The new separation and rewards are recorded.",
