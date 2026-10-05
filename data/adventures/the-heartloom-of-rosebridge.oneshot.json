@@ -878,7 +878,7 @@
     {
       "id": "map-bond-square",
       "name": "Rosebridge Bond Square",
-      "asset": null,
+      "asset": "assets/maps/holiday/rosebridge-bond-square-grid.svg",
       "regions": [
         {
           "id": "square-friend",
@@ -900,7 +900,7 @@
     {
       "id": "map-underbridge",
       "name": "Rosebridge Underbridge Walk",
-      "asset": null,
+      "asset": "assets/maps/holiday/rosebridge-underbridge-grid.svg",
       "regions": [
         {
           "id": "walk-entry",
@@ -922,7 +922,7 @@
     {
       "id": "map-heartloom",
       "name": "Heartloom Chamber",
-      "asset": null,
+      "asset": "assets/maps/holiday/rosebridge-heartloom-grid.svg",
       "regions": [
         {
           "id": "loom-center",
