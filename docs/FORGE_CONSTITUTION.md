@@ -29,6 +29,7 @@ The product is NOT:
 - a quantity-at-any-cost content mill.
 
 The product IS:
+- built around one clear, memorable theme per adventure;
 - deterministic where mechanics and story truth matter;
 - randomized where variety is useful;
 - compatibility-gated so random pieces make sense together;
@@ -86,16 +87,19 @@ Rules:
 
 The farm optimizes for:
 1. diversity,
-2. coherence,
-3. table usability,
-4. mechanical legality,
-5. release quality.
+2. thematic identity,
+3. coherence,
+4. table usability,
+5. mechanical legality,
+6. release quality.
 
 Not raw count.
 
 ---
 
 ## 4. Canonical adventure spine
+
+Before scene selection, every Forge Farm adventure MUST have a **theme spine**: one short, concrete statement of what makes this night distinct. The selected hook, location, NPC motives, obstacles, clues, puzzle, pressure, twist, finale, and aftermath should reinforce or deliberately reframe that same theme. Compatibility is not enough; unrelated-but-compatible pieces still fail if they make the adventure feel assembled instead of authored.
 
 Every Forge Farm adventure MUST resolve these structural jobs.
 
@@ -665,6 +669,9 @@ Reject a candidate if any of these are true:
 - combat lacks enough information to run;
 - prose introduces a new required mechanic;
 - finale is only a bag of HP;
+- no clear one-sentence theme spine can be identified;
+- major required scenes feel thematically interchangeable with unrelated adventures;
+- a twist abandons the original premise instead of deepening or reframing it;
 - adventure is substantially derivative of a reference work;
 - output contains copied reference wording;
 - runtime is badly over/under target without cut/add guidance.
@@ -683,9 +690,11 @@ The farm must track or test:
 - repeated read-aloud phrases;
 - repeated encounter pairings;
 - repeated puzzles;
-- repeated ending structures.
+- repeated ending structures;
+- repeated theme spines;
+- adventures where the theme appears only in names or flavor text while mechanics remain generic.
 
-Different names pasted onto the same adventure do not count as diversity.
+Different names pasted onto the same adventure do not count as diversity. Different mechanics pasted under the same generic fantasy skin do not count either.
 
 The long-term goal is **combinatorial diversity with coherent state**, not cosmetic reskinning.
 
@@ -694,6 +703,8 @@ The long-term goal is **combinatorial diversity with coherent state**, not cosme
 ## 21. Quality threshold
 
 A release-ready one-shot must be:
+- explainable in one memorable sentence;
+- thematically coherent from hook through aftermath;
 - understandable quickly;
 - runnable with minimal prep;
 - coherent from hook to aftermath;
