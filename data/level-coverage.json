@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policy": "Fill new authored one-shots from level 1 through 20 before repeating a level.",
-  "nextLevel": 8,
+  "nextLevel": 9,
   "assignments": [
     {
       "level": 1,
@@ -43,6 +43,12 @@
       "level": 7,
       "adventureId": "the-last-rocket-of-founding-day",
       "title": "The Last Rocket of Founding Day",
+      "status": "review"
+    },
+    {
+      "level": 8,
+      "adventureId": "the-lanterns-we-left-behind",
+      "title": "The Lanterns We Left Behind",
       "status": "review"
     }
   ]
