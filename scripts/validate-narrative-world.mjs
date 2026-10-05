@@ -28,6 +28,9 @@ const owlbearArms = read("adventures/right-to-owlbear-arms.html");
 const well = JSON.parse(read("data/adventures/the-well-that-would-not-dry.oneshot.json"));
 const hollow = JSON.parse(read("data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json"));
 
+requireText(standard, "Theme spine — one memorable idea, all the way through", "theme-spine standard");
+requireText(standard, "Literal and easy to DM", "literal-DM standard");
+
 for (const question of [
   "Who needs something?",
   "What happens if the heroes do nothing?",
