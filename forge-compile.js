@@ -25,6 +25,7 @@
     const giverRole = bones.questGiver.role;
     const giverName = titleCase(giverRole);
     const dc = Number.isInteger(bones.obstacle.dc) ? bones.obstacle.dc : 13;
+    if (!bones.theme?.spine) throw new Error("ForgeBones must carry an authoritative theme spine.");
     const title = titleCase(bones.hook.type) + " at the " + titleCase(destination);
 
     const scenes = [
@@ -45,9 +46,9 @@
       "scene-travel": `The way runs through ${bones.travel.environment}. ${titleCase(bones.travel.pressure)} slows anyone who treats the road as empty.`,
       "scene-encounter-1": bones.randomEncounters[0].prompt + " Skipping it costs nothing required.",
       "scene-obstacle": bones.obstacle.mechanic + " The check is DC " + dc + ".",
-      "scene-middle": "Marks, a pinned note, and a damaged mechanism disagree with the story told at the start.",
+      "scene-middle": `Marks, a pinned note, and a damaged mechanism disagree with the story told at the start. Keep the evidence tied to ${bones.theme.motifs.join(", ")}.`,
       "scene-encounter-2": bones.randomEncounters[1].prompt + " It is not the only copy of any required fact.",
-      "scene-inner": bones.twist.actualTruth + " The party can still finish either way.",
+      "scene-inner": bones.twist.actualTruth + " This changes what the original job means without replacing it with a new story. The party can still finish either way.",
       "scene-finale": `The problem is ${bones.finale.subject}. Objective: ${bones.finale.objective}. Noncombat path: ${bones.finale.noncombatResolution}.`,
       "scene-end-return": bones.aftermath.consequence,
       "scene-end-other": "The party keeps the consequence and does not report back. The original hook is still settled."
@@ -76,11 +77,12 @@
       schemaVersion: "0.1.0",
       metadata: {
         id, title, systemCompatibility: "5e-compatible original", partyLevel: level, partySize,
-        durationMinutes, tone, seed: bones.seed, origin: "forge-bones", status: "bones-valid"
+        durationMinutes, tone, seed: bones.seed, origin: "forge-bones", status: "bones-valid",
+        themeId: bones.theme.id, themeSpine: bones.theme.spine
       },
       setup: {
-        pitch: `From the ${origin}, ${giverName} asks the party to ${bones.hook.objective} The destination is the ${destination}.`,
-        gmSummary: `Apparent: ${bones.twist.apparentTruth} Actual: ${bones.twist.actualTruth} Motive: ${bones.questGiver.motive}.`
+        pitch: `From the ${origin}, ${giverName} asks the party to ${bones.hook.objective} The destination is the ${destination}. Theme: ${bones.theme.spine}`,
+        gmSummary: `Theme: ${bones.theme.spine} Apparent: ${bones.twist.apparentTruth} Actual: ${bones.twist.actualTruth} Motive: ${bones.questGiver.motive}.`
       },
       quest: {
         type: bones.hook.type,
@@ -163,6 +165,12 @@
       initialState: {
         questStage: "hook", currentSceneId: "scene-hook", discoveredClueIds: [], revealedSecretIds: [],
         npcState: {}, locationState: {}, itemState: {}, eventState: {}, sceneHistory: ["scene-hook"]
+      },
+      themeContract: {
+        id: bones.theme.id,
+        spine: bones.theme.spine,
+        motifs: [...bones.theme.motifs],
+        rule: "Required scenes must reinforce or reframe this theme; do not introduce an unrelated second adventure."
       },
       pathPressure: {
         principle: "Pay the prepared table, tax the rush, never lock the ending. They still finish.",
