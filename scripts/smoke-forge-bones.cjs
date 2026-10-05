@@ -8,6 +8,8 @@ for(let i=0;i<250;i++){
   const a=generateBones(options);
   const b=generateBones(options);
   assert(JSON.stringify(a)===JSON.stringify(b),"same seed must reproduce bones");
+  assert(a.theme?.id&&a.theme?.spine,"authoritative theme spine missing");
+  assert(Array.isArray(a.theme.motifs)&&a.theme.motifs.length>=2,"theme motifs missing");
   assert(a.randomEncounters.length===2,"exactly two random encounters required");
   assert(a.locationProgression.length>=2,"location progression missing");
   assert(["monster","npc","artifact","ritual","environment","mixed"].includes(a.finale.kind),"illegal finale kind");
