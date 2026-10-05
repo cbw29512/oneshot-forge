@@ -118,8 +118,9 @@
       "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
       "description": "Brother Halve, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
       "tableDialogue": [
-        "“This matters back in Hearthford too.”",
-        "“Finish the job. Then we go home.”"
+        "“The verse says every name. It is wrong.”",
+        "“Leave a light for the person whose name you never learned.”",
+        "“A saint who needs perfect paperwork is not much of a saint.”"
       ],
       "reactions": {
         "agreement": "Supports the party and records the outcome for Hearthford.",
@@ -792,6 +793,10 @@
         {
           "title": "Record reward",
           "text": "Award 260 gp and Favor lanterns."
+        },
+        {
+          "title": "Light one lantern without a name",
+          "text": "Place a blank lantern among the named memorials and show a forgotten spirit joining the procession peacefully."
         }
       ],
       "advanceWhen": "The restored ceremony and rewards are recorded.",
@@ -828,6 +833,10 @@
         {
           "title": "Record reward",
           "text": "Award 280 gp and Open Record token."
+        },
+        {
+          "title": "Enter the first unknown person",
+          "text": "Record existence, place, and evidence without inventing a name, proving the new memorial does not require perfect identification."
         }
       ],
       "advanceWhen": "The registry rules and rewards are recorded.",
@@ -866,6 +875,10 @@
         {
           "title": "Record reward",
           "text": "Award 260 gp."
+        },
+        {
+          "title": "Close the road without erasing it",
+          "text": "Seal the supernatural passage, then preserve the recovered markers and records so closure does not become another forgetting."
         }
       ],
       "advanceWhen": "Rewards and the nonmagical memorial process are recorded.",
