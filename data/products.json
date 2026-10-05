@@ -5,9 +5,9 @@
     {
       "id": "the-lantern-below",
       "title": "The Lantern Below",
-      "status": "review",
-      "priceCents": 99,
-      "currentAccess": "free-preview",
+      "status": "starter-review",
+      "priceCents": 0,
+      "currentAccess": "free-starter",
       "sellable": false,
       "runnerUrl": "run.html?id=the-lantern-below",
       "productUrl": "adventures/the-lantern-below.html",
@@ -17,7 +17,7 @@
       "releaseGate": {
         "requiresApproval": true,
         "approved": false,
-        "requiresCheckout": true,
+        "requiresCheckout": false,
         "checkoutConfigured": false
       },
       "commerce": {
