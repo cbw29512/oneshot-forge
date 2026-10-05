@@ -374,6 +374,36 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "the-heartloom-of-rosebridge",
+      "title": "The Heartloom of Rosebridge",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-heartloom-of-rosebridge",
+      "productUrl": "adventures/the-heartloom-of-rosebridge.html",
+      "level": 5,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "bonds",
+        "Valentine"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
 }
