@@ -50,7 +50,7 @@ def validate():
     require(len(matches) == 1, "Expected exactly one OwlBear Arms product")
     product = matches[0]
     for field, value in {"format": "download-bundle", "bundleVersion": "1.1",
-                         "status": "review", "priceCents": 99, "sellable": False,
+                         "status": "review", "priceCents": 0, "sellable": False,
                          "currentAccess": "free-preview", "runnerUrl": None}.items():
         require(product.get(field) == value, "Review boundary changed: " + field)
     require(product["downloadUrl"] == str(ARCHIVE.relative_to(ROOT)), "Wrong download")
