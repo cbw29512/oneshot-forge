@@ -316,6 +316,35 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "the-gift-that-never-arrived",
+      "title": "The Gift That Never Arrived",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-gift-that-never-arrived",
+      "productUrl": "adventures/the-gift-that-never-arrived.html",
+      "level": 3,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "winter"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
 }
