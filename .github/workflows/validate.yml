@@ -164,6 +164,8 @@ jobs:
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-last-treat-of-gloamwick.oneshot.json
       - name: Audit Gloamwick spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-last-treat-of-gloamwick.oneshot.json
+      - name: Validate D&D curriculum coverage
+        run: node scripts/validate-dnd-curriculum-coverage.mjs
       - name: Validate Hearthford continuity
         run: node scripts/validate-hearthford-continuity.mjs
       - name: Validate ladder structural integrity
