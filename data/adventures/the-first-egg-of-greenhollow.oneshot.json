@@ -1046,17 +1046,25 @@
       },
       {
         "id": "rec-rush-final",
-        "trigger": "The party reaches the Dawn Field without all resolution clues.",
+        "trigger": "The party skips or rushes earlier investigation and reaches the final scene without all resolution clues.",
         "response": "The furrow marker reads RETURN / SHARE / SEVER and Rootwake repeats the three verbs before initiative.",
         "stateChanges": [
           "All final routes remain visible.",
           "Prepared play still reduces checks."
         ]
+      },
+      {
+        "id": "rec-early-attack-the-first-egg-of-greenho",
+        "trigger": "The party attacks Rootwake before understanding the missing First Egg ritual.",
+        "response": "Rootwake defends the Dawn Field, but the recipe, shared-seed records, founder monument, and furrow markers still reveal Return, Replant, and Sever.",
+        "stateChanges": [
+          "Required evidence and finale access remain available."
+        ]
       }
     ]
   },
   "pathPressure": {
-    "principle": "Prepared research and shared seed make the finale safer, while rushed play retains every resolution at greater difficulty.",
+    "principle": "Prepared research and shared seed make the finale safer, while rushed play retains every resolution at greater difficulty. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
     "prepared": [
       "Old seed measures grant advantage on first Replant action.",
       "Recovered pooled seed makes Return immediately available.",
