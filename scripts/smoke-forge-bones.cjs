@@ -25,6 +25,7 @@ const locked=generateBones({
   seed:"LOCK-CHECK",
   locks:{theme:"contested-claim",origin:"locked origin",destination:"locked destination",giver:"locked giver"}
 });
+assert(locked.theme.id==="contested-claim","theme lock changed");
 assert(locked.preview.origin==="locked origin","origin lock changed");
 assert(locked.preview.destination==="locked destination","destination lock changed");
 assert(locked.questGiver.role==="locked giver","giver lock changed");
