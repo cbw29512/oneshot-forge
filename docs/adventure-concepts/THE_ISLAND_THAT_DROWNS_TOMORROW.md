@@ -454,3 +454,145 @@ That sequence gives the players:
 - one strong weakness clue;
 - the reset image;
 - motivation to change the day.
+
+
+## Loop persistence rules
+
+The repeating day follows a clear persistence model.
+
+### What resets
+
+At dawn/reset, ordinary physical changes made during the loop are erased.
+
+This includes:
+- wounds from ordinary sources;
+- blood;
+- bruises;
+- broken equipment;
+- stolen island goods;
+- looted NPC possessions;
+- moved objects;
+- damaged buildings;
+- burned structures;
+- spent island supplies;
+- killed island NPCs;
+- altered clothing;
+- temporary markings;
+- ordinary scars or injuries caused during that loop.
+
+If the party kills an island NPC and takes the NPC's belongings, those items do not carry into the next loop.
+
+The party wakes aboard the halfling captain's ship with the same baseline possessions they began the repeating day with.
+
+This prevents the loop from becoming an infinite-loot exploit and reinforces that the island's ordinary physical state is being restored.
+
+Islanders generally possess modest, believable local goods:
+- simple weapons/tools;
+- fishing gear;
+- food;
+- wedding items;
+- coins or trade goods in small amounts;
+- personal keepsakes;
+- basic clothing and jewelry.
+
+Do not seed large treasure caches on ordinary islanders merely because the loop resets.
+
+### What persists
+
+The player characters retain:
+- memory;
+- learned information;
+- plans;
+- emotional knowledge;
+- relationships from their own perspective;
+- tactical knowledge;
+- knowledge of routes, timings, passwords, secrets, and repeated events.
+
+NPCs do not remember prior loops except the seer.
+
+This creates an intentional asymmetry:
+- the party remembers what they did to an NPC;
+- that NPC meets them again as if for the first time.
+
+The adventure should allow this to create moral and roleplaying consequences even when the world mechanically resets.
+
+### Pirate wounds leave marks
+
+Injuries caused directly by the vampiric octopus pirate are different.
+
+A wound inflicted by the pirate heals when the loop resets, but it leaves a persistent mark or scar on the player character.
+
+The character is not still mechanically injured unless another explicit rule says so.
+
+The mark persists across loops.
+
+This establishes that:
+- the pirate is not fully bound by the same reset rules as ordinary islanders;
+- contact with him can cross the temporal reset boundary;
+- the party is becoming physically connected to the curse.
+
+The marks should be recognizable enough for the players to notice.
+
+Examples:
+- pale sucker-shaped scars;
+- thin black branching marks;
+- crescent punctures;
+- salt-burn patterns;
+- darkened veins around an old wound.
+
+Choose one final visual language and use it consistently.
+
+### Narrative uses of pirate marks
+
+The marks can support several story functions:
+
+1. **Proof of the loop**
+   - The party wakes physically restored but notices a scar that was not present before.
+
+2. **Proof the pirate is different**
+   - Ordinary damage disappears; his does not.
+
+3. **Seer recognition**
+   - The seer may identify the marks immediately and react with alarm.
+
+4. **Escalation**
+   - Additional direct injuries may create additional marks, visually tracking how many times the party has faced him.
+
+5. **Curse clue**
+   - The marks may resemble carvings, grain patterns, or symbols found on the pirate ship, suggesting the same curse binds pirate, vessel, and victims.
+
+Do not turn the marks into a punishment mechanic unless the final adventure intentionally adds a separate audited rule.
+
+By default they are persistent narrative evidence, not cumulative mechanical damage.
+
+## Moral freedom inside the loop
+
+The adventure must allow players to make bad, selfish, violent, or experimental choices without the scenario breaking.
+
+If they:
+- kill an NPC;
+- steal supplies;
+- sabotage the wedding;
+- betray someone;
+- test whether an NPC can survive something;
+- loot a house;
+
+the reset restores the island's ordinary state.
+
+However, the party still remembers doing it.
+
+The seer may remember it too.
+
+This matters.
+
+The loop should not erase player responsibility from the story merely because it erases physical consequences.
+
+The seer may become:
+- afraid of them;
+- disgusted by them;
+- unwilling to trust them;
+- more guarded;
+- hostile;
+- or convinced they are becoming like the pirate.
+
+This gives the adventure room to react to player behavior without making the loop mechanically fragile.
