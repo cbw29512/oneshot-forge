@@ -82,7 +82,7 @@ CI should reject regressions in:
 - future-level feature leakage;
 - one-page character composition.
 
-If a generated pregen cannot satisfy this standard, it is a draft, not a sellable/playable pregen.
+If a generated pregen cannot satisfy this standard, it is a draft, not a release-ready/playable pregen.
 
 ## Teaching contract
 
