@@ -78,6 +78,32 @@
       }
     },
     {
+      "id": "birthday-one-shot",
+      "title": "Birthday One Shot",
+      "format": "standalone-browser",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "birthday-one-shot/index.html",
+      "productUrl": "adventures/birthday-one-shot.html",
+      "level": 3,
+      "party": "4–6 players",
+      "playTime": "about 3 hours",
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
+    },
+    {
       "id": "whispers-of-the-oakhaven-hollow",
       "title": "Whispers of the Oakhaven Hollow",
       "status": "review",
