@@ -4,7 +4,7 @@
     "id": "the-last-treat-of-gloamwick",
     "title": "The Last Treat of Gloamwick",
     "systemCompatibility": "5E-compatible fantasy RPG",
-    "partyLevel": 3,
+    "partyLevel": 1,
     "partySize": 4,
     "partySizeRange": "3–6 players",
     "durationMinutes": 210,
@@ -652,11 +652,11 @@
       "flowLabel": "Midnight",
       "readAloud": "The first midnight stroke rolls across Gloamwick as you reach the cemetery wall. Every festival lantern gutters at once. Pale masks lift from gutters, roofs, and abandoned costumes, turning toward the square until they form a single tall shape with an empty black face. Three lantern posts stand between it and the crowd. Beneath the bell, Old Grin raises one preserved sweet in one hand and a ribbon covered in forgotten names in the other.",
       "gmNotes": [
-        "Start the Last Guest at 66 HP. If the party reached this scene after all four clock marks, it also begins with 12 temporary HP from the completed breach.",
+        "Start the Last Guest at 36 HP. If the party reached this scene after all four clock marks, it also begins with 6 temporary HP from the completed breach.",
         "At initiative count 20 each round, Empty Threshold: one unlit lantern post goes dark or, if all are lit, the Last Guest pulls one unattended offering 10 feet toward itself.",
         "OFFERING ROUTE: three lantern posts. A character adjacent to a post can use an Action to place sweets and light it; no check if the party recovered festival sweets. If improvising food, DC 12 Wisdom (Survival) or Charisma (Performance) makes the offering meaningful. Three lit offered posts end hostilities and the Last Guest dissolves into harmless masked figures.",
-        "REMEMBRANCE ROUTE: earn 3 successes before 2 failures using an Action and DC 13 Intelligence (History or Religion), Wisdom (Insight), or Charisma (Performance or Persuasion) while speaking a specific forgotten name or story from the memorial ribbons. Each failure causes 1d6 psychic damage to the acting character and adds one failure. At 2 failures, this route closes for the scene but Offering and Destruction remain legal.",
-        "DESTRUCTION ROUTE: the mask-heart is AC 13, 24 HP and can be targeted once the Last Guest is below half HP or after one lantern post is lit. Destroying the heart drops the Last Guest to 0 HP immediately, but Old Grin also fades and Gloamwick loses the old protection.",
+        "REMEMBRANCE ROUTE: earn 3 successes before 2 failures using an Action and DC 13 Intelligence (History or Religion), Wisdom (Insight), or Charisma (Performance or Persuasion) while speaking a specific forgotten name or story from the memorial ribbons. Each failure causes 1d4 psychic damage to the acting character and adds one failure. At 2 failures, this route closes for the scene but Offering and Destruction remain legal.",
+        "DESTRUCTION ROUTE: the mask-heart is AC 13, 12 HP and can be targeted once the Last Guest is below half HP or after one lantern post is lit. Destroying the heart drops the Last Guest to 0 HP immediately, but Old Grin also fades and Gloamwick loses the old protection.",
         "Direct combat to 0 HP is also legal and has the same consequence as destroying the mask-heart.",
         "The Last Guest never targets the rescued children while another conscious creature is between them and it; its goal is the broken offering route, not child murder."
       ],
@@ -1132,7 +1132,7 @@
     "adventureId": "the-last-treat-of-gloamwick",
     "version": "0.1.0",
     "target": {
-      "level": 3,
+      "level": 1,
       "partySize": 4
     },
     "requiredCheckIds": [
@@ -1186,7 +1186,7 @@
         "dc": 13,
         "ability": "Intelligence (History or Religion), Wisdom (Insight), or Charisma (Performance or Persuasion)",
         "success": "One layer of masks falls away and one remembrance success is recorded.",
-        "failure": "The acting character takes 1d6 psychic damage and one remembrance failure is recorded; at two failures this route closes but Offering and Destruction remain legal."
+        "failure": "The acting character takes 1d4 psychic damage and one remembrance failure is recorded; at two failures this route closes but Offering and Destruction remain legal."
       }
     ],
     "encounters": [
@@ -1200,9 +1200,9 @@
             "name": "Gutter Maskling",
             "count": 3,
             "ac": 12,
-            "hp": 11,
+            "hp": 6,
             "speed": "30 ft., climb 20 ft.",
-            "attack": "Paper Cut +4 to hit, 1d4+2 slashing plus 1 psychic.",
+            "attack": "Paper Cut +3 to hit, 1d4+1 slashing.",
             "trait": "Threshold-Shy: cannot willingly enter the 5-foot space directly beneath a lit doorstep lantern. A handful of sweets offered as an Action consumes its next turn.",
             "tactics": "Swarm whoever carries sweets, then retreat from lit thresholds instead of pursuing recklessly."
           }
@@ -1219,7 +1219,7 @@
             "name": "Old Grin",
             "count": 1,
             "ac": 14,
-            "hp": 38,
+            "hp": 24,
             "speed": "30 ft.",
             "attack": "Open-Hand Shove +4 to hit; target is pushed 10 ft. instead of taking damage.",
             "trait": "Guardian Only: Old Grin does not make damaging attacks against creatures that are not directly threatening the children.",
@@ -1238,10 +1238,10 @@
             "name": "The Last Guest",
             "count": 1,
             "ac": 14,
-            "hp": 66,
+            "hp": 36,
             "speed": "30 ft., fly 20 ft. (hover)",
-            "attack": "Empty Face +5 to hit, 2d6+3 psychic.",
-            "trait": "Mask-Heart: once below half HP or after one lantern post is lit, AC 13, 24 HP; destroying it reduces the Last Guest to 0 HP and also ends Old Grin.",
+            "attack": "Empty Face +4 to hit, 1d6+2 psychic.",
+            "trait": "Mask-Heart: once below half HP or after one lantern post is lit, AC 13, 12 HP; destroying it reduces the Last Guest to 0 HP and also ends Old Grin.",
             "tactics": "Pressure unattended lantern posts, attack characters performing ritual actions, and avoid chasing anyone who retreats behind a lit offered threshold."
           }
         ],
