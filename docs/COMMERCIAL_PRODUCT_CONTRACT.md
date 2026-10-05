@@ -18,7 +18,13 @@ Each product records:
 
 ## Delivery format and state
 
-Products without `format` use the existing Adventure Package and web runner.
+Products without `format` use the existing Adventure Package and shared web runner.
+
+`format: "standalone-browser"` records an authored browser product that owns its
+runner instead of using `run.html?id=...`. It must declare a real local `runnerUrl`,
+remain outside the shared Adventure Package registry, expose a direct start path from
+the catalog and product page, and provide an actual printable runner surface.
+
 `format: "download-bundle"` records an imported PDF kit with `runnerUrl: null`,
 `downloadUrl` pointing to a real local ZIP, `rulesEdition`, `bundleVersion`, and
 `auditUrl`. The catalog downloads the kit; its page supplies Start Here and print
@@ -50,4 +56,9 @@ Payment-provider credentials and purchase verification must not live in client-s
 
 ## Current Lantern state
 
-The Lantern Below has a commercial target price of 99 cents but remains `sellable: false` and `status: review` until Chris explicitly approves/finalizes the adventure and a verified checkout path exists. Its current free access remains deliberate rather than pretending checkout is available.
+The Lantern Below is the permanent free starter. Its product contract uses
+`priceCents: 0`, `currentAccess: "free-starter"`, `sellable: false`, and
+`releaseGate.requiresCheckout: false`. It must never enter the paid checkout path.
+
+Other paid-target adventures remain review-gated until explicit approval, validated
+delivery, and a verified checkout/entitlement path exist.
