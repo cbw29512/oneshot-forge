@@ -403,11 +403,11 @@
       "readAloud": "The stair opens onto a catwalk above a black chasm. An iron frame spans the cavern like the ribs of a ship, carrying glassy pipes toward a fist-sized core pulsing with trapped shadow. One pipe climbs toward Oakhaven. Another ends at a salt-encrusted gate crushed beneath fallen rock. With every pulse, the upward pipe shudders and spits a needle of black glass into the roots above.",
       "gmNotes": [
         "This is an artifact/environment finale, not a boss fight.",
-        "Safe purge requires all three repair jobs. Each is an Action and DC 13 check; different characters can work in parallel.",
+        "Safe purge requires all three repair jobs. Each is an Action and DC 13 check; different characters can work in parallel. A failed repair attempt spends the action and leaves that job incomplete; it does not damage the mechanism or remove the safe-purge route, and the next Pressure Pulse still occurs normally.",
         "Open Salt Gate: DC 13 Strength (Athletics) or Dexterity with thieves' tools to free the jammed wheel.",
         "Reconnect Bell Ground: DC 13 Intelligence (Arcana) or Wisdom (Religion) to reconnect the bronze grounding braid.",
         "Clamp Root Vent: DC 13 Intelligence (Nature), Wisdom (Medicine), or Dexterity with thieves' tools to seal the upward vent.",
-        "Balanced Lines from the vault allows the first failed repair check to be rerolled immediately.",
+        "Balanced Lines from the vault allows the first failed repair check to be rerolled immediately; use the reroll result and continue, so preparation reduces risk without bypassing the repair sequence.",
         "At initiative count 20 each round, Pressure Pulse: every creature on the catwalk makes DC 12 Constitution save; failure takes 1d6 necrotic and is pushed 5 ft. away from the core.",
         "After all three repairs succeed, one character pulls the purge lever. The stored blight drains harmlessly into a newly opened salt basin.",
         "Destructive shortcut: Overflow Core AC 13, 24 HP, immune poison and psychic. Destroying it ends the pulses but releases a 2d6 necrotic blast in 20 ft. (DC 12 Con half) and guarantees the watchtower collapses.",
