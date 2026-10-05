@@ -1029,7 +1029,7 @@
       },
       {
         "id": "rec-rush-final",
-        "trigger": "The party reaches the last bell without understanding the three routes.",
+        "trigger": "The party skips or rushes earlier investigation and reaches the final scene without all resolution clues.",
         "response": "The Warden states 'Finish. Replace. Or break.' and gestures to the Vale ribbon symbols before initiative.",
         "stateChanges": [
           "The finale remains solvable.",
@@ -1039,7 +1039,7 @@
     ]
   },
   "pathPressure": {
-    "principle": "Preparation makes the snow route and noncombat finale safer, but the adventure remains finishable if rushed.",
+    "principle": "Preparation makes the snow route and noncombat finale safer, but the adventure remains finishable if rushed. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
     "prepared": [
       "Snow rope allows a reroll on the first failed creek crossing.",
       "Carrying real medicine/fuel/blankets makes the Vale delivery automatically meaningful.",
