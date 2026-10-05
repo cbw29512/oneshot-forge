@@ -118,8 +118,9 @@
       "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
       "description": "Doctor Sera Moss, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
       "tableDialogue": [
-        "“This matters back in Hearthford too.”",
-        "“Finish the job. Then we go home.”"
+        "“Before we leave: what did you eat, and when?”",
+        "“Medicine first. Ceremony can wait.”",
+        "“If the road fails, change the route. Do not change who gets helped.”"
       ],
       "reactions": {
         "agreement": "Supports the party and records the outcome for Hearthford.",
@@ -774,6 +775,10 @@
         {
           "title": "Record reward",
           "text": "Award 100 gp and Favor tokens."
+        },
+        {
+          "title": "Warm the Vale hearth",
+          "text": "Show the delivered medicine, fuel, and blankets changing the actual household before the town resumes celebration."
         }
       ],
       "advanceWhen": "Rewards and the new written procedure are recorded.",
@@ -810,6 +815,10 @@
         {
           "title": "Reward structural repair",
           "text": "Award 120 gp and the Winter Roster token."
+        },
+        {
+          "title": "Post the winter roster",
+          "text": "Put the new routes, reserve stores, and check-in owners where the whole village can see who is responsible."
         }
       ],
       "advanceWhen": "The three-part compact and rewards are recorded.",
@@ -847,6 +856,10 @@
         {
           "title": "Record reward",
           "text": "Award 100 gp."
+        },
+        {
+          "title": "Send someone anyway",
+          "text": "With the Warden gone, have a villager volunteer for the next outer-household delivery to prove care survives without magic."
         }
       ],
       "advanceWhen": "Rewards and the new nonmagical Winterlight practice are recorded.",
