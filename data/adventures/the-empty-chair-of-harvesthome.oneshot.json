@@ -23,7 +23,8 @@
     "pitch": "Harvesthome's feast begins with one chair missing, one wagon of grain unaccounted for, and a cold wind that steals food from every table where no place is kept for a stranger.",
     "openingLocation": "Harvesthome village green",
     "gmSummary": "Harvesthome's Feast of Thanks has one old rule: an empty chair remains at the communal table until the final toast, reserved for any traveler, neighbor, or hungry stranger who arrives late. After a poor harvest, reeve Mara Fen ordered the chair removed and the reserve portion folded back into the town meal. At the same time, merchant Oren Vale diverted one wagon of grain to a private storehouse, claiming it was a prudent reserve. The combination breaks an old social compact. A folk spirit called the Late Guest begins taking one serving from any table with no open place, while frightened villagers blame a starving family from the outer farms. The missing grain, not supernatural hunger alone, makes the shortage real. The party can uncover the diversion, protect the feast, recover or redistribute the grain, and decide what the empty chair will mean going forward.",
-    "background": "Harvesthome survived a famine generations ago because every household agreed that nobody would be turned away from the final feast while food remained. The symbolic empty chair grew from that promise. Over time people remembered the chair but forgot the covenant. This year's harvest is genuinely poor, though not catastrophic. Oren Vale secretly diverted one grain wagon into his private mill storehouse because he expects winter prices to rise. Mara Fen, unaware of the theft, removed the empty chair to stretch portions. The Late Guest is not a demon summoned by greed; it is a communal spirit formed by repeated acts of welcome. With no place kept open, it begins enforcing the forgotten promise literally."
+    "background": "Harvesthome survived a famine generations ago because every household agreed that nobody would be turned away from the final feast while food remained. The symbolic empty chair grew from that promise. Over time people remembered the chair but forgot the covenant. This year's harvest is genuinely poor, though not catastrophic. Oren Vale secretly diverted one grain wagon into his private mill storehouse because he expects winter prices to rise. Mara Fen, unaware of the theft, removed the empty chair to stretch portions. The Late Guest is not a demon summoned by greed; it is a communal spirit formed by repeated acts of welcome. With no place kept open, it begins enforcing the forgotten promise literally.",
+    "campaignFrame": "Reeve Oda Flint sends the party from Hearthford to nearby Harvesthome because its grain tally and feast shortage affect Hearthford's winter stores. The party returns to Hearthford with the truth about the diverted grain and Oda's relationship state changes accordingly."
   },
   "quest": {
     "type": "investigate / protect feast / choose",
@@ -77,6 +78,56 @@
     ]
   },
   "npcs": [
+    {
+      "id": "npc-oda-flint",
+      "name": "Reeve Oda Flint",
+      "role": "Hearthford reeve, miller, and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Dry. Corrects you once."
+      ],
+      "wants": [
+        "The ridge settlements must have enough grain and nobody gets erased from the tally.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Reeve Oda Flint, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“This matters back in Hearthford too.”",
+        "“Finish the job. Then we go home.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
     {
       "id": "npc-mara-fen",
       "name": "Mara Fen",
@@ -455,6 +506,7 @@
       ],
       "advanceWhen": "The party heads to the granary with the wagon shortage and missing-chair change both established.",
       "npcIds": [
+        "npc-oda-flint",
         "npc-mara-fen"
       ],
       "clueIds": [
@@ -671,6 +723,7 @@
       ],
       "advanceWhen": "The Late Guest is welcomed, satisfied by a public sharing compact, or driven away.",
       "npcIds": [
+        "npc-oda-flint",
         "npc-mara-fen",
         "npc-oren-vale",
         "npc-elsi-rowan",
@@ -733,6 +786,7 @@
       ],
       "advanceWhen": "Rewards and the new feast custom are recorded.",
       "npcIds": [
+        "npc-oda-flint",
         "npc-mara-fen",
         "npc-elsi-rowan",
         "npc-late-guest"
@@ -768,6 +822,7 @@
       ],
       "advanceWhen": "The compact and rewards are recorded.",
       "npcIds": [
+        "npc-oda-flint",
         "npc-mara-fen",
         "npc-oren-vale",
         "npc-elsi-rowan"
@@ -803,6 +858,7 @@
       ],
       "advanceWhen": "Rewards and the grain disposition are recorded.",
       "npcIds": [
+        "npc-oda-flint",
         "npc-mara-fen",
         "npc-oren-vale",
         "npc-elsi-rowan"
@@ -1069,6 +1125,10 @@
       "npc-late-guest": {
         "status": "approaching",
         "attitude": "literal"
+      },
+      "npc-oda-flint": {
+        "status": "alive",
+        "attitude": "familiar"
       }
     },
     "locationState": {},
@@ -1313,5 +1373,15 @@
     ],
     "stageCount": 6
   },
-  "cards": []
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-oda-flint"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Reeve Oda Flint's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
 }
