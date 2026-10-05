@@ -404,6 +404,36 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "the-first-egg-of-greenhollow",
+      "title": "The First Egg of Greenhollow",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-first-egg-of-greenhollow",
+      "productUrl": "adventures/the-first-egg-of-greenhollow.html",
+      "level": 6,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "spring",
+        "egg-hunt"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
 }
