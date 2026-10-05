@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "policy": "Fill new authored one-shots from level 1 through 20 before repeating a level.",
-  "nextLevel": 9,
+  "nextLevel": 10,
   "assignments": [
     {
       "level": 1,
@@ -49,6 +49,12 @@
       "level": 8,
       "adventureId": "the-lanterns-we-left-behind",
       "title": "The Lanterns We Left Behind",
+      "status": "review"
+    },
+    {
+      "level": 9,
+      "adventureId": "the-graduation-that-opened-the-sky",
+      "title": "The Graduation That Opened the Sky",
       "status": "review"
     }
   ]
