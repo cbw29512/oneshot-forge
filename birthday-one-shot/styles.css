@@ -1,0 +1,33 @@
+:root{--ink:#241b2f;--plum:#5b2c6f;--gold:#d4a72c;--cream:#fffaf0}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.4}.hero{padding:2rem 1rem;text-align:center;background:linear-gradient(135deg,#4b235f,#7d3c98);color:#fff;border-bottom:8px solid var(--gold)}.hero h1{font-size:clamp(2.2rem,6vw,4.2rem);margin:.15rem 0}.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-weight:700}.actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}.actions a,.actions button{border:2px solid #fff;border-radius:999px;padding:.65rem 1rem;background:#fff;color:var(--plum);font-weight:700;text-decoration:none}.toc{position:sticky;top:0;z-index:3;background:#fff;padding:.6rem;display:flex;gap:.75rem;overflow:auto}.toc a{white-space:nowrap;color:var(--plum);font-weight:700;text-decoration:none}main{max-width:1050px;margin:auto;padding:1.25rem}.section{margin:2rem 0}.section>h2,.deck-header h2{border-bottom:4px solid var(--gold)}.card,.room{background:#fff;border:2px solid #2f2439;border-radius:12px;padding:1rem;margin-bottom:1rem}.readaloud{background:#f3ecf7;border:1px solid #bea6c8;border-radius:8px;padding:.8rem;font-style:italic}.tag{display:inline-block;background:#eee;border-radius:999px;padding:.1rem .5rem}.timeline{width:100%;border-collapse:collapse}.timeline th,.timeline td{border:1px solid #aaa;padding:.45rem}.tarot-sheet{margin:1rem 0}.tarot-grid{display:grid;grid-template-columns:repeat(2,2.75in);gap:.25in .5in;justify-content:center;align-items:start}.tarot-card{width:2.75in;height:4.75in;background:#fff;border:2px solid #2d2332;border-radius:.12in;padding:.11in;overflow:hidden;position:relative}.tarot-card.npc{border-color:#375f87}.tarot-card.monster{border-color:#8d2929}.tarot-card.trap{border-color:#a14a20}.tarot-card.item{border-color:#2d744d}.tarot-art .card-art-svg{width:100%;height:1.55in;display:block;border-radius:.08in;border:1px solid #333}.tarot-card h3{font-size:12pt;text-align:center;margin:.07in 0 .02in;color:var(--plum);line-height:1.05}.card-role{text-align:center;font-size:7.5pt;font-weight:700;letter-spacing:.05em;margin:.02in}.tarot-card .quote{font-size:7pt;text-align:center;font-style:italic;margin:.05in 0}.tarot-rules{border-top:1px solid #777;margin-top:.05in;padding-top:.05in}.tarot-rules p{font-size:6.8pt;line-height:1.18;margin:.035in 0}.character-sheet{background:#fff;border:2px solid #27202d;padding:.18in;margin:.25in 0}.sheet-header{display:grid;grid-template-columns:1.25in 1fr;gap:.15in;align-items:center;border-bottom:3px double var(--plum);padding-bottom:.08in}.sheet-header .card-art-svg{width:100%;height:.95in}.sheet-header h2{font-size:16pt;margin:0;color:var(--plum)}.sheet-header p{margin:0;font-size:7.5pt}.combat-strip{display:grid;grid-template-columns:repeat(9,1fr);gap:.04in;margin:.07in 0}.combat-strip>div{border:1px solid #333;border-radius:6px;text-align:center;padding:.035in}.combat-strip b{display:block;font-size:5.3pt;text-transform:uppercase}.combat-strip span{font-size:9pt;font-weight:700}.combat-strip small{font-size:5pt}.ability-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.05in;margin:.07in 0}.ability{border:1.5px solid #333;border-radius:8px;text-align:center;padding:.025in}.ability strong{display:block;font-size:6pt}.ability span{display:block;font-size:11pt;font-weight:700}.ability small{font-size:6pt}.sheet-columns{display:grid;grid-template-columns:.92fr 1.45fr;gap:.08in}.sheet-columns.lower{grid-template-columns:1fr 1fr;margin-top:.05in}.sheet-block{border:1px solid #555;border-radius:6px;padding:.05in;margin-bottom:.05in}.sheet-block h4{margin:-.05in -.05in .03in;padding:.025in .05in;background:#eee0f0;border-bottom:1px solid #777;font-size:6.2pt;text-transform:uppercase}.sheet-block p,.sheet-block li,.sheet-block div{font-size:6pt;line-height:1.14}.sheet-block ul{padding-left:.14in;margin:.02in 0}.two-col-list{display:grid;grid-template-columns:1fr 1fr;gap:0 .05in}.spotlight{background:#fff8d9}.tactics{background:#eef8ed}.sheet-footer{display:flex;justify-content:space-between;border-top:2px solid #333;padding-top:.04in;font-size:6pt;font-weight:700}footer{text-align:center;padding:1.5rem;background:#241b2f;color:#fff}
+
+@page{size:letter portrait;margin:.25in}
+@media print{
+  html,body{width:8.5in;background:#fff;color:#000}
+  body{font-size:10pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .hero,.actions,.toc,body>footer{display:none!important}
+  main{width:8in;max-width:8in;margin:0 auto;padding:0}
+  .section{margin:0;break-before:page}
+  .section:first-child{break-before:auto}
+  .section>h2{font-size:18pt;margin:.08in 0 .12in}
+  .card{box-shadow:none}
+  .room{border-radius:0;margin:0 0 .14in;padding:.14in;break-inside:auto}
+  .room h3,.room h4{break-after:avoid}
+  .room .readaloud,.room table,.room ul{break-inside:avoid}
+  .deck{break-before:page}
+  .deck-header{display:none}
+  .tarot-sheet{width:8in;height:10.5in;margin:0;display:flex;align-items:center;justify-content:center;break-before:page;break-after:page;overflow:hidden}
+  .tarot-sheet:first-of-type{break-before:auto}
+  .tarot-grid{width:6in;height:9.75in;display:grid;grid-template-columns:2.75in 2.75in;grid-template-rows:4.75in 4.75in;gap:.25in .5in;justify-content:center;align-content:center}
+  .tarot-card{width:2.75in;height:4.75in;border-radius:0;box-shadow:none;break-inside:avoid;overflow:hidden}
+  .character-sheet{width:8in;height:10.5in;min-height:10.5in;max-height:10.5in;margin:0;padding:.18in;border-radius:0;overflow:hidden;box-shadow:none;break-before:page;break-after:page}
+  .character-sheet:first-of-type{break-before:auto}
+  #pregens>h2,#pregens>p{display:none}
+}
+@media(max-width:700px){.tarot-grid{grid-template-columns:1fr;width:auto;height:auto}.tarot-sheet{height:auto}.sheet-columns,.sheet-columns.lower{grid-template-columns:1fr}.combat-strip{grid-template-columns:repeat(3,1fr)}}
+.birthday-personalizer{max-width:720px;margin:1rem auto;padding:.9rem 1rem;border:1px solid rgba(255,255,255,.55);border-radius:12px;background:rgba(20,10,30,.28);text-align:left}
+.birthday-personalizer label{display:block;font-weight:700;margin-bottom:.35rem}
+.birthday-personalizer-row{display:flex;gap:.5rem;flex-wrap:wrap}
+.birthday-personalizer input{flex:1 1 220px;min-width:0;border:2px solid #fff;border-radius:999px;padding:.65rem .9rem;font:inherit;background:#fff;color:var(--ink)}
+.birthday-personalizer button{border:2px solid #fff;border-radius:999px;padding:.65rem 1rem;background:#fff;color:var(--plum);font-weight:700;cursor:pointer}
+.birthday-personalizer-status{margin:.45rem 0 0;font-size:.85rem;opacity:.9}
+@media print{.birthday-personalizer{display:none!important}}

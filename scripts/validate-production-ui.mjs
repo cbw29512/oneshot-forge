@@ -27,18 +27,27 @@ for (const product of products.products || []) {
   const cardMarker = `data-product-id="${product.id}"`;
   if (!index.includes(cardMarker)) errors.push(`${product.id}: missing catalog card`);
   const bundle = product.format === "download-bundle";
-  const startUrl = bundle ? product.downloadUrl : `run.html?id=${product.id}`;
-  if (!index.includes(`href="${startUrl}"`)) errors.push(`${product.id}: catalog lacks direct start/download path`);
+  const standalone = product.format === "standalone-browser";
+  const startUrl = bundle ? product.downloadUrl : standalone ? product.runnerUrl : `run.html?id=${product.id}`;
+  if (!startUrl || !index.includes(`href="${startUrl}"`)) errors.push(`${product.id}: catalog lacks direct start/download path`);
   if (!index.includes(`href="${product.productUrl}"`)) errors.push(`${product.id}: catalog lacks details path`);
 
   const productPage = read(product.productUrl);
   if (productPage && !productPage.includes("styles.css?v=20261002e")) {
     errors.push(`${product.id}: landing page is not pinned to production gameplay styling`);
   }
-  if (productPage && !productPage.includes(bundle ? product.downloadUrl : `run.html?id=${product.id}`)) {
+  if (productPage && !productPage.includes(startUrl)) {
     errors.push(`${product.id}: landing page lacks direct runner path`);
   }
-  if (productPage && !productPage.includes(bundle ? 'id="print-materials"' : `print.html?id=${product.id}`)) {
+  if (standalone) {
+    const standaloneRunner = read(product.runnerUrl);
+    if (!standaloneRunner.includes('onclick="window.print()"')) {
+      errors.push(`${product.id}: standalone runner lacks Print Everything`);
+    }
+    if (!productPage.includes(`${product.runnerUrl}#print`)) {
+      errors.push(`${product.id}: landing page lacks standalone print path`);
+    }
+  } else if (productPage && !productPage.includes(bundle ? 'id="print-materials"' : `print.html?id=${product.id}`)) {
     errors.push(`${product.id}: landing page lacks print-center path`);
   }
   if (bundle && (!productPage.includes('id="start-here"') || !productPage.includes("2014"))) {
