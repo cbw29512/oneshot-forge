@@ -23,7 +23,8 @@
     "pitch": "Yearturn burns its old ledger at midnight so the town can begin again. This year somebody burned the unresolved promises too—and the old year refuses to end.",
     "openingLocation": "Yearturn clock square",
     "gmSummary": "Yearturn's New Year rite closes one civic ledger and opens another. Fulfilled promises are marked complete; unresolved debts and obligations are copied into the new ledger before the old pages are burned. This year council clerk Edrin March, under pressure to make the town look debt-free, ordered the unresolved pages burned without transfer. At midnight the great clock freezes between bells eleven and twelve. The town begins repeating short slices of the final hour, and figures called Yearlings emerge from ash-written promises. The party must recover surviving fragments, identify which obligations were erased, decide whether to restore them, transform them into a public amnesty compact, or break the clock-bound ritual entirely.",
-    "background": "The ledger tradition began after a corrupt reeve once declared all winter debts erased at midnight while keeping what others owed him. The town created a public carry-forward ceremony so a new year meant renewal without pretending unfinished obligations had vanished. Over centuries this became pageantry. Edrin March wanted Yearturn to announce a clean ledger and attract winter investors. He destroyed the unresolved pages before they were copied. The Old Year is not a god demanding bookkeeping; it is a civic spirit built from repeated public acknowledgment that new beginnings require honest accounting."
+    "background": "The ledger tradition began after a corrupt reeve once declared all winter debts erased at midnight while keeping what others owed him. The town created a public carry-forward ceremony so a new year meant renewal without pretending unfinished obligations had vanished. Over centuries this became pageantry. Edrin March wanted Yearturn to announce a clean ledger and attract winter investors. He destroyed the unresolved pages before they were copied. The Old Year is not a god demanding bookkeeping; it is a civic spirit built from repeated public acknowledgment that new beginnings require honest accounting.",
+    "campaignFrame": "Idra Quell brings the party from Hearthford to Yearturn because several erased obligations involve Hearthford traders and caravan contracts. After midnight finally passes, the party returns to Hearthford with Idra knowing exactly what they chose to carry, forgive, or cut loose."
   },
   "quest": {
     "type": "investigate / recover obligations / timed finale",
@@ -77,6 +78,56 @@
     ]
   },
   "npcs": [
+    {
+      "id": "npc-idra-quell",
+      "name": "Idra Quell",
+      "role": "Hearthford night-market trader and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Smiles with one side."
+      ],
+      "wants": [
+        "No one gets to profit from making a debt disappear on paper.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Idra Quell, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“This matters back in Hearthford too.”",
+        "“Finish the job. Then we go home.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
     {
       "id": "npc-mera-quill",
       "name": "Mera Quill",
@@ -451,6 +502,7 @@
       ],
       "advanceWhen": "The party enters the council archive to inspect the closing ledger procedure.",
       "npcIds": [
+        "npc-idra-quell",
         "npc-mera-quill",
         "npc-edrin-march"
       ],
@@ -668,6 +720,7 @@
       ],
       "advanceWhen": "The town's unresolved obligations are carried, transformed, or removed from supernatural enforcement.",
       "npcIds": [
+        "npc-idra-quell",
         "npc-mera-quill",
         "npc-edrin-march",
         "npc-tess-arden",
@@ -731,6 +784,7 @@
       ],
       "advanceWhen": "The new ledger and rewards are recorded.",
       "npcIds": [
+        "npc-idra-quell",
         "npc-mera-quill",
         "npc-tess-arden"
       ],
@@ -765,6 +819,7 @@
       ],
       "advanceWhen": "The amnesty/reparation compact and rewards are recorded.",
       "npcIds": [
+        "npc-idra-quell",
         "npc-mera-quill",
         "npc-edrin-march",
         "npc-tess-arden"
@@ -801,6 +856,7 @@
       ],
       "advanceWhen": "Rewards and the new nonmagical ledger process are recorded.",
       "npcIds": [
+        "npc-idra-quell",
         "npc-mera-quill",
         "npc-edrin-march",
         "npc-tess-arden"
@@ -1051,6 +1107,10 @@
       "npc-old-year": {
         "status": "forming",
         "attitude": "literal"
+      },
+      "npc-idra-quell": {
+        "status": "alive",
+        "attitude": "familiar"
       }
     },
     "locationState": {},
@@ -1272,5 +1332,15 @@
     ],
     "stageCount": 6
   },
-  "cards": []
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-idra-quell"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Idra Quell's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
 }
