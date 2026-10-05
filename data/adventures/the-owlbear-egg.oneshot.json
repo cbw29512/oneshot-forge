@@ -18,7 +18,7 @@
   "setup": {
     "pitch": "Low on food and one day from the nearest village, the party reaches Briar Hollow just as a badly scratched hunter returns carrying a massive owlbear egg. Three villagers argue over whether to eat it, raise it, or return it. Before they can decide, the enraged father owlbear tears into the village.",
     "openingLocation": "The road to Briar Hollow",
-    "gmSummary": "The adventure has one spine: force the hungry party into Briar Hollow, reveal the stolen owlbear egg, let three NPCs argue three solutions, interrupt the debate with the father owlbear attack, expose the fake druid, then branch only when the party decides the egg's fate. If the party feeds the father their last rations, he leaves and they go hungry. If they kill him, the carcass proves feverish and unsafe to eat; the mother answers from the ridge and later enters a barbarian-like rage. If they refuse to intervene, the father destroys Briar Hollow. Eat the egg and the mother attacks at dawn. Keep the egg and it hatches and imprints on a present PC/NPC, but the mother still comes for her surviving offspring. Return it or leave it at the village edge and the mother retrieves it. If the father survived, the family withdraws peacefully; if he was killed, the mother secures the hatchling and attacks in Maternal Rage.",
+    "gmSummary": "The adventure has one spine: force the hungry party into Briar Hollow, reveal the stolen owlbear egg, let three NPCs argue three solutions, interrupt the debate with the father owlbear attack, expose the fake druid, then branch only when the party decides the egg's fate. If the party feeds the father their last rations, he leaves and they go hungry. If they kill him, the carcass proves feverish and unsafe to eat; the mother answers from the ridge and later enters an original monster state called Maternal Frenzy. If they refuse to intervene, the father destroys Briar Hollow. Eat the egg and the mother attacks at dawn. Keep the egg and it hatches and imprints on a present PC/NPC, but the mother still comes for her surviving offspring. Return it or leave it at the village edge and the mother retrieves it. If the father survived, the family withdraws peacefully; if he was killed, the mother secures the hatchling and attacks in Maternal Frenzy.",
     "background": "The party has only its final day of trail food left when the road points toward Briar Hollow, itself nearly out of food. Torren Vale, the village hunter, failed to find game and instead stole a huge owlbear egg from a nest. One parent raked his face as he escaped. Mara Dell wants to cook it. Torren, shaken by what he did, wants to raise the hatchling and make the theft mean something. Elmorrow Reed presents himself as a druid and argues that he should return the egg to nature, but he is actually an animal broker for the Moonpetal Traveling Menagerie. The father follows Torren's scent and the egg into town. He is gaunt, feverish, and starving; hunger has overwhelmed his normal protective behavior, which is why food can interrupt the attack."
   },
   "quest": {
@@ -64,7 +64,7 @@
       },
       {
         "id": "fact-mother-rage",
-        "text": "The mother enters a barbarian-like maternal rage if the egg is destroyed/stolen from her or if her mate is killed; a true return can calm the family if the father still lives."
+        "text": "The mother enters the original monster state Maternal Frenzy if the egg is destroyed or kept from her, or if her mate is killed; a true return can calm the family if the father still lives."
       },
       {
         "id": "fact-baby-imprint",
@@ -630,7 +630,7 @@
         "There are three core choices now. Do not add another branch unless the players genuinely invent one.",
         "EAT: Mara cooks the egg. The village and party get a full meal. At dawn, the mother attacks.",
         "KEEP: the egg hatches and imprints on a present PC or named NPC. The mother still comes for the hatchling; the final consequence depends on the father's fate and whether the party yields or keeps the baby.",
-        "RETURN / LEAVE AT EDGE: the mother retrieves the egg. Father alive = family withdraws peacefully. Father dead = she secures the hatchling, then attacks in Maternal Rage.",
+        "RETURN / LEAVE AT EDGE: the mother retrieves the egg. Father alive = family withdraws peacefully. Father dead = she secures the hatchling, then attacks in Maternal Frenzy.",
         "Elmorrow may still bargain or flee, but he no longer controls the structure."
       ],
       "runSteps": [
@@ -700,8 +700,8 @@
       "readAloud": "For the first time in days, Briar Hollow smells like real food: hot fat, browned bread, herbs, and steam rising from bowls held in shaking hands. The meal fills every stomach in the square, but at dawn every dog begins barking toward the ridge at once. A huge mother owlbear steps from the mist, scarred shoulders rolling beneath wet feathers, and the square goes silent when she lowers her head to the pile of broken shell. Her scream rattles shutters.",
       "gmNotes": [
         "Run the mother in Maternal Rage from the start.",
-        "If the father was killed, describe her rage as even more personal, but do not stack a second mechanical rage.",
-        "Maternal Rage: advantage on Strength checks/saves, +2 Strength-based melee damage, and resistance to all damage except psychic for 1 minute.",
+        "If the father was killed, describe her rage as even more personal, but do not stack a second Frenzy state.",
+        "Maternal Frenzy (original monster trait, not a class feature): for 1 minute, the mother has advantage on Strength checks and Strength saving throws, deals +2 damage with Strength-based melee attacks, and has resistance to all damage except psychic damage.",
         "This is the cost of the eat branch: they got the food, and now they must survive the mother."
       ],
       "runSteps": [
@@ -1181,7 +1181,7 @@
       "id": "ending-eat",
       "name": "Eat the Egg",
       "condition": "The party cooks the egg.",
-      "result": "The village gets a real meal. At dawn the mother attacks in Maternal Rage."
+      "result": "The village gets a real meal. At dawn the mother attacks in Maternal Frenzy."
     },
     {
       "id": "ending-keep",
@@ -1193,7 +1193,7 @@
       "id": "ending-return",
       "name": "Return It / Leave It at the Edge",
       "condition": "The party returns the egg or leaves it for the mother.",
-      "result": "If the father survived, the mother retrieves the hatching egg and the family leaves peacefully. If the father was killed, she secures the hatchling and attacks in Maternal Rage."
+      "result": "If the father survived, the mother retrieves the hatching egg and the family leaves peacefully. If the father was killed, she secures the hatchling and attacks in Maternal Frenzy."
     },
     {
       "id": "ending-destroyed",
