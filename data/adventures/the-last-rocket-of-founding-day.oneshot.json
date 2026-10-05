@@ -888,7 +888,7 @@
     {
       "id": "map-launch-yard",
       "name": "Brightwater Launch Yard",
-      "asset": null,
+      "asset": "assets/maps/holiday/brightwater-launch-yard-grid.svg",
       "regions": [
         {
           "id": "yard-racks",
@@ -910,7 +910,7 @@
     {
       "id": "map-docks",
       "name": "Brightwater Harbor Dockworks",
-      "asset": null,
+      "asset": "assets/maps/holiday/brightwater-docks-grid.svg",
       "regions": [
         {
           "id": "dock-crowd",
@@ -937,7 +937,7 @@
     {
       "id": "map-tower",
       "name": "Brightwater Signal Tower",
-      "asset": null,
+      "asset": "assets/maps/holiday/brightwater-signal-tower-grid.svg",
       "regions": [
         {
           "id": "tower-wheel",
