@@ -24,7 +24,7 @@ ADVENTURE.rooms = [
     "Birthday Shadow: after three cruel or dismissive actions, one shadow forms per two heroes. AC 12, HP 9, +4 to hit, 1d6+2 necrotic; it vanishes when a hero speaks kindly of the forgotten person.",
     "Light all six candles. The Birthday Hero's candle must be last. It lights when another hero says why the Birthday Hero matters to them; the Birthday Hero cannot solve their own candle.",
     "If shadows appear, they extinguish one candle per round instead of focusing on damage.",
-    "The Birthday Hero hears every remembered voice say together: ‘Your wish still knows the way home.’ She receives Wish Fragment I: NOT FOR ME ALONE.",
+    "The Birthday Hero hears every remembered voice say together: ‘Your wish still knows the way home.’ They receive Wish Fragment I: NOT FOR ME ALONE.",
     "The dragon symbol on the Birthday Hero's frame becomes a brass handle and opens the banquet doors.",
     ["Whispering portrait: ‘A birthday forgotten is not a life forgotten—unless no one chooses to remember.’"]),
   existingById.banquet,
@@ -63,7 +63,7 @@ ADVENTURE.rooms = [
     "Wish Drain: touching a dark wish without care requires DC 12 Wisdom. Failure: disadvantage on the next ability check as the hero experiences someone else's disappointment.",
     "Place the three recovered fragments on the pedestal in order: NOT FOR ME ALONE / BUT FOR ONE MORE ADVENTURE / TOGETHER. The phrase opens the Wish Circle.",
     "No standard tactics. Keep this scene quiet and brief; let players understand the antagonist before meeting him.",
-    "The Birthday Hero sees that her wish was never fully formed because the final words must still be chosen by her. Nobody—not even Sepulchral—can decide them.",
+    "The Birthday Hero sees that their wish was never fully formed because the final words must still be chosen by her. Nobody—not even Sepulchral—can decide them.",
     "The pedestal descends, revealing the final chamber."),
   existingById.finale
 ];
@@ -73,7 +73,7 @@ ADVENTURE.npcs = [
   {name:"Sir Cedric Butterfield",role:"Loud red herring",voice:"Grand, offended, and needlessly formal.",goal:"Avoid blame and preserve his dignity.",secret:"He sampled frosting early but saw a pale figure in the pantry mirror.",lines:["I object to being accused before dessert!","The reflection moved when the man did not."]},
   {name:"Professor Tinklebottom",role:"Gnome birthday historian",voice:"Rapid lecture punctuated by delighted gasps.",goal:"Document living wish magic.",secret:"Knows Sepulchral was once a mortal child.",lines:["A stolen wish remains attached to its dreamer until midnight!","Fascinating. Terrible, yes—but fascinating!"]},
   {name:"Mrs. Bumblewick",role:"Kindly inn guest",voice:"Practical, calm, always knitting.",goal:"Keep frightened guests safe.",secret:"Her late spouse once received a wish from the same cake.",lines:["Heroes need scarves too. Hold still.","A wish need not last forever to have mattered."]},
-  {name:"Little Ellie",role:"Young birthday guest",voice:"Direct, curious, fearless.",goal:"Help the Birthday Hero get her wish back.",secret:"Can see wish sparks without magic.",lines:["The gold light went downstairs.","Grown-ups make wishes complicated."]}
+  {name:"Little Ellie",role:"Young birthday guest",voice:"Direct, curious, fearless.",goal:"Help the Birthday Hero get their wish back.",secret:"Can see wish sparks without magic.",lines:["The gold light went downstairs.","Grown-ups make wishes complicated."]}
 ];
 
 ADVENTURE.traps = [
