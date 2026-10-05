@@ -1,0 +1,1311 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-first-egg-of-greenhollow",
+    "title": "The First Egg of Greenhollow",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 6,
+    "partySize": 4,
+    "partySizeRange": "3–6 players",
+    "durationMinutes": 210,
+    "tone": [
+      "spring festival mystery",
+      "egg hunt",
+      "renewal folk fantasy"
+    ]
+  },
+  "series": {
+    "title": "Holiday One-Shots",
+    "holiday": "Spring / egg-hunt",
+    "standalone": true
+  },
+  "setup": {
+    "pitch": "Greenhollow's spring hunt begins with ninety-nine painted eggs and one First Egg meant to return last year's seed to the earth. This year the real First Egg was replaced with a jeweled replica—and sunrise has stopped at the horizon.",
+    "openingLocation": "Greenhollow dawn meadow",
+    "gmSummary": "Each spring Greenhollow hides ninety-nine festival eggs for children and carries one clay First Egg filled with last year's seed, ash, and a handful of new grain to the Dawn Field. The First Egg is broken into the first furrow before sunrise, symbolizing renewal and distributing a small but real agricultural enchantment. This year patron Garrick Morn replaced the humble clay egg with a jeweled replica for spectacle and had the real First Egg moved to his manor display. The dawn stalls, old roots wake beneath the meadow, and spring creatures begin protecting the unfinished cycle. The party must locate the real First Egg, learn why its contents matter, decide what belongs in the first furrow, and resolve the renewal magic by restoring the old rite, replacing it with a communal seed compact, or ending the enchantment.",
+    "background": "The rite began after a crop blight when Greenhollow farmers mixed surviving seed from every household into one clay egg and broke it into a shared first furrow. The magic grew around the repeated act of pooling risk and renewal. Over time, the children's hunt became the public face of the festival while the First Egg's practical purpose faded from memory. Garrick wanted a dazzling centerpiece and treated the clay egg as an ugly relic."
+  },
+  "quest": {
+    "type": "investigate / recover ritual object / choose",
+    "objective": "Recover the real First Egg, restore dawn, and decide how Greenhollow will begin future planting seasons.",
+    "stakes": "Sunrise is stalled, awakened roots are damaging the meadow, and the first planting cannot safely begin until the renewal cycle is resolved.",
+    "deadline": "DAWN LINE: show four sunrise marks. Fill one after meadow, egg-house, old orchard, and manor conservatory. When the fourth fills, the sun remains frozen at the horizon and the Rootwake enters the Dawn Field finale.",
+    "successConditions": [
+      "The real First Egg or equivalent pooled seed reaches the Dawn Field.",
+      "The party understands that shared seed, not the shell, is the core of the rite.",
+      "The crisis ends through Restore, Replant, or Break."
+    ],
+    "failureConditions": [
+      "The party abandons Greenhollow while dawn remains stalled.",
+      "The renewal magic is destroyed without securing this year's first planting seed."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-seed-core",
+        "text": "The First Egg's important contents are pooled seed and ash from Greenhollow households, not the clay shell itself."
+      },
+      {
+        "id": "fact-replaced",
+        "text": "Garrick Morn replaced the real First Egg with a jeweled replica and moved the original to his conservatory."
+      },
+      {
+        "id": "fact-shared-risk",
+        "text": "The rite began as a shared seed reserve after a crop failure; every household contributed so no single farm carried the risk alone."
+      },
+      {
+        "id": "fact-rootwake",
+        "text": "The Rootwake is enforcing the unfinished planting cycle, not trying to destroy Greenhollow."
+      },
+      {
+        "id": "fact-three-resolutions",
+        "text": "The crisis can end by restoring the old First Egg rite, replacing it with an explicit communal seed bank/furrow system, or breaking the enchantment and planting without magic."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-garrick-display",
+        "text": "Garrick intended to unveil the jeweled replica as a permanent festival icon and keep the clay original as a private curiosity.",
+        "revealCondition": "Find the display invoice, inspect his conservatory, or confront him with the egg-house transfer slip."
+      },
+      {
+        "id": "secret-every-house",
+        "text": "The oldest seed ledger proves every household, including landless laborers, contributed seed to the first recovery crop.",
+        "revealCondition": "Read the orchard ledger, inspect the First Egg contents, or restore the communal furrow."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-ina-fenn",
+      "name": "Ina Fenn",
+      "role": "festival gardener and quest giver",
+      "personality": [
+        "practical",
+        "cheerful under pressure",
+        "protective of children"
+      ],
+      "voiceCues": [
+        "talks in planting dates",
+        "uses soil metaphors"
+      ],
+      "wants": [
+        "Get dawn moving",
+        "Keep children away from awakened roots",
+        "Recover the real planting seed"
+      ],
+      "fears": [
+        "Losing the first sowing window",
+        "The festival becoming a dangerous spectacle"
+      ],
+      "knows": [
+        "The jeweled egg is too heavy and contains no seed",
+        "The real egg was moved after Garrick's inspection",
+        "Old orchard records describe the original rite"
+      ],
+      "believes": [
+        "The shell never mattered as much as what families put inside"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "Exactly where Garrick stored the original",
+        "How to permanently end the magic"
+      ],
+      "revealRules": [
+        {
+          "fact": "The jeweled egg has no seed.",
+          "when": "The party weighs, opens, or magically inspects it."
+        }
+      ],
+      "questFunction": "Launches the investigation and keeps the focus on practical planting.",
+      "description": "A middle-aged gardener in muddy festival whites with seed packets tucked into every pocket and a broken sunrise ribbon around one wrist.",
+      "tableDialogue": [
+        "“Pretty shell. No seed. That is the problem in one sentence.”",
+        "“The first furrow waits for what we all risk together.”",
+        "“Find the old egg before the roots find the children.”"
+      ],
+      "reactions": {
+        "agreement": "Hands over egg-house keys and the current household seed list.",
+        "refusal": "Leaves the keys with the town constable and evacuates the meadow.",
+        "accusation": "Says she objected to the jeweled replica but did not know the original was removed entirely.",
+        "danger": "Moves children into the stone cider house away from root zones."
+      }
+    },
+    {
+      "id": "npc-garrick-morn",
+      "name": "Garrick Morn",
+      "role": "festival patron who replaced the First Egg",
+      "personality": [
+        "vain",
+        "generous in public",
+        "defensive in private"
+      ],
+      "voiceCues": [
+        "talks about legacy and visitors",
+        "calls the clay egg 'the old prop'"
+      ],
+      "wants": [
+        "Save the festival",
+        "Avoid public humiliation",
+        "Preserve his jeweled centerpiece if possible"
+      ],
+      "fears": [
+        "Being blamed for the crop season",
+        "Losing influence"
+      ],
+      "knows": [
+        "He ordered the swap",
+        "The real egg is in his manor conservatory",
+        "He did not realize its seed was ritually necessary"
+      ],
+      "believes": [
+        "A replica could carry symbolism just as well"
+      ],
+      "secrets": [
+        "He planned to keep the original as a private antique"
+      ],
+      "lies": [
+        "Initially says the original was placed safely in archive storage"
+      ],
+      "cannotKnow": [
+        "The shared-risk origin",
+        "Whether the Rootwake can be reasoned with"
+      ],
+      "revealRules": [
+        {
+          "fact": "The real egg is in his conservatory.",
+          "when": "Shown the transfer slip, display invoice, or pressed after the replica is opened."
+        }
+      ],
+      "questFunction": "Creates the human cause and the argument that symbolism can be modernized—just not without preserving function.",
+      "description": "A wealthy patron in green velvet boots and an immaculate cream coat, wearing a jeweled egg pin that matches the replica exactly.",
+      "tableDialogue": [
+        "“I improved the presentation. I did not cancel sunrise.”",
+        "“The original is safe. Extremely safe.”",
+        "“If seed is what matters, say so. I can buy seed.”"
+      ],
+      "reactions": {
+        "agreement": "Unlocks the manor and orders servants to stand down.",
+        "refusal": "Retreats to the conservatory; physical transfer records remain available.",
+        "accusation": "Admits the swap but insists nobody explained the agricultural magic.",
+        "danger": "Uses his wagons to evacuate festivalgoers and carry seed."
+      }
+    },
+    {
+      "id": "npc-ori-bell",
+      "name": "Ori Bell",
+      "role": "orchard keeper and keeper of the old seed ledger",
+      "personality": [
+        "patient",
+        "skeptical of pageantry",
+        "kind to children"
+      ],
+      "voiceCues": [
+        "names seed varieties from memory",
+        "speaks slowly when correcting myths"
+      ],
+      "wants": [
+        "Protect the orchard roots",
+        "Restore shared seed responsibility",
+        "Stop blaming the Rootwake as a monster"
+      ],
+      "fears": [
+        "The rite becoming private property",
+        "Farmers hoarding viable seed after a bad year"
+      ],
+      "knows": [
+        "The first rite pooled seed from every household",
+        "The Rootwake rose once before when contributions were withheld",
+        "The orchard tunnel reaches Garrick's conservatory wall"
+      ],
+      "believes": [
+        "Renewal is a system, not an object"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "Garrick's exact display plan",
+        "Whether the town will choose to end the enchantment"
+      ],
+      "revealRules": [
+        {
+          "fact": "Every household contributed to the recovery crop.",
+          "when": "The party reads the old ledger or asks why the egg was communal."
+        }
+      ],
+      "questFunction": "Provides history, a bypass route, and evidence that the Rootwake protects a cycle rather than property.",
+      "description": "An elderly orchard keeper with pruning hooks at his belt and a satchel of labeled seeds older than most houses.",
+      "tableDialogue": [
+        "“The egg was never magic because it was egg-shaped.”",
+        "“We survived because everybody put something in.”",
+        "“Roots remember patterns better than speeches.”"
+      ],
+      "reactions": {
+        "agreement": "Shows the old ledger and orchard tunnel.",
+        "refusal": "Leaves a copy of the planting map nailed to the tool shed.",
+        "accusation": "Points to household seed marks proving the rite was never owned by one family.",
+        "danger": "Cuts saplings free from awakened roots rather than fighting the roots themselves."
+      }
+    },
+    {
+      "id": "npc-rootwake",
+      "name": "The Rootwake",
+      "role": "renewal guardian formed from field and orchard magic",
+      "personality": [
+        "slow",
+        "cyclical",
+        "protective rather than cruel"
+      ],
+      "voiceCues": [
+        "speaks through creaking roots",
+        "uses planting words instead of moral language"
+      ],
+      "wants": [
+        "Seed returned to shared earth",
+        "The first planting cycle completed or consciously ended"
+      ],
+      "fears": [
+        "Seed becoming display, hoard, or private relic"
+      ],
+      "knows": [
+        "The real First Egg still contains pooled viable seed",
+        "A communal seed bank can replace the old shell",
+        "Breaking the root-knot ends the enchantment"
+      ],
+      "believes": [
+        "Renewal requires contribution and return"
+      ],
+      "secrets": [
+        "It has no interest in jeweled symbols"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Garrick's motives",
+        "Future crop yields"
+      ],
+      "revealRules": [
+        {
+          "fact": "Restore, Replant, or Break are valid.",
+          "when": "The party brings pooled seed to the Dawn Field or reaches the finale."
+        }
+      ],
+      "questFunction": "Creates the natural pressure and supports multiple endings.",
+      "description": "A huge moving knot of orchard root and meadow grass crowned with budding branches, carrying clods of first-furrow soil in its hollow center.",
+      "tableDialogue": [
+        "“Seed kept. Dawn kept.”",
+        "“Many hands. One furrow.”",
+        "“Return. Replant. Sever.”"
+      ],
+      "reactions": {
+        "agreement": "Stops one root surge while seed is placed correctly.",
+        "refusal": "Continues closing paths toward unplanted soil.",
+        "accusation": "Pushes aside the jeweled replica without harming it.",
+        "danger": "Uses roots to restrain and separate, not target unconscious creatures."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-meadow",
+      "name": "Greenhollow Dawn Meadow",
+      "description": "A festival field full of baskets, painted eggs, children's ribbons, and a jeweled golden egg sitting uselessly beside an unbroken first furrow.",
+      "connections": [
+        "loc-egg-house",
+        "loc-orchard",
+        "loc-manor",
+        "loc-dawn-field"
+      ]
+    },
+    {
+      "id": "loc-egg-house",
+      "name": "Festival Egg House",
+      "description": "A timber workshop with clay molds, household seed envelopes, transfer slips, and shelves for ninety-nine hunt eggs plus the First Egg.",
+      "connections": [
+        "loc-meadow",
+        "loc-orchard",
+        "loc-manor"
+      ]
+    },
+    {
+      "id": "loc-orchard",
+      "name": "Old Orchard",
+      "description": "Ancient apple trees surround a root cellar containing the original seed ledgers and a narrow maintenance tunnel toward the manor hill.",
+      "connections": [
+        "loc-egg-house",
+        "loc-manor",
+        "loc-dawn-field"
+      ]
+    },
+    {
+      "id": "loc-manor",
+      "name": "Morn Manor Conservatory",
+      "description": "A glass-walled winter garden where the real clay First Egg sits inside a display case among rare flowers and imported statuary.",
+      "connections": [
+        "loc-orchard",
+        "loc-meadow",
+        "loc-dawn-field"
+      ]
+    },
+    {
+      "id": "loc-dawn-field",
+      "name": "The First Furrow",
+      "description": "A long east-facing planting strip where sunrise hangs motionless above a stone furrow marker wrapped in awakened roots.",
+      "connections": [
+        "loc-meadow",
+        "loc-orchard",
+        "loc-manor"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-seed-core",
+      "revelation": "The First Egg's pooled seed and ash matter more than its shell.",
+      "required": true,
+      "sources": [
+        "The egg-house recipe lists HOUSEHOLD SEED / LAST HARVEST ASH / NEW GRAIN inside the clay shell.",
+        "The jeweled replica is solid metal and contains no seed cavity.",
+        "Ori's old planting ledger records the shell being remade many times while the seed contribution persists."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-replaced",
+      "revelation": "Garrick ordered the real First Egg moved to his conservatory and substituted a jeweled replica.",
+      "required": true,
+      "sources": [
+        "A signed transfer slip moves FIRST EGG ORIGINAL to MORN CONSERVATORY.",
+        "The display invoice describes JEWELED REPLICA — PUBLIC DAWN CENTERPIECE.",
+        "The real clay egg is visible in Garrick's conservatory case."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-shared-risk",
+      "revelation": "The rite began as pooled seed from every household after a crop failure.",
+      "required": true,
+      "sources": [
+        "The oldest ledger lists seed amounts beside every household and labor camp.",
+        "The First Egg's seed mix contains many distinct varieties in tiny amounts.",
+        "The orchard monument reads MANY HANDS / ONE FURROW / NEXT SPRING."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-rootwake-rule",
+      "revelation": "The Rootwake is enforcing return of shared seed to the first furrow, not attacking the town out of malice.",
+      "required": true,
+      "sources": [
+        "Roots avoid baskets that still contain household seed envelopes and instead close around the empty furrow.",
+        "The old ledger records a prior Rootwake when wealthy farms withheld their seed shares.",
+        "At the manor, the Rootwake pushes toward the real clay egg and ignores the jeweled replica."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-resolutions",
+      "revelation": "The crisis can end by restoring the old rite, replacing it with a communal seed-bank/furrow system, or breaking the root enchantment.",
+      "required": true,
+      "sources": [
+        "The Dawn Field marker is carved RETURN / SHARE / SEVER.",
+        "A prior renewal ledger records all three interventions.",
+        "The Rootwake says 'Return. Replant. Sever.' when pooled seed reaches the field."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-meadow",
+      "title": "Sunrise Stops at Gold",
+      "purpose": "Launch the failed dawn rite, show the replica is functionless, and establish the sunrise clock.",
+      "locationId": "loc-meadow",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "The hunt freezes",
+      "readAloud": "Children scatter through Greenhollow's meadow searching for painted eggs as the eastern sky turns gold. At the first-furrow marker, Garrick Morn lifts a jeweled egg above his head. The crowd cheers. He sets it into the soil—and the sun stops. Not dims. Stops. A line of roots rises behind the children like a fence.",
+      "gmNotes": [
+        "Show four DAWN LINE marks. Fill 1/4 when the party leaves.",
+        "The jeweled egg can be opened or inspected immediately; it contains no seed.",
+        "DC 13 Intelligence (Nature or Investigation): success recognizes the first furrow is prepared for seed distribution, not display. Failure gives no false reading; Ina's egg-house recipe provides the same fact.",
+        "Do not run roots as an immediate combat. They herd people away from the furrow and toward safe exits.",
+        "Ina sends the party to the Egg House to compare this year's ritual materials."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the stalled sun",
+          "text": "Make the holiday clock visible and concrete."
+        },
+        {
+          "title": "Open the replica",
+          "text": "No seed means no renewal function."
+        },
+        {
+          "title": "Move to records",
+          "text": "The Egg House holds the recipe and transfer trail."
+        }
+      ],
+      "advanceWhen": "The party enters the Egg House to determine what the real First Egg contained and where it went.",
+      "npcIds": [
+        "npc-ina-fenn",
+        "npc-garrick-morn"
+      ],
+      "clueIds": [
+        "clue-seed-core",
+        "clue-replaced"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-egg-house"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-egg-house",
+          "label": "Inspect the First Egg records",
+          "description": "Find the seed recipe and transfer trail."
+        }
+      ]
+    },
+    {
+      "id": "scene-egg-house",
+      "title": "Ninety-Nine and One",
+      "purpose": "Establish the practical seed recipe and prove the original was transferred.",
+      "locationId": "loc-egg-house",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Find what belongs inside",
+      "readAloud": "The Egg House is bright with paint and empty baskets. Ninety-nine shallow molds line one wall. A single deeper clay mold sits under a board labeled FIRST EGG. Beside it are envelopes from every household, each marked with a pinch of seed. The shelf for the finished egg is empty.",
+      "gmNotes": [
+        "Fill DAWN LINE 2/4 when this scene ends.",
+        "The recipe visibly distinguishes hunt eggs from the deeper First Egg.",
+        "DC 13 Intelligence (Investigation) reconstructs the transfer paperwork and points to Morn Conservatory. Failure costs time but the signed slip is clipped behind the mold board.",
+        "A missing household seed envelope does not block progression; equivalent seed can be contributed later.",
+        "The old orchard ledger is referenced as the source of the rite's shared-risk history."
+      ],
+      "runSteps": [
+        {
+          "title": "Compare molds",
+          "text": "The First Egg is functionally different from the hunt eggs."
+        },
+        {
+          "title": "Read seed envelopes",
+          "text": "Every household contributes."
+        },
+        {
+          "title": "Follow the transfer",
+          "text": "The original went to Garrick's conservatory."
+        }
+      ],
+      "advanceWhen": "The party knows the original's location and chooses the Old Orchard route for history/bypass before reaching the manor.",
+      "npcIds": [
+        "npc-ina-fenn"
+      ],
+      "clueIds": [
+        "clue-seed-core",
+        "clue-replaced",
+        "clue-shared-risk"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-orchard"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-orchard",
+          "label": "Cross the Old Orchard",
+          "description": "Recover the founding ledger and a safer route toward the conservatory."
+        }
+      ]
+    },
+    {
+      "id": "scene-orchard",
+      "title": "Many Hands, One Furrow",
+      "purpose": "Reveal the shared-risk origin and let preparation reduce the finale.",
+      "locationId": "loc-orchard",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Remember the first planting",
+      "readAloud": "The old orchard should be blooming. Instead every bud is closed. Roots lift the stone path in slow waves around a low cellar door. Above it, carved into a weathered lintel: MANY HANDS. ONE FURROW. NEXT SPRING.",
+      "gmNotes": [
+        "Fill DAWN LINE 3/4 when the party leaves.",
+        "Two Rootbound Hares defend the cellar but can be calmed with household seed or DC 13 Animal Handling/Nature.",
+        "The ledger proves the first recovery crop pooled seed from landowners, tenants, and laborers alike.",
+        "DC 13 Wisdom (Survival) identifies the maintenance tunnel to Morn Manor. Failure means the surface route remains available; no dead end.",
+        "Taking two old seed measures grants advantage on the first Replant action in the finale."
+      ],
+      "runSteps": [
+        {
+          "title": "Resolve the orchard guardians",
+          "text": "Fight, feed seed, or calm them."
+        },
+        {
+          "title": "Read the founding ledger",
+          "text": "Shared risk is the purpose behind the rite."
+        },
+        {
+          "title": "Choose route",
+          "text": "Tunnel offers a quieter manor approach; surface remains legal."
+        }
+      ],
+      "advanceWhen": "The party has the old ledger and reaches Morn Manor by tunnel or surface road.",
+      "npcIds": [
+        "npc-ori-bell"
+      ],
+      "clueIds": [
+        "clue-shared-risk",
+        "clue-rootwake-rule",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-root-hares"
+      ],
+      "exits": [
+        "scene-manor"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-manor",
+          "label": "Recover the real First Egg",
+          "description": "Enter Garrick's conservatory and retrieve the pooled seed."
+        }
+      ]
+    },
+    {
+      "id": "scene-manor",
+      "title": "The Egg Behind Glass",
+      "purpose": "Recover the real ritual material and clarify that seed, not property ownership, is the decisive resource.",
+      "locationId": "loc-manor",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Take back the seed",
+      "readAloud": "Morn Manor's conservatory glows green beneath a glass roof. In the center, displayed on black velvet, sits a plain clay egg covered in thumbprints and old household marks. Outside the glass, roots climb the walls but do not touch the jeweled replica beside the door.",
+      "gmNotes": [
+        "Fill DAWN LINE 4/4 when the real egg is opened or deliberately left under an equivalent seed plan; the finale begins immediately afterward.",
+        "Garrick can unlock the case. Otherwise DC 13 thieves' tools or Strength (Athletics) opens it; failure triggers a glass alarm and Rootbound Sprouts enter, but the case remains accessible.",
+        "Opening the clay egg does not ruin the rite. Its pooled seed can be divided or carried in another container.",
+        "If the egg is destroyed, salvage seed or substitute household contributions keep Restore/Replant available.",
+        "The Rootwake visibly reaches toward pooled seed and ignores jewels, proving its motive."
+      ],
+      "runSteps": [
+        {
+          "title": "Recover pooled seed",
+          "text": "The shell is expendable; seed is not."
+        },
+        {
+          "title": "Let Garrick argue symbolism",
+          "text": "His mistake was ignoring function, not wanting to modernize."
+        },
+        {
+          "title": "Go to the Dawn Field",
+          "text": "The party now has enough material to choose the future."
+        }
+      ],
+      "advanceWhen": "The party leaves with pooled seed or an explicit equivalent seed plan and heads to the Dawn Field.",
+      "npcIds": [
+        "npc-garrick-morn",
+        "npc-rootwake"
+      ],
+      "clueIds": [
+        "clue-replaced",
+        "clue-rootwake-rule",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-root-sprouts"
+      ],
+      "exits": [
+        "scene-final"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-final",
+          "label": "Return seed to the Dawn Field",
+          "description": "Restore, replant, or sever the renewal magic before sunrise fails completely."
+        }
+      ]
+    },
+    {
+      "id": "scene-final",
+      "title": "Return, Replant, or Sever",
+      "purpose": "Resolve the spring tradition through restoration, communal replacement, or ending the enchantment.",
+      "locationId": "loc-dawn-field",
+      "pacingClass": "core",
+      "estimatedMinutes": 55,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Dawn waits",
+      "readAloud": "The sun is a bright coin balanced on the horizon. The Rootwake rises from the first furrow, taller than a cottage, crowned in unopened apple blossoms. Its hollow chest is full of dry earth. Three words split the furrow stone: RETURN. SHARE. SEVER.",
+      "gmNotes": [
+        "Rootwake starts at AC 15, 82 HP.",
+        "RETURN: place pooled First Egg seed into the furrow and complete 3 Renewal actions before 2 failures using DC 13 Intelligence (Nature), Wisdom (Survival), or a concrete planting action. Failure causes a Root Surge: 1d6 bludgeoning to the actor and one failure. At 2 failures Return closes but Replant and Sever remain legal.",
+        "REPLANT: establish a seed-bank system at three stations—household contribution, emergency reserve, first-furrow distribution. Each is an Action and either automatic with recovered ledger/seed measures or DC 13 Nature/Investigation/Persuasion. Three completed stations end the crisis while replacing the egg ritual.",
+        "SEVER: target the Root Knot after one hostile action or deliberate Sever declaration. AC 14, 22 HP. Destroying it reduces Rootwake to 0 HP and permanently ends the enchantment.",
+        "Initiative 20: Root Surge. Three 10-foot squares become difficult terrain; creatures standing there make DC 13 Strength save or become Restrained until they or an ally spend an Action to free them.",
+        "Direct combat to 0 HP has the same consequence as Sever."
+      ],
+      "runSteps": [
+        {
+          "title": "State all three choices",
+          "text": "Return, Replant, Sever."
+        },
+        {
+          "title": "Keep seed central",
+          "text": "The meaningful resource is shared viable seed."
+        },
+        {
+          "title": "Let dawn move immediately",
+          "text": "Any completed route releases sunrise."
+        }
+      ],
+      "advanceWhen": "The renewal cycle is restored, redesigned, or ended.",
+      "npcIds": [
+        "npc-ina-fenn",
+        "npc-garrick-morn",
+        "npc-ori-bell",
+        "npc-rootwake"
+      ],
+      "clueIds": [
+        "clue-seed-core",
+        "clue-shared-risk",
+        "clue-rootwake-rule",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-rootwake"
+      ],
+      "exits": [
+        "scene-resolution-return",
+        "scene-resolution-replant",
+        "scene-resolution-sever"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-return",
+          "label": "Return the First Egg seed",
+          "description": "Restore the old rite with its shared-risk meaning explicit."
+        },
+        {
+          "target": "scene-resolution-replant",
+          "label": "Build a communal seed bank",
+          "description": "Replace the egg with a durable contribution and reserve system."
+        },
+        {
+          "target": "scene-resolution-sever",
+          "label": "Sever the enchantment",
+          "description": "Plant without supernatural enforcement."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-return",
+      "title": "Resolution: The Egg Breaks, Spring Begins",
+      "purpose": "Reward restoring the original communal act.",
+      "locationId": "loc-meadow",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The clay breaks under a hundred tiny seeds. Sunlight finally spills across the meadow. Every orchard bud opens at once—not explosively, just enough to make the children cheer. The jeweled replica remains on its stand, suddenly very obviously decoration.",
+      "gmNotes": [
+        "Award 180 gp total and four Greenhollow Favor tokens.",
+        "Future festivals explain the seed-sharing purpose publicly.",
+        "The replica may remain as art but never substitutes for pooled seed."
+      ],
+      "runSteps": [
+        {
+          "title": "Make seed-sharing visible",
+          "text": "Households contribute before the next hunt begins."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 180 gp and Favor tokens."
+        }
+      ],
+      "advanceWhen": "Rewards and the clarified rite are recorded.",
+      "npcIds": [
+        "npc-ina-fenn",
+        "npc-garrick-morn",
+        "npc-ori-bell"
+      ],
+      "clueIds": [
+        "clue-seed-core"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-replant",
+      "title": "Resolution: The Common Seed",
+      "purpose": "Reward replacing a fragile ritual object with a durable communal system.",
+      "locationId": "loc-meadow",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "Three new bins stand beside the first furrow: CONTRIBUTIONS, RESERVE, FIRST PLANTING. The Rootwake lowers its budding crown until it becomes an ordinary apple sapling rooted beside them. Sunrise moves.",
+      "gmNotes": [
+        "Award 200 gp total and the Common Seed token, granting advantage on one future Greenhollow check involving farming, supplies, or mutual aid.",
+        "The egg hunt remains a celebration but no longer carries the whole agricultural system.",
+        "The seed bank includes landless workers and tenants by written rule."
+      ],
+      "runSteps": [
+        {
+          "title": "Name owners for all three bins",
+          "text": "Contribution, reserve, distribution must be explicit."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 200 gp and Common Seed token."
+        }
+      ],
+      "advanceWhen": "The seed-bank rules and rewards are recorded.",
+      "npcIds": [
+        "npc-ina-fenn",
+        "npc-ori-bell",
+        "npc-rootwake"
+      ],
+      "clueIds": [
+        "clue-shared-risk",
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-sever",
+      "title": "Resolution: Spring Without a Guardian",
+      "purpose": "Respect ending supernatural enforcement while preserving viable seed.",
+      "locationId": "loc-meadow",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The Root Knot splits. The Rootwake collapses into ordinary roots and wet soil. For one long moment the sun still does not move. Then Ina takes a handful of pooled seed, steps into the first furrow, and plants it by hand. Dawn continues.",
+      "gmNotes": [
+        "Award 180 gp total.",
+        "The magical renewal pact ends permanently.",
+        "Greenhollow must maintain seed reserves and planting discipline without supernatural correction."
+      ],
+      "runSteps": [
+        {
+          "title": "Plant anyway",
+          "text": "Human action—not magic—starts the season."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 180 gp."
+        }
+      ],
+      "advanceWhen": "Rewards and the new nonmagical planting plan are recorded.",
+      "npcIds": [
+        "npc-ina-fenn",
+        "npc-garrick-morn",
+        "npc-ori-bell"
+      ],
+      "clueIds": [
+        "clue-shared-risk"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-root-hares",
+      "name": "Rootbound Hares",
+      "type": "combat / calm / bypass",
+      "difficulty": "Low",
+      "summary": "Two oversized hares woven with orchard roots guard the old seed cellar.",
+      "resolution": "Defeat, feed household seed, or calm with Nature/Animal Handling.",
+      "talkOut": "DC 13 Animal Handling or Nature plus seed causes one hare to settle and stop fighting.",
+      "bypass": "Use the irrigation ditch to reach the cellar while Ori distracts them.",
+      "objective": "Reach the founding ledger without treating every awakened spring creature as evil."
+    },
+    {
+      "id": "enc-root-sprouts",
+      "name": "Conservatory Root Sprouts",
+      "type": "security hazard / combat",
+      "difficulty": "Low",
+      "summary": "Awakened roots enter the conservatory if the display case alarm sounds.",
+      "resolution": "Defeat them, present pooled seed, or simply retrieve the egg and leave.",
+      "talkOut": "Not verbal; showing pooled seed causes sprouts to stop attacking the carrier.",
+      "bypass": "Open the case with Garrick's key or use the orchard tunnel.",
+      "objective": "Recover the real seed without making the manor a mandatory fight."
+    },
+    {
+      "id": "enc-rootwake",
+      "name": "The Rootwake",
+      "type": "finale / ritual / combat",
+      "difficulty": "Moderate",
+      "summary": "A giant renewal guardian blocks dawn until the planting cycle is resolved.",
+      "resolution": "Complete Return, complete Replant, destroy the Root Knot, or reduce Rootwake to 0 HP.",
+      "talkOut": "It responds to pooled seed and explicit planting systems, not ordinary persuasion alone.",
+      "bypass": "Return and Replant are complete noncombat victories.",
+      "objective": "Decide how Greenhollow shares agricultural risk and begins spring."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-first-egg-recipe",
+      "prompt": "Compare the ninety-nine hunt-egg molds, First Egg mold, seed envelopes, and old recipe.",
+      "solution": "The First Egg uniquely contains pooled household seed, last-harvest ash, and new grain.",
+      "bypass": "DC 13 Nature or Investigation identifies the functional differences immediately.",
+      "failForward": "The written recipe remains available even if the comparison check fails."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-conservatory-glass",
+      "trigger": "Force the display case without disabling its tension bell.",
+      "effect": "DC 13 Dexterity save or take 1d6 slashing from cracked glass; Root Sprouts enter.",
+      "failForward": "The case opens and the real First Egg remains recoverable."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-common-seed",
+      "name": "Common Seed Token",
+      "effect": "Story reward from Replant; once in Greenhollow, grants advantage on one check involving farming, supplies, or mutual aid."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-orchard",
+      "name": "Greenhollow Old Orchard",
+      "asset": null,
+      "regions": [
+        {
+          "id": "orchard-cellar",
+          "sceneId": "scene-orchard",
+          "label": "seed ledger cellar"
+        },
+        {
+          "id": "orchard-hares",
+          "sceneId": "scene-orchard",
+          "label": "Rootbound Hare clearing"
+        },
+        {
+          "id": "orchard-tunnel",
+          "sceneId": "scene-orchard",
+          "label": "manor tunnel"
+        }
+      ]
+    },
+    {
+      "id": "map-manor",
+      "name": "Morn Conservatory",
+      "asset": null,
+      "regions": [
+        {
+          "id": "manor-case",
+          "sceneId": "scene-manor",
+          "label": "First Egg display case"
+        },
+        {
+          "id": "manor-glass",
+          "sceneId": "scene-manor",
+          "label": "glass aisles"
+        },
+        {
+          "id": "manor-tunnel",
+          "sceneId": "scene-manor",
+          "label": "orchard tunnel exit"
+        }
+      ]
+    },
+    {
+      "id": "map-dawn-field",
+      "name": "Greenhollow Dawn Field",
+      "asset": null,
+      "regions": [
+        {
+          "id": "field-furrow",
+          "sceneId": "scene-final",
+          "label": "first furrow"
+        },
+        {
+          "id": "field-knot",
+          "sceneId": "scene-final",
+          "label": "Root Knot"
+        },
+        {
+          "id": "field-stations",
+          "sceneId": "scene-final",
+          "label": "Replant stations"
+        }
+      ]
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "The real resource is viable pooled seed, so losing the shell never bricks the adventure.",
+      "All required truths survive the absence or hostility of any one NPC.",
+      "Failure costs time, damage, or preparation but never removes every final route."
+    ],
+    "routes": [
+      {
+        "id": "rec-ina-unavailable",
+        "trigger": "Ina is unavailable.",
+        "response": "Egg-house recipe, seed envelopes, and furrow design explain the missing function.",
+        "stateChanges": [
+          "clue-seed-core remains physical.",
+          "Investigation continues."
+        ]
+      },
+      {
+        "id": "rec-garrick-unavailable",
+        "trigger": "Garrick flees or refuses cooperation.",
+        "response": "Signed transfer slip, display invoice, and visible conservatory case prove the swap.",
+        "stateChanges": [
+          "clue-replaced remains available.",
+          "Manor access remains possible."
+        ]
+      },
+      {
+        "id": "rec-ori-unavailable",
+        "trigger": "Ori cannot explain the old rite.",
+        "response": "Founder ledger, orchard monument, and household seed marks preserve the shared-risk history.",
+        "stateChanges": [
+          "clue-shared-risk remains physical.",
+          "Tunnel map remains in the tool shed."
+        ]
+      },
+      {
+        "id": "rec-egg-destroyed",
+        "trigger": "The clay First Egg is destroyed.",
+        "response": "Salvaged seed plus new household contributions can fulfill Return or Replant.",
+        "stateChanges": [
+          "No ending is lost.",
+          "Shell symbolism is explicitly secondary."
+        ]
+      },
+      {
+        "id": "rec-rush-final",
+        "trigger": "The party reaches the Dawn Field without all resolution clues.",
+        "response": "The furrow marker reads RETURN / SHARE / SEVER and Rootwake repeats the three verbs before initiative.",
+        "stateChanges": [
+          "All final routes remain visible.",
+          "Prepared play still reduces checks."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared research and shared seed make the finale safer, while rushed play retains every resolution at greater difficulty.",
+    "prepared": [
+      "Old seed measures grant advantage on first Replant action.",
+      "Recovered pooled seed makes Return immediately available.",
+      "Using orchard tunnel can avoid the conservatory alarm encounter."
+    ],
+    "rushed": [
+      "Skipping orchard loses old-ledger context and Replant advantage.",
+      "Breaking the display case may add Root Sprouts.",
+      "Entering without pooled seed requires gathering emergency seed from festival households before Return can begin."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 210,
+    "plannedMinutes": 210,
+    "bossReserveMinutes": 55,
+    "cutOrder": [
+      "If 25+ minutes behind, give the transfer slip and seed recipe together in the Egg House.",
+      "If 15+ minutes behind in the orchard, allow one seed offering to calm both Rootbound Hares.",
+      "Never cut the pooled-seed purpose, shared-risk history, or three final routes."
+    ],
+    "optionalOrder": [
+      "Extended argument with Garrick about spectacle.",
+      "Extra egg-hunt scenes after the crisis starts.",
+      "Detailed variety names in the old seed ledger."
+    ]
+  },
+  "endings": [
+    {
+      "id": "ending-return",
+      "name": "The Egg Breaks, Spring Begins",
+      "condition": "Return completes.",
+      "result": "The traditional First Egg survives with its shared seed purpose made explicit."
+    },
+    {
+      "id": "ending-replant",
+      "name": "The Common Seed",
+      "condition": "Replant completes.",
+      "result": "Greenhollow replaces the fragile ritual object with a communal seed bank and first-furrow system."
+    },
+    {
+      "id": "ending-sever",
+      "name": "Spring Without a Guardian",
+      "condition": "Rootwake or Root Knot is destroyed.",
+      "result": "The enchantment ends and future renewal depends entirely on human seed management."
+    }
+  ],
+  "initialState": {
+    "questStage": "dawn-stalled",
+    "currentSceneId": "scene-meadow",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-ina-fenn": {
+        "status": "alive",
+        "attitude": "urgent"
+      },
+      "npc-garrick-morn": {
+        "status": "alive",
+        "attitude": "defensive"
+      },
+      "npc-ori-bell": {
+        "status": "alive",
+        "attitude": "calm"
+      },
+      "npc-rootwake": {
+        "status": "awakening",
+        "attitude": "cyclical"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-common-seed": "unearned"
+    },
+    "eventState": {
+      "dawnMarks": 0,
+      "preparedReplant": 0,
+      "seedRecovered": false
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures and procedures use complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2014 SRD package."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures and procedures use complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2024 SRD package; do not import 2014 class features."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-first-egg-of-greenhollow",
+    "version": "0.1.0",
+    "target": {
+      "level": 6,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-furrow",
+      "check-transfer",
+      "check-orchard",
+      "check-case",
+      "check-replant"
+    ],
+    "checks": [
+      {
+        "id": "check-furrow",
+        "sceneId": "scene-meadow",
+        "label": "Read the first furrow",
+        "dc": 13,
+        "ability": "Intelligence (Nature or Investigation)",
+        "success": "The furrow is designed to receive and spread seed, not display an object.",
+        "failure": "The Egg House recipe explains the same function next."
+      },
+      {
+        "id": "check-transfer",
+        "sceneId": "scene-egg-house",
+        "label": "Trace the original First Egg",
+        "dc": 13,
+        "ability": "Intelligence (Investigation)",
+        "success": "Signed paperwork sends the original to Morn Conservatory.",
+        "failure": "The clipped transfer slip remains discoverable after a short delay."
+      },
+      {
+        "id": "check-orchard",
+        "sceneId": "scene-orchard",
+        "label": "Find the manor tunnel",
+        "dc": 13,
+        "ability": "Wisdom (Survival)",
+        "success": "Locate the maintenance tunnel directly.",
+        "failure": "The surface road remains available; no route is lost."
+      },
+      {
+        "id": "check-case",
+        "sceneId": "scene-manor",
+        "label": "Open the First Egg display case",
+        "dc": 13,
+        "ability": "Dexterity with thieves' tools or Strength (Athletics)",
+        "success": "Open it without alarm.",
+        "failure": "The case opens, but 1d6 slashing and Root Sprouts are triggered."
+      },
+      {
+        "id": "check-replant",
+        "sceneId": "scene-final",
+        "label": "Complete one Replant station",
+        "dc": 13,
+        "ability": "Intelligence (Nature or Investigation) or Charisma (Persuasion)",
+        "success": "One seed-bank station is established.",
+        "failure": "A Root Surge creates difficult terrain and the station remains incomplete; other routes stay legal."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-root-hares",
+        "objective": "Reach the old seed ledger and learn the shared-risk origin.",
+        "start": "Two oversized root-woven hares rise between the party and the cellar.",
+        "bypass": "Offer household seed or use the irrigation ditch.",
+        "creatures": [
+          {
+            "name": "Rootbound Hare",
+            "count": 2,
+            "ac": 14,
+            "hp": 26,
+            "speed": "40 ft.",
+            "attack": "Root Kick +6 to hit, 2d6+3 bludgeoning.",
+            "trait": "Seed-Calmed: a successful DC 13 Nature/Animal Handling Action plus seed removes one hare from combat.",
+            "tactics": "Block the cellar and shove intruders away from old trees."
+          }
+        ],
+        "end": "The cellar is reached."
+      },
+      {
+        "id": "enc-root-sprouts",
+        "objective": "Recover the First Egg from the conservatory.",
+        "start": "Three animated root masses enter if the case alarm rings.",
+        "bypass": "Use Garrick's key, the orchard tunnel, or show pooled seed and leave.",
+        "creatures": [
+          {
+            "name": "Root Sprout",
+            "count": 3,
+            "ac": 13,
+            "hp": 18,
+            "speed": "25 ft.",
+            "attack": "Vine Lash +5 to hit, 1d8+3 bludgeoning.",
+            "trait": "Seed Recognition: sprouts do not attack a creature openly carrying pooled First Egg seed unless that creature damages them first.",
+            "tactics": "Block exits and protect the seed display, not chase fleeing creatures."
+          }
+        ],
+        "end": "The seed is recovered or the party leaves with an equivalent plan."
+      },
+      {
+        "id": "enc-rootwake",
+        "objective": "Resolve Greenhollow's renewal cycle.",
+        "start": "Rootwake rises from the stalled first furrow.",
+        "bypass": "Return and Replant are complete noncombat victories.",
+        "creatures": [
+          {
+            "name": "Rootwake",
+            "count": 1,
+            "ac": 15,
+            "hp": 82,
+            "speed": "30 ft.",
+            "attack": "Root Sweep +7 to hit, 2d8+4 bludgeoning.",
+            "trait": "Root Knot: after one hostile action or Sever declaration, AC 14, 22 HP; destroying it reduces Rootwake to 0 HP and ends the enchantment.",
+            "tactics": "Restrain ritual actors, create difficult terrain, and guard the furrow rather than pursue beyond the field."
+          }
+        ],
+        "end": "Return succeeds, Replant completes, or Rootwake reaches 0 HP."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-conservatory-glass",
+        "sceneId": "scene-manor",
+        "trigger": "Force the display case without disabling the tension bell.",
+        "save": "DC 13 Dexterity saving throw.",
+        "failure": "Take 1d6 slashing and trigger Root Sprouts.",
+        "success": "Open safely.",
+        "failForward": "The case opens and seed remains recoverable."
+      },
+      {
+        "id": "hazard-root-surge",
+        "sceneId": "scene-final",
+        "trigger": "Initiative count 20 while Rootwake remains unresolved.",
+        "save": "DC 13 Strength saving throw for creatures in three marked squares.",
+        "failure": "Become Restrained until freed with an Action.",
+        "success": "Keep footing.",
+        "failForward": "The surge changes terrain but never removes a ritual route."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-return",
+        "when": "Return resolves the crisis.",
+        "reward": "180 gp total and four Greenhollow Favor tokens."
+      },
+      {
+        "id": "reward-replant",
+        "when": "Replant resolves the crisis.",
+        "reward": "200 gp total and the Common Seed token."
+      },
+      {
+        "id": "reward-sever",
+        "when": "Rootwake is destroyed.",
+        "reward": "180 gp total; the renewal enchantment ends."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-orchard",
+        "dimensions": "90 × 60 ft. orchard and cellar; 5-ft. grid.",
+        "features": [
+          "root-cellar door",
+          "two Rootbound Hare starts",
+          "irrigation ditch bypass",
+          "manor tunnel entrance"
+        ]
+      },
+      {
+        "sceneId": "scene-manor",
+        "dimensions": "70 × 60 ft. conservatory; 5-ft. grid.",
+        "features": [
+          "First Egg case",
+          "glass aisles",
+          "orchard tunnel exit",
+          "Root Sprout entry points"
+        ]
+      },
+      {
+        "sceneId": "scene-final",
+        "dimensions": "90 × 70 ft. Dawn Field; 5-ft. grid.",
+        "features": [
+          "first furrow",
+          "Root Knot",
+          "three Replant stations",
+          "Root Surge zones"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One spring renewal mystery: expose the hollow replica, recover shared seed, understand the guardian, then branch only at the Dawn Field.",
+    "mainSpine": [
+      "scene-meadow",
+      "scene-egg-house",
+      "scene-orchard",
+      "scene-manor",
+      "scene-final"
+    ],
+    "allowedBranchScenes": [
+      "scene-final"
+    ],
+    "terminalScenes": [
+      "scene-resolution-return",
+      "scene-resolution-replant",
+      "scene-resolution-sever"
+    ],
+    "stageCount": 6
+  },
+  "cards": []
+}
