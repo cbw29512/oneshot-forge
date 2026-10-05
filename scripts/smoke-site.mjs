@@ -96,6 +96,16 @@ for (const required of [
 ]) {
   if (!birthdayPersonalization.includes(required)) errors.push("Birthday personalization missing: " + required);
 }
+for (const rel of [
+  "birthday-one-shot/data.js",
+  "birthday-one-shot/production.js",
+  "birthday-one-shot/streamlined.js"
+]) {
+  const birthdayCopy = read(rel);
+  const genderLeak = /Birthday Hero[^\n"']{0,180}\b(?:she|her|hers)\b|\b(?:she|her|hers)\b[^\n"']{0,180}Birthday Hero/i;
+  if (genderLeak.test(birthdayCopy)) errors.push(`Birthday Hero personalization still has gendered copy in ${rel}`);
+}
+
 for (const forbidden of ["Wendy", "wendy", "birthday girl", "birthday boy"]) {
   for (const rel of [
     "birthday-one-shot/data.js",
