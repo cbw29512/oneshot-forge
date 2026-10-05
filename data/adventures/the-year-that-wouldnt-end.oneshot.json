@@ -118,8 +118,9 @@
       "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
       "description": "Idra Quell, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
       "tableDialogue": [
-        "“This matters back in Hearthford too.”",
-        "“Finish the job. Then we go home.”"
+        "“You are late. I expected that.”",
+        "“I sold one memory once. That was enough.”",
+        "“Debts are easiest to hide from people who want midnight to arrive.”"
       ],
       "reactions": {
         "agreement": "Supports the party and records the outcome for Hearthford.",
@@ -780,6 +781,10 @@
         {
           "title": "Record reward",
           "text": "Award 130 gp and Favor tokens."
+        },
+        {
+          "title": "Read the surviving obligations aloud",
+          "text": "Name the carried-forward debts in public so the new year begins with knowledge instead of another hidden ledger."
         }
       ],
       "advanceWhen": "The new ledger and rewards are recorded.",
@@ -815,6 +820,10 @@
         {
           "title": "Record reward",
           "text": "Award 150 gp and the New Page Seal."
+        },
+        {
+          "title": "Make forgiveness witnessed",
+          "text": "Have each forgiven obligation signed by the person absorbing the cost or accepting the replacement duty."
         }
       ],
       "advanceWhen": "The amnesty/reparation compact and rewards are recorded.",
@@ -852,6 +861,10 @@
         {
           "title": "Record reward",
           "text": "Award 130 gp."
+        },
+        {
+          "title": "Let midnight finally move",
+          "text": "The supernatural ledger goes silent and the clock advances, but the ordinary books remain open for human judgment in the morning."
         }
       ],
       "advanceWhen": "Rewards and the new nonmagical ledger process are recorded.",
