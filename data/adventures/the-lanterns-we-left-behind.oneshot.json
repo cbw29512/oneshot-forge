@@ -373,7 +373,7 @@
     {
       "id": "loc-archive",
       "name": "Memorial Archive",
-      "description": "A hall of dedication ledgers, sponsor records, lantern inventories, and older festival diagrams showing unlabeled lantern rows.",
+      "description": "A hall of dedication ledgers, sponsor records, lantern inventories, and older festival diagrams showing unlabeled lantern rows, with long reading tables and locked storage doors opening toward the quay.",
       "connections": [
         "loc-quay",
         "loc-old-road"
@@ -382,7 +382,7 @@
     {
       "id": "loc-old-road",
       "name": "North Ghost Road",
-      "description": "An abandoned road through autumn woods where pale Road-Bearers walk between fallen mileposts carrying dim lanterns.",
+      "description": "An abandoned road through autumn woods where pale Road-Bearers walk between fallen mileposts carrying dim lanterns; roots break the old paving, steep ditches border both sides, and fog hides the next bend.",
       "connections": [
         "loc-archive",
         "loc-crossroads",
