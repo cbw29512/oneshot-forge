@@ -864,7 +864,7 @@
     {
       "id": "map-debtor-row",
       "name": "Debtor Row Echo Zone",
-      "asset": null,
+      "asset": "assets/maps/holiday/yearturn-debtor-row-grid.svg",
       "regions": [
         {
           "id": "row-bridge",
@@ -886,7 +886,7 @@
     {
       "id": "map-bellworks",
       "name": "Clocktower Bellworks",
-      "asset": null,
+      "asset": "assets/maps/holiday/yearturn-bellworks-grid.svg",
       "regions": [
         {
           "id": "bell-gears",
@@ -908,7 +908,7 @@
     {
       "id": "map-final",
       "name": "Twelfth Bell Chamber",
-      "asset": null,
+      "asset": "assets/maps/holiday/yearturn-twelfth-bell-grid.svg",
       "regions": [
         {
           "id": "final-table",
