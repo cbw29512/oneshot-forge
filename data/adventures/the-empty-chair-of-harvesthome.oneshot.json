@@ -1053,11 +1053,19 @@
           "The finale remains solvable.",
           "Prepared investigation still earns clearer options."
         ]
+      },
+      {
+        "id": "rec-early-attack-the-empty-chair-of-harve",
+        "trigger": "The party attacks Oren before he explains the grain diversion.",
+        "response": "Oren retreats or is restrained by mill hands; the private receipt, town-seal sacks, rear-road ruts, and price ledger still prove what happened, so the party can reach the Late Guest finale without his testimony.",
+        "stateChanges": [
+          "Required evidence and finale access remain available."
+        ]
       }
     ]
   },
   "pathPressure": {
-    "principle": "Prepared investigation reduces crowd pressure and makes noncombat resolution easier; rushed play still reaches a complete ending.",
+    "principle": "Prepared investigation reduces crowd pressure and makes noncombat resolution easier; rushed play still reaches a complete ending. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
     "prepared": [
       "Clearing the Rowan farm prevents CROWD PRESSURE from starting above 0.",
       "Recovering Oren's grain makes the Share route automatic if a fair plan was already declared.",
