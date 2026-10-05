@@ -23,7 +23,8 @@
     "pitch": "Greenhollow's spring hunt begins with ninety-nine painted eggs and one First Egg meant to return last year's seed to the earth. This year the real First Egg was replaced with a jeweled replica—and sunrise has stopped at the horizon.",
     "openingLocation": "Greenhollow dawn meadow",
     "gmSummary": "Each spring Greenhollow hides ninety-nine festival eggs for children and carries one clay First Egg filled with last year's seed, ash, and a handful of new grain to the Dawn Field. The First Egg is broken into the first furrow before sunrise, symbolizing renewal and distributing a small but real agricultural enchantment. This year patron Garrick Morn replaced the humble clay egg with a jeweled replica for spectacle and had the real First Egg moved to his manor display. The dawn stalls, old roots wake beneath the meadow, and spring creatures begin protecting the unfinished cycle. The party must locate the real First Egg, learn why its contents matter, decide what belongs in the first furrow, and resolve the renewal magic by restoring the old rite, replacing it with a communal seed compact, or ending the enchantment.",
-    "background": "The rite began after a crop blight when Greenhollow farmers mixed surviving seed from every household into one clay egg and broke it into a shared first furrow. The magic grew around the repeated act of pooling risk and renewal. Over time, the children's hunt became the public face of the festival while the First Egg's practical purpose faded from memory. Garrick wanted a dazzling centerpiece and treated the clay egg as an ugly relic."
+    "background": "The rite began after a crop blight when Greenhollow farmers mixed surviving seed from every household into one clay egg and broke it into a shared first furrow. The magic grew around the repeated act of pooling risk and renewal. Over time, the children's hunt became the public face of the festival while the First Egg's practical purpose faded from memory. Garrick wanted a dazzling centerpiece and treated the clay egg as an ugly relic.",
+    "campaignFrame": "Nim Low travels from Hearthford to Greenhollow to trade spring stock and discovers the planting rite has failed. He calls the party because Greenhollow's seed supply and Hearthford's pasture season rise together. They return to Hearthford with the spring outcome following them home."
   },
   "quest": {
     "type": "investigate / recover ritual object / choose",
@@ -77,6 +78,56 @@
     ]
   },
   "npcs": [
+    {
+      "id": "npc-nim-low",
+      "name": "Nim Low",
+      "role": "Hearthford shepherd and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Counts on his fingers. Loses count."
+      ],
+      "wants": [
+        "The pasture has to wake up before the flock climbs the ridge.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Nim Low, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“This matters back in Hearthford too.”",
+        "“Finish the job. Then we go home.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
     {
       "id": "npc-ina-fenn",
       "name": "Ina Fenn",
@@ -456,6 +507,7 @@
       ],
       "advanceWhen": "The party enters the Egg House to determine what the real First Egg contained and where it went.",
       "npcIds": [
+        "npc-nim-low",
         "npc-ina-fenn",
         "npc-garrick-morn"
       ],
@@ -674,6 +726,7 @@
       ],
       "advanceWhen": "The renewal cycle is restored, redesigned, or ended.",
       "npcIds": [
+        "npc-nim-low",
         "npc-ina-fenn",
         "npc-garrick-morn",
         "npc-ori-bell",
@@ -736,6 +789,7 @@
       ],
       "advanceWhen": "Rewards and the clarified rite are recorded.",
       "npcIds": [
+        "npc-nim-low",
         "npc-ina-fenn",
         "npc-garrick-morn",
         "npc-ori-bell"
@@ -771,6 +825,7 @@
       ],
       "advanceWhen": "The seed-bank rules and rewards are recorded.",
       "npcIds": [
+        "npc-nim-low",
         "npc-ina-fenn",
         "npc-ori-bell",
         "npc-rootwake"
@@ -807,6 +862,7 @@
       ],
       "advanceWhen": "Rewards and the new nonmagical planting plan are recorded.",
       "npcIds": [
+        "npc-nim-low",
         "npc-ina-fenn",
         "npc-garrick-morn",
         "npc-ori-bell"
@@ -1068,6 +1124,10 @@
       "npc-rootwake": {
         "status": "awakening",
         "attitude": "cyclical"
+      },
+      "npc-nim-low": {
+        "status": "alive",
+        "attitude": "familiar"
       }
     },
     "locationState": {},
@@ -1307,5 +1367,15 @@
     ],
     "stageCount": 6
   },
-  "cards": []
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-nim-low"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Nim Low's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
 }
