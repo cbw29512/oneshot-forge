@@ -29,6 +29,7 @@ For generated adventures, `docs/FORGE_CONSTITUTION.md` is authoritative. This qu
 - Public catalog, landing-page, GM-runner, module, print, readability, resume, and deployment behavior must satisfy `docs/PRODUCTION_GAMEPLAY_STANDARD.md`.
 - Holiday and special-occasion releases must also satisfy `docs/HOLIDAY_ONE_SHOTS.md`; seasonal decoration does not replace story, rules, or zero-prep quality.
 - New authored one-shots must follow the Level 1→20 coverage ladder in `docs/LEVEL_COVERAGE.md` until every level has at least one release-quality adventure; do not cluster new work at the same few levels.
+- Before advancing the level ladder, every newly authored one-shot must pass the structural integrity audit: all scene/location/NPC/clue/encounter references resolve, every required clue has at least three independent sources and appears in at least two scenes, every required quick-run check exists, and no package-level reference errors remain. This check is mandatory every time.
 - These are release gates, not optional style guidance.
 
 
