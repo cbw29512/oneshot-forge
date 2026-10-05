@@ -1069,11 +1069,19 @@
           "All finale routes remain visible.",
           "Prepared work still grants automatic jobs."
         ]
+      },
+      {
+        "id": "rec-early-attack-the-last-rocket-of-found",
+        "trigger": "The party attacks Bren before he explains his sabotage.",
+        "response": "Bren flees or is restrained; grievance letters, crew-numbered wrench marks, rack damage, and the suppressed safety report still establish the limited sabotage and unsafe launch system.",
+        "stateChanges": [
+          "Required evidence and finale access remain available."
+        ]
       }
     ]
   },
   "pathPressure": {
-    "principle": "Prepared investigation and harbor work reduce final danger and automate repairs, while rushed play preserves all endings at higher risk.",
+    "principle": "Prepared investigation and harbor work reduce final danger and automate repairs, while rushed play preserves all endings at higher risk. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
     "prepared": [
       "Sera can make one Fire Safe repair automatic.",
       "Bren can make straightening rack seven automatic.",
