@@ -288,3 +288,169 @@ The repeating-day structure may evoke familiar time-loop fiction, but the advent
 Do not copy dialogue, scenes, character beats, or plot-specific material from Groundhog Day or another protected work.
 
 Use only the general repeating-day storytelling device.
+
+
+## Signature clue scene — the pirate fears his own ship
+
+One early or middle loop should include a ship-to-ship confrontation.
+
+The party gets access to a small island vessel or commandeers one in an attempt to intercept the pirate before the raid reaches shore.
+
+The encounter should initially feel hopeless.
+
+The pirate vessel is:
+- larger;
+- better armed;
+- crewed by experienced raiders;
+- magically or supernaturally difficult to disable;
+- commanded by the vampiric octopus pirate.
+
+The party is pressured toward defeat rather than expected to win the whole battle here.
+
+During the fight, an island defender or allied gunner lands a cannon shot on the pirate vessel.
+
+The shot tears into the pirate ship.
+
+Wooden splinters explode across the deck.
+
+The pirate's reaction is immediate and visibly wrong.
+
+He does not react with ordinary anger.
+
+He reacts with fear.
+
+He recoils from the broken timbers, abandons an otherwise favorable position, and orders an abrupt withdrawal or dives overboard/retreats by supernatural means.
+
+The party should have enough time to notice that:
+- the pirate was winning;
+- the cannon shot did not meaningfully threaten him directly;
+- the damage to his own ship changed his behavior;
+- he specifically feared the splintered wood.
+
+This is a major clue, not the complete answer.
+
+The players should still need to connect:
+- pirate;
+- ship;
+- curse;
+- stake;
+- permanent death.
+
+The scene should make the eventual solution feel earned rather than arbitrary.
+
+## The reset image — the volcano
+
+The island volcano is the visual and physical end of each failed loop.
+
+After the pirate raid succeeds or the night reaches the curse's terminal point:
+- the island is massacred;
+- fires spread;
+- the wedding grounds are ruined;
+- the pirate completes whatever curse-anchor act sustains the loop;
+- the volcano begins to erupt.
+
+The eruption should be unmistakable and repeatable.
+
+Possible sequence:
+1. low tremor;
+2. bells, birds, or livestock react;
+3. red glow on the mountain;
+4. ash begins to fall;
+5. the sky flashes;
+6. the eruption engulfs or destroys the island;
+7. hard cut to the party waking aboard the halfling captain's ship.
+
+The volcano is not random background disaster.
+
+It must connect to the curse.
+
+Development must decide whether:
+- the volcano is magically forced to erupt by the pirate;
+- the eruption is the curse's reset mechanism;
+- the island was already destroyed once in the original history and the loop is replaying that doomed day;
+- the pirate's ritual prevents the day from advancing past the eruption.
+
+Choose one final explanation and make the seer, pirate history, island legends, and finale all support it.
+
+## The seer's cryptic messages
+
+The seer should not explain the mystery cleanly on first contact.
+
+He has lived through the day too many times and no longer speaks like someone trying to convince a stranger from scratch.
+
+His warnings should sound cryptic at first but become obvious after the players experience the referenced event.
+
+Examples of message patterns:
+
+- "When the mountain opens its red eye, you have already failed."
+- "Do not fear the monster. Fear what he fears."
+- "The dead wood remembers the hand that cut it."
+- "You cannot kill a night with a sword."
+- "He dies only when his own bones pierce him."
+- "The ship is older than the captain, and the captain is older than the lie."
+- "When the cannon speaks, watch his face, not the hole."
+- "Tomorrow is trapped inside that hull."
+- "The wedding has happened more times than there are names for the dead."
+
+These are tone examples, not mandatory final dialogue.
+
+The final script should keep the seer:
+- useful;
+- memorable;
+- interpretable in hindsight;
+- never the sole source of a required clue.
+
+## Repeating details and small changes
+
+Most of the day should repeat in recognizable ways.
+
+Examples:
+- the same child drops the same basket;
+- the same gull steals the same food;
+- the bride's veil catches on the same nail;
+- the chief argues with the same relative;
+- the halfling captain makes the same joke;
+- a bell rings at the same time;
+- the same fisherman returns with the same damaged net;
+- the same argument breaks out near the docks.
+
+Party interference can alter later details.
+
+Those changes should help players map cause and effect.
+
+Example:
+- save the fisherman early → he later crews the interception boat;
+- stop a dock fire → cannon powder survives;
+- warn the chief too early → panic makes defenses worse;
+- earn the bride's trust → she reveals an old island legend;
+- protect the cannon crew → the revealing shot against the pirate ship happens earlier.
+
+The loop should reward understanding, not brute-force repetition.
+
+## Early-loop failure structure
+
+A strong first complete loop may follow this sequence:
+
+1. Wake aboard the halfling mage's ship.
+2. Arrive during wedding preparations.
+3. Meet island NPCs and hear fragmented warnings from the seer.
+4. Spend the day helping with seemingly ordinary wedding/island problems.
+5. Pirate sails appear near dusk.
+6. Party helps mount a desperate defense.
+7. Optional/likely ship-to-ship attempt occurs.
+8. Cannonball hits pirate vessel.
+9. Pirate visibly panics at splintered ship wood and withdraws temporarily.
+10. Party believes they may have succeeded.
+11. They return to the island.
+12. The pirate has reached the island by another route or his forces already completed the massacre.
+13. Wedding site is destroyed and everyone is dead or dying.
+14. Volcano begins to erupt.
+15. Island is consumed.
+16. Party wakes aboard the halfling ship at the beginning of the day.
+
+That sequence gives the players:
+- emotional stakes;
+- the first loop shock;
+- one strong weakness clue;
+- the reset image;
+- motivation to change the day.
