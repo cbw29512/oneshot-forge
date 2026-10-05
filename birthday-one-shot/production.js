@@ -63,7 +63,7 @@ ADVENTURE.rooms = [
     "Wish Drain: touching a dark wish without care requires DC 12 Wisdom. Failure: disadvantage on the next ability check as the hero experiences someone else's disappointment.",
     "Place the three recovered fragments on the pedestal in order: NOT FOR ME ALONE / BUT FOR ONE MORE ADVENTURE / TOGETHER. The phrase opens the Wish Circle.",
     "No standard tactics. Keep this scene quiet and brief; let players understand the antagonist before meeting him.",
-    "The Birthday Hero sees that their wish was never fully formed because the final words must still be chosen by her. Nobody—not even Sepulchral—can decide them.",
+    "The Birthday Hero sees that their wish was never fully formed because the final words must still be chosen by them. Nobody—not even Sepulchral—can decide them.",
     "The pedestal descends, revealing the final chamber."),
   existingById.finale
 ];
