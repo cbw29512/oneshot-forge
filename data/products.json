@@ -345,6 +345,35 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "the-year-that-wouldnt-end",
+      "title": "The Year That Wouldn't End",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-year-that-wouldnt-end",
+      "productUrl": "adventures/the-year-that-wouldnt-end.html",
+      "level": 4,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "New Year"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
 }
