@@ -118,8 +118,9 @@
       "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
       "description": "Maestra Vell, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
       "tableDialogue": [
-        "“This matters back in Hearthford too.”",
-        "“Finish the job. Then we go home.”"
+        "“Use the word they chose, not the word you prefer.”",
+        "“Ask before you tie meaning to someone.”",
+        "“If the lesson needs coercion, it is the wrong lesson.”"
       ],
       "reactions": {
         "agreement": "Supports the party and records the outcome for Hearthford.",
@@ -782,6 +783,10 @@
         {
           "title": "Record reward",
           "text": "Award 160 gp and Favor ribbons."
+        },
+        {
+          "title": "Let every cord loosen by consent",
+          "text": "Show people naming their own bonds as the five colors settle into equal, voluntary strands."
         }
       ],
       "advanceWhen": "The restored festival and rewards are recorded.",
@@ -818,6 +823,10 @@
         {
           "title": "Record reward",
           "text": "Award 180 gp and Free Strand token."
+        },
+        {
+          "title": "Test the new rule immediately",
+          "text": "Invite one pair to decline a label and show the Heartloom releasing them without punishment."
         }
       ],
       "advanceWhen": "The rewritten rules and rewards are recorded.",
@@ -855,6 +864,10 @@
         {
           "title": "Record reward",
           "text": "Award 160 gp."
+        },
+        {
+          "title": "Leave the ribbons in human hands",
+          "text": "The magic falls inert; people may still exchange ribbons, but no thread can define a relationship for them."
         }
       ],
       "advanceWhen": "Rewards and the future nonmagical festival are recorded.",
