@@ -286,6 +286,36 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "the-empty-chair-of-harvesthome",
+      "title": "The Empty Chair of Harvesthome",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-empty-chair-of-harvesthome",
+      "productUrl": "adventures/the-empty-chair-of-harvesthome.html",
+      "level": 2,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "holiday",
+        "Thanksgiving",
+        "harvest"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
 }
