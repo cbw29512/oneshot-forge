@@ -494,6 +494,35 @@
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
       }
+    },
+    {
+      "id": "the-graduation-that-opened-the-sky",
+      "title": "The Graduation That Opened the Sky",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-graduation-that-opened-the-sky",
+      "productUrl": "adventures/the-graduation-that-opened-the-sky.html",
+      "level": 9,
+      "party": "3–6 players",
+      "playTime": "about 3½ hours",
+      "tags": [
+        "special occasion",
+        "graduation"
+      ],
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      }
     }
   ]
 }
