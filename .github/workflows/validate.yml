@@ -42,6 +42,8 @@ jobs:
           node --check birthday-one-shot/personalization.js
           node --check birthday-one-shot/app.js
           node --check birthday-one-shot/official-format.js
+      - name: Validate Birthday adventure RAW and narrative integrity
+        run: node scripts/validate-birthday-adventure.mjs
       - name: Validate From Zero to Hero
         run: node scripts/validate-zero-to-hero.mjs
       - name: Validate Zero to Hero adventure
