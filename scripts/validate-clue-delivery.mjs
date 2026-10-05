@@ -46,6 +46,9 @@ try {
     if (!sources.length) fail(`${label} has no authored delivery source.`);
     if (clue.required && sources.length < 3) fail(`${label} is required but has fewer than three independent delivery sources.`);
     if (!sceneClues.has(clue.id)) fail(`${label} is never surfaced by a stage card.`);
+    if (clue.required && new Set(sceneClues.get(clue.id) || []).size < 2) {
+      fail(`${label} is required but appears in fewer than two distinct scenes.`);
+    }
 
     const normalized = sources.map(source => String(source).trim().toLowerCase());
     if (normalized.some(source => source.length < 8)) fail(`${label} has a delivery source too vague for zero-prep use.`);
