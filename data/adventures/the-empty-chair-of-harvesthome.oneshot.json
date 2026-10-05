@@ -118,8 +118,9 @@
       "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
       "description": "Reeve Oda Flint, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
       "tableDialogue": [
-        "“This matters back in Hearthford too.”",
-        "“Finish the job. Then we go home.”"
+        "“The grain count is wrong. Start there.”",
+        "“No, that is not what the ledger says. Read it again.”",
+        "“Feed people first. Pride keeps poorly.”"
       ],
       "reactions": {
         "agreement": "Supports the party and records the outcome for Hearthford.",
@@ -782,6 +783,10 @@
         {
           "title": "Record reward",
           "text": "Award 90 gp and four Favor tokens."
+        },
+        {
+          "title": "Seat the promise publicly",
+          "text": "At the next feast, show an empty place being set before anyone eats so the new meaning is visible rather than secret."
         }
       ],
       "advanceWhen": "Rewards and the new feast custom are recorded.",
@@ -818,6 +823,10 @@
         {
           "title": "Reward the structural solution",
           "text": "Award 110 gp and the Common Measure token."
+        },
+        {
+          "title": "Put the measure in public hands",
+          "text": "Have representatives from town and outer farms seal the shared measure where everyone can inspect it."
         }
       ],
       "advanceWhen": "The compact and rewards are recorded.",
@@ -854,6 +863,10 @@
         {
           "title": "Leave responsibility with people",
           "text": "Future generosity is now entirely a civic choice."
+        },
+        {
+          "title": "Show the human choice afterward",
+          "text": "The spirit is gone; let the first post-crisis grain decision fall entirely to the townsfolk so the party sees what closing the pact really means."
         }
       ],
       "advanceWhen": "Rewards and the grain disposition are recorded.",
