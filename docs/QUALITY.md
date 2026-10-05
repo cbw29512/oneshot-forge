@@ -28,6 +28,7 @@ For generated adventures, `docs/FORGE_CONSTITUTION.md` is authoritative. This qu
 - Read-aloud, NPC/monster cards, location descriptions, and scene transitions must satisfy `docs/PRESENTATION_STANDARD.md`.
 - Public catalog, landing-page, GM-runner, module, print, readability, resume, and deployment behavior must satisfy `docs/PRODUCTION_GAMEPLAY_STANDARD.md`.
 - Holiday and special-occasion releases must also satisfy `docs/HOLIDAY_ONE_SHOTS.md`; seasonal decoration does not replace story, rules, or zero-prep quality.
+- New authored one-shots must follow the Level 1→20 coverage ladder in `docs/HOLIDAY_ONE_SHOTS.md` until every level has at least one release-quality adventure; do not cluster new work at the same few levels.
 - These are release gates, not optional style guidance.
 
 
