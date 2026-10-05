@@ -69,6 +69,7 @@ jobs:
           node scripts/validate-adventure.mjs data/adventures/the-heartloom-of-rosebridge.oneshot.json
           node scripts/validate-adventure.mjs data/adventures/the-first-egg-of-greenhollow.oneshot.json
           node scripts/validate-adventure.mjs data/adventures/the-last-rocket-of-founding-day.oneshot.json
+          node scripts/validate-adventure.mjs data/adventures/the-lanterns-we-left-behind.oneshot.json
       - name: Certify zero-prep stage cards
         run: |
           node scripts/validate-stage-cards.mjs data/adventures/the-lantern-below.oneshot.json
@@ -86,6 +87,7 @@ jobs:
           node scripts/validate-stage-cards.mjs data/adventures/the-heartloom-of-rosebridge.oneshot.json
           node scripts/validate-stage-cards.mjs data/adventures/the-first-egg-of-greenhollow.oneshot.json
           node scripts/validate-stage-cards.mjs data/adventures/the-last-rocket-of-founding-day.oneshot.json
+          node scripts/validate-stage-cards.mjs data/adventures/the-lanterns-we-left-behind.oneshot.json
       - name: Audit Lantern GM table readiness
         run: node scripts/validate-table-readiness.mjs data/adventures/the-lantern-below.oneshot.json
       - name: Audit Lantern clue delivery
@@ -149,7 +151,8 @@ jobs:
             data/adventures/the-year-that-wouldnt-end.oneshot.json \
             data/adventures/the-heartloom-of-rosebridge.oneshot.json \
             data/adventures/the-first-egg-of-greenhollow.oneshot.json \
-            data/adventures/the-last-rocket-of-founding-day.oneshot.json; do
+            data/adventures/the-last-rocket-of-founding-day.oneshot.json \
+            data/adventures/the-lanterns-we-left-behind.oneshot.json; do
             node scripts/validate-narrative-integrity.mjs "$adventure"
           done
       - name: Audit Gloamwick table readiness
@@ -158,6 +161,8 @@ jobs:
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-last-treat-of-gloamwick.oneshot.json
       - name: Audit Gloamwick spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-last-treat-of-gloamwick.oneshot.json
+      - name: Validate ladder structural integrity
+        run: node scripts/validate-ladder-structural-integrity.mjs
       - name: Validate one-shot level coverage
         run: node scripts/validate-level-coverage.mjs
       - name: Audit Harvesthome table readiness
@@ -196,6 +201,12 @@ jobs:
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-last-rocket-of-founding-day.oneshot.json
       - name: Audit Founding Day presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-last-rocket-of-founding-day.oneshot.json
+      - name: Audit Bellmere table readiness
+        run: node scripts/validate-table-readiness.mjs data/adventures/the-lanterns-we-left-behind.oneshot.json
+      - name: Audit Bellmere clue delivery
+        run: node scripts/validate-clue-delivery.mjs data/adventures/the-lanterns-we-left-behind.oneshot.json
+      - name: Audit Bellmere presentation
+        run: node scripts/validate-presentation.mjs data/adventures/the-lanterns-we-left-behind.oneshot.json
       - name: Validate adventure registry
         run: node scripts/validate-adventure-registry.mjs
       - name: Validate catalog zero-prep baseline
