@@ -1043,17 +1043,25 @@
       },
       {
         "id": "rec-rush-final",
-        "trigger": "The party reaches the Heartloom without understanding all routes.",
+        "trigger": "The party skips or rushes earlier investigation and reaches the final scene without all resolution clues.",
         "response": "The three shuttle handles rise with engraved labels and the floor mosaic shows all five bond categories before initiative.",
         "stateChanges": [
           "All finale routes remain visible.",
           "Prepared play still reduces work."
         ]
+      },
+      {
+        "id": "rec-early-attack-the-heartloom-of-rosebri",
+        "trigger": "The party attacks the Heartloom before understanding why it is forcing bond labels.",
+        "response": "The Heartloom defends itself and increases structural strain, but the archive boxes, founder tapestry, consent inscription, and labeled shuttle handles still reveal Restore, Reweave, and Cut.",
+        "stateChanges": [
+          "Required evidence and finale access remain available."
+        ]
       }
     ]
   },
   "pathPressure": {
-    "principle": "Prepared social investigation reduces structural strain and preloads Restore, while rushed play preserves every ending at greater tactical pressure.",
+    "principle": "Prepared social investigation reduces structural strain and preloads Restore, while rushed play preserves every ending at greater tactical pressure. The ending is never locked by skipped preparation; the party can still finish, but rushing carries the stated costs.",
     "prepared": [
       "Sorting ribbon boxes grants advantage on the first Restore action.",
       "Placing up to two category bundles underbridge grants prepared Restore successes.",
