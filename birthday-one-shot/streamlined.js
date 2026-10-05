@@ -18,7 +18,7 @@ const scene = (id, title, minutes, theme, readAloud, details, checks, birthdayHe
 
 ADVENTURE.rooms = [
   scene("inn", "Opening: The Wishing Cake Inn", "25 minutes", "Celebration",
-    "Warm lamplight turns the common room gold. Paper dragons hang between dark wooden beams, their wings stirring whenever the front door opens. The room smells of cinnamon, baked apples, beeswax, and the deep buttery sweetness of fresh cake. Mugs clink, chairs scrape, and Lute Merriweather tests the same three notes again and again while Boris Ironladle shouts from the kitchen that nobody is to touch the frosting. At the center table, the Birthday Hero's cake waits beneath a glass dome. Its candles burn with tiny golden flames that lean toward her as though listening. When the Birthday Hero draws breath to make her wish, every flame snaps out. The room becomes suddenly cold. A golden spark tears free from the cake, circles the Birthday Hero once, and streaks through the pantry door. Somewhere below the floor, an ancient clock begins to strike.",
+    "Warm lamplight turns the common room gold. Paper dragons hang between dark wooden beams, their wings stirring whenever the front door opens. The room smells of cinnamon, baked apples, beeswax, and the deep buttery sweetness of fresh cake. Mugs clink, chairs scrape, and Lute Merriweather tests the same three notes again and again while Boris Ironladle shouts from the kitchen that nobody is to touch the frosting. At the center table, the Birthday Hero's cake waits beneath a glass dome. Its candles burn with tiny golden flames that lean toward them as though listening. When the Birthday Hero draws breath to make their wish, every flame snaps out. The room becomes suddenly cold. A golden spark tears free from the cake, circles the Birthday Hero once, and streaks through the pantry door. Somewhere below the floor, an ancient clock begins to strike.",
     [
       "Martha Bramblepot keeps the Birthday Hero in the place of honor and introduces every guest as though presenting visiting royalty.",
       "Boris carries the cake with both hands, his floury beard tied with bright ribbons. He is loud, proud, and terrified anything will happen to his masterpiece.",
@@ -72,7 +72,7 @@ ADVENTURE.rooms = [
       "DC 12 Investigation: there are no crumbs around the cake, and its warmth is magical.",
       "DC 13 Perception: tiny bite marks score the streamers directly above the table."
     ],
-    "The mimic lunges toward the Birthday Hero first because it can smell the stolen wish's lingering magic. This makes the Birthday Hero central without forcing her actions.",
+    "The mimic lunges toward the Birthday Hero first because it can smell the stolen wish's lingering magic. This makes the Birthday Hero central without forcing their actions.",
     "After the fight, Tilly points toward a doorway stitched shut with glowing ribbon.",
     { tactics:"The Paper Plate Mimic grapples the first creature reaching for the cake. Animated Presents harass isolated heroes and shove them toward the table. At half hit points, the mimic tries to flee beneath the cloth.", dialogue:[
       "Tilly: 'Please don't hurt him—the pale man, I mean. He doesn't hate birthdays. He hates what comes after them.'",
@@ -93,7 +93,7 @@ ADVENTURE.rooms = [
       "DC 12 Insight: the dark memory contains grief rather than malice.",
       "A character who shares a genuine or in-character memory of the Birthday Hero gains Inspiration."
     ],
-    "When the Birthday Hero touches the three gold-dragon balloons, they orbit her without popping. Their images show that the wish is connected to the people celebrating with her.",
+    "When the Birthday Hero touches the three gold-dragon balloons, they orbit her without popping. Their images show that the wish is connected to the people celebrating with them.",
     "The three balloons become lanterns and drift into the Wrapping Workshop.",
     { dialogue:["Tilly: 'Memories are carried, not collected. Hold them gently.'"] }
   ),
@@ -129,7 +129,7 @@ ADVENTURE.rooms = [
       "DC 12 Arcana or Sleight of Hand: shield a group of candles from magical wind.",
       "DC 12 Athletics or Acrobatics: cross a widening pool of hot wax safely."
     ],
-    "Only the Birthday Hero can lift the golden lantern at the maze's center. It whispers the recovered phrase back to her and grants the Birthday Candle of Courage if the party does not already have it.",
+    "Only the Birthday Hero can lift the golden lantern at the maze's center. It whispers the recovered phrase back to them and grants the Birthday Candle of Courage if the party does not already have it.",
     "The lantern's flame stretches into a bright musical note that opens the Piñata Ballroom.",
     { trap:"The One Trap — Fading Candle Maze: earn 3 successes before 2 failures. Each failure deals 1d6 fire damage to one volunteer or costs five minutes. At two failures the Wax Guardian rises.", tactics:"Wax Guardian: AC 14, HP 32, speed 20. Slam +4, 1d8+2 bludgeoning; on hit reduce target speed by 10 feet until its next turn. Cold damage prevents the speed reduction." }
   ),
@@ -147,7 +147,7 @@ ADVENTURE.rooms = [
       "DC 12 Investigation: the glowing pull-string marks the Exploding Piñata.",
       "DC 12 Performance: move with the enchanted rhythm to gain advantage on one Acrobatics check or Dexterity save."
     ],
-    "The dragon piñata reacts to the Birthday Hero's name and focuses its attention on her, but it can be calmed when another hero protects her or offers candy in her name.",
+    "The dragon piñata reacts to the Birthday Hero's name and focuses its attention on her, but it can be calmed when another hero protects her or offers candy in their name.",
     "When the encounter ends, the dragon piñata releases a warm golden scale reading: KEEP GOING. YOUR WISH IS WAITING.",
     { tactics:"The mimic grapples an isolated hero and shoves targets toward the Exploding Piñata. At half hit points it becomes frightened by loud cheering and can be calmed instead of killed." }
   ),
@@ -162,10 +162,10 @@ ADVENTURE.rooms = [
     ],
     [
       "DC 12 Insight: Sepulchral acts from grief and fear, not cruelty.",
-      "DC 12 Religion or Arcana: the Birthday Hero's wish can be restored without destroying the other wishes.",
+      "DC 12 Religion or Arcana: the Birthday Hero's wish can be restored without destroying the ottheir wishes.",
       "Any hero who voices compassion gains advantage on their first social check during the boss fight."
     ],
-    "the Birthday Hero realizes her wish was not fully formed when stolen. The fragments describe its heart, but she alone chooses its final words.",
+    "the Birthday Hero realizes their wish was not fully formed when stolen. The fragments describe its heart, but she alone chooses its final words.",
     "The three recovered fragments—NOT FOR ME ALONE / BUT FOR ONE MORE ADVENTURE / TOGETHER—open the Wish Circle.",
     { dialogue:[
       "Tilly: 'He waited until every candle burned down. Nobody came.'",
@@ -208,7 +208,7 @@ ADVENTURE.npcs = [
   {name:"Pip Underbough",role:"Young stable hand and first witness",voice:"Fast, apologetic, brave only after he has already acted.",goal:"Prove he can help instead of hiding.",secret:"He briefly fell asleep, but the pale figure appeared in the mirror before he woke.",lines:["I wasn't asleep. I was listening with my eyes closed.","The shadow was in the mirror, not the room.","I can come too. I mean—unless that would make things worse."]},
   {name:"Lute Merriweather",role:"Bard, atmosphere, and gentle hint system",voice:"Dramatic, musical, occasionally rhyming by accident.",goal:"Finish the Birthday Hero's birthday song before the final candle dies.",secret:"The forgotten halls sometimes use his unfinished lyrics to answer puzzles.",lines:["A wish in flight, a candle's light... oh. That might actually be a clue.","Every ending deserves a final verse.","I had a rhyme for 'Sepulchral,' but mercifully I forgot it."]},
   {name:"Tilly",role:"Sugar sprite guide and remorseful accomplice",voice:"Tiny, breathless, and painfully sincere.",goal:"Return the wish and save Sepulchral from his own grief.",secret:"She showed Sepulchral how to enter the inn because she believed his promise to end disappointment.",lines:["He doesn't hate birthdays. He hates what comes after.","Memories are carried, not collected.","Please save the wish. Please save him too, if you can."]},
-  {name:"Sepulchral",role:"Keeper of Forgotten Wishes and final antagonist",voice:"Quiet, ancient, and controlled; never shouts.",goal:"Destroy the Birthday Hero's wish before it can disappoint her.",secret:"His childhood wish was for someone to return to a birthday where nobody came.",lines:["I do not steal wishes. I prevent wounds.","Every candle goes dark. Every song ends.","What becomes of hope when the world says no?"]}
+  {name:"Sepulchral",role:"Keeper of Forgotten Wishes and final antagonist",voice:"Quiet, ancient, and controlled; never shouts.",goal:"Destroy the Birthday Hero's wish before it can disappoint them.",secret:"His childhood wish was for someone to return to a birthday where nobody came.",lines:["I do not steal wishes. I prevent wounds.","Every candle goes dark. Every song ends.","What becomes of hope when the world says no?"]}
 ];
 
 // Four meaningful, one-use items only.
