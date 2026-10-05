@@ -16,6 +16,7 @@
     "the-empty-chair-of-harvesthome": "data/adventures/the-empty-chair-of-harvesthome.oneshot.json",
     "the-gift-that-never-arrived": "data/adventures/the-gift-that-never-arrived.oneshot.json",
     "the-year-that-wouldnt-end": "data/adventures/the-year-that-wouldnt-end.oneshot.json",
-    "the-heartloom-of-rosebridge": "data/adventures/the-heartloom-of-rosebridge.oneshot.json"
+    "the-heartloom-of-rosebridge": "data/adventures/the-heartloom-of-rosebridge.oneshot.json",
+    "the-first-egg-of-greenhollow": "data/adventures/the-first-egg-of-greenhollow.oneshot.json"
   });
 })();
