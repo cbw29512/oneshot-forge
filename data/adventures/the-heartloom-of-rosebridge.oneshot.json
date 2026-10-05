@@ -371,7 +371,7 @@
     {
       "id": "loc-archive",
       "name": "Ribbon Guild Archive",
-      "description": "A tall room of labeled ribbon boxes, old display plans, founder tapestries, and this year's sponsor materials.",
+      "description": "A tall room of labeled ribbon boxes, old display plans, founder tapestries, and this year's sponsor materials, with rolling ladders, narrow stacks, and a central worktable for comparing records.",
       "connections": [
         "loc-bridge",
         "loc-bond-square"
