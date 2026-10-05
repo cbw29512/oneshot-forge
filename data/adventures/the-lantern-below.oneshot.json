@@ -377,7 +377,8 @@
         "enc-memory-husks"
       ],
       "clueIds": [
-        "clue-spirit-nature"
+        "clue-spirit-nature",
+        "clue-priory-location"
       ],
       "entryConditions": [],
       "exits": [
@@ -499,7 +500,8 @@
       "npcIds": [],
       "encounterIds": [],
       "clueIds": [
-        "clue-caldus-binding"
+        "clue-caldus-binding",
+        "clue-caldus-plan"
       ],
       "entryConditions": [],
       "exits": [
@@ -543,7 +545,8 @@
       ],
       "clueIds": [
         "clue-real-seal",
-        "clue-caldus-plan"
+        "clue-caldus-plan",
+        "clue-caldus-binding"
       ],
       "entryConditions": [],
       "exits": [
@@ -590,7 +593,11 @@
       "encounterIds": [
         "enc-pale-guest"
       ],
-      "clueIds": [],
+      "clueIds": [
+        "clue-real-seal",
+        "clue-caldus-plan",
+        "clue-caldus-binding"
+      ],
       "entryConditions": [],
       "exits": [
         "scene-resolution"
