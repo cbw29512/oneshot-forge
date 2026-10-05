@@ -359,7 +359,7 @@
     {
       "id": "loc-gift-hall",
       "name": "Wintermere Gift Hall",
-      "description": "A timber hall packed with reopened boxes, ribbons, evergreen garlands, and hearths whose flames are shrinking blue.",
+      "description": "A timber hall packed with reopened boxes, ribbons, evergreen garlands, and hearths whose flames are shrinking blue; long gift tables create narrow aisles and the main doors open toward Bell Square.",
       "connections": [
         "loc-barn",
         "loc-square"
