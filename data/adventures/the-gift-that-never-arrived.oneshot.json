@@ -23,7 +23,8 @@
     "pitch": "Wintermere opened its presents before the village's traditional first gift reached the lonely house beyond the snow road. Now every gift is freezing shut again and the town hearths are going cold.",
     "openingLocation": "Wintermere gift hall",
     "gmSummary": "Wintermere's Winterlight custom requires one 'First Gift' to be delivered beyond the giver's own household before anyone opens their own gifts. This year the First Gift—a chest of blankets, food, and medicine for the isolated Vale family—was quietly rerouted after the mountain road iced over. Festival master Hollis Vane ordered the hall opened anyway, planning to compensate the family later. The ritual's guardian, the Hearth Warden, interprets the broken sequence literally: gifts refreeze, hearths dim, and the abandoned gift sleigh becomes a moving icebound hazard. The party must uncover what happened, cross the snow road, recover or replace the First Gift, and decide whether Wintermere restores the old obligation, replaces it with a more reliable system, or ends the supernatural custom.",
-    "background": "Generations ago, Wintermere nearly lost an outer family during a blizzard because everyone assumed someone else had checked on them. Afterward the village adopted the First Gift rule: nobody opens a personal gift until one household has carried a practical gift to someone beyond its own walls. Over time, the tradition became cheerful pageantry. This year a real ice fall blocked the Vale road. Hollis Vane, under pressure to keep the celebration on schedule, stored the First Gift in the delivery barn and opened the gift hall anyway. The Vale family is alive but short on medicine and fuel. The Hearth Warden is not trying to punish generosity; it is enforcing the sequence the village asked it to guard."
+    "background": "Generations ago, Wintermere nearly lost an outer family during a blizzard because everyone assumed someone else had checked on them. Afterward the village adopted the First Gift rule: nobody opens a personal gift until one household has carried a practical gift to someone beyond its own walls. Over time, the tradition became cheerful pageantry. This year a real ice fall blocked the Vale road. Hollis Vane, under pressure to keep the celebration on schedule, stored the First Gift in the delivery barn and opened the gift hall anyway. The Vale family is alive but short on medicine and fuel. The Hearth Warden is not trying to punish generosity; it is enforcing the sequence the village asked it to guard.",
+    "campaignFrame": "Doctor Sera Moss sends the party from Hearthford with medicine intended for the isolated Vale household near Wintermere. The party returns to Hearthford after the last bell, and Sera remembers whether they treated the delivery as ceremony or actual care."
   },
   "quest": {
     "type": "investigate / winter rescue / choose",
@@ -77,6 +78,56 @@
     ]
   },
   "npcs": [
+    {
+      "id": "npc-sera-moss",
+      "name": "Doctor Sera Moss",
+      "role": "Hearthford physician and recurring patron",
+      "personality": [
+        "familiar",
+        "practical",
+        "recurring Hearthford notable"
+      ],
+      "voiceCues": [
+        "Asks what you ate. Writes it down."
+      ],
+      "wants": [
+        "A winter illness should remain an illness, not become a funeral.",
+        "Get the party back to Hearthford alive."
+      ],
+      "fears": [
+        "The current crisis spreading back to Hearthford."
+      ],
+      "knows": [
+        "The party and Hearthford",
+        "Why this problem matters to Hearthford"
+      ],
+      "believes": [
+        "Prepared people should still have a way forward when plans fail."
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The complete hidden truth of this adventure before the party investigates it."
+      ],
+      "revealRules": [
+        {
+          "fact": "The Hearthford connection and why the party is here.",
+          "when": "At the opening or whenever the party asks why this matters back home."
+        }
+      ],
+      "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
+      "description": "Doctor Sera Moss, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
+      "tableDialogue": [
+        "“This matters back in Hearthford too.”",
+        "“Finish the job. Then we go home.”"
+      ],
+      "reactions": {
+        "agreement": "Supports the party and records the outcome for Hearthford.",
+        "refusal": "Does not block the adventure; physical evidence and local contacts still carry the plot.",
+        "accusation": "Answers from the same motives established in Hearthford.",
+        "danger": "Prioritizes civilians and a safe route home."
+      }
+    },
     {
       "id": "npc-hollis-vane",
       "name": "Hollis Vane",
@@ -448,6 +499,7 @@
       ],
       "advanceWhen": "The party goes to the delivery barn to inspect the undelivered First Gift and route.",
       "npcIds": [
+        "npc-sera-moss",
         "npc-hollis-vane"
       ],
       "clueIds": [
@@ -662,6 +714,7 @@
       ],
       "advanceWhen": "The First Gift obligation is completed, replaced, or broken.",
       "npcIds": [
+        "npc-sera-moss",
         "npc-hollis-vane",
         "npc-senna-reed",
         "npc-lysa-vale",
@@ -725,6 +778,7 @@
       ],
       "advanceWhen": "Rewards and the new written procedure are recorded.",
       "npcIds": [
+        "npc-sera-moss",
         "npc-hollis-vane",
         "npc-senna-reed",
         "npc-lysa-vale"
@@ -760,6 +814,7 @@
       ],
       "advanceWhen": "The three-part compact and rewards are recorded.",
       "npcIds": [
+        "npc-sera-moss",
         "npc-hollis-vane",
         "npc-senna-reed",
         "npc-lysa-vale",
@@ -796,6 +851,7 @@
       ],
       "advanceWhen": "Rewards and the new nonmagical Winterlight practice are recorded.",
       "npcIds": [
+        "npc-sera-moss",
         "npc-hollis-vane",
         "npc-senna-reed",
         "npc-lysa-vale"
@@ -1051,6 +1107,10 @@
       "npc-hearth-warden": {
         "status": "active",
         "attitude": "literal"
+      },
+      "npc-sera-moss": {
+        "status": "alive",
+        "attitude": "familiar"
       }
     },
     "locationState": {},
@@ -1275,5 +1335,15 @@
     ],
     "stageCount": 6
   },
-  "cards": []
+  "cards": [],
+  "continuity": {
+    "hubId": "hearthford",
+    "hubName": "Hearthford",
+    "recurringNpcIds": [
+      "npc-sera-moss"
+    ],
+    "returnToHub": true,
+    "relationshipEffect": "Update Doctor Sera Moss's Hearthford relationship state based on how the party handled this night.",
+    "standaloneRule": "The adventure still runs standalone; the Hearthford frame supplies continuity but is never required to solve the plot."
+  }
 }
