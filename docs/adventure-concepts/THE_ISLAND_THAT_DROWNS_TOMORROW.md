@@ -33,7 +33,7 @@ The day initially feels celebratory:
 
 That night, a pirate vessel arrives.
 
-Its captain is an original vampiric octopus pirate.
+Its captain is an original mysterious pirate captain.
 
 The pirate and crew raid the island and kill everyone.
 
@@ -86,7 +86,7 @@ The seer accelerates understanding; he does not own the only solution.
 
 ## The pirate
 
-The antagonist is an original vampiric octopus pirate captain.
+The antagonist is an original mysterious pirate captain captain.
 
 The pirate is responsible for the repeating curse or is the curse's central anchor.
 
@@ -303,7 +303,7 @@ The pirate vessel is:
 - better armed;
 - crewed by experienced raiders;
 - magically or supernaturally difficult to disable;
-- commanded by the vampiric octopus pirate.
+- commanded by the mysterious pirate captain.
 
 The party is pressured toward defeat rather than expected to win the whole battle here.
 
@@ -518,7 +518,7 @@ The adventure should allow this to create moral and roleplaying consequences eve
 
 ### Pirate wounds leave marks
 
-Injuries caused directly by the vampiric octopus pirate are different.
+Injuries caused directly by the mysterious pirate captain are different.
 
 A wound inflicted by the pirate heals when the loop resets, but it leaves a persistent mark or scar on the player character.
 
@@ -596,3 +596,209 @@ The seer may become:
 - or convinced they are becoming like the pirate.
 
 This gives the adventure room to react to player behavior without making the loop mechanically fragile.
+
+
+## Three-stage pirate reveal
+
+The pirate captain's true nature must remain hidden until the players earn it through repeated encounters.
+
+Do not identify the captain as a vampire or an octopus creature in:
+- opening narration;
+- island rumors;
+- first-loop boxed text;
+- early NPC exposition;
+- public-facing adventure summaries;
+- player handouts.
+
+The mystery should escalate through three major reveals.
+
+### Reveal 1 — the impossible killer
+
+During the first direct fatal encounter with the captain, the party learns only that something is deeply wrong.
+
+The captain may:
+- survive damage that should have killed a normal humanoid;
+- move with unnatural speed;
+- heal in a disturbing way;
+- drain or mark a victim;
+- appear where a normal person could not;
+- personally kill one or more characters before the reset.
+
+The party should leave the loop thinking:
+
+> This is not a normal pirate.
+
+Do not confirm vampire traits yet.
+
+### Reveal 2 — the vampire
+
+On the second major direct encounter/death involving the captain, the party receives enough evidence to identify the captain as vampiric.
+
+Possible evidence:
+- unnatural regeneration;
+- blood-draining behavior;
+- aversion to a discovered weakness;
+- a coffin-like resting place clue;
+- undead crew behavior;
+- the seer's increasingly pointed warnings;
+- physical marks left on the players.
+
+The party should now reasonably conclude:
+
+> The pirate is some kind of vampire.
+
+Still do not reveal the octopus form.
+
+### Reveal 3 — the octopus vampire
+
+On the third major direct confrontation/death, or at the transition into the true final act, reveal the full creature.
+
+The captain's humanoid/pirate presentation is exposed as incomplete.
+
+Reveal:
+- tentacles;
+- sucker-lined limbs;
+- inhuman underwater movement;
+- multiple-limb attacks or grappling;
+- the same circular/pucker marks seen on the zombie crew;
+- visual continuity with the scars left on player characters.
+
+The party now understands:
+
+> This is not simply a vampire pirate. It is an original vampiric octopus creature wearing or presenting a pirate-like form.
+
+This should be a major visual and narrative payoff.
+
+## Zombie crew
+
+The captain's crew are undead zombies or zombie-like original undead minions.
+
+Their bodies carry distinctive circular pucker/sucker marks.
+
+These marks should initially be presented as strange wounds, not explained.
+
+Over successive loops, the party may notice:
+- the same marks on multiple crew;
+- the same pattern on victims;
+- similar marks on player characters wounded directly by the captain;
+- a connection between the marks and the final octopus reveal.
+
+The crew provides foreshadowing without spoiling the captain's true form.
+
+If the exact crew stat blocks are original or modified, label them ORIGINAL/HOMEBREW and do not present them as official RAW monsters.
+
+## The seabed resting place
+
+The captain's true resting place is not aboard the visible pirate ship.
+
+A coffin-like resting chamber and the pirate's accumulated treasure lie on the ocean floor.
+
+This location should be discoverable only after the party learns enough to:
+- track the pirate underwater;
+- understand that the visible ship is not the whole lair;
+- survive or solve the underwater approach.
+
+The resting chamber may function as the captain's "coffin" in the story, but because this is an original creature and original curse, do not imply that every D&D vampire uses this exact rule.
+
+The seabed site should become the adventure's major underwater exploration segment.
+
+## Treasure persistence rule
+
+Treasure taken from the seabed resting place follows the curse.
+
+If the party steals treasure but fails to permanently kill the captain before the reset:
+- the treasure is gone when the new loop begins;
+- it returns to its cursed resting place.
+
+If the party permanently kills the captain with the correct ship-hull heart strike:
+- the curse breaks;
+- the treasure no longer resets;
+- treasure physically carried or lawfully recovered after the curse breaks remains with the party.
+
+This makes the treasure itself proof that the loop has truly ended.
+
+## Final-kill material
+
+The captain can be permanently destroyed only by piercing the heart with wood taken from the hull of the captain's own ship.
+
+The delivery form may vary.
+
+Valid examples:
+- a sharpened wooden stake;
+- an arrow shaft or arrowhead assembly made from the cursed hull wood;
+- a wooden javelin made from the cursed hull wood;
+- another reasonable piercing implement fashioned from that same hull.
+
+The important requirement is:
+1. the material comes from the captain's ship;
+2. it pierces the heart.
+
+Ordinary wood does not satisfy the curse.
+
+A normal hit with a hull-wood weapon damages the captain normally but does not automatically strike the heart.
+
+## Heart-shot mechanic — ORIGINAL/HOMEBREW
+
+The following is an adventure-specific boss rule, not standard D&D RAW.
+
+Label it clearly in DM-facing material as:
+
+> **ORIGINAL ADVENTURE MECHANIC — HEART SHOT**
+
+A player using a qualifying hull-wood piercing weapon may attempt to hit the captain's heart in one of two ways.
+
+### Natural 20
+If the qualifying attack roll is a natural 20:
+- the attack strikes the heart;
+- no additional saving throw is made;
+- the captain becomes paralyzed/helpless according to the adventure's defined boss state;
+- if all permanent-kill requirements are satisfied, the curse-breaking effect triggers.
+
+### Called heart shot
+Before rolling, the player may declare a called heart shot.
+
+Apply:
+- **-4 penalty to the attack roll**.
+
+If the penalized attack hits:
+- it strikes the heart;
+- no additional saving throw is made;
+- the captain enters the same paralyzed/helpless boss state;
+- if the permanent-kill requirements are satisfied, the curse-breaking effect triggers.
+
+If the penalized attack misses:
+- the attack misses normally.
+
+### Ordinary qualifying hit
+A normal successful attack with a hull-wood weapon that is not:
+- a natural 20;
+- or a declared successful called heart shot
+
+still damages the captain, but does not hit the heart and does not trigger the paralysis/permanent-kill state.
+
+### Teaching boundary
+
+The site/adventure must explicitly explain that:
+- called shots are not being taught as a universal D&D rule;
+- the -4 heart-shot option exists only because this adventure defines it;
+- the no-save paralysis is specific to this boss's curse mechanics;
+- normal D&D attack, critical-hit, and condition rules remain separate.
+
+This prevents the teaching curriculum from accidentally presenting an original scenario mechanic as RAW.
+
+## Reveal pacing and the seer
+
+The seer should adapt cryptic warnings to the party's current knowledge.
+
+Before Reveal 1:
+- warnings are about the night, the ship, and death repeating.
+
+After Reveal 1:
+- warnings imply the captain cannot be killed like a normal man.
+
+After Reveal 2:
+- warnings can reference hunger, undeath, the resting place beneath the sea, and the captain's dependence on the ship.
+
+Only near Reveal 3 should the seer's language strongly imply many limbs, suckers, or the captain's true body.
+
+The seer should never simply say "octopus vampire" before the party earns that reveal.
