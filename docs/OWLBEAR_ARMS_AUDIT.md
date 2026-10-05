@@ -38,7 +38,7 @@ Audited 2026-10-03. Contains story spoilers. **Imported review preview; public r
 
 The catalog now distinguishes this **PDF bundle** from the eight browser-run adventures. Its Start Here page gives one complete ZIP, direct file links, first-reading guidance, printing instructions, and separate player/DM sections. It does not send level-6 players to the site's unrelated level-4 pregens or claim an interactive runner exists.
 
-Current access is a free review preview. Approval and sellable flags remain false because the gameplay audit is unresolved. Import/integrity checks passing do not certify gameplay or encounter balance. The original v1.1 remains available for review; correct the above in a newly versioned edition and rerun the full product gates before release.
+Current access is a free review preview. Release approval remains false because the gameplay audit is unresolved. Import/integrity checks passing do not certify gameplay or encounter balance. The original v1.1 remains available for review; correct the above in a newly versioned edition and rerun the full product gates before release.
 
 ## Rules references
 
