@@ -1,0 +1,1321 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-last-rocket-of-founding-day",
+    "title": "The Last Rocket of Founding Day",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 7,
+    "partySize": 4,
+    "partySizeRange": "3–6 players",
+    "durationMinutes": 210,
+    "tone": [
+      "summer civic festival",
+      "fireworks mystery",
+      "public-safety dilemma"
+    ]
+  },
+  "series": {
+    "title": "Holiday One-Shots",
+    "holiday": "Summer / Founding Day",
+    "standalone": true
+  },
+  "setup": {
+    "pitch": "Founding Day is supposed to end with seven signal rockets fired from the old fort. Someone has rewired the launch racks, and the final rocket now points at the packed harbor instead of the sky.",
+    "openingLocation": "Brightwater parade square",
+    "gmSummary": "Brightwater's Founding Day commemorates the night seven warning rockets saved the town from a coastal raid. Modern celebrations reenact the signals with harmless festival fireworks launched from the old cliff fort. This year councilor Darric Vale ordered the signal sequence modernized into a synchronized harbor spectacle. Contractor Sera Flint quietly reused deteriorated military launch tubes to cut costs, while activist dockworker Bren Oss sabotaged one rack intending only to force cancellation and draw attention to unsafe working conditions. Their separate choices interact catastrophically: the seventh rocket's guidance cradle now points toward the harbor fuel barges, and several earlier rockets can ignite old powder stores beneath the fort. The party must uncover both failures, evacuate or secure the harbor, repair or redesign the launch sequence, and decide whether Founding Day ends with a safe traditional signal, a new public-safety demonstration, or the permanent retirement of the explosive ritual.",
+    "background": "Brightwater's original seven rockets were emergency signals: one for sighting, one for evacuation, one for militia muster, one for harbor chain, one for fire crews, one for shelter, and one for all-clear. The modern festival reduced them to spectacle. Dockworkers have repeatedly complained that the fort powder tunnels and launch racks are unsafe. Bren sabotaged one guidance brace to force an inspection, not realizing Sera had connected the final rack to a larger demonstration charge. Darric suppressed the latest engineering report because canceling the fireworks would embarrass the council."
+  },
+  "quest": {
+    "type": "investigate / public safety / timed finale",
+    "objective": "Discover why the Founding Day rockets are unsafe, prevent mass harm, and decide how Brightwater will finish or replace the seven-signal tradition.",
+    "stakes": "A packed harbor, fuel barges, old powder tunnels, and thousands of festivalgoers are at risk; mishandling the truth could also turn labor anger into a scapegoat hunt.",
+    "deadline": "SEVEN SIGNALS: show seven rocket marks. Fill one after the square, launch yard, dockworks, powder tunnel, and fort tower; the sixth and seventh become final-scene pressure. If the seventh fills unresolved, the automated ignition reaches the final rack.",
+    "successConditions": [
+      "The harbor is secured or evacuated.",
+      "The true interaction between sabotage, unsafe equipment, and suppressed warnings is uncovered.",
+      "The final signal is resolved through Fire Safe, Public Rewrite, or Retire."
+    ],
+    "failureConditions": [
+      "The party knowingly allows the automated seventh launch to fire into an unsecured harbor.",
+      "The town scapegoats one person while the structural hazard remains active."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-seven-signals",
+        "text": "The original seven rockets were functional emergency signals, not entertainment."
+      },
+      {
+        "id": "fact-unsafe-racks",
+        "text": "Sera Flint reused deteriorated military launch tubes and connected the final rack to an oversized demonstration charge."
+      },
+      {
+        "id": "fact-bren-sabotage",
+        "text": "Bren Oss bent one guidance brace to force cancellation, but did not intend to aim a live rocket at the harbor."
+      },
+      {
+        "id": "fact-suppressed-report",
+        "text": "Darric Vale suppressed an engineering report warning that the fort launch system and powder tunnels were unsafe."
+      },
+      {
+        "id": "fact-three-resolutions",
+        "text": "The festival can end with a repaired safe signal sequence, a rewritten non-explosive public-safety demonstration, or permanent retirement of the rocket ritual."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-sera-cost",
+        "text": "Sera reused old military tubes because replacing them would have exceeded the council's fixed spectacle budget.",
+        "revealCondition": "Read her invoice notes, inspect the tube serials, or confront her with the engineering report."
+      },
+      {
+        "id": "secret-bren-goal",
+        "text": "Bren sabotaged the brace to force inspection after three dockworkers were injured during setup.",
+        "revealCondition": "Find his tool marks plus grievance letter, speak with injured workers, or confront him after the dockworks scene."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-darric-vale",
+      "name": "Darric Vale",
+      "role": "councilor overseeing Founding Day",
+      "personality": [
+        "polished",
+        "risk-averse politically",
+        "commanding under pressure"
+      ],
+      "voiceCues": [
+        "speaks in public-image language",
+        "avoids technical terms"
+      ],
+      "wants": [
+        "Prevent casualties",
+        "Avoid public proof of council negligence",
+        "Keep some form of final signal if possible"
+      ],
+      "fears": [
+        "Mass panic",
+        "Being blamed for suppressing the report"
+      ],
+      "knows": [
+        "An engineering report warned against using the old launch system",
+        "Sera promised the show could proceed",
+        "Bren had publicly threatened to stop the fireworks"
+      ],
+      "believes": [
+        "Canceling the festival would damage trust more than quietly managing technical risk"
+      ],
+      "secrets": [
+        "He filed the warning report as 'deferred maintenance'"
+      ],
+      "lies": [
+        "Initially says the report was inconclusive"
+      ],
+      "cannotKnow": [
+        "Exactly how Bren altered the brace",
+        "Which powder tunnel junction is live"
+      ],
+      "revealRules": [
+        {
+          "fact": "He suppressed the warning report.",
+          "when": "Shown the report copy, archive receipt, or engineer's seal."
+        }
+      ],
+      "questFunction": "Creates the political layer and prevents the mystery from collapsing into one saboteur.",
+      "description": "A sharply dressed councilor in blue-and-gold festival sash, gripping a speaking trumpet while aides keep handing him increasingly alarming notes.",
+      "tableDialogue": [
+        "“We can cancel applause. We cannot cancel panic once it starts.”",
+        "“The report said risk. Every report says risk.”",
+        "“If the harbor is in danger, clear it first and prosecute me later.”"
+      ],
+      "reactions": {
+        "agreement": "Gives access to council launch plans and orders guards to follow the party's evacuation calls.",
+        "refusal": "Keeps the parade moving; archive copies and engineer markings remain available.",
+        "accusation": "Admits burying the report once technical evidence is shown.",
+        "danger": "Uses authority to clear the harbor road and open fort gates."
+      }
+    },
+    {
+      "id": "npc-sera-flint",
+      "name": "Sera Flint",
+      "role": "fireworks contractor who reused unsafe equipment",
+      "personality": [
+        "brilliant",
+        "proud",
+        "financially cornered"
+      ],
+      "voiceCues": [
+        "talks in tolerances and ignition timing",
+        "becomes defensive when called reckless"
+      ],
+      "wants": [
+        "Prevent a launch disaster",
+        "Save her crew",
+        "Avoid losing her trade license"
+      ],
+      "fears": [
+        "The oversized final charge cooking off in the tunnels",
+        "Being treated as the sole cause"
+      ],
+      "knows": [
+        "The final demonstration charge is too large for the old rack",
+        "Tube three has a hairline split",
+        "The seventh rack was mechanically altered after setup"
+      ],
+      "believes": [
+        "The system would have survived if nobody touched it"
+      ],
+      "secrets": [
+        "She knowingly reused condemned tubes"
+      ],
+      "lies": [
+        "Initially says the tubes passed inspection"
+      ],
+      "cannotKnow": [
+        "Who altered the brace",
+        "Why Darric hid the report"
+      ],
+      "revealRules": [
+        {
+          "fact": "The final rack uses an oversized charge and reused tubes.",
+          "when": "The party inspects serials, invoice notes, or her setup diagram."
+        }
+      ],
+      "questFunction": "Provides technical truth and a repair route without absolving unsafe cost-cutting.",
+      "description": "A soot-streaked pyrotechnician in leather gloves and a red bandanna, carrying calipers, fuse shears, and a roll of launch diagrams.",
+      "tableDialogue": [
+        "“That brace did not bend itself.”",
+        "“Yes, the tubes are old. Old is not the same as useless—until someone changes the angle.”",
+        "“If you want safe, give me six minutes and stop the clock.”"
+      ],
+      "reactions": {
+        "agreement": "Explains the rack sequence and gives the party fuse shears.",
+        "refusal": "Leaves diagrams pinned to the launch shed and focuses on moving her crew.",
+        "accusation": "Admits the reused tubes once the serials are compared.",
+        "danger": "Cuts live fuses and helps suppress secondary fires."
+      }
+    },
+    {
+      "id": "npc-bren-oss",
+      "name": "Bren Oss",
+      "role": "dockworker activist who sabotaged one brace",
+      "personality": [
+        "angry",
+        "protective",
+        "not suicidal"
+      ],
+      "voiceCues": [
+        "names injured workers",
+        "refuses euphemisms"
+      ],
+      "wants": [
+        "Stop unsafe fireworks over the docks",
+        "Get the suppressed safety complaint heard",
+        "Keep workers from being blamed for the council's equipment"
+      ],
+      "fears": [
+        "His sabotage hurting civilians",
+        "Being used to hide broader negligence"
+      ],
+      "knows": [
+        "He bent the seventh guidance brace",
+        "Three workers were hurt during setup",
+        "A powder access hatch under the dock ramp was left open"
+      ],
+      "believes": [
+        "A forced cancellation was the only way anyone would listen"
+      ],
+      "secrets": [
+        "He used a dock wrench marked with his crew number"
+      ],
+      "lies": [
+        "Initially denies entering the fort"
+      ],
+      "cannotKnow": [
+        "Sera's oversized final charge",
+        "Darric's full report suppression"
+      ],
+      "revealRules": [
+        {
+          "fact": "He altered only the guidance brace, intending cancellation not detonation.",
+          "when": "Shown matching tool marks, grievance notes, or after an injured worker speaks."
+        }
+      ],
+      "questFunction": "Adds culpability without becoming a cartoon villain and creates a repairable sabotage layer.",
+      "description": "A broad dockworker in rolled sleeves with a brass crew tag at his belt and fresh grease on one knuckle.",
+      "tableDialogue": [
+        "“I wanted the rack condemned, not aimed at my own pier.”",
+        "“Three people got hurt setting this show up. Nobody came to the meeting.”",
+        "“Give me a wrench and I will help put it straight.”"
+      ],
+      "reactions": {
+        "agreement": "Shows exactly which brace he altered and helps repair it.",
+        "refusal": "His crew wrench and grievance letter remain enough to prove what happened.",
+        "accusation": "Admits the sabotage once he knows the harbor can be evacuated.",
+        "danger": "Leads dockworkers in clearing fuel carts and opening water lines."
+      }
+    },
+    {
+      "id": "npc-signal-keeper",
+      "name": "The Signal Keeper",
+      "role": "echo of the original emergency protocol",
+      "personality": [
+        "procedural",
+        "protective",
+        "literal"
+      ],
+      "voiceCues": [
+        "calls out signal numbers",
+        "speaks in commands"
+      ],
+      "wants": [
+        "Seven signals to mean safety actions again",
+        "The all-clear not to fire before the harbor is secure"
+      ],
+      "fears": [
+        "Spectacle replacing function"
+      ],
+      "knows": [
+        "What each original signal meant",
+        "A safe sequence can be recreated with light, bells, or rockets",
+        "Retirement is valid if the town accepts new emergency procedures"
+      ],
+      "believes": [
+        "A signal without response is noise"
+      ],
+      "secrets": [
+        "It is a civic echo bound to the fort, not a dead soldier"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Who committed human wrongdoing",
+        "Future council policy"
+      ],
+      "revealRules": [
+        {
+          "fact": "The ritual can be safely completed, rewritten, or retired.",
+          "when": "The party restores one original emergency signal or reaches the tower finale."
+        }
+      ],
+      "questFunction": "Connects the holiday spectacle back to public safety and supports noncombat outcomes.",
+      "description": "A translucent watch officer in an old harbor coat, carrying a lantern whose shutter changes from one signal pattern to another.",
+      "tableDialogue": [
+        "“Signal one: sighting.”",
+        "“Signal seven is all-clear. Harbor not clear.”",
+        "“Fire safe. Rewrite. Retire.”"
+      ],
+      "reactions": {
+        "agreement": "Marks safe signal positions and suppresses one automated ignition pulse.",
+        "refusal": "Continues cycling the original signal sequence as warning.",
+        "accusation": "Ignores blame and points toward unsafe response conditions.",
+        "danger": "Uses lantern flashes to guide civilians toward evacuation routes."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-square",
+      "name": "Brightwater Parade Square",
+      "description": "A crowded summer plaza of banners, marching bands, food carts, and a giant board showing the seven signal rockets scheduled for dusk.",
+      "connections": [
+        "loc-launch-yard",
+        "loc-docks",
+        "loc-fort"
+      ]
+    },
+    {
+      "id": "loc-launch-yard",
+      "name": "Old Fort Launch Yard",
+      "description": "Seven angled racks line the cliff wall beside fuse channels, water barrels, and a locked maintenance shed.",
+      "connections": [
+        "loc-square",
+        "loc-docks",
+        "loc-tunnels",
+        "loc-fort"
+      ]
+    },
+    {
+      "id": "loc-docks",
+      "name": "Harbor Dockworks",
+      "description": "Fuel barges, fishing boats, worker cranes, and temporary festival seating pack the waterfront beneath the fort.",
+      "connections": [
+        "loc-launch-yard",
+        "loc-tunnels",
+        "loc-square"
+      ]
+    },
+    {
+      "id": "loc-tunnels",
+      "name": "Powder Tunnels",
+      "description": "Old military galleries beneath the fort hold sealed powder rooms, drainage channels, and one live ignition conduit feeding the modern display.",
+      "connections": [
+        "loc-launch-yard",
+        "loc-docks",
+        "loc-fort"
+      ]
+    },
+    {
+      "id": "loc-fort",
+      "name": "Signal Tower",
+      "description": "The highest fort platform holds the master ignition wheel, signal lantern, and a panoramic view of harbor, racks, and evacuation routes.",
+      "connections": [
+        "loc-launch-yard",
+        "loc-tunnels",
+        "loc-square"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-original-signals",
+      "revelation": "The seven rockets were originally emergency signals with specific public-safety meanings.",
+      "required": true,
+      "sources": [
+        "A fort plaque lists SIGHTING / EVACUATE / MUSTER / CHAIN / FIRE / SHELTER / ALL-CLEAR.",
+        "The signal tower lantern has seven labeled shutter positions matching those actions.",
+        "Old parade programs show early festivals reenacting the response drills, not just fireworks."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-unsafe-racks",
+      "revelation": "The launch system uses condemned military tubes and an oversized final charge.",
+      "required": true,
+      "sources": [
+        "Tube serials match condemned numbers in the engineering report.",
+        "Sera's invoice notes REUSE EXISTING RACKS and DEMO CHARGE X2 beside the seventh rack.",
+        "A hairline split and heat scoring are visible on tube three."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-bren-sabotage",
+      "revelation": "Bren bent one guidance brace to force cancellation but did not wire or enlarge the explosive charge.",
+      "required": true,
+      "sources": [
+        "Tool marks match Bren's numbered dock wrench and are limited to the seventh guidance brace.",
+        "His grievance letter says STOP THE SHOW / FORCE INSPECTION and mentions no ignition work.",
+        "The fuse harness and charge connections show contractor work untouched by Bren's wrench."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-suppressed-report",
+      "revelation": "Darric suppressed a formal warning about both the launch racks and powder tunnels.",
+      "required": true,
+      "sources": [
+        "A sealed engineering report bears RECEIVED on the council copy but no public action stamp.",
+        "The archive receipt shows Darric checked out the report before the festival vote.",
+        "The engineer's chalk marks in the tunnels match hazards named in the report."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-resolutions",
+      "revelation": "Founding Day can end with a repaired safe signal sequence, a rewritten non-explosive emergency demonstration, or retirement of the explosive ritual.",
+      "required": true,
+      "sources": [
+        "The Signal Keeper states 'Fire safe. Rewrite. Retire.' after one original signal is restored.",
+        "The tower master board has ROCKET / LANTERN-BELL / SHUTDOWN positions for each signal.",
+        "A prior festival log records a storm year completed entirely with lantern shutters and bells."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-square",
+      "title": "Signal Seven Turns",
+      "purpose": "Launch the public danger, establish the signal clock, and reveal that the problem is mechanical before blame settles on one suspect.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "The parade stalls",
+      "readAloud": "The marching band hits its final note as a practice motor turns the seventh rocket rack on the cliff. It should point seaward and high. Instead the rack groans downward until its empty guide tube aims straight at the crowded harbor. Seven painted rocket icons light on the festival board. The first begins blinking.",
+      "gmNotes": [
+        "Show SEVEN SIGNALS. Fill signal 1 when this scene ends.",
+        "No rocket fires yet; this is the visible warning before automatic ignition progresses.",
+        "DC 13 Intelligence (Investigation) from the square or tower spyglass spots that only rack seven's angle is wrong. Failure changes nothing; Sera says it immediately at the launch yard.",
+        "Darric publicly blames sabotage before evidence is gathered. Do not let that become established truth.",
+        "Move the party to the launch yard with authority to inspect and pause crowd access."
+      ],
+      "runSteps": [
+        {
+          "title": "Aim the empty rack at people",
+          "text": "Make the risk obvious without causing casualties immediately."
+        },
+        {
+          "title": "Put seven signals on the table",
+          "text": "The final launch is a visible clock."
+        },
+        {
+          "title": "Separate hazard from blame",
+          "text": "Send the party to inspect before naming a culprit."
+        }
+      ],
+      "advanceWhen": "The party reaches the old fort launch yard to inspect the racks and ignition system.",
+      "npcIds": [
+        "npc-darric-vale",
+        "npc-sera-flint"
+      ],
+      "clueIds": [
+        "clue-original-signals",
+        "clue-bren-sabotage"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-yard"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-yard",
+          "label": "Inspect the launch racks",
+          "description": "Find out what was altered and what else is unsafe."
+        }
+      ]
+    },
+    {
+      "id": "scene-yard",
+      "title": "Old Tubes, New Show",
+      "purpose": "Expose unsafe equipment and distinguish sabotage from contractor/council failures.",
+      "locationId": "loc-launch-yard",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Audit the rockets",
+      "readAloud": "Seven launch racks stand along the cliff. Rack seven's guidance brace is visibly bent. Rack three is worse in a quieter way: a black hairline crack runs along its old military tube. Sera Flint kneels beside the fuse board, swearing under her breath as the second signal light begins to blink.",
+      "gmNotes": [
+        "Fill signal 2 when this scene ends.",
+        "DC 14 Intelligence (Investigation) or relevant tool proficiency identifies three separate issues: bent brace, condemned tube, oversized final charge. Failure still reveals the brace and crack; Sera's diagram exposes the charge.",
+        "The sabotage tool marks affect angle only. Fuse and charge work use different tools and predate the brace damage.",
+        "An engineering report number is stamped on the condemned tube, pointing to the council archive copy and tunnel markings.",
+        "Sera sends the party to the docks because the harbor must be secured regardless of who caused what."
+      ],
+      "runSteps": [
+        {
+          "title": "Separate the three failures",
+          "text": "Brace sabotage, unsafe reused tubes, oversized charge."
+        },
+        {
+          "title": "Preserve proof",
+          "text": "Serials and tool marks survive missing NPCs."
+        },
+        {
+          "title": "Prioritize harbor safety",
+          "text": "The next scene is evacuation and worker evidence, not interrogation theater."
+        }
+      ],
+      "advanceWhen": "The party understands the launch yard has multiple independent failures and heads to the harbor dockworks.",
+      "npcIds": [
+        "npc-sera-flint"
+      ],
+      "clueIds": [
+        "clue-unsafe-racks",
+        "clue-bren-sabotage",
+        "clue-suppressed-report"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-docks"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-docks",
+          "label": "Secure the harbor",
+          "description": "Clear fuel and crowds while checking who had reason to stop the show."
+        }
+      ]
+    },
+    {
+      "id": "scene-docks",
+      "title": "The Harbor Under the Rack",
+      "purpose": "Protect civilians, establish Bren's motive, and keep labor grievances separate from the explosive-system failures.",
+      "locationId": "loc-docks",
+      "pacingClass": "core",
+      "estimatedMinutes": 40,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Clear the waterline",
+      "readAloud": "The harbor is packed shoulder-to-shoulder beneath the fort. Fuel carts sit beside food stalls. Two barges fly festival flags. Dockworkers are already hauling hoses into position while one man shouts that the fireworks should have been canceled days ago. Above everyone, rack seven points down like a finger.",
+      "gmNotes": [
+        "Fill signal 3 when harbor evacuation begins and signal 4 when fuel sources are secured or moved.",
+        "Run a three-job safety challenge: clear spectators, move fuel carts, open water lines. Each job can be solved by roleplay, spells, or DC 13 Athletics/Investigation/Persuasion as appropriate. Failure adds one HARBOR PRESSURE mark but the job remains retryable or solvable another way.",
+        "Bren's grievance letter and three injured workers establish motive for forcing cancellation.",
+        "DC 13 Insight on Bren: success shows guilt about the brace but genuine surprise about the oversized charge. Failure gives no false conclusion; tool evidence later proves scope.",
+        "A marked hatch under the ramp leads into the powder tunnels."
+      ],
+      "runSteps": [
+        {
+          "title": "Run three safety jobs",
+          "text": "The scene matters even if the mystery were solved already."
+        },
+        {
+          "title": "Hear the labor grievance",
+          "text": "Unsafe setup hurt people before the sabotage."
+        },
+        {
+          "title": "Open the tunnel route",
+          "text": "The next layer is suppressed structural risk."
+        }
+      ],
+      "advanceWhen": "The harbor is at least partially secured and the party enters the powder tunnels to stop secondary ignition risk.",
+      "npcIds": [
+        "npc-bren-oss"
+      ],
+      "clueIds": [
+        "clue-bren-sabotage",
+        "clue-suppressed-report"
+      ],
+      "encounterIds": [
+        "enc-harbor-panic"
+      ],
+      "exits": [
+        "scene-tunnels"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-tunnels",
+          "label": "Enter the powder tunnels",
+          "description": "Find the live ignition conduit and verify the buried safety report."
+        }
+      ]
+    },
+    {
+      "id": "scene-tunnels",
+      "title": "The Report Was Right",
+      "purpose": "Prove council suppression, remove secondary explosion risk, and provide a noncombat route to the finale.",
+      "locationId": "loc-tunnels",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Cut the hidden fuse",
+      "readAloud": "The old tunnel walls are striped with fresh engineer's chalk: CRACKED VENT. WET POWDER. DO NOT RUN LIVE IGNITION. Someone has run a bright new festival conduit straight through the warnings. Far ahead, a relay box ticks once each time another signal icon lights above.",
+      "gmNotes": [
+        "Fill signal 5 when the live conduit is isolated or safely rerouted.",
+        "DC 14 Dexterity with thieves' tools or Intelligence (Arcana/Investigation) safely isolates the conduit. Failure causes a flash burn for 2d6 fire damage but also trips the relay open, preventing tunnel ignition.",
+        "The engineer markings match the suppressed report language exactly.",
+        "A sealed report copy in the maintenance box bears Darric's received stamp.",
+        "The Signal Keeper appears once the conduit is safe and demonstrates that lantern/bell signals can replace rockets."
+      ],
+      "runSteps": [
+        {
+          "title": "Match report to wall",
+          "text": "Suppression becomes physical fact."
+        },
+        {
+          "title": "Cut secondary risk",
+          "text": "Failure hurts but still prevents catastrophic tunnel ignition."
+        },
+        {
+          "title": "Reveal alternate signal system",
+          "text": "Lantern/bell rewrite is proven before the finale."
+        }
+      ],
+      "advanceWhen": "The tunnel ignition risk is controlled and the party climbs to the Signal Tower.",
+      "npcIds": [
+        "npc-signal-keeper"
+      ],
+      "clueIds": [
+        "clue-original-signals",
+        "clue-suppressed-report",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-powder-sparks"
+      ],
+      "exits": [
+        "scene-final"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-final",
+          "label": "Climb to the Signal Tower",
+          "description": "Choose whether Founding Day fires safely, rewrites the signals, or retires the rocket ritual."
+        }
+      ]
+    },
+    {
+      "id": "scene-final",
+      "title": "Signal Seven",
+      "purpose": "Resolve the holiday through safe repair, public rewrite, or retirement while the automated launch clock advances.",
+      "locationId": "loc-fort",
+      "pacingClass": "core",
+      "estimatedMinutes": 55,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "All-clear or shutdown",
+      "readAloud": "Wind snaps the Founding Day flags at the top of the fort. Below, the harbor is half-cleared and lit by emergency lanterns. The master board shows five signals complete. Six begins to blink. Rack seven still points toward the water. Beside the ignition wheel, a translucent watch officer raises a shuttered lantern. “Signal seven,” it says. “All-clear. Harbor not clear.”",
+      "gmNotes": [
+        "Start with signals 5/7 complete. At initiative count 20, advance one signal unless a character uses an Action at the master board to pause one cycle with DC 14 Intelligence (Investigation/Arcana) or Dexterity with tinker's tools. On failure the signal advances normally.",
+        "FIRE SAFE: complete three repair jobs—straighten rack seven, remove/replace tube three, reduce final charge. Each Action uses DC 14 appropriate Athletics/Investigation/tool check. Prepared help from Sera/Bren can make one chosen job automatic. When all three are done, the original seven-signal sequence can fire safely at reduced charge.",
+        "REWRITE: complete three public-safety stations—lantern signal pattern, bell response, harbor drill. Each Action uses DC 14 History/Investigation/Persuasion or a concrete coordinated action. Three completed stations allow Founding Day to finish without explosives.",
+        "RETIRE: cut the master ignition wheel and ceremonial powder feed. Core Mechanism AC 15, 24 HP after one deliberate shutdown action; destroying it permanently ends the rocket tradition but leaves lantern/bell emergency signals intact.",
+        "If signal 7 would fire while unresolved, anyone at the master wheel gets one final reaction: DC 15 Dexterity with tools or Strength (Athletics) to jam the wheel. Success prevents launch and deals 2d6 lightning/fire from the mechanism; failure launches the rocket, but if harbor safety jobs were completed it hits empty water/fuel-free pier instead of causing mass casualties.",
+        "Directly destroying the master mechanism counts as Retire."
+      ],
+      "runSteps": [
+        {
+          "title": "State Fire Safe, Rewrite, Retire",
+          "text": "All three are legal from the start."
+        },
+        {
+          "title": "Advance the visible signal clock",
+          "text": "Use actions to buy time rather than hidden countdowns."
+        },
+        {
+          "title": "Honor earlier safety work",
+          "text": "Harbor evacuation changes the consequence of a failed final stop."
+        }
+      ],
+      "advanceWhen": "The festival signal is safely fired, rewritten, or retired.",
+      "npcIds": [
+        "npc-darric-vale",
+        "npc-sera-flint",
+        "npc-bren-oss",
+        "npc-signal-keeper"
+      ],
+      "clueIds": [
+        "clue-original-signals",
+        "clue-unsafe-racks",
+        "clue-bren-sabotage",
+        "clue-suppressed-report",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-signal-seven"
+      ],
+      "exits": [
+        "scene-resolution-fire",
+        "scene-resolution-rewrite",
+        "scene-resolution-retire"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-fire",
+          "label": "Fire safe",
+          "description": "Repair the hazards and complete the seven signals as functional warnings again."
+        },
+        {
+          "target": "scene-resolution-rewrite",
+          "label": "Rewrite the signals",
+          "description": "Use lanterns, bells, and a public safety drill instead of explosives."
+        },
+        {
+          "target": "scene-resolution-retire",
+          "label": "Retire the rockets",
+          "description": "End the explosive ritual and preserve emergency signaling separately."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-fire",
+      "title": "Resolution: Seven Safe Signals",
+      "purpose": "Reward repairing the system while restoring the original public-safety meaning.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "Seven rockets rise one at a time—smaller, higher, and farther from the harbor than the crowd expected. After each burst, a bell and lantern answer from below. When the seventh fades, the Signal Keeper salutes and disappears into the fort wall.",
+      "gmNotes": [
+        "Award 220 gp total and four Brightwater Favor tokens.",
+        "Future rocket displays require engineering signoff and emergency-response rehearsal.",
+        "Bren faces consequences for sabotage, but the council report suppression and contractor shortcuts are publicly recorded too."
+      ],
+      "runSteps": [
+        {
+          "title": "Restore function",
+          "text": "Each signal is tied back to a safety action."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 220 gp and Favor tokens."
+        }
+      ],
+      "advanceWhen": "Accountability and rewards are recorded.",
+      "npcIds": [
+        "npc-darric-vale",
+        "npc-sera-flint",
+        "npc-bren-oss"
+      ],
+      "clueIds": [
+        "clue-original-signals"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-rewrite",
+      "title": "Resolution: The Harbor Answers",
+      "purpose": "Reward replacing explosive spectacle with a participatory safety ritual.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "No rocket launches. Instead seven lantern patterns sweep from the fort while bells answer from the harbor, the fire house, the shelter hall, and the bridge. For the final all-clear, the whole waterfront answers with hand lamps at once.",
+      "gmNotes": [
+        "Award 240 gp total and the Harbor Signal token, granting advantage on one future Brightwater check involving coordination, evacuation, or public safety.",
+        "Founding Day becomes an annual emergency drill wrapped in celebration.",
+        "Sera may continue designing safe non-explosive effects."
+      ],
+      "runSteps": [
+        {
+          "title": "Make the rewrite participatory",
+          "text": "The town answers every signal."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 240 gp and Harbor Signal token."
+        }
+      ],
+      "advanceWhen": "The new signal protocol and rewards are recorded.",
+      "npcIds": [
+        "npc-darric-vale",
+        "npc-sera-flint",
+        "npc-bren-oss",
+        "npc-signal-keeper"
+      ],
+      "clueIds": [
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-retire",
+      "title": "Resolution: No More Powder Above the Harbor",
+      "purpose": "Respect permanent retirement while retaining emergency preparedness.",
+      "locationId": "loc-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The master wheel breaks with a shower of harmless brass teeth. Below, nobody cheers at first. Then the harbor bells ring the old seven meanings in sequence, and dockworkers answer with lanterns. The celebration continues without a single rocket.",
+      "gmNotes": [
+        "Award 220 gp total.",
+        "The fort's explosive festival system is permanently retired.",
+        "Lantern and bell emergency signals remain active and become the legal civic standard."
+      ],
+      "runSteps": [
+        {
+          "title": "Keep the safety system",
+          "text": "Retiring fireworks does not erase the original emergency protocol."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 220 gp."
+        }
+      ],
+      "advanceWhen": "The new non-explosive standard and rewards are recorded.",
+      "npcIds": [
+        "npc-darric-vale",
+        "npc-sera-flint",
+        "npc-bren-oss"
+      ],
+      "clueIds": [
+        "clue-suppressed-report"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-harbor-panic",
+      "name": "Harbor Panic",
+      "type": "crowd / rescue challenge",
+      "difficulty": "Moderate",
+      "summary": "Crowds, fuel carts, and dock crews must be moved while the signal clock advances.",
+      "resolution": "Complete evacuation, fuel, and water-line jobs through roleplay, checks, or magic.",
+      "talkOut": "This is not a creature encounter; coordinated instructions and visible authority are the primary solution.",
+      "bypass": "No safe bypass. The party can delegate jobs to Darric/Bren crews, but each delegated job still consumes time or resources.",
+      "objective": "Reduce consequences if the final launch cannot be stopped."
+    },
+    {
+      "id": "enc-powder-sparks",
+      "name": "Powder Tunnel Sparks",
+      "type": "hazard / elementals",
+      "difficulty": "Low",
+      "summary": "Ignition leakage animates small fire motes around old powder rooms.",
+      "resolution": "Isolate the conduit, smother the motes, or pass once the relay is tripped.",
+      "talkOut": "Not sentient.",
+      "bypass": "Trip the relay open; the motes fade when the conduit loses power.",
+      "objective": "Prevent a secondary fort explosion."
+    },
+    {
+      "id": "enc-signal-seven",
+      "name": "Signal Seven Mechanism",
+      "type": "finale / repair / system combat",
+      "difficulty": "High pressure",
+      "summary": "The automated launch sequence advances while the party repairs, rewrites, or destroys the festival system.",
+      "resolution": "Complete Fire Safe, complete Rewrite, or destroy/disable the master mechanism.",
+      "talkOut": "The Signal Keeper supports safe procedural changes but cannot stop the machine alone.",
+      "bypass": "Fire Safe and Rewrite are complete noncombat routes.",
+      "objective": "Finish Founding Day without turning civic tradition into mass-casualty spectacle."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-seven-signals",
+      "prompt": "Match seven old fort symbols to their emergency meanings using plaque, lantern shutters, and parade records.",
+      "solution": "Sighting / Evacuate / Muster / Harbor Chain / Fire Crews / Shelter / All-Clear.",
+      "bypass": "DC 14 History or Investigation reconstructs the sequence immediately.",
+      "failForward": "The tower shutter labels give the meanings after one wrong match."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-live-conduit",
+      "trigger": "Cut or reroute the powder-tunnel ignition conduit without isolating the relay.",
+      "effect": "DC 14 Dexterity saving throw or take 2d6 fire damage.",
+      "failForward": "The relay trips open either way, preventing tunnel ignition."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-harbor-signal",
+      "name": "Harbor Signal Token",
+      "effect": "Story reward from Rewrite; once in Brightwater, grants advantage on one check involving coordination, evacuation, or public safety."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-launch-yard",
+      "name": "Brightwater Launch Yard",
+      "asset": null,
+      "regions": [
+        {
+          "id": "yard-racks",
+          "sceneId": "scene-yard",
+          "label": "seven launch racks"
+        },
+        {
+          "id": "yard-shed",
+          "sceneId": "scene-yard",
+          "label": "maintenance shed"
+        },
+        {
+          "id": "yard-fuse",
+          "sceneId": "scene-yard",
+          "label": "fuse board"
+        }
+      ]
+    },
+    {
+      "id": "map-docks",
+      "name": "Brightwater Harbor Dockworks",
+      "asset": null,
+      "regions": [
+        {
+          "id": "dock-crowd",
+          "sceneId": "scene-docks",
+          "label": "festival seating"
+        },
+        {
+          "id": "dock-fuel",
+          "sceneId": "scene-docks",
+          "label": "fuel carts and barges"
+        },
+        {
+          "id": "dock-water",
+          "sceneId": "scene-docks",
+          "label": "water-line controls"
+        },
+        {
+          "id": "dock-hatch",
+          "sceneId": "scene-docks",
+          "label": "powder tunnel hatch"
+        }
+      ]
+    },
+    {
+      "id": "map-tower",
+      "name": "Brightwater Signal Tower",
+      "asset": null,
+      "regions": [
+        {
+          "id": "tower-wheel",
+          "sceneId": "scene-final",
+          "label": "master ignition wheel"
+        },
+        {
+          "id": "tower-board",
+          "sceneId": "scene-final",
+          "label": "seven-signal control board"
+        },
+        {
+          "id": "tower-lantern",
+          "sceneId": "scene-final",
+          "label": "signal lantern"
+        },
+        {
+          "id": "tower-view",
+          "sceneId": "scene-final",
+          "label": "harbor overlook"
+        }
+      ]
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "No single culprit explains the crisis; sabotage, unsafe equipment, and suppressed warnings remain independently provable.",
+      "Harbor safety work changes final consequences even if the mechanical repair fails.",
+      "Failure costs time, injuries, or property risk but never removes every finale route."
+    ],
+    "routes": [
+      {
+        "id": "rec-darric-unavailable",
+        "trigger": "Darric is unavailable or refuses cooperation.",
+        "response": "The received report, archive receipt, and engineer markings prove suppression without him.",
+        "stateChanges": [
+          "clue-suppressed-report remains physical.",
+          "Evacuation can be directed through dock captains."
+        ]
+      },
+      {
+        "id": "rec-sera-unavailable",
+        "trigger": "Sera cannot explain the racks.",
+        "response": "Serial numbers, invoice notes, cracks, and setup diagrams establish unsafe reused equipment.",
+        "stateChanges": [
+          "clue-unsafe-racks remains available.",
+          "Fire Safe is harder but still possible."
+        ]
+      },
+      {
+        "id": "rec-bren-unavailable",
+        "trigger": "Bren flees or refuses to talk.",
+        "response": "Crew-numbered wrench marks, grievance letter, and limited brace damage prove scope and intent.",
+        "stateChanges": [
+          "clue-bren-sabotage remains available.",
+          "No confession is required."
+        ]
+      },
+      {
+        "id": "rec-skip-docks",
+        "trigger": "The party skips harbor safety and enters tunnels directly.",
+        "response": "The finale remains solvable, but HARBOR PRESSURE begins at 2 and a failed seventh launch can damage property/fuel even if mass casualties are avoided.",
+        "stateChanges": [
+          "All truth remains recoverable.",
+          "Earlier rescue work matters materially."
+        ]
+      },
+      {
+        "id": "rec-rush-final",
+        "trigger": "The party reaches the tower without understanding all routes.",
+        "response": "The master board shows ROCKET / LANTERN-BELL / SHUTDOWN positions and the Signal Keeper names Fire Safe, Rewrite, Retire.",
+        "stateChanges": [
+          "All finale routes remain visible.",
+          "Prepared work still grants automatic jobs."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared investigation and harbor work reduce final danger and automate repairs, while rushed play preserves all endings at higher risk.",
+    "prepared": [
+      "Sera can make one Fire Safe repair automatic.",
+      "Bren can make straightening rack seven automatic.",
+      "Completed harbor safety jobs reduce consequences of an accidental seventh launch.",
+      "Tunnel work proves Rewrite is operational before the finale."
+    ],
+    "rushed": [
+      "Skipping docks raises HARBOR PRESSURE.",
+      "Skipping tunnels leaves secondary ignition active until someone spends a finale action to cut it.",
+      "Entering without technical evidence makes Fire Safe checks all mandatory."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 210,
+    "plannedMinutes": 210,
+    "bossReserveMinutes": 55,
+    "cutOrder": [
+      "If 25+ minutes behind, combine rack audit and report-number discovery in one launch-yard beat.",
+      "If 15+ minutes behind at docks, let competent NPC crews automatically complete one of the three safety jobs.",
+      "Never cut the multi-cause truth, harbor consequences, or three finale routes."
+    ],
+    "optionalOrder": [
+      "Extended council argument about cancellation.",
+      "Extra parade interactions before the first signal.",
+      "Detailed history of each original military rocket after meanings are clear."
+    ]
+  },
+  "endings": [
+    {
+      "id": "ending-fire",
+      "name": "Seven Safe Signals",
+      "condition": "Fire Safe completes.",
+      "result": "The rocket tradition survives under engineering oversight and restored emergency meanings."
+    },
+    {
+      "id": "ending-rewrite",
+      "name": "The Harbor Answers",
+      "condition": "Rewrite completes.",
+      "result": "Founding Day becomes a non-explosive public emergency drill using lanterns and bells."
+    },
+    {
+      "id": "ending-retire",
+      "name": "No More Powder Above the Harbor",
+      "condition": "The launch system is permanently disabled.",
+      "result": "Fireworks retire while lantern/bell emergency signaling remains the civic standard."
+    }
+  ],
+  "initialState": {
+    "questStage": "festival-hazard",
+    "currentSceneId": "scene-square",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-darric-vale": {
+        "status": "alive",
+        "attitude": "commanding"
+      },
+      "npc-sera-flint": {
+        "status": "alive",
+        "attitude": "defensive"
+      },
+      "npc-bren-oss": {
+        "status": "alive",
+        "attitude": "angry"
+      },
+      "npc-signal-keeper": {
+        "status": "dormant",
+        "attitude": "procedural"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-harbor-signal": "unearned"
+    },
+    "eventState": {
+      "signalsLit": 0,
+      "harborPressure": 0,
+      "tunnelRelaySafe": false
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific systems and quick-run procedures are complete in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2014 SRD package."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific systems and quick-run procedures are complete in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2024 SRD package; do not import 2014 class features."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-last-rocket-of-founding-day",
+    "version": "0.1.0",
+    "target": {
+      "level": 7,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-yard",
+      "check-harbor",
+      "check-bren",
+      "check-conduit",
+      "check-fire-safe"
+    ],
+    "checks": [
+      {
+        "id": "check-yard",
+        "sceneId": "scene-yard",
+        "label": "Audit the launch system",
+        "dc": 14,
+        "ability": "Intelligence (Investigation) or relevant tool proficiency",
+        "success": "Identify the bent brace, condemned tube, and oversized final charge as three separate failures.",
+        "failure": "The brace and crack are visible; Sera's setup diagram reveals the oversized charge after a short delay."
+      },
+      {
+        "id": "check-harbor",
+        "sceneId": "scene-docks",
+        "label": "Complete one harbor safety job",
+        "dc": 13,
+        "ability": "Strength (Athletics), Intelligence (Investigation), or Charisma (Persuasion)",
+        "success": "One of crowd, fuel, or water-line jobs is secured.",
+        "failure": "HARBOR PRESSURE increases by 1; the job remains solvable another way."
+      },
+      {
+        "id": "check-bren",
+        "sceneId": "scene-docks",
+        "label": "Read Bren's culpability",
+        "dc": 13,
+        "ability": "Wisdom (Insight)",
+        "success": "He is guilty about the brace but genuinely surprised by the final charge.",
+        "failure": "Tool marks and fuse evidence later establish the same scope."
+      },
+      {
+        "id": "check-conduit",
+        "sceneId": "scene-tunnels",
+        "label": "Isolate the live ignition conduit",
+        "dc": 14,
+        "ability": "Dexterity with thieves' tools or Intelligence (Arcana or Investigation)",
+        "success": "The tunnel relay is safely disabled.",
+        "failure": "Take 2d6 fire damage; the relay still trips open and tunnel ignition is prevented."
+      },
+      {
+        "id": "check-fire-safe",
+        "sceneId": "scene-final",
+        "label": "Complete one Fire Safe repair",
+        "dc": 14,
+        "ability": "Appropriate Strength, Intelligence, or tool check",
+        "success": "One launch-system hazard is fully corrected.",
+        "failure": "The repair remains incomplete and the signal clock continues; Rewrite and Retire remain legal."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-harbor-panic",
+        "objective": "Secure civilians, fuel, and water response below the launch racks.",
+        "start": "Crowds and dock crews react as the misaligned rack becomes visible.",
+        "bypass": "Delegate one job to trusted NPC crews, but the party must still account for all three safety jobs before the final consequences are reduced.",
+        "creatures": [],
+        "end": "Harbor safety jobs are completed or the party leaves with HARBOR PRESSURE tracked."
+      },
+      {
+        "id": "enc-powder-sparks",
+        "objective": "Reach and isolate the live ignition conduit.",
+        "start": "Four small fire motes leap between exposed wires and old powder-room doors.",
+        "bypass": "Trip the relay open to make the motes vanish.",
+        "creatures": [
+          {
+            "name": "Powder Spark",
+            "count": 4,
+            "ac": 14,
+            "hp": 14,
+            "speed": "30 ft., fly 30 ft.",
+            "attack": "Spark +6 to hit, 1d8+3 fire.",
+            "trait": "Power-Dependent: all Powder Sparks disappear when the tunnel relay is isolated.",
+            "tactics": "Block access to relay controls and ignite loose debris, not sealed powder rooms unless the party delays."
+          }
+        ],
+        "end": "The relay is isolated or the party retreats."
+      },
+      {
+        "id": "enc-signal-seven",
+        "objective": "Resolve Founding Day through Fire Safe, Rewrite, or Retire before the seventh launch.",
+        "start": "Five signal marks are lit and the automated master wheel continues advancing.",
+        "bypass": "Fire Safe and Rewrite are complete noncombat routes.",
+        "creatures": [
+          {
+            "name": "Master Launch Mechanism",
+            "count": 1,
+            "ac": 15,
+            "hp": 72,
+            "speed": "0 ft.",
+            "attack": "Arc Flash +7 to hit, 2d8+4 lightning.",
+            "trait": "Shutdown Core: after one deliberate Retire action, AC 15, 24 HP; destroying it ends automated launch and permanently retires the rocket system.",
+            "tactics": "Advance signal clock, arc at creatures manipulating controls, and lock repaired racks unless actions are coordinated."
+          }
+        ],
+        "end": "Fire Safe completes, Rewrite completes, or the master mechanism is destroyed."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-live-conduit",
+        "sceneId": "scene-tunnels",
+        "trigger": "Work the live conduit before isolating relay power.",
+        "save": "DC 14 Dexterity saving throw.",
+        "failure": "Take 2d6 fire damage.",
+        "success": "Avoid the flash.",
+        "failForward": "The relay trips open either way, preventing tunnel ignition."
+      },
+      {
+        "id": "hazard-signal-clock",
+        "sceneId": "scene-final",
+        "trigger": "Initiative count 20 while the system remains unresolved.",
+        "save": "No save; visible clock pressure.",
+        "failure": "Advance one signal mark unless a character successfully pauses the master board.",
+        "success": "A successful pause check buys one cycle.",
+        "failForward": "Harbor preparation changes consequences even if the seventh signal is reached."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-fire",
+        "when": "Fire Safe resolves the festival.",
+        "reward": "220 gp total and four Brightwater Favor tokens."
+      },
+      {
+        "id": "reward-rewrite",
+        "when": "Rewrite resolves the festival.",
+        "reward": "240 gp total and the Harbor Signal token."
+      },
+      {
+        "id": "reward-retire",
+        "when": "The rocket system is permanently disabled.",
+        "reward": "220 gp total; lantern/bell emergency signaling remains."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-yard",
+        "dimensions": "90 × 60 ft. launch yard; 5-ft. grid.",
+        "features": [
+          "seven angled racks",
+          "maintenance shed",
+          "fuse board",
+          "water barrels",
+          "cliff wall"
+        ]
+      },
+      {
+        "sceneId": "scene-docks",
+        "dimensions": "100 × 70 ft. harbor frontage; 5-ft. grid.",
+        "features": [
+          "festival crowd zone",
+          "fuel carts",
+          "two barges",
+          "water-line controls",
+          "powder tunnel hatch"
+        ]
+      },
+      {
+        "sceneId": "scene-final",
+        "dimensions": "70 × 70 ft. signal tower; 5-ft. grid.",
+        "features": [
+          "master ignition wheel",
+          "seven-signal board",
+          "signal lantern",
+          "harbor overlook",
+          "shutdown core"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One summer civic-safety mystery: inspect the launch failure, protect the harbor, prove multiple causes, control the tunnels, then branch only at the final signal.",
+    "mainSpine": [
+      "scene-square",
+      "scene-yard",
+      "scene-docks",
+      "scene-tunnels",
+      "scene-final"
+    ],
+    "allowedBranchScenes": [
+      "scene-final"
+    ],
+    "terminalScenes": [
+      "scene-resolution-fire",
+      "scene-resolution-rewrite",
+      "scene-resolution-retire"
+    ],
+    "stageCount": 6
+  },
+  "cards": []
+}
