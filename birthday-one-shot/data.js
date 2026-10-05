@@ -19,7 +19,7 @@ const ADVENTURE = {
       details:["Martha Bramblepot welcomes the party and makes certain the Birthday Hero is seated at the place of honor.","Boris Ironladle carries in the cake and loudly insists nobody touch the frosting before the wish.","Lute Merriweather begins a birthday song, forgetting the final verse.","At the instant the wish is stolen, three Animated Presents attack from the gift table."],
       checks:["DC 11 Arcana: the stolen spark is a real birthday wish, not an illusion.","DC 12 Investigation: frosting footprints and golden ash lead through the pantry.","DC 10 Persuasion: calm Pip, who saw a tall shadow pass beneath the inn."],
       birthdayHero:"The Birthday Hero alone hears a whisper from the fleeing spark: ‘Find me before the last candle dies.’",
-      dialogue:["Martha: ‘That was not merely a cake. Something has taken the wish she had not yet spoken.’","Boris: ‘Nobody steals a wish from my kitchen and lives to complain about the crust!’"],
+      dialogue:["Martha: ‘That was not merely a cake. Something has taken the wish they had not yet spoken.’","Boris: ‘Nobody steals a wish from my kitchen and lives to complain about the crust!’"],
       transition:"The pantry floor opens around an old brass key hanging at Martha's neck, revealing stairs descending into forgotten celebration halls."
     },
     {
@@ -69,7 +69,7 @@ const ADVENTURE = {
       readAloud:"A circular chamber opens beneath a sky that cannot exist underground. Thousands of candles float above a black stone floor. the Birthday Hero's birthday cake hangs inside a ring of silver runes, and within it struggles a small golden light. A pale figure stands beside the circle, one hand raised toward the fading wish. ‘You call it hope,’ he says softly. ‘I call it the beginning of disappointment.’",
       details:["Sepulchral is the Keeper of Forgotten Wishes. His own wish failed centuries ago, and he now steals wishes to spare others pain.","Use the supplied Sepulchral and Wish Circle monster cards.","The ritual advances at initiative count 20. At three advances the wish fades unless the party has completed three objectives."],
       objectives:["Erase one rune: adjacent action, DC 13 Arcana, Religion, or thieves' tools.","Relight one extinguished candle: adjacent action, DC 12 Performance, Persuasion, or use of a flame spell.","Protect the cake: a hero adjacent to it may use a reaction to take damage meant for the cake.","Reach Sepulchral: reduce him below half hit points or succeed on three total social successes against DC 13."],
-      dialogue:["Sepulchral: ‘Every candle goes dark. Every song ends. Why teach her to hope?’","Martha, if present: ‘Because darkness does not make the light a lie.’","Sepulchral, bloodied: ‘And if their wish fails?’"],
+      dialogue:["Sepulchral: ‘Every candle goes dark. Every song ends. Why teach them to hope?’","Martha, if present: ‘Because darkness does not make the light a lie.’","Sepulchral, bloodied: ‘And if their wish fails?’"],
       birthdayHero:"When the ritual breaks, the Birthday Hero chooses the final answer: make a wish for themselves, make a wish that includes others, or offer Sepulchral a place at the celebration. Any sincere answer restores the wish.",
       ending:"The golden wish circles every hero, then settles before the Birthday Hero. Return to the inn. Martha says, ‘I believe this has been waiting for you.’ Hand the Birthday Hero the real pop-up dragon card. Allow silence. Then let the group celebrate."
     }
