@@ -1,0 +1,289 @@
+{
+  "schemaVersion": "1.0.0",
+  "purpose": "Track D&D rules, monster, encounter, and adventure-design coverage across the Hearthford Level 1–20 ladder and map it to Ember & Stone teaching content.",
+  "channel": {
+    "name": "Ember & Stone",
+    "positioning": "Teach D&D by playing D&D",
+    "curriculumDoc": "docs/EMBER_AND_STONE_CURRICULUM.md"
+  },
+  "targets": {
+    "savingThrows": [
+      "Strength",
+      "Dexterity",
+      "Constitution",
+      "Intelligence",
+      "Wisdom",
+      "Charisma"
+    ],
+    "damageTypes": [
+      "acid",
+      "bludgeoning",
+      "cold",
+      "fire",
+      "force",
+      "lightning",
+      "necrotic",
+      "piercing",
+      "poison",
+      "psychic",
+      "radiant",
+      "slashing",
+      "thunder"
+    ],
+    "monsterTypes": [
+      "aberration",
+      "beast",
+      "celestial",
+      "construct",
+      "dragon",
+      "elemental",
+      "fey",
+      "fiend",
+      "giant",
+      "humanoid",
+      "monstrosity",
+      "ooze",
+      "plant",
+      "undead"
+    ],
+    "conditions": [
+      "blinded",
+      "charmed",
+      "deafened",
+      "exhaustion",
+      "frightened",
+      "grappled",
+      "incapacitated",
+      "invisible",
+      "paralyzed",
+      "petrified",
+      "poisoned",
+      "prone",
+      "restrained",
+      "stunned",
+      "unconscious"
+    ],
+    "combatConcepts": [
+      "initiative",
+      "attack rolls",
+      "saving throws",
+      "damage resistance",
+      "damage immunity",
+      "damage vulnerability",
+      "cover",
+      "difficult terrain",
+      "opportunity attacks",
+      "reactions",
+      "concentration",
+      "grapple",
+      "shove",
+      "death saves",
+      "healing",
+      "temporary hit points",
+      "area effects",
+      "forced movement",
+      "flight",
+      "teleportation",
+      "counterspell/dispel",
+      "readied actions",
+      "objectives beyond HP",
+      "multi-stage boss",
+      "environmental combat"
+    ],
+    "explorationConcepts": [
+      "navigation",
+      "weather",
+      "falling",
+      "climbing",
+      "swimming",
+      "underwater",
+      "darkness",
+      "visibility",
+      "secret doors",
+      "tracking",
+      "travel pace",
+      "hazards",
+      "resource pressure",
+      "time pressure"
+    ],
+    "socialConcepts": [
+      "persuasion",
+      "deception",
+      "intimidation",
+      "insight",
+      "faction pressure",
+      "negotiation",
+      "moral dilemma",
+      "reputation",
+      "recurring NPC consequences"
+    ],
+    "adventureDesign": [
+      "hook",
+      "quest giver",
+      "red herring",
+      "three-clue redundancy",
+      "fail-forward",
+      "puzzle",
+      "trap",
+      "twist",
+      "BBEG",
+      "alternate victory",
+      "multiple endings",
+      "timer/clock",
+      "rescue",
+      "escort",
+      "heist/infiltration",
+      "mystery",
+      "exploration",
+      "social encounter",
+      "combat encounter",
+      "environmental hazard",
+      "resource choice",
+      "player choice changes later scene"
+    ],
+    "dmSkills": [
+      "setting DCs",
+      "telegraphing danger",
+      "running clocks",
+      "running crowds",
+      "running hazards",
+      "running social pressure",
+      "running clues",
+      "running puzzles",
+      "running traps",
+      "running monsters tactically",
+      "adjudicating creative spells",
+      "high-level counterplay",
+      "avoiding single points of failure",
+      "edition separation"
+    ]
+  },
+  "levels": {
+    "1": {
+      "adventureId": "the-last-treat-of-gloamwick",
+      "focus": [
+        "basic checks",
+        "Dexterity save",
+        "restrained",
+        "psychic pressure",
+        "puzzle",
+        "trap",
+        "three-clue redundancy",
+        "misunderstood monster",
+        "alternate victory",
+        "timer/clock"
+      ]
+    },
+    "2": {
+      "adventureId": "the-empty-chair-of-harvesthome",
+      "focus": [
+        "social pressure",
+        "persuasion/intimidation",
+        "prone",
+        "bludgeoning hazard",
+        "investigation",
+        "moral dilemma",
+        "resource distribution",
+        "multiple endings",
+        "no single point of failure"
+      ]
+    },
+    "3": {
+      "adventureId": "the-gift-that-never-arrived",
+      "focus": [
+        "travel hazard",
+        "cold damage",
+        "Athletics/Acrobatics",
+        "Medicine",
+        "beasts",
+        "escort/rescue",
+        "weather",
+        "alternate routes",
+        "noncombat finale"
+      ]
+    },
+    "4": {
+      "adventureId": "the-year-that-wouldnt-end",
+      "focus": [
+        "Wisdom save",
+        "psychic/time pressure",
+        "necrotic damage",
+        "reactions",
+        "investigation puzzle",
+        "combat plus ritual",
+        "twist",
+        "public/private obligations"
+      ]
+    },
+    "5": {
+      "adventureId": "the-heartloom-of-rosebridge",
+      "focus": [
+        "restrained",
+        "forced movement",
+        "force damage",
+        "construct-like hazards",
+        "consent in social encounters",
+        "multi-route finale",
+        "object combat",
+        "relationship consequences"
+      ]
+    },
+    "6": {
+      "adventureId": "the-first-egg-of-greenhollow",
+      "focus": [
+        "plants",
+        "beasts",
+        "Nature/Survival",
+        "slashing hazard",
+        "difficult terrain",
+        "restrained",
+        "resource sharing",
+        "bypassable combat",
+        "environmental objective"
+      ]
+    },
+    "7": {
+      "adventureId": "the-last-rocket-of-founding-day",
+      "focus": [
+        "fire damage",
+        "lightning damage",
+        "elementals",
+        "crowd rescue",
+        "tool checks",
+        "time pressure",
+        "sabotage red herring",
+        "multi-cause twist",
+        "environmental combat"
+      ]
+    },
+    "8": {
+      "adventureId": "the-lanterns-we-left-behind",
+      "focus": [
+        "undead/spirits",
+        "psychic damage",
+        "frightened",
+        "Wisdom save",
+        "escort",
+        "memory hazard",
+        "identification mystery",
+        "acknowledgment without perfect information"
+      ]
+    },
+    "9": {
+      "adventureId": "the-graduation-that-opened-the-sky",
+      "focus": [
+        "planar hazards",
+        "force damage",
+        "flight",
+        "teleportation",
+        "5th-level utility magic",
+        "high-level spell adjudication",
+        "rescue objectives",
+        "institutional twist",
+        "multi-stage system boss"
+      ]
+    }
+  },
+  "nextLevel": 10,
+  "designDirective": "Choose Levels 10–20 partly by uncovered curriculum gaps. Do not repeat already-covered mechanics when a missing D&D concept can be taught naturally instead."
+}
