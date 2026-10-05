@@ -11,6 +11,7 @@
     "beneath-the-eastern-watchtower": "data/adventures/beneath-the-eastern-watchtower.oneshot.json",
     "the-black-orchard": "data/adventures/the-black-orchard.oneshot.json",
     "the-ashen-bridge": "data/adventures/the-ashen-bridge.oneshot.json",
-    "the-bell-beneath-the-mere": "data/adventures/the-bell-beneath-the-mere.oneshot.json"
+    "the-bell-beneath-the-mere": "data/adventures/the-bell-beneath-the-mere.oneshot.json",
+    "the-last-treat-of-gloamwick": "data/adventures/the-last-treat-of-gloamwick.oneshot.json"
   });
 })();
