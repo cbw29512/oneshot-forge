@@ -41,6 +41,16 @@ for(const chapter of adventure.chapters){
     if(!beat.readAloud||beat.readAloud.length<70) fail(key+" read-aloud too thin");
     if(!Array.isArray(beat.runSteps)||beat.runSteps.length<3) fail(key+" needs at least three run steps");
     if(!beat.purpose||!beat.consequence||!beat.scrapbookPrompt) fail(key+" missing purpose/consequence/scrapbook prompt");
+    if(!beat.location) fail(key+" missing runnable location context");
+    if(!beat.advanceWhen) fail(key+" missing explicit move-on condition");
+    if(!Array.isArray(beat.npcDialogue)||beat.npcDialogue.length<1) fail(key+" missing table-usable NPC dialogue");
+    const beatHasDC=/\\bDC\\s*\\d+\\b/i.test(JSON.stringify(beat));
+    if(beatHasDC){
+      const outcomeText=JSON.stringify([beat.runSteps,beat.consequence,beat.branches,beat.advanceWhen]).toLowerCase();
+      if(!/(fail|failure|success|cost|consequence|advantage|disadvantage|reveal|learn|damage|relationship|reputation|route|delay|save)/.test(outcomeText)){
+        fail(key+" contains a DC check without a narrative outcome");
+      }
+    }
   }
 }
 if(totalBeats!==21) fail("adventure must contain exactly 21 runnable Growth Beats");
