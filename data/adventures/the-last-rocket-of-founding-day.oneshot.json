@@ -118,8 +118,9 @@
       "questFunction": "Recurring Hearthford anchor. Connects this standalone night to the same town, remembers prior choices, and returns with the party afterward.",
       "description": "Captain Brune Holt, a familiar Hearthford face whose presence makes this another night in the same ongoing community rather than an isolated job.",
       "tableDialogue": [
-        "“This matters back in Hearthford too.”",
-        "“Finish the job. Then we go home.”"
+        "“Clear the harbor. Then we inspect the racks.”",
+        "“Clear the harbor. That is still the order.”",
+        "“Nobody fires the seventh signal until I say the waterfront is safe.”"
       ],
       "reactions": {
         "agreement": "Supports the party and records the outcome for Hearthford.",
@@ -792,6 +793,10 @@
         {
           "title": "Record reward",
           "text": "Award 220 gp and Favor tokens."
+        },
+        {
+          "title": "Demonstrate all seven meanings",
+          "text": "Run the repaired sequence once as public safety signals, with each launch answered by the action it originally commanded."
         }
       ],
       "advanceWhen": "Accountability and rewards are recorded.",
@@ -828,6 +833,10 @@
         {
           "title": "Record reward",
           "text": "Award 240 gp and Harbor Signal token."
+        },
+        {
+          "title": "Let the harbor answer without powder",
+          "text": "Use lanterns and bells for the final signal and have dock crews visibly perform the matching response."
         }
       ],
       "advanceWhen": "The new signal protocol and rewards are recorded.",
@@ -865,6 +874,10 @@
         {
           "title": "Record reward",
           "text": "Award 220 gp."
+        },
+        {
+          "title": "Remove the dangerous hardware",
+          "text": "Unload the powder and condemn the racks while preserving the seven emergency meanings in a safer signal system."
         }
       ],
       "advanceWhen": "The new non-explosive standard and rewards are recorded.",
