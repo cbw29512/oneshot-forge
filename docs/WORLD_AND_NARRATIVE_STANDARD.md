@@ -20,7 +20,68 @@ Exact travel time may vary when an adventure gives a more specific route. Do not
 
 The product promise is that **the world remembers the players**. When useful and non-disruptive, consequences, rumors, merchants, NPC references, scars, favors, and prior decisions may cross between these places.
 
-## 2. Catalog story test
+## 2. Theme spine — one memorable idea, all the way through
+
+Every curated one-shot needs **one unmistakable central theme** that can be said in one short sentence.
+
+Examples of the level of clarity required:
+- a village lantern that was secretly a prison;
+- a well that trades water for names;
+- a starving village arguing over a stolen owlbear egg;
+- a failing bridge where saving people matters more than saving the bridge;
+- a genius owlbear making a legal property claim.
+
+The theme is not decoration. It must keep the adventure on its path from hook to aftermath.
+
+A release-ready one-shot should express the same central idea through most of these layers:
+
+- **Hook:** the problem is immediate and literal.
+- **Location:** the place physically reinforces the theme.
+- **NPC wants:** people want things that arise from the same problem.
+- **Clues:** discoveries deepen or reframe the central premise.
+- **Obstacle / trap:** the complication belongs to this adventure, not a generic dungeon.
+- **Puzzle / interaction:** the solution uses the adventure's own logic, objects, history, or environment.
+- **Clock / pressure:** urgency grows from the premise.
+- **Combat:** if present, the fight has a job tied to the theme.
+- **Twist:** changes what the party thinks the central problem means; it must not introduce an unrelated second adventure.
+- **Finale:** pays off the original hook directly.
+- **Aftermath:** shows what the party's decision changed.
+
+If the trap, puzzle, monster, or finale could be moved unchanged into five unrelated adventures, it is probably filler.
+
+### Memorable turns without losing the path
+
+A one-shot should contain enough turns to be remembered, but every turn must point back toward the original situation.
+
+Preferred rhythm:
+
+1. **Literal hook** — the table immediately understands the job.
+2. **First complication** — the simple job is harder than expected.
+3. **Revelation** — a fact changes how the party interprets the job.
+4. **Pressure increase** — clock, cost, danger, or competing need becomes harder to ignore.
+5. **Meaningful choice** — the players choose what matters.
+6. **Payoff** — the finale resolves the same problem that opened the adventure.
+7. **Consequence** — the world visibly remembers the choice.
+
+Do not add twists merely to surprise the players. A good twist makes the original premise **more interesting**, not less relevant.
+
+### Literal and easy to DM
+
+The adventure must be imaginative for the players and simple for the DM to operate.
+
+At any active scene, the DM should be able to answer at a glance:
+- Where are we?
+- What is happening right now?
+- What do the important NPCs/creatures want?
+- What can the players do?
+- What numbers do I need?
+- What changes on success?
+- What changes on failure?
+- What moves us to the next beat?
+
+Complex fiction is allowed. Hidden operating procedure is not.
+
+## 3. Catalog story test
 
 Before an authored adventure is called narratively complete, it must answer:
 
@@ -32,7 +93,7 @@ Before an authored adventure is called narratively complete, it must answer:
 
 The answers belong in authoritative adventure data when they affect story truth or consequences. Public catalog copy should communicate enough of them to sell the situation without spoiling the adventure.
 
-## 3. Consequence standard
+## 4. Consequence standard
 
 Use *Beneath the Eastern Watchtower* as the model for consequential choices:
 
@@ -41,7 +102,7 @@ Use *Beneath the Eastern Watchtower* as the model for consequential choices:
 - failure should move play forward;
 - people, places, resources, relationships, and reputation can all carry persistent consequences.
 
-## 4. Moral-choice voice
+## 5. Moral-choice voice
 
 Preferred language is direct and non-judgmental.
 
@@ -49,7 +110,7 @@ Preferred language is direct and non-judgmental.
 
 Do not imply that the adventure has a hidden author-approved moral answer when multiple endings are intentionally legal.
 
-## 5. Character-driven pressure
+## 6. Character-driven pressure
 
 Systems, puzzles, hazards, and clocks become stronger when at least one person or creature actively wants something.
 
@@ -59,7 +120,7 @@ For major curated adventures, identify a want-driven character whenever practica
 - what they will do if the party refuses;
 - what changes if the party helps or harms them.
 
-## 6. Current catalog directives
+## 7. Current catalog directives
 
 ### The Lantern Below
 - Lead with the stronger moral hook: the thief may have taken the Emberglass for the right reason.
@@ -108,7 +169,7 @@ For major curated adventures, identify a want-driven character whenever practica
 - Their family, aspiration, flaw/fear, relationships, and likely heroic direction should be visible early enough for players to care who grows up.
 - The scrapbook is meaningful because the child already has an identity before the first growth beat.
 
-## 7. Public-copy rule
+## 8. Public-copy rule
 
 If the authoritative package contains a stronger hook than the catalog card, the catalog card is wrong.
 
@@ -121,7 +182,7 @@ Product-page copy should foreground:
 
 Do not replace specific hooks with generic phrases such as “make a difficult choice” when the actual choice can be stated more sharply.
 
-## 8. Anti-drift rule
+## 9. Anti-drift rule
 
 Before changing curated adventure story structure or storefront copy, read:
 1. `docs/FORGE_CONSTITUTION.md`
