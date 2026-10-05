@@ -379,7 +379,7 @@
     {
       "id": "loc-launch-yard",
       "name": "Old Fort Launch Yard",
-      "description": "Seven angled racks line the cliff wall beside fuse channels, water barrels, and a locked maintenance shed.",
+      "description": "Seven angled racks line the cliff wall beside fuse channels, water barrels, and a locked maintenance shed; waist-high stone berms divide the firing lanes and the harbor drops away beyond the rail.",
       "connections": [
         "loc-square",
         "loc-docks",
@@ -390,7 +390,7 @@
     {
       "id": "loc-docks",
       "name": "Harbor Dockworks",
-      "description": "Fuel barges, fishing boats, worker cranes, and temporary festival seating pack the waterfront beneath the fort.",
+      "description": "Fuel barges, fishing boats, worker cranes, and temporary festival seating pack the waterfront beneath the fort, leaving tight lanes between stacked cargo, mooring ropes, and evacuation routes toward higher ground.",
       "connections": [
         "loc-launch-yard",
         "loc-tunnels",
