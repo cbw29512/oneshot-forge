@@ -19,6 +19,7 @@
     "the-heartloom-of-rosebridge": "data/adventures/the-heartloom-of-rosebridge.oneshot.json",
     "the-first-egg-of-greenhollow": "data/adventures/the-first-egg-of-greenhollow.oneshot.json",
     "the-last-rocket-of-founding-day": "data/adventures/the-last-rocket-of-founding-day.oneshot.json",
-    "the-lanterns-we-left-behind": "data/adventures/the-lanterns-we-left-behind.oneshot.json"
+    "the-lanterns-we-left-behind": "data/adventures/the-lanterns-we-left-behind.oneshot.json",
+    "the-graduation-that-opened-the-sky": "data/adventures/the-graduation-that-opened-the-sky.oneshot.json"
   });
 })();
