@@ -1,0 +1,1310 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-heartloom-of-rosebridge",
+    "title": "The Heartloom of Rosebridge",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 5,
+    "partySize": 4,
+    "partySizeRange": "3–6 players",
+    "durationMinutes": 210,
+    "tone": [
+      "Valentine bonds festival",
+      "social mystery",
+      "romance-optional folk magic"
+    ]
+  },
+  "series": {
+    "title": "Holiday One-Shots",
+    "holiday": "Valentine / bonds",
+    "standalone": true
+  },
+  "setup": {
+    "pitch": "Rosebridge's Festival of Bonds honors every chosen connection in town. This year organizers kept only romantic ribbons—and the Heartloom has begun tying people together against their will.",
+    "openingLocation": "Rosebridge festival bridge",
+    "gmSummary": "The Heartloom is an old enchanted loom beneath Rosebridge used during the Festival of Bonds. Traditionally townsfolk tie ribbons naming any meaningful bond: siblings, friends, teachers, partners, teammates, caretakers. This year festival chair Celia Thorn narrowed the public display to romantic pairs to make the event more marketable. Hundreds of friendship, family, and mentorship ribbons were boxed away. The Heartloom responds by trying to 'complete' the missing pattern literally: glowing cords bind strangers, pull separated people together, and distort the bridge. The party must discover what was removed, recover the boxed ribbons, help several affected relationships speak for themselves, and decide whether Rosebridge restores the broad tradition, replaces the magical loom with a voluntary civic ritual, or cuts the enchantment entirely.",
+    "background": "Rosebridge was founded by refugees who survived because unrelated households chose to become kin. The Heartloom was woven to celebrate chosen bonds, not romance specifically. Over centuries the festival became increasingly decorative. Celia Thorn, hoping to turn it into a destination event, redesigned the display around couples and quietly stored all other ribbons in the guild archive. The loom interprets those omissions as broken strands and begins physically forcing connections to fill the gaps."
+  },
+  "quest": {
+    "type": "investigate / protect festival / choose",
+    "objective": "Stop the Heartloom from forcing bonds, recover what was removed from the ritual, and decide what Rosebridge's Festival of Bonds should honor.",
+    "stakes": "People are being physically bound, old friendships are being misread as romance, family ties are being excluded, and the bridge structure is tightening under magical strain.",
+    "deadline": "FIVE KNOTS: show five knot marks. Fill one after the bridge, ribbon archive, three-way bond dispute, and underbridge loom approach; the fifth fills at the finale. Each knot increases forced-binding pressure.",
+    "successConditions": [
+      "The missing ribbon categories are recovered or deliberately accounted for.",
+      "The Heartloom stops binding people without consent.",
+      "The party resolves the festival through Restore, Reweave, or Cut."
+    ],
+    "failureConditions": [
+      "The party abandons Rosebridge while people remain magically bound.",
+      "The Heartloom is destroyed without releasing the bound crowd or documenting the erased bonds."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-all-bonds",
+        "text": "The original Festival of Bonds honored friendship, family, mentorship, partnership, and other chosen ties—not only romance."
+      },
+      {
+        "id": "fact-ribbons-removed",
+        "text": "Celia Thorn ordered non-romantic ribbons removed from the public Heartloom display."
+      },
+      {
+        "id": "fact-forced-binding",
+        "text": "The Heartloom is trying to replace omitted relationships by physically binding people, not creating genuine affection."
+      },
+      {
+        "id": "fact-consent-rule",
+        "text": "A bond only stabilizes the loom when the people involved freely name it; forced pairings make the strain worse."
+      },
+      {
+        "id": "fact-three-resolutions",
+        "text": "The crisis can end by restoring the broad ribbon pattern, replacing the Heartloom with a voluntary public bond registry, or cutting the enchantment."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-celia-marketing",
+        "text": "Celia removed non-romantic ribbons to sell Rosebridge as a romantic destination festival.",
+        "revealCondition": "Find the sponsor brief, compare old/new display plans, or confront her with the ribbon boxes."
+      },
+      {
+        "id": "secret-founders",
+        "text": "The founders' first recorded Heartloom bond was between two unrelated families who chose to become one household.",
+        "revealCondition": "Read the founder tapestry, inspect the underbridge inscription, or restore the family/friendship ribbons."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-celia-thorn",
+      "name": "Celia Thorn",
+      "role": "festival chair who narrowed the tradition",
+      "personality": [
+        "charismatic",
+        "image-conscious",
+        "not malicious"
+      ],
+      "voiceCues": [
+        "calls people 'festival stories'",
+        "speaks in slogans when nervous"
+      ],
+      "wants": [
+        "Stop the magical chaos",
+        "Preserve Rosebridge's festival reputation",
+        "Avoid being blamed for excluding half the town"
+      ],
+      "fears": [
+        "Sponsors leaving",
+        "The event becoming known for forced pairings"
+      ],
+      "knows": [
+        "She ordered non-romantic ribbons stored",
+        "The ribbon boxes are in the guild archive",
+        "The Heartloom reacted after the opening ceremony"
+      ],
+      "believes": [
+        "A clearer romantic theme made the festival easier to understand"
+      ],
+      "secrets": [
+        "The sponsor brief explicitly asked for couples-focused imagery"
+      ],
+      "lies": [
+        "Initially calls the stored ribbons duplicates rather than excluded categories"
+      ],
+      "cannotKnow": [
+        "How consent changes the loom",
+        "What the founders intended beyond the curated festival history"
+      ],
+      "revealRules": [
+        {
+          "fact": "She ordered the ribbon removal.",
+          "when": "Shown the sponsor brief, archive list, or old display plan."
+        }
+      ],
+      "questFunction": "Creates the human cause and the argument for a simplified festival without being the sole clue source.",
+      "description": "A poised organizer in a crimson coat with a heart-shaped brooch, carrying a rolled sponsor banner and a clipboard tied with too many pink ribbons.",
+      "tableDialogue": [
+        "“I simplified the message. I did not ask the bridge to start matchmaking people by force.”",
+        "“Sponsors wanted romance. The town gave me everything from cousins to chess partners.”",
+        "“Fine. Show me what belongs back.”"
+      ],
+      "reactions": {
+        "agreement": "Hands over the archive key and sponsor brief.",
+        "refusal": "Keeps the crowd moving; old display plans remain posted backstage.",
+        "accusation": "Admits the exclusion policy and stops calling the removed ribbons duplicates.",
+        "danger": "Orders the festival stage cleared and opens emergency access to the underbridge stairs."
+      }
+    },
+    {
+      "id": "npc-juniper-vale",
+      "name": "Juniper Vale",
+      "role": "archive keeper and longtime friend caught in a forced pairing",
+      "personality": [
+        "wry",
+        "observant",
+        "firm about boundaries"
+      ],
+      "voiceCues": [
+        "corrects relationship labels immediately",
+        "uses humor under pressure"
+      ],
+      "wants": [
+        "Get the archive ribbons restored",
+        "Free herself and Tomas from a forced romantic cord",
+        "Make the festival stop treating friendship as lesser"
+      ],
+      "fears": [
+        "Tomas thinking the magic reflects her hidden feelings",
+        "The archive being blamed for the omissions"
+      ],
+      "knows": [
+        "Original ribbon categories",
+        "Celia's removal order",
+        "The founder tapestry location"
+      ],
+      "believes": [
+        "Naming a bond accurately matters more than making it impressive"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "How the Heartloom will react to cutting magic",
+        "Whether sponsors knew the full exclusion plan"
+      ],
+      "revealRules": [
+        {
+          "fact": "The festival originally honored five broad bond categories.",
+          "when": "The party checks the archive catalog or asks her directly."
+        }
+      ],
+      "questFunction": "Provides archive access and demonstrates why forced labels are harmful.",
+      "description": "A dark-haired archivist in ink-stained sleeves with one glowing red cord looped unwillingly around her wrist and Tomas's.",
+      "tableDialogue": [
+        "“He is my best friend. That is not a lesser answer.”",
+        "“The loom is not reading hearts. It is filling blanks badly.”",
+        "“Put the labels back where people chose them.”"
+      ],
+      "reactions": {
+        "agreement": "Helps sort ribbon categories and identifies the founder tapestry.",
+        "refusal": "Leaves the archive catalog on the desk and focuses on freeing bound visitors.",
+        "accusation": "Points directly to Celia's signed removal order.",
+        "danger": "Uses archive scissors to cut mundane ribbons away from trapped limbs without touching magical cords."
+      }
+    },
+    {
+      "id": "npc-tomas-reed",
+      "name": "Tomas Reed",
+      "role": "bridge carpenter and Juniper's best friend",
+      "personality": [
+        "steady",
+        "protective",
+        "embarrassed by public spectacle"
+      ],
+      "voiceCues": [
+        "talks about bridge loads when emotions get awkward",
+        "uses plain labels"
+      ],
+      "wants": [
+        "Keep the bridge from twisting",
+        "Free people without defining their relationships for them",
+        "Protect Juniper's privacy"
+      ],
+      "fears": [
+        "Structural collapse",
+        "People treating magic as proof of consent"
+      ],
+      "knows": [
+        "The bridge strain increases when forced cords tighten",
+        "Freely named bonds make some cords slacken",
+        "The underbridge service path reaches the Heartloom"
+      ],
+      "believes": [
+        "Consent is part of the magic even if nobody wrote it on the posters"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "Why Celia removed categories",
+        "Founder history"
+      ],
+      "revealRules": [
+        {
+          "fact": "Freely named bonds reduce strain.",
+          "when": "A bound pair states their actual relationship in his presence."
+        }
+      ],
+      "questFunction": "Connects social truth to physical bridge mechanics and provides the underbridge route.",
+      "description": "A broad carpenter in a work apron over festival clothes, bracing a bridge rail with one shoulder while a glowing cord pulls at his other wrist.",
+      "tableDialogue": [
+        "“The bridge tightens every time somebody tells the loom what it wants to hear.”",
+        "“Call us friends and watch the beam.”",
+        "“Underbridge stair is east side. I built it.”"
+      ],
+      "reactions": {
+        "agreement": "Leads the party to the service stair once the archive ribbons are recovered.",
+        "refusal": "Marks the stair on a bridge maintenance diagram.",
+        "accusation": "Refuses to speculate about Juniper's feelings and redirects to the physical evidence.",
+        "danger": "Uses braces and wedges to keep the bridge deck from shifting."
+      }
+    },
+    {
+      "id": "npc-heartloom",
+      "name": "The Heartloom",
+      "role": "ancient bond-weaving enchantment",
+      "personality": [
+        "literal",
+        "pattern-seeking",
+        "not sentient in a human way"
+      ],
+      "voiceCues": [
+        "speaks through overlapping recorded vows",
+        "repeats relationship words without context"
+      ],
+      "wants": [
+        "A complete voluntary pattern",
+        "Every declared strand to match a real chosen bond"
+      ],
+      "fears": [
+        "Forced or false declarations create snarls rather than satisfaction"
+      ],
+      "knows": [
+        "Which bond categories are missing",
+        "Which cords were forced",
+        "Restore, Reweave, and Cut are all possible"
+      ],
+      "believes": [
+        "A pattern is complete only when each strand is named freely"
+      ],
+      "secrets": [
+        "It never created love; it only reinforced publicly chosen bonds"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Private feelings people do not state",
+        "Celia's marketing motive"
+      ],
+      "revealRules": [
+        {
+          "fact": "Consent stabilizes the pattern.",
+          "when": "A pair freely states its real bond at the loom or the founder inscription is read."
+        }
+      ],
+      "questFunction": "Creates the crisis and allows multiple noncombat resolutions.",
+      "description": "A bronze-and-wood loom built into the underbridge stone, threaded with hundreds of glowing ribbons that move without hands.",
+      "tableDialogue": [
+        "“Name strand.”",
+        "“False name. Tighten.”",
+        "“Chosen. Hold.”"
+      ],
+      "reactions": {
+        "agreement": "Loosens cords tied to accurately named bonds.",
+        "refusal": "Continues seeking a missing strand category.",
+        "accusation": "Projects old founder labels rather than defending itself.",
+        "danger": "Uses cords to restrain and reposition, not to harm unconscious creatures."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-bridge",
+      "name": "Rosebridge Festival Bridge",
+      "description": "A wide stone bridge covered in ribbon arches, flower stalls, and festival stages, with glowing cords now lashing between railings and people.",
+      "connections": [
+        "loc-archive",
+        "loc-bond-square",
+        "loc-underbridge"
+      ]
+    },
+    {
+      "id": "loc-archive",
+      "name": "Ribbon Guild Archive",
+      "description": "A tall room of labeled ribbon boxes, old display plans, founder tapestries, and this year's sponsor materials.",
+      "connections": [
+        "loc-bridge",
+        "loc-bond-square"
+      ]
+    },
+    {
+      "id": "loc-bond-square",
+      "name": "Bond Square",
+      "description": "A plaza beside the bridge where several forced cords have linked friends, siblings, strangers, and former partners under the wrong labels.",
+      "connections": [
+        "loc-archive",
+        "loc-underbridge",
+        "loc-bridge"
+      ]
+    },
+    {
+      "id": "loc-underbridge",
+      "name": "Underbridge Service Walk",
+      "description": "A narrow maintenance path beneath the bridge deck, where tightening magical cords pull masonry inward toward the Heartloom chamber.",
+      "connections": [
+        "loc-bond-square",
+        "loc-heartloom"
+      ]
+    },
+    {
+      "id": "loc-heartloom",
+      "name": "Heartloom Chamber",
+      "description": "A vaulted stone chamber beneath the central arch, filled by the ancient loom and a circular floor mosaic naming five bond categories.",
+      "connections": [
+        "loc-underbridge"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-all-bonds",
+      "revelation": "The original festival honored friendship, family, mentorship, partnership, and chosen kinship, not only romance.",
+      "required": true,
+      "sources": [
+        "The founder tapestry depicts five ribbon colors labeled FRIEND, FAMILY, MENTOR, PARTNER, CHOSEN KIN.",
+        "Old display plans in the archive allocate equal arches to five bond categories.",
+        "The Heartloom floor mosaic names the same five categories in worn stone."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-ribbons-removed",
+      "revelation": "Celia ordered non-romantic ribbons removed from the public display.",
+      "required": true,
+      "sources": [
+        "A signed archive transfer list moves FRIEND/FAMILY/MENTOR/CHOSEN KIN ribbons to storage.",
+        "The sponsor brief says COUPLES-FIRST VISUAL IDENTITY beside Celia's initials.",
+        "Sealed ribbon boxes in the archive contain hundreds of excluded submissions."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-forced-binding",
+      "revelation": "The Heartloom is filling omitted categories by forcing cords between people and mislabeling their bonds.",
+      "required": true,
+      "sources": [
+        "Juniper and Tomas are bound by a cord labeled PARTNER despite both naming friendship.",
+        "Bridge strain drops when a forced pair states its actual bond aloud.",
+        "The underbridge pattern shows empty category channels feeding into uncontrolled cords."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-consent",
+      "revelation": "Freely naming a real bond stabilizes the Heartloom; false or coerced labels make cords tighten.",
+      "required": true,
+      "sources": [
+        "Juniper and Tomas's cord loosens when they both freely say 'best friends.'",
+        "A founder inscription reads CHOSEN WORD, CHOSEN STRAND.",
+        "The Heartloom says 'False name. Tighten' after coerced declarations and 'Chosen. Hold' after voluntary ones."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-resolutions",
+      "revelation": "The crisis can end by restoring all bond categories, replacing the magic with a voluntary civic registry, or cutting the Heartloom enchantment.",
+      "required": true,
+      "sources": [
+        "The chamber mosaic has three control marks: RESTORE PATTERN / REWEAVE RULE / CUT THREAD.",
+        "A prior guild repair ledger records all three legal interventions.",
+        "The Heartloom exposes three distinct shuttle handles when shown recovered ribbons."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-bridge",
+      "title": "Wrongly Tied",
+      "purpose": "Launch the forced-bond crisis, show consent matters, and establish the five-knot clock.",
+      "locationId": "loc-bridge",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "The bridge tightens",
+      "readAloud": "Rosebridge glows with hundreds of red ribbons when the first scream rises. A cord snaps out of a decorative arch and loops around two strangers' wrists. Another yanks a brother and sister toward a banner marked SWEETHEARTS. Beneath your feet, the stone bridge gives a low grinding groan. Five glowing knots appear along the central rail.",
+      "gmNotes": [
+        "Show FIVE KNOTS. Fill 1/5 when this scene ends.",
+        "A bound pair can each use an Action to state their real relationship; if both freely agree on the label, their cord loosens automatically.",
+        "DC 13 Strength (Athletics) or Dexterity (Acrobatics) can physically separate a forced cord long enough to move, but it reforms unless the relationship is accurately named or the source is fixed.",
+        "Celia sends the party to the archive to find out why the display pattern is incomplete.",
+        "Do not treat magical pairing as proof of attraction or consent."
+      ],
+      "runSteps": [
+        {
+          "title": "Show obviously wrong labels",
+          "text": "Use siblings, friends, and strangers so the problem is clearly misclassification, not hidden romance."
+        },
+        {
+          "title": "Demonstrate voluntary naming",
+          "text": "One pair should become safer when they freely name their actual bond."
+        },
+        {
+          "title": "Put five knots on the table",
+          "text": "Each later scene increases structural pressure."
+        }
+      ],
+      "advanceWhen": "The party goes to the ribbon archive to inspect the missing categories and festival plans.",
+      "npcIds": [
+        "npc-celia-thorn",
+        "npc-tomas-reed"
+      ],
+      "clueIds": [
+        "clue-forced-binding",
+        "clue-consent"
+      ],
+      "encounterIds": [
+        "enc-forced-cords"
+      ],
+      "exits": [
+        "scene-archive"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-archive",
+          "label": "Audit the ribbon pattern",
+          "description": "Compare the current couples-only display to the festival's original categories."
+        }
+      ]
+    },
+    {
+      "id": "scene-archive",
+      "title": "Boxes of Missing Bonds",
+      "purpose": "Prove the broad original tradition and expose the deliberate removal of non-romantic ribbons.",
+      "locationId": "loc-archive",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Recover the missing strands",
+      "readAloud": "The Ribbon Guild archive smells of dust, lavender, and hot wax. Five colored shelves line the wall—but four are nearly empty. On the floor, sealed boxes are labeled FRIEND, FAMILY, MENTOR, and CHOSEN KIN. A sponsor poster leans against them: ROSEBRIDGE — THE CITY OF PERFECT PAIRS.",
+      "gmNotes": [
+        "Fill FIVE KNOTS 2/5 when the party leaves.",
+        "No roll is needed to see excluded ribbon categories.",
+        "DC 13 Intelligence (Investigation or History) reconstructs the founder pattern from old plans. Failure costs time but the tapestry and shelf labels reveal the same five categories.",
+        "The signed transfer list and sponsor brief establish Celia's decision without requiring confession.",
+        "Recovering and sorting the boxes gives advantage on the first Restore action in the finale."
+      ],
+      "runSteps": [
+        {
+          "title": "Open the boxes",
+          "text": "Make the scale of excluded relationships visible."
+        },
+        {
+          "title": "Show the old pattern",
+          "text": "Five categories have equal standing in founder material."
+        },
+        {
+          "title": "Preserve proof",
+          "text": "Take the transfer list and one ribbon bundle to Bond Square."
+        }
+      ],
+      "advanceWhen": "The party knows what categories were removed and takes evidence/ribbons to the affected crowd.",
+      "npcIds": [
+        "npc-celia-thorn",
+        "npc-juniper-vale"
+      ],
+      "clueIds": [
+        "clue-all-bonds",
+        "clue-ribbons-removed",
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-square"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-square",
+          "label": "Test the truth in Bond Square",
+          "description": "Use real relationships to see how the forced cords respond."
+        }
+      ]
+    },
+    {
+      "id": "scene-square",
+      "title": "Say What We Are",
+      "purpose": "Demonstrate consent mechanically and humanize different bond types before the finale.",
+      "locationId": "loc-bond-square",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Name the bonds",
+      "readAloud": "Bond Square has become a web. A grandmother is tied to her apprentice. Two former partners are pulled face-to-face while both shout no. Juniper Vale and Tomas Reed stand wrist-to-wrist under a glowing label that reads PARTNER. Juniper looks at the label, then at you. “We are best friends. Start there.”",
+      "gmNotes": [
+        "Fill FIVE KNOTS 3/5 after three bond examples are resolved.",
+        "Resolve three examples: friendship, family/mentorship, and a bond that should be released rather than relabeled.",
+        "For each example, both affected people freely naming the same real relationship releases or stabilizes the cord automatically.",
+        "DC 13 Charisma (Persuasion) can calm bystanders long enough to let affected people speak. Failure adds one STRAIN mark but nobody is forced to declare a relationship.",
+        "Never require characters or NPCs to confess romance. 'No bond / release us' is a valid outcome when both people reject the connection."
+      ],
+      "runSteps": [
+        {
+          "title": "Run three different bond cases",
+          "text": "Friendship, family/mentor, and release demonstrate the full rule."
+        },
+        {
+          "title": "Let people name themselves",
+          "text": "Players facilitate; they do not decide other people's relationships."
+        },
+        {
+          "title": "Watch the bridge",
+          "text": "Each accurate voluntary label visibly reduces local strain."
+        }
+      ],
+      "advanceWhen": "Three examples prove the consent rule and Tomas opens the underbridge service route.",
+      "npcIds": [
+        "npc-juniper-vale",
+        "npc-tomas-reed"
+      ],
+      "clueIds": [
+        "clue-all-bonds",
+        "clue-forced-binding",
+        "clue-consent"
+      ],
+      "encounterIds": [
+        "enc-bond-snarls"
+      ],
+      "exits": [
+        "scene-underbridge"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-underbridge",
+          "label": "Go below the bridge",
+          "description": "Reach the Heartloom through the service walk before the structure tightens further."
+        }
+      ]
+    },
+    {
+      "id": "scene-underbridge",
+      "title": "The Bridge Pulls Inward",
+      "purpose": "Add physical stakes, expose the incomplete pattern, and make preparation affect the final encounter.",
+      "locationId": "loc-underbridge",
+      "pacingClass": "core",
+      "estimatedMinutes": 35,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Reach the loom",
+      "readAloud": "Below the festival music, the bridge sounds like a ship in ice. Glowing cords pass through cracks in the stone and pull toward the central arch. Four channels in the old masonry are dark. Only the PARTNER channel burns bright enough to hurt your eyes.",
+      "gmNotes": [
+        "Fill FIVE KNOTS 4/5 when the party reaches the chamber door.",
+        "Cross two tightening cord zones. DC 13 Dexterity (Acrobatics) or Strength (Athletics); failure deals 1d6 force damage and Restrains the character until they or an ally spend an Action to free them.",
+        "Placing one recovered ribbon bundle into a dark channel disables that channel's hazard and grants one prepared Restore success in the finale, maximum 2.",
+        "The inscription CHOSEN WORD, CHOSEN STRAND is physical proof of consent.",
+        "If STRAIN is 2+, one bridge stone falls each round in the finale as difficult terrain; nobody is killed offscreen."
+      ],
+      "runSteps": [
+        {
+          "title": "Make the missing pattern physical",
+          "text": "Four dark category channels lead directly to the Heartloom."
+        },
+        {
+          "title": "Reward recovered ribbons",
+          "text": "Using them here reduces finale work."
+        },
+        {
+          "title": "Keep failure positional",
+          "text": "Cord zones restrain and damage but never seal the route."
+        }
+      ],
+      "advanceWhen": "The party opens the Heartloom chamber with at least one legal resolution understood.",
+      "npcIds": [
+        "npc-tomas-reed"
+      ],
+      "clueIds": [
+        "clue-forced-binding",
+        "clue-consent",
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-final"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-final",
+          "label": "Enter the Heartloom chamber",
+          "description": "Restore, reweave, or cut the festival's magic."
+        }
+      ]
+    },
+    {
+      "id": "scene-final",
+      "title": "Restore, Reweave, or Cut",
+      "purpose": "Resolve the holiday through broad inclusion, voluntary civic replacement, or ending the enchantment.",
+      "locationId": "loc-heartloom",
+      "pacingClass": "core",
+      "estimatedMinutes": 55,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "The fifth knot",
+      "readAloud": "The fifth knot ignites above the loom. Hundreds of ribbons whip through the chamber, weaving and unweaving names faster than you can read them. Three bronze shuttle handles rise from the frame: RESTORE PATTERN. REWEAVE RULE. CUT THREAD. The loom speaks in a hundred borrowed voices: “Name strand.”",
+      "gmNotes": [
+        "The Heartloom has AC 15 and 70 HP if attacked; it is a magical object/construct-like hazard, not a creature with emotions.",
+        "RESTORE: reinsert five bond categories. Two may already be prepared from underbridge channels. Each remaining Action uses DC 13 Intelligence (Arcana/History), Wisdom (Insight), or Charisma (Persuasion/Performance) while placing a recovered ribbon bundle and naming the category's equal standing. Three total Restore successes after prepared successes end the crisis.",
+        "REWEAVE: establish three voluntary rules—self-named bonds only, opt-out/release always valid, no category ranked above another. Each is an Action and DC 13 Intelligence (Arcana), Wisdom (Insight), or Charisma (Persuasion). Three successes before 2 failures reprogram the ritual; failure adds a Bond Snarl hazard but does not erase other routes.",
+        "CUT: target the red core thread after one hostile action or one deliberate Cut declaration. Core Thread AC 14, 20 HP. Destroying it ends the enchantment and all magical bond effects permanently.",
+        "Initiative 20: Forced Knot. Two creatures within 30 feet make DC 13 Strength or Dexterity save; on failure they are pulled 10 feet toward one another and Restrained by a shared cord until either uses an Action to cut/free it (AC 12, 8 HP).",
+        "Directly reducing the Heartloom to 0 HP has the same consequence as Cut."
+      ],
+      "runSteps": [
+        {
+          "title": "Name all three routes",
+          "text": "Restore, Reweave, and Cut are visible on the loom."
+        },
+        {
+          "title": "Center consent",
+          "text": "No route requires declaring a relationship someone does not choose."
+        },
+        {
+          "title": "End the moment a route completes",
+          "text": "All forced cords release immediately."
+        }
+      ],
+      "advanceWhen": "The Heartloom is restored, rewritten, or severed.",
+      "npcIds": [
+        "npc-celia-thorn",
+        "npc-juniper-vale",
+        "npc-tomas-reed",
+        "npc-heartloom"
+      ],
+      "clueIds": [
+        "clue-all-bonds",
+        "clue-ribbons-removed",
+        "clue-forced-binding",
+        "clue-consent",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-heartloom"
+      ],
+      "exits": [
+        "scene-resolution-restore",
+        "scene-resolution-reweave",
+        "scene-resolution-cut"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-restore",
+          "label": "Restore the full pattern",
+          "description": "Bring friendship, family, mentorship, partners, and chosen kin back to equal standing."
+        },
+        {
+          "target": "scene-resolution-reweave",
+          "label": "Rewrite the rules",
+          "description": "Keep magic but make self-definition and opt-out explicit."
+        },
+        {
+          "target": "scene-resolution-cut",
+          "label": "Cut the Heartloom",
+          "description": "End supernatural bond enforcement permanently."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-restore",
+      "title": "Resolution: Five Colors Again",
+      "purpose": "Reward restoring the broad tradition.",
+      "locationId": "loc-bridge",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "Five colors climb the bridge arches again. The cords around wrists dissolve into loose ribbons that fall harmlessly to the stones. Juniper ties a blue FRIEND ribbon beside a red PARTNER ribbon at equal height. Nobody moves it.",
+      "gmNotes": [
+        "Award 160 gp total and five Rosebridge Favor ribbons.",
+        "Future festival displays give equal space to all five bond categories.",
+        "Celia remains festival chair only if she accepts the public correction."
+      ],
+      "runSteps": [
+        {
+          "title": "Show equal categories",
+          "text": "No bond type is treated as second class."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 160 gp and Favor ribbons."
+        }
+      ],
+      "advanceWhen": "The restored festival and rewards are recorded.",
+      "npcIds": [
+        "npc-celia-thorn",
+        "npc-juniper-vale",
+        "npc-tomas-reed"
+      ],
+      "clueIds": [
+        "clue-all-bonds"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-reweave",
+      "title": "Resolution: Name Your Own Strand",
+      "purpose": "Reward keeping the magic while explicitly coding consent and self-definition.",
+      "locationId": "loc-bridge",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The old category signs fold away. New brass words appear on the Heartloom display: NAME YOUR OWN STRAND. RELEASE IS ALWAYS ALLOWED. NO STRAND ABOVE ANOTHER. The bridge relaxes with a sound like a held breath finally leaving.",
+      "gmNotes": [
+        "Award 180 gp total and the Free Strand token, a story item granting advantage on one future Rosebridge check involving mediation or boundary-setting.",
+        "The festival keeps magic but stops assigning relationship categories from outside.",
+        "Opt-out becomes a formal part of the rite."
+      ],
+      "runSteps": [
+        {
+          "title": "Write the new rules",
+          "text": "Self-definition, release, equality."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 180 gp and Free Strand token."
+        }
+      ],
+      "advanceWhen": "The rewritten rules and rewards are recorded.",
+      "npcIds": [
+        "npc-juniper-vale",
+        "npc-tomas-reed",
+        "npc-heartloom"
+      ],
+      "clueIds": [
+        "clue-consent",
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-cut",
+      "title": "Resolution: Ribbons Without Magic",
+      "purpose": "Respect ending supernatural bond enforcement while preserving the festival as a voluntary human ritual.",
+      "locationId": "loc-bridge",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The core thread snaps. Every glowing cord becomes ordinary cloth. People untie themselves, retie ribbons where they want them, or pocket them entirely. The bridge remains standing. The festival is suddenly quieter—and far more voluntary.",
+      "gmNotes": [
+        "Award 160 gp total.",
+        "The Heartloom enchantment ends permanently.",
+        "Rosebridge may keep a nonmagical ribbon festival if townsfolk choose."
+      ],
+      "runSteps": [
+        {
+          "title": "Release everyone immediately",
+          "text": "No lingering magical bond remains."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 160 gp."
+        }
+      ],
+      "advanceWhen": "Rewards and the future nonmagical festival are recorded.",
+      "npcIds": [
+        "npc-celia-thorn",
+        "npc-juniper-vale",
+        "npc-tomas-reed"
+      ],
+      "clueIds": [
+        "clue-ribbons-removed"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-forced-cords",
+      "name": "Forced Festival Cords",
+      "type": "hazard / restraint / social release",
+      "difficulty": "Low",
+      "summary": "Magical ribbons bind festivalgoers under incorrect relationship labels.",
+      "resolution": "Free people physically, let both parties freely name an accurate bond, or move on after clearing a path.",
+      "talkOut": "The hazard responds only to the bound people's own voluntary declaration; outsiders cannot define the relationship for them.",
+      "bypass": "Cut mundane festival rigging and take the archive stair, leaving Tomas to stabilize the bridge.",
+      "objective": "Reach the archive while demonstrating that consent changes the magic."
+    },
+    {
+      "id": "enc-bond-snarls",
+      "name": "Bond Snarls",
+      "type": "construct-like ribbon hazards",
+      "difficulty": "Low",
+      "summary": "Knotted ribbon masses animate where multiple forced labels overlap.",
+      "resolution": "Defeat them, unravel with Arcana/Sleight of Hand, or resolve the nearby relationship conflict to collapse them.",
+      "talkOut": "Not sentient; they unravel automatically when the linked people freely state or reject the bond.",
+      "bypass": "Move through the square along Tomas's braced path.",
+      "objective": "Resolve three human bond examples and keep the bridge stable."
+    },
+    {
+      "id": "enc-heartloom",
+      "name": "The Heartloom",
+      "type": "finale / ritual / object combat",
+      "difficulty": "Moderate",
+      "summary": "The ancient loom rapidly forces strands as the fifth knot tightens.",
+      "resolution": "Complete Restore, complete Reweave, destroy the core thread, or reduce the loom to 0 HP.",
+      "talkOut": "It responds to accurate voluntary declarations and rule changes, not ordinary persuasion alone.",
+      "bypass": "Restore and Reweave are complete noncombat routes.",
+      "objective": "Decide how Rosebridge honors bonds without overriding the people in them."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-five-colors",
+      "prompt": "Reconstruct the founder ribbon pattern from five category colors and archived display plans.",
+      "solution": "FRIEND / FAMILY / MENTOR / PARTNER / CHOSEN KIN all occupy equal arches.",
+      "bypass": "DC 13 Investigation or History reconstructs the layout immediately.",
+      "failForward": "The founder tapestry shows the correct equal-height arrangement after one wrong placement."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-tightening-cords",
+      "trigger": "Cross an underbridge cord zone without bracing or placing a recovered ribbon bundle.",
+      "effect": "DC 13 Athletics or Acrobatics; failure deals 1d6 force and Restrains until an Action frees the target.",
+      "failForward": "The route remains open and the hazard can be disabled with a recovered ribbon bundle."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-free-strand",
+      "name": "Free Strand Token",
+      "effect": "Story reward from Reweave; once in Rosebridge, grants advantage on one check involving mediation or boundary-setting."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-bond-square",
+      "name": "Rosebridge Bond Square",
+      "asset": null,
+      "regions": [
+        {
+          "id": "square-friend",
+          "sceneId": "scene-square",
+          "label": "friendship cord example"
+        },
+        {
+          "id": "square-family",
+          "sceneId": "scene-square",
+          "label": "family/mentor cord example"
+        },
+        {
+          "id": "square-release",
+          "sceneId": "scene-square",
+          "label": "release/opt-out example"
+        }
+      ]
+    },
+    {
+      "id": "map-underbridge",
+      "name": "Rosebridge Underbridge Walk",
+      "asset": null,
+      "regions": [
+        {
+          "id": "walk-entry",
+          "sceneId": "scene-underbridge",
+          "label": "service stair"
+        },
+        {
+          "id": "walk-cords",
+          "sceneId": "scene-underbridge",
+          "label": "tightening cord zones"
+        },
+        {
+          "id": "walk-channels",
+          "sceneId": "scene-underbridge",
+          "label": "five category channels"
+        }
+      ]
+    },
+    {
+      "id": "map-heartloom",
+      "name": "Heartloom Chamber",
+      "asset": null,
+      "regions": [
+        {
+          "id": "loom-center",
+          "sceneId": "scene-final",
+          "label": "Heartloom"
+        },
+        {
+          "id": "loom-shuttles",
+          "sceneId": "scene-final",
+          "label": "Restore/Reweave/Cut handles"
+        },
+        {
+          "id": "loom-core",
+          "sceneId": "scene-final",
+          "label": "core thread"
+        }
+      ]
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "No relationship label is ever required from a person who does not choose it.",
+      "All required facts survive the absence or hostility of any one NPC.",
+      "Failure adds strain, restraint, or extra hazards but never removes all finale routes."
+    ],
+    "routes": [
+      {
+        "id": "rec-celia-unavailable",
+        "trigger": "Celia is unavailable or refuses cooperation.",
+        "response": "The signed transfer list, sponsor brief, and sealed archive boxes prove the exclusion policy.",
+        "stateChanges": [
+          "clue-ribbons-removed remains physical.",
+          "Archive route remains available."
+        ]
+      },
+      {
+        "id": "rec-juniper-unavailable",
+        "trigger": "Juniper cannot explain the archive.",
+        "response": "Shelf labels, founder tapestry, and old display plans establish the five equal bond categories.",
+        "stateChanges": [
+          "clue-all-bonds remains available.",
+          "No archive keeper is required."
+        ]
+      },
+      {
+        "id": "rec-tomas-unavailable",
+        "trigger": "Tomas cannot guide the underbridge route.",
+        "response": "A maintenance diagram on the bridge rail marks the east service stair and five category channels.",
+        "stateChanges": [
+          "Underbridge remains reachable.",
+          "Consent evidence remains in the inscription."
+        ]
+      },
+      {
+        "id": "rec-ribbons-lost",
+        "trigger": "Recovered ribbon boxes are destroyed or abandoned.",
+        "response": "The party can use written category names and voluntary declarations instead; Restore checks lose preparation advantage but remain legal.",
+        "stateChanges": [
+          "Restore remains available.",
+          "Reweave and Cut are unchanged."
+        ]
+      },
+      {
+        "id": "rec-rush-final",
+        "trigger": "The party reaches the Heartloom without understanding all routes.",
+        "response": "The three shuttle handles rise with engraved labels and the floor mosaic shows all five bond categories before initiative.",
+        "stateChanges": [
+          "All finale routes remain visible.",
+          "Prepared play still reduces work."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared social investigation reduces structural strain and preloads Restore, while rushed play preserves every ending at greater tactical pressure.",
+    "prepared": [
+      "Sorting ribbon boxes grants advantage on the first Restore action.",
+      "Placing up to two category bundles underbridge grants prepared Restore successes.",
+      "Resolving Bond Square examples reduces STRAIN."
+    ],
+    "rushed": [
+      "Skipping Bond Square starts the finale with STRAIN 2.",
+      "Ignoring underbridge channels removes prepared Restore successes.",
+      "Entering without consent proof adds one Bond Snarl on the first failed Reweave action."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 210,
+    "plannedMinutes": 210,
+    "bossReserveMinutes": 55,
+    "cutOrder": [
+      "If 25+ minutes behind, auto-reveal the five-category founder pattern in the archive.",
+      "If 15+ minutes behind in Bond Square, run two examples instead of three but include one opt-out/release case.",
+      "Never cut consent mechanics, the broad original tradition, or the three finale routes."
+    ],
+    "optionalOrder": [
+      "Extended sponsor argument with Celia.",
+      "Additional bond examples beyond the three required cases.",
+      "Founder history after the five categories are established."
+    ]
+  },
+  "endings": [
+    {
+      "id": "ending-restore",
+      "name": "Five Colors Again",
+      "condition": "Restore completes.",
+      "result": "The broad five-category tradition returns with equal standing."
+    },
+    {
+      "id": "ending-reweave",
+      "name": "Name Your Own Strand",
+      "condition": "Reweave completes.",
+      "result": "The Heartloom remains but self-definition, opt-out, and equality become explicit magical rules."
+    },
+    {
+      "id": "ending-cut",
+      "name": "Ribbons Without Magic",
+      "condition": "The Heartloom or core thread is destroyed.",
+      "result": "The enchantment ends and future bond rituals are entirely voluntary and nonmagical."
+    }
+  ],
+  "initialState": {
+    "questStage": "festival-snarled",
+    "currentSceneId": "scene-bridge",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-celia-thorn": {
+        "status": "alive",
+        "attitude": "defensive"
+      },
+      "npc-juniper-vale": {
+        "status": "bound",
+        "attitude": "firm"
+      },
+      "npc-tomas-reed": {
+        "status": "bound",
+        "attitude": "protective"
+      },
+      "npc-heartloom": {
+        "status": "active",
+        "attitude": "pattern-seeking"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-free-strand": "unearned"
+    },
+    "eventState": {
+      "knotMarks": 0,
+      "strain": 0,
+      "preparedRestore": 0
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific hazards and quick-run procedures are complete in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2014 SRD package."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific hazards and quick-run procedures are complete in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2024 SRD package; do not import 2014 class features."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-heartloom-of-rosebridge",
+    "version": "0.1.0",
+    "target": {
+      "level": 5,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-cord",
+      "check-pattern",
+      "check-crowd",
+      "check-underbridge",
+      "check-reweave"
+    ],
+    "checks": [
+      {
+        "id": "check-cord",
+        "sceneId": "scene-bridge",
+        "label": "Separate a forced cord",
+        "dc": 13,
+        "ability": "Strength (Athletics) or Dexterity (Acrobatics)",
+        "success": "Create enough slack for the bound people to move and speak safely.",
+        "failure": "The cord tightens and pulls both creatures 5 feet together; the relationship can still be voluntarily named or rejected."
+      },
+      {
+        "id": "check-pattern",
+        "sceneId": "scene-archive",
+        "label": "Reconstruct the founder pattern",
+        "dc": 13,
+        "ability": "Intelligence (Investigation or History)",
+        "success": "Identify all five equal bond categories.",
+        "failure": "The founder tapestry reveals the correct equal-height pattern after a short delay."
+      },
+      {
+        "id": "check-crowd",
+        "sceneId": "scene-square",
+        "label": "Create space for a voluntary declaration",
+        "dc": 13,
+        "ability": "Charisma (Persuasion)",
+        "success": "Bystanders back off and the affected people speak without pressure.",
+        "failure": "STRAIN increases by 1; nobody is forced to declare anything and the bond can still be resolved later."
+      },
+      {
+        "id": "check-underbridge",
+        "sceneId": "scene-underbridge",
+        "label": "Cross a tightening cord zone",
+        "dc": 13,
+        "ability": "Strength (Athletics) or Dexterity (Acrobatics)",
+        "success": "Cross safely.",
+        "failure": "Take 1d6 force and become Restrained until freed with an Action."
+      },
+      {
+        "id": "check-reweave",
+        "sceneId": "scene-final",
+        "label": "Write one voluntary Heartloom rule",
+        "dc": 13,
+        "ability": "Intelligence (Arcana), Wisdom (Insight), or Charisma (Persuasion)",
+        "success": "One Reweave rule locks into the loom.",
+        "failure": "A Bond Snarl hazard appears and one Reweave failure is recorded; at two failures Reweave closes but Restore and Cut remain legal."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-forced-cords",
+        "objective": "Reach the archive while freeing or safely bypassing festivalgoers caught in incorrect labels.",
+        "start": "Three glowing cords bind visibly mismatched relationships along the bridge.",
+        "bypass": "Clear a path using voluntary declarations and the side festival stair.",
+        "creatures": [
+          {
+            "name": "Forced Cord",
+            "count": 3,
+            "ac": 12,
+            "hp": 10,
+            "speed": "0 ft.",
+            "attack": "Snap +5 to hit, 1d6+3 force and pull 5 ft.",
+            "trait": "Consent Release: if both bound people freely state the same real relationship or both reject the connection, the cord immediately dissolves.",
+            "tactics": "Pull linked creatures together and obstruct movement; cords do not pursue."
+          }
+        ],
+        "end": "The archive route is clear."
+      },
+      {
+        "id": "enc-bond-snarls",
+        "objective": "Resolve Bond Square examples while keeping the bridge stable.",
+        "start": "Knotted ribbon masses animate near the most heavily mislabeled bonds.",
+        "bypass": "Accurate voluntary declarations collapse linked snarls automatically.",
+        "creatures": [
+          {
+            "name": "Bond Snarl",
+            "count": 2,
+            "ac": 13,
+            "hp": 18,
+            "speed": "20 ft.",
+            "attack": "Ribbon Lash +5 to hit, 1d8+3 force.",
+            "trait": "Linked Pattern: when the associated bond is voluntarily named or released, the Snarl loses all remaining HP.",
+            "tactics": "Restrain speakers and block access to affected pairs."
+          }
+        ],
+        "end": "Required bond examples are resolved or bypassed."
+      },
+      {
+        "id": "enc-heartloom",
+        "objective": "Resolve the festival by Restore, Reweave, or Cut.",
+        "start": "The fifth knot ignites and the ancient loom begins forcing strands across the chamber.",
+        "bypass": "Restore and Reweave are complete noncombat routes.",
+        "creatures": [
+          {
+            "name": "Heartloom",
+            "count": 1,
+            "ac": 15,
+            "hp": 70,
+            "speed": "0 ft.",
+            "attack": "Thread Lash +6 to hit, 2d6+3 force.",
+            "trait": "Core Thread: after one hostile action or Cut declaration, AC 14, 20 HP; destroying it reduces the Heartloom to 0 HP and ends the enchantment.",
+            "tactics": "Use forced cords to reposition ritual actors and protect its core thread."
+          }
+        ],
+        "end": "Restore succeeds, Reweave succeeds, or the Heartloom reaches 0 HP."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-tightening-cords",
+        "sceneId": "scene-underbridge",
+        "trigger": "Enter a tightening cord zone.",
+        "save": "DC 13 Strength (Athletics) or Dexterity (Acrobatics).",
+        "failure": "Take 1d6 force and become Restrained until freed with an Action.",
+        "success": "Cross safely.",
+        "failForward": "The route remains open and recovered ribbon bundles can disable zones."
+      },
+      {
+        "id": "hazard-forced-knot",
+        "sceneId": "scene-final",
+        "trigger": "Initiative count 20 while the Heartloom remains unresolved.",
+        "save": "DC 13 Strength or Dexterity saving throw for two targeted creatures.",
+        "failure": "Each is pulled 10 feet toward the other and Restrained by a shared cord.",
+        "success": "The creature resists the pull.",
+        "failForward": "Shared cords can be cut or freed with an Action and never dictate relationship status."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-restore",
+        "when": "Restore resolves the crisis.",
+        "reward": "160 gp total and five Rosebridge Favor ribbons."
+      },
+      {
+        "id": "reward-reweave",
+        "when": "Reweave resolves the crisis.",
+        "reward": "180 gp total and the Free Strand token."
+      },
+      {
+        "id": "reward-cut",
+        "when": "The Heartloom is destroyed.",
+        "reward": "160 gp total; future festival ribbons are entirely nonmagical."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-square",
+        "dimensions": "90 × 60 ft. festival plaza; 5-ft. grid.",
+        "features": [
+          "friendship case",
+          "family/mentor case",
+          "release case",
+          "bridge rail",
+          "two Bond Snarl starts"
+        ]
+      },
+      {
+        "sceneId": "scene-underbridge",
+        "dimensions": "80 × 40 ft. maintenance walk; 5-ft. grid.",
+        "features": [
+          "east stair",
+          "two tightening cord zones",
+          "five category channels",
+          "Heartloom door"
+        ]
+      },
+      {
+        "sceneId": "scene-final",
+        "dimensions": "70 × 70 ft. Heartloom chamber; 5-ft. grid.",
+        "features": [
+          "central loom",
+          "three shuttle handles",
+          "core thread",
+          "category mosaic",
+          "forced-knot lanes"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One Valentine/bonds mystery: expose the narrowed tradition, demonstrate consent, reach the loom, then branch only at the final intervention.",
+    "mainSpine": [
+      "scene-bridge",
+      "scene-archive",
+      "scene-square",
+      "scene-underbridge",
+      "scene-final"
+    ],
+    "allowedBranchScenes": [
+      "scene-final"
+    ],
+    "terminalScenes": [
+      "scene-resolution-restore",
+      "scene-resolution-reweave",
+      "scene-resolution-cut"
+    ],
+    "stageCount": 6
+  },
+  "cards": []
+}
