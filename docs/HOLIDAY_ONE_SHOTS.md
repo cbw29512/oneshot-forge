@@ -24,22 +24,7 @@ Each release still needs:
 
 ## Level ladder
 
-The new authored one-shot line should deliberately cover the full 1–20 level range instead of clustering around low levels.
-
-Build order:
-- first new entry: Level 1;
-- second: Level 2;
-- continue upward one level at a time;
-- do not repeat a level in the new ladder until Levels 1–20 each have at least one adventure;
-- each adventure remains standalone even though customers can choose to play them as a loose level-by-level progression;
-- encounter math, DC pressure, treasure, pregens, spell access, mobility assumptions, and finale mechanics must be re-audited for that adventure's actual level rather than scaling only monster HP.
-
-Holiday releases may occupy any rung in this ladder, but while filling the first 1–20 pass they should take the next unused level.
-
-Current ladder:
-1. **Level 1 — The Last Treat of Gloamwick (Halloween)**
-2. **Level 2 — next new one-shot**
-3. Levels 3–20 — unassigned
+Holiday releases follow the catalog-wide 1→20 progression in `docs/LEVEL_COVERAGE.md`. The next new holiday or non-holiday one-shot takes the next unused level in that ledger.
 
 ## Holiday identity
 
