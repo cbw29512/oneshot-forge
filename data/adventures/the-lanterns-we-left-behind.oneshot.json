@@ -889,7 +889,7 @@
     {
       "id": "map-ghost-road",
       "name": "Bellmere North Ghost Road",
-      "asset": null,
+      "asset": "assets/maps/holiday/bellmere-ghost-road-grid.svg",
       "regions": [
         {
           "id": "road-procession",
@@ -916,7 +916,7 @@
     {
       "id": "map-crossroads",
       "name": "Landslide Crossroads",
-      "asset": null,
+      "asset": "assets/maps/holiday/bellmere-crossroads-grid.svg",
       "regions": [
         {
           "id": "cross-markers",
@@ -938,7 +938,7 @@
     {
       "id": "map-memorial-hill",
       "name": "Bellmere Memorial Hill",
-      "asset": null,
+      "asset": "assets/maps/holiday/bellmere-memorial-hill-grid.svg",
       "regions": [
         {
           "id": "hill-gate",
