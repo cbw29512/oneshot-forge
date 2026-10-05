@@ -13,6 +13,7 @@
     "the-ashen-bridge": "data/adventures/the-ashen-bridge.oneshot.json",
     "the-bell-beneath-the-mere": "data/adventures/the-bell-beneath-the-mere.oneshot.json",
     "the-last-treat-of-gloamwick": "data/adventures/the-last-treat-of-gloamwick.oneshot.json",
-    "the-empty-chair-of-harvesthome": "data/adventures/the-empty-chair-of-harvesthome.oneshot.json"
+    "the-empty-chair-of-harvesthome": "data/adventures/the-empty-chair-of-harvesthome.oneshot.json",
+    "the-gift-that-never-arrived": "data/adventures/the-gift-that-never-arrived.oneshot.json"
   });
 })();
