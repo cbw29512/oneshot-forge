@@ -17,6 +17,8 @@ if (!index.includes("Coming after review")) errors.push("next adventure must rem
 if (!index.includes("12 pregens")) errors.push("homepage must say 12 pregens");
 if (!index.includes("og:image")) errors.push("homepage missing Open Graph image");
 if (!index.includes('src="catalog.js')) errors.push("homepage must hydrate from product contract");
+if (!index.includes("99¢ One-Shots")) errors.push("homepage must use 99¢ One-Shots customer-facing brand");
+if (!index.includes("Start free. Then pick a 99¢ night.")) errors.push("homepage must state the free-starter/99¢ offer");
 
 const productsText = read("data/products.json");
 try {
@@ -36,6 +38,33 @@ try {
     if (!gated && index.includes(`data-product-id="${product.id}" data-commercial-state="sellable"`)) errors.push(`${product.id}: homepage exposes Buy state before release gates pass`);
   }
 } catch (error) { errors.push("invalid data/products.json: " + error.message); }
+
+try {
+  const contract = JSON.parse(productsText);
+  const lanternProduct = contract.products.find(product => product.id === "the-lantern-below");
+  if (!lanternProduct) errors.push("Lantern free starter missing from product contract");
+  else {
+    if (lanternProduct.currentAccess !== "free-starter") errors.push("Lantern must remain the permanent free starter");
+    if (lanternProduct.priceCents !== 0) errors.push("Lantern free starter price must remain 0");
+    if (lanternProduct.sellable !== false) errors.push("Lantern free starter must not enter paid checkout");
+    if (lanternProduct.releaseGate?.requiresCheckout !== false) errors.push("Lantern free starter must not require checkout");
+  }
+} catch (error) {
+  errors.push("could not validate Lantern free-starter contract: " + error.message);
+}
+
+try {
+  const contract = JSON.parse(productsText);
+  for (const product of contract.products || []) {
+    if (!product.productUrl?.endsWith(".html")) continue;
+    const page = read(product.productUrl);
+    if (!page.includes("99¢ One-Shots")) {
+      errors.push(`${product.id}: product page must use 99¢ One-Shots customer-facing brand`);
+    }
+  }
+} catch (error) {
+  errors.push("could not validate product-page branding: " + error.message);
+}
 
 const catalog = read("catalog.js");
 for (const required of [
@@ -59,6 +88,8 @@ if (!app.includes("reactions.accusation")) errors.push("GM runner no longer surf
 
 const lantern = read("adventures/the-lantern-below.html");
 if (!lantern.includes("Start adventure")) errors.push("adventure page missing Start adventure");
+if (!lantern.includes("PERMANENT FREE STARTER")) errors.push("Lantern page must identify the permanent free starter");
+if (!lantern.includes("99¢ One-Shots")) errors.push("Lantern page must use storefront brand");
 for (const rel of ["about.html", "privacy.html", "contact.html", "forge.html", "cards.html", "cards.js", "robots.txt", "sitemap.xml", "assets/cover-lantern.jpg", "adventures/birthday-one-shot.html", "birthday-one-shot/index.html", "birthday-one-shot/data.js", "birthday-one-shot/production.js", "birthday-one-shot/player-data.js", "birthday-one-shot/streamlined.js", "birthday-one-shot/personalization.js", "birthday-one-shot/app.js", "birthday-one-shot/official-format.js", "birthday-one-shot/styles.css", "data/adventures/the-lantern-below.oneshot.json", "data/adventures/the-well-that-would-not-dry.oneshot.json", "data/adventures/the-owlbear-egg.oneshot.json", "data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json", "data/adventures/beneath-the-eastern-watchtower.oneshot.json", "adventures/the-owlbear-egg.html", "adventures/whispers-of-the-oakhaven-hollow.html", "adventures/beneath-the-eastern-watchtower.html", "assets/maps/oakhaven/bramble-guard-grid.svg", "assets/maps/oakhaven/heart-tree-grid.svg", "assets/maps/oakhaven/flooded-sally-tunnel-grid.svg", "assets/maps/oakhaven/gloam-sluice-grid.svg", "data/adventures/the-black-orchard.oneshot.json", "adventures/the-black-orchard.html", "assets/maps/oakhaven/black-orchard-rows-grid.svg", "assets/maps/oakhaven/rootheart-quarry-grid.svg", "data/adventures/the-ashen-bridge.oneshot.json", "adventures/the-ashen-bridge.html", "assets/maps/oakhaven/ashen-bridge-grid.svg", "assets/maps/oakhaven/ashhouse-mortar-handout.svg", "data/adventures/the-bell-beneath-the-mere.oneshot.json", "adventures/the-bell-beneath-the-mere.html", "assets/maps/oakhaven/drowned-bell-house-grid.svg", "assets/maps/oakhaven/founder-diversion-handout.svg", "adventure-registry.js"]) read(rel);
 if (!index.includes("the-lantern-below")) errors.push("homepage missing active Lantern card");
 if (!index.includes("the-owlbear-egg")) errors.push("homepage missing Owlbear Egg preview card");
