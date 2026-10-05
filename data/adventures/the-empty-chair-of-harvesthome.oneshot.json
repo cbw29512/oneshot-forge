@@ -1,0 +1,1317 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-empty-chair-of-harvesthome",
+    "title": "The Empty Chair of Harvesthome",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 2,
+    "partySize": 4,
+    "partySizeRange": "3–6 players",
+    "durationMinutes": 210,
+    "tone": [
+      "Thanksgiving harvest mystery",
+      "community tension",
+      "warm folk fantasy"
+    ]
+  },
+  "series": {
+    "title": "Holiday One-Shots",
+    "holiday": "Thanksgiving / harvest",
+    "standalone": true
+  },
+  "setup": {
+    "pitch": "Harvesthome's feast begins with one chair missing, one wagon of grain unaccounted for, and a cold wind that steals food from every table where no place is kept for a stranger.",
+    "openingLocation": "Harvesthome village green",
+    "gmSummary": "Harvesthome's Feast of Thanks has one old rule: an empty chair remains at the communal table until the final toast, reserved for any traveler, neighbor, or hungry stranger who arrives late. After a poor harvest, reeve Mara Fen ordered the chair removed and the reserve portion folded back into the town meal. At the same time, merchant Oren Vale diverted one wagon of grain to a private storehouse, claiming it was a prudent reserve. The combination breaks an old social compact. A folk spirit called the Late Guest begins taking one serving from any table with no open place, while frightened villagers blame a starving family from the outer farms. The missing grain, not supernatural hunger alone, makes the shortage real. The party can uncover the diversion, protect the feast, recover or redistribute the grain, and decide what the empty chair will mean going forward.",
+    "background": "Harvesthome survived a famine generations ago because every household agreed that nobody would be turned away from the final feast while food remained. The symbolic empty chair grew from that promise. Over time people remembered the chair but forgot the covenant. This year's harvest is genuinely poor, though not catastrophic. Oren Vale secretly diverted one grain wagon into his private mill storehouse because he expects winter prices to rise. Mara Fen, unaware of the theft, removed the empty chair to stretch portions. The Late Guest is not a demon summoned by greed; it is a communal spirit formed by repeated acts of welcome. With no place kept open, it begins enforcing the forgotten promise literally."
+  },
+  "quest": {
+    "type": "investigate / protect feast / choose",
+    "objective": "Keep Harvesthome fed through the feast, learn why food is vanishing, recover the missing grain or account for it, and decide what the empty-chair tradition should become.",
+    "stakes": "If the village turns on the outer farms or hoards what remains, the feast becomes a riot and winter starts with neighbors treating one another as enemies.",
+    "deadline": "FINAL TOAST: show four cup marks. Fill one after the green, granary, outer farm, and mill storehouse. When the fourth fills, the Final Toast begins and the Late Guest enters the feast.",
+    "successConditions": [
+      "The diverted grain is recovered, exposed, or deliberately redistributed.",
+      "The feast reaches a deliberate conclusion instead of collapsing into panic.",
+      "The party learns that the Late Guest responds to a kept place, shared food, or a freely spoken communal promise."
+    ],
+    "failureConditions": [
+      "The party abandons Harvesthome after the grain theft and crowd panic are known.",
+      "The village mob is allowed to seize the outer farm stores while Oren's hidden grain remains untouched."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-chair-promise",
+        "text": "The empty chair represents a promise that no hungry arrival is turned away before the final toast."
+      },
+      {
+        "id": "fact-grain-diverted",
+        "text": "Oren Vale diverted one wagon of communal grain into his private mill storehouse."
+      },
+      {
+        "id": "fact-outer-farm-innocent",
+        "text": "The outer-farm family being blamed did not steal the missing grain and has less food than the town assumes."
+      },
+      {
+        "id": "fact-late-guest",
+        "text": "The Late Guest removes one serving from closed tables but will not take from a table that keeps a genuine place open."
+      },
+      {
+        "id": "fact-three-resolutions",
+        "text": "The crisis can end by restoring an open place and shared portion, making a public redistribution compact, or driving off the Late Guest while accepting the social cost."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-oren-hoard",
+        "text": "Oren plans to sell the diverted grain at winter scarcity prices.",
+        "revealCondition": "Find his price ledger, question his mill clerk, or open the private storehouse."
+      },
+      {
+        "id": "secret-mara-chair",
+        "text": "Mara removed the empty chair herself because she believed symbolic generosity was irresponsible during a shortage.",
+        "revealCondition": "Read the seating order, confront Mara, or compare this year's feast layout to the memorial plaque."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-mara-fen",
+      "name": "Mara Fen",
+      "role": "reeve and feast organizer",
+      "personality": [
+        "competent",
+        "worried",
+        "ashamed of appearing sentimental"
+      ],
+      "voiceCues": [
+        "counts portions under her breath",
+        "uses 'we' when discussing blame"
+      ],
+      "wants": [
+        "Get everyone through the feast without panic",
+        "Avoid winter shortages",
+        "Find the missing grain"
+      ],
+      "fears": [
+        "A riot over food",
+        "Being remembered as the reeve who let tradition starve people"
+      ],
+      "knows": [
+        "One grain wagon never reached the granary",
+        "She removed the empty chair",
+        "The outer farms brought their required contribution"
+      ],
+      "believes": [
+        "The old chair custom is emotionally important but practically wasteful"
+      ],
+      "secrets": [
+        "She removed the chair without public discussion"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Oren's private price plan",
+        "What the Late Guest actually is"
+      ],
+      "revealRules": [
+        {
+          "fact": "The chair was removed by her order.",
+          "when": "The party asks who changed the seating plan."
+        }
+      ],
+      "questFunction": "Launches the investigation and embodies the practical case for rationing without being the only route to the truth.",
+      "description": "A square-built reeve in a flour-dusted blue coat, carrying a serving ladle like a marshal's baton and repeatedly checking a slate of household portions.",
+      "tableDialogue": [
+        "“I can explain every missing turnip except an entire wagon of grain.”",
+        "“The chair fed nobody. I thought that mattered this year.”",
+        "“Find the wagon before somebody decides hunger needs a villain.”"
+      ],
+      "reactions": {
+        "agreement": "Hands over the granary tally and authority to inspect festival stores.",
+        "refusal": "Keeps managing the crowd; the granary records remain public.",
+        "accusation": "Admits removing the chair and asks whether symbolism is worth smaller winter rations.",
+        "danger": "Orders children and elders into the meeting hall and keeps the crowd from reaching the outer road."
+      }
+    },
+    {
+      "id": "npc-oren-vale",
+      "name": "Oren Vale",
+      "role": "mill owner and hidden grain hoarder",
+      "personality": [
+        "smooth",
+        "calculating",
+        "convinced he is prudent"
+      ],
+      "voiceCues": [
+        "calls hoarding 'reserves'",
+        "offers exact numbers when evading moral questions"
+      ],
+      "wants": [
+        "Keep the private grain hidden until winter",
+        "Avoid being blamed for the supernatural crisis",
+        "Preserve his reputation as the town's reliable miller"
+      ],
+      "fears": [
+        "Public seizure of his stores",
+        "His clerk showing the private ledger"
+      ],
+      "knows": [
+        "He redirected the wagon",
+        "His storehouse has enough grain to cover the feast shortage",
+        "The Late Guest appeared only after the chair was removed"
+      ],
+      "believes": [
+        "Scarcity rewards planning and punishes sentiment"
+      ],
+      "secrets": [
+        "He intends to sell the hidden grain later at a higher price"
+      ],
+      "lies": [
+        "Claims the wagon axle broke before reaching town"
+      ],
+      "cannotKnow": [
+        "How the Late Guest can be resolved",
+        "Whether the outer farm family saw his wagon"
+      ],
+      "revealRules": [
+        {
+          "fact": "The wagon entered his rear mill road.",
+          "when": "Shown wheel tracks, the clerk's note, or the hidden grain seals."
+        }
+      ],
+      "questFunction": "Creates the real material shortage and gives the party a human choice that matters even if the spirit is handled peacefully.",
+      "description": "A neatly dressed mill owner in a russet vest with spotless cuffs, carrying a brass key ring and smelling faintly of fresh-cut cedar from his new storehouse.",
+      "tableDialogue": [
+        "“A reserve is not theft merely because everyone knows where the granary is.”",
+        "“Winter will be longer than this feast.”",
+        "“You want generosity. I want people alive in February.”"
+      ],
+      "reactions": {
+        "agreement": "Offers access to the main mill but not the private storehouse.",
+        "refusal": "Leaves for the mill and locks the rear road gate.",
+        "accusation": "Argues the grain is still in Harvesthome and therefore not truly stolen.",
+        "danger": "Orders his workers to stand down rather than fight townsfolk over grain."
+      }
+    },
+    {
+      "id": "npc-elsi-rowan",
+      "name": "Elsi Rowan",
+      "role": "outer-farm widow falsely blamed for the shortage",
+      "personality": [
+        "tired",
+        "proud",
+        "protective"
+      ],
+      "voiceCues": [
+        "answers accusations with inventories",
+        "speaks softly until her children are mentioned"
+      ],
+      "wants": [
+        "Keep her family's winter seed untouched",
+        "Stop the town from treating the outer farms as thieves",
+        "Help if the village asks instead of seizes"
+      ],
+      "fears": [
+        "Losing seed grain",
+        "Her children being attacked by a hungry crowd"
+      ],
+      "knows": [
+        "A grain wagon passed her lane toward Oren's rear mill road",
+        "Her family delivered its full festival share",
+        "The Late Guest did not take from her table because she left one stool open"
+      ],
+      "believes": [
+        "The old custom matters because nobody survives a bad year alone"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "Oren's ledger details",
+        "Why Mara removed the chair"
+      ],
+      "revealRules": [
+        {
+          "fact": "The missing wagon took the rear mill road.",
+          "when": "The party checks her lane or asks what she saw."
+        }
+      ],
+      "questFunction": "Provides independent evidence, a working example of the open-place protection, and the social cost of false blame.",
+      "description": "A weathered farmer in a patched brown shawl, standing in front of a small farmhouse table with one empty stool and exactly five bowls of thin stew.",
+      "tableDialogue": [
+        "“Count my sacks before you count my children.”",
+        "“We left one stool open because my mother did, and hers before her.”",
+        "“Ask me to share and I will answer. Reach for the seed grain and we are done talking.”"
+      ],
+      "reactions": {
+        "agreement": "Shows the party her stores and the wagon ruts beyond the hedge.",
+        "refusal": "Keeps her door barred but leaves the open stool visible through the window.",
+        "accusation": "Invites the party to count every sack and compare her tally to the granary record.",
+        "danger": "Moves her children to the root cellar and refuses to surrender seed grain to a mob."
+      }
+    },
+    {
+      "id": "npc-late-guest",
+      "name": "The Late Guest",
+      "role": "folk spirit of Harvesthome's promise of welcome",
+      "personality": [
+        "solemn",
+        "literal",
+        "patient until refused"
+      ],
+      "voiceCues": [
+        "speaks in fragments of old toasts",
+        "never asks twice at the same table"
+      ],
+      "wants": [
+        "One real place kept open",
+        "The town to mean its promise rather than repeat it"
+      ],
+      "fears": [
+        "Becoming an excuse for forced charity instead of chosen welcome"
+      ],
+      "knows": [
+        "Which tables are genuinely open",
+        "Where communal food was withheld",
+        "The old final-toast wording"
+      ],
+      "believes": [
+        "A promise that disappears during scarcity was never understood"
+      ],
+      "secrets": [
+        "It formed from generations of communal practice, not from a single dead traveler"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Oren's future pricing plan",
+        "Which political solution the party will choose"
+      ],
+      "revealRules": [
+        {
+          "fact": "An open place prevents it from taking food.",
+          "when": "A character sets a real portion at an empty seat or observes Elsi's table."
+        }
+      ],
+      "questFunction": "Turns the feast tradition into an active mechanic and allows a noncombat finale.",
+      "description": "A tall harvest-cloaked figure with a face hidden behind a woven wheat mask, carrying an empty wooden bowl and leaving no footprints in spilled flour.",
+      "tableDialogue": [
+        "“One place. Before thanks.”",
+        "“Closed table, closed hand.”",
+        "“Share by choice, or keep what remains without me.”"
+      ],
+      "reactions": {
+        "agreement": "Sits only after being invited and takes no more than the offered portion.",
+        "refusal": "Moves to the next closed table and removes one serving.",
+        "accusation": "Points toward the mill road rather than answering about human hoarding.",
+        "danger": "Pushes food and furniture aside but does not target children or unconscious creatures."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-green",
+      "name": "Harvesthome Village Green",
+      "description": "Long trestle tables surround a central firepit beneath strings of dried corn, apples, and ribbons; one gap in the head table shows where an old chair used to stand.",
+      "connections": [
+        "loc-granary",
+        "loc-outer-farm",
+        "loc-mill"
+      ]
+    },
+    {
+      "id": "loc-granary",
+      "name": "Common Granary",
+      "description": "A stone grain house with chalked household tallies, one empty wagon bay, and fresh drag marks where a shipment should have been unloaded.",
+      "connections": [
+        "loc-green",
+        "loc-outer-farm",
+        "loc-mill"
+      ]
+    },
+    {
+      "id": "loc-outer-farm",
+      "name": "Rowan Outer Farm",
+      "description": "A small wind-bent farmhouse beyond the hedges, with seed sacks stacked separately from food grain and one empty stool at a five-place table.",
+      "connections": [
+        "loc-granary",
+        "loc-mill",
+        "loc-green"
+      ]
+    },
+    {
+      "id": "loc-mill",
+      "name": "Vale Mill and Rear Storehouse",
+      "description": "A timber mill above a narrow stream; fresh wagon ruts curve behind it to a cedar storehouse hidden from the main road.",
+      "connections": [
+        "loc-granary",
+        "loc-outer-farm",
+        "loc-green"
+      ]
+    },
+    {
+      "id": "loc-feast",
+      "name": "Final Feast Circle",
+      "description": "The village green at dusk, with four communal tables, the final-toast cup on a raised crate, and room to place or remove one symbolic chair.",
+      "connections": [
+        "loc-green"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-chair-promise",
+      "revelation": "The empty chair is a promise that one hungry arrival will still be welcomed before the final toast.",
+      "required": true,
+      "sources": [
+        "A weathered plaque beneath the head table reads ONE PLACE KEPT UNTIL THANKS ARE SPOKEN.",
+        "The old feast ledger in the granary records one reserve portion under EMPTY CHAIR every year except this one.",
+        "Elsi Rowan's farmhouse still keeps one stool open and the Late Guest leaves her food untouched."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-grain-diverted",
+      "revelation": "The missing wagon was redirected to Oren Vale's rear mill storehouse.",
+      "required": true,
+      "sources": [
+        "Fresh wagon ruts leave the granary road and match the cedar splinters at Oren's rear gate.",
+        "A folded mill receipt records one unlisted wagon unloaded before dawn.",
+        "Elsi Rowan saw the marked wagon pass her hedge toward the rear mill road."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-outer-farm-innocent",
+      "revelation": "The Rowan family did not steal the grain and has already delivered its required feast share.",
+      "required": true,
+      "sources": [
+        "The granary tally shows the Rowan seal beside a complete delivery entry.",
+        "Rowan seed sacks are marked NEXT SPRING and do not match the missing wagon's town seals.",
+        "The empty-stool meal at the Rowan farm demonstrates they are still sharing despite having little."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-late-guest-rule",
+      "revelation": "The Late Guest takes from closed tables but will not take from a table that keeps a genuine place open.",
+      "required": true,
+      "sources": [
+        "Elsi's open stool and bowl remain untouched while nearby closed tables lose food.",
+        "The founder toast in the granary ledger says KEEP ONE PLACE, LOSE NO PLATE.",
+        "During the feast, setting a real portion at an empty chair causes the Late Guest to stop at that table."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-resolutions",
+      "revelation": "The final crisis can be resolved by restoring a genuine open place, making a public redistribution compact, or driving off the Late Guest and ending the old pact.",
+      "required": true,
+      "sources": [
+        "The founder ledger lists PLACE, SHARE, OR CLOSE THE DOOR as the three lawful endings.",
+        "Oren's hidden grain provides enough food to make a real redistribution compact if recovered.",
+        "The old chair's iron nameplate bears three scratched symbols: chair, joined hands, barred door."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-green",
+      "title": "A Feast with No Empty Chair",
+      "purpose": "Launch the shortage, show the missing chair, and put the first supernatural food loss in front of the players.",
+      "locationId": "loc-green",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "The feast falters",
+      "readAloud": "Harvesthome smells of roast squash, warm bread, cider, and woodsmoke—until the serving bowls begin to empty by themselves. A ladle drops from nobody's hand. One full plate slides across the head table and tips into the grass. Where the village's old empty chair should stand, there is only a pale rectangle in the mud. Reeve Mara Fen grips a tally slate and says, “We are short a wagon of grain, and somebody is making this worse.”",
+      "gmNotes": [
+        "Show the four-part FINAL TOAST clock. Fill 1/4 when the party leaves the green.",
+        "The Late Guest manifests only as a cold wheat-mask reflection in polished serving spoons here; do not force combat.",
+        "DC 12 Wisdom (Insight) on Mara: success reveals she is ashamed about removing the chair, not hiding the grain. Failure gives no false conclusion; the seating slate and plaque reveal the same fact.",
+        "A public granary tally shows one whole wagon missing and confirms every outer farm's recorded contribution.",
+        "The crowd is already muttering about the Rowan farm. Stop that accusation from becoming a mob by giving the party the granary route immediately."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the missing chair",
+          "text": "Make the pale patch in the mud obvious; no check is needed to notice the tradition changed."
+        },
+        {
+          "title": "Show the real shortage",
+          "text": "The missing wagon is material, not just supernatural theft."
+        },
+        {
+          "title": "Point to records before suspects",
+          "text": "Mara sends the party to the common granary before anyone raids an outer farm."
+        }
+      ],
+      "advanceWhen": "The party heads to the granary with the wagon shortage and missing-chair change both established.",
+      "npcIds": [
+        "npc-mara-fen"
+      ],
+      "clueIds": [
+        "clue-chair-promise",
+        "clue-outer-farm-innocent"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-granary"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-granary",
+          "label": "Audit the granary",
+          "description": "Check the delivery records and missing wagon bay before blaming a household."
+        }
+      ]
+    },
+    {
+      "id": "scene-granary",
+      "title": "The Wagon That Never Unloaded",
+      "purpose": "Prove the outer farms delivered their share and turn the missing grain into a physical route.",
+      "locationId": "loc-granary",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Follow the grain",
+      "readAloud": "Chalk names cover the granary wall in neat columns: household, sacks owed, sacks received. One wagon bay is empty, its floor scored by fresh wheel marks that never reach the unloading ramp. Near the door, an old brass plaque bears a carved chair above the words ONE PLACE KEPT UNTIL THANKS ARE SPOKEN.",
+      "gmNotes": [
+        "Fill FINAL TOAST 2/4 when this scene ends.",
+        "DC 12 Intelligence (Investigation) traces the wheel marks toward the mill road and finds cedar splinters from Oren's new rear gate. On failure, the same route becomes obvious once the party compares the empty bay with the road outside.",
+        "The Rowan delivery is complete in the ledger. Do not require a roll to prove their recorded innocence.",
+        "Puzzle: three grain seals—TOWN, ROWAN, VALE—must be matched to the delivery ledger. The missing wagon bears the TOWN seal and Oren's private receipt uses no communal entry.",
+        "After one wrong match, wax residue shapes reveal the correct seals; failure cannot block the route.",
+        "The founder feast ledger includes the empty-chair promise and the phrase KEEP ONE PLACE, LOSE NO PLATE."
+      ],
+      "runSteps": [
+        {
+          "title": "Clear the false suspect",
+          "text": "The Rowan farm entry is complete and visible."
+        },
+        {
+          "title": "Trace the wagon",
+          "text": "Use ruts, cedar splinters, and the unlisted receipt to point toward Vale Mill."
+        },
+        {
+          "title": "Recover the old rule",
+          "text": "The founder ledger explains why the empty chair mattered without relying on Mara."
+        }
+      ],
+      "advanceWhen": "The party knows the Rowans delivered their share and has either the mill-road lead or chooses to visit the outer farm before confronting Oren.",
+      "npcIds": [],
+      "clueIds": [
+        "clue-chair-promise",
+        "clue-grain-diverted",
+        "clue-outer-farm-innocent",
+        "clue-late-guest-rule"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-outer-farm"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-outer-farm",
+          "label": "Check the outer farm",
+          "description": "Verify the accused household and follow the wagon route from the hedge road."
+        }
+      ]
+    },
+    {
+      "id": "scene-outer-farm",
+      "title": "Five Bowls, One Empty Stool",
+      "purpose": "Demonstrate that chosen hospitality protects a table and secure independent testimony about the grain wagon.",
+      "locationId": "loc-outer-farm",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Test the blame",
+      "readAloud": "The Rowan table holds five bowls of thin root stew and six stools. One stool is empty, with a heel of bread set before it. Outside, two frightened neighbors argue that seed grain should be seized “for the town.” Elsi Rowan stands in the doorway with both hands visible and says, “Count the sacks if you came to count. Leave my children out of it.”",
+      "gmNotes": [
+        "Fill FINAL TOAST 3/4 when the party leaves.",
+        "No food vanishes from Elsi's table while the empty stool and portion remain in place. This visibly demonstrates the Late Guest's rule.",
+        "DC 12 Charisma (Persuasion) can calm the two neighbors and send them back to town. Failure means they leave angry and add one CROWD PRESSURE mark; they do not start combat or seize grain alone.",
+        "Elsi freely allows an inventory if treated respectfully. Her sacks are seed grain and do not match the town seals.",
+        "Fresh wagon ruts beyond the hedge turn toward Oren's rear mill road. Elsi saw the wagon and can say so, but the ruts are sufficient if she refuses to talk."
+      ],
+      "runSteps": [
+        {
+          "title": "Demonstrate the open-place rule",
+          "text": "The untouched sixth bowl is stronger evidence than exposition."
+        },
+        {
+          "title": "Defuse or absorb the accusation",
+          "text": "Failure adds crowd pressure, not a dead end."
+        },
+        {
+          "title": "Point to the mill",
+          "text": "Use both testimony and wheel ruts so Elsi is not a single point of failure."
+        }
+      ],
+      "advanceWhen": "The party has cleared the Rowan farm as the source of the missing grain and follows the rear road toward Vale Mill.",
+      "npcIds": [
+        "npc-elsi-rowan"
+      ],
+      "clueIds": [
+        "clue-chair-promise",
+        "clue-grain-diverted",
+        "clue-outer-farm-innocent",
+        "clue-late-guest-rule"
+      ],
+      "encounterIds": [
+        "enc-hungry-neighbors"
+      ],
+      "exits": [
+        "scene-mill"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-mill",
+          "label": "Follow the wagon ruts",
+          "description": "Confront the material shortage at Vale Mill before the final toast."
+        }
+      ]
+    },
+    {
+      "id": "scene-mill",
+      "title": "Winter Price",
+      "purpose": "Expose the hoard, let the party decide how much authority to use, and recover enough food to make the finale choices real.",
+      "locationId": "loc-mill",
+      "pacingClass": "core",
+      "estimatedMinutes": 40,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Find the grain",
+      "readAloud": "The mill's front bins are nearly empty. Behind the building, however, new wagon ruts end at a cedar storehouse with a fresh iron lock. Oren Vale stands between you and the door, key ring hidden in one fist. Through the plank seams comes the dry, unmistakable smell of enough grain to feed the feast twice over.",
+      "gmNotes": [
+        "Fill FINAL TOAST 4/4 when this scene resolves; the finale starts immediately afterward.",
+        "Oren will not fight to the death. His two mill hands defend the storehouse only until blood is drawn or the signed receipt is shown.",
+        "DC 13 Charisma (Persuasion or Intimidation) gets Oren to open the storehouse voluntarily. Success preserves his cooperation in the finale. Failure means he refuses, but the party may present evidence to the workers, pick the DC 12 lock, force the door with DC 13 Athletics, or use Mara's inspection authority.",
+        "Inside are the diverted wagon, Oren's winter-price ledger, and enough grain for the feast plus a modest winter reserve.",
+        "The party must decide what happens to the grain before returning: communal feast only, equal household reserve, or another explicit distribution. That decision changes the final social route."
+      ],
+      "runSteps": [
+        {
+          "title": "Make the grain visible",
+          "text": "The smell, ruts, and receipt prove the hoard before any social check."
+        },
+        {
+          "title": "Let Oren argue his case",
+          "text": "He is wrong about ownership but not wrong that winter scarcity is real."
+        },
+        {
+          "title": "Force a distribution decision",
+          "text": "Do not let 'we take the grain' remain vague; ask who gets what."
+        }
+      ],
+      "advanceWhen": "The hidden grain is opened, accounted for, or deliberately left under an explicit plan and the party returns for the final toast.",
+      "npcIds": [
+        "npc-oren-vale"
+      ],
+      "clueIds": [
+        "clue-grain-diverted",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-mill-hands"
+      ],
+      "exits": [
+        "scene-final"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-final",
+          "label": "Return to the feast",
+          "description": "Bring the grain decision and the truth about the empty chair back to Harvesthome."
+        }
+      ]
+    },
+    {
+      "id": "scene-final",
+      "title": "The Final Toast",
+      "purpose": "Resolve the social and supernatural crisis with three complete routes tied to hospitality, redistribution, or rejection of the old pact.",
+      "locationId": "loc-feast",
+      "pacingClass": "core",
+      "estimatedMinutes": 55,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Give thanks",
+      "readAloud": "The sun drops behind the fields as the final-toast cup is raised. Before anyone can drink, every serving flame bends toward the road. A tall figure in a wheat mask steps between the tables carrying an empty wooden bowl. Around it, plates begin sliding toward table edges. The old chair lies beneath the platform where somebody stored it. The Late Guest says, “One place. Before thanks.”",
+      "gmNotes": [
+        "The Late Guest starts at 42 HP. If CROWD PRESSURE is 1+, begin with two frightened civilians adjacent to the grain wagons who must be calmed or moved before redistribution actions can use that space.",
+        "OPEN PLACE route: restore the old chair, put a real portion before it, and earn 3 Welcome successes before 2 failures. Each Action uses DC 12 Charisma (Persuasion or Performance), Wisdom (Insight), or a concrete act of hospitality accepted by the DM. A failure costs the action and one nearby communal table loses one serving; at 2 failures this route closes but Share and Close remain legal.",
+        "SHARE route: publicly distribute the recovered grain under a binding communal compact. Complete three stations: feast table, winter reserve, outer farms. Each station takes an Action and either no check if the party already made an explicit fair distribution at the mill, or DC 12 Intelligence (Investigation) / Wisdom (Survival) / Charisma (Persuasion) to establish it now. Three completed stations cause the Late Guest to set down its bowl and fade.",
+        "CLOSE route: reject the old supernatural pact. The Late Guest's wheat mask is AC 13, 14 HP and can be targeted after one successful hostile action against it or one table is deliberately closed. Destroying the mask reduces the Late Guest to 0 HP but ends the protective custom permanently.",
+        "Direct combat to 0 HP is legal and has the same consequence as the Close route.",
+        "At initiative count 20: Empty Plate. One unattended closed table loses one serving and CROWD PRESSURE increases by 1. A table with a genuine open place or completed Share station is immune."
+      ],
+      "runSteps": [
+        {
+          "title": "Put all three routes on the table",
+          "text": "Players should know Open Place, Share, and Close are all legal."
+        },
+        {
+          "title": "Make scarcity visible",
+          "text": "Track which tables and reserves are protected by player choices."
+        },
+        {
+          "title": "Resolve immediately when a route completes",
+          "text": "Do not prolong combat after the social objective is achieved."
+        }
+      ],
+      "advanceWhen": "The Late Guest is welcomed, satisfied by a public sharing compact, or driven away.",
+      "npcIds": [
+        "npc-mara-fen",
+        "npc-oren-vale",
+        "npc-elsi-rowan",
+        "npc-late-guest"
+      ],
+      "clueIds": [
+        "clue-chair-promise",
+        "clue-grain-diverted",
+        "clue-late-guest-rule",
+        "clue-resolutions"
+      ],
+      "encounterIds": [
+        "enc-late-guest"
+      ],
+      "exits": [
+        "scene-resolution-chair",
+        "scene-resolution-share",
+        "scene-resolution-close"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution-chair",
+          "label": "Keep one place open",
+          "description": "Restore the old custom with its purpose made explicit."
+        },
+        {
+          "target": "scene-resolution-share",
+          "label": "Share by compact",
+          "description": "Replace the symbolic chair with a public distribution promise."
+        },
+        {
+          "target": "scene-resolution-close",
+          "label": "End the pact",
+          "description": "Drive off the Late Guest and keep future generosity entirely human."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution-chair",
+      "title": "Resolution: One Place Kept",
+      "purpose": "Reward restoration of the tradition with better understanding.",
+      "locationId": "loc-green",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The Late Guest sits. It eats exactly one portion, raises the wooden bowl in both hands, and places it upside down on the table. Nothing else vanishes. Around the green, people begin moving chairs closer together instead of farther apart.",
+      "gmNotes": [
+        "Harvesthome keeps the empty chair but adds the written explanation to the feast plaque.",
+        "Award 90 gp total and four Harvesthome Favor tokens worth mundane aid or lodging.",
+        "Oren returns the diverted grain and is required to publish future reserve accounts."
+      ],
+      "runSteps": [
+        {
+          "title": "State the changed custom",
+          "text": "The chair is now explained as a deliberate promise, not superstition."
+        },
+        {
+          "title": "Record reward",
+          "text": "Award 90 gp and four Favor tokens."
+        }
+      ],
+      "advanceWhen": "Rewards and the new feast custom are recorded.",
+      "npcIds": [
+        "npc-mara-fen",
+        "npc-elsi-rowan",
+        "npc-late-guest"
+      ],
+      "clueIds": [
+        "clue-chair-promise"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-share",
+      "title": "Resolution: The Common Measure",
+      "purpose": "Reward replacing symbolic welcome with an explicit material compact.",
+      "locationId": "loc-green",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The final sack is marked for winter reserve, the outer farms, and the common granary in public view. The Late Guest looks at the empty chair, then at the new measure board. It breaks the wooden bowl in half and leaves both pieces on the table before walking into the dark fields.",
+      "gmNotes": [
+        "Harvesthome replaces the chair as the central protection with a public reserve-and-relief compact.",
+        "Award 110 gp total and a Common Measure token, a story item that grants advantage on one future check in Harvesthome involving fair trade, rationing, or mediation.",
+        "Elsi joins the reserve committee; Oren may remain as miller only if the party did not expose a more severe crime."
+      ],
+      "runSteps": [
+        {
+          "title": "Make the compact specific",
+          "text": "Write who controls feast, winter reserve, and emergency shares."
+        },
+        {
+          "title": "Reward the structural solution",
+          "text": "Award 110 gp and the Common Measure token."
+        }
+      ],
+      "advanceWhen": "The compact and rewards are recorded.",
+      "npcIds": [
+        "npc-mara-fen",
+        "npc-oren-vale",
+        "npc-elsi-rowan"
+      ],
+      "clueIds": [
+        "clue-resolutions"
+      ],
+      "encounterIds": [],
+      "exits": []
+    },
+    {
+      "id": "scene-resolution-close",
+      "title": "Resolution: No Guest But Those We Invite",
+      "purpose": "Respect rejection of the supernatural pact while preserving the future social responsibility.",
+      "locationId": "loc-green",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "readAloud": "The wheat mask splits. The cold leaves the green at once. The old chair stays empty because nobody asks it to mean anything. Mara raises the toast only after three families carry bowls toward the outer road by hand.",
+      "gmNotes": [
+        "Award 90 gp total.",
+        "The Late Guest is gone and the chair loses supernatural force. Harvesthome must rely on human policy and future choices.",
+        "Oren's grain still requires a legal/social resolution; supernatural victory does not erase the theft."
+      ],
+      "runSteps": [
+        {
+          "title": "Do not erase the material issue",
+          "text": "The grain decision still matters after the spirit is gone."
+        },
+        {
+          "title": "Leave responsibility with people",
+          "text": "Future generosity is now entirely a civic choice."
+        }
+      ],
+      "advanceWhen": "Rewards and the grain disposition are recorded.",
+      "npcIds": [
+        "npc-mara-fen",
+        "npc-oren-vale",
+        "npc-elsi-rowan"
+      ],
+      "clueIds": [
+        "clue-grain-diverted"
+      ],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-hungry-neighbors",
+      "name": "Hungry Neighbors",
+      "type": "social pressure / optional scuffle",
+      "difficulty": "Low",
+      "summary": "Two frightened villagers demand the Rowan seed grain while a small crowd watches.",
+      "resolution": "Calm them, prove the delivery record, physically block them without lethal force, or let them leave angry and add CROWD PRESSURE.",
+      "talkOut": "DC 12 Persuasion ends the accusation if the granary tally or visible seed markings are shown.",
+      "bypass": "The party can escort Elsi and her children inside and follow the wagon ruts without resolving the argument.",
+      "objective": "Prevent fear from becoming confiscation while preserving the investigation."
+    },
+    {
+      "id": "enc-mill-hands",
+      "name": "Vale Mill Hands",
+      "type": "social / restrained combat",
+      "difficulty": "Low",
+      "summary": "Two workers block the private storehouse because Oren ordered them to protect company property.",
+      "resolution": "Show the receipt, invoke Mara's authority, persuade them, bypass the rear wall, or fight until one worker is wounded.",
+      "talkOut": "The workers stand down immediately if shown the hidden receipt plus the town seal on the diverted wagon.",
+      "bypass": "DC 12 thieves' tools on the rear lock or DC 13 Athletics on the side door avoids confronting them directly.",
+      "objective": "Reach the hidden grain without turning a theft investigation into unnecessary bloodshed."
+    },
+    {
+      "id": "enc-late-guest",
+      "name": "The Late Guest",
+      "type": "finale / social ritual / combat",
+      "difficulty": "Moderate",
+      "summary": "The folk spirit of Harvesthome's welcome promise arrives at the final toast.",
+      "resolution": "Complete the Open Place route, complete the Share route, destroy the wheat mask, or reduce the Late Guest to 0 HP.",
+      "talkOut": "It responds to a genuine offered place or concrete public distribution actions rather than ordinary persuasion alone.",
+      "bypass": "There is no safe way to ignore the final-toast crisis, but both Open Place and Share are complete noncombat victories.",
+      "objective": "Decide what Harvesthome owes hungry arrivals when scarcity is real."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-grain-seals",
+      "prompt": "Match TOWN, ROWAN, and VALE wax seals to delivery entries and the unlisted mill receipt.",
+      "solution": "ROWAN matches a complete outer-farm delivery; TOWN belongs to the missing communal wagon; VALE appears only on the private receipt/storehouse log.",
+      "bypass": "DC 12 Investigation solves the seal match immediately.",
+      "failForward": "After one wrong match, residual wax impressions line up with the correct ledger boxes."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-grain-chute",
+      "trigger": "Force the private storehouse front door without securing the overhead grain chute.",
+      "effect": "DC 12 Dexterity saving throw or take 1d6 bludgeoning and fall Prone under a spilling sack; success avoids damage.",
+      "failForward": "The spill exposes the hidden town-seal sacks and the door remains open."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-old-chair-plate",
+      "name": "Old Empty-Chair Plate",
+      "effect": "Iron nameplate scratched with chair, joined-hands, and barred-door symbols representing the three finale routes."
+    },
+    {
+      "id": "item-common-measure",
+      "name": "Common Measure Token",
+      "effect": "Story reward from the Share ending; once in Harvesthome, grants advantage on one check involving fair trade, rationing, or mediation."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-outer-farm",
+      "name": "Rowan Outer Farm",
+      "asset": null,
+      "regions": [
+        {
+          "id": "farm-yard",
+          "sceneId": "scene-outer-farm",
+          "label": "yard and hedge road"
+        },
+        {
+          "id": "farm-house",
+          "sceneId": "scene-outer-farm",
+          "label": "farmhouse with open stool"
+        },
+        {
+          "id": "farm-seed",
+          "sceneId": "scene-outer-farm",
+          "label": "seed-grain shed"
+        }
+      ]
+    },
+    {
+      "id": "map-mill",
+      "name": "Vale Mill and Storehouse",
+      "asset": null,
+      "regions": [
+        {
+          "id": "mill-front",
+          "sceneId": "scene-mill",
+          "label": "main mill floor"
+        },
+        {
+          "id": "mill-rear",
+          "sceneId": "scene-mill",
+          "label": "rear wagon road"
+        },
+        {
+          "id": "mill-store",
+          "sceneId": "scene-mill",
+          "label": "private cedar storehouse"
+        }
+      ]
+    },
+    {
+      "id": "map-final",
+      "name": "Harvesthome Final Feast",
+      "asset": null,
+      "regions": [
+        {
+          "id": "feast-tables",
+          "sceneId": "scene-final",
+          "label": "four communal tables"
+        },
+        {
+          "id": "feast-chair",
+          "sceneId": "scene-final",
+          "label": "old empty-chair position"
+        },
+        {
+          "id": "feast-grain",
+          "sceneId": "scene-final",
+          "label": "grain wagons / Share stations"
+        }
+      ]
+    }
+  ],
+  "recovery": {
+    "policies": [
+      "Every required fact survives the loss or hostility of any one NPC.",
+      "Material evidence about the grain remains available even if Oren or Elsi cannot speak.",
+      "Failure adds crowd pressure, lost servings, or harder social conditions but never removes all finale routes."
+    ],
+    "routes": [
+      {
+        "id": "rec-mara-unavailable",
+        "trigger": "Mara is unavailable or refuses to hire the party.",
+        "response": "The missing wagon bay, public tally, and angry crowd make the shortage obvious; the brass chair plaque points to the changed tradition.",
+        "stateChanges": [
+          "Investigation starts without the reeve.",
+          "clue-chair-promise remains physical."
+        ]
+      },
+      {
+        "id": "rec-elsi-hostile",
+        "trigger": "Elsi refuses entry or the party alienates her.",
+        "response": "The complete Rowan delivery remains in the granary ledger; wagon ruts outside her hedge still turn toward Vale Mill; her open stool is visible through the window.",
+        "stateChanges": [
+          "Outer-farm innocence remains provable.",
+          "The mill route remains available."
+        ]
+      },
+      {
+        "id": "rec-oren-unavailable",
+        "trigger": "Oren flees, refuses to speak, or is otherwise unavailable.",
+        "response": "The private receipt, rear-road ruts, town-seal sacks, and price ledger establish the diversion without him.",
+        "stateChanges": [
+          "clue-grain-diverted remains physical.",
+          "The Share route remains available."
+        ]
+      },
+      {
+        "id": "rec-skip-farm",
+        "trigger": "The party skips the outer farm and goes directly from granary to mill.",
+        "response": "The mill receipt and town-seal sacks clear the Rowans of the missing wagon; during the finale Elsi's untouched open-place table visibly demonstrates the Late Guest rule.",
+        "stateChanges": [
+          "No required truth is lost.",
+          "The party may enter the finale with higher CROWD PRESSURE if false blame was never defused."
+        ]
+      },
+      {
+        "id": "rec-rush-final",
+        "trigger": "The party reaches the final toast without understanding the chair.",
+        "response": "The Late Guest ignores one table where a child instinctively leaves an empty place and takes from a closed table instead, demonstrating the Open Place route before initiative.",
+        "stateChanges": [
+          "The finale remains solvable.",
+          "Prepared investigation still earns clearer options."
+        ]
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Prepared investigation reduces crowd pressure and makes noncombat resolution easier; rushed play still reaches a complete ending.",
+    "prepared": [
+      "Clearing the Rowan farm prevents CROWD PRESSURE from starting above 0.",
+      "Recovering Oren's grain makes the Share route automatic if a fair plan was already declared.",
+      "Recovering the founder ledger explains all three finale routes before the spirit appears."
+    ],
+    "rushed": [
+      "Skipping the farm leaves false accusations active in the crowd.",
+      "Leaving grain locked at the mill forces Share-station checks instead of automatic completion.",
+      "Reaching the final toast without the old rule makes the first round demonstrative rather than punitive."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 210,
+    "plannedMinutes": 210,
+    "bossReserveMinutes": 55,
+    "cutOrder": [
+      "If 25+ minutes behind, skip the seal puzzle and let the wagon ruts plus receipt point directly to Vale Mill.",
+      "If 15+ minutes behind at the outer farm, have Elsi immediately show the open stool and wagon ruts.",
+      "Never cut the material grain theft, the Late Guest rule, or the three finale routes."
+    ],
+    "optionalOrder": [
+      "Extended household interviews at the green.",
+      "Detailed seal matching after the mill route is already proven.",
+      "Long debate over Oren's winter-price argument before the storehouse is opened."
+    ]
+  },
+  "endings": [
+    {
+      "id": "ending-chair",
+      "name": "One Place Kept",
+      "condition": "The party completes the Open Place route.",
+      "result": "The old empty-chair custom survives with its purpose restored and Oren's future reserve accounts become public."
+    },
+    {
+      "id": "ending-share",
+      "name": "The Common Measure",
+      "condition": "The party completes all three Share stations.",
+      "result": "Harvesthome replaces symbolic welcome with a public distribution compact covering feast, winter reserve, and outer farms."
+    },
+    {
+      "id": "ending-close",
+      "name": "No Guest But Those We Invite",
+      "condition": "The Late Guest or its wheat mask is destroyed.",
+      "result": "The supernatural pact ends; future generosity becomes entirely a human civic responsibility."
+    }
+  ],
+  "initialState": {
+    "questStage": "feast-shortage",
+    "currentSceneId": "scene-green",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-mara-fen": {
+        "status": "alive",
+        "attitude": "urgent"
+      },
+      "npc-oren-vale": {
+        "status": "alive",
+        "attitude": "guarded"
+      },
+      "npc-elsi-rowan": {
+        "status": "alive",
+        "attitude": "wary"
+      },
+      "npc-late-guest": {
+        "status": "approaching",
+        "attitude": "literal"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-old-chair-plate": "under-head-table",
+      "item-common-measure": "unearned"
+    },
+    "eventState": {
+      "toastMarks": 0,
+      "crowdPressure": 0,
+      "grainRecovered": false,
+      "chairRestored": false
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures and procedures use the complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2014 SRD package."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific creatures and procedures use the complete quick-run wording in this package.",
+        "General attacks, checks, saves, conditions, and pregens must use the selected 2024 SRD package; do not import 2014 class features."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-empty-chair-of-harvesthome",
+    "version": "0.1.0",
+    "target": {
+      "level": 2,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-mara",
+      "check-ruts",
+      "check-neighbors",
+      "check-oren",
+      "check-welcome"
+    ],
+    "checks": [
+      {
+        "id": "check-mara",
+        "sceneId": "scene-green",
+        "label": "Read Mara's concern",
+        "dc": 12,
+        "ability": "Wisdom (Insight)",
+        "success": "Mara is ashamed about removing the chair but genuinely alarmed by the missing wagon.",
+        "failure": "No false conclusion is given; the seating slate and chair plaque reveal the changed custom."
+      },
+      {
+        "id": "check-ruts",
+        "sceneId": "scene-granary",
+        "label": "Trace the missing wagon",
+        "dc": 12,
+        "ability": "Intelligence (Investigation)",
+        "success": "Fresh wheel marks and cedar splinters point toward Vale Mill's new rear gate.",
+        "failure": "Comparing the empty bay with the road outside reveals the same turn after a few minutes."
+      },
+      {
+        "id": "check-neighbors",
+        "sceneId": "scene-outer-farm",
+        "label": "Defuse the seed-grain accusation",
+        "dc": 12,
+        "ability": "Charisma (Persuasion)",
+        "success": "The neighbors back down and CROWD PRESSURE stays unchanged.",
+        "failure": "They leave angry and CROWD PRESSURE increases by 1; no grain is seized and the investigation continues."
+      },
+      {
+        "id": "check-oren",
+        "sceneId": "scene-mill",
+        "label": "Make Oren open the storehouse",
+        "dc": 13,
+        "ability": "Charisma (Persuasion or Intimidation)",
+        "success": "Oren opens the storehouse and cooperates with moving the grain.",
+        "failure": "He refuses, but evidence, Mara's authority, DC 12 thieves' tools, or DC 13 Athletics still opens a route."
+      },
+      {
+        "id": "check-welcome",
+        "sceneId": "scene-final",
+        "label": "Complete one Welcome action",
+        "dc": 12,
+        "ability": "Charisma (Persuasion or Performance) or Wisdom (Insight)",
+        "success": "The offered place is accepted and one Welcome success is recorded.",
+        "failure": "One nearby communal table loses one serving and one Welcome failure is recorded; at two failures this route closes but Share and Close remain legal."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-hungry-neighbors",
+        "objective": "Prevent frightened neighbors from confiscating Rowan seed grain while preserving the investigation.",
+        "start": "Two angry villagers block the lane beside the seed shed while others watch.",
+        "bypass": "Escort Elsi and her children inside and follow the visible wagon ruts; the accusation remains unresolved but does not stop progression.",
+        "creatures": [
+          {
+            "name": "Hungry Neighbor",
+            "count": 2,
+            "ac": 11,
+            "hp": 7,
+            "speed": "30 ft.",
+            "attack": "Improvised Shove +2 to hit; target is pushed 5 ft. instead of taking damage.",
+            "trait": "Not Enemies: they flee or surrender after taking any damage; lethal escalation is never required.",
+            "tactics": "Block the seed shed and shout for support; they do not pursue fleeing characters."
+          }
+        ],
+        "end": "The neighbors back down, leave angry, or are physically separated from the seed grain."
+      },
+      {
+        "id": "enc-mill-hands",
+        "objective": "Reach the private storehouse and secure the diverted grain.",
+        "start": "Two mill workers bar the rear storehouse while Oren argues the grain is a private reserve.",
+        "bypass": "Show the hidden receipt and town seal, pick the rear lock, force the side door, or invoke Mara's authority.",
+        "creatures": [
+          {
+            "name": "Mill Hand",
+            "count": 2,
+            "ac": 12,
+            "hp": 9,
+            "speed": "30 ft.",
+            "attack": "Wooden Staff +3 to hit, 1d6+1 bludgeoning.",
+            "trait": "Paid Loyalty: a worker stands down after taking damage or seeing proof the grain bears the town seal.",
+            "tactics": "Block doors and shove intruders away from the lock; they do not chase into town."
+          }
+        ],
+        "end": "The storehouse is opened or the workers stand down."
+      },
+      {
+        "id": "enc-late-guest",
+        "objective": "Resolve Harvesthome's promise by Open Place, Share, or Close.",
+        "start": "The Late Guest enters as the final-toast cup is raised.",
+        "bypass": "Open Place and Share are complete noncombat victory routes.",
+        "creatures": [
+          {
+            "name": "The Late Guest",
+            "count": 1,
+            "ac": 13,
+            "hp": 42,
+            "speed": "30 ft.",
+            "attack": "Cold Bowl +4 to hit, 1d8+2 cold.",
+            "trait": "Wheat Mask: after one successful hostile action against the Late Guest or one table is deliberately closed, its mask can be targeted separately (AC 13, 14 HP); destroying it reduces the Late Guest to 0 HP and ends the old pact.",
+            "tactics": "Pressure closed tables, attack characters interfering with its path, and ignore tables protected by a genuine open place or completed Share station."
+          }
+        ],
+        "end": "Three Welcome successes, all three Share stations, or the Late Guest reaches 0 HP."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-grain-chute",
+        "sceneId": "scene-mill",
+        "trigger": "Force the private storehouse front door without securing the overhead grain chute.",
+        "save": "DC 12 Dexterity saving throw.",
+        "failure": "Take 1d6 bludgeoning damage and fall Prone beneath a spilled sack.",
+        "success": "Avoid the falling grain and enter normally.",
+        "failForward": "The spill exposes the hidden town-seal sacks and the storehouse remains accessible."
+      },
+      {
+        "id": "hazard-empty-plate",
+        "sceneId": "scene-final",
+        "trigger": "Initiative count 20 while the Late Guest remains unresolved.",
+        "save": "No save; this is visible objective pressure.",
+        "failure": "One unattended closed table loses one serving and CROWD PRESSURE increases by 1.",
+        "success": "Tables with a genuine open place or completed Share station are immune.",
+        "failForward": "This raises social pressure but never removes the other finale routes."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-chair",
+        "when": "The Open Place ending resolves the crisis.",
+        "reward": "90 gp total and four Harvesthome Favor tokens for mundane aid or lodging."
+      },
+      {
+        "id": "reward-share",
+        "when": "The Share ending resolves the crisis.",
+        "reward": "110 gp total and the Common Measure token."
+      },
+      {
+        "id": "reward-close",
+        "when": "The Late Guest is destroyed.",
+        "reward": "90 gp total; the supernatural pact ends and the village must rely on human policy."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-outer-farm",
+        "dimensions": "70 × 50 ft. farmyard and house; 5-ft. grid.",
+        "features": [
+          "lane entrance",
+          "farmhouse door",
+          "open-stool table visible through front room",
+          "seed-grain shed",
+          "hedge road with wagon ruts"
+        ]
+      },
+      {
+        "sceneId": "scene-mill",
+        "dimensions": "80 × 60 ft. mill yard; 5-ft. grid.",
+        "features": [
+          "main mill",
+          "rear road",
+          "private cedar storehouse",
+          "stream edge",
+          "front and side storehouse doors"
+        ]
+      },
+      {
+        "sceneId": "scene-final",
+        "dimensions": "90 × 70 ft. feast green; 5-ft. grid.",
+        "features": [
+          "four communal tables",
+          "old empty-chair position",
+          "final-toast platform",
+          "grain wagon / Share stations",
+          "Late Guest entry road"
+        ]
+      }
+    ]
+  },
+  "flowContract": {
+    "principle": "One harvest-feast investigation spine that clears a false suspect, exposes a material hoard, and branches only at the final-toast resolution.",
+    "mainSpine": [
+      "scene-green",
+      "scene-granary",
+      "scene-outer-farm",
+      "scene-mill",
+      "scene-final"
+    ],
+    "allowedBranchScenes": [
+      "scene-final"
+    ],
+    "terminalScenes": [
+      "scene-resolution-chair",
+      "scene-resolution-share",
+      "scene-resolution-close"
+    ],
+    "stageCount": 6
+  },
+  "cards": []
+}
