@@ -35,6 +35,13 @@ jobs:
           node --check zero-hero-journal.js
           node --check zero-hero-awards.js
           node --check zero-hero-npcs.js
+          node --check birthday-one-shot/data.js
+          node --check birthday-one-shot/production.js
+          node --check birthday-one-shot/player-data.js
+          node --check birthday-one-shot/streamlined.js
+          node --check birthday-one-shot/personalization.js
+          node --check birthday-one-shot/app.js
+          node --check birthday-one-shot/official-format.js
       - name: Validate From Zero to Hero
         run: node scripts/validate-zero-to-hero.mjs
       - name: Validate Zero to Hero adventure
