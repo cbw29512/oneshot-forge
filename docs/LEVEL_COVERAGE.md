@@ -17,7 +17,7 @@ New authored one-shots should deliberately cover every character level from 1 th
 | Level | Adventure | Status |
 | ---: | --- | --- |
 | 1 | The Last Treat of Gloamwick | Review preview |
-| 2 | Next new one-shot | Unassigned |
+| 2 | The Empty Chair of Harvesthome | Review preview |
 | 3 | — | Unassigned |
 | 4 | — | Unassigned |
 | 5 | — | Unassigned |
@@ -37,4 +37,4 @@ New authored one-shots should deliberately cover every character level from 1 th
 | 19 | — | Unassigned |
 | 20 | — | Unassigned |
 
-The next new adventure should target Level 2.
+The next new adventure should target Level 3.
