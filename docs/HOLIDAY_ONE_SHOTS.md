@@ -1,6 +1,6 @@
 # Holiday One-Shots
 
-Holiday adventures are a dedicated 99¢ One-Shots product line. They use the same release standards as every other adventure; seasonal theme never excuses weaker mechanics or a thinner story.
+Holiday adventures are a dedicated OneShot Forge adventure lane. They use the same release standards as every other adventure; seasonal theme never excuses weaker mechanics or a thinner story.
 
 ## Product promise
 
