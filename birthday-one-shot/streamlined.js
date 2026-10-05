@@ -93,7 +93,7 @@ ADVENTURE.rooms = [
       "DC 12 Insight: the dark memory contains grief rather than malice.",
       "A character who shares a genuine or in-character memory of the Birthday Hero gains Inspiration."
     ],
-    "When the Birthday Hero touches the three gold-dragon balloons, they orbit her without popping. Their images show that the wish is connected to the people celebrating with them.",
+    "When the Birthday Hero touches the three gold-dragon balloons, they orbit them without popping. Their images show that the wish is connected to the people celebrating with them.",
     "The three balloons become lanterns and drift into the Wrapping Workshop.",
     { dialogue:["Tilly: 'Memories are carried, not collected. Hold them gently.'"] }
   ),
@@ -111,7 +111,7 @@ ADVENTURE.rooms = [
       "DC 12 Arcana: the magic reacts to intention, so pretending to give a gift does not work.",
       "Creative exchanges, including giving a box to an NPC, are valid."
     ],
-    "the Birthday Hero's box will not open in her hands. When they give it to another companion, it reveals Wish Fragment II: BUT FOR ONE MORE ADVENTURE.",
+    "the Birthday Hero's box will not open in their hands. When they give it to another companion, it reveals Wish Fragment II: BUT FOR ONE MORE ADVENTURE.",
     "When everyone has genuinely given or received a gift, ribbons weave themselves into a glowing path toward the Candle Maze.",
     { puzzle:"Puzzle 2 — Gift Exchange: each marked gift opens only after being freely given to someone else." }
   ),
@@ -147,7 +147,7 @@ ADVENTURE.rooms = [
       "DC 12 Investigation: the glowing pull-string marks the Exploding Piñata.",
       "DC 12 Performance: move with the enchanted rhythm to gain advantage on one Acrobatics check or Dexterity save."
     ],
-    "The dragon piñata reacts to the Birthday Hero's name and focuses its attention on her, but it can be calmed when another hero protects her or offers candy in their name.",
+    "The dragon piñata reacts to the Birthday Hero's name and focuses its attention on them, but it can be calmed when another hero protects them or offers candy in their name.",
     "When the encounter ends, the dragon piñata releases a warm golden scale reading: KEEP GOING. YOUR WISH IS WAITING.",
     { tactics:"The mimic grapples an isolated hero and shoves targets toward the Exploding Piñata. At half hit points it becomes frightened by loud cheering and can be calmed instead of killed." }
   ),
@@ -165,7 +165,7 @@ ADVENTURE.rooms = [
       "DC 12 Religion or Arcana: the Birthday Hero's wish can be restored without destroying the ottheir wishes.",
       "Any hero who voices compassion gains advantage on their first social check during the boss fight."
     ],
-    "the Birthday Hero realizes their wish was not fully formed when stolen. The fragments describe its heart, but she alone chooses its final words.",
+    "the Birthday Hero realizes their wish was not fully formed when stolen. The fragments describe its heart, but they alone choose its final words.",
     "The three recovered fragments—NOT FOR ME ALONE / BUT FOR ONE MORE ADVENTURE / TOGETHER—open the Wish Circle.",
     { dialogue:[
       "Tilly: 'He waited until every candle burned down. Nobody came.'",
@@ -186,14 +186,14 @@ ADVENTURE.rooms = [
       "Relight a candle: DC 12 Performance, Persuasion, or any suitable flame magic as an action.",
       "Reach Sepulchral emotionally: DC 12 Insight or Persuasion, with advantage for characters who showed compassion in the Hall of Wishes."
     ],
-    "the Birthday Hero chooses the final meaning of her returned wish. She may wish for herself, include her companions, or offer Sepulchral a place at the celebration. Any sincere choice succeeds.",
+    "the Birthday Hero chooses the final meaning of their returned wish. They may wish for themselves, include their companions, or offer Sepulchral a place at the celebration. Any sincere choice succeeds.",
     "The cake returns to the inn. Martha lights its candles and says, 'I believe this has been waiting for you.' Hand the Birthday Hero the real pop-up dragon card and allow the silence to do the work.",
     { objectives:[
       "Phase 1: reduce Sepulchral to half HP while managing the ritual runes.",
       "Phase 2: achieve three compassionate successes or hear his full memory.",
       "Phase 3: rebuild the Birthday Hero's wish through sincere contributions rather than damage."
     ], dialogue:[
-      "Sepulchral: 'Every candle goes dark. Every song ends. Why teach her to hope?'",
+      "Sepulchral: 'Every candle goes dark. Every song ends. Why teach them to hope?'",
       "Sepulchral, during the memory: 'I waited. That is all I did. I waited until there was no light left.'",
       "Martha's remembered words: 'Darkness does not make the light a lie.'",
       "Sepulchral, at the end: 'And if the wish fails?'"
