@@ -116,6 +116,19 @@ jobs:
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
       - name: Audit Mere Bell spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
+      - name: Audit catalog narrative integrity
+        run: |
+          for adventure in \
+            data/adventures/the-lantern-below.oneshot.json \
+            data/adventures/the-well-that-would-not-dry.oneshot.json \
+            data/adventures/the-owlbear-egg.oneshot.json \
+            data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json \
+            data/adventures/beneath-the-eastern-watchtower.oneshot.json \
+            data/adventures/the-black-orchard.oneshot.json \
+            data/adventures/the-ashen-bridge.oneshot.json \
+            data/adventures/the-bell-beneath-the-mere.oneshot.json; do
+            node scripts/validate-narrative-integrity.mjs "$adventure"
+          done
       - name: Validate adventure registry
         run: node scripts/validate-adventure-registry.mjs
       - name: Validate catalog zero-prep baseline
