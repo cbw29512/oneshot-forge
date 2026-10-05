@@ -882,7 +882,7 @@
     {
       "id": "map-outer-farm",
       "name": "Rowan Outer Farm",
-      "asset": null,
+      "asset": "assets/maps/holiday/harvesthome-outer-farm-grid.svg",
       "regions": [
         {
           "id": "farm-yard",
@@ -904,7 +904,7 @@
     {
       "id": "map-mill",
       "name": "Vale Mill and Storehouse",
-      "asset": null,
+      "asset": "assets/maps/holiday/harvesthome-mill-grid.svg",
       "regions": [
         {
           "id": "mill-front",
@@ -926,7 +926,7 @@
     {
       "id": "map-final",
       "name": "Harvesthome Final Feast",
-      "asset": null,
+      "asset": "assets/maps/holiday/harvesthome-final-feast-grid.svg",
       "regions": [
         {
           "id": "feast-tables",
