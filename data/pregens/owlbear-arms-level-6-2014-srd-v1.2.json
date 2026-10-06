@@ -477,7 +477,7 @@
         }
       ],
       "bonusActions": [
-        "Healing Word: 60 ft.; 1d4+8 HP at 1st level after Disciple of Life.",
+        "Healing Word: 60 ft.; 1d4+7 HP at 1st level after Disciple of Life.",
         "Spiritual Weapon: +7 to hit, 1d8+4 force; move 20 ft. and attack on later Bonus Actions."
       ],
       "reactions": [],
@@ -1213,6 +1213,13 @@
           "effect": "Minor harmless magical sensory/object tricks."
         },
         {
+          "level": 0,
+          "name": "Minor Illusion",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "Create a brief sound or a static image that fits within a 5-ft cube; Investigation against DC 15 can discern the illusion."
+        },
+        {
           "level": 1,
           "name": "Mage Armor",
           "time": "action",
@@ -1315,6 +1322,11 @@
           "name": "Trance",
           "source": "High Elf",
           "text": "Meditates 4 hours instead of sleeping 8 hours."
+        },
+        {
+          "name": "High Elf Cantrip",
+          "source": "High Elf",
+          "text": "Minor Illusion is the extra elf cantrip and uses Intelligence."
         }
       ],
       "equipment": [
