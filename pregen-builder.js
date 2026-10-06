@@ -131,6 +131,21 @@ const SPELLS = {
   warlock: ["Eldritch Blast", "Mage Hand", "Hex", "Hellish Rebuke", "Misty Step", "Counterspell", "Fireball"],
   wizard: ["Fire Bolt", "Mage Hand", "Shield", "Magic Missile", "Misty Step", "Fireball", "Counterspell"]
 };
+
+function magicItems(c, n) {
+  if (n < 1) return "None. Level 0 carries ordinary clothes and a belt knife.";
+  const martial = ["fighter","paladin","ranger","barbarian"].includes(c.id);
+  const caster = Boolean(c.caster);
+  const items = ["Potion of healing"];
+  if (n >= 2) items.push(martial ? "+1 weapon" : caster ? "Wand of magic missiles" : "Cloak of protection");
+  if (n >= 5) items.push(martial ? "+1 shield" : "Pearl of power");
+  if (n >= 5) items.push("Potion of greater healing");
+  if (n >= 9) items.push(martial ? "+1 armor" : "Ring of protection");
+  if (n >= 11) items.push(martial ? "+2 weapon" : "+1 wand");
+  if (n >= 11) items.push("Potion of superior healing");
+  if (n >= 17) items.push(martial ? "+3 weapon" : "+2 wand");
+  return items.join("; ") + ". SRD items only. Attuned items are marked on the table before play.";
+}
 function sign(n) { return n >= 0 ? "+" + n : String(n); }
 function sheetHtml() {
   const c = current();
