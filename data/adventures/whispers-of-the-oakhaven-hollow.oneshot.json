@@ -1080,7 +1080,9 @@
             "speed": "—",
             "immunities": "All damage except fire and radiant.",
             "trait": "Object, not a creature: it has no turn and makes no saves. Shadow Ward: while the Core has HP, Malakor cannot be reduced below 1 HP.",
-            "tactics": "The Core does not act; it powers the ward and root burst."
+            "tactics": "The Core does not act; it powers the ward and root burst.",
+            "object": true,
+            "statBlock": "Object, not a creature (AC 12, 20 HP). Immune to all damage except fire and radiant."
           },
           {
             "name": "Malakor the Blight-Touched",
@@ -1092,10 +1094,11 @@
             "attack": "Blight Staff +4 to hit, 1d8+2 bludgeoning plus 1d4 necrotic.",
             "ranged": "Blight Bolt. Ranged spell attack +4 to hit, range 60 ft.; 1d10 necrotic.",
             "action": "Grasping Vines (Recharge 5–6): creatures in a 15-ft. square within 60 ft. make DC 12 Strength saves or become Restrained until the end of their next turns.",
-            "trait": "Original creature (not a Monster Manual reprint), built to CR 2 (450 XP) with the Core's protection. Spell themes: Entangle, Thunderwave, Shillelagh. If you swap in full spellcasting, use the SRD Druid stat block for the selected edition and keep the Core rules.",
+            "trait": "Spell themes: Entangle, Thunderwave, Shillelagh. If you swap in full spellcasting, use the SRD Druid stat block for the selected edition and keep the Core rules.",
             "tactics": "Stay near the Core, restrain clustered intruders, then pressure whoever is dealing fire/radiant damage. After the Core breaks, lucid pauses make cleansing possible.",
             "cr": "2",
-            "xp": 450
+            "xp": 450,
+            "statBlock": "Original corrupted druid (not a Monster Manual reprint), built to CR 2 (450 XP) with the Core's protection."
           },
           {
             "name": "Rot-Bloom (guarding the Core)",

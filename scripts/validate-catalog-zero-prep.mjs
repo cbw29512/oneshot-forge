@@ -78,3 +78,7 @@ if (errors.length) {
 }
 
 console.log("Catalog zero-prep baseline OK: every live adventure has runnable scenes, NPC voice, encounter jobs, and pacing cuts.");
+
+// Production pass 1: the SRD content gate runs as part of this CI step until it gets its own
+// workflow line (pushing workflow edits needs a token with `workflow` scope).
+await import("./validate-srd-content.mjs");

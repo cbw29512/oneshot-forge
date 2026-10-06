@@ -1444,7 +1444,8 @@
           }
         ],
         "end": "The party reaches Briar Hollow or knowingly chooses a suicidal stand.",
-        "scaling": "Any party size: the column is always overwhelming. Telegraph it; do not run it as a fight."
+        "scaling": "Any party size: the column is always overwhelming. Telegraph it; do not run it as a fight.",
+        "balance": "Not balanced on purpose: 12 orcs (1,200 XP, ×3 = 3,600 adjusted) is far past Deadly for any party of 3–6 level-4 characters, and more keep coming. It closes the road. It is not a fight."
       },
       {
         "id": "enc-father",
