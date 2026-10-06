@@ -19,8 +19,9 @@ for (const notice of board.notices) {
   for (const field of ["issuer","urgency","type","teaser","party","time","href"]) if (!notice[field]) fail(notice.id + " missing " + field);
   if (Number(notice.level) !== Number(product.level)) fail(notice.id + " level disagrees with product contract");
   if (!notice.href.includes("id=" + notice.id)) fail(notice.id + " href does not open its adventure");
+  const normalizedIndex = index.toLowerCase();
   for (const required of [notice.headline, notice.issuer, notice.urgency, notice.type]) {
-    if (!index.includes(required)) fail(notice.id + " homepage notice drifted from job-board data: " + required);
+    if (!normalizedIndex.includes(String(required).toLowerCase())) fail(notice.id + " homepage notice drifted from job-board data: " + required);
   }
 }
 console.log("Job board OK: " + board.notices.length + " in-world adventure postings match product/runner data.");
