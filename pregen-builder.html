@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pregens — level 0, then print any SRD level</title>
+  <link rel="icon" href="assets/mark-lantern.jpg">
+  <link rel="stylesheet" href="styles.css?v=20261006b">
+  <link rel="stylesheet" href="pregen-builder.css?v=20261006b">
+</head>
+<body class="sheets-page">
+  <header class="land-bar print-hide">
+    <a class="brand" href="./"><img src="assets/mark-lantern.jpg" alt="" width="36" height="36"><span>99¢ One-Shots</span></a>
+    <nav class="land-nav">
+      <a href="./#nights">One-shots</a>
+      <a href="sheets.html">Fixed sheets</a>
+      <a href="campaign.html">Town</a>
+    </nav>
+  </header>
+  <main class="pg-wrap print-hide">
+    <p class="eyebrow ember">2014 SRD 5.1 · verified class tables · SRD subclass only</p>
+    <h1>Level 0 until you say otherwise</h1>
+    <p class="lede short">Pick the class, the SRD subclass, and the level. Level up steps one. Print writes the sheet for that level. Non-SRD subclasses are not on this page.</p>
+    <div class="pg-controls">
+      <label>Class
+        <select id="pg-class"></select>
+      </label>
+      <label>Subclass
+        <select id="pg-sub"></select>
+      </label>
+      <label>Level
+        <select id="pg-level"></select>
+      </label>
+      <button class="button ghost" type="button" id="pg-up">Level up</button>
+      <button class="button ember" type="button" id="pg-print">Print</button>
+    </div>
+    <p class="tiny" id="pg-verify"></p>
+    <div id="pg-grid" class="pg-grid"></div>
+  </main>
+  <div id="pg-print" class="pg-print"></div>
+  <script src="pregen-builder.js?v=20261006b"></script>
+</body>
+</html>
