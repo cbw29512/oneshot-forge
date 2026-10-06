@@ -20,7 +20,7 @@ for (const required of [
   "Route D",
   "Route E",
   "Final DP",
-  "0 | Overrun",
+  "| **0** | Overrun.",
   "Full Village waves",
   "Split Village waves",
   "Nest waves",
