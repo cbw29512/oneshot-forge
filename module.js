@@ -80,7 +80,7 @@ function renderNpcs(adventure) {
     const dialogue = (npc.tableDialogue || []).slice(0, 3);
     const reactions = npc.reactions || {};
     return '<article class="npc-card">' +
-      '<h3>' + esc(npc.name) + '</h3>' +
+      '<h3>' + statButton(npc.name) + '</h3>' +
       (npc.description ? '<p class="npc-description">' + esc(npc.description) + '</p>' : '') +
       '<p><span class="label">Role.</span> ' + esc(npc.role) + '</p>' +
       '<p><span class="label">Voice.</span> ' + esc((npc.voiceCues || []).join("; ")) + '</p>' +
@@ -109,29 +109,59 @@ function renderFlow(adventure) {
   el("flow-map").innerHTML = nodes.join("");
 }
 
-function encounterBlock(encounter) {
-  const m = encounter.mechanics;
-  const stats = m ? (
+function statButton(name) {
+  return '<button type="button" class="npc-link" data-stat="' + esc(name) + '">' + esc(name) + '</button>';
+}
+function statPopupHtml(encounter) {
+  const m = encounter.mechanics || {};
+  return '<h3>' + esc(encounter.name) + '</h3>' +
+    '<p class="muted">' + esc(encounter.type || "Creature") + '</p>' +
     '<div class="statline">' +
-      '<div><span>Count</span><b>' + esc(m.count) + '</b></div>' +
-      '<div><span>AC</span><b>' + esc(m.ac) + '</b></div>' +
-      '<div><span>HP</span><b>' + esc(m.hpEach) + '</b></div>' +
-      '<div><span>Save DC</span><b>' + esc(m.saveDC) + '</b></div>' +
+      '<div><span>AC</span><b>' + esc(m.ac || "—") + '</b></div>' +
+      '<div><span>HP</span><b>' + esc(m.hpEach || "—") + '</b></div>' +
+      '<div><span>Count</span><b>' + esc(m.count || "1") + '</b></div>' +
+      '<div><span>Save DC</span><b>' + esc(m.saveDC || "—") + '</b></div>' +
     '</div>' +
-    '<p><span class="label">Attack.</span> ' + esc(m.basicAttack) + '</p>' +
-    (m.attacksPerTurn > 1 ? '<p><span class="label">Multiattack.</span> ' + esc(m.attacksPerTurn) + ' attacks per turn.</p>' : '') +
-    '<p><span class="label">Signature.</span> ' + esc(m.signature) + '</p>'
-  ) : "";
+    '<p><span class="label">Attack.</span> ' + esc(m.basicAttack || "No attack listed.") + '</p>' +
+    (m.attacksPerTurn > 1 ? '<p><span class="label">Multiattack.</span> ' + esc(m.attacksPerTurn) + '</p>' : '') +
+    '<p><span class="label">Trait.</span> ' + esc(m.signature || encounter.special || "—") + '</p>';
+}
+function encounterBlock(encounter) {
   return '<div class="encounter-block">' +
-    '<h3>' + esc(encounter.name) + '</h3>' +
+    '<h3>' + statButton(encounter.name) + '</h3>' +
     '<p><span class="label">' + esc(encounter.type || "Encounter") + '.</span> ' + esc(encounter.summary || "") + '</p>' +
     (encounter.objective ? '<p><span class="label">Objective.</span> ' + esc(encounter.objective) + '</p>' : '') +
-    stats +
+    '<p class="muted">Combat numbers are in the appendix. Click the name.</p>' +
     '<p><span class="label">Resolution.</span> ' + esc(encounter.resolution || "") + '</p>' +
     (encounter.talkOut ? '<p><span class="label">Talk-out.</span> ' + esc(encounter.talkOut) + '</p>' : '') +
     (encounter.bypass ? '<p><span class="label">Bypass.</span> ' + esc(encounter.bypass) + '</p>' : '') +
-    (encounter.special ? '<p><span class="label">Special.</span> ' + esc(encounter.special) + '</p>' : '') +
     '</div>';
+}
+function renderStatAppendix(adventure) {
+  let host = document.getElementById("stat-appendix");
+  if (!host) {
+    host = document.createElement("section");
+    host.id = "stat-appendix";
+    host.innerHTML = "<h2>Appendix: stat blocks</h2><div class='appendix-grid'></div>";
+    document.querySelector("main").appendChild(host);
+  }
+  const blocks = (adventure.encounters || []).filter(e => e.mechanics);
+  host.querySelector(".appendix-grid").innerHTML = blocks.map(e =>
+    '<article class="npc-card" id="stat-' + esc(e.id) + '">' + statPopupHtml(e) + '</article>'
+  ).join("") || "<p>No combat blocks in this adventure.</p>";
+  window.__statBlocks = Object.fromEntries(blocks.map(e => [e.name, statPopupHtml(e)]));
+}
+function openStat(name) {
+  let pop = document.getElementById("stat-pop");
+  if (!pop) {
+    pop = document.createElement("div");
+    pop.id = "stat-pop";
+    pop.innerHTML = '<div class="stat-pop-card" role="dialog"><button type="button" class="stat-pop-close">Close</button><div class="stat-pop-body"></div></div>';
+    document.body.appendChild(pop);
+    pop.addEventListener("click", event => { if (event.target === pop || event.target.classList.contains("stat-pop-close")) pop.hidden = true; });
+  }
+  pop.querySelector(".stat-pop-body").innerHTML = (window.__statBlocks || {})[name] || "<p>No combat block for " + esc(name) + ".</p>";
+  pop.hidden = false;
 }
 
 function renderScenes(adventure) {
@@ -225,6 +255,7 @@ async function render() {
   const adventure = await loadAdventure();
   renderMeta(adventure);
   renderNpcs(adventure);
+  renderStatAppendix(adventure);
   renderFlow(adventure);
   renderScenes(adventure);
   renderClues(adventure);
