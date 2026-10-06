@@ -16,3 +16,5 @@
   .pg-stats div { border: 1px solid #111; text-align: center; padding: .3rem; }
   .pg-print ul { margin: .3rem 0 .6rem; }
 }
+
+.pg-print { display: block; margin: 1rem 0 2rem; }
