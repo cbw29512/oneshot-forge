@@ -88,12 +88,5 @@ const ADVENTURE = {
     {name:"Party Horn of Heroism",rules:"Once, as a bonus action, one ally within 30 feet gains advantage on its next attack roll or saving throw."},
     {name:"Birthday Candle of Courage",rules:"Once, light the candle as a bonus action. One creature within 30 feet gains 5 temporary hit points and ends the frightened condition."}
   ],
-  pregens:[
-    {name:"Birthday Hero",class:"Human Barbarian 3",role:"Birthday hero and steadfast protector",ac:15,hp:32,weapon:"Greataxe +5, 1d12+3",features:"Rage 3/day; Reckless Attack; Danger Sense; Path of the Totem Warrior (Bear spirit while raging).",hook:"Your unspoken birthday wish has been stolen. You do not know exactly how to phrase it yet, but you know it involves the people beside you."},
-    {name:"Jonnelle",class:"Human Barbarian 3",role:"the Birthday Hero's fearless friend",ac:15,hp:32,weapon:"Maul +5, 2d6+3",features:"Rage 3/day; Reckless Attack; Danger Sense; Path of the Totem Warrior (Wolf spirit while raging).",hook:"Where the Birthday Hero goes, you go. Anyone stealing from your friend has made a truly terrible decision."},
-    {name:"Mira Honeycup",class:"Halfling Life Cleric 3",role:"Healer and heart",ac:18,hp:24,weapon:"Mace +4, 1d6+2",features:"Spell save DC 13; Bless, Healing Word, Cure Wounds, Aid, Spiritual Weapon; Channel Divinity: Preserve Life.",hook:"You believe feeding and healing people are both sacred acts."},
-    {name:"Fizzwick Crumb",class:"Forest Gnome Wizard 3",role:"Puzzle solver",ac:13,hp:17,weapon:"Fire Bolt +5, 1d10",features:"Spell save DC 13; Detect Magic, Mage Hand, Shield, Magic Missile, Web, Invisibility.",hook:"You came to study magical baking and refuse to let the universe waste a perfectly good wish."},
-    {name:"Poppy Quickstep",class:"Lightfoot Halfling Rogue 3",role:"Scout and trap specialist",ac:15,hp:24,weapon:"Shortbow +5, 1d6+3 plus Sneak Attack 2d6",features:"Cunning Action; Expertise in Investigation and thieves' tools; Thief archetype.",hook:"You planned a harmless birthday prank. This is not it, and you are offended by the lack of craftsmanship."},
-    {name:"Aster Brightscale",class:"Dragonborn Paladin 3",role:"Defender and moral compass",ac:18,hp:28,weapon:"Longsword +5, 1d8+3",features:"Divine Sense; Lay on Hands 15; Divine Smite; Bless, Shield of Faith, Cure Wounds; Oath of Devotion.",hook:"You swore that no sincere celebration would be darkened while you could still raise a shield."}
-  ]
+  pregens:[] // Full SRD 5.1 pregens are defined in player-data.js (loaded after this file).
 };

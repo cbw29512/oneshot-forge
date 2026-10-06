@@ -16,14 +16,14 @@ const ALWAYS_BANNED = [
   "illithid", "displacer beast", "githyanki", "githzerai", "kuo-toa", "yuan-ti", "umber hulk",
   "carrion crawler", "slaad", "forgotten realms", "faerûn", "faerun", "waterdeep", "baldur's gate",
   "eberron", "greyhawk", "ravenloft", "strahd", "tiamat", "mordenkainen", "tasha's", "xanathar",
-  "bigby", "drizzt", "elminster", "totem warrior", "school of illusion"
+  "bigby", "drizzt", "elminster", "totem warrior", "school of illusion", "forest gnome", "dragonchess", "illusion savant"
 ];
 // Present in SRD 5.2.1 but not in SRD 5.1: banned only in 2014-labelled material.
 const BANNED_2014 = ["hex", "dissonant whispers", "wood elf", "mask of the wild"];
 
-const files2014 = ["data/pregens/quiet-seals-level-4-2014-srd.json"];
+const files2014 = ["data/pregens/quiet-seals-level-4-2014-srd.json", "birthday-one-shot/player-data.js"];
 const adventureFiles = list("data/adventures", /\.oneshot\.json$/);
-const scanFiles = [...adventureFiles, ...list("data/pregens", /\.json$/), ...list("adventures", /\.html$/), "index.html"];
+const scanFiles = [...adventureFiles, ...list("data/pregens", /\.json$/), ...list("adventures", /\.html$/), ...list("birthday-one-shot", /\.(js|html)$/), "index.html"];
 
 const hit = (text, term) => new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(text);
 
