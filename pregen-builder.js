@@ -134,16 +134,26 @@ const SPELLS = {
 
 function magicItems(c, n) {
   if (n < 1) return "None. Level 0 carries ordinary clothes and a belt knife.";
-  const martial = ["fighter","paladin","ranger","barbarian"].includes(c.id);
-  const items = ["Potion of healing (SRD)"];
-  if (n >= 2) items.push(martial ? "+1 weapon (SRD)" : "Wand of magic missiles (SRD)");
-  if (n >= 5) items.push("Potion of greater healing (SRD)");
-  if (n >= 5) items.push(martial ? "+1 shield (SRD)" : "Bag of holding (SRD)");
-  if (n >= 9) items.push("+1 armor (SRD)");
-  if (n >= 11) items.push("Potion of superior healing (SRD)");
-  if (n >= 11) items.push(martial ? "+2 weapon (SRD)" : "+1 wand of magic missiles (SRD)");
-  if (n >= 17) items.push(martial ? "+3 weapon (SRD)" : "Potion of supreme healing (SRD)");
-  return items.join("; ") + ". SRD 5.1 only. No non-SRD book items.";
+  const kit = {
+    fighter: ["+1 longsword", "+1 shield", n >= 5 ? "+1 chain mail" : null, n >= 11 ? "+2 longsword" : null, n >= 17 ? "+3 longsword" : null],
+    barbarian: ["+1 greataxe", n >= 5 ? "potion of hill giant strength" : null, n >= 11 ? "+2 greataxe" : null, n >= 17 ? "+3 greataxe" : null],
+    paladin: ["+1 longsword", "+1 shield", n >= 5 ? "+1 chain mail" : null, "spell scroll of bless", n >= 9 ? "spell scroll of revivify" : null, n >= 11 ? "+2 longsword" : null],
+    ranger: ["+1 longbow", "boots of elvenkind", n >= 5 ? "+1 scale mail" : null, "spell scroll of hunter's mark", n >= 11 ? "+2 longbow" : null],
+    rogue: ["+1 rapier", "cloak of elvenkind", "boots of elvenkind", n >= 11 ? "+2 rapier" : null],
+    monk: ["+1 shortsword", n >= 5 ? "boots of elvenkind" : null, n >= 11 ? "+2 shortsword" : null],
+    bard: ["spell scroll of healing word", "wand of magic missiles", n >= 5 ? "spell scroll of invisibility" : null, n >= 9 ? "spell scroll of hypnotic pattern" : null],
+    cleric: ["+1 mace", "+1 shield", "spell scroll of cure wounds", n >= 5 ? "+1 chain mail" : null, n >= 9 ? "spell scroll of revivify" : null],
+    druid: ["+1 scimitar", "spell scroll of entangle", "spell scroll of cure wounds", n >= 5 ? "spell scroll of call lightning" : null, n >= 11 ? "+2 scimitar" : null],
+    sorcerer: ["wand of magic missiles", "spell scroll of shield", n >= 5 ? "spell scroll of fireball" : null, n >= 11 ? "spell scroll of counterspell" : null],
+    warlock: ["wand of magic missiles", "spell scroll of hex", n >= 5 ? "spell scroll of counterspell" : null, n >= 11 ? "+1 rod" : null],
+    wizard: ["wand of magic missiles", "spell scroll of shield", "spell scroll of magic missile", n >= 5 ? "spell scroll of fireball" : null, n >= 9 ? "spell scroll of counterspell" : null, n >= 11 ? "bag of holding" : null]
+  };
+  const potions = ["potion of healing"];
+  if (n >= 5) potions.push("potion of greater healing");
+  if (n >= 11) potions.push("potion of superior healing");
+  if (n >= 17) potions.push("potion of supreme healing");
+  const items = (kit[c.id] || []).filter(Boolean).concat(potions);
+  return items.join("; ") + ". SRD 5.1, chosen for this class. No armor on the barbarian, monk, or unarmored caster. No wand on the fighter.";
 }
 function sign(n) { return n >= 0 ? "+" + n : String(n); }
 function sheetHtml() {
