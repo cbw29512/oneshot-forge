@@ -6,7 +6,7 @@
     "systemCompatibility": "5E-compatible fantasy RPG",
     "partyLevel": 3,
     "partySize": 4,
-    "partySizeRange": "4 players",
+    "partySizeRange": "3–6 players (tuned for 4)",
     "durationMinutes": 150,
     "tone": [
       "dark woodland",
@@ -24,13 +24,13 @@
   "setup": {
     "pitch": "Oakhaven's apothecary sends the party into the Whispering Hollow for Gloom-Lily Nectar, but the ancient weaving grove is choking beneath a shadow blight and its druid guardian, Malakor, is bound to the corruption.",
     "openingLocation": "Kaelen's Apothecary on Oakhaven's eastern lane",
-    "gmSummary": "Kaelen needs four vials of Gloom-Lily Nectar before the Hollow's shroud spoils the crop. The party crosses a razor-vine path guarded by blights and a corrupted bear, opens a sunken druidic shrine by restoring the cycle Decay → Balance → Growth, then enters the Heart Chamber. The Heart Tree Core shields Malakor until fire or radiant energy breaks it. The party can kill Malakor, or cleanse him through three successful cleansing actions before two failures once the core is exposed. The Shroud has three visible stages; rushing or repeated mistakes can make the grove a lasting dead zone even if Malakor falls.",
+    "gmSummary": "Kaelen needs four vials of Gloom-Lily Nectar before the Hollow's shroud spoils the crop. The party crosses a razor-vine path guarded by blight-twisted shrubs, rot-blooms, and a corrupted bear, opens a sunken druidic shrine by restoring the cycle Decay → Balance → Growth, then enters the Heart Chamber. The Heart Tree Core shields Malakor until fire or radiant energy breaks it. The party can kill Malakor, or cleanse him through three successful cleansing actions before two failures once the core is exposed. The Shroud has three visible stages; rushing or repeated mistakes can make the grove a lasting dead zone even if Malakor falls.",
     "background": "The Whispering Hollow is an old druidic weaving grove where roots, moonlight, and seasonal magic were once braided into healing plants. Weeks ago Malakor found a black splinter embedded in the Heart Tree and tried to draw the sickness into himself. The corruption instead used him as an anchor. Kaelen knows only that his Gloom-Lilies have stopped arriving and that the Hollow's birds no longer cross the eastern ridge.",
     "pregenTieIns": [
       "Fighter: hold narrow lanes, protect the cleansing attempt, and break the bear's thorn binding.",
       "Rogue: cross razor-vines safely, inspect shrine mechanisms, and recover hidden offerings.",
       "Cleric: radiant damage can expose the Heart Tree Core and Religion can drive the cleansing ritual.",
-      "Wizard or Sorcerer: area control helps against clustered blights; Arcana can operate the Moonstone Pillars."
+      "Wizard or Sorcerer: area control helps against clustered thorn-shrubs; Arcana can operate the Moonstone Pillars."
     ]
   },
   "quest": {
@@ -293,13 +293,13 @@
       "flowStage": 2,
       "flowTotal": 5,
       "flowLabel": "Guardian",
-      "readAloud": "The path narrows until the trees become walls. Razor vines drag across stone like fingernails, and gray mist curls around your boots without moving in the wind. Three twig-thin shapes unfold from the brambles as a larger bear lurches into view, its shoulders cinched by a collar of living black thorns. Above them, a needle-limbed blight draws back a spray of barbed spines.",
+      "readAloud": "The path narrows until the trees become walls. Razor vines drag across stone like fingernails, and gray mist curls around your boots without moving in the wind. Three thornbushes shudder and drag themselves out of the brambles on root-feet as a bear lurches into view, its shoulders cinched by a collar of living black thorns. Beside the lane, two swollen violet-black blooms turn toward the sound of your boots, tendrils uncurling.",
       "gmNotes": [
         "Mark SHROUD 1/3 when this encounter ends, whether the party fights, bypasses, or frees the bear.",
         "Razor-Thorns: moving through thorn squares without taking the Cautious Passage action triggers DC 12 Dexterity save; failure deals 1d6 piercing.",
         "Cautious Passage: spend an Action to move up to half speed through razor-vine terrain without making the hazard save.",
         "The bear is bound, not naturally hostile. A character adjacent to it can use an Action and DC 12 Strength (Athletics), Dexterity (Sleight of Hand), or Wisdom (Animal Handling) to break/loosen the thorn collar; success removes the bear from the fight.",
-        "The party only needs to reach the shrine trail. Killing every blight is not required."
+        "The party only needs to reach the shrine trail. Killing every thorn-shrub and rot-bloom is not required."
       ],
       "runSteps": [
         {
@@ -404,7 +404,7 @@
         "Once the Core reaches 0 HP, the party may finish Malakor by combat or cleanse him. Cleansing requires 3 successes before 2 failures; each attempt is an Action using DC 13 Intelligence (Arcana or Nature), Wisdom (Medicine or Religion), or Charisma (Persuasion) if the character directly appeals to Malakor.",
         "On a successful cleansing action Malakor loses his next hostile action as he fights the corruption. Three successes ends the encounter with him alive.",
         "If SHROUD reaches 3 before the Core breaks, the finale is still winnable, but the grove remains a dead zone and only two Gloom-Lily vials survive.",
-        "Malakor's thematic spell list is Entangle, Witch Bolt, and Shillelagh. If using full spell text, use the selected ruleset's SRD wording; the quick-run actions are complete without opening another book."
+        "Malakor's thematic spell list is Entangle, Thunderwave, and Shillelagh (all SRD 5.1 and SRD 5.2.1 spells). If using full spell text, use the selected ruleset's SRD wording; the quick-run actions are complete without opening another book."
       ],
       "runSteps": [
         {
@@ -592,7 +592,7 @@
       "required": true,
       "sources": [
         "Kaelen's record of Malakor tending the Hollow peacefully for years.",
-        "The thorn-bound bear and blights carry the same black root residue wrapped through their bodies.",
+        "The thorn-bound bear, thorn-shrubs, and rot-blooms carry the same black root residue wrapped through their bodies.",
         "Malakor's lucid warning in the Heart Chamber tells the party that the roots are controlling him."
       ],
       "canMove": true,
@@ -640,11 +640,11 @@
       "id": "enc-bramble-guard",
       "name": "The Bramble Guard",
       "type": "combat / bypass",
-      "difficulty": "introductory",
-      "summary": "Three Twig Blights and one Needle Blight guard a thorn-bound bear while razor-vines make careless movement dangerous.",
+      "difficulty": "easy (introductory)",
+      "summary": "Three blight-twisted Thorn-Shrubs and two Rot-Blooms guard a thorn-bound bear while razor-vines make careless movement dangerous.",
       "objective": "Reach the shrine trail or neutralize the corruption without being trapped in the thorn lane.",
-      "resolution": "The scene ends when the party reaches the far steps, all hostile blights are neutralized, or the bear is freed and a safe route is opened.",
-      "talkOut": "The blights do not negotiate, but the bear can be freed rather than killed.",
+      "resolution": "The scene ends when the party reaches the far steps, all hostile thorn-shrubs and rot-blooms are neutralized, or the bear is freed and a safe route is opened.",
+      "talkOut": "The thorn-shrubs and rot-blooms do not negotiate, but the bear can be freed rather than killed.",
       "bypass": "Spend actions on Cautious Passage and move to the shrine steps; burning or cutting a 10-foot bramble section also creates a safe gap.",
       "special": "Freeing the Bramble-Bound Bear removes it from combat immediately; it flees into the uncorrupted woods."
     },
@@ -652,7 +652,7 @@
       "id": "enc-malakor",
       "name": "Malakor and the Heart Tree Core",
       "type": "boss / cleansing ritual",
-      "difficulty": "climactic",
+      "difficulty": "medium (climactic; the Core shield makes it play harder)",
       "summary": "The Core protects Malakor while animated roots control the battlefield. Fire or radiant energy breaks the Core; then the party chooses combat or a three-success cleansing.",
       "objective": "Break the Core and end Malakor's connection to the shadow blight before the grove is permanently scarred.",
       "resolution": "Core at 0 HP plus Malakor defeated or 3 cleansing successes. Two cleansing failures do not end the adventure; Malakor returns to full hostility and the party may keep fighting or try a new approach.",
@@ -779,7 +779,7 @@
         "Party enters from west edge",
         "Shrine steps are east",
         "Bear begins near center",
-        "Needle Blight starts behind northern brambles",
+        "Two Rot-Blooms are rooted beside the lane behind the northern brambles (reach 10 ft.)",
         "Thorn squares trigger Razor-Thorns unless crossed cautiously"
       ]
     },
@@ -903,7 +903,7 @@
     "plannedMinutes": 140,
     "bossReserveMinutes": 45,
     "cutOrder": [
-      "If 20+ minutes behind, remove two Twig Blights from the Bramble Guard and start the bear adjacent to a character who can inspect its collar.",
+      "If 20+ minutes behind, remove two Thorn-Shrubs and one Rot-Bloom from the Bramble Guard and start the bear adjacent to a character who can inspect its collar.",
       "If 15+ minutes behind at the shrine, reveal the WHAT DIES FEEDS WHAT LIVES inscription immediately and allow one DC 13 bypass attempt.",
       "Never cut the Core mechanic, the cleansing choice, or the eastern-watchtower reveal."
     ],
@@ -951,14 +951,14 @@
       "label": "2014 SRD",
       "tableNotes": [
         "The adventure's quick-run monster actions are self-contained and do not require a class build.",
-        "If you expand Malakor's named spells (Entangle, Witch Bolt, Shillelagh), use the 2014 SRD spell text."
+        "If you expand Malakor's named spells (Entangle, Thunderwave, Shillelagh), use the 2014 SRD spell text."
       ]
     },
     "2024": {
       "label": "2024 SRD",
       "tableNotes": [
         "The adventure's quick-run monster actions are self-contained and do not import 2014 class mechanics.",
-        "If you expand Malakor's named spells (Entangle, Witch Bolt, Shillelagh), use the current SRD wording for the selected ruleset."
+        "If you expand Malakor's named spells (Entangle, Thunderwave, Shillelagh), use the current SRD wording for the selected ruleset."
       ]
     }
   },
@@ -1020,37 +1020,51 @@
         "bypass": "Use Cautious Passage, open a gap, and reach the east shrine steps; freeing the bear removes it from combat.",
         "creatures": [
           {
-            "name": "Twig Blight",
+            "name": "Thorn-Shrub",
             "count": 3,
-            "ac": 13,
-            "hp": 4,
+            "ac": 9,
+            "hp": 10,
             "speed": "20 ft.",
-            "attack": "Claw +3 to hit, 1d4+1 piercing.",
-            "trait": "False Stillness: while motionless among brush, it looks like dead twigs until closely inspected.",
-            "tactics": "Clump around the first creature slowed by razor-vines; do not chase beyond the shrine steps."
+            "cr": "0",
+            "xp": 10,
+            "statBlock": "SRD Awakened Shrub, reskinned as blight-twisted thornbrush. Vulnerable to fire; resistant to piercing.",
+            "attack": "Rake. Melee +1 to hit, reach 5 ft.; 1 (1d4 − 1) slashing.",
+            "trait": "False Appearance: while motionless it is indistinguishable from ordinary brush.",
+            "edition2024": "Rake +1 to hit, reach 5 ft.; 1 slashing. Same AC, HP, speed, fire vulnerability, and piercing resistance.",
+            "tactics": "Crowd the first creature slowed by razor-vines so allies get a clear line; do not chase beyond the shrine steps."
           },
           {
-            "name": "Needle Blight",
-            "count": 1,
-            "ac": 12,
-            "hp": 11,
-            "speed": "30 ft.",
-            "attack": "Claw +3 to hit, 2d4+1 piercing.",
-            "ranged": "Needles +3 to hit, 2d6+1 piercing, range 30/60 ft.",
-            "tactics": "Stay behind the northern brambles and fire at exposed targets; retreat if isolated."
+            "name": "Rot-Bloom",
+            "count": 2,
+            "ac": 5,
+            "hp": 18,
+            "speed": "5 ft.",
+            "cr": "1/4",
+            "xp": 50,
+            "statBlock": "SRD Violet Fungus, reskinned as a black-veined bloom rooted beside the lane. Blindsight 30 ft.",
+            "attack": "Multiattack: 1d4 Rotting Touch attacks. Rotting Touch. Melee +2 to hit, reach 10 ft.; 4 (1d8) necrotic.",
+            "trait": "False Appearance: while motionless it is indistinguishable from an ordinary fungus.",
+            "edition2024": "Multiattack: two Rotting Touch attacks (+2 to hit, reach 10 ft.; 4 (1d8) necrotic).",
+            "tactics": "Rooted beside the north brambles; lash anything that passes within 10 ft. They cannot pursue."
           },
           {
             "name": "Bramble-Bound Bear",
             "count": 1,
-            "ac": 12,
-            "hp": 27,
-            "speed": "40 ft.",
-            "attack": "Bite +4 to hit, 1d8+2 piercing.",
-            "trait": "Thorn-Bound: a successful collar check removes the bear from the encounter without reducing it to 0 HP.",
+            "ac": 11,
+            "hp": 19,
+            "speed": "40 ft., climb 30 ft.",
+            "cr": "1/2",
+            "xp": 100,
+            "statBlock": "SRD Black Bear (a thorn collar drives it; it is not evil).",
+            "attack": "Multiattack: Bite +3 to hit, 1d6+2 piercing, and Claws +3 to hit, 2d4+2 slashing.",
+            "trait": "Thorn-Bound: a successful collar check removes the bear from the encounter without reducing it to 0 HP. Keen Smell.",
+            "edition2024": "Speed 30 ft., climb 30 ft., swim 30 ft. Multiattack: two Rend attacks, +4 to hit, 1d6+2 slashing each.",
             "tactics": "Charge the nearest moving creature until freed; once the collar breaks, flee toward the west woods."
           }
         ],
-        "end": "The party reaches the shrine steps, defeats the blights, or otherwise opens a safe path."
+        "end": "The party reaches the shrine steps, defeats the thorn-shrubs and rot-blooms, or otherwise opens a safe path.",
+        "balance": "4 × level 3: 230 XP, ×2 = 460 adjusted → Easy (2014 DMG); below Low (2024 budget). Introductory by design; razor-vines add pressure.",
+        "scaling": "3 PCs: 2 Thorn-Shrubs, 1 Rot-Bloom, bear. 5 PCs: add 1 Rot-Bloom. 6 PCs: add 1 Rot-Bloom and 1 Thorn-Shrub. The collar check and Cautious Passage stay the same."
       },
       {
         "id": "enc-malakor",
@@ -1065,7 +1079,7 @@
             "hp": 20,
             "speed": "—",
             "immunities": "All damage except fire and radiant.",
-            "trait": "Shadow Ward: while the Core has HP, Malakor cannot be reduced below 1 HP.",
+            "trait": "Object, not a creature: it has no turn and makes no saves. Shadow Ward: while the Core has HP, Malakor cannot be reduced below 1 HP.",
             "tactics": "The Core does not act; it powers the ward and root burst."
           },
           {
@@ -1076,13 +1090,30 @@
             "speed": "30 ft.",
             "saves": "Wis +4, Con +3",
             "attack": "Blight Staff +4 to hit, 1d8+2 bludgeoning plus 1d4 necrotic.",
-            "ranged": "Shadow Arc +4 to hit, range 60 ft., 1d10 lightning.",
+            "ranged": "Blight Bolt. Ranged spell attack +4 to hit, range 60 ft.; 1d10 necrotic.",
             "action": "Grasping Vines (Recharge 5–6): creatures in a 15-ft. square within 60 ft. make DC 12 Strength saves or become Restrained until the end of their next turns.",
-            "trait": "Prepared spell themes: Entangle, Witch Bolt, Shillelagh. Use the selected SRD wording only if replacing these quick-run actions with full spellcasting.",
-            "tactics": "Stay near the Core, restrain clustered intruders, then pressure whoever is dealing fire/radiant damage. After the Core breaks, lucid pauses make cleansing possible."
+            "trait": "Original creature (not a Monster Manual reprint), built to CR 2 (450 XP) with the Core's protection. Spell themes: Entangle, Thunderwave, Shillelagh. If you swap in full spellcasting, use the SRD Druid stat block for the selected edition and keep the Core rules.",
+            "tactics": "Stay near the Core, restrain clustered intruders, then pressure whoever is dealing fire/radiant damage. After the Core breaks, lucid pauses make cleansing possible.",
+            "cr": "2",
+            "xp": 450
+          },
+          {
+            "name": "Rot-Bloom (guarding the Core)",
+            "count": 1,
+            "ac": 5,
+            "hp": 18,
+            "speed": "5 ft.",
+            "cr": "1/4",
+            "xp": 50,
+            "statBlock": "SRD Violet Fungus, rooted 10 ft. from the Core.",
+            "attack": "Multiattack: 1d4 Rotting Touch attacks. Rotting Touch. Melee +2 to hit, reach 10 ft.; 4 (1d8) necrotic.",
+            "edition2024": "Multiattack: two Rotting Touch attacks.",
+            "tactics": "Lashes anyone who steps next to the Core to attack it."
           }
         ],
-        "end": "Core at 0 HP and Malakor defeated, or three cleansing successes are completed."
+        "end": "Core at 0 HP and Malakor defeated, or three cleansing successes are completed.",
+        "balance": "4 × level 3: 500 XP, ×1.5 = 750 adjusted → Medium (2014 DMG); below Low (2024 budget). The Core shield and the root surge at initiative 20 push it toward Hard; the cleanse can end it early.",
+        "scaling": "3 PCs: remove the Rot-Bloom and drop the root surge DC to 12. 5 PCs: 2 Rot-Blooms. 6 PCs: 3 Rot-Blooms and give the Core 30 HP."
       }
     ],
     "hazards": [
@@ -1145,7 +1176,7 @@
           "east shrine steps",
           "razor-vine squares along both edges",
           "bear near center",
-          "Needle Blight firing position behind north brambles"
+          "Rot-Bloom positions behind the north brambles"
         ]
       },
       {
