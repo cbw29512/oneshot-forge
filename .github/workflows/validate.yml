@@ -63,6 +63,7 @@ jobs:
           node scripts/validate-adventure.mjs data/adventures/the-ashen-bridge.oneshot.json
           node scripts/validate-adventure.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
           node scripts/validate-adventure.mjs data/adventures/the-fencewalker-of-bellmere.oneshot.json
+          node scripts/validate-adventure.mjs data/adventures/the-lanternback-of-reedwater.oneshot.json
       - name: Certify zero-prep stage cards
         run: |
           node scripts/validate-stage-cards.mjs data/adventures/the-lantern-below.oneshot.json
@@ -74,6 +75,7 @@ jobs:
           node scripts/validate-stage-cards.mjs data/adventures/the-ashen-bridge.oneshot.json
           node scripts/validate-stage-cards.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
           node scripts/validate-stage-cards.mjs data/adventures/the-fencewalker-of-bellmere.oneshot.json
+          node scripts/validate-stage-cards.mjs data/adventures/the-lanternback-of-reedwater.oneshot.json
       - name: Audit Lantern GM table readiness
         run: node scripts/validate-table-readiness.mjs data/adventures/the-lantern-below.oneshot.json
       - name: Audit Lantern clue delivery
@@ -126,6 +128,12 @@ jobs:
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-fencewalker-of-bellmere.oneshot.json
       - name: Audit Fencewalker spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-fencewalker-of-bellmere.oneshot.json
+      - name: Audit Lanternback table readiness
+        run: node scripts/validate-table-readiness.mjs data/adventures/the-lanternback-of-reedwater.oneshot.json
+      - name: Audit Lanternback clue delivery
+        run: node scripts/validate-clue-delivery.mjs data/adventures/the-lanternback-of-reedwater.oneshot.json
+      - name: Audit Lanternback spoken presentation
+        run: node scripts/validate-presentation.mjs data/adventures/the-lanternback-of-reedwater.oneshot.json
       - name: Validate adventure registry
         run: node scripts/validate-adventure-registry.mjs
       - name: Validate catalog zero-prep baseline
