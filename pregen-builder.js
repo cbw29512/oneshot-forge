@@ -182,7 +182,22 @@ function sheetHtml() {
   const pers = PERSON[c.id];
   const spellList = (SPELLS[c.id] || []).slice(0, n === 0 ? 0 : Math.min(7, 1 + Math.ceil(n / 2)));
   const cast = c.caster && n ? "Spell ability " + c.primary[0].toUpperCase() + " · DC " + (8 + prof + mod(c.primary[0])) + " · attack " + sign(prof + mod(c.primary[0])) + " · slots " + slots(c, n) : "No spellcasting.";
-  return '<article class="screen-sheet web-fixed-sheet">' +
+  const faces = {
+    fighter: ["Brann Oakholt", "assets/pregens/brann.jpg"],
+    cleric: ["Sister Pell Bramble", "assets/pregens/pell.jpg"],
+    rogue: ["Nyx Keller", "assets/pregens/nyx.jpg"],
+    wizard: ["Ivo Ashletter", "assets/pregens/ivo.jpg"],
+    ranger: ["Kael Thornwake", "assets/pregens/kael.jpg"],
+    paladin: ["Hester Brine", "assets/pregens/hester.jpg"]
+  };
+  const face = faces[c.id] || [c.name, ""];
+  const portrait = face[1];
+  const itemPics = magicItems(c, n).split(";").slice(0, 4).map(line => {
+    const key = /scroll/i.test(line) ? "scroll" : /cloak/i.test(line) ? "cloak" : /boot/i.test(line) ? "boots" : /wand/i.test(line) ? "wand" : /bracer/i.test(line) ? "bracers" : /staff/i.test(line) ? "staff" : /headband/i.test(line) ? "headband" : /arrow|ammunition/i.test(line) ? "arrows" : /shield/i.test(line) ? "shield" : /armor|mail/i.test(line) ? "armor" : /sword|axe|rapier|weapon/i.test(line) ? "sword" : "potion";
+    return '<figure class="item-pic"><img src="assets/pregens/items/' + key + '.svg" alt=""><figcaption>' + line.replace(" SRD 5.1. Chosen for this class. No armor on a barbarian or monk. No wand on a fighter.", "") + '</figcaption></figure>';
+  }).join("");
+  return '<article class="screen-sheet web-fixed-sheet sheet-official">' +
+    (portrait ? '<img class="sheet-portrait" src="' + portrait + '" alt="Portrait of ' + face[0] + '">' : '') +
     '<header class="pr-head"><div class="pr-id"><p class="pr-kicker">99¢ ONE-SHOTS · SRD SHEET</p><h2>' + c.name + ' ' + n + '</h2>' +
     '<p><b>' + c.sub + '</b> · Human · ' + (c.id === "fighter" ? "Soldier" : "Acolyte") + ' · Neutral good</p>' +
     '<p class="pr-subid">2014 SRD 5.1 · XP milestone · proficiency ' + sign(prof) + '</p></div>' +
