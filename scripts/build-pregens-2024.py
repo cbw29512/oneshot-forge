@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 """2024 SRD 5.2.1 conversions of tonight's six. Same people, legal 2024 features only."""
+# STALE GENERATOR (production pass 1, 2026-10-05): data/pregens/*.json and the Lantern embedded pregens
+# were hand-corrected for SRD compliance (no Hex, Armor of Agathys, Dissonant Whispers, Wood Elf,
+# or PHB background features in the 2014 pack). Do not rerun this script without porting those fixes.
 import json
 from copy import deepcopy
 from pathlib import Path

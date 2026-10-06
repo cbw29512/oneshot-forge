@@ -2,7 +2,7 @@
 
 **Product status:** authored digital boxed-set candidate  
 **Default table:** 1 DM + 4 players  
-**Supported table:** 1 DM + 4–6 players  
+**Supported table:** 1 DM + 3–6 players  
 **Campaign length:** 7 sessions/chapters, ages 12–18  
 **Core promise:** play through character creation; every important win and loss becomes part of the character's scrapbook and final Level-1 origin.
 
@@ -32,7 +32,7 @@ Required:
 - read-aloud;
 - location/sensory description;
 - ordered run steps;
-- four-player jobs plus 5–6 player scaling;
+- four-player jobs plus 3-player and 5–6 player scaling;
 - NPC voice/dialogue;
 - hidden mystery clues;
 - branches/consequences;

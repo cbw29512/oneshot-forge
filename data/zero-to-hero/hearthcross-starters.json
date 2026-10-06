@@ -3,6 +3,7 @@
   "title": "From Zero to Hero — Hearthcross Starter Children",
   "defaultPartySize": 4,
   "supportedPartySize": [
+    3,
     4,
     5,
     6
@@ -235,5 +236,6 @@
       "possessions": "Paint-stained ribbon, wooden whistle, ordinary clothes.",
       "startingHook": "Lark has already promised to make this year's Spring Chore Day 'less boring.'"
     }
-  ]
+  ],
+  "threePlayerNote": "For three players, choose any three of the default four. The child nobody picks stays in Hearthcross as a recurring NPC friend."
 }

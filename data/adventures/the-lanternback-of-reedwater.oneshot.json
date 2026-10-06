@@ -1,0 +1,1236 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-lanternback-of-reedwater",
+    "title": "The Lanternback of Reedwater",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 2,
+    "partySize": 4,
+    "partySizeRange": "3–6 players (tuned for 4)",
+    "durationMinutes": 150,
+    "tone": [
+      "wetland cryptid investigation",
+      "folk rumor",
+      "misunderstood rescuer"
+    ]
+  },
+  "series": {
+    "title": "Cryptid Cases",
+    "episode": 2,
+    "hub": "Reedwater / Hearthford low road",
+    "giver": "Ferrymaster Jory Pell",
+    "nextTitle": "Open cryptid case"
+  },
+  "setup": {
+    "pitch": "A glowing-backed creature is overturning skiffs, dragging goats into the reeds, and appearing wherever the river turns black. Reedwater wants it stopped before market boats arrive.",
+    "openingLocation": "Reedwater ferry landing, downstream from Hearthford",
+    "gmSummary": "Ferrymaster Jory Pell hires the party after three overturned skiffs and two missing goats are blamed on a marsh cryptid locals call the Lanternback. The creature is real, but the accusation is backwards. A ruptured alchemical dye cistern beneath the abandoned Sableworks is leaking bitter blue poison into a side channel. The Lanternback can smell the contamination before people can; it has been capsizing small boats before they enter the poisoned channel and carrying stunned animals to a dry reed island. The party should investigate witnesses, physical evidence, water behavior, and the creature itself before confronting the real danger. Combat with the Lanternback is never expected. The finale is an environmental containment and rescue problem at the Sableworks sluice.",
+    "background": "The Sableworks dye house closed twelve years ago after a flood undermined its river wall. A sealed copper cistern of concentrated mordant remained below the floor. Recent high water shifted the foundation and split the cistern. Reedwater's Lanternback—a broad, six-legged amphibious scavenger whose back plates host harmless blue-green glowmoss—has nested in the marsh for decades. Older boatmen knew that when its lights appeared in daylight, something was wrong with the water. That local knowledge faded after the dye works closed and the old ferry families moved away.",
+    "standaloneStart": "Jory Pell offers 30 gp total to determine what is attacking Reedwater boats and make the ferry channel safe before tomorrow's market traffic.",
+    "characterPressure": "Jory wants the ferry open and his reputation restored; fisher Nessa Vale wants her missing brother Corin found; child witness Bram wants the party to believe the Lanternback pushed his skiff toward shore rather than trying to drown him; the Lanternback wants living creatures out of the poisoned channel."
+  },
+  "quest": {
+    "type": "investigate / observe / trace contamination / contain hazard",
+    "objective": "Find out what the Lanternback is actually doing, locate the source of the poisoned water, and make Reedwater safe before market boats arrive.",
+    "stakes": "At TIDE 3, the evening rise carries contaminated water into Reedwater's main ferry lane and livestock watering bend.",
+    "deadline": "TIDE 0–3. Advance after major delays, disturbing the contaminated channel without containment, or failed risky shortcuts at the Sableworks.",
+    "successConditions": [
+      "The party identifies the Lanternback's real behavior.",
+      "Corin Vale and any stranded animals are accounted for.",
+      "The Sableworks leak is contained, diverted, or the affected channel is safely closed before TIDE 3."
+    ],
+    "failureConditions": [
+      "The party leaves the contamination unaddressed and allows TIDE 3 to spread it into the main ferry lane.",
+      "The party drives off or kills the Lanternback, reopens the channel, and ignores the poisoned-water evidence."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-rescuer",
+        "text": "The Lanternback is not hunting people or livestock; it is pulling stunned creatures out of contaminated water and pushing boats away from the poisoned channel."
+      },
+      {
+        "id": "fact-poison",
+        "text": "A blue-black contaminant in the side channel causes numbness, dizziness, and animal distress."
+      },
+      {
+        "id": "fact-source",
+        "text": "The contamination comes from a ruptured alchemical dye cistern beneath the abandoned Sableworks."
+      },
+      {
+        "id": "fact-corin",
+        "text": "Missing fisher Corin Vale is alive on a dry reed island after the Lanternback dragged him there when he collapsed in the water."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-old-sign",
+        "text": "Old Reedwater boatmen once said 'blue lights by day, pole the other way' because Lanternback daylight sightings coincided with bad water, gas pockets, or fish kills.",
+        "revealCondition": "Read the old ferry ledger or ask retired boatwoman Ena Sedge."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-jory",
+      "name": "Jory Pell",
+      "role": "ferrymaster and quest giver",
+      "personality": [
+        "defensive",
+        "practical",
+        "more worried about tomorrow's market than folklore"
+      ],
+      "voiceCues": [
+        "keeps wiping river water from his hands",
+        "calls every witness account 'a version'"
+      ],
+      "wants": [
+        "The ferry lane safe before dawn",
+        "A factual answer he can give merchants"
+      ],
+      "fears": [
+        "Another overturned boat",
+        "Being blamed for ignoring a known hazard"
+      ],
+      "knows": [
+        "Three small craft overturned near the same side channel",
+        "No boat was damaged below the waterline",
+        "The river there smells metallic after sunset"
+      ],
+      "believes": [
+        "A large marsh animal is defending territory"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The Sableworks cistern ruptured",
+        "Where Corin is"
+      ],
+      "revealRules": [
+        {
+          "fact": "All incidents cluster around the old Sableworks side channel.",
+          "when": "The party asks Jory to mark every incident on a map."
+        }
+      ],
+      "questFunction": "Frames the public monster story and provides the incident pattern that undermines it.",
+      "description": "A square-built ferrymaster in a patched oilskin coat, carrying a grease pencil and a board covered in sketched river bends.",
+      "tableDialogue": [
+        "“Three boats over, same reach of water. I need facts, not another name for the thing.”",
+        "“Funny part? Nobody's boat is clawed. They just end up pointing back toward shore.”",
+        "“Market boats come at first light. Whatever this is, I need the channel safe before then.”"
+      ],
+      "reactions": {
+        "agreement": "Provides a flat-bottomed punt, poles, rope, and the incident map.",
+        "refusal": "Closes only the ferry landing and warns that private boaters will still use the river.",
+        "danger": "Stops traffic and rings the ferry bell three times.",
+        "accusation": "Admits he called it an attack before checking the pattern and changes his public story if shown evidence."
+      }
+    },
+    {
+      "id": "npc-bram",
+      "name": "Bram Tallow",
+      "role": "young survivor and eyewitness",
+      "personality": [
+        "excited",
+        "frightened after the fact",
+        "absolutely certain about one detail"
+      ],
+      "voiceCues": [
+        "uses both hands to show the glowing plates",
+        "mimes the skiff turning sideways"
+      ],
+      "wants": [
+        "Someone to believe the creature saved him",
+        "His mother's skiff returned"
+      ],
+      "fears": [
+        "Going back into the black-water channel",
+        "Adults deciding he imagined the whole thing"
+      ],
+      "knows": [
+        "The Lanternback struck the side of his skiff twice from the contaminated side only",
+        "It surfaced between him and the black water",
+        "His hand went numb after touching river foam"
+      ],
+      "believes": [
+        "It was herding him away from something"
+      ],
+      "secrets": [
+        "He dropped his brass lunch tin into the black water and saw fish floating belly-up beside it minutes later."
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "What poisoned the water",
+        "Where Corin is"
+      ],
+      "revealRules": [
+        {
+          "fact": "The creature pushed from the poisoned-water side toward clean water.",
+          "when": "The party asks Bram to physically show which side of the boat it hit."
+        }
+      ],
+      "questFunction": "Provides the first contradiction to the attack story.",
+      "description": "A thin river kid with one bare foot, a scraped knee, and a charcoal drawing of six blue-green lights rising behind a skiff.",
+      "tableDialogue": [
+        "“It hit us from the bad-water side. Twice. Both times we moved closer to shore.”",
+        "“My fingers went dead where the foam touched them. The thing never bit me.”",
+        "“Everybody keeps saying it flipped us. It turned us. That's different.”"
+      ],
+      "reactions": {
+        "agreement": "Shows the exact bend and gives the party his drawing.",
+        "refusal": "Leaves the drawing on Jory's map board.",
+        "danger": "Stays ashore and points out the clean-water route.",
+        "accusation": "Gets angry only if called a liar; otherwise repeats the same physical details."
+      }
+    },
+    {
+      "id": "npc-nessa",
+      "name": "Nessa Vale",
+      "role": "fisher and missing person's sister",
+      "personality": [
+        "controlled",
+        "exhausted",
+        "willing to dislike the cryptid and still follow evidence"
+      ],
+      "voiceCues": [
+        "counts breaths before answering",
+        "carries Corin's spare red scarf"
+      ],
+      "wants": [
+        "Corin found alive",
+        "The search focused where evidence points"
+      ],
+      "fears": [
+        "The party wasting the tide hunting a creature while Corin needs help"
+      ],
+      "knows": [
+        "Corin set nets near the old dye house",
+        "His empty boat drifted back upright",
+        "His net line was cut cleanly against a stone, not bitten"
+      ],
+      "believes": [
+        "Something happened near Sableworks but is no longer sure the Lanternback caused it"
+      ],
+      "secrets": [
+        "Corin complained yesterday that the channel smelled like old coins and vinegar."
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "Corin is on the reed island",
+        "The Lanternback carried him there"
+      ],
+      "revealRules": [
+        {
+          "fact": "Corin noticed the bad-water smell before disappearing.",
+          "when": "The party asks about Corin's last conversation."
+        }
+      ],
+      "questFunction": "Keeps the investigation human: finding Corin matters more than proving a cryptid theory.",
+      "description": "A weathered fisher in a dark green shawl, holding a rolled net and her brother's red scarf so tightly her knuckles stay white.",
+      "tableDialogue": [
+        "“Find my brother first. Decide what the monster is after that.”",
+        "“His boat came back upright. If something wanted him dead, why send the boat home?”",
+        "“He said the water smelled wrong. Old coins and sour dye. I told him not to set there.”"
+      ],
+      "reactions": {
+        "agreement": "Gives Corin's net knife and points to his last set line.",
+        "refusal": "Begins searching the clean reed margins alone.",
+        "danger": "Helps evacuate boats from the affected bend.",
+        "accusation": "Pushes back on conclusions unsupported by Corin's boat and net evidence."
+      }
+    },
+    {
+      "id": "npc-lanternback",
+      "name": "The Lanternback",
+      "role": "cryptid rescuer and contamination sentinel",
+      "personality": [
+        "cautious",
+        "patient",
+        "protective of struggling creatures"
+      ],
+      "voiceCues": [
+        "glowmoss plates brighten near contaminated water",
+        "makes low hollow clicks when guiding something away"
+      ],
+      "wants": [
+        "Living creatures out of poisoned water",
+        "The contaminated channel left undisturbed until the leak stops"
+      ],
+      "fears": [
+        "Fire",
+        "Boats forcing past it into the black channel"
+      ],
+      "knows": [
+        "Where contaminated water begins",
+        "Where Corin and rescued animals are resting",
+        "The Sableworks outlet is worsening"
+      ],
+      "believes": [
+        "Repeated pushing and blocking is enough for humans to understand danger"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "How to seal the cistern",
+        "Why people call it a monster"
+      ],
+      "revealRules": [
+        {
+          "fact": "It is rescuing, not hunting.",
+          "when": "The party observes it with a stunned heron, goat, or floating dummy and watches it move the subject toward clean ground."
+        }
+      ],
+      "questFunction": "The apparent monster becomes the most reliable behavioral evidence in the case.",
+      "description": "A low, broad amphibious creature the size of a pony, walking on six webbed limbs beneath overlapping dark plates. Blue-green glowmoss shines along its back like six hooded lanterns.",
+      "tableDialogue": [
+        "Its back-lights brighten as the punt drifts toward the black channel; it surfaces broadside and pushes the bow toward clean water.",
+        "It nudges a stunned heron onto a mud shelf, waits until the bird stands, then slips back into the reeds.",
+        "At the Sableworks outflow it clicks rapidly, turns away from the blue-black plume, and blocks the narrow channel with its body."
+      ],
+      "reactions": {
+        "agreement": "Leads slowly toward Corin's island, then toward the Sableworks outflow.",
+        "refusal": "Maintains distance but continues blocking the contaminated channel.",
+        "danger": "Rescues a drowning or stunned creature before defending itself.",
+        "accusation": "Cannot answer language; repeats the same push-away behavior when the contaminated plume approaches."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-landing",
+      "name": "Reedwater Ferry Landing",
+      "description": "Three mooring posts lean over brown-green water. A chalk board lists canceled crossings beside a child's drawing of six blue lights in the reeds.",
+      "connections": [
+        "loc-incident",
+        "loc-reedisland"
+      ]
+    },
+    {
+      "id": "loc-incident",
+      "name": "Blackwater Bend",
+      "description": "A narrow side channel curves toward the abandoned Sableworks. A faint blue-black sheen clings to reed stems, while minnows avoid the inner bank completely.",
+      "connections": [
+        "loc-landing",
+        "loc-reedisland",
+        "loc-sableworks"
+      ]
+    },
+    {
+      "id": "loc-reedisland",
+      "name": "Dry Reed Island",
+      "description": "A hummock of dry sedge rises above the marsh. Two goats, three waterfowl, and Corin Vale lie or rest above a line of washed-up riverweed.",
+      "connections": [
+        "loc-incident",
+        "loc-sableworks"
+      ]
+    },
+    {
+      "id": "loc-sableworks",
+      "name": "Abandoned Sableworks",
+      "description": "A collapsed dye house straddles a stone sluice. Blue-black water threads from beneath warped floorboards and disappears through a cracked river wall.",
+      "connections": [
+        "loc-incident",
+        "loc-reedisland"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-not-attack",
+      "required": true,
+      "revelation": "The Lanternback's boat collisions and animal 'abductions' are rescue/blocking behavior, not predation.",
+      "sources": [
+        "Bram physically shows every strike came from the contaminated side and pushed his skiff toward shore.",
+        "Physical evidence: overturned boats have no bite, claw, or hull damage and all drifted back toward clean water.",
+        "Observation: the Lanternback pushes a stunned bird or floating test bundle toward a clean mud shelf instead of feeding on it."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-poison",
+      "required": true,
+      "revelation": "The side channel itself is making animals and people sick.",
+      "sources": [
+        "Physical evidence: dead minnows and absent insects stop sharply at the blue-black water line.",
+        "Bram reports numb fingers immediately after touching the foam; Corin's notes mention metallic-vinegar smell.",
+        "A simple test with a live reed cutting or small fish bucket shows clean water remains normal while a sample from the black channel wilts/stuns within minutes."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-corin",
+      "required": true,
+      "revelation": "Corin is alive on a dry reed island where rescued animals have also been deposited.",
+      "sources": [
+        "Physical evidence: Corin's cut net line and dragged boot groove lead toward the reed island, away from deep water.",
+        "Nessa spots Corin's red scarf tied high on reeds if the party surveys from the ferry pole or bank.",
+        "The Lanternback, if observed rather than attacked, deliberately leads the party from the incident bend to the island."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-source",
+      "required": true,
+      "revelation": "The poison is leaking from the abandoned Sableworks cistern, not produced by the cryptid.",
+      "sources": [
+        "Physical evidence: the blue-black sheen grows denser upstream toward the Sableworks outlet.",
+        "Broken ceramic dye seals and copper corrosion flakes lie in the sluice sediment.",
+        "Inside the Sableworks, a cracked copper cistern visibly drips the same colored liquid into the outflow."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": false
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-landing",
+      "title": "Six Lights in the Reeds",
+      "purpose": "Open the case with witness disagreement, a missing person, and a mapped incident pattern.",
+      "locationId": "loc-landing",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 1,
+      "flowTotal": 7,
+      "flowLabel": "Report",
+      "readAloud": "Reedwater's ferry bell hangs silent above three empty mooring posts. On the notice board, someone has chalked MONSTER IN THE REEDS and underlined it twice. Beneath the words is a child's drawing: a low dark shape in the water with six pale lights along its back. A woman holding a red scarf stands beside an empty fishing boat while the ferrymaster argues with anyone willing to listen.",
+      "gmNotes": [
+        "Put TIDE 0–3 on the table at 0.",
+        "Jory offers 30 gp total.",
+        "Nessa's brother Corin is the human priority; Bram is the contradiction witness.",
+        "Give players the incident map immediately if they ask where events occurred."
+      ],
+      "runSteps": [
+        {
+          "title": "Take the report",
+          "text": "Jory describes overturned boats; Nessa reports Corin missing; Bram says the creature pushed him toward shore."
+        },
+        {
+          "title": "Map the incidents",
+          "text": "Every event clusters at Blackwater Bend near the Sableworks side channel."
+        },
+        {
+          "title": "Start the tide clock",
+          "text": "Put TIDE 0/3 where everyone can see it."
+        }
+      ],
+      "advanceWhen": "The party chooses to inspect Blackwater Bend, Corin's boat, or interview Bram/Nessa on the way.",
+      "npcIds": [
+        "npc-jory",
+        "npc-bram",
+        "npc-nessa"
+      ],
+      "clueIds": [
+        "clue-not-attack",
+        "clue-poison",
+        "clue-corin"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-bend"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-bend",
+          "label": "Inspect Blackwater Bend",
+          "description": "Follow the shared location of the boat incidents and Corin's last net line."
+        }
+      ]
+    },
+    {
+      "id": "scene-bend",
+      "title": "The Water Is Wrong",
+      "purpose": "Shift suspicion from creature to environment through physical evidence and a simple testable hypothesis.",
+      "locationId": "loc-incident",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 2,
+      "flowTotal": 7,
+      "flowLabel": "Evidence",
+      "readAloud": "The side channel looks ordinary until the light catches it. A blue-black skin lies between the reeds like oil without the rainbow. Minnows school along the clean edge and refuse to cross. Corin's cut net line trails from a willow root toward a muddy groove that climbs out of the water instead of descending into it.",
+      "gmNotes": [
+        "No check is required to notice the sheen, dead minnows, or clean/dirty boundary.",
+        "DC 10 Nature, Medicine, Investigation, or a sensible improvised test confirms the water—not an animal wound—is the immediate hazard.",
+        "Failure on a risky direct-touch test causes numbness for 10 minutes: disadvantage on the next Dexterity check only; also automatically proves the water is harmful.",
+        "A dragged boot groove and hoofprints angle toward the reed island."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the boundary",
+          "text": "Fish and insects avoid the blue-black channel while clean water remains active."
+        },
+        {
+          "title": "Let players test the water",
+          "text": "Reed cutting, bait fish, cloth, smell, or magic can all compare contaminated and clean samples."
+        },
+        {
+          "title": "Point the rescue trail",
+          "text": "Corin's net line, boot groove, and animal tracks lead toward dry reeds, not deeper water."
+        }
+      ],
+      "advanceWhen": "The party follows the rescue trail, sets a watch for the Lanternback, or traces the contamination upstream.",
+      "npcIds": [
+        "npc-nessa"
+      ],
+      "clueIds": [
+        "clue-not-attack",
+        "clue-poison",
+        "clue-corin"
+      ],
+      "encounterIds": [
+        "enc-water-test"
+      ],
+      "exits": [
+        "scene-watch",
+        "scene-island"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-watch",
+          "label": "Watch the bend",
+          "description": "Observe what the Lanternback actually does when something enters the bad water."
+        },
+        {
+          "target": "scene-island",
+          "label": "Follow Corin's trail",
+          "description": "Search the dry reed island where the drag marks lead."
+        }
+      ]
+    },
+    {
+      "id": "scene-watch",
+      "title": "Watch Before You Name It",
+      "purpose": "Give the party a controlled observation/theory-test scene where the Lanternback demonstrates rescue behavior.",
+      "locationId": "loc-incident",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "flowStage": 3,
+      "flowTotal": 7,
+      "flowLabel": "Observation",
+      "readAloud": "For several minutes nothing moves but reeds. Then six blue-green lights rise one by one beneath the surface. The broad creature surfaces beside a stunned heron drifting in the dark water. It does not bite. It slides under the bird, lifts it across its plated back, and carries it toward a clean mud shelf.",
+      "gmNotes": [
+        "Do not roll initiative unless the party attacks or traps it.",
+        "Players can test behavior with a floating sack, dead fish, bait animal kept safely tethered, or by moving their punt toward the contaminated boundary.",
+        "Every reasonable test should show the creature blocks movement into poison and moves living/stunned creatures toward clean ground.",
+        "If signaled or allowed to finish the rescue, it leads toward the reed island."
+      ],
+      "runSteps": [
+        {
+          "title": "Observe one full behavior cycle",
+          "text": "Lanternback retrieves a stunned heron and deposits it on clean ground."
+        },
+        {
+          "title": "Test a theory",
+          "text": "Let players deliberately change one variable: clean vs bad water, living vs dead object, boat direction, or offered rope."
+        },
+        {
+          "title": "Follow the result",
+          "text": "The creature leads toward the reed island if the party does not attack."
+        }
+      ],
+      "advanceWhen": "The party understands the push-away behavior or follows the creature toward the reed island.",
+      "npcIds": [
+        "npc-lanternback"
+      ],
+      "clueIds": [
+        "clue-not-attack",
+        "clue-corin"
+      ],
+      "encounterIds": [
+        "enc-lanternback"
+      ],
+      "exits": [
+        "scene-island"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-island",
+          "label": "Follow the Lanternback",
+          "description": "See where it has been carrying people and animals."
+        }
+      ]
+    },
+    {
+      "id": "scene-island",
+      "title": "What It Took",
+      "purpose": "Pay off the missing-person fear and prove the cryptid has been collecting survivors, not prey.",
+      "locationId": "loc-reedisland",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 4,
+      "flowTotal": 7,
+      "flowLabel": "Reveal",
+      "readAloud": "The reed island smells of wet grass, goat, and river mud. One missing goat chews sedge beside another curled on its knees. Three water birds huddle under a driftwood root. Beyond them, a man in a soaked shirt lifts his head at the sound of your boat. Corin Vale is pale, shaking, and very much alive. The Lanternback waits waist-deep at the island's edge.",
+      "gmNotes": [
+        "Corin is conscious but poisoned: he needs clean water, warmth, and 10 minutes before walking steadily.",
+        "He remembers going numb, slipping overboard, then waking as the Lanternback dragged him onto the island.",
+        "He noticed the blue-black plume thickest near the Sableworks sluice.",
+        "Finding Corin does not end the case; the contamination still threatens the ferry lane at TIDE 3."
+      ],
+      "runSteps": [
+        {
+          "title": "Confirm the missing person",
+          "text": "Corin is alive among other rescued animals."
+        },
+        {
+          "title": "Get the upstream clue",
+          "text": "Corin identifies the Sableworks sluice as the strongest smell/color point."
+        },
+        {
+          "title": "Choose the next move",
+          "text": "Escort Corin back first or trace the leak immediately; either route reaches Sableworks before the final tide if the party avoids long delay."
+        }
+      ],
+      "advanceWhen": "The party heads to the Sableworks or returns Corin and then follows the contamination upstream.",
+      "npcIds": [
+        "npc-nessa",
+        "npc-lanternback"
+      ],
+      "clueIds": [
+        "clue-corin",
+        "clue-source"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-sableworks"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-sableworks",
+          "label": "Trace the poison upstream",
+          "description": "Follow the blue-black plume to the abandoned dye house."
+        }
+      ]
+    },
+    {
+      "id": "scene-sableworks",
+      "title": "The Monster Under the Floor",
+      "purpose": "Reveal the actual source and turn the case from folklore into a literal containment problem.",
+      "locationId": "loc-sableworks",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 5,
+      "flowTotal": 7,
+      "flowLabel": "Source",
+      "readAloud": "The abandoned dye house sags over its stone sluice. Blue-black water beads between warped floorboards. Beneath them, a copper cistern the size of a wagon has split along one green-corroded seam. Every slow drip lands in the outflow with a bitter hiss. Outside, six pale lights wait motionless in the reeds.",
+      "gmNotes": [
+        "The cracked cistern is the 'monster under the floor.' Make the visual literal.",
+        "Three containment jobs: close/divert the sluice, stop the cistern leak, mark/close the contaminated channel.",
+        "Each has DC 11 tool/skill route plus obvious no-roll material solutions.",
+        "Failures advance TIDE by 1 but reveal the correct physical solution."
+      ],
+      "runSteps": [
+        {
+          "title": "Name the real threat",
+          "text": "Show the cracked cistern leaking directly into the same blue-black plume."
+        },
+        {
+          "title": "Lay out three containment jobs",
+          "text": "Sluice, cistern seam, channel closure."
+        },
+        {
+          "title": "Use investigation rewards",
+          "text": "If the party understood the Lanternback, it blocks the contaminated outflow and buys one free containment success."
+        }
+      ],
+      "advanceWhen": "The party completes the jobs or TIDE reaches 3 and the rising water threatens the main ferry lane.",
+      "npcIds": [
+        "npc-lanternback"
+      ],
+      "clueIds": [
+        "clue-source",
+        "clue-poison"
+      ],
+      "encounterIds": [
+        "enc-sableworks"
+      ],
+      "exits": [
+        "scene-tide"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-tide",
+          "label": "Beat the rising tide",
+          "description": "Contain the leak or close the waterway before contamination reaches Reedwater's main lane."
+        }
+      ]
+    },
+    {
+      "id": "scene-tide",
+      "title": "When the River Turns",
+      "purpose": "Final environmental payoff: contain, divert, or publicly close the contaminated channel while rescuing anything still exposed.",
+      "locationId": "loc-sableworks",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "flowStage": 6,
+      "flowTotal": 7,
+      "flowLabel": "Finale",
+      "readAloud": "The evening tide presses upriver. Clean brown water lifts against the blue-black outflow until the two colors curl together like smoke. The old sluice gate groans on one hinge. Reedwater's ferry bell rings from downstream—Jory's warning that another boat has reached the landing.",
+      "gmNotes": [
+        "With 3 containment jobs complete, the hazard is controlled automatically; final check determines only cleanup cost.",
+        "With 2 jobs complete, one DC 11 group check completes emergency containment; failure forces full channel closure for three days but prevents poisoning.",
+        "With 0–1 jobs complete, safe success is immediate channel closure/evacuation; attempting full containment requires three DC 11 successes before two failures.",
+        "No creature fight is required. The Lanternback assists by physically blocking the plume if trusted."
+      ],
+      "runSteps": [
+        {
+          "title": "State the real objective",
+          "text": "Keep contaminated water out of the ferry lane and get exposed people/animals to clean ground."
+        },
+        {
+          "title": "Apply completed containment work",
+          "text": "Earlier jobs directly reduce the finale."
+        },
+        {
+          "title": "Choose cleanup versus closure",
+          "text": "A closed channel is a legal success; reopening quickly is not worth poisoning Reedwater."
+        }
+      ],
+      "advanceWhen": "The leak is controlled or the affected waterway is safely closed.",
+      "npcIds": [
+        "npc-jory",
+        "npc-lanternback"
+      ],
+      "clueIds": [
+        "clue-poison",
+        "clue-source"
+      ],
+      "encounterIds": [
+        "enc-tide"
+      ],
+      "exits": [
+        "scene-resolution"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution",
+          "label": "Change the story",
+          "description": "Decide what Reedwater now calls the creature with six lights."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution",
+      "title": "Resolution: Blue Lights by Day",
+      "purpose": "Final resolution: record Corin's fate, the waterway outcome, and how Reedwater's cryptid legend changes.",
+      "locationId": "loc-landing",
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "flowStage": 7,
+      "flowTotal": 7,
+      "flowLabel": "Aftermath",
+      "readAloud": "By nightfall, lanterns burn again at Reedwater landing. Corin's red scarf hangs from the ferry post while Nessa argues with him about ever setting nets alone again. Out beyond the clean-water marker, six blue-green lights surface once, pause, and disappear. This time nobody reaches for a spear.",
+      "gmNotes": [
+        "Use the matching ending.",
+        "Jory posts the contamination boundary and pays based on outcome.",
+        "If the Lanternback survives and the truth is shared, 'blue lights by day, pole the other way' returns as a living Reedwater warning."
+      ],
+      "runSteps": [
+        {
+          "title": "Resolve the people",
+          "text": "Confirm Corin, Bram, and any exposed animals are safe or receiving care."
+        },
+        {
+          "title": "Resolve the water",
+          "text": "Record whether the Sableworks leak was contained, diverted, or the channel closed."
+        },
+        {
+          "title": "Resolve the legend",
+          "text": "Decide whether Reedwater now treats the Lanternback as monster, warning sign, or protected local creature."
+        }
+      ],
+      "advanceWhen": "Reward and persistent consequence are recorded.",
+      "npcIds": [
+        "npc-jory",
+        "npc-bram",
+        "npc-nessa"
+      ],
+      "clueIds": [
+        "clue-not-attack"
+      ],
+      "encounterIds": [],
+      "exits": [],
+      "exitChoices": []
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-water-test",
+      "name": "Test the Water",
+      "type": "investigation hazard",
+      "difficulty": "low",
+      "summary": "The party compares clean and contaminated water without needing to risk a character.",
+      "objective": "Prove the channel itself is harmful.",
+      "resolution": "Any sensible controlled comparison works.",
+      "talkOut": "No combat. Bram and Nessa provide observations if the party stalls.",
+      "bypass": "Follow the obvious blue-black plume upstream; the poison clue still appears.",
+      "special": "Direct skin contact causes temporary numbness only; do not use high lethality."
+    },
+    {
+      "id": "enc-lanternback",
+      "name": "Lanternback Observation",
+      "type": "observation / social / combat only if forced",
+      "difficulty": "low",
+      "summary": "The cryptid demonstrates rescue and blocking behavior in the contaminated channel.",
+      "objective": "Observe, test, and interpret behavior.",
+      "resolution": "Watching one cycle, using a test object, or approaching slowly reveals the pattern.",
+      "talkOut": "It cannot speak. Behavior is the conversation.",
+      "bypass": "Follow rescue tracks directly to the reed island.",
+      "special": "Do not roll initiative unless players attack/trap it. Violence never supplies a unique clue."
+    },
+    {
+      "id": "enc-sableworks",
+      "name": "Sableworks Containment",
+      "type": "environmental puzzle",
+      "difficulty": "moderate",
+      "summary": "Three physical containment jobs stop the poison from reaching the ferry lane.",
+      "objective": "Close/divert sluice, seal cistern seam, mark/close contaminated channel.",
+      "resolution": "Complete jobs by checks or literal material solutions.",
+      "talkOut": "No enemy. The Lanternback can provide one automatic assist if trusted.",
+      "bypass": "Close the entire side channel and accept a three-day ferry detour."
+    },
+    {
+      "id": "enc-tide",
+      "name": "Rising Tide",
+      "type": "environmental finale",
+      "difficulty": "climactic",
+      "summary": "Tide pressure pushes contamination toward Reedwater's main lane.",
+      "objective": "Contain or close the affected waterway without casualties.",
+      "resolution": "Earlier containment jobs reduce final checks; full closure is always legal.",
+      "talkOut": "No combat route is required.",
+      "bypass": "Evacuate and close the channel completely."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-containment",
+      "name": "Three Ways to Stop a Leak",
+      "locationId": "loc-sableworks",
+      "prompt": "The party must stop source, flow, and access: seal the cistern seam, control the sluice, and close/mark the contaminated channel.",
+      "solution": "Any sensible combination of wedges, rope, pitch, cloth, timber, stones, tools, or magic that addresses all three jobs works.",
+      "failForward": "Failure advances TIDE by 1 and physically exposes what must be corrected; progress is never erased."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-rotten-floor",
+      "name": "Rotten Dye-House Floor",
+      "locationId": "loc-sableworks",
+      "trigger": "Cross warped boards without testing or distributing weight.",
+      "effect": "DC 11 Dexterity save; failure drops one leg through, dealing 1d4 bludgeoning and splashing boots with contaminated water.",
+      "failForward": "The break exposes the cracked cistern directly, delivering the source clue."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-incident-map",
+      "name": "Jory's Incident Board",
+      "kind": "clue",
+      "description": "A grease-pencil river map marking every overturn and disappearance.",
+      "effect": "Shows every incident clusters around Blackwater Bend."
+    },
+    {
+      "id": "item-corin-scarf",
+      "name": "Corin's Red Scarf",
+      "kind": "clue",
+      "description": "Nessa's matching spare scarf helps identify Corin's signal on the reed island.",
+      "effect": "Spotting the red cloth from shore or boat locates the island without a check."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-reedwater",
+      "name": "Reedwater Case Map",
+      "asset": "assets/maps/reedwater/lanternback-bend-grid.svg",
+      "regions": [
+        {
+          "id": "reg-landing",
+          "name": "Ferry Landing",
+          "sceneId": "scene-landing"
+        },
+        {
+          "id": "reg-bend",
+          "name": "Blackwater Bend",
+          "sceneId": "scene-bend"
+        },
+        {
+          "id": "reg-island",
+          "name": "Dry Reed Island",
+          "sceneId": "scene-island"
+        },
+        {
+          "id": "reg-works",
+          "name": "Sableworks",
+          "sceneId": "scene-sableworks"
+        }
+      ]
+    }
+  ],
+  "playMaps": [
+    {
+      "sceneIds": [
+        "scene-bend",
+        "scene-watch",
+        "scene-island"
+      ],
+      "title": "Reedwater Bend — 5 ft. grid",
+      "kind": "wetland",
+      "src": "assets/maps/reedwater/lanternback-bend-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Ferry channel, black-water boundary, reed island, and clean shallows.",
+      "notes": [
+        "No hidden labels",
+        "Contaminated boundary visible by texture only"
+      ]
+    },
+    {
+      "sceneIds": [
+        "scene-sableworks",
+        "scene-tide"
+      ],
+      "title": "Sableworks Sluice — 5 ft. grid",
+      "kind": "ruin/water",
+      "src": "assets/maps/reedwater/sableworks-sluice-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Collapsed dye house, cistern chamber, sluice gate, and outflow.",
+      "notes": [
+        "Three containment zones obvious",
+        "No secret clue labels"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event-tide",
+      "name": "Tide",
+      "trigger": "Major delay, risky contamination shortcut, failed containment check, or explicit scene instruction",
+      "effect": "Advance TIDE by 1 to maximum 3. At 3, move to the rising-tide finale after the current immediate action."
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-truth",
+      "name": "Blue Lights Mean Turn Back",
+      "condition": "Leak contained/closed, Corin rescued, Lanternback survives and truth is shared.",
+      "result": "Reedwater restores the old daylight warning saying. Jory pays 30 gp. The Lanternback becomes a protected local warning creature rather than a bounty target."
+    },
+    {
+      "id": "ending-closed",
+      "name": "Close the Channel",
+      "condition": "Party safely closes Blackwater Bend but cannot fully repair Sableworks.",
+      "result": "No one is poisoned; ferry traffic detours for three days. Jory pays 25 gp and publicly calls it a successful emergency closure."
+    },
+    {
+      "id": "ending-silence",
+      "name": "Right Answer, Wrong Story",
+      "condition": "Water made safe but Lanternback is killed/driven away or blamed publicly.",
+      "result": "The immediate danger ends, but Reedwater loses its living contamination warning. Nessa insists the written ferry record tell the truth even if people do not."
+    },
+    {
+      "id": "ending-flooded",
+      "name": "Too Late for the Ferry",
+      "condition": "TIDE 3 spreads contamination before containment and the party only manages evacuation.",
+      "result": "No casualties if evacuation succeeded, but the ferry closes for a week and cleanup becomes a regional problem. Partial success, not campaign-ending failure."
+    }
+  ],
+  "recovery": {
+    "principle": "No single witness, cryptid interaction, or successful test is required. The case always retains physical evidence routes.",
+    "routes": [
+      {
+        "trigger": "Bram unavailable",
+        "response": "Undamaged boat hulls, incident-direction marks, and clean/dirty water boundaries still contradict predation."
+      },
+      {
+        "trigger": "Lanternback attacked, driven off, or killed",
+        "response": "Rescue tracks, Corin's island, and stunned animals establish its behavior; contamination trail still leads to Sableworks."
+      },
+      {
+        "trigger": "Party skips the watch scene",
+        "response": "Corin and rescued animals on the island supply the same misunderstood-rescuer reveal."
+      },
+      {
+        "trigger": "Corin cannot speak",
+        "response": "His position among rescued animals, red scarf signal, and Sableworks-direction drag trail preserve all required conclusions."
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Careful investigation makes containment easier; violence and rushing cost information or tide time, but the ending is never locked and the party can still finish by containment, channel closure, or evacuation.",
+    "prepared": [
+      "Understanding the Lanternback lets it provide one automatic containment assist.",
+      "Locating Corin before Sableworks removes the missing-person pressure from the finale."
+    ],
+    "rushed": [
+      "Attacking the Lanternback can cost a Tide step while it flees.",
+      "Ignoring water testing means the party reaches Sableworks without certainty, but physical source evidence resolves the question there."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 150,
+    "plannedMinutes": 150,
+    "bossReserveMinutes": 20,
+    "resolutionReserveMinutes": 10,
+    "cutOrder": [
+      "If 20+ minutes behind, skip separate water-test handling and make the contamination boundary self-evident.",
+      "If 15+ minutes behind, combine Watch Before You Name It with arrival at the reed island: the party sees the Lanternback deposit a stunned goat beside Corin.",
+      "Never cut the Corin rescue, Sableworks source reveal, or changed-legend aftermath."
+    ],
+    "optionalOrder": [
+      "scene-watch"
+    ]
+  },
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-landing",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-jory": {
+        "status": "alive",
+        "attitude": "defensive"
+      },
+      "npc-bram": {
+        "status": "alive",
+        "attitude": "eager"
+      },
+      "npc-nessa": {
+        "status": "alive",
+        "attitude": "worried"
+      },
+      "npc-lanternback": {
+        "status": "alive",
+        "attitude": "wary"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-incident-map": "with-jory",
+      "item-corin-scarf": "with-nessa"
+    },
+    "eventState": {
+      "tide": 0,
+      "containmentJobs": 0
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "flowContract": {
+    "principle": "Investigation spine: frightening report → environmental evidence → observation/theory test → rescued-person reveal → contamination source → containment finale → changed legend.",
+    "mainSpine": [
+      "scene-landing",
+      "scene-bend",
+      "scene-island",
+      "scene-sableworks",
+      "scene-tide",
+      "scene-resolution"
+    ],
+    "allowedBranchScenes": [],
+    "terminalScenes": [
+      "scene-resolution"
+    ],
+    "stageCount": 7
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific cryptid and hazard procedures use this package.",
+        "General checks and saves use ordinary 2014 5E procedure."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific cryptid and hazard procedures use this package.",
+        "General checks and saves use current SRD procedure; no 2014 class feature is imported."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-lanternback-of-reedwater",
+    "version": "0.1.0",
+    "target": {
+      "level": 2,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-water",
+      "check-track",
+      "check-sluice",
+      "check-cistern",
+      "check-channel",
+      "check-tide"
+    ],
+    "checks": [
+      {
+        "id": "check-water",
+        "sceneId": "scene-bend",
+        "label": "Compare contaminated water",
+        "dc": 10,
+        "ability": "Intelligence (Nature/Investigation) or Wisdom (Medicine)",
+        "success": "Confirm water causes numbness/distress.",
+        "failure": "Controlled test still proves harm but costs time; TIDE +1 only if test was risky."
+      },
+      {
+        "id": "check-track",
+        "sceneId": "scene-bend",
+        "label": "Follow rescue trail",
+        "dc": 10,
+        "ability": "Wisdom (Survival)",
+        "success": "Reach reed island directly.",
+        "failure": "Red scarf or Lanternback behavior locates island anyway."
+      },
+      {
+        "id": "check-sluice",
+        "sceneId": "scene-sableworks",
+        "label": "Control the sluice",
+        "dc": 11,
+        "ability": "Strength (Athletics) or suitable tools",
+        "success": "Containment job complete.",
+        "failure": "TIDE +1; broken hinge reveals wedge point."
+      },
+      {
+        "id": "check-cistern",
+        "sceneId": "scene-sableworks",
+        "label": "Seal the cistern seam",
+        "dc": 11,
+        "ability": "Dexterity/Intelligence with suitable tools or magic",
+        "success": "Containment job complete.",
+        "failure": "TIDE +1; pressure leak identifies exact seam."
+      },
+      {
+        "id": "check-channel",
+        "sceneId": "scene-sableworks",
+        "label": "Close/mark the contaminated channel",
+        "dc": 11,
+        "ability": "Wisdom (Survival) or Strength (Athletics)",
+        "success": "Containment job complete.",
+        "failure": "TIDE +1; current reveals safest closure line."
+      },
+      {
+        "id": "check-tide",
+        "sceneId": "scene-tide",
+        "label": "Emergency containment",
+        "dc": 11,
+        "ability": "Group check using relevant physical/tool skills",
+        "success": "Keep contamination out of main ferry lane.",
+        "failure": "Close entire channel; still prevent casualties."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-water-test",
+        "objective": "Prove the water itself is harmful.",
+        "start": "Party reaches Blackwater Bend.",
+        "bypass": "Follow visible plume upstream.",
+        "creatures": [],
+        "end": "Party accepts contamination as a working theory.",
+        "scaling": "3 PCs: Bram volunteers the reed-cutting test, which grants advantage on the check. 5–6 PCs: no change; extra hands can run the clean and dirty sample comparison at the same time."
+      },
+      {
+        "id": "enc-lanternback",
+        "objective": "Observe and test the cryptid's rescue/blocking behavior.",
+        "start": "Lanternback appears in or near contaminated water. No initiative unless attacked.",
+        "bypass": "Follow physical rescue tracks to Corin's island.",
+        "creatures": [
+          {
+            "name": "Lanternback",
+            "count": 1,
+            "ac": 13,
+            "hp": 24,
+            "speed": "30 ft., swim 40 ft.",
+            "attack": "Shoulder Shove +4 to hit; target moves 5 ft. and takes 1d4+2 bludgeoning only if the shove hits a solid obstacle.",
+            "trait": "Water Sentinel: advantage on Perception checks involving changes in water quality or struggling creatures within 60 ft.",
+            "tactics": "Avoids combat. Uses body-blocking, shoves, and swimming speed to move creatures away from contaminated water. Never attacks a downed creature.",
+            "cr": "1/4",
+            "xp": 50,
+            "statBlock": "Original creature (not a Monster Manual reprint), built to CR 1/4 with DMG creature math: defense CR 1/8 (AC 13, 24 HP), offense CR 1/4 (+4, about 4 damage a round, and only when it shoves a target into an obstacle). The same numbers work for 2014 and 2024 rules.",
+            "edition2024": "No change. Treat Shoulder Shove as an attack that also pushes the target 5 ft. on a hit."
+          }
+        ],
+        "end": "Party understands, follows, or drives it off; no unique clue depends on combat.",
+        "balance": "This is not meant to be a fight. One CR 1/4 creature (50 XP) is far below Easy for 4 level-2 PCs (2014 Easy threshold 200 XP; 2024 Low budget 400 XP). If it is attacked, it dives and flees at half HP (12), costing one Tide step.",
+        "scaling": "3–6 PCs: do not change the creature. At 5–6 PCs it flees after the first hit."
+      },
+      {
+        "id": "enc-sableworks",
+        "objective": "Complete three containment jobs.",
+        "start": "Party sees cracked cistern and poisoned outflow.",
+        "bypass": "Close entire side channel for three days.",
+        "creatures": [],
+        "end": "Jobs complete or TIDE reaches 3.",
+        "balance": "Environmental challenge with no enemies. Three containment jobs at DC 10–12 for level 2 (easy to medium) on a Tide clock. Closing the channel is always a legal way out.",
+        "scaling": "3 PCs: the Lanternback assist (or Nessa, if it was driven off) completes one job automatically. 5–6 PCs: add a fourth job (shore up the cracked sluice gate: DC 12 Athletics or mason's tools), and each failure still advances the Tide 1."
+      },
+      {
+        "id": "enc-tide",
+        "objective": "Prevent contamination reaching main ferry lane.",
+        "start": "Evening tide rises.",
+        "bypass": "Evacuate and close channel completely.",
+        "creatures": [],
+        "end": "Waterway controlled or safely closed.",
+        "scaling": "3 PCs: start the Tide one step lower. 5–6 PCs: a second skiff of reed-cutters needs warning (DC 11 Persuasion or a signal), which is one more task on the same clock."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-poison-water",
+        "sceneId": "scene-bend",
+        "trigger": "Drink contaminated water or remain immersed for more than one round.",
+        "save": "DC 10 Constitution",
+        "failure": "Numbness and dizziness: Disadvantage on next Dexterity check before 10 minutes pass.",
+        "success": "No mechanical effect; taste/smell still confirms contamination.",
+        "failForward": "The exposure proves the water is hazardous."
+      },
+      {
+        "id": "hazard-rotten-floor",
+        "sceneId": "scene-sableworks",
+        "trigger": "Cross warped floor without testing weight.",
+        "save": "DC 11 Dexterity",
+        "failure": "1d4 bludgeoning and contaminated splash on boots.",
+        "success": "Catch the beam edge.",
+        "failForward": "Broken floor exposes cistern source."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-pay",
+        "when": "Case resolved and Jory receives truthful report.",
+        "reward": "30 gp if ferry lane protected quickly; 25 gp if safe closure/detour required."
+      },
+      {
+        "id": "reward-legend",
+        "when": "Lanternback survives and truth is shared.",
+        "reward": "Reedwater recognizes 'blue lights by day' as a hazard warning; party earns goodwill with ferrymen and marsh folk."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-bend",
+        "dimensions": "80 x 60 ft. wetland bend",
+        "features": [
+          "clean ferry lane",
+          "blue-black side channel",
+          "reed shelf",
+          "dry island approach"
+        ]
+      },
+      {
+        "sceneId": "scene-sableworks",
+        "dimensions": "55 x 45 ft. ruin and sluice",
+        "features": [
+          "collapsed floor",
+          "copper cistern",
+          "sluice gate",
+          "outflow channel",
+          "safe bank"
+        ]
+      }
+    ]
+  }
+}

@@ -614,7 +614,7 @@ function dmBoxHtml(scene, bits) {
   }
   if (bits.checks.length) {
     chunks.push("<p><b>Checks.</b></p>" + bits.checks.map(check =>
-      "<p><b>DC " + escapeHtml(check.dc) + " " + escapeHtml(check.ability) + " — " + escapeHtml(check.label) + ".</b> " +
+      "<p><b>" + (check.dc ? "DC " + escapeHtml(check.dc) : "No roll") + " " + escapeHtml(check.ability) + " — " + escapeHtml(check.label) + ".</b> " +
       "Success: " + escapeHtml(check.success) + " Failure: " + escapeHtml(check.failure) + "</p>"
     ).join(""));
   }
@@ -687,7 +687,7 @@ function tableMapNote(sceneId) {
 }
 
 function creatureBlockHtml(creature) {
-  const extras = [creature.saves && ("Saves. " + creature.saves), creature.resistances && ("Resistances. " + creature.resistances), creature.immunities && ("Immunities. " + creature.immunities), creature.attack, creature.ranged, creature.action, creature.reaction, creature.trait]
+  const extras = [creature.statBlock && ("Stat block. " + creature.statBlock), creature.saves && ("Saves. " + creature.saves), creature.resistances && ("Resistances. " + creature.resistances), creature.immunities && ("Immunities. " + creature.immunities), creature.attack, creature.ranged, creature.action, creature.reaction, creature.trait, creature.edition2024 && ("2024 rules (SRD 5.2.1). " + creature.edition2024)]
     .filter(Boolean);
   return '<div class="creature">' +
     "<strong>" + escapeHtml(creature.count) + "× " + escapeHtml(creature.name) + "</strong>" +
@@ -695,6 +695,7 @@ function creatureBlockHtml(creature) {
     "<span>AC <b>" + escapeHtml(creature.ac) + "</b></span>" +
     "<span>HP <b>" + escapeHtml(creature.hp) + "</b></span>" +
     "<span>Speed <b>" + escapeHtml(creature.speed) + "</b></span>" +
+    (creature.cr !== undefined ? "<span>CR <b>" + escapeHtml(creature.cr) + "</b>" + (creature.xp ? " (" + escapeHtml(creature.xp) + " XP)" : "") + "</span>" : "") +
     "</div>" +
     extras.map(line => "<p>" + escapeHtml(line) + "</p>").join("") +
     (creature.tactics ? '<p class="tiny"><b>Tactics.</b> ' + escapeHtml(creature.tactics) + "</p>" : "") +
@@ -704,7 +705,7 @@ function creatureBlockHtml(creature) {
 function checkCardHtml(check) {
   return '<div class="card check-card">' +
     "<strong>" + escapeHtml(check.label) + "</strong>" +
-    '<p><span class="badge">DC ' + escapeHtml(check.dc) + "</span> " +
+    '<p><span class="badge">' + (check.dc ? "DC " + escapeHtml(check.dc) : "No roll") + "</span> " +
     '<span class="badge">' + escapeHtml(check.ability) + "</span></p>" +
     "<p><b>Success.</b> " + escapeHtml(check.success) + "</p>" +
     "<p><b>Failure.</b> " + escapeHtml(check.failure) + "</p>" +
@@ -730,6 +731,8 @@ function encounterCardHtml(encounter) {
     body += "<p><b>Objective.</b> " + escapeHtml(table.objective) + "</p>";
     body += '<p class="quick-block"><b>Opening beat.</b> ' + escapeHtml(table.start) + "</p>";
     body += (table.creatures || []).map(creatureBlockHtml).join("");
+    if (table.balance) body += '<p class="tiny"><b>Balance.</b> ' + escapeHtml(table.balance) + "</p>";
+    if (table.scaling) body += '<p class="tiny"><b>Party size.</b> ' + escapeHtml(table.scaling) + "</p>";
     if (table.bypass) body += "<p><b>De-escalate / bypass.</b> " + escapeHtml(table.bypass) + "</p>";
     if (table.ritual) body += '<p class="quick-block"><b>Binding.</b> ' + escapeHtml(table.ritual) + "</p>";
     if (table.destroy) body += "<p><b>Destroy.</b> " + escapeHtml(table.destroy) + "</p>";

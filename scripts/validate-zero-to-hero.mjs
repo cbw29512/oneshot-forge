@@ -129,7 +129,7 @@ if(d.scrapbook?.noExtraPower!==true) fail("scrapbook may not double-award develo
 if(d.scrapbook?.developmentCard?.requiredEveryGrowthBeat!==true||d.scrapbook?.developmentCard?.exactlyOnePerBeatPerCharacter!==true) fail("every Growth Beat must create exactly one Development Card");
 if(d.scrapbook?.yearbookCards?.mechanical!==false) fail("extra Yearbook/memory cards must remain nonmechanical");
 if(d.scrapbook?.printFormat?.cardSize!=="2.5 x 3.5 in"||d.scrapbook?.printFormat?.cardsPerLetterPage!==9) fail("scrapbook print format must remain 2.5x3.5, nine per Letter page");
-if(d.scrapbook?.competitionStandard?.supportedPlayerCount?.join(",")!=="4,5,6") fail("scrapbook competitions must support 4–6 players");
+if(d.scrapbook?.competitionStandard?.supportedPlayerCount?.join(",")!=="3,4,5,6") fail("scrapbook competitions must support 3–6 players");
 if(d.scrapbook?.competitionStandard?.podiumPlaces?.join(",")!=="1,2,3") fail("competition podium must remain 1st/2nd/3rd");
 if(d.scrapbook?.competitionStandard?.cardForEveryPlayer!==true||d.scrapbook?.competitionStandard?.uniqueConsolationWithinEvent!==true) fail("every competitor must receive a unique result card");
 if(!/placement itself grants no extra Development Points/i.test(d.scrapbook?.competitionStandard?.noDevelopment||"")) fail("competition placement must not add extra DP");

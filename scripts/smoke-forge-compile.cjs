@@ -14,6 +14,8 @@ for (let i = 0; i < 40; i++) {
   assert(JSON.stringify(pkg) === JSON.stringify(again), "compile must be deterministic");
   assert(pkg.forgeBones && assertBonesUnchanged(bones, pkg.forgeBones), "compiled package dropped bones");
   assert(pkg.metadata.seed === bones.seed, "seed lost");
+  assert(pkg.metadata.themeSpine === bones.theme.spine, "theme spine lost");
+  assert(pkg.themeContract?.id === bones.theme.id, "theme contract lost");
   assert(pkg.quest.objective === bones.hook.objective, "quest objective drifted");
   assert(pkg.truth.secrets[0].text === bones.twist.actualTruth, "truth drifted");
   assert(pkg.encounters.length === 3, "encounter slots");

@@ -6,7 +6,7 @@
     "systemCompatibility": "5E-compatible fantasy RPG",
     "partyLevel": 3,
     "partySize": 4,
-    "partySizeRange": "4 players",
+    "partySizeRange": "3–6 players (tuned for 4)",
     "durationMinutes": 150,
     "tone": [
       "folk mystery",
@@ -26,7 +26,8 @@
     "openingLocation": "The Black Orchard, north road outside Oakhaven",
     "gmSummary": "Oakhaven's records identify the Black Orchard as the source of the Gloam Sluice's wardstone. Surveyor Lio Derran entered the orchard to recover a replacement sample and never returned. Vessa Thorn, the orchard keeper, blocks further quarrying but cannot safely enter the awakened grove alone. The party crosses orchard rows guarded by rag-stitched wardens, solves a three-offering gate, and rescues Lio from roots inside the abandoned quarry. The twist is that the orchard is not corrupted because of the wardstone—the living wardstone and black apples are containing a Night Spring beneath the quarry. Lio loosened a shard and destabilized the Rootheart. In the finale, the party chooses whether to return the shard and preserve the orchard, take it to strengthen Oakhaven while sacrificing the orchard, or use a recovered silver survey chain to create a living graft that shares the ward between both places.",
     "background": "The Black Orchard grew around a natural seam of living wardstone. Its roots learned to draw shadow seepage from a buried Night Spring into fruit that ripens black and falls harmlessly into mineral soil. Oakhaven's founders quarried part of that seam for the Gloam Sluice, weakening but not destroying the old balance. Vessa's family has guarded the orchard since then. Lio Derran, following incomplete civic records, entered the quarry and pried loose a fresh shard. The Rootheart woke, trapped him, and turned its old scarecrow wardens against anyone carrying cutting tools.",
-    "standaloneStart": "If Module 03 was not played, Oakhaven's survey office sends the party after missing surveyor Lio Derran, whose last note says he found a wardstone quarry beneath the Black Orchard."
+    "standaloneStart": "If Module 03 was not played, Oakhaven's survey office sends the party after missing surveyor Lio Derran, whose last note says he found a wardstone quarry beneath the Black Orchard.",
+    "characterPressure": "Vessa Thorn wants Lio alive and the orchard treated as a living protector rather than a quarry; Lio wants to correct the mistake he made before Oakhaven acts on his bad survey."
   },
   "quest": {
     "type": "rescue / investigate / choose",
@@ -716,7 +717,7 @@
       "id": "enc-rag-wardens",
       "name": "Rag-Stitched Wardens",
       "type": "combat / disable / bypass",
-      "difficulty": "moderate",
+      "difficulty": "medium (cords make it manageable)",
       "summary": "Two orchard scarecrow wardens animate when armed strangers enter the inner rows. Their red root cords can be disabled without destroying them.",
       "objective": "Reach the quarry gate without unnecessary damage to the orchard.",
       "resolution": "The encounter ends when both wardens are disabled/defeated or the party reaches the quarry path beyond them.",
@@ -1075,15 +1076,21 @@
           {
             "name": "Rag-Stitched Warden",
             "count": 2,
-            "ac": 13,
-            "hp": 16,
+            "ac": 18,
+            "hp": 33,
             "speed": "25 ft.",
-            "attack": "Pruning Hook +4 to hit, 1d6+2 slashing.",
-            "trait": "Cord-Bound: a successful adjacent DC 12 Sleight of Hand or Nature Action disables the warden instantly.",
+            "cr": "1",
+            "xp": 200,
+            "statBlock": "SRD Animated Armor, reskinned as an iron orchard frame wrapped in stitched rags and red root cords. Immune to poison and psychic damage; blindsight 60 ft.",
+            "attack": "Multiattack: two Slam attacks. Slam. Melee +4 to hit, reach 5 ft.; 5 (1d6+2) bludgeoning (the pruning hook's flat).",
+            "trait": "Cord-Bound: an adjacent creature can use an Action and DC 12 Dexterity (Sleight of Hand) or Intelligence (Nature) to unhook the red cord; the warden drops inert. False Appearance while motionless.",
+            "edition2024": "Same AC, HP, and Slam. Condition immunities differ slightly (Petrified instead of Blinded); no Antimagic Susceptibility or False Appearance traits.",
             "tactics": "Block the quarry path and shove intruders away from living trees; do not pursue past the Offering Gate."
           }
         ],
-        "end": "Both wardens are disabled/defeated or the party reaches the quarry path."
+        "end": "Both wardens are disabled/defeated or the party reaches the quarry path.",
+        "balance": "4 × level 3: 400 XP, ×1.5 = 600 adjusted → Medium (2014 DMG); below Low (2024 budget). AC 18 is the point: the red cords are the intended answer.",
+        "scaling": "3 PCs: 2 wardens, but the first cord check each round has advantage. 5 PCs: 3 wardens. 6 PCs: 3 wardens and the third starts already moving toward the quarry gate."
       },
       {
         "id": "enc-rootheart-choice",

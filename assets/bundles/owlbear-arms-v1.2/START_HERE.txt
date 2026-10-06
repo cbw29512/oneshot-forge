@@ -1,0 +1,43 @@
+RIGHT TO OWLBEAR ARMS - COMPLETE TABLE-READY BUNDLE - VERSION 1.2
+
+A one-shot for 3-6 level-6 players (5 heroes provided). Estimated runtime: 5-7 hours.
+Rules: 2014 rules, SRD 5.1.
+
+START HERE
+1. Read 01_Adventure/Right_To_Bear_Arms_Adventure_v1.2.pdf.
+   Part 1 (Rules of Play) holds the locked chronology, the four-hour prep clock,
+   Defense Points, Routes A-E, wave rosters with XP math, 3-6 player scaling,
+   every enemy block, and Grubbleclaw's combat block.
+   Part 2 (Scenes, NPCs & Dialogue) holds every scene, NPC, and ending.
+   If anything in Part 2 seems to differ from Part 1, Part 1 wins.
+2. Print one hero per player from 02_Pregenerated_Heroes (SRD 5.1 only).
+3. Keep the DM maps in 03_Maps hidden; Old Cobb's survivor map is player-safe.
+4. Print 04_Handouts and reveal the Accord/Writ only if play earns them.
+5. NPC cards in 05_NPC_Cards are designed for duplex printing (flip on short edge).
+6. 06_DM_Aids contains the Grubbleclaw visual and the v1.2 clue-flow sheet.
+
+WHAT CHANGED IN 1.2
+- One locked chronology: Tomas survived the logging-camp raid and died in the
+  woods two days ago at raider hands; Edra's motive is concealing her collaboration.
+- One four-hour preparation clock; Defense Points 4 (minimum 0, maximum 6).
+- Complete final-defense procedure (Routes A-E), wave timing, and travel.
+- Reproducible SRD-sourced enemy rosters and XP math; scaling for 3-6 players.
+- Grubbleclaw v1.2 combat block; custom items clearly labelled CUSTOM.
+- Five SRD 5.1-only heroes with complete sheets and spell references.
+- NPC cards, clue-flow sheet, and handouts synchronized with the new chronology.
+
+PRINTING
+- PDFs: print at 100% / Actual Size unless your printer requires Fit for margin safety.
+- NPC cards: duplex, flip on short edge.
+- Keep DM-only maps/cards out of player view.
+
+RULES / ATTRIBUTION
+The pregenerated heroes and stat blocks use material from the System Reference
+Document 5.1 by Wizards of the Coast LLC, available under the Creative Commons
+Attribution 4.0 International License (CC BY 4.0).
+This independent adventure is not affiliated with, endorsed by, or sponsored by Wizards of the Coast.
+
+PACKAGE BUILD
+Prepared for Light Tower Table Top Guild.
+Canonical adventure title: Right to OwlBear Arms.
+Bundle version: 1.2. The original 1.1 bundle is preserved unchanged for provenance.

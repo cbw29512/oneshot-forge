@@ -8,6 +8,7 @@ A generated one-shot is valid when the deterministic Forge can produce the full 
 
 ### ForgeBones is authoritative
 The Forge owns:
+- the one-sentence theme spine and recurring motifs;
 - starting place and destination;
 - quest type and objective;
 - quest giver role;
@@ -40,6 +41,7 @@ AI may not:
 
 ## Required adventure spine
 
+0. Theme spine: one memorable sentence that constrains the required hook, obstacle, revelation, pressure, finale, and aftermath.
 1. Preview: where the party is and where it is going.
 2. Hook: what the quest is.
 3. Quest giver.
@@ -55,7 +57,8 @@ AI may not:
 
 ```
 seed + locks
-  -> choose compatible modules
+  -> choose theme spine
+  -> choose theme-compatible modules
   -> ForgeBones
   -> validate bones
   -> compile Adventure Package
@@ -79,6 +82,7 @@ The composer selects only modules whose requirements are satisfied by current ad
 ## Locks
 
 Any preview field may be locked before reroll:
+- theme
 - origin
 - destination
 - quest

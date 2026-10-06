@@ -4,6 +4,8 @@
 One-Shot Forge is an original fantasy RPG one-shot builder and web GM runner. Do not use protected logos, copied trade dress, or protected setting/adventure text.
 
 ## Architecture
+Before curated story, setting-continuity, or storefront-copy work, read `docs/WORLD_AND_NARRATIVE_STANDARD.md` after `docs/FORGE_CONSTITUTION.md`.
+
 1. The Adventure Package is authoritative.
 2. Builder and Runner use the same schema.
 3. Adventure truth is immutable during play unless the GM explicitly edits it.
@@ -22,6 +24,7 @@ One-Shot Forge is an original fantasy RPG one-shot builder and web GM runner. Do
 - Never silently invent missing canonical data.
 - Keep original package data separate from runtime state.
 - Add tests for schema changes and state transitions.
+- Follow `docs/PRODUCTION_RULES.md` (SRD-only content, encounter math and 3–6 player scaling, fail-forward, card art style, never push to `main`).
 ## Scheduled work
 - Stay on this repository only.
 - Read `docs/STATUS.md` first. Do the next item on that list. Update STATUS when you stop.

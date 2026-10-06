@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20261002e">
+  <link rel="stylesheet" href="styles.css?v=20261006a">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -145,7 +145,7 @@
       return [
         "D&D Beyond has no character import. Type this by hand if you must.",
         "Species: " + (pc.race || ""),
-        "Class: " + characterClass(pc) + " 4",
+        "Class: " + characterClass(pc) + " " + (pc.level || 4),
         "Background: " + (pc.background || ""),
         "Scores: " + ABIL.map(k => k + " " + (pc.scores||{})[k]).join(", "),
         "Skills: " + profSkills,
@@ -166,7 +166,7 @@
         '<header class="pr-head">' + img +
           '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
             '<h2>' + esc(pc.name) + '</h2>' +
-            '<p><b>' + esc(characterClass(pc)) + ' 4</b> · ' + esc(pc.race) + ' · ' +
+            '<p><b>' + esc(characterClass(pc)) + ' ' + esc(pc.level || 4) + '</b> · ' + esc(pc.race) + ' · ' +
               esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
             '<p class="pr-subid">' + esc(pc.rules || "5E") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
             '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
@@ -188,7 +188,7 @@
             '<div class="pr-hp-grid">' +
               '<div class="pr-writebox pr-current-hp"><small>Current HP</small><b></b></div>' +
               '<div class="pr-writebox pr-temp-hp"><small>Temp HP</small><b></b></div>' +
-              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: □ □ □ □</span></div>' +
+              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: ' + Array.from({length:Number(pc.level)||4},()=>"□").join(" ") + '</span></div>' +
               '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
             '</div>' +
             '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
@@ -351,7 +351,7 @@
       return '<article class="print-only pr-page pr-spell-page" data-print-pc="' + esc(pc.id) + '">' +
         '<header class="pr-spell-head">' +
           '<div><p class="pr-kicker">ONE-SHOT FORGE · SPELLS</p><h2>' + esc(pc.name) + '</h2>' +
-          '<p>' + esc(characterClass(pc)) + ' 4 · ' + esc(pc.race) + '</p></div>' +
+          '<p>' + esc(characterClass(pc)) + ' ' + esc(pc.level ?? 4) + ' · ' + esc(pc.race) + '</p></div>' +
           '<div class="pr-caster-stats">' +
             '<span><small>Ability</small><b>' + esc(sc.ability || "—") + '</b></span>' +
             '<span><small>Save DC</small><b>' + esc(sc.saveDC ?? "—") + '</b></span>' +
@@ -425,7 +425,7 @@
         '<header class="pr-head">' + img +
           '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
             '<h2>' + esc(pc.name) + '</h2>' +
-            '<p><b>' + esc(characterClass(pc)) + ' 4</b> · ' + esc(pc.race) + ' · ' +
+            '<p><b>' + esc(characterClass(pc)) + ' ' + esc(pc.level || 4) + '</b> · ' + esc(pc.race) + ' · ' +
               esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
             '<p class="pr-subid">' + esc(pc.rules || "5E") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
             '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
@@ -447,7 +447,7 @@
             '<div class="pr-hp-grid">' +
               '<div class="pr-writebox pr-current-hp"><small>Current HP</small><b></b></div>' +
               '<div class="pr-writebox pr-temp-hp"><small>Temp HP</small><b></b></div>' +
-              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: □ □ □ □</span></div>' +
+              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: ' + Array.from({length:Number(pc.level)||4},()=>"□").join(" ") + '</span></div>' +
               '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
             '</div>' +
             '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
@@ -503,10 +503,21 @@
       return printMainPage(pc) + printSpellPage(pc);
     }
 
-    const edition = (typeof getRuleset === "function" && getRuleset() === "2024") ? "2024" : "2014";
-    const packUrl = edition === "2024"
-      ? "data/pregens/quiet-seals-level-4-2024-srd.json?v=m"
-      : "data/pregens/quiet-seals-level-4-2014-srd.json?v=m";
+    const params = new URLSearchParams(window.location.search);
+    const requestedPack = params.get("pack") || "";
+    const owlbearMode = requestedPack === "owlbear-arms";
+    const edition = owlbearMode ? "2014" : ((typeof getRuleset === "function" && getRuleset() === "2024") ? "2024" : "2014");
+    const packUrl = owlbearMode
+      ? "data/pregens/owlbear-arms-level-6-2014-srd-v1.2.json?v=1.2"
+      : edition === "2024"
+        ? "data/pregens/quiet-seals-level-4-2024-srd.json?v=m"
+        : "data/pregens/quiet-seals-level-4-2014-srd.json?v=m";
+    if (owlbearMode) {
+      const intro = document.querySelector(".sheets-wrap > .land-section");
+      if (intro) intro.innerHTML = '<p class="eyebrow ember">Right to OwlBear Arms v1.2 · Table-complete · 2014 SRD · level 6</p><h1>Five repaired hero sheets</h1><p class="lede short">Rowan, Dagna, Sylvi, Liora, and Thalen rebuilt to the One-Shot Forge print standard: all six saves, all 18 skills, attacks, resources, combat features, and spell procedures. Print one or print all.</p>';
+      const toggle = document.getElementById("ruleset-host");
+      if (toggle) toggle.textContent = "2014 SRD";
+    }
     fetch(packUrl)
       .then(r => r.json())
       .then(pack => {
@@ -515,9 +526,11 @@
         const allCharacters = pack.characters || [];
         const screenHtml =
           rec.map(sheetHtml).join("") +
-          (edition === "2024"
-            ? '<p class="print-hide" style="padding:1rem 1.5rem">The extra six classes are still 2014-only. Tonight’s table is these six.</p>'
-            : '<h2 class="print-hide" style="padding:1rem 1.5rem 0">The other six, if you need them</h2>' + rest.map(sheetHtml).join(""));
+          (owlbearMode
+            ? rest.map(sheetHtml).join("")
+            : edition === "2024"
+              ? '<p class="print-hide" style="padding:1rem 1.5rem">The extra six classes are still 2014-only. Tonight’s table is these six.</p>'
+              : '<h2 class="print-hide" style="padding:1rem 1.5rem 0">The other six, if you need them</h2>' + rest.map(sheetHtml).join(""));
         const printHtml = allCharacters.map(printPacket).join("");
         document.getElementById("sheets").innerHTML = screenHtml + printHtml;
         clearPrintTarget();

@@ -6,7 +6,7 @@
     "systemCompatibility": "5E-compatible fantasy RPG",
     "partyLevel": 3,
     "partySize": 4,
-    "partySizeRange": "4 players",
+    "partySizeRange": "3–6 players (tuned for 4)",
     "durationMinutes": 150,
     "tone": [
       "flooded ruin",
@@ -774,7 +774,7 @@
       "id": "enc-mere-skimmers",
       "name": "Mere Skimmers",
       "type": "combat / distraction",
-      "difficulty": "light",
+      "difficulty": "easy (light)",
       "summary": "Two vibration-hunting aquatic scavengers bump and climb the ferry on the approach to the bell-house.",
       "objective": "Reach the drowned bell-house without losing the ferry.",
       "resolution": "Distract, drive off, or bloody the skimmers; they do not pursue into the ruin.",
@@ -1167,14 +1167,20 @@
             "name": "Mere Skimmer",
             "count": 2,
             "ac": 12,
-            "hp": 12,
-            "speed": "10 ft., swim 40 ft.",
-            "attack": "Ram +4 to hit, 1d6+2 bludgeoning.",
-            "trait": "Vibration Hunter: if a loud splash or struck float occurs within 60 ft., the skimmer moves toward it on its next turn.",
-            "tactics": "Ram the hull or exposed swimmer; retreat when bloodied."
+            "hp": 22,
+            "speed": "swim 40 ft.",
+            "cr": "1/2",
+            "xp": 100,
+            "statBlock": "SRD Reef Shark, reskinned as a blunt-nosed freshwater skimmer. Blindsight 30 ft.; breathes only underwater.",
+            "attack": "Bite. Melee +4 to hit, reach 5 ft.; 6 (1d8+2) piercing. Against the ferry, describe hits as rams that rock the hull.",
+            "trait": "Pack Tactics: advantage on an attack roll if an ally is within 5 ft. of the target. Vibration Hunter: a struck cork float within 60 ft. draws both skimmers to it on their next turn.",
+            "edition2024": "Speed 5 ft., swim 30 ft. Bite +4 to hit, 7 (2d4+2) piercing.",
+            "tactics": "Hit swimmers or anyone leaning over the rail; retreat immediately when bloodied."
           }
         ],
-        "end": "Skimmers are distracted, driven away, or one is bloodied."
+        "end": "Skimmers are distracted, driven away, or one is bloodied.",
+        "balance": "4 × level 3: 200 XP, ×1.5 = 300 adjusted → Easy (2014 DMG); below Low (2024 budget). Light by design; they only reach characters at the rail or in the water.",
+        "scaling": "3 PCs: 2 skimmers, and they lose Pack Tactics against a character standing mid-ferry. 5 PCs: 3 skimmers. 6 PCs: 4 skimmers."
       },
       {
         "id": "enc-ysra-warning",

@@ -1436,10 +1436,16 @@
             "speed": "30 ft.",
             "attack": "Greataxe +5 to hit, 1d12+3 slashing.",
             "trait": "Overwhelming Column: reinforcements continue arriving; this is not balanced as a stand-up fight.",
-            "tactics": "Advance in numbers, cut off the road, and force retreat. Do not chase beyond the road to Briar Hollow."
+            "tactics": "Advance in numbers, cut off the road, and force retreat. Do not chase beyond the road to Briar Hollow.",
+            "cr": "1/2",
+            "xp": 100,
+            "statBlock": "SRD 5.1 Orc. Not a balanced fight: it closes the road.",
+            "edition2024": "SRD 5.2.1 has no Orc stat block. Use the SRD Tough (AC 12, HP 32, Mace +4 to hit, 1d6+2 bludgeoning; Heavy Crossbow +3 to hit, 1d10+1 piercing; Pack Tactics) for these orc raiders."
           }
         ],
-        "end": "The party reaches Briar Hollow or knowingly chooses a suicidal stand."
+        "end": "The party reaches Briar Hollow or knowingly chooses a suicidal stand.",
+        "scaling": "Any party size: the column is always overwhelming. Telegraph it; do not run it as a fight.",
+        "balance": "Not balanced on purpose: 12 orcs (1,200 XP, ×3 = 3,600 adjusted) is far past Deadly for any party of 3–6 level-4 characters, and more keep coming. It closes the road. It is not a fight."
       },
       {
         "id": "enc-father",
@@ -1457,10 +1463,14 @@
             "trait": "Ragged Exhaustion: Disadvantage on attack rolls, ability checks, and saving throws. Initiative is made with Disadvantage.",
             "tactics": "Attack anyone blocking the egg or food. Smash structures if ignored.",
             "cr": 3,
-            "xp": 700
+            "xp": 700,
+            "statBlock": "SRD Owlbear (CR 3, 700 XP) with one story trait, Ragged Exhaustion.",
+            "edition2024": "Speed 40 ft., climb 40 ft. Multiattack: two Rend attacks, +7 to hit, 2d8+5 slashing each. Ragged Exhaustion is unchanged."
           }
         ],
-        "end": "He leaves after eating the party's rations, dies (revealing unsafe meat and triggering the mother's scream), or destroys the village if ignored."
+        "end": "He leaves after eating the party's rations, dies (revealing unsafe meat and triggering the mother's scream), or destroys the village if ignored.",
+        "balance": "4 × level 4: 700 XP, ×1 = 700 adjusted → Easy (2014 DMG); below Low (2024 budget). Low on purpose: the danger is what happens to Briar Hollow, not party death.",
+        "scaling": "3 PCs: as written. 5 PCs: as written. 6 PCs: 75 HP, and he ignores the initiative disadvantage."
       },
       {
         "id": "enc-mother-rage",
@@ -1476,10 +1486,15 @@
             "speed": "40 ft.",
             "attack": "Multiattack: Beak +8 to hit, 1d10+7 piercing while raging; two Claws +8 to hit, 2d8+7 slashing each while raging.",
             "trait": "Maternal Rage (1/day, 1 minute): Advantage on Strength checks/saves; +2 Strength-melee damage; resistance to all damage except psychic.",
-            "tactics": "Prioritize creatures near shell remains, then anyone who damages her."
+            "tactics": "Prioritize creatures near shell remains, then anyone who damages her.",
+            "cr": "6",
+            "xp": 2300,
+            "statBlock": "Original variant of the SRD Owlbear (bigger, plus Maternal Rage), built to CR 6. Only triggered by the party's own choices."
           }
         ],
-        "end": "She is defeated, driven off, or the village is evacuated."
+        "end": "She is defeated, driven off, or the village is evacuated.",
+        "balance": "4 × level 4: 2,300 XP, ×1 = 2,300 adjusted → Deadly (2014 DMG); above High (2024 budget). Deadly by design: this is a consequence, and evacuating or yielding is always a valid answer.",
+        "scaling": "3 PCs: 75 HP, and Maternal Rage gives no damage resistance. Spell out the evacuation option before initiative. 5 PCs: as written. 6 PCs: 120 HP."
       },
       {
         "id": "enc-mother-baby",
@@ -1495,7 +1510,10 @@
             "speed": "40 ft.",
             "attack": "Multiattack: Beak +8 to hit, 1d10+7 piercing while raging; two Claws +8 to hit, 2d8+7 slashing each while raging.",
             "trait": "Maternal Rage (1/day, 1 minute): Advantage on Strength checks/saves; +2 Strength-melee damage; resistance to all damage except psychic.",
-            "tactics": "Drive straight toward the village defenders while keeping the hatchling behind her."
+            "tactics": "Drive straight toward the village defenders while keeping the hatchling behind her.",
+            "cr": "6",
+            "xp": 2300,
+            "statBlock": "Original variant of the SRD Owlbear (bigger, plus Maternal Rage), built to CR 6. Only triggered by the party's own choices."
           },
           {
             "name": "Owlbear Hatchling",
@@ -1505,10 +1523,15 @@
             "speed": "30 ft.",
             "attack": "Beak +4 to hit, 1d6+2 piercing; Claws +4 to hit, 1d8+2 slashing.",
             "trait": "Half-Grown Profile: roughly half a healthy adult owlbear's combat output and durability; imprints behaviorally.",
-            "tactics": "Snaps at nearby legs and follows the mother's target; it is not a serious damage source."
+            "tactics": "Snaps at nearby legs and follows the mother's target; it is not a serious damage source.",
+            "cr": "1",
+            "xp": 200,
+            "statBlock": "Original half-grown owlbear, built to CR 1."
           }
         ],
-        "end": "Father alive: family withdraws peacefully. Father dead: mother is driven off/defeated, or the village evacuates."
+        "end": "Father alive: family withdraws peacefully. Father dead: mother is driven off/defeated, or the village evacuates.",
+        "balance": "4 × level 4: 2,500 XP, ×1.5 = 3,750 adjusted → Deadly (2014 DMG); above High (2024 budget). Deadly by design: this is a consequence, and evacuating or yielding is always a valid answer.",
+        "scaling": "3 PCs: 75 HP, and Maternal Rage gives no damage resistance. Spell out the evacuation option before initiative. 5 PCs: as written. 6 PCs: 120 HP."
       },
       {
         "id": "enc-mother-keep",
@@ -1524,7 +1547,10 @@
             "speed": "40 ft.",
             "attack": "Multiattack: Beak +8 to hit, 1d10+7 piercing while raging; two Claws +8 to hit, 2d8+7 slashing each while raging.",
             "trait": "Maternal Rage (1/day, 1 minute): Advantage on Strength checks/saves; +2 Strength-melee damage; resistance to all damage except psychic.",
-            "tactics": "Recover the hatchling first. If father alive, posture before attacking; if father dead, focus on threats associated with his death."
+            "tactics": "Recover the hatchling first. If father alive, posture before attacking; if father dead, focus on threats associated with his death.",
+            "cr": "6",
+            "xp": 2300,
+            "statBlock": "Original variant of the SRD Owlbear (bigger, plus Maternal Rage), built to CR 6. Only triggered by the party's own choices."
           },
           {
             "name": "Owlbear Hatchling",
@@ -1534,10 +1560,15 @@
             "speed": "30 ft.",
             "attack": "Beak +4 to hit, 1d6+2 piercing; Claws +4 to hit, 1d8+2 slashing.",
             "trait": "Half-Grown Profile: roughly half a healthy adult owlbear's combat output and durability; imprints behaviorally.",
-            "tactics": "Avoids serious fighting; moves toward bonded protector unless the mother physically gathers it."
+            "tactics": "Avoids serious fighting; moves toward bonded protector unless the mother physically gathers it.",
+            "cr": "1",
+            "xp": 200,
+            "statBlock": "Original half-grown owlbear, built to CR 1."
           }
         ],
-        "end": "The hatchling remains with the party, reunites with its mother, the party evacuates with it, or the mother confrontation is resolved by combat."
+        "end": "The hatchling remains with the party, reunites with its mother, the party evacuates with it, or the mother confrontation is resolved by combat.",
+        "balance": "4 × level 4: 2,500 XP, ×1.5 = 3,750 adjusted → Deadly (2014 DMG); above High (2024 budget). Deadly by design: this is a consequence, and evacuating or yielding is always a valid answer.",
+        "scaling": "3 PCs: 75 HP, and Maternal Rage gives no damage resistance. Spell out the evacuation option before initiative. 5 PCs: as written. 6 PCs: 120 HP."
       }
     ],
     "hazards": [],

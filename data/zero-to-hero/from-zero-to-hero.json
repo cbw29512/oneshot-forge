@@ -1233,6 +1233,7 @@
     },
     "competitionStandard": {
       "supportedPlayerCount": [
+        3,
         4,
         5,
         6
@@ -1266,7 +1267,8 @@
         "rule": "The six core development competitions contain exactly one STR, DEX, CON, INT, WIS, and CHA contest. Because every Upbringing Lean has exactly 2 Favored, 2 Neutral, and 2 Challenging abilities, every profile experiences exactly 2 Favored, 2 Neutral, and 2 Challenging core competitions.",
         "optionalSideContests": "Optional extra contests may award scrapbook memories and placements but must not add Development Points unless they replace a declared Growth Beat under the same six-ability fairness audit."
       },
-      "rankingRule": "For a core competition, every contestant rolls the same primary ability. Use normal Upbringing Lean and Character Advantage cancellation. Rank by final check total, then kept d20, then a story-only d20 tiebreak. This keeps the contest comparable while preserving different childhood odds."
+      "rankingRule": "For a core competition, every contestant rolls the same primary ability. Use normal Upbringing Lean and Character Advantage cancellation. Rank by final check total, then kept d20, then a story-only d20 tiebreak. This keeps the contest comparable while preserving different childhood odds.",
+      "threePlayerRule": "With three players, add one NPC competitor (Fen Bell or Lark Cask, run by the DM) so podium places stay earned. The NPC gets no scrapbook card and no Development Point. Record field size as 4."
     },
     "cardFields": [
       "title",

@@ -87,6 +87,7 @@ if(!adv.campaignMystery?.dmTruth||adv.campaignMystery.clueLadder?.length!==7||ad
 for(const ch of adv.chapters) for(const beat of ch.beats){
   if(!beat.location||beat.location.length<60) fail(ch.id+"/"+beat.growthBeatId+" needs table-ready location description");
   if(!Array.isArray(beat.fourPlayerJobs)||beat.fourPlayerJobs.length!==4) fail(ch.id+"/"+beat.growthBeatId+" must provide four default player jobs");
+  if(typeof beat.threePlayerAdjustment!=="string"||!beat.threePlayerAdjustment.startsWith("Three players")) fail(ch.id+"/"+beat.growthBeatId+" must say how to run with three players");
   if(!Array.isArray(beat.npcDialogue)||beat.npcDialogue.length<1) fail(ch.id+"/"+beat.growthBeatId+" needs ready NPC dialogue");
   if(!beat.advanceWhen||beat.advanceWhen.length<30) fail(ch.id+"/"+beat.growthBeatId+" needs exact move-on condition");
 }

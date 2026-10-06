@@ -488,9 +488,9 @@ Additional story-only cards may record:
 
 Story-only cards add no DP by themselves. A specific memory may later support Character Advantage when genuinely relevant.
 
-### Competition cards for 4–6 players
+### Competition cards for 3–6 players
 
-Competition content is designed for **4–6 player characters**.
+Competition content is designed for **3–6 player characters**. With three, add one NPC competitor (Fen Bell or Lark Cask) who gets no card.
 
 Every competitor receives a card:
 - **1st place** — podium card;
@@ -530,7 +530,7 @@ The canonical playable origin adventure is **From Zero to Hero: The Hearthcross 
 
 Default table:
 - **4 players**
-- supports **4–6**
+- supports **3–6**
 - 7 yearly chapters
 - 3 Growth Beats per chapter
 - exactly 21 Development Checks per character across the campaign
@@ -546,6 +546,8 @@ The DM runner must bind every playable scene to the authoritative Growth Beat in
 For four players, rotate who acts first from Growth Beat to Growth Beat.
 
 A successful first check may improve the fictional position, but the beat does not close until all four players receive one distinct Development Check.
+
+For three players, each Growth Beat names the one default job a village NPC handles off-screen (`threePlayerAdjustment`). Every player still gets one Development Check, and the DC does not change.
 
 For five or six players, add distinct tasks, witnesses, deliveries, hazards, or simultaneous fronts. **Do not increase the DC merely because more players attended.**
 

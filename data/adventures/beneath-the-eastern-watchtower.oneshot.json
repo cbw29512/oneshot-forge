@@ -6,7 +6,7 @@
     "systemCompatibility": "5E-compatible fantasy RPG",
     "partyLevel": 3,
     "partySize": 4,
-    "partySizeRange": "4 players",
+    "partySizeRange": "3–6 players (tuned for 4)",
     "durationMinutes": 150,
     "tone": [
       "subterranean mystery",
@@ -26,7 +26,8 @@
     "openingLocation": "Eastern Watchtower, Oakhaven",
     "gmSummary": "A marked map leads beneath Oakhaven's eastern watchtower. Captain Edda Marr reports black resin seeping from old mortar and allows the party into a sealed sally tunnel. The party crosses a flooded undercroft, survives territorial sump crawlers, and reaches a maintenance vault where three pressure gauges reveal the old system's purpose. The apparent corruption source is actually a civic ward-engine called the Gloam Sluice: it was built to pull supernatural rot away from Oakhaven and bury it in a salt sink. The salt channel collapsed years ago, pressure rose, and the emergency root vent began firing black splinters upward. The finale is an environmental repair under pressure. The party can safely restore the sluice by completing three repair jobs, or smash its overflow core for a faster but destructive shutdown.",
     "background": "Generations ago, Oakhaven's founders built a hidden ward beneath the eastern watchtower. The Gloam Sluice drew dangerous magical decay from the town's root network, carried it through carved stone channels, and neutralized it in a deep salt basin. The last bellkeeper died before training a successor. When a lower cavern shifted and crushed the salt outlet, the system kept operating without maintenance. Its emergency root vent eventually began driving hardened fragments of stored corruption upward—the same black splinters that poisoned the Whispering Hollow.",
-    "standaloneStart": "If Module 02 was not played, Kaelen discovers black resin beneath the eastern watchtower after comparing old apothecary records. Captain Marr still provides the same access and objective."
+    "standaloneStart": "If Module 02 was not played, Kaelen discovers black resin beneath the eastern watchtower after comparing old apothecary records. Captain Marr still provides the same access and objective.",
+    "characterPressure": "Captain Edda Marr wants the seepage stopped without losing the tower her people still depend on; Harn's Echo wants the truth written down so the system is never forgotten again."
   },
   "quest": {
     "type": "investigate / repair",
@@ -658,8 +659,8 @@
       "id": "enc-sump-crawlers",
       "name": "Stone-Sump Crawlers",
       "type": "combat / bypass",
-      "difficulty": "moderate",
-      "summary": "Two territorial mineral-armored crawlers occupy the flooded tunnel while loose masonry turns a static fight into a moving one.",
+      "difficulty": "easy (moving obstacle)",
+      "summary": "Two territorial mineral-crusted crawlers (SRD Crocodile stat block) occupy the flooded tunnel while loose masonry turns a static fight into a moving one.",
       "objective": "Reach the Bellkeeper Vault without being trapped in the flooded undercroft.",
       "resolution": "The encounter ends when the party reaches the bronze maintenance door, defeats the crawlers, or lures them away from the route.",
       "talkOut": "The crawlers are beasts and do not negotiate, but they pursue vibration and food rather than defending the door itself.",
@@ -1056,15 +1057,21 @@
           {
             "name": "Stone-Sump Crawler",
             "count": 2,
-            "ac": 13,
-            "hp": 18,
-            "speed": "30 ft., climb 20 ft.",
-            "attack": "Mandibles +4 to hit, 1d8+2 piercing.",
-            "trait": "Mineral Shell: the first time each crawler takes bludgeoning damage, reduce that damage by 2 as crust breaks away.",
-            "tactics": "Attack the nearest source of vibration, then retreat toward the runoff if bloodied."
+            "ac": 12,
+            "hp": 19,
+            "speed": "20 ft., swim 20 ft.",
+            "cr": "1/2",
+            "xp": 100,
+            "statBlock": "SRD Crocodile, reskinned as a mineral-crusted tunnel crawler. Holds its breath for 15 minutes.",
+            "attack": "Bite. Melee +4 to hit, reach 5 ft.; 7 (1d10+2) piercing, and the target is grappled (escape DC 12). Until the grapple ends the target is restrained and the crawler can't bite another target.",
+            "trait": "Drawn to vibration: a thrown ration or loud splash in the southeast runoff pulls both crawlers there for 3 rounds.",
+            "edition2024": "HP 13; speed 20 ft., swim 30 ft. Bite +4 to hit, 6 (1d8+2) piercing; a Medium or smaller target is Grappled (escape DC 12) and Restrained while Grappled. Holds its breath for 1 hour.",
+            "tactics": "Attack the nearest source of vibration and drag a grappled target toward the water; retreat toward the runoff when bloodied."
           }
         ],
-        "end": "The party reaches the bronze maintenance door, defeats the crawlers, or lures them away."
+        "end": "The party reaches the bronze maintenance door, defeats the crawlers, or lures them away.",
+        "balance": "4 × level 3: 200 XP, ×1.5 = 300 adjusted → Easy (2014 DMG); below Low (2024 budget). A moving obstacle, not the climax: falling masonry after round 3 adds pressure.",
+        "scaling": "3 PCs: 2 crawlers, but they release a grappled target at the start of each of the crawler's turns if no other PC is grappled. 5 PCs: 3 crawlers. 6 PCs: 4 crawlers."
       },
       {
         "id": "enc-harn-echo",
@@ -1080,7 +1087,8 @@
         "start": "The party enters a 70 × 70 ft. catwalk chamber with the Core at center and three repair stations around it.",
         "bypass": "Destroy Overflow Core AC 13 / 24 HP to end the pulses immediately, accepting the tower collapse and 2d6 necrotic breach blast.",
         "creatures": [],
-        "end": "All three repair jobs succeed and the purge lever is pulled, or the Overflow Core is destroyed."
+        "end": "All three repair jobs succeed and the purge lever is pulled, or the Overflow Core is destroyed.",
+        "scaling": "3 PCs: Pressure Pulse DC 11 and only one station failure per round can mark Tower Strain. 5–6 PCs: Pressure Pulse also hits creatures within 10 ft. of the core with a second 1d6 necrotic on a failed save; the three stations stay the same."
       }
     ],
     "hazards": [
