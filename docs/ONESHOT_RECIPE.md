@@ -66,3 +66,8 @@ We steal structure from folktale and myth, never trade dress.
 - Generate eight filler nights in one sitting.
 - Copy Vecna, official adventures, or anything from Drive that we do not own.
 - Require a BBEG.
+
+
+## NPC stats
+
+Do not print AC, HP, attacks, or a stat block beside dialogue or read-aloud. Name the NPC. Clicking the name opens the stat block. The full blocks live in an appendix at the end of the module. New adventures follow this. No exceptions.
