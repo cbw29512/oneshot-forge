@@ -614,7 +614,7 @@ function dmBoxHtml(scene, bits) {
   }
   if (bits.checks.length) {
     chunks.push("<p><b>Checks.</b></p>" + bits.checks.map(check =>
-      "<p><b>DC " + escapeHtml(check.dc) + " " + escapeHtml(check.ability) + " — " + escapeHtml(check.label) + ".</b> " +
+      "<p><b>" + (check.dc ? "DC " + escapeHtml(check.dc) : "No roll") + " " + escapeHtml(check.ability) + " — " + escapeHtml(check.label) + ".</b> " +
       "Success: " + escapeHtml(check.success) + " Failure: " + escapeHtml(check.failure) + "</p>"
     ).join(""));
   }
@@ -705,7 +705,7 @@ function creatureBlockHtml(creature) {
 function checkCardHtml(check) {
   return '<div class="card check-card">' +
     "<strong>" + escapeHtml(check.label) + "</strong>" +
-    '<p><span class="badge">DC ' + escapeHtml(check.dc) + "</span> " +
+    '<p><span class="badge">' + (check.dc ? "DC " + escapeHtml(check.dc) : "No roll") + "</span> " +
     '<span class="badge">' + escapeHtml(check.ability) + "</span></p>" +
     "<p><b>Success.</b> " + escapeHtml(check.success) + "</p>" +
     "<p><b>Failure.</b> " + escapeHtml(check.failure) + "</p>" +
