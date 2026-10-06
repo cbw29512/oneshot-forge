@@ -1240,21 +1240,21 @@
         "name": "Alderwood Vent",
         "route": "Watchstone → buried stone circle north of town",
         "problem": "Tree roots and a collapsed capstone constrict the old vent.",
-        "keyEvidence": "Bram's animals avoid the circle; the age-14 scavenger hunt exposes a matching keeper mark."
+        "keyEvidence": "Three clues: Clover refuses to pass beside the Watchstone (age 12); the age-14 scavenger hunt exposes a matching keeper mark in Alderwood; the dressed stone at Alder Ford (age 16) matches it."
       },
       {
         "id": "east",
         "name": "Market Conduit",
         "route": "Watchstone → beneath Crossmarket pavilion → old road",
         "problem": "Successive repairs covered access points; smugglers later cut a side passage that filled part of the conduit with rubble.",
-        "keyEvidence": "The age-15 crooked pavilion exposes marked stonework; Rusk knows the side passage by age 17."
+        "keyEvidence": "Three clues: a cart wheel drops into the hollow lane above the conduit (age 14); the crooked pavilion repair exposes marked stonework (age 15); floodwater vanishes into the collapsed cut beside Rusk's side passage (age 17). By age 17 Rusk knows the side passage."
       },
       {
         "id": "south",
         "name": "River Spill",
         "route": "Watchstone → Fox & Ferry lane → Hearth River",
         "problem": "Silt, flood repairs, and a newer retaining wall choke the spillway.",
-        "keyEvidence": "Age-12 rain runs strangely toward the stone; age-17 floodwater surges backward through the old drain."
+        "keyEvidence": "Three clues: age-12 rain runs uphill toward the stone; the Bellmere survey is missing part of the south route (age 16); age-17 floodwater surges backward through the old drain."
       }
     ],
     "clueLadder": [
