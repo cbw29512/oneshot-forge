@@ -9,7 +9,7 @@
     "partySizeRange": "3–5 players",
     "durationMinutes": 135,
     "tone": [
-      "rural cryptid mystery",
+      "rural cryptid investigation",
       "storm pressure",
       "misunderstood creature"
     ]
@@ -24,7 +24,7 @@
   "setup": {
     "pitch": "Something tall has been walking the fence rails outside Bellmere and stealing iron nails. Livestock are loose, a storm is coming, and every strange track leads toward a crack opening beneath the road.",
     "openingLocation": "Crowe Farm on the Bellmere road, half a day from Hearthcross",
-    "gmSummary": "Hesta Crowe hires the party after three nights of missing fence nails and livestock escapes. Witnesses blame a long-limbed cryptid called the Fencewalker. The creature really is stealing the iron, but it is using every nail and hinge to brace a widening limestone fissure beneath Bellmere Road. It can hear the stone shifting before anyone else can. A hard storm will flood the fissure and collapse the road, taking Crowe Farm's lower field and anyone still crossing. The party can hunt the Fencewalker, understand its warning, and then choose whether to reclaim the iron, help complete its crude seal, or build a stronger stone-and-timber brace that saves both the road and the village's property.",
+    "gmSummary": "Hesta Crowe hires the party after three nights of missing fence nails and livestock escapes. Witnesses blame a long-limbed cryptid called the Fencewalker. The creature really is stealing the iron, but it is using every nail and hinge to brace a widening limestone fissure beneath Bellmere Road. It can hear the stone shifting before anyone else can. A hard storm will flood the fissure and collapse the road, taking Crowe Farm's lower field and anyone still crossing. The party is expected to investigate the Fencewalker's behavior, test what the three-knock warning means, and then choose whether to reclaim the iron, help complete its crude seal, or build a stronger stone-and-timber brace that saves both the road and the village's property. Combat is an optional consequence of player aggression, not the default route.",
     "background": "Bellmere Road crosses old limestone riddled with narrow breath-cracks. The Fencewalker has lived in the hedgerows for years, emerging only when deep stone begins to move. Its split foreclaws can carry iron, and it has learned that hammered metal slows widening cracks. Villagers noticed only the thefts, never the warning pattern.",
     "standaloneStart": "Hesta Crowe offers 20 gp total to stop whatever is stealing fence iron before the coming storm ruins her herd.",
     "characterPressure": "Hesta wants her fences and animals protected tonight; young shepherd Pella wants proof that the creature she saw was not attacking her; the Fencewalker wants the road fissure sealed before the storm."
@@ -423,7 +423,7 @@
     {
       "id": "scene-roadcut",
       "title": "Nails in the Stone",
-      "purpose": "Reveal the iron braces and let the party meet the Fencewalker before deciding whether to attack it.",
+      "purpose": "Reveal the iron braces and give the party a full observation-and-theory-test scene before any confrontation.",
       "locationId": "loc-roadcut",
       "pacingClass": "core",
       "estimatedMinutes": 30,
@@ -433,23 +433,23 @@
       "readAloud": "Bellmere Road narrows between white limestone banks. Three stolen fence nails are hammered sideways into a crack at knee height. A horseshoe wedges another seam. Above them, balanced on the fence rail as easily as a crow on a branch, stands a gray long-limbed creature with copper-bright eyes. It holds Hesta's missing gate hinge in one split foreclaw. It knocks the hinge three times against the rail. The stone beneath your boots answers with a crack.",
       "gmNotes": [
         "If the party repeats Pella's three-knock pattern or waits one round without attacking, the Fencewalker leads them to the fissure.",
-        "If attacked, it defends itself but retreats into the fissure at half HP. Killing it never removes access to the evidence.",
+        "Give the party one full round of observable behavior before initiative unless they attack immediately. If attacked, it defends itself only long enough to escape toward the fissure. Killing it never removes access to the evidence.",
         "Removing a brace advances Storm by 1 immediately and widens the crack visibly.",
         "DC 11 Investigation or mason/carpenter tools confirms the iron is slowing movement but is not a durable repair.",
         "Immediate evacuation is a real branch: go straight to scene-storm with 0 repair jobs complete. The party can still achieve a casualty-free controlled-collapse ending."
       ],
       "runSteps": [
         {
-          "title": "Give the creature a choice point",
-          "text": "Wait, signal with three knocks, offer iron, or attack."
+          "title": "Observe before interpreting",
+          "text": "Show the creature carrying iron, checking the seam, and knocking before the stone moves."
         },
         {
-          "title": "Show the stone move",
-          "text": "A tremor follows the warning knocks."
+          "title": "Let the party test a theory",
+          "text": "They can repeat three knocks, offer iron, remove a brace, block its route, or simply watch what it does next."
         },
         {
           "title": "Reveal the braces",
-          "text": "The stolen objects are holding active seams closed."
+          "text": "The stolen objects are holding active seams closed; the creature's behavior has a practical purpose."
         }
       ],
       "advanceWhen": "The party follows the Fencewalker or enters the fissure to inspect the collapse risk.",
@@ -644,14 +644,14 @@
     {
       "id": "enc-fencewalker",
       "name": "The Fencewalker",
-      "type": "social / combat optional",
+      "type": "observation / social / combat only if forced",
       "difficulty": "low",
       "summary": "The cryptid appears with stolen iron at the road cut.",
-      "objective": "Decide whether to signal, follow, drive off, or attack the creature.",
-      "resolution": "Three-knock communication, offering iron, forcing it away, or reducing it to half HP all move play toward the fissure.",
-      "talkOut": "It does not speak. Repeat three knocks and wait one round; it responds by leading the party to the fissure.",
+      "objective": "Observe the cryptid, test a theory about its behavior, and decide whether to follow or interfere.",
+      "resolution": "Three-knock communication, offering iron, watching one warning cycle, or following the installed braces all move play toward the fissure.",
+      "talkOut": "It does not speak. Repeat three knocks, offer iron, or simply wait through one tremor; it responds by demonstrating the warning and leading the party to the fissure.",
       "bypass": "Follow the iron braces directly into the fissure without interacting.",
-      "special": "If reduced to 0 HP, it falls unconscious and stable unless a player deliberately kills it; the adventure remains completable."
+      "special": "Combat is not expected. If attacked, it uses movement and shoves to escape. If reduced to 0 HP, it falls unconscious and stable unless deliberately killed; the adventure remains completable."
     },
     {
       "id": "enc-storm-collapse",
@@ -991,9 +991,9 @@
       },
       {
         "id": "enc-fencewalker",
-        "objective": "Decide whether to understand, follow, drive off, or fight the cryptid.",
-        "start": "Fencewalker appears with Hesta's missing hinge.",
-        "bypass": "Repeat three knocks and wait, or follow the installed braces directly.",
+        "objective": "Observe the cryptid, test the three-knock theory, and decide whether to follow or interfere.",
+        "start": "Fencewalker appears with Hesta's missing hinge. Do not roll initiative unless the party attacks or physically traps it.",
+        "bypass": "Repeat three knocks, offer iron, or watch through one tremor; it leads the party toward the fissure.",
         "creatures": [
           {
             "name": "Fencewalker",
@@ -1003,10 +1003,10 @@
             "speed": "40 ft., climb 20 ft.",
             "attack": "Forked Claw +4 to hit; 1d4+2 slashing.",
             "trait": "Rail Walker: difficult terrain from fences/hedges costs it no extra movement. Warning Sense: it cannot be surprised by natural ground collapse within 60 ft.",
-            "tactics": "Retreats, shoves, and pulls rather than finishing downed creatures. At half HP it flees to the fissure."
+            "tactics": "Avoids trading attacks. Uses speed, terrain, and nonlethal shoves to escape toward the fissure. Never attacks a downed creature and prioritizes warning/repair behavior over fighting."
           }
         ],
-        "end": "Party follows it, drives it off, or reduces it to half HP/0 HP."
+        "end": "Party follows it, drives it off, traps it, or forces it to flee; the fissure evidence remains available either way."
       },
       {
         "id": "enc-storm-collapse",
