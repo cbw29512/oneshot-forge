@@ -1,6 +1,6 @@
 # Catalog Theme Audit
 
-**Status: active curated-catalog design map — 2026-10-05**
+**Status: audited and repaired curated-catalog design map — 2026-10-05**
 
 Purpose: every One-Shot Forge product should be recognizable from a one-sentence theme spine and should pay that idea off through its actual play, not only its title or flavor text.
 
@@ -131,3 +131,25 @@ Approved reference adventures are used for:
 - finales that reconnect to the hook.
 
 They are never used as plot banks, room-sequence templates, or sources of distinctive names/creatures/items/dialogue.
+
+
+---
+
+## Audit resolution — 2026-10-05
+
+The original catalog review findings have been applied to product/source data:
+
+- **Setting continuity:** Hearthcross, Hearthford, and Oakhaven are explicitly one region.
+- **Lantern:** public hook uses the morally ambiguous thief premise; authoritative data now explains why the lantern never needed oil.
+- **Well:** the name-stone is explicitly the broken component of the name-for-water bargain.
+- **Owlbear Egg:** narrator-level sales copy treats the situation as survival ethics; omelet humor remains only as character/DM texture.
+- **Birthday:** the real birthday person is explicitly the in-world honoree; Sepulchral's finale is grounded in his own failed birthday wish rather than abstractly putting "hope itself" on trial.
+- **Whispers:** Malakor has recognizable memory, habits, motive, regret, lucid dialogue, and an explicit reason to cleanse him.
+- **Watchtower:** Edda Marr and Harn's Echo have explicit wants that drive the repair choice; the destructive shortcut's cost remains known in advance.
+- **Black Orchard:** the two-community/one-resource dilemma is foregrounded; Vessa, Lio, and Mother Graft actively want incompatible outcomes.
+- **Ashen Bridge:** people-over-infrastructure remains the explicit success hierarchy; Soren and Mera's wants drive the rescue.
+- **Bell Beneath the Mere:** Ysra's warning and the founders' wrongdoing remain the capstone's emotional engine.
+- **Right to OwlBear Arms:** v1.2 resolves chronology, preparation, defense procedure, encounter math, table rules, custom items, hero completeness, and reveal timing while preserving the legal-procedural comedy premise.
+- **From Zero to Hero:** the Hearthcross Six are introduced as specific children with families, fears, ambitions, relationships, and likely directions before the mechanics.
+
+Future audit work should test these implementations for table feel and print/layout quality rather than reopening the resolved premise problems without new evidence.
