@@ -86,31 +86,107 @@ function render() {
   grid.querySelectorAll(".pg-card").forEach(btn => btn.onclick = () => { classSel.value = btn.dataset.id; levelSel.value = "0"; render(); });
 }
 
+
+const SKILLS = [
+  ["Acrobatics","dex"],["Animal Handling","wis"],["Arcana","int"],["Athletics","str"],["Deception","cha"],
+  ["History","int"],["Insight","wis"],["Intimidation","cha"],["Investigation","int"],["Medicine","wis"],
+  ["Nature","int"],["Perception","wis"],["Performance","cha"],["Persuasion","cha"],["Religion","int"],
+  ["Sleight of Hand","dex"],["Stealth","dex"],["Survival","wis"]
+];
+const GEAR = {
+  barbarian: "Explorer's pack, four javelins, two handaxes, no armor (Unarmored Defense).",
+  bard: "Diplomat's pack, lute, leather armor, dagger, rapier.",
+  cleric: "Priest's pack, shield, mace, chain mail, holy symbol.",
+  druid: "Explorer's pack, leather armor, wooden shield, scimitar, druidic focus.",
+  fighter: "Dungeoneer's pack, chain mail, longsword, shield, light crossbow, 20 bolts.",
+  monk: "Dungeoneer's pack, shortsword, 10 darts, no armor.",
+  paladin: "Priest's pack, chain mail, longsword, shield, five javelins, holy symbol.",
+  ranger: "Explorer's pack, scale mail, longbow, 20 arrows, two shortswords.",
+  rogue: "Burglar's pack, leather armor, rapier, shortbow, 20 arrows, thieves' tools.",
+  sorcerer: "Dungeoneer's pack, light crossbow, 20 bolts, two daggers, arcane focus, no armor.",
+  warlock: "Scholar's pack, leather armor, light crossbow, 20 bolts, two daggers, arcane focus.",
+  wizard: "Scholar's pack, spellbook, quarterstaff, dagger, component pouch, no armor."
+};
+const PERSON = {
+  fighter: ["I keep my kit ready.", "Duty. I finish the watch.", "My company is still counting on me.", "I answer a challenge before I answer a question."],
+  barbarian: ["I say it plain.", "Freedom. No one holds my rage.", "My people are one road behind me.", "I break what I cannot name."],
+  bard: ["I learn a room by its song.", "Art. A true story outlives a sword.", "I owe a song to the one who taught me.", "I cannot leave a crowd unworked."],
+  cleric: ["I bless the bread before I eat.", "Faith. The light is borrowed, not owned.", "My temple expects a report.", "I trust a prayer more than a plan."],
+  druid: ["I listen before I speak.", "Balance. Take only the night's need.", "The grove still knows my name.", "I distrust a wall."],
+  monk: ["I count my breath.", "Discipline. The form is the answer.", "My monastery holds my place.", "I correct people who did not ask."],
+  paladin: ["I name the oath before the fight.", "Honor. My word is the armor.", "I swore this in front of witnesses.", "I cannot walk past a wrong."],
+  ranger: ["I mark the trail.", "The wild. I keep the road open.", "Someone is waiting at the far end.", "I trust beasts more than towns."],
+  rogue: ["I check the exit first.", "Freedom. I owe no lock.", "I still have a debt in a town I will not name.", "I take the useful thing."],
+  sorcerer: ["The spark answers when I call.", "Power. I was born with it.", "My bloodline is not a secret at home.", "I reach for magic first."],
+  warlock: ["I keep the bargain.", "Knowledge. The patron pays in facts.", "The pact is written. I signed it.", "I ask one question too many."],
+  wizard: ["I write it down.", "Knowledge. A spell unread is a spell lost.", "My school still has my name on a slate.", "I will open the book before I open the door."]
+};
+const SPELLS = {
+  bard: ["Vicious Mockery", "Mage Hand", "Cure Wounds", "Healing Word", "Thunderwave", "Hold Person", "Invisibility"],
+  cleric: ["Sacred Flame", "Guidance", "Bless", "Cure Wounds", "Guiding Bolt", "Spiritual Weapon", "Revivify"],
+  druid: ["Druidcraft", "Produce Flame", "Entangle", "Cure Wounds", "Moonbeam", "Call Lightning", "Conjure Animals"],
+  paladin: ["Bless", "Cure Wounds", "Divine Favor", "Lesser Restoration", "Magic Weapon"],
+  ranger: ["Cure Wounds", "Hunter's Mark", "Goodberry", "Pass without Trace", "Spike Growth"],
+  sorcerer: ["Fire Bolt", "Mage Hand", "Shield", "Magic Missile", "Misty Step", "Fireball", "Counterspell"],
+  warlock: ["Eldritch Blast", "Mage Hand", "Hex", "Hellish Rebuke", "Misty Step", "Counterspell", "Fireball"],
+  wizard: ["Fire Bolt", "Mage Hand", "Shield", "Magic Missile", "Misty Step", "Fireball", "Counterspell"]
+};
+function sign(n) { return n >= 0 ? "+" + n : String(n); }
 function sheetHtml() {
   const c = current();
   const n = level();
   const s = scores(c);
   const mod = k => Math.floor((s[k] - 10) / 2);
+  const prof = pb(n);
   const hp = n === 0 ? 4 : c.hd + mod("con") + (n - 1) * (Math.floor(c.hd / 2) + 1 + mod("con"));
-  const feats = n === 0 ? ["No class. No subclass. Commoner hit points."] : features(c, n);
-  return '<h2>' + c.name + ' ' + n + ' — ' + c.sub + '</h2>' +
-    '<p>2014 SRD 5.1. Saves: ' + c.saves.join(", ") + '. Skills: pick ' + c.skills + ' from ' + c.skillList.join(", ") + '.</p>' +
-    '<div class="pg-stats">' + ["str", "dex", "con", "int", "wis", "cha"].map(k => '<div><small>' + k.toUpperCase() + '</small><b>' + s[k] + '</b><div>' + (mod(k) >= 0 ? "+" : "") + mod(k) + '</div></div>').join("") + '</div>' +
-    '<p>HP ' + hp + ' · Hit die d' + c.hd + ' × ' + Math.max(n, 1) + ' · Proficiency +' + pb(n) + ' · AC ' + (10 + mod("dex")) + ' unarmored</p>' +
-    '<p>Spell slots: ' + slots(c, n) + (c.id === "rogue" && n ? " · Sneak Attack " + sneak(n) + "d6" : "") + '</p>' +
-    '<ul>' + feats.map(f => '<li>' + f + '</li>').join("") + '</ul>' +
-    '<p>ASI increases are applied to the primary ability, cap 20. Fighting style, spells prepared, and equipment are chosen at the table from the SRD list. This sheet does not invent non-SRD subclasses.</p>';
+  const ac = c.id === "barbarian" || c.id === "monk" ? 10 + mod("dex") + mod(c.id === "monk" ? "wis" : "con") : (["fighter","paladin","cleric"].includes(c.id) ? 16 : ["ranger"].includes(c.id) ? 14 + Math.min(mod("dex"), 2) : 11 + mod("dex"));
+  const proficient = new Set((c.skillList[0] === "any" ? ["Perception","Persuasion","Stealth","Arcana","Insight","Investigation"] : c.skillList).slice(0, c.skills));
+  const saveNames = new Set(c.saves);
+  const abilityName = { str: "Strength", dex: "Dexterity", con: "Constitution", int: "Intelligence", wis: "Wisdom", cha: "Charisma" };
+  const saveRows = Object.entries(abilityName).map(([k, name]) => {
+    const on = saveNames.has(name);
+    const bonus = mod(k) + (on && n ? prof : 0);
+    return "<div>" + (on && n ? "●" : "○") + " " + name + " " + sign(bonus) + "</div>";
+  }).join("");
+  const skillRows = SKILLS.map(([name, ab]) => {
+    const on = proficient.has(name) && n;
+    const bonus = mod(ab) + (on ? prof : 0) + (c.id === "bard" && n >= 2 ? Math.floor(prof / 2) : 0);
+    return "<div>" + (on ? "●" : "○") + " " + name + " " + sign(bonus) + "</div>";
+  }).join("");
+  const toHit = sign(mod(c.primary[0]) + (n ? prof : 0));
+  const dmg = sign(mod(c.primary[0]));
+  const attacks = n === 0 ? "Unarmed strike +0, 1 bludgeoning." : "Primary weapon " + toHit + " to hit, 1d8" + dmg + ". Ranged " + sign(mod("dex") + prof) + " to hit, 1d8" + sign(mod("dex")) + ".";
+  const extra = n >= 5 && ["fighter","barbarian","monk","paladin","ranger"].includes(c.id) ? " Extra Attack: two attacks when you take the Attack action." : "";
+  const feats = n === 0 ? ["No class features at level 0."] : features(c, n);
+  const pers = PERSON[c.id];
+  const spellList = (SPELLS[c.id] || []).slice(0, n === 0 ? 0 : Math.min(7, 1 + Math.ceil(n / 2)));
+  const cast = c.caster && n ? "Spell ability " + c.primary[0].toUpperCase() + " · DC " + (8 + prof + mod(c.primary[0])) + " · attack " + sign(prof + mod(c.primary[0])) + " · slots " + slots(c, n) : "No spellcasting.";
+  return '<article class="screen-sheet web-fixed-sheet">' +
+    '<header class="pr-head"><div class="pr-id"><p class="pr-kicker">99¢ ONE-SHOTS · SRD SHEET</p><h2>' + c.name + ' ' + n + '</h2>' +
+    '<p><b>' + c.sub + '</b> · Human · ' + (c.id === "fighter" ? "Soldier" : "Acolyte") + ' · Neutral good</p>' +
+    '<p class="pr-subid">2014 SRD 5.1 · XP milestone · proficiency ' + sign(prof) + '</p></div>' +
+    '<div class="pr-vitals"><span><small>AC</small><b>' + ac + '</b></span><span><small>Max HP</small><b>' + hp + '</b></span>' +
+    '<span><small>Init</small><b>' + sign(mod("dex")) + '</b></span><span><small>Speed</small><b>30</b></span>' +
+    '<span><small>Prof</small><b>' + sign(prof) + '</b></span><span><small>Passive Per</small><b>' + (10 + mod("wis") + (proficient.has("Perception") && n ? prof : 0)) + '</b></span></div></header>' +
+    '<div class="pr-fixed-grid">' +
+    '<section class="pr-zone"><h3>Abilities</h3>' + ["str","dex","con","int","wis","cha"].map(k => "<p><b>" + k.toUpperCase() + "</b> " + s[k] + " (" + sign(mod(k)) + ")</p>").join("") + '</section>' +
+    '<section class="pr-zone"><h3>Saving Throws</h3>' + saveRows + '</section>' +
+    '<section class="pr-zone"><h3>Skills</h3>' + skillRows + '</section>' +
+    '<section class="pr-zone"><h3>Combat</h3><p><b>Current HP</b> ' + hp + ' · <b>Temp HP</b> 0</p><p><b>Hit dice</b> ' + Math.max(n, 1) + 'd' + c.hd + '</p><p><b>Death saves</b> success ○ ○ ○ · failure ○ ○ ○</p><p><b>Attacks</b> ' + attacks + extra + '</p><p><b>Inspiration</b> no</p></section>' +
+    '<section class="pr-zone"><h3>Gear and training</h3><p><b>Armor</b> ' + (["fighter","paladin","cleric"].includes(c.id) ? "all armor, shields" : "light armor") + '</p><p><b>Weapons</b> simple weapons' + (["fighter","paladin","ranger","barbarian"].includes(c.id) ? ", martial weapons" : "") + '</p><p><b>Tools</b> ' + (c.id === "rogue" ? "thieves' tools" : "none from class") + '</p><p><b>Languages</b> Common, one extra</p><p><b>Equipment</b> ' + GEAR[c.id] + '</p></section>' +
+    '<section class="pr-zone"><h3>Character</h3><p><b>Trait</b> ' + pers[0] + '</p><p><b>Ideal</b> ' + pers[1] + '</p><p><b>Bond</b> ' + pers[2] + '</p><p><b>Flaw</b> ' + pers[3] + '</p></section>' +
+    '<section class="pr-zone"><h3>Features</h3><ul>' + feats.map(f => "<li>" + f + "</li>").join("") + '</ul></section>' +
+    '<section class="pr-zone"><h3>Spells</h3><p>' + cast + '</p><p>' + (spellList.length ? spellList.join(", ") : "No spells at this level.") + '</p></section>' +
+    '</div></article>';
 }
-
-document.getElementById("pg-up").onclick = () => {
-  levelSel.value = String(Math.min(20, level() + 1));
-  render();
-};
-document.getElementById("pg-print").onclick = () => {
-  document.getElementById("pg-print").innerHTML = sheetHtml();
-  window.print();
-};
+document.getElementById("pg-up").onclick = () => { levelSel.value = String(Math.min(20, level() + 1)); render(); };
+document.getElementById("pg-print").onclick = () => window.print();
 classSel.onchange = () => { levelSel.value = "0"; render(); };
 levelSel.onchange = render;
 subSel.onchange = render;
+const oldRender = render;
+render = function () {
+  oldRender();
+  document.getElementById("pg-print").innerHTML = sheetHtml();
+};
 render();
