@@ -166,7 +166,7 @@
         '<header class="pr-head">' + img +
           '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
             '<h2>' + esc(pc.name) + '</h2>' +
-            '<p><b>' + esc(characterClass(pc)) + ' 4</b> · ' + esc(pc.race) + ' · ' +
+            '<p><b>' + esc(characterClass(pc)) + ' ' + esc(pc.level || 4) + '</b> · ' + esc(pc.race) + ' · ' +
               esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
             '<p class="pr-subid">' + esc(pc.rules || "5E") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
             '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
@@ -188,7 +188,7 @@
             '<div class="pr-hp-grid">' +
               '<div class="pr-writebox pr-current-hp"><small>Current HP</small><b></b></div>' +
               '<div class="pr-writebox pr-temp-hp"><small>Temp HP</small><b></b></div>' +
-              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: □ □ □ □</span></div>' +
+              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: ' + Array.from({length:Number(pc.level)||4},()=>"□").join(" ") + '</span></div>' +
               '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
             '</div>' +
             '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
@@ -425,7 +425,7 @@
         '<header class="pr-head">' + img +
           '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
             '<h2>' + esc(pc.name) + '</h2>' +
-            '<p><b>' + esc(characterClass(pc)) + ' 4</b> · ' + esc(pc.race) + ' · ' +
+            '<p><b>' + esc(characterClass(pc)) + ' ' + esc(pc.level || 4) + '</b> · ' + esc(pc.race) + ' · ' +
               esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
             '<p class="pr-subid">' + esc(pc.rules || "5E") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
             '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
@@ -447,7 +447,7 @@
             '<div class="pr-hp-grid">' +
               '<div class="pr-writebox pr-current-hp"><small>Current HP</small><b></b></div>' +
               '<div class="pr-writebox pr-temp-hp"><small>Temp HP</small><b></b></div>' +
-              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: □ □ □ □</span></div>' +
+              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: ' + Array.from({length:Number(pc.level)||4},()=>"□").join(" ") + '</span></div>' +
               '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
             '</div>' +
             '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
