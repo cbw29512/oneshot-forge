@@ -3998,3 +3998,20 @@ body.run { background: var(--bg) }
   border-radius:999px;
   background:rgba(255,255,255,.03);
 }
+
+/* 2026-10-06 abilities zone: subtract the heading so CHA is never clipped */
+@media print {
+  .pr-zone-abilities {
+    display:flex !important;
+    flex-direction:column !important;
+  }
+  .pr-zone-abilities > h3 { flex:0 0 auto !important; }
+  .pr-zone-abilities .pr-abilities {
+    flex:1 1 0 !important;
+    height:auto !important;
+    gap:.012in !important;
+  }
+  .pr-zone-abilities .pr-abilities .ab { padding:0 .045in !important; }
+  .pr-page .pr-zone-abilities .pr-abilities .ab strong.ab-score { font-size:9.5pt !important; line-height:1 !important; }
+  .pr-page .pr-zone-abilities .pr-abilities .ab em.ab-mod { font-size:7.5pt !important; }
+}

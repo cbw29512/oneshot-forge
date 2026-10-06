@@ -402,4 +402,4 @@ The v1.2 source resolves the following v1.1 findings in rules/story text:
 - P1 homebrew clarity — **resolved by explicit CUSTOM labels and deterministic procedures**.
 - P1 earned reveals — **resolved by reveal timing contract**.
 
-The complete-player-sheet finding is handled in the separate v1.2 hero pack. The original v1.1 PDF files remain review artifacts until a regenerated v1.2 bundle is produced from these corrected sources.
+The complete-player-sheet finding is handled in the separate v1.2 hero pack. The regenerated v1.2 bundle (`assets/bundles/right-to-owlbear-arms-v1.2.zip`) was built from these corrected sources on 2026-10-06: a 37-page DM book (Part 1 = this packet, Part 2 = the scene/dialogue text corrected to this chronology), SRD 5.1 hero sheets, synchronized NPC cards, clue-flow sheet, and handouts. The original v1.1 ZIP is preserved unchanged for provenance.

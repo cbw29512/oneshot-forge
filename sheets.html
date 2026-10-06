@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>One-Shot Forge — Character sheets</title>
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20261002e">
+  <link rel="stylesheet" href="styles.css?v=20261006a">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -351,7 +351,7 @@
       return '<article class="print-only pr-page pr-spell-page" data-print-pc="' + esc(pc.id) + '">' +
         '<header class="pr-spell-head">' +
           '<div><p class="pr-kicker">ONE-SHOT FORGE · SPELLS</p><h2>' + esc(pc.name) + '</h2>' +
-          '<p>' + esc(characterClass(pc)) + ' 4 · ' + esc(pc.race) + '</p></div>' +
+          '<p>' + esc(characterClass(pc)) + ' ' + esc(pc.level ?? 4) + ' · ' + esc(pc.race) + '</p></div>' +
           '<div class="pr-caster-stats">' +
             '<span><small>Ability</small><b>' + esc(sc.ability || "—") + '</b></span>' +
             '<span><small>Save DC</small><b>' + esc(sc.saveDC ?? "—") + '</b></span>' +

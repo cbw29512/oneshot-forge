@@ -1,0 +1,73 @@
+{
+  "package": "Right to OwlBear Arms - Complete Adventure Bundle",
+  "version": "1.2",
+  "archive_file_count": 14,
+  "supersedes": "1.1",
+  "files": [
+    {
+      "path": "01_Adventure/Right_To_Bear_Arms_Adventure_v1.2.pdf",
+      "size_bytes": 326829,
+      "sha256": "b74088b2b594b8ed8efef44ad037d15c05466ba0235e90886b3d0e90d092e1e2"
+    },
+    {
+      "path": "02_Pregenerated_Heroes/Right_To_Bear_Arms_Pregenerated_Heroes_Level_6_v1.2.pdf",
+      "size_bytes": 177018,
+      "sha256": "a0b986452e4f052931e338db64ab5e6edf72941fa9fd5f21b233e81702bf71d6"
+    },
+    {
+      "path": "03_Maps/Brindlebarrow_Village_Defense_Map_DM.pdf",
+      "size_bytes": 252310,
+      "sha256": "08cbb8854ec3622bee718b2aa42f3d5c4907321531f5aecbf26870d5ffefb0dd"
+    },
+    {
+      "path": "03_Maps/Old_Cobb_Survivor_Map_PLAYER.pdf",
+      "size_bytes": 249184,
+      "sha256": "7db6f383f9e74cd33f4d20b229eef3443eba415974250e5a33f72760a46bb2e0"
+    },
+    {
+      "path": "03_Maps/Owlbear_Lair_Full_Layout_DM.pdf",
+      "size_bytes": 248268,
+      "sha256": "61369fcbf5a69ae2f4ff13857bcc0c284029649a9c0b9d49509d2e3f8589c02c"
+    },
+    {
+      "path": "04_Handouts/Right_To_Bear_Arms_Player_Handouts_v1.2.pdf",
+      "size_bytes": 7242,
+      "sha256": "cd5b0d9f9e11cb98017614a038c0d0f66e74eee9fa061e70b2ca6ff19bd917ad"
+    },
+    {
+      "path": "05_NPC_Cards/Right_To_Bear_Arms_NPC_Cards_Duplex_v1.2.pdf",
+      "size_bytes": 390550,
+      "sha256": "d918e32960e756bd189137525439b927e893353763fa10eca3dda737b26fa097"
+    },
+    {
+      "path": "06_DM_Aids/Final_Clue_Flow_DM_v1.2.pdf",
+      "size_bytes": 28785,
+      "sha256": "937e3fd88d14afc95743fd10c914e217569b7e55ff525adbd347a936d9f46b30"
+    },
+    {
+      "path": "06_DM_Aids/Magistrate_Grubbleclaw_Visual_DM.pdf",
+      "size_bytes": 256074,
+      "sha256": "7fa6467196153e240c0639896fff3d7f35224a5099afb6e596ceba03f10477b6"
+    },
+    {
+      "path": "07_Source/Right_To_Bear_Arms_Editable_DM_Packet_v1.2.docx",
+      "size_bytes": 42219,
+      "sha256": "0c52e56dfc94d2ee5f30024ff88b04a5ebb4dd007b9ba012aede6e64b77d8062"
+    },
+    {
+      "path": "07_Source/Right_To_Bear_Arms_Rules_of_Play_v1.2.md",
+      "size_bytes": 18126,
+      "sha256": "035fa97e11bf59fd94c0b3881ef4616e22f02f4ed8c4c9fd09627f412ff66286"
+    },
+    {
+      "path": "SRD_ATTRIBUTION.txt",
+      "size_bytes": 262,
+      "sha256": "ab5580dcb828427eb2acfdc051979d001948ceb3a37567709802da491e24cf61"
+    },
+    {
+      "path": "START_HERE.txt",
+      "size_bytes": 2333,
+      "sha256": "1a94897c753f426bf31d37205a51b49270bb1b4702bb5c257479c1ce0a878f2a"
+    }
+  ]
+}
