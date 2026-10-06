@@ -133,6 +133,16 @@ Approved reference adventures are used for:
 They are never used as plot banks, room-sequence templates, or sources of distinctive names/creatures/items/dialogue.
 
 
+## The Lanternback of Reedwater
+**Theme spine:** The glowing marsh creature blamed for overturning boats is actually rescuing people and animals from poisoned water.
+
+**Keep on path:** overturned skiffs → witness contradiction → contaminated-water test → observation experiment → rescued missing fisher → Sableworks leak → containment finale.
+
+**Memorable turn:** the party finds the missing fisher alive on a dry reed island surrounded by the animals the "monster" supposedly took.
+
+**Payoff:** the final problem is not defeating the Lanternback; it is stopping the poisoned water that made the creature's strange behavior necessary.
+
+
 ## The Fencewalker of Bellmere
 **Theme spine:** The cryptid blamed for stealing Bellmere's iron is actually using it to warn and protect the road from collapse.
 
