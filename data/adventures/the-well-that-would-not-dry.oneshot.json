@@ -636,7 +636,7 @@
       "id": "enc-name-drowned",
       "name": "Name-Drowned",
       "type": "combat or bypass",
-      "difficulty": "low",
+      "difficulty": "easy (talk-out intended)",
       "summary": "Three wet dead from the trough. They mouth forgotten names.",
       "resolution": "Fight, stealth, or talk Mill into sending them under.",
       "talkOut": "Persuasion DC 13 with Mill: she calls them by no-name and they sit back down. They do not negotiate themselves.",
@@ -648,7 +648,7 @@
       "id": "enc-draught",
       "name": "The Draught",
       "type": "boss / ritual / bargain",
-      "difficulty": "high",
+      "difficulty": "medium by XP; high in play (lair and deadline)",
       "summary": "A water-that-is-names. Wants a name, a stone, or a broken ring.",
       "resolution": "Kill, reseat the stone, trick with a false name, give a true name, or smash the well.",
       "talkOut": "Deception DC 15 with a false name, or Persuasion DC 13 with a true name freely given. It then withdraws. Record the cost.",
@@ -990,11 +990,16 @@
             "hp": 22,
             "speed": "20 ft., swim 20 ft.",
             "attack": "Wet Hands. Melee +4 to hit, reach 5 ft.; 1d6+2 bludgeoning plus the target’s name tastes wrong until end of their next turn (no mechanical penalty unless they drink).",
-            "trait": "Does not pursue past the square. Immune to charmed. Vulnerable to fire.",
-            "tactics": "Grapple toward the well. Fight until destroyed if Mill has not called them down. Treat as CR 1/4 (50 XP) each; 150 XP total, Low. Talk-out is the intended door."
+            "trait": "Does not pursue past the square.",
+            "tactics": "Grapple toward the well. Fight until destroyed if Mill has not called them down. Talk-out is the intended door.",
+            "cr": "1/4",
+            "xp": 50,
+            "statBlock": "Original undead, built to CR 1/4. Condition immunity: charmed. Damage vulnerability: fire."
           }
         ],
-        "end": "Destroyed, sat down by Mill, or the party is in the well-house."
+        "end": "Destroyed, sat down by Mill, or the party is in the well-house.",
+        "balance": "4 × level 4: 150 XP, ×2 = 300 adjusted → below Easy (2014 DMG); below Low (2024 budget). Easy on purpose; Mill's talk-out is the intended door.",
+        "scaling": "3 PCs: 2 Name-Drowned. 5 PCs: 4. 6 PCs: 5."
       },
       {
         "id": "enc-draught",
@@ -1013,13 +1018,18 @@
             "attack": "Name Pull. Melee +6 to hit, reach 10 ft.; 2d8+3 psychic and pull 5 ft.",
             "action": "Drinking Whisper. One creature within 60 ft. Wis DC 13; 3d6 psychic and disadvantage on the next check to reseat or deceive. Half damage on success.",
             "trait": "Lair: at initiative 20, the water rises. DC 12 Strength or be pulled 5 ft toward the center.",
-            "tactics": "Talk first if they speak. Then target whoever holds the stone. Prepared 54 HP. Does not leave the cistern. CR 4 (1,100 XP) plus lair, High band with the drowned."
+            "tactics": "Talk first if they speak. Then target whoever holds the stone. Prepared tables start it at 54 HP. Does not leave the cistern.",
+            "cr": "4",
+            "xp": 1100,
+            "statBlock": "Original water spirit, built to CR 4 with DMG creature math, plus a lair effect."
           }
         ],
         "ritual": "Reseat: 3 successes on check-stone before 0 HP or dusk.",
         "bargain": "False name check-false DC 15, or true name check-true DC 13.",
         "destroy": "Smash the ring, Strength DC 15, one action if the character is on the walkway. Well dies.",
-        "end": "0 HP, 3 stone successes, a successful name, or a smashed ring."
+        "end": "0 HP, 3 stone successes, a successful name, or a smashed ring.",
+        "balance": "4 × level 4: 1,100 XP, ×1 = 1,100 adjusted → Medium (2014 DMG); Low (2024 budget). The lair pull, the dusk deadline, and three ways to end it without killing it push it toward High in play.",
+        "scaling": "3 PCs: 58 HP (prepared 44), and the lair pull affects only one creature. 5 PCs: 88 HP (prepared 66). 6 PCs: 100 HP (prepared 76), lair pull DC 13. Stone, false-name, and true-name checks stay the same."
       }
     ],
     "hazards": [
