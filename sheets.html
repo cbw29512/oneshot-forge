@@ -145,7 +145,7 @@
       return [
         "D&D Beyond has no character import. Type this by hand if you must.",
         "Species: " + (pc.race || ""),
-        "Class: " + characterClass(pc) + " 4",
+        "Class: " + characterClass(pc) + " " + (pc.level || 4),
         "Background: " + (pc.background || ""),
         "Scores: " + ABIL.map(k => k + " " + (pc.scores||{})[k]).join(", "),
         "Skills: " + profSkills,
@@ -503,10 +503,21 @@
       return printMainPage(pc) + printSpellPage(pc);
     }
 
-    const edition = (typeof getRuleset === "function" && getRuleset() === "2024") ? "2024" : "2014";
-    const packUrl = edition === "2024"
-      ? "data/pregens/quiet-seals-level-4-2024-srd.json?v=m"
-      : "data/pregens/quiet-seals-level-4-2014-srd.json?v=m";
+    const params = new URLSearchParams(window.location.search);
+    const requestedPack = params.get("pack") || "";
+    const owlbearMode = requestedPack === "owlbear-arms";
+    const edition = owlbearMode ? "2014" : ((typeof getRuleset === "function" && getRuleset() === "2024") ? "2024" : "2014");
+    const packUrl = owlbearMode
+      ? "data/pregens/owlbear-arms-level-6-2014-srd-v1.2.json?v=1.2"
+      : edition === "2024"
+        ? "data/pregens/quiet-seals-level-4-2024-srd.json?v=m"
+        : "data/pregens/quiet-seals-level-4-2014-srd.json?v=m";
+    if (owlbearMode) {
+      const intro = document.querySelector(".sheets-wrap > .land-section");
+      if (intro) intro.innerHTML = '<p class="eyebrow ember">Right to OwlBear Arms v1.2 · Table-complete · 2014 SRD · level 6</p><h1>Five repaired hero sheets</h1><p class="lede short">Rowan, Dagna, Sylvi, Liora, and Thalen rebuilt to the One-Shot Forge print standard: all six saves, all 18 skills, attacks, resources, combat features, and spell procedures. Print one or print all.</p>';
+      const toggle = document.getElementById("ruleset-host");
+      if (toggle) toggle.textContent = "2014 SRD";
+    }
     fetch(packUrl)
       .then(r => r.json())
       .then(pack => {
@@ -515,9 +526,11 @@
         const allCharacters = pack.characters || [];
         const screenHtml =
           rec.map(sheetHtml).join("") +
-          (edition === "2024"
-            ? '<p class="print-hide" style="padding:1rem 1.5rem">The extra six classes are still 2014-only. Tonight’s table is these six.</p>'
-            : '<h2 class="print-hide" style="padding:1rem 1.5rem 0">The other six, if you need them</h2>' + rest.map(sheetHtml).join(""));
+          (owlbearMode
+            ? rest.map(sheetHtml).join("")
+            : edition === "2024"
+              ? '<p class="print-hide" style="padding:1rem 1.5rem">The extra six classes are still 2014-only. Tonight’s table is these six.</p>'
+              : '<h2 class="print-hide" style="padding:1rem 1.5rem 0">The other six, if you need them</h2>' + rest.map(sheetHtml).join(""));
         const printHtml = allCharacters.map(printPacket).join("");
         document.getElementById("sheets").innerHTML = screenHtml + printHtml;
         clearPrintTarget();
