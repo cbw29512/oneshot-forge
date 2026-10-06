@@ -32,6 +32,7 @@ const watchtowerData = JSON.parse(read("data/adventures/beneath-the-eastern-watc
 const orchardData = JSON.parse(read("data/adventures/the-black-orchard.oneshot.json"));
 const bridgeData = JSON.parse(read("data/adventures/the-ashen-bridge.oneshot.json"));
 const birthdayData = read("birthday-one-shot/data.js");
+const fencewalker = JSON.parse(read("data/adventures/the-fencewalker-of-bellmere.oneshot.json"));
 
 requireText(standard, "Theme spine — one memorable idea, all the way through", "theme-spine standard");
 requireText(standard, "Literal and easy to DM", "literal-DM standard");
@@ -82,6 +83,21 @@ for (const [label, data] of [["Watchtower",watchtowerData],["Black Orchard",orch
     console.error(`Narrative gate failed: ${label} missing explicit want-driven character pressure.`);
     process.exit(1);
   }
+}
+
+const fenceEncounter = fencewalker.encounters?.find(e => e.id === "enc-fencewalker");
+const fenceRoad = fencewalker.scenes?.find(s => s.id === "scene-roadcut");
+if (!/observation/i.test(fenceEncounter?.type || "") || !/combat only if forced/i.test(fenceEncounter?.type || "")) {
+  console.error("Narrative gate failed: Fencewalker drifted away from investigation-first cryptid design.");
+  process.exit(1);
+}
+if (!/one full round of observable behavior before initiative/i.test(JSON.stringify(fenceRoad?.gmNotes || []))) {
+  console.error("Narrative gate failed: Fencewalker must preserve observation before combat.");
+  process.exit(1);
+}
+if (!/test a theory/i.test(JSON.stringify(fenceRoad?.runSteps || []))) {
+  console.error("Narrative gate failed: Fencewalker must preserve a theory-testing investigation beat.");
+  process.exit(1);
 }
 
 const malakorFact = hollow.truth?.facts?.find(f => f.id === "fact-malakor-person");
