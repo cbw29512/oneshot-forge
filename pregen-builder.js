@@ -134,26 +134,23 @@ const SPELLS = {
 
 function magicItems(c, n) {
   if (n < 1) return "None. Level 0 carries ordinary clothes and a belt knife.";
-  const kit = {
-    fighter: ["+1 longsword", "+1 shield", n >= 5 ? "+1 chain mail" : null, n >= 11 ? "+2 longsword" : null, n >= 17 ? "+3 longsword" : null],
-    barbarian: ["+1 greataxe", n >= 5 ? "potion of hill giant strength" : null, n >= 11 ? "+2 greataxe" : null, n >= 17 ? "+3 greataxe" : null],
-    paladin: ["+1 longsword", "+1 shield", n >= 5 ? "+1 chain mail" : null, "spell scroll of bless", n >= 9 ? "spell scroll of revivify" : null, n >= 11 ? "+2 longsword" : null],
-    ranger: ["+1 longbow", "boots of elvenkind", n >= 5 ? "+1 scale mail" : null, "spell scroll of hunter's mark", n >= 11 ? "+2 longbow" : null],
-    rogue: ["+1 rapier", "cloak of elvenkind", "boots of elvenkind", n >= 11 ? "+2 rapier" : null],
-    monk: ["+1 shortsword", n >= 5 ? "boots of elvenkind" : null, n >= 11 ? "+2 shortsword" : null],
-    bard: ["spell scroll of healing word", "wand of magic missiles", n >= 5 ? "spell scroll of invisibility" : null, n >= 9 ? "spell scroll of hypnotic pattern" : null],
-    cleric: ["+1 mace", "+1 shield", "spell scroll of cure wounds", n >= 5 ? "+1 chain mail" : null, n >= 9 ? "spell scroll of revivify" : null],
-    druid: ["+1 scimitar", "spell scroll of entangle", "spell scroll of cure wounds", n >= 5 ? "spell scroll of call lightning" : null, n >= 11 ? "+2 scimitar" : null],
-    sorcerer: ["wand of magic missiles", "spell scroll of shield", n >= 5 ? "spell scroll of fireball" : null, n >= 11 ? "spell scroll of counterspell" : null],
-    warlock: ["wand of magic missiles", "spell scroll of hex", n >= 5 ? "spell scroll of counterspell" : null, n >= 11 ? "cloak of elvenkind" : null],
-    wizard: ["wand of magic missiles", "spell scroll of shield", "spell scroll of magic missile", n >= 5 ? "spell scroll of fireball" : null, n >= 9 ? "spell scroll of counterspell" : null, n >= 11 ? "bag of holding" : null]
+  const kits = {
+    barbarian: ["Potion of healing", "+1 handaxe", "Potion of hill giant strength", "Boots of speed"],
+    bard: ["Spell scroll (healing word)", "Cloak of protection", "Spell scroll (invisibility)", "Wand of magic missiles"],
+    cleric: ["Spell scroll (cure wounds)", "+1 shield", "Spell scroll (lesser restoration)", "+1 mace"],
+    druid: ["Spell scroll (entangle)", "Cloak of elvenkind", "Spell scroll (call lightning)", "Staff of the woodlands"],
+    fighter: ["Potion of healing", "+1 longsword", "+1 shield", "+1 chain mail"],
+    monk: ["Potion of healing", "Bracers of defense", "Cloak of protection", "Boots of speed"],
+    paladin: ["Potion of healing", "+1 longsword", "+1 shield", "Spell scroll (lesser restoration)"],
+    ranger: ["Ammunition +1 (20 arrows)", "Bracers of archery", "Cloak of elvenkind", "Boots of elvenkind"],
+    rogue: ["Potion of healing", "Cloak of elvenkind", "Boots of elvenkind", "+1 rapier"],
+    sorcerer: ["Spell scroll (shield)", "Wand of magic missiles", "Spell scroll (fireball)", "Cloak of protection"],
+    warlock: ["Spell scroll (hex)", "Wand of magic missiles", "Spell scroll (counterspell)", "Wand of fear"],
+    wizard: ["Spell scroll (shield)", "Spell scroll (magic missile)", "Headband of intellect", "Wand of fireballs"]
   };
-  const potions = ["potion of healing"];
-  if (n >= 5) potions.push("potion of greater healing");
-  if (n >= 11) potions.push("potion of superior healing");
-  if (n >= 17) potions.push("potion of supreme healing");
-  const items = (kit[c.id] || []).filter(Boolean).concat(potions);
-  return items.join("; ") + ". SRD 5.1, chosen for this class. No armor on the barbarian, monk, or unarmored caster. No wand on the fighter.";
+  const row = kits[c.id] || ["Potion of healing"];
+  const count = n >= 17 ? 4 : n >= 11 ? 4 : n >= 5 ? 3 : n >= 2 ? 2 : 1;
+  return row.slice(0, count).join("; ") + ". SRD 5.1. Chosen for this class. No armor on a barbarian or monk. No wand on a fighter.";
 }
 function sign(n) { return n >= 0 ? "+" + n : String(n); }
 function sheetHtml() {
