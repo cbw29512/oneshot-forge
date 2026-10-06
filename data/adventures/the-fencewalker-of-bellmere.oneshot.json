@@ -1,0 +1,1057 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-fencewalker-of-bellmere",
+    "title": "The Fencewalker of Bellmere",
+    "systemCompatibility": "5E-compatible fantasy RPG",
+    "partyLevel": 1,
+    "partySize": 4,
+    "partySizeRange": "3–5 players",
+    "durationMinutes": 135,
+    "tone": [
+      "rural cryptid mystery",
+      "storm pressure",
+      "misunderstood creature"
+    ]
+  },
+  "series": {
+    "title": "Hearthcross Road Tales",
+    "episode": 1,
+    "hub": "Hearthcross / Bellmere Road",
+    "giver": "Hesta Crowe",
+    "nextTitle": "Open road tale"
+  },
+  "setup": {
+    "pitch": "Something tall has been walking the fence rails outside Bellmere and stealing iron nails. Livestock are loose, a storm is coming, and every strange track leads toward a crack opening beneath the road.",
+    "openingLocation": "Crowe Farm on the Bellmere road, half a day from Hearthcross",
+    "gmSummary": "Hesta Crowe hires the party after three nights of missing fence nails and livestock escapes. Witnesses blame a long-limbed cryptid called the Fencewalker. The creature really is stealing the iron, but it is using every nail and hinge to brace a widening limestone fissure beneath Bellmere Road. It can hear the stone shifting before anyone else can. A hard storm will flood the fissure and collapse the road, taking Crowe Farm's lower field and anyone still crossing. The party can hunt the Fencewalker, understand its warning, and then choose whether to reclaim the iron, help complete its crude seal, or build a stronger stone-and-timber brace that saves both the road and the village's property.",
+    "background": "Bellmere Road crosses old limestone riddled with narrow breath-cracks. The Fencewalker has lived in the hedgerows for years, emerging only when deep stone begins to move. Its split foreclaws can carry iron, and it has learned that hammered metal slows widening cracks. Villagers noticed only the thefts, never the warning pattern.",
+    "standaloneStart": "Hesta Crowe offers 20 gp total to stop whatever is stealing fence iron before the coming storm ruins her herd.",
+    "characterPressure": "Hesta wants her fences and animals protected tonight; young shepherd Pella wants proof that the creature she saw was not attacking her; the Fencewalker wants the road fissure sealed before the storm."
+  },
+  "quest": {
+    "type": "investigate / track / prevent collapse",
+    "objective": "Find what is stealing Bellmere's fence iron, learn why it is doing it, and keep the road from collapsing in the storm.",
+    "stakes": "At Storm 3 the rain breaks. Water pours into the fissure and the final seal must be completed under active collapse pressure.",
+    "deadline": "STORM 0–3. Advance after a long delay, a failed risky shortcut, or deliberately destroying one of the creature's iron braces.",
+    "successConditions": [
+      "The cause of the missing iron is understood.",
+      "Bellmere Road is stabilized or deliberately abandoned before collapse.",
+      "The party makes an intentional choice about the Fencewalker's fate."
+    ],
+    "failureConditions": [
+      "The road collapses with civilians or livestock still in the danger zone and the party abandons the rescue.",
+      "The party removes the iron braces, kills or drives off the Fencewalker, and leaves the fissure unsecured before the storm."
+    ]
+  },
+  "truth": {
+    "facts": [
+      {
+        "id": "fact-fencewalker-steals",
+        "text": "The Fencewalker really is taking nails, hinges, and wire from Bellmere fences."
+      },
+      {
+        "id": "fact-iron-braces",
+        "text": "It is carrying the iron to a widening limestone fissure and hammering crude braces into the crack."
+      },
+      {
+        "id": "fact-storm-collapse",
+        "text": "The coming storm will flood the fissure and collapse part of Bellmere Road unless the crack is reinforced or the area is evacuated."
+      },
+      {
+        "id": "fact-warning-pattern",
+        "text": "Fencewalker sightings happen before ground shifts because it hears deep stone movement through fence rails."
+      }
+    ],
+    "secrets": [
+      {
+        "id": "secret-old-warning",
+        "text": "Older farmers once treated three knocks on a fence rail as a warning to move animals uphill, but the reason for the custom was forgotten.",
+        "revealCondition": "Find the old rail marks or ask Fenn Rusk about his grandfather's sayings."
+      }
+    ]
+  },
+  "npcs": [
+    {
+      "id": "npc-hesta",
+      "name": "Hesta Crowe",
+      "role": "farmer and quest giver",
+      "personality": [
+        "practical",
+        "angry about the damage",
+        "not eager to kill anything without proof"
+      ],
+      "voiceCues": [
+        "counts missing nails out loud",
+        "calls every strange creature 'that thing' until convinced otherwise"
+      ],
+      "wants": [
+        "Her livestock contained before the storm",
+        "The thefts stopped"
+      ],
+      "fears": [
+        "The herd scattering into the road in heavy rain",
+        "Paying for every fence twice"
+      ],
+      "knows": [
+        "Iron has vanished from three fence lines",
+        "Tracks sometimes start and stop on top of rails",
+        "Pella saw a tall gray shape carrying something shiny"
+      ],
+      "believes": [
+        "The creature is probably stealing metal for a nest or hoard"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "The fissure exists",
+        "Why the Fencewalker wants iron"
+      ],
+      "revealRules": [
+        {
+          "fact": "The thefts follow the road-facing fence line.",
+          "when": "The party asks where the missing iron came from."
+        }
+      ],
+      "questFunction": "Provides the literal theft problem and the understandable pressure to recover the village's property.",
+      "description": "A broad-shouldered farmer in a rain-dark coat, carrying a claw hammer and a bucket containing the last six iron fence nails on her property.",
+      "tableDialogue": [
+        "“I do not care what it is called. I care that my fences are coming apart.”",
+        "“If it is an animal, prove it. If it is a thief, stop it. Storm gets here either way.”",
+        "“Those nails are mine—but if taking them back drops the road, say that before I swing this hammer.”"
+      ],
+      "reactions": {
+        "agreement": "Pays 10 gp up front and gives the party six spare nails plus a hammer.",
+        "refusal": "Begins moving livestock herself and leaves the offer open until the rain starts.",
+        "danger": "Moves animals uphill and warns travelers away from the lower road.",
+        "accusation": "Admits she blamed the creature before knowing what it was doing and will accept evidence that changes the job."
+      }
+    },
+    {
+      "id": "npc-pella",
+      "name": "Pella Reed",
+      "role": "young shepherd and primary eyewitness",
+      "personality": [
+        "observant",
+        "embarrassed to be scared",
+        "protective of the cryptid after seeing it up close"
+      ],
+      "voiceCues": [
+        "demonstrates height with both hands",
+        "imitates its three fence knocks exactly"
+      ],
+      "wants": [
+        "Someone to believe what she actually saw",
+        "The Fencewalker not killed before anyone follows it"
+      ],
+      "fears": [
+        "Being blamed for leaving a gate open",
+        "The creature coming back while she is alone"
+      ],
+      "knows": [
+        "It walked along the top rail instead of the ground",
+        "It carried three nails in one split foreclaw",
+        "It stopped, knocked three times, and stared toward the road cut"
+      ],
+      "believes": [
+        "It was trying to get her attention rather than attack"
+      ],
+      "secrets": [
+        "She followed it far enough to hear stone cracking beneath the road"
+      ],
+      "lies": [],
+      "cannotKnow": [
+        "How large the fissure is",
+        "Whether iron will actually hold it"
+      ],
+      "revealRules": [
+        {
+          "fact": "Three knocks point toward the road cut.",
+          "when": "The party lets Pella tell the whole sighting without interrupting."
+        }
+      ],
+      "questFunction": "Turns the cryptid from rumor into specific observed behavior and gives a nonviolent interpretation early.",
+      "description": "A mud-kneed shepherd with a red wool cap, one torn sleeve, and a length of fence wire twisted around her wrist like a nervous habit.",
+      "tableDialogue": [
+        "“It had the nail in its hand. Hand, hoof—whatever. It could have hit me. It knocked instead.”",
+        "“Three knocks. Then it looked at the road. I know what I saw.”",
+        "“Please follow it before Hesta gets a hunting party together.”"
+      ],
+      "reactions": {
+        "agreement": "Shows the exact rail where the creature balanced and the direction it went.",
+        "refusal": "Leaves a charcoal sketch of the three-knock rail marks.",
+        "danger": "Helps move livestock uphill rather than entering the fissure.",
+        "accusation": "Admits she followed the creature after being told not to, but insists that is how she heard the underground crack."
+      }
+    },
+    {
+      "id": "npc-fencewalker",
+      "name": "The Fencewalker",
+      "role": "cryptid warning creature and misunderstood metal thief",
+      "personality": [
+        "wary",
+        "methodical",
+        "more interested in stone vibration than people"
+      ],
+      "voiceCues": [
+        "knocks iron against wood in groups of three",
+        "makes a low reedlike whistle when the ground shifts"
+      ],
+      "wants": [
+        "The limestone fissure braced before the storm",
+        "People and livestock away from the low road"
+      ],
+      "fears": [
+        "Bright fire near the crack",
+        "Humans removing the braces it has already placed"
+      ],
+      "knows": [
+        "Which parts of the fissure are actively moving",
+        "Iron slows the cracks for a short time",
+        "The storm pressure is close"
+      ],
+      "believes": [
+        "Humans understand repeated knocks because old farmers once responded to them"
+      ],
+      "secrets": [],
+      "lies": [],
+      "cannotKnow": [
+        "Why modern villagers forgot the warning custom",
+        "How to build a proper timber-and-stone brace"
+      ],
+      "revealRules": [
+        {
+          "fact": "It is warning, not hunting.",
+          "when": "The party watches without attacking for one full round or approaches with Pella's three-knock pattern."
+        }
+      ],
+      "questFunction": "Is both the apparent problem and the creature whose behavior reveals the actual danger.",
+      "description": "A seven-foot gray creature with deer-thin legs, long split foreclaws, copper-reflective eyes, and a back narrow enough to balance along the top of a fence rail.",
+      "tableDialogue": [
+        "Three slow knocks on the nearest rail. Then it turns its head toward the road cut.",
+        "A reed-thin whistle rises as pebbles tremble underfoot; it presses a stolen hinge deeper into the crack.",
+        "When offered a nail, it takes the iron gently, taps it twice against the ground, and carries it to the weakest seam."
+      ],
+      "reactions": {
+        "agreement": "Accepts loose iron and leads the party along a safe route to the fissure.",
+        "refusal": "Keeps working alone and retreats from direct pursuit.",
+        "danger": "Tries to pull threatened creatures away from the cracking edge before defending itself.",
+        "accusation": "Cannot answer words, but points with an iron spike from the broken fence to the widening stone seam."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-farm",
+      "name": "Crowe Farm",
+      "description": "Wet pasture rolls down toward Bellmere Road, where three fence sections sag open and black cattle bunch nervously uphill beneath a sky turning the color of slate.",
+      "connections": [
+        "loc-rail",
+        "loc-roadcut"
+      ]
+    },
+    {
+      "id": "loc-rail",
+      "name": "The Walking Fence",
+      "description": "An old chest-high rail fence runs between thorn hedges, its top beam polished in strange parallel scrapes. Missing nails leave fresh square holes, and narrow impressions appear only on the rail itself.",
+      "connections": [
+        "loc-farm",
+        "loc-roadcut"
+      ]
+    },
+    {
+      "id": "loc-roadcut",
+      "name": "Bellmere Road Cut",
+      "description": "The road passes between low limestone banks where rainwater has begun tracing white dust into thin seams. Three iron nails are hammered sideways into one crack beside a cluster of fresh gray tracks.",
+      "connections": [
+        "loc-rail",
+        "loc-fissure"
+      ]
+    },
+    {
+      "id": "loc-fissure",
+      "name": "The Breathing Fissure",
+      "description": "A narrow limestone hollow opens beneath exposed roots, cold air pulsing from it with each distant rumble. Stolen nails, hinges, wire, and one horseshoe have been wedged into the stone like frantic stitches.",
+      "connections": [
+        "loc-roadcut"
+      ]
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-warning",
+      "required": true,
+      "revelation": "The Fencewalker is trying to warn people about ground movement, not stalk them.",
+      "sources": [
+        "Pella's account of three knocks followed by staring toward the road cut.",
+        "Three old hammer marks on fence posts point toward higher ground and are labeled STONE MOVES in Fenn Rusk's weather notebook left at Hesta's kitchen.",
+        "At the road cut, the Fencewalker knocks three times immediately before pebbles jump from a shifting seam."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-iron",
+      "required": true,
+      "revelation": "The stolen iron is being used as braces in the fissure.",
+      "sources": [
+        "Fresh square nail holes on the fence match the nails wedged into the limestone crack.",
+        "A trail of dropped rust flakes leads from the damaged fence to the road cut.",
+        "The Fencewalker can be observed pressing a stolen hinge into the weakest seam."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": true
+    },
+    {
+      "id": "clue-collapse",
+      "required": true,
+      "revelation": "The storm will turn the fissure into a road collapse unless it is stabilized or evacuated.",
+      "sources": [
+        "Water already disappears into the crack instead of running off the road.",
+        "A split survey stone at the road cut has shifted a finger-width since morning, recorded by Hesta's chalk mark.",
+        "Inside the fissure, a visible mud line and loose ceiling show where storm runoff will load the cavity."
+      ],
+      "canMove": true,
+      "allowEarlyDiscovery": false
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-farm",
+      "title": "Something Walked the Fence",
+      "purpose": "Establish the missing-iron problem, the storm clock, and the first cryptid sighting evidence.",
+      "locationId": "loc-farm",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "flowStage": 1,
+      "flowTotal": 5,
+      "flowLabel": "Hook",
+      "readAloud": "Three sections of Hesta Crowe's fence sag open toward Bellmere Road. The nails are gone cleanly, not ripped free, and cattle crowd the uphill corner of the field as if they already dislike the weather. Thunder mutters far west. On the top rail, where no hoof should balance, two narrow gray prints sit side by side and then simply stop.",
+      "gmNotes": [
+        "Put STORM 0–3 on the table at 0.",
+        "Hesta offers 20 gp total, half now.",
+        "Pella can reproduce the three-knock warning and point toward the walking fence.",
+        "Do not call for a check to find the obvious rail prints or missing nail holes."
+      ],
+      "runSteps": [
+        {
+          "title": "State the job",
+          "text": "Stop the iron thefts and secure the farm before the storm."
+        },
+        {
+          "title": "Show the cryptid evidence",
+          "text": "Impossible rail prints, cleanly removed nails, Pella's three knocks."
+        },
+        {
+          "title": "Start the clock",
+          "text": "Put STORM 0/3 where everyone can see it."
+        }
+      ],
+      "advanceWhen": "The party follows Pella to the walking fence or investigates the road-facing fence line.",
+      "npcIds": [
+        "npc-hesta",
+        "npc-pella"
+      ],
+      "clueIds": [
+        "clue-warning",
+        "clue-iron"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-rail"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-rail",
+          "label": "Follow the rail prints",
+          "description": "Track the missing iron toward Bellmere Road."
+        }
+      ]
+    },
+    {
+      "id": "scene-rail",
+      "title": "The Walking Fence",
+      "purpose": "Let the party track the cryptid and discover that the theft pattern points toward the road rather than a den or hoard.",
+      "locationId": "loc-rail",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "flowStage": 2,
+      "flowTotal": 5,
+      "flowLabel": "Track",
+      "readAloud": "The hedge closes around the old fence until the top rail is the easiest path through. Gray scrapes continue along it for sixty feet without a single print in the mud below. Rust flakes glitter in the grass. Ahead, something taps wood three times—slow, evenly spaced knocks—then the hedge goes perfectly still.",
+      "gmNotes": [
+        "DC 11 Survival follows rust flakes and rail scrapes; failure still reaches the road cut but advances Storm by 1 after a wrong detour.",
+        "A snared fox is caught in loose fence wire. Freeing it costs one minute and reveals the wire was twisted deliberately away from the animal, evidence the Fencewalker is not setting traps.",
+        "If the party rushes with weapons drawn, the Fencewalker shows itself briefly and retreats toward the road cut."
+      ],
+      "runSteps": [
+        {
+          "title": "Follow the metal trail",
+          "text": "Rust flakes and rail scrapes lead to the road cut."
+        },
+        {
+          "title": "Show nonpredatory behavior",
+          "text": "The loose wire is bent away from a trapped fox, not around it."
+        },
+        {
+          "title": "Hear the warning",
+          "text": "Three knocks occur just before a faint ground tremor."
+        }
+      ],
+      "advanceWhen": "The party reaches Bellmere Road Cut.",
+      "npcIds": [
+        "npc-pella"
+      ],
+      "clueIds": [
+        "clue-warning",
+        "clue-iron"
+      ],
+      "encounterIds": [
+        "enc-hedge-panic"
+      ],
+      "exits": [
+        "scene-roadcut"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-roadcut",
+          "label": "Reach the road cut",
+          "description": "Follow the knocks and rust trail to the limestone seam."
+        }
+      ]
+    },
+    {
+      "id": "scene-roadcut",
+      "title": "Nails in the Stone",
+      "purpose": "Reveal the iron braces and let the party meet the Fencewalker before deciding whether to attack it.",
+      "locationId": "loc-roadcut",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 3,
+      "flowTotal": 5,
+      "flowLabel": "Revelation",
+      "readAloud": "Bellmere Road narrows between white limestone banks. Three stolen fence nails are hammered sideways into a crack at knee height. A horseshoe wedges another seam. Above them, balanced on the fence rail as easily as a crow on a branch, stands a gray long-limbed creature with copper-bright eyes. It holds Hesta's missing gate hinge in one split foreclaw. It knocks the hinge three times against the rail. The stone beneath your boots answers with a crack.",
+      "gmNotes": [
+        "If the party repeats Pella's three-knock pattern or waits one round without attacking, the Fencewalker leads them to the fissure.",
+        "If attacked, it defends itself but retreats into the fissure at half HP. Killing it never removes access to the evidence.",
+        "Removing a brace advances Storm by 1 immediately and widens the crack visibly.",
+        "DC 11 Investigation or mason/carpenter tools confirms the iron is slowing movement but is not a durable repair."
+      ],
+      "runSteps": [
+        {
+          "title": "Give the creature a choice point",
+          "text": "Wait, signal with three knocks, offer iron, or attack."
+        },
+        {
+          "title": "Show the stone move",
+          "text": "A tremor follows the warning knocks."
+        },
+        {
+          "title": "Reveal the braces",
+          "text": "The stolen objects are holding active seams closed."
+        }
+      ],
+      "advanceWhen": "The party follows the Fencewalker or enters the fissure to inspect the collapse risk.",
+      "npcIds": [
+        "npc-fencewalker"
+      ],
+      "clueIds": [
+        "clue-warning",
+        "clue-iron",
+        "clue-collapse"
+      ],
+      "encounterIds": [
+        "enc-fencewalker"
+      ],
+      "exits": [
+        "scene-fissure"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-fissure",
+          "label": "Enter the breathing fissure",
+          "description": "Find out what the creature is trying to hold shut."
+        }
+      ]
+    },
+    {
+      "id": "scene-fissure",
+      "title": "The Breathing Fissure",
+      "purpose": "Make the storm threat literal and present the repair puzzle using the adventure's stolen iron, local timber, and stone.",
+      "locationId": "loc-fissure",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 4,
+      "flowTotal": 5,
+      "flowLabel": "Pressure",
+      "readAloud": "Cold air breathes from the limestone hollow in slow pulses. Every stolen piece of iron is here: nails, gate straps, wire, a horseshoe, even the latch from Hesta's feed shed. They have been hammered into widening seams around a low chamber beneath the road. Mud lines stripe the walls above your heads. When thunder rolls outside, grit falls from the ceiling and the Fencewalker presses both foreclaws against one shaking brace.",
+      "gmNotes": [
+        "Repair puzzle has three jobs: divert runoff, brace the roof, pin the main seam.",
+        "Each job can be completed with DC 11 appropriate check or a clever no-roll solution using described materials.",
+        "Failure advances Storm by 1 but also reveals exactly what the job needs.",
+        "If Storm reaches 3 here, go immediately to the finale with any completed jobs already counting."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the three repair jobs",
+          "text": "Runoff channel, timber brace, main seam."
+        },
+        {
+          "title": "Let tools matter",
+          "text": "Athletics, Survival, Investigation, carpenter/mason tools, rope, timber, and spare iron all have obvious uses."
+        },
+        {
+          "title": "Advance Storm on costly failures",
+          "text": "Every miss teaches the repair; nothing bricks progress."
+        }
+      ],
+      "advanceWhen": "All three jobs are completed or Storm reaches 3 and the rain begins.",
+      "npcIds": [
+        "npc-fencewalker"
+      ],
+      "clueIds": [
+        "clue-collapse"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-storm"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-storm",
+          "label": "Face the storm",
+          "description": "Hold the road, evacuate it, or reclaim the iron and accept the collapse."
+        }
+      ]
+    },
+    {
+      "id": "scene-storm",
+      "title": "When Bellmere Gives Way",
+      "purpose": "Pay off the opening theft through a low-level rescue/repair finale where the party decides what matters more than the stolen property.",
+      "locationId": "loc-roadcut",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Finale",
+      "readAloud": "Rain arrives all at once. Water sheets down the road cut and disappears into the white crack faster than the ditch can carry it. The stolen nails begin to squeal in the stone. Hesta's cattle bawl from the upper field. The Fencewalker plants itself beside the main seam and whistles so sharply your teeth ache. The road drops half an inch beneath your feet.",
+      "gmNotes": [
+        "If all three repair jobs are complete, the road holds after one final DC 11 group check; success is clean, failure causes damage but no collapse.",
+        "With two jobs complete, complete one emergency job under pressure: DC 11 check; failure causes 1d6 bludgeoning to acting character and forces evacuation ending unless someone spends/abandons the stolen iron to auto-complete the brace.",
+        "With one or zero jobs complete, the safe success is evacuation; trying to hold requires three DC 11 successes before two failures.",
+        "The party can deliberately remove/recover the iron and evacuate, allowing the road to collapse without casualties.",
+        "Killing the Fencewalker is never required and never counts as solving the road."
+      ],
+      "runSteps": [
+        {
+          "title": "State the real objective",
+          "text": "Keep people/animals safe and decide whether the road or the stolen iron is saved."
+        },
+        {
+          "title": "Use prepared work",
+          "text": "Completed fissure jobs reduce the finale to one check or automatic stability."
+        },
+        {
+          "title": "Make the cryptid consequence visible",
+          "text": "If alive, it helps at the main seam; if killed or driven off, PCs must cover that job themselves."
+        }
+      ],
+      "advanceWhen": "The road holds or the danger zone is successfully evacuated.",
+      "npcIds": [
+        "npc-hesta",
+        "npc-fencewalker"
+      ],
+      "clueIds": [
+        "clue-collapse"
+      ],
+      "encounterIds": [
+        "enc-storm-collapse"
+      ],
+      "exits": [
+        "scene-resolution"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-resolution",
+          "label": "See what Bellmere remembers",
+          "description": "Resolve the road, the iron, and the Fencewalker's reputation."
+        }
+      ]
+    },
+    {
+      "id": "scene-resolution",
+      "title": "Three Knocks on the Fence",
+      "purpose": "Record the village consequence and make the cryptid's warning behavior part of local memory.",
+      "locationId": "loc-farm",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "flowStage": 5,
+      "flowTotal": 5,
+      "flowLabel": "Aftermath",
+      "readAloud": "The storm passes east before midnight. Water runs brown through the ditches and the cattle settle behind whatever fences remain. Along the Bellmere road, the old rails shine black with rain. Somewhere beyond the hedges comes a slow knock. Then another. Then a third. This time, everyone on Crowe Farm stops and listens.",
+      "gmNotes": [
+        "Use the matching ending.",
+        "Hesta pays the remaining 10 gp if the party was honest about the property loss, even if the road was deliberately abandoned.",
+        "If the Fencewalker survives and is understood, three knocks become an accepted Bellmere storm warning again."
+      ],
+      "runSteps": [
+        {
+          "title": "Pay the consequence",
+          "text": "Choose the ending matching road, iron, and Fencewalker state."
+        },
+        {
+          "title": "Record the legend",
+          "text": "Decide what people now say when the Fencewalker is seen."
+        }
+      ],
+      "advanceWhen": "Reward and persistent consequence are recorded.",
+      "npcIds": [
+        "npc-hesta",
+        "npc-pella"
+      ],
+      "clueIds": [
+        "clue-warning"
+      ],
+      "encounterIds": [],
+      "exits": [],
+      "exitChoices": []
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-hedge-panic",
+      "name": "Hedge Panic",
+      "type": "hazard / animal rescue",
+      "difficulty": "low",
+      "summary": "A loose calf bolts toward the road when thunder rolls.",
+      "objective": "Stop or redirect the calf without turning the tracking scene into a fight.",
+      "resolution": "Catch it, calm it, block the lane, or let Pella handle it while the party continues.",
+      "talkOut": "Animal Handling DC 10 or offering feed ends the panic immediately.",
+      "bypass": "A character can simply close the next gate and let Pella collect the calf.",
+      "special": "Failure costs time and advances Storm by 1; the calf is not injured."
+    },
+    {
+      "id": "enc-fencewalker",
+      "name": "The Fencewalker",
+      "type": "social / combat optional",
+      "difficulty": "low",
+      "summary": "The cryptid appears with stolen iron at the road cut.",
+      "objective": "Decide whether to signal, follow, drive off, or attack the creature.",
+      "resolution": "Three-knock communication, offering iron, forcing it away, or reducing it to half HP all move play toward the fissure.",
+      "talkOut": "It does not speak. Repeat three knocks and wait one round; it responds by leading the party to the fissure.",
+      "bypass": "Follow the iron braces directly into the fissure without interacting.",
+      "special": "If reduced to 0 HP, it falls unconscious and stable unless a player deliberately kills it; the adventure remains completable."
+    },
+    {
+      "id": "enc-storm-collapse",
+      "name": "Storm Collapse",
+      "type": "environmental finale",
+      "difficulty": "climactic",
+      "summary": "Rain loads the limestone cavity while the party holds, repairs, or evacuates Bellmere Road.",
+      "objective": "Prevent casualties and choose what is saved.",
+      "resolution": "Use the number of completed repair jobs to determine final checks.",
+      "talkOut": "No enemy must be defeated. Evacuation is always a legal success path.",
+      "bypass": "If all three repair jobs were completed and the party leaves the iron in place, the road automatically avoids catastrophic collapse; one group check determines only repair cost.",
+      "special": "At most 1d6 bludgeoning from a failed emergency brace; keep Level-1 lethality controlled."
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-fissure-repair",
+      "name": "Three Jobs for One Crack",
+      "locationId": "loc-fissure",
+      "prompt": "The fissure needs runoff diverted, the low roof braced, and the main seam pinned before the storm.",
+      "solution": "Use ditching/stone to divert runoff, timber/rope for the roof, and iron or a fitted stone wedge for the seam. Any sensible equivalent works.",
+      "failForward": "A failed check advances Storm by 1 but physically reveals the exact weakness; the party can retry with a new approach or accept that job as unfinished for the finale."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-shifting-shelf",
+      "name": "Shifting Shelf",
+      "locationId": "loc-fissure",
+      "trigger": "A character crawls under the low roof without first testing or bracing it.",
+      "effect": "DC 11 Dexterity save; on failure take 1d4 bludgeoning and become pinned until an Action frees you.",
+      "failForward": "The collapse exposes the best timber-brace point and counts as discovering that repair job."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-spare-nails",
+      "name": "Hesta's Six Spare Nails",
+      "kind": "tool",
+      "description": "Six heavy iron fence nails and a claw hammer.",
+      "effect": "Using them on the main seam grants Advantage on one repair check or can replace one missing piece of stolen iron."
+    },
+    {
+      "id": "item-old-warning-note",
+      "name": "Old Weather Notebook",
+      "kind": "clue",
+      "description": "A farm notebook recording 'three knocks — stone moves — take stock uphill.'",
+      "effect": "Provides physical proof that the Fencewalker's warning pattern predates the current thefts."
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-bellmere-road",
+      "name": "Bellmere Road",
+      "asset": "assets/maps/bellmere/fencewalker-road-grid.svg",
+      "regions": [
+        {
+          "id": "reg-farm",
+          "name": "Crowe Farm",
+          "sceneId": "scene-farm"
+        },
+        {
+          "id": "reg-rail",
+          "name": "Walking Fence",
+          "sceneId": "scene-rail"
+        },
+        {
+          "id": "reg-road",
+          "name": "Road Cut",
+          "sceneId": "scene-roadcut"
+        },
+        {
+          "id": "reg-fissure",
+          "name": "Breathing Fissure",
+          "sceneId": "scene-fissure"
+        }
+      ]
+    }
+  ],
+  "playMaps": [
+    {
+      "sceneIds": [
+        "scene-roadcut",
+        "scene-storm"
+      ],
+      "title": "Bellmere Road Cut — 5 ft. grid",
+      "kind": "outdoor",
+      "src": "assets/maps/bellmere/fencewalker-road-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Road, fence, limestone seam, runoff ditch, and safe uphill pasture.",
+      "notes": [
+        "No hidden labels",
+        "Fissure mouth visible",
+        "Use storm runoff arrows in finale"
+      ]
+    },
+    {
+      "sceneIds": [
+        "scene-fissure"
+      ],
+      "title": "Breathing Fissure — 5 ft. grid",
+      "kind": "cave",
+      "src": "assets/maps/bellmere/fencewalker-fissure-grid.svg",
+      "grid": "5 ft",
+      "playerSafe": true,
+      "caption": "Low limestone chamber with three obvious repair zones.",
+      "notes": [
+        "Runoff inlet west",
+        "Low roof center",
+        "Main seam east"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "event-storm",
+      "name": "Storm",
+      "trigger": "Long delay, failed risky shortcut, destroyed brace, or explicit scene instruction",
+      "effect": "Advance Storm by 1 to maximum 3. At 3 the finale begins immediately."
+    }
+  ],
+  "endings": [
+    {
+      "id": "ending-both",
+      "name": "Road and Rails",
+      "condition": "Road stabilized with replacement stone/timber so most stolen iron can be returned; Fencewalker survives or is spared.",
+      "result": "Bellmere keeps the road and repairs the fences. Three knocks become a recognized storm warning. Hesta pays 20 gp total."
+    },
+    {
+      "id": "ending-road",
+      "name": "Leave the Iron",
+      "condition": "Road stabilized by leaving the stolen iron in the fissure.",
+      "result": "The road survives but Bellmere must rebuild fences and gates. Hesta pays 20 gp if the party explains the choice before taking the money. The Fencewalker is tolerated."
+    },
+    {
+      "id": "ending-evacuate",
+      "name": "Let the Road Go",
+      "condition": "Party evacuates safely and allows the road cut to collapse.",
+      "result": "No one dies, but Bellmere Road closes until repaired. Hesta pays 15 gp total and publicly says the party saved the herd instead of pretending they saved the road."
+    },
+    {
+      "id": "ending-hunt",
+      "name": "The Monster Was Easier",
+      "condition": "Fencewalker is killed or driven off and the fissure is stabilized without it.",
+      "result": "The road can still be saved, but the old warning creature is gone. Future ground shifts have no three-knock warning. Hesta pays normally; Pella does not celebrate."
+    }
+  ],
+  "recovery": {
+    "principle": "No single witness or cryptid is required. Killing the Fencewalker never bricks the mystery or finale.",
+    "routes": [
+      {
+        "trigger": "Hesta refuses, is missing, or dead",
+        "response": "Pella and the damaged fences still establish the theft; the six spare nails sit in Hesta's tool bucket."
+      },
+      {
+        "trigger": "Fencewalker attacked, hostile, or killed before it can lead the party",
+        "response": "Rust flakes, installed braces, and Pella's three-knock account still lead directly to the fissure."
+      },
+      {
+        "trigger": "Party bypasses or skips the Walking Fence scene",
+        "response": "The road cut visibly contains stolen fence nails and a fresh rail-scrape trail."
+      },
+      {
+        "trigger": "Party removes every brace",
+        "response": "Storm advances by 1 and the fissure visibly widens; repair remains possible with spare nails, timber, stone, or evacuation."
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Following the warning makes the final storm easier; hunting or rushing costs time and preparation, but the ending is never locked and the party can still finish by repair or evacuation.",
+    "prepared": [
+      "Understanding the three-knock warning lets the Fencewalker assist one repair job automatically.",
+      "Keeping the stolen braces in place counts the main seam as already prepared."
+    ],
+    "rushed": [
+      "Attacking or chasing the creature may advance Storm before the fissure is understood.",
+      "Removing stolen iron makes the finale require an extra emergency brace or evacuation."
+    ]
+  },
+  "pacing": {
+    "targetMinutes": 135,
+    "plannedMinutes": 150,
+    "bossReserveMinutes": 30,
+    "resolutionReserveMinutes": 15,
+    "cutOrder": [
+      "If 20+ minutes behind, skip the calf panic and give the old warning clue at the road cut.",
+      "If 15+ minutes behind in the fissure, treat the runoff job as already solved by visible drainage and run only roof + seam.",
+      "Never cut the road/iron/Fencewalker choice."
+    ],
+    "optionalOrder": [
+      "enc-hedge-panic"
+    ]
+  },
+  "initialState": {
+    "questStage": "offered",
+    "currentSceneId": "scene-farm",
+    "discoveredClueIds": [],
+    "revealedSecretIds": [],
+    "npcState": {
+      "npc-hesta": {
+        "status": "alive",
+        "attitude": "frustrated"
+      },
+      "npc-pella": {
+        "status": "alive",
+        "attitude": "nervous"
+      },
+      "npc-fencewalker": {
+        "status": "alive",
+        "attitude": "wary"
+      }
+    },
+    "locationState": {},
+    "itemState": {
+      "item-spare-nails": "with-hesta",
+      "item-old-warning-note": "farmhouse"
+    },
+    "eventState": {
+      "storm": 0,
+      "repairJobs": 0
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "flowContract": {
+    "principle": "One cryptid-investigation spine: apparent thief → warning behavior → fissure truth → storm choice.",
+    "mainSpine": [
+      "scene-farm",
+      "scene-rail",
+      "scene-roadcut",
+      "scene-fissure",
+      "scene-storm",
+      "scene-resolution"
+    ],
+    "allowedBranchScenes": [],
+    "terminalScenes": [
+      "scene-resolution"
+    ],
+    "stageCount": 6
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD",
+      "tableNotes": [
+        "Adventure-specific creature and hazard rules use the quick-run wording here.",
+        "General checks and saves use ordinary 2014 5E procedure."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD",
+      "tableNotes": [
+        "Adventure-specific creature and hazard rules use the quick-run wording here.",
+        "General checks and saves use current SRD procedure; no 2014 class feature is imported."
+      ]
+    }
+  },
+  "quickrun": {
+    "adventureId": "the-fencewalker-of-bellmere",
+    "version": "0.1.0",
+    "target": {
+      "level": 1,
+      "partySize": 4
+    },
+    "requiredCheckIds": [
+      "check-track",
+      "check-brace",
+      "check-runoff",
+      "check-roof",
+      "check-seam",
+      "check-finale"
+    ],
+    "checks": [
+      {
+        "id": "check-track",
+        "sceneId": "scene-rail",
+        "label": "Follow rust and rail scrapes",
+        "dc": 11,
+        "ability": "Wisdom (Survival)",
+        "success": "Reach the road cut without losing time.",
+        "failure": "Reach it after a detour; Storm +1."
+      },
+      {
+        "id": "check-brace",
+        "sceneId": "scene-roadcut",
+        "label": "Read the iron braces",
+        "dc": 11,
+        "ability": "Intelligence (Investigation) or suitable tools",
+        "success": "Confirm the stolen iron is slowing active stone movement.",
+        "failure": "The next tremor proves it physically; no clue is lost."
+      },
+      {
+        "id": "check-runoff",
+        "sceneId": "scene-fissure",
+        "label": "Divert storm runoff",
+        "dc": 11,
+        "ability": "Wisdom (Survival) or Strength (Athletics)",
+        "success": "Complete runoff job.",
+        "failure": "Storm +1; water line reveals the correct ditch path."
+      },
+      {
+        "id": "check-roof",
+        "sceneId": "scene-fissure",
+        "label": "Brace the low roof",
+        "dc": 11,
+        "ability": "Strength (Athletics) or carpenter's tools",
+        "success": "Complete roof job.",
+        "failure": "Storm +1; shifting stone exposes the ideal brace point."
+      },
+      {
+        "id": "check-seam",
+        "sceneId": "scene-fissure",
+        "label": "Pin the main seam",
+        "dc": 11,
+        "ability": "Strength (Athletics), mason's tools, or carpenter's tools",
+        "success": "Complete seam job.",
+        "failure": "Storm +1; crack opens enough to show where the pin must sit."
+      },
+      {
+        "id": "check-finale",
+        "sceneId": "scene-storm",
+        "label": "Hold the final repair",
+        "dc": 11,
+        "ability": "Group check using relevant physical/tool skills",
+        "success": "Road holds with only minor repair damage.",
+        "failure": "Road suffers partial collapse; no casualty if evacuation route is open."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-hedge-panic",
+        "objective": "Stop a loose calf reaching the road.",
+        "start": "Thunder rolls during tracking.",
+        "bypass": "Close the next gate or let Pella collect it.",
+        "creatures": [],
+        "end": "Calf is stopped or Pella takes over."
+      },
+      {
+        "id": "enc-fencewalker",
+        "objective": "Decide whether to understand, follow, drive off, or fight the cryptid.",
+        "start": "Fencewalker appears with Hesta's missing hinge.",
+        "bypass": "Repeat three knocks and wait, or follow the installed braces directly.",
+        "creatures": [
+          {
+            "name": "Fencewalker",
+            "count": 1,
+            "ac": 13,
+            "hp": 18,
+            "speed": "40 ft., climb 20 ft.",
+            "attack": "Forked Claw +4 to hit; 1d4+2 slashing.",
+            "trait": "Rail Walker: difficult terrain from fences/hedges costs it no extra movement. Warning Sense: it cannot be surprised by natural ground collapse within 60 ft.",
+            "tactics": "Retreats, shoves, and pulls rather than finishing downed creatures. At half HP it flees to the fissure."
+          }
+        ],
+        "end": "Party follows it, drives it off, or reduces it to half HP/0 HP."
+      },
+      {
+        "id": "enc-storm-collapse",
+        "objective": "Prevent casualties and decide whether road, iron, or both are saved.",
+        "start": "Storm reaches 3 or fissure repair is completed.",
+        "bypass": "Evacuation is always a legal successful resolution.",
+        "creatures": [],
+        "end": "Road holds or danger zone is evacuated."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "hazard-shifting-shelf",
+        "sceneId": "scene-fissure",
+        "trigger": "Crawl beneath the low roof before testing/bracing it.",
+        "save": "DC 11 Dexterity",
+        "failure": "1d4 bludgeoning and pinned until an Action frees you.",
+        "success": "Move clear with no damage.",
+        "failForward": "The fall exposes the ideal brace point."
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-pay",
+        "when": "Party returns and tells Hesta honestly what happened.",
+        "reward": "Total 20 gp if road stabilized; 15 gp if road deliberately abandoned to save lives."
+      },
+      {
+        "id": "reward-warning",
+        "when": "Fencewalker survives and its purpose is understood.",
+        "reward": "Bellmere adopts three knocks as a local storm/ground-shift warning; party has advantage on one future social check with Bellmere farmers who know the story."
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-roadcut",
+        "dimensions": "60 x 40 ft. road cut",
+        "features": [
+          "road center",
+          "rail fence north",
+          "limestone seam east",
+          "runoff ditch west",
+          "safe uphill pasture south"
+        ]
+      },
+      {
+        "sceneId": "scene-fissure",
+        "dimensions": "35 x 25 ft. low limestone hollow",
+        "features": [
+          "runoff inlet west",
+          "low roof center",
+          "main seam east",
+          "iron brace cache",
+          "safe crawl exit north"
+        ]
+      }
+    ]
+  }
+}
