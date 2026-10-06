@@ -132,6 +132,8 @@ jobs:
         run: node scripts/validate-catalog-zero-prep.mjs
       - name: Validate shared world and narrative promises
         run: node scripts/validate-narrative-world.mjs
+      - name: Validate adventurer job board
+        run: node scripts/validate-job-board.mjs
       - name: Audit Owlbear spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Validate Owlbear printable cards
