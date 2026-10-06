@@ -120,7 +120,38 @@ For major curated adventures, identify a want-driven character whenever practica
 - what they will do if the party refuses;
 - what changes if the party helps or harms them.
 
-## 7. Current catalog directives
+## 7. Cryptid Case rule — investigate first, reveal the misunderstanding
+
+Low-level **Cryptid Cases** are investigation adventures, not monster hunts with mystery flavor.
+
+Default play ratio:
+- most table time goes to witnesses, tracks, signs, behavior, contradictions, physical evidence, and testing theories;
+- combat is optional, avoidable, or the consequence of the party forcing violence;
+- the cryptid is not secretly evil just because it looks frightening;
+- the central reveal is that the "monster" has a coherent need, warning, duty, fear, or relationship the witnesses misunderstood.
+
+Preferred Cryptid Case flow:
+
+1. **Report** — somebody describes something frightening.
+2. **Evidence** — physical signs confirm that *something* real happened.
+3. **Contradiction** — at least one clue does not fit the monster story.
+4. **Observation** — the party gets a chance to watch the cryptid before confronting it.
+5. **Theory test** — the players can deliberately test what they think its behavior means.
+6. **Reveal** — the creature's real purpose makes earlier clues click into place.
+7. **Human problem** — the finale resolves the actual danger or conflict; killing the cryptid is neither required nor sufficient.
+8. **Legend changed** — the community's story about the cryptid changes based on what the party learned and chose to tell.
+
+### Cryptid combat discipline
+
+If the cryptid has combat statistics, those statistics exist for player freedom and emergency adjudication—not because the adventure expects a fight.
+
+- Never make "reduce it to 0 HP" the intended clue-delivery method.
+- Give the cryptid escape, warning, defensive, rescue, or de-escalation behavior before lethal behavior.
+- A violent first contact should preserve the investigation whenever reasonably possible.
+- If a separate threat needs combat, prefer an environmental hazard, frightened animal, opportunistic predator, or human antagonist so the cryptid itself can remain the mystery subject.
+- The best ending should come from understanding what the creature is doing, not winning initiative.
+
+## 8. Current catalog directives
 
 ### The Lantern Below
 - Lead with the stronger moral hook: the thief may have taken the Emberglass for the right reason.
@@ -169,7 +200,7 @@ For major curated adventures, identify a want-driven character whenever practica
 - Their family, aspiration, flaw/fear, relationships, and likely heroic direction should be visible early enough for players to care who grows up.
 - The scrapbook is meaningful because the child already has an identity before the first growth beat.
 
-## 8. Public-copy rule
+## 9. Public-copy rule
 
 If the authoritative package contains a stronger hook than the catalog card, the catalog card is wrong.
 
@@ -182,7 +213,7 @@ Product-page copy should foreground:
 
 Do not replace specific hooks with generic phrases such as “make a difficult choice” when the actual choice can be stated more sharply.
 
-## 9. Anti-drift rule
+## 10. Anti-drift rule
 
 Before changing curated adventure story structure or storefront copy, read:
 1. `docs/FORGE_CONSTITUTION.md`
