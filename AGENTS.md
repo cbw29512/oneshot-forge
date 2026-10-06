@@ -22,6 +22,7 @@ One-Shot Forge is an original fantasy RPG one-shot builder and web GM runner. Do
 - Never silently invent missing canonical data.
 - Keep original package data separate from runtime state.
 - Add tests for schema changes and state transitions.
+- Follow `docs/PRODUCTION_RULES.md` (SRD-only content, encounter math and 3–6 player scaling, fail-forward, card art style, never push to `main`).
 ## Scheduled work
 - Stay on this repository only.
 - Read `docs/STATUS.md` first. Do the next item on that list. Update STATUS when you stop.

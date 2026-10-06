@@ -1,3 +1,5 @@
+> Production rules for content, balance, art and release discipline: see [PRODUCTION_RULES.md](PRODUCTION_RULES.md).
+
 # What actually makes a high-quality one-shot
 
 Not more adventures. One night a stranger can run without rewriting it.
