@@ -122,8 +122,7 @@
       "tableDialogue": [
         "“Bring the Emberglass back before the moon clears the ridge. After that, I cannot promise what the dark lantern keeps out.”",
         "“Caldus stole it. Desperate is not the same as innocent.”",
-        "“Yes. It is a seal. I wanted you moving before I had to say that in the square.”",
-        "“No, we never filled it with oil. The Emberglass was the flame. We mistook the light of a prison for a blessing.”"
+        "“Yes. It is a seal. We never filled it with oil—the Emberglass was the flame. We mistook the light of a prison for a blessing.”"
       ],
       "reactions": {
         "agreement": "Gives the party the empty reliquary box, Caldus's direction of travel, and the full 200 gp survival terms.",
