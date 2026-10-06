@@ -767,7 +767,7 @@
       "id": "enc-grave-things",
       "name": "Thornbound Grave-Things",
       "type": "combat or bypass",
-      "difficulty": "medium",
+      "difficulty": "easy (guardian; bypassable)",
       "summary": "Four vine-wrapped dead guardians rise from the graves. They do not pursue beyond the priory yard.",
       "resolution": "Fight them, distract them with fire/noise, or bypass them through the culvert.",
       "talkOut": null,
@@ -779,7 +779,7 @@
       "id": "enc-caldus-if-hostile",
       "name": "Brother Caldus",
       "type": "social with optional combat",
-      "difficulty": "medium",
+      "difficulty": "easy (only if talks fail)",
       "summary": "Caldus wants to talk. If attacked, he fights defensively and retreats toward the ritual chamber.",
       "resolution": "The scene should still deliver the seal revelation through his shouted warnings, notes, or ritual evidence.",
       "talkOut": "He wants to talk. Persuasion DC 13 to help the new binding; Insight DC 12 to see he is telling the truth.",
@@ -790,7 +790,7 @@
       "id": "enc-pale-guest",
       "name": "The Pale Guest",
       "type": "boss / ritual encounter",
-      "difficulty": "hard",
+      "difficulty": "medium by XP; hard in play (ritual clock and sigil flares)",
       "summary": "A memory-eating spirit attacks while the binding fails. Each round should create pressure through whispers, lost recollections, or unstable sigils.",
       "resolution": "Defeat it, complete the replacement binding, destroy the Emberglass and fight it fully, or negotiate a costly new bargain.",
       "talkOut": "Bargain: a memory for a memory. It does not need to be a boss fight.",
@@ -1168,10 +1168,15 @@
             "speed": "20 ft.",
             "attack": "Thorn Claw. Melee +4 to hit, reach 5 ft.; 1d6+2 slashing.",
             "trait": "Rooted Dead. Difficult terrain caused by plants does not slow it. It never pursues beyond the priory yard.",
-            "tactics": "Attack the nearest intruder. If fire damages one, that creature attacks the source of the fire on its next turn."
+            "tactics": "Attack the nearest intruder. If fire damages one, that creature attacks the source of the fire on its next turn.",
+            "cr": "1/4",
+            "xp": 50,
+            "statBlock": "Original undead (not a Monster Manual reprint), built to CR 1/4 with DMG creature math."
           }
         ],
-        "end": "Combat ends when all guardians are destroyed or no conscious party member remains in the yard. Fleeing into the chapel ends pursuit."
+        "end": "Combat ends when all guardians are destroyed or no conscious party member remains in the yard. Fleeing into the chapel ends pursuit.",
+        "balance": "4 × level 4: 200 XP, ×2 = 400 adjusted → below Easy (2014 DMG); below Low (2024 budget). A guardian you can burn, sneak past, or skip via the culvert, so it is labeled Easy.",
+        "scaling": "3 PCs: 3 Grave-Things. 5 PCs: 5. 6 PCs: 6. They still never pursue past the yard."
       },
       {
         "id": "enc-caldus-if-hostile",
@@ -1187,10 +1192,15 @@
             "attack": "Ash Staff. Melee +4 to hit; 1d6+2 bludgeoning plus 1d4 fire.",
             "ranged": "Ember Bolt. Ranged spell attack +5, range 60 ft.; 2d8 fire.",
             "reaction": "Warding Spark (1/round). Add +2 AC against one attack that would hit him.",
-            "tactics": "Disengages toward the ritual chamber when below 18 HP. He calls out the truth about the seal every round and surrenders rather than fight to the death."
+            "tactics": "Disengages toward the ritual chamber when below 18 HP. He calls out the truth about the seal every round and surrenders rather than fight to the death.",
+            "cr": "1",
+            "xp": 200,
+            "statBlock": "Original NPC, built to CR 1. He surrenders rather than fights to the death."
           }
         ],
-        "end": "At 8 HP or fewer Caldus yields if given the chance. If reduced to 0 HP, his journal beside the Emberglass reveals clue-real-seal and clue-caldus-plan."
+        "end": "At 8 HP or fewer Caldus yields if given the chance. If reduced to 0 HP, his journal beside the Emberglass reveals clue-real-seal and clue-caldus-plan.",
+        "balance": "4 × level 4: 200 XP, ×1 = 200 adjusted → below Easy (2014 DMG); below Low (2024 budget). Only happens if talks collapse; he yields at 8 HP.",
+        "scaling": "3 PCs: 28 HP. 5–6 PCs: 44 HP. Behaviour is unchanged: he calls out the truth every round and yields."
       },
       {
         "id": "enc-pale-guest",
@@ -1209,13 +1219,18 @@
             "attack": "Memory Rend. Melee +6 to hit, reach 10 ft.; 2d8+3 psychic.",
             "action": "Whispering Theft. One creature within 60 ft. makes a DC 13 Wisdom save; on failure it takes 3d6 psychic damage and has disadvantage on its next attack roll or ability check. Half damage and no disadvantage on success.",
             "trait": "Unstable Binding. At initiative count 20, one unoccupied sigil flares. A creature adjacent to it may use its reaction to make DC 12 Intelligence (Arcana or Religion); success suppresses the flare, failure or no attempt deals 1d6 psychic damage to every creature within 10 ft. of that sigil.",
-            "tactics": "Targets whoever most recently advanced the ritual or bargain. It does not leave the chamber while the Emberglass remains intact. Prepared table: start at 66 HP. Bell rung: 15 temp HP. Zero clues: Whispering Theft on everyone before initiative."
+            "tactics": "Targets whoever most recently advanced the ritual or bargain. It does not leave the chamber while the Emberglass remains intact. Prepared table: start at 66 HP. Bell rung: 15 temp HP. Zero clues: Whispering Theft on everyone before initiative.",
+            "cr": "4",
+            "xp": 1100,
+            "statBlock": "Original fiendish spirit, built to CR 4 with DMG creature math. It is not a Monster Manual reprint."
           }
         ],
         "ritual": "The replacement binding needs 3 ritual successes before 3 ritual failures. One character adjacent to a sigil can use an action for check-ritual. Caldus contributes one automatic success at the end of round 2 if conscious and allied. At 3 successes, the Guest is bound and combat ends.",
         "destroy": "A creature holding the Emberglass may use an action to smash it against the central stone. The Guest loses its nonmagical weapon resistance and cannot be bound afterward.",
         "bargain": "A character can use an action for check-bargain. Three bargain successes before two failures ends hostilities, but the party must offer one meaningful memory from each willing bargainer; record the memories as story consequences.",
-        "end": "0 HP destroys the Guest; 3 ritual successes bind it; 3 bargain successes create a new pact."
+        "end": "0 HP destroys the Guest; 3 ritual successes bind it; 3 bargain successes create a new pact.",
+        "balance": "4 × level 4: 1,100 XP, ×1 = 1,100 adjusted → Medium (2014 DMG); Low (2024 budget). It plays harder than the number: sigil flares, the ritual clock, and the bargain cost all add pressure. Prepared tables start it at 66 HP.",
+        "scaling": "3 PCs: 70 HP (prepared 52), and a sigil flare hits only the creature nearest it. 5 PCs: 105 HP (prepared 80). 6 PCs: 120 HP (prepared 90), and Whispering Theft targets two creatures. Ritual and bargain counts stay the same."
       }
     ],
     "hazards": [
