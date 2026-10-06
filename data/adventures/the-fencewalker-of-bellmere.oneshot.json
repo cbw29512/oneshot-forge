@@ -588,7 +588,7 @@
     {
       "id": "scene-resolution",
       "title": "Three Knocks on the Fence",
-      "purpose": "Record the village consequence and make the cryptid's warning behavior part of local memory.",
+      "purpose": "Final resolution: record the village consequence and make the cryptid's warning behavior part of local memory.",
       "locationId": "loc-farm",
       "pacingClass": "core",
       "estimatedMinutes": 15,
