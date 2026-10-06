@@ -87,12 +87,31 @@ Static link and image check: 0 broken refs across HTML and data JSON. The runner
   
   The card reused the Mere placeholder.
 - Fixes: new art only. The pregens were **not rewritten**, because this is a personalized product. Proposed swaps: Berserker, Evocation, Rock Gnome, and backgrounds relabelled "(custom background)" with original features.
-- Status: **remaining issues: needs Chris's decision.** It is fine as a private, non-commercial product. It must be fixed before any sale.
+- Round 2 fix (approved): the pregens are now SRD 5.1 only.
+  - Birthday Hero and Jonnelle: Path of the Berserker (Frenzy).
+  - Fizzwick: School of Evocation and Rock Gnome (stats recomputed: Dex 15, Int 17, HP 20, AC 12/15).
+  - Every background is a custom background with an original feature.
+  - Rules fixes along the way:
+    - Barbarian HP is now 35.
+    - Skill counts are legal (Jonnelle, Mira, Fizzwick, Poppy and Garrick each had extra skills).
+    - Mira wore chain mail with Str 10, so she now has scale mail (AC 16).
+    - Garrick's AC is 19 (chain mail, shield and Defense).
+    - Cantrip and prepared-spell counts are legal. Poppy's Perception is +3.
+    - Non-SRD tools renamed (Dragonchess set → playing card set; baker's tools → cook's utensils).
+  - The stale, divergent pregen copies in data.js and production.js were removed; player-data.js is the one that loads.
+  - Birthday is a 2014-only product, so there are no 2024 sheets to recompute.
+- Status: **production ready (rules)**. It is still review-only and not for sale, per products.json.
 
 ### Right to OwlBear Arms (v1.1 PDF bundle)
 - Issues: these are known v1.1 rules and hero-reference issues, already flagged on the card. PR #106 contains a v1.2 repair. The card image had a white border, a title caption and baked-in text.
 - Fixes: a clean card crop or new art. The bundle was left to #106.
-- Status: **remaining issues: defer to the #106 v1.2 repair.**
+- Round 2: v1.2 from #106 was folded in and audited.
+  - Thalen is now Human (Wood Elf is not in SRD 5.1). Rowan, Sylvi, Liora and Thalen have custom backgrounds.
+  - Enemies are sourced to SRD stat blocks: Scout, Berserker (Ash Berserker HP 36 → 67, matching the claimed CR 2), and Bandit Captain.
+  - The Ash Shaman is honestly CR 1 (200 XP), and the wave XP was recomputed.
+  - Party-size scaling for 3, 4, 5 and 6 PCs was added. The catalog now says 3–6 players.
+  - The downloadable ZIP is still the original v1.1 PDFs. The v1.2 packet and the on-site sheets are the source of truth.
+- Status: **production ready (v1.2 procedure and sheets)**. Rebuilding the PDF bundle is a separate layout task.
 
 ### From Zero to Hero (boxed set)
 - Issues: none found by the validators or the non-SRD and IP name scan. No deep narrative pass was done this run.
@@ -102,7 +121,11 @@ Static link and image check: 0 broken refs across HTML and data JSON. The runner
   - Each of the three relief arms has 3 or more reachable clues across the beats, and Sable's age-18 reveal is the safety net against a dead end.
   - The pages render with no console errors.
 - Fix: the DM mystery summary (`campaignMystery.threeReliefArms[].keyEvidence`) listed only 2 clues per arm. It now lists all three.
-- Note: Zero to Hero is designed for **4–6 players** (six starters), not 3–6. Supporting 3 players needs a design decision from Chris.
+- Round 2 (approved): 3-player support.
+  - Every Growth Beat has a `threePlayerAdjustment`: a named village NPC handles the 4th job off-screen and reports back any clue.
+  - Rotation runs A–C. Competitions add an NPC competitor (Fen Bell or Lark Cask). Starter guidance covers three players.
+  - The runner has a 3-player option and the print module shows the note.
+  - The catalog, kit, standard and manifest say 3–6, and the validators were updated to 3–6.
 - Status: **production ready.**
 
 ### Quiet Seals pregens (2014 and 2024 packs)
@@ -135,3 +158,39 @@ Static link and image check: 0 broken refs across HTML and data JSON. The runner
   - The Ashen Bridge art shows the bridge in the storm but not the two wagons (the card copy mentions wagons).
   - The Watchtower art shows the flooded vault and crystal glow but not the brass machine.
   - A paid model would get these details.
+
+## Round 2 (approved follow-ups)
+
+### PR #106 folded in (merge commit f312910)
+- Conflicts were in Whispers and index.html. Resolved by keeping the pass-1 SRD fixes (no blights, Thunderwave not Witch Bolt, CR/XP/balance/scaling, 3–6 tags) and adopting #106's richer Malakor background and lucid-pause tactics plus its new card copy.
+
+### The Fencewalker of Bellmere (new, from #106; level 1)
+- Checked:
+  - Three-clue rule: each of the 3 required revelations has 3 sources.
+  - Recovery routes mean no single witness or the creature is required.
+  - DC 11 checks, all fail-forward. Evacuation is always a legal win. SRD scan is clean.
+- Fixes:
+  - The Fencewalker is labelled an original creature at CR 1/4 (50 XP) with DMG math, plus a 2024 note.
+  - Balance notes say it is not a fight.
+  - Scaling for 3–6 players on all three encounters, using existing NPCs (Pella, Hesta).
+  - Catalog, product page and products.json say 3–6 players.
+  - New card art.
+- Status: **production ready.**
+
+### The Lanternback of Reedwater (new, from #106; level 2)
+- Checked:
+  - Each of the 4 required revelations has 3 sources, and the recovery routes cover them.
+  - DC 10–12, fail-forward. Closing the channel or evacuating is always a legal win.
+- Fixes:
+  - The Lanternback is labelled an original creature at CR 1/4 (50 XP).
+  - Balance notes and 3–6 scaling on all four encounters, using existing NPCs (Bram, Nessa).
+  - Copy updated to 3–6 players. New card art.
+- Status: **production ready.**
+
+### Other #106 content
+- The job board, WORLD_AND_NARRATIVE_STANDARD and CATALOG_THEME_AUDIT are clean on the SRD/IP scan. Their validators run in CI and pass.
+
+### Art retries
+- Ashen Bridge: the free model would not put wagons on a bridge from prompts alone, and 6 prompt variants failed. Two covered wagons with lanterns were drawn onto a generated storm bridge and blended with img2img. The wagons now read clearly.
+- Watchtower: a screening batch of 7 found one image with the brass gear machine. It was refined at full resolution.
+- Before/after files are in `before-after/round2/`.
