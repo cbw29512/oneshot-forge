@@ -6,7 +6,7 @@
     "format": "Level-0 origin adventure",
     "systemCompatibility": "5E-compatible fantasy RPG with explicit Level-0 house rules",
     "defaultPartySize": 4,
-    "partySizeRange": "4–6 players",
+    "partySizeRange": "3–6 players",
     "startAge": 12,
     "endAge": 18,
     "sessionCount": 7,
@@ -29,6 +29,7 @@
   "tableContract": {
     "defaultPlayers": 4,
     "supportedPlayers": [
+      3,
       4,
       5,
       6
@@ -41,9 +42,17 @@
       "A character may help another in the fiction but still needs their own Development Check."
     ],
     "scaling": {
+      "3": "Three distinct player checks in every Growth Beat. Each beat names which default job a village NPC covers off-screen; do not lower DCs, and do not give the NPC a Development Check.",
       "5": "Add one more distinct task, witness, delivery, rival, or consequence in each Growth Beat; do not raise DCs.",
       "6": "Add two more distinct tasks or consequences and split crowded scenes into two simultaneous fronts; do not raise DCs."
-    }
+    },
+    "threePlayerProcedure": [
+      "Name Players A–C at session start and rotate who acts first exactly as with four.",
+      "Each Growth Beat lists the one default job that a village NPC handles off-screen (see threePlayerAdjustment). Its result is whatever keeps the scene moving.",
+      "If a mystery clue or branch hangs on the NPC's job, the NPC brings it back to the party in person by the end of the beat. No clue is lost.",
+      "Competitions add one NPC competitor (Fen Bell or Lark Cask, run as NPCs) so placement still means something; NPCs get no scrapbook card.",
+      "Development math is per character, so three players still reach the 27-point floor by graduation."
+    ]
   },
   "rulesBoundary": {
     "level0": "All developmental checks, Upbringing Lean, natural-20/natural-1 growth tiers, Lesson Points, scrapbook development cards, 27 floor, and 30 ceiling are explicit Level-0 house rules.",
@@ -156,7 +165,8 @@
             "If the group prioritizes Maela, she remembers it at age 15 when assigning apprentices.",
             "If the fence is neglected, Clover's escape in the next beat starts closer to the herb beds."
           ],
-          "advanceWhen": "Every player has completed one distinct responsibility and the first drops of rain begin."
+          "advanceWhen": "Every player has completed one distinct responsibility and the first drops of rain begin.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Wren Cask handles the fourth (carry Maela's medicine parcel to the far cottages) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "chores-2",
@@ -206,7 +216,8 @@
             "Saved herb bed: Maela owes the group a small favor later.",
             "Damaged bed: the group helps replant between years and may gain a specific herb-garden familiarity memory."
           ],
-          "advanceWhen": "Clover is contained and each player has dealt with one separate consequence of the escape."
+          "advanceWhen": "Clover is contained and each player has dealt with one separate consequence of the escape.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Mara Hale handles the fourth (coordinate adults or children so the chase does not become worse than the goat) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "chores-3",
@@ -256,7 +267,8 @@
             "Fast deliveries build a 'dependable' reputation.",
             "A damaged parcel creates an owed favor or apology, not a medical tragedy."
           ],
-          "advanceWhen": "The essential medicine arrives, every player has resolved a delivery/weather problem, and the group reaches home soaked."
+          "advanceWhen": "The essential medicine arrives, every player has resolved a delivery/weather problem, and the group reaches home soaked.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Nima Bell handles the fourth (choose and communicate a route when one lane floods) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         }
       ],
       "closeReadAloud": "That winter, adults still call you children—but now they sometimes call your names when work needs doing.",
@@ -323,7 +335,8 @@
             "Clean setup gives the group easier crowd cooperation in dance-3.",
             "Visible mistakes become named scrapbook jokes that NPCs may repeat years later."
           ],
-          "advanceWhen": "The yard is safe enough for the musicians to begin and all players have solved one setup problem."
+          "advanceWhen": "The yard is safe enough for the musicians to begin and all players have solved one setup problem.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Jory Fen handles the fourth (organize younger helpers abandoned by older teens) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "dance-2",
@@ -373,7 +386,8 @@
             "Reconciliation can turn a rival into support later.",
             "Public humiliation can harden a rivalry but must never force romance or attraction."
           ],
-          "advanceWhen": "Each player has made one relationship-defining choice and the musicians announce the final set."
+          "advanceWhen": "Each player has made one relationship-defining choice and the musicians announce the final set.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Nima Bell handles the fourth (choose whether to tell a difficult truth or protect someone from embarrassment) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "dance-3",
@@ -414,7 +428,8 @@
             "If the dance continues outside, villagers remember the group saved the celebration.",
             "If moved inside, the final song becomes more intimate and changes which relationships get spotlighted."
           ],
-          "advanceWhen": "The lantern hazard is contained, everyone is safe, and the group chooses where the final song happens."
+          "advanceWhen": "The lantern hazard is contained, everyone is safe, and the group chooses where the final song happens.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Old Sable handles the fourth (keep the crowd calm and the musicians informed) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         }
       ],
       "closeReadAloud": "The last song ends, lantern smoke hangs in the rafters, and the walk home feels shorter than it did last year.",
@@ -481,7 +496,8 @@
             "A character who wins gracefully earns different reputation than one who gloats.",
             "A consolation card can become as socially memorable as a podium card."
           ],
-          "advanceWhen": "At least two core contests have been run, every participating player has an official result card, and each player has resolved the Growth Beat."
+          "advanceWhen": "At least two core contests have been run, every participating player has an official result card, and each player has resolved the Growth Beat.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Kess Reed handles the fourth (record or dispute a placement without derailing the fair) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "fair-2",
@@ -522,7 +538,8 @@
             "Skipping an event to help family creates a bond/reputation memory.",
             "Choosing the contest instead is allowed; the family consequence should be personal, not moralized by the DM."
           ],
-          "advanceWhen": "The lane functions again and every player has chosen what mattered more to them in the rush."
+          "advanceWhen": "The lane functions again and every player has chosen what mattered more to them in the rush.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Reeve Corlan Pike handles the fourth (choose between making the next contest call and keeping a promise to help) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "fair-3",
@@ -563,7 +580,8 @@
             "Team placing affects reputation but not development budget.",
             "If the party dismisses the symbols, Nima continues keeping the evidence anyway."
           ],
-          "advanceWhen": "Every player completes a different relay segment and the team crosses the finish together."
+          "advanceWhen": "Every player completes a different relay segment and the team crosses the finish together.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Nima Bell handles the fourth (manage the animal gate or crowd-facing finish) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         }
       ],
       "closeReadAloud": "By sunset the ribbons matter less than the stories. Some people won. Some lost. Everybody remembers exactly who laughed, who sulked, and who stayed to help clean up.",
@@ -630,7 +648,8 @@
             "Mentors offer future time based on attitude and accountability, not only success.",
             "Failure can redirect who the character enjoys learning from."
           ],
-          "advanceWhen": "Each player completes a mentor task and names one thing they want to learn more—or less—about."
+          "advanceWhen": "Each player completes a mentor task and names one thing they want to learn more—or less—about.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Sera Quill handles the fourth (work with an animal, patient, trainee, or younger helper) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "apprentice-2",
@@ -680,7 +699,8 @@
             "Insist on documenting it: Sera gets a rubbing and future Advantage evidence.",
             "Accept Pike's order quietly: the conduit is re-covered, making age-17 access harder but not impossible."
           ],
-          "advanceWhen": "The pavilion is structurally safe and the group decides whether the old channel gets documented before it is covered."
+          "advanceWhen": "The pavilion is structurally safe and the group decides whether the old channel gets documented before it is covered.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Wren Cask handles the fourth (trace the unexpected stonework beneath the post without destabilizing it) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "apprentice-3",
@@ -721,7 +741,8 @@
             "Help creates a Bellmere contact for age 16.",
             "Exploit or dismiss him means the party must navigate Bellmere archives without that shortcut."
           ],
-          "advanceWhen": "The traveler can safely leave and every player has owned one part of the problem."
+          "advanceWhen": "The traveler can safely leave and every player has owned one part of the problem.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Traveler Iven Dorr handles the fourth (find a fair way to cover the work when the traveler cannot pay for everything) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         }
       ],
       "closeReadAloud": "By the end of the week, your hands know things they did not know on Monday. None of it makes you an adventurer yet. It does make adults start asking when you can work again.",
@@ -779,7 +800,8 @@
             "Well-packed cargo reduces consequences at Alder Ford.",
             "Taking too many favors creates social obligations in Bellmere but can also earn contacts."
           ],
-          "advanceWhen": "The cart is loaded, four core responsibilities are assigned, and the party leaves Hearthcross without an adult escort."
+          "advanceWhen": "The cart is loaded, four core responsibilities are assigned, and the party leaves Hearthcross without an adult escort.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Bram Alder handles the fourth (negotiate which unofficial parcels can come) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "road-2",
@@ -821,7 +843,8 @@
             "Camp costs time but can protect goods.",
             "Ask the farmer for help creates a new regional relationship."
           ],
-          "advanceWhen": "The party has a safe plan for the night/ford and every player resolves a different travel responsibility."
+          "advanceWhen": "The party has a safe plan for the night/ford and every player resolves a different travel responsibility.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Nima Bell handles the fourth (negotiate shelter/help or find a safer alternate route) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "road-3",
@@ -872,7 +895,8 @@
             "Only memorize it: Sera can reconstruct most of it later, but exact routing is harder.",
             "Miss the office: Iven can mail a copy later if he is an ally."
           ],
-          "advanceWhen": "The required deliveries are complete and the party either obtains, memorizes, or loses access to the survey evidence."
+          "advanceWhen": "The required deliveries are complete and the party either obtains, memorizes, or loses access to the survey evidence.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Bellmere Clerk Ada Voss handles the fourth (get access to the old district survey before the records office closes) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         }
       ],
       "closeReadAloud": "The road back into Hearthcross looks smaller than the road out did. People ask how it went. For the first time, you get to decide which version of the story they hear.",
@@ -939,7 +963,8 @@
             "Prior preparation from ages 12–16 can save a location automatically from property damage but never erase another player's Growth Check.",
             "Ignoring the old conduits makes storm-3 worse."
           ],
-          "advanceWhen": "Every player has secured one priority and the river rises high enough to trigger the missing-person alarm."
+          "advanceWhen": "Every player has secured one priority and the river rises high enough to trigger the missing-person alarm.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Captain Orren Vale handles the fourth (inspect known Watchstone/conduit sites using earlier clues) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "storm-2",
@@ -980,7 +1005,8 @@
             "If Rusk is trusted or redeemed, he admits the smuggling cut and shows a safer entrance.",
             "If hostile, the party can still find the passage from physical evidence."
           ],
-          "advanceWhen": "The missing person is recovered and the party has seen enough of the east-arm damage to report it."
+          "advanceWhen": "The missing person is recovered and the party has seen enough of the east-arm damage to report it.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Bram Alder handles the fourth (coordinate transport back through worsening weather) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "storm-3",
@@ -1031,7 +1057,8 @@
             "Save homes first: mill damage affects next year's economy.",
             "Split efficiently: both can survive partially, but one conduit-access route is lost."
           ],
-          "advanceWhen": "Lives are safe, at least one property consequence is locked in, and Sera publicly explains the three-arm theory."
+          "advanceWhen": "Lives are safe, at least one property consequence is locked in, and Sera publicly explains the three-arm theory.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Reeve Corlan Pike handles the fourth (coordinate people/resources between the two fronts) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         }
       ],
       "closeReadAloud": "When the water drops, Hearthcross is still standing. It is not unchanged. Neither are you.",
@@ -1089,7 +1116,8 @@
             "Patient teaching creates a younger ally during the finale.",
             "Taking over everything gets tasks done faster but leaves younger helpers less useful later."
           ],
-          "advanceWhen": "The dance grounds are ready, every player has handed responsibility to someone younger, and sunset begins."
+          "advanceWhen": "The dance grounds are ready, every player has handed responsibility to someone younger, and sunset begins.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Kess Reed handles the fourth (decide how much of last year's Watchstone concern to mention during preparations) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "last-dance-2",
@@ -1139,7 +1167,8 @@
             "Relationships resolve according to accumulated history; no reconciliation is mandatory.",
             "Sable becomes an advisor, never the decision-maker."
           ],
-          "advanceWhen": "Each player has one final relationship conversation and the midnight bell begins."
+          "advanceWhen": "Each player has one final relationship conversation and the midnight bell begins.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Old Sable handles the fourth (tell Nima/Rusk/Pike/Sable something left unsaid) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         },
         {
           "growthBeatId": "last-dance-3",
@@ -1201,7 +1230,8 @@
             "Vent: deliberately ruin the regulating throat and permanently reshape the Common Green into an open spill channel.",
             "Retune: sacrifice/rebuild one affected structure and create a new balanced routing using current knowledge."
           ],
-          "advanceWhen": "All players complete their final Development Check, the group chooses one of the three infrastructure resolutions (or a clearly equivalent player-created solution), immediate danger ends, and the village witnesses the result."
+          "advanceWhen": "All players complete their final Development Check, the group chooses one of the three infrastructure resolutions (or a clearly equivalent player-created solution), immediate danger ends, and the village witnesses the result.",
+          "threePlayerAdjustment": "Three players: the players take the first three jobs. Sera Quill handles the fourth (open or reroute one blocked relief arm while directing villagers) off-screen, so the scene still moves, and reports back anything they noticed. Every player still gets one Development Check, and the DC does not change."
         }
       ],
       "closeReadAloud": "Dawn comes over a Hearthcross that knows your names for reasons that have nothing to do with your parents. Whatever you become next, nobody here can honestly call you children anymore.",

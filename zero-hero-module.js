@@ -9,7 +9,7 @@ function scene(ch,b,src,index){
   '<p class="purpose"><b>Purpose:</b> '+esc(b.purpose)+'</p>'+
   '<div class="location"><b>Location:</b> '+esc(b.location||"")+'</div>'+
   '<div class="readaloud"><b>READ ALOUD</b><blockquote>'+esc(b.readAloud)+'</blockquote></div>'+
-  '<div class="module-two"><section><h4>Run this beat</h4>'+list(b.runSteps)+'</section><section><h4>Default 4-player jobs</h4>'+list(b.fourPlayerJobs)+'</section></div>'+
+  '<div class="module-two"><section><h4>Run this beat</h4>'+list(b.runSteps)+'</section><section><h4>Default 4-player jobs</h4>'+list(b.fourPlayerJobs)+(b.threePlayerAdjustment?'<p><em>'+esc(b.threePlayerAdjustment)+'</em></p>':'')+'</section></div>'+
   '<section class="npc-block"><h4>NPC voices</h4>'+((b.npcDialogue||[]).map(n=>'<article><b>'+esc(n.npc)+'</b> <i>'+esc(n.voice||"")+'</i>'+list((n.lines||[]).map(x=>'“'+x+'”'))+'</article>').join("")||'<p>No featured dialogue.</p>')+'</section>'+
   '<section class="check-block"><div><h4>Development Check</h4><p>'+esc(src.prompt)+'</p></div><strong>DC '+esc(src.dc)+'</strong>'+
    '<div class="approaches">'+AB.map(a=>'<p><b>'+a+'</b> '+esc(src.approaches[a])+'</p>').join("")+'</div>'+

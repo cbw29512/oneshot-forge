@@ -12,8 +12,9 @@ const abilities=["STR","DEX","CON","INT","WIS","CHA"];
 
 if(adventure.metadata?.id!=="from-zero-to-hero-hearthcross-years") fail("wrong adventure id");
 if(adventure.metadata?.defaultPartySize!==4) fail("default party must remain four players");
-if(adventure.metadata?.partySizeRange!=="4–6 players") fail("supported party range must remain 4–6");
-if(adventure.tableContract?.supportedPlayers?.join(",")!=="4,5,6") fail("table contract must support 4/5/6 players");
+if(adventure.metadata?.partySizeRange!=="3–6 players") fail("supported party range must be 3–6");
+if(adventure.tableContract?.supportedPlayers?.join(",")!=="3,4,5,6") fail("table contract must support 3/4/5/6 players");
+if(!adventure.tableContract?.scaling?.["3"]||!Array.isArray(adventure.tableContract?.threePlayerProcedure)) fail("table contract must explain 3-player play");
 if(!/every player gets one distinct Development Check/i.test(adventure.tableContract?.spotlightRule||"")) fail("shared spotlight contract missing");
 
 if(!Array.isArray(adventure.chapters)||adventure.chapters.length!==7) fail("adventure must have seven yearly chapters");
@@ -82,7 +83,7 @@ if(!/Growth Sheet/.test(page)||!/party-size/.test(page)||!/chapter-list/.test(pa
 if(!/zero-hero\.html/.test(page)) fail("DM runner must link to player Growth Sheet");
 if(!/zero-hero-adventure\.html/.test(playerPage)) fail("player sheet must link back to DM adventure");
 if(!/absoluteBeatIndex/.test(script)||!/spotlightOrder/.test(script)) fail("DM runner must calculate 21-beat progress and rotating spotlight");
-if(!/state\.partySize/.test(script)||!/\[4,5,6\]/.test(script)) fail("DM runner must persist supported party size");
+if(!/state\.partySize/.test(script)||!/\[3,4,5,6\]/.test(script)) fail("DM runner must persist supported party size");
 if(!/coreBeat\(chapter\.id, beat\.growthBeatId\)/.test(script)) fail("DM runner must bind each scene to authoritative core Growth Beat data");
 
 const finalChapter=adventure.chapters.at(-1);
@@ -95,4 +96,4 @@ for(const banned of ["mandatory combat","kill the monster","lethal fight"]) if(e
 
 if(!/Prior issue: fixed in this pass/.test(fullAudit)||!/Hearthcross Six/.test(fullAudit)||!/certified Level-1/.test(fullAudit)) fail("full audit must document fixed fairness issue and remaining Level-1 blocker");
 
-console.log("Zero to Hero adventure OK — 4-player default, 4–6 scaling, 7 years, 21 bound Growth Beats, balanced Hearthcross Six, real DM runner, Watchstone finale.");
+console.log("Zero to Hero adventure OK — 4-player default, 3–6 scaling, 7 years, 21 bound Growth Beats, balanced Hearthcross Six, real DM runner, Watchstone finale.");

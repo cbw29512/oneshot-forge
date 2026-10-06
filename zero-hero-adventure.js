@@ -14,7 +14,7 @@
   function loadState() {
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-      if (saved && Number.isInteger(saved.chapterIndex) && Number.isInteger(saved.beatIndex) && [4,5,6].includes(Number(saved.partySize))) {
+      if (saved && Number.isInteger(saved.chapterIndex) && Number.isInteger(saved.beatIndex) && [3,4,5,6].includes(Number(saved.partySize))) {
         state = {chapterIndex:saved.chapterIndex, beatIndex:saved.beatIndex, partySize:Number(saved.partySize)};
       }
     } catch {}
@@ -99,7 +99,7 @@
     $("scrapbook-prompt").textContent = beat.scrapbookPrompt;
     $("beat-consequence").textContent = beat.consequence;
     $("advance-when").textContent = beat.advanceWhen || "When every player has acted and the scene's main problem is resolved.";
-    $("four-player-jobs").innerHTML = (beat.fourPlayerJobs||[]).map((job,i)=>'<article><span>Player '+(i+1)+'</span><p>'+esc(job)+'</p></article>').join("");
+    $("four-player-jobs").innerHTML = (beat.fourPlayerJobs||[]).map((job,i)=>'<article><span>'+(state.partySize===3&&i===3?'NPC (3 players)':'Player '+(i+1))+'</span><p>'+esc(job)+'</p></article>').join("") + (state.partySize===3&&beat.threePlayerAdjustment?'<p class="muted three-player-note">'+esc(beat.threePlayerAdjustment)+'</p>':'');
     $("npc-dialogue").innerHTML = (beat.npcDialogue||[]).map(npc=>
       '<article><h3>'+esc(npc.npc)+'</h3><p class="muted">'+esc(npc.voice||"")+'</p><ul>'+((npc.lines||[]).map(line=>'<li>“'+esc(line)+'”</li>').join(""))+'</ul></article>'
     ).join("") || '<p class="muted">No featured NPC dialogue in this beat.</p>';
