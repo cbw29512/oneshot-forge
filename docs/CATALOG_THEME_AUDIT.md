@@ -133,6 +133,15 @@ Approved reference adventures are used for:
 They are never used as plot banks, room-sequence templates, or sources of distinctive names/creatures/items/dialogue.
 
 
+## The Fencewalker of Bellmere
+**Theme spine:** The cryptid blamed for stealing Bellmere's iron is actually using it to warn and protect the road from collapse.
+
+**Keep on path:** missing fence iron → impossible rail tracks → three-knock warning → stolen iron bracing the fissure → storm repair → choose road, property, and cryptid fate.
+
+**Memorable turn:** the party catches the thief in the act and realizes the stolen property is already holding the village's road together.
+
+**Payoff:** the finale asks what to save using the same iron theft and warning behavior introduced in the opening scene.
+
 ---
 
 ## Audit resolution — 2026-10-05
