@@ -27,6 +27,11 @@ const owlbearArms = read("adventures/right-to-owlbear-arms.html");
 
 const well = JSON.parse(read("data/adventures/the-well-that-would-not-dry.oneshot.json"));
 const hollow = JSON.parse(read("data/adventures/whispers-of-the-oakhaven-hollow.oneshot.json"));
+const lantern = JSON.parse(read("data/adventures/the-lantern-below.oneshot.json"));
+const watchtowerData = JSON.parse(read("data/adventures/beneath-the-eastern-watchtower.oneshot.json"));
+const orchardData = JSON.parse(read("data/adventures/the-black-orchard.oneshot.json"));
+const bridgeData = JSON.parse(read("data/adventures/the-ashen-bridge.oneshot.json"));
+const birthdayData = read("birthday-one-shot/data.js");
 
 requireText(standard, "Theme spine — one memorable idea, all the way through", "theme-spine standard");
 requireText(standard, "Literal and easy to DM", "literal-DM standard");
@@ -63,10 +68,28 @@ if (!well.setup?.pitch?.toLowerCase().includes("name-stone")) {
   process.exit(1);
 }
 
+const lanternOil = lantern.truth?.facts?.find(f => f.id === "fact-oilless-light");
+if (!lanternOil || !/Emberglass itself supplied the flame/i.test(lanternOil.text || "")) {
+  console.error("Narrative gate failed: Lantern oil-less mystery payoff missing.");
+  process.exit(1);
+}
+if (!birthdayData.includes("I made a birthday wish here once") || !birthdayData.includes("lost on the road")) {
+  console.error("Narrative gate failed: Birthday finale drifted back into abstract hope stakes.");
+  process.exit(1);
+}
+for (const [label, data] of [["Watchtower",watchtowerData],["Black Orchard",orchardData],["Ashen Bridge",bridgeData]]) {
+  if (!data.setup?.characterPressure) {
+    console.error(`Narrative gate failed: ${label} missing explicit want-driven character pressure.`);
+    process.exit(1);
+  }
+}
+
 const malakorFact = hollow.truth?.facts?.find(f => f.id === "fact-malakor-person");
 if (!malakorFact || !/still intermittently himself/i.test(malakorFact.text || "")) {
   console.error("Narrative gate failed: Malakor must remain explicitly recoverable as a person, not only a combat state.");
   process.exit(1);
 }
 
+requireText(owlbearArms, "OWLBEAR_ARMS_V1_2_REPAIR.md", "OwlBear Arms v1.2 repair route");
+requireText(owlbearArms, "sheets.html?pack=owlbear-arms", "OwlBear Arms repaired heroes route");
 console.log("Catalog narrative/world gate OK");
