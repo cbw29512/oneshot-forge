@@ -607,8 +607,12 @@
           "text": "Choose the ending matching road, iron, and Fencewalker state."
         },
         {
+          "title": "Pay Hesta honestly",
+          "text": "Award the remaining pay based on whether the road was stabilized or deliberately abandoned."
+        },
+        {
           "title": "Record the legend",
-          "text": "Decide what people now say when the Fencewalker is seen."
+          "text": "Decide what Bellmere now says when the Fencewalker is seen or three knocks sound before a storm."
         }
       ],
       "advanceWhen": "Reward and persistent consequence are recorded.",
