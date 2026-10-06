@@ -295,8 +295,8 @@
       "required": true,
       "revelation": "The stolen iron is being used as braces in the fissure.",
       "sources": [
-        "Fresh square nail holes on the fence match the nails wedged into the limestone crack.",
-        "A trail of dropped rust flakes leads from the damaged fence to the road cut.",
+        "Physical evidence: fresh square nail holes on the fence match the nails wedged into the limestone crack.",
+        "A track of rust residue leads from the damaged fence to the road cut.",
         "The Fencewalker can be observed pressing a stolen hinge into the weakest seam."
       ],
       "canMove": true,
@@ -435,7 +435,8 @@
         "If the party repeats Pella's three-knock pattern or waits one round without attacking, the Fencewalker leads them to the fissure.",
         "If attacked, it defends itself but retreats into the fissure at half HP. Killing it never removes access to the evidence.",
         "Removing a brace advances Storm by 1 immediately and widens the crack visibly.",
-        "DC 11 Investigation or mason/carpenter tools confirms the iron is slowing movement but is not a durable repair."
+        "DC 11 Investigation or mason/carpenter tools confirms the iron is slowing movement but is not a durable repair.",
+        "Immediate evacuation is a real branch: go straight to scene-storm with 0 repair jobs complete. The party can still achieve a casualty-free controlled-collapse ending."
       ],
       "runSteps": [
         {
@@ -464,13 +465,19 @@
         "enc-fencewalker"
       ],
       "exits": [
-        "scene-fissure"
+        "scene-fissure",
+        "scene-storm"
       ],
       "exitChoices": [
         {
           "target": "scene-fissure",
-          "label": "Enter the breathing fissure",
-          "description": "Find out what the creature is trying to hold shut."
+          "label": "Follow it into the fissure",
+          "description": "Inspect the collapse and try to repair the road before the storm."
+        },
+        {
+          "target": "scene-storm",
+          "label": "Evacuate the road now",
+          "description": "Skip the underground repair work and use the remaining time to clear livestock and travelers before the storm."
         }
       ]
     },
