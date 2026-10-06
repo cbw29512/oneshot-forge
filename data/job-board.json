@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "notices": [
+    {
+      "id": "the-lanternback-of-reedwater",
+      "issuer": "Ferrymaster Jory Pell · Reedwater",
+      "urgency": "Before tomorrow's market boats",
+      "type": "Cryptid investigation",
+      "headline": "Wanted adventurers for overturned skiffs, missing livestock, and six blue lights moving through Reedwater.",
+      "teaser": "The creature is blamed for every incident. One survivor says it pushed him toward shore.",
+      "level": 2,
+      "party": "3–5",
+      "time": "2–3 hours",
+      "href": "run.html?id=the-lanternback-of-reedwater"
+    },
+    {
+      "id": "the-fencewalker-of-bellmere",
+      "issuer": "Hesta Crowe · Bellmere Road",
+      "urgency": "Before the storm",
+      "type": "Cryptid investigation",
+      "headline": "Wanted adventurers for strange tracks, stolen fence iron, and something walking the rails before a storm.",
+      "teaser": "Three nights of thefts. No footprints in the mud. One witness insists the creature was trying to warn her.",
+      "level": 1,
+      "party": "3–5",
+      "time": "2–3 hours",
+      "href": "run.html?id=the-fencewalker-of-bellmere"
+    },
+    {
+      "id": "the-lantern-below",
+      "issuer": "Hearthford village council",
+      "urgency": "Before moonrise",
+      "type": "Mystery",
+      "headline": "Wanted adventurers for recovery of a stolen Emberglass from beneath Hearthford.",
+      "teaser": "The village lantern has gone dark. The thief claims he took it for a reason.",
+      "level": 4,
+      "party": "3–6",
+      "time": "~4 hours",
+      "href": "run.html?id=the-lantern-below"
+    },
+    {
+      "id": "the-well-that-would-not-dry",
+      "issuer": "Reeve Oda Flint · Saltmere",
+      "urgency": "Before dusk",
+      "type": "Folk-horror investigation",
+      "headline": "Wanted adventurers for a well that still gives water but has begun taking names.",
+      "teaser": "Someone removed the old name-stone. The next bad bucket comes at dusk.",
+      "level": 4,
+      "party": "3–6",
+      "time": "~4 hours",
+      "href": "run.html?id=the-well-that-would-not-dry"
+    },
+    {
+      "id": "the-owlbear-egg",
+      "issuer": "Briar Hollow",
+      "urgency": "Immediate",
+      "type": "Creature dilemma",
+      "headline": "Wanted adventurers for a starving village, one living owlbear egg, and two parents looking for it.",
+      "teaser": "Hunger made the first decision. The party has to make the next one.",
+      "level": 4,
+      "party": "3–6",
+      "time": "~4 hours",
+      "href": "run.html?id=the-owlbear-egg"
+    },
+    {
+      "id": "the-black-orchard",
+      "issuer": "Oakhaven survey office",
+      "urgency": "Survey overdue",
+      "type": "Moral investigation",
+      "headline": "Wanted adventurers for a missing surveyor and one living wardstone claimed by two communities.",
+      "teaser": "The orchard is protecting something. Oakhaven still needs the shard.",
+      "level": 3,
+      "party": "4",
+      "time": "2–3 hours",
+      "href": "run.html?id=the-black-orchard"
+    },
+    {
+      "id": "the-bell-beneath-the-mere",
+      "issuer": "Oakhaven ferrymen",
+      "urgency": "Missing person",
+      "type": "Ghost mystery",
+      "headline": "Wanted adventurers for a missing apprentice and a bell ringing under perfectly still water.",
+      "teaser": "The bell may be a haunting. It may also be a warning nobody answered.",
+      "level": 3,
+      "party": "4",
+      "time": "2–3 hours",
+      "href": "run.html?id=the-bell-beneath-the-mere"
+    }
+  ]
+}

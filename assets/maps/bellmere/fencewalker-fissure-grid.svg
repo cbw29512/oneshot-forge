@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650" role="img" aria-labelledby="title desc">
+<title id="title">Breathing Fissure battle map</title><desc id="desc">A simple player-safe cave grid with runoff inlet, low roof, main seam, and iron brace cache.</desc>
+<rect width="900" height="650" fill="#e9e2d5"/>
+<g stroke="#c4bcaf" stroke-width="1">
+<line x1="0" y1="0" x2="0" y2="650"/><line x1="50" y1="0" x2="50" y2="650"/><line x1="100" y1="0" x2="100" y2="650"/><line x1="150" y1="0" x2="150" y2="650"/><line x1="200" y1="0" x2="200" y2="650"/><line x1="250" y1="0" x2="250" y2="650"/><line x1="300" y1="0" x2="300" y2="650"/><line x1="350" y1="0" x2="350" y2="650"/><line x1="400" y1="0" x2="400" y2="650"/><line x1="450" y1="0" x2="450" y2="650"/><line x1="500" y1="0" x2="500" y2="650"/><line x1="550" y1="0" x2="550" y2="650"/><line x1="600" y1="0" x2="600" y2="650"/><line x1="650" y1="0" x2="650" y2="650"/><line x1="700" y1="0" x2="700" y2="650"/><line x1="750" y1="0" x2="750" y2="650"/><line x1="800" y1="0" x2="800" y2="650"/><line x1="850" y1="0" x2="850" y2="650"/><line x1="900" y1="0" x2="900" y2="650"/>
+<line x1="0" y1="0" x2="900" y2="0"/><line x1="0" y1="50" x2="900" y2="50"/><line x1="0" y1="100" x2="900" y2="100"/><line x1="0" y1="150" x2="900" y2="150"/><line x1="0" y1="200" x2="900" y2="200"/><line x1="0" y1="250" x2="900" y2="250"/><line x1="0" y1="300" x2="900" y2="300"/><line x1="0" y1="350" x2="900" y2="350"/><line x1="0" y1="400" x2="900" y2="400"/><line x1="0" y1="450" x2="900" y2="450"/><line x1="0" y1="500" x2="900" y2="500"/><line x1="0" y1="550" x2="900" y2="550"/><line x1="0" y1="600" x2="900" y2="600"/><line x1="0" y1="650" x2="900" y2="650"/>
+</g>
+<path d="M90 120 Q250 55 430 105 T790 140 L820 500 Q650 590 430 555 T85 500 Z" fill="#d0c6b4" stroke="#5f584f" stroke-width="12"/>
+<ellipse cx="420" cy="330" rx="170" ry="115" fill="#b7ac9a" stroke="#6f675d" stroke-width="8" stroke-dasharray="14 10"/>
+<path d="M80 270 C160 285 205 300 260 330" fill="none" stroke="#7b9797" stroke-width="18"/>
+<path d="M715 155 C690 260 705 365 745 500" fill="none" stroke="#65615c" stroke-width="12"/>
+<rect x="610" y="415" width="90" height="55" fill="#92734c" stroke="#4b3d2d" stroke-width="6"/>
+<g font-family="Georgia,serif" font-size="25" fill="#2f2a24"><text x="95" y="245">RUNOFF INLET</text><text x="340" y="330">LOW ROOF</text><text x="700" y="135">MAIN SEAM</text><text x="575" y="505">IRON CACHE</text></g></svg>

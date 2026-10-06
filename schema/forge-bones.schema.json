@@ -3,10 +3,11 @@
   "$id": "https://oneshot-forge.local/schema/forge-bones.schema.json",
   "title": "One-Shot Forge Bones",
   "type": "object",
-  "required": ["version","seed","preview","hook","questGiver","twist","obstacle","travel","locationProgression","finale","aftermath","randomEncounters"],
+  "required": ["version","seed","theme","preview","hook","questGiver","twist","obstacle","travel","locationProgression","finale","aftermath","randomEncounters"],
   "properties": {
     "version": {"const":"0.1.0"},
     "seed": {"type":"string","minLength":1},
+    "theme": {"type":"object","required":["id","spine","motifs"],"properties":{"id":{"type":"string","minLength":1},"spine":{"type":"string","minLength":1},"motifs":{"type":"array","minItems":2,"items":{"type":"string","minLength":1}}},"additionalProperties":false},
     "preview": {"type":"object","required":["origin","destination"],"properties":{"origin":{"type":"string"},"destination":{"type":"string"}},"additionalProperties":false},
     "hook": {"type":"object","required":["type","objective","target"],"properties":{"type":{"type":"string"},"objective":{"type":"string"},"target":{"type":"string"}},"additionalProperties":true},
     "questGiver": {"type":"object","required":["role","motive"],"properties":{"role":{"type":"string"},"motive":{"type":"string"}},"additionalProperties":true},

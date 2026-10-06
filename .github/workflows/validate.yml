@@ -50,6 +50,8 @@ jobs:
         run: node scripts/validate-zero-to-hero-product.mjs
       - name: Verify imported OwlBear Arms bundle and review boundary
         run: python3 scripts/validate-owlbear-arms-bundle.py
+      - name: Validate OwlBear Arms v1.2 repairs
+        run: node scripts/validate-owlbear-arms-v1-2.mjs
       - name: Validate authored adventures
         run: |
           node scripts/validate-adventure.mjs data/adventures/the-lantern-below.oneshot.json
@@ -60,6 +62,8 @@ jobs:
           node scripts/validate-adventure.mjs data/adventures/the-black-orchard.oneshot.json
           node scripts/validate-adventure.mjs data/adventures/the-ashen-bridge.oneshot.json
           node scripts/validate-adventure.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
+          node scripts/validate-adventure.mjs data/adventures/the-fencewalker-of-bellmere.oneshot.json
+          node scripts/validate-adventure.mjs data/adventures/the-lanternback-of-reedwater.oneshot.json
       - name: Certify zero-prep stage cards
         run: |
           node scripts/validate-stage-cards.mjs data/adventures/the-lantern-below.oneshot.json
@@ -70,6 +74,8 @@ jobs:
           node scripts/validate-stage-cards.mjs data/adventures/the-black-orchard.oneshot.json
           node scripts/validate-stage-cards.mjs data/adventures/the-ashen-bridge.oneshot.json
           node scripts/validate-stage-cards.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
+          node scripts/validate-stage-cards.mjs data/adventures/the-fencewalker-of-bellmere.oneshot.json
+          node scripts/validate-stage-cards.mjs data/adventures/the-lanternback-of-reedwater.oneshot.json
       - name: Audit Lantern GM table readiness
         run: node scripts/validate-table-readiness.mjs data/adventures/the-lantern-below.oneshot.json
       - name: Audit Lantern clue delivery
@@ -116,10 +122,26 @@ jobs:
         run: node scripts/validate-clue-delivery.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
       - name: Audit Mere Bell spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-bell-beneath-the-mere.oneshot.json
+      - name: Audit Fencewalker table readiness
+        run: node scripts/validate-table-readiness.mjs data/adventures/the-fencewalker-of-bellmere.oneshot.json
+      - name: Audit Fencewalker clue delivery
+        run: node scripts/validate-clue-delivery.mjs data/adventures/the-fencewalker-of-bellmere.oneshot.json
+      - name: Audit Fencewalker spoken presentation
+        run: node scripts/validate-presentation.mjs data/adventures/the-fencewalker-of-bellmere.oneshot.json
+      - name: Audit Lanternback table readiness
+        run: node scripts/validate-table-readiness.mjs data/adventures/the-lanternback-of-reedwater.oneshot.json
+      - name: Audit Lanternback clue delivery
+        run: node scripts/validate-clue-delivery.mjs data/adventures/the-lanternback-of-reedwater.oneshot.json
+      - name: Audit Lanternback spoken presentation
+        run: node scripts/validate-presentation.mjs data/adventures/the-lanternback-of-reedwater.oneshot.json
       - name: Validate adventure registry
         run: node scripts/validate-adventure-registry.mjs
       - name: Validate catalog zero-prep baseline
         run: node scripts/validate-catalog-zero-prep.mjs
+      - name: Validate shared world and narrative promises
+        run: node scripts/validate-narrative-world.mjs
+      - name: Validate adventurer job board
+        run: node scripts/validate-job-board.mjs
       - name: Audit Owlbear spoken presentation
         run: node scripts/validate-presentation.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Validate Owlbear printable cards

@@ -27,7 +27,7 @@
     "campaign": "data/campaigns/quiet-seals.campaign.json"
   },
   "setup": {
-    "pitch": "Saltmere’s well still gives water. The water forgets your name.",
+    "pitch": "Saltmere’s well still gives water, but it has started taking names because the old name-stone was pried from the cistern wall.",
     "openingLocation": "Hearthford mill loft",
     "gmSummary": "The well at Saltmere is another Quiet Seal. A name-stone in the cistern was pried loose. The Draught in the water pays for rain with names. Oda Flint sent the party. Mill Kade keeps the well and will lie to save it. Jory Salt drank this morning and cannot say his daughter’s name. Clock: at dusk the bucket comes up dry and the Draught takes a whole household. Five legal endings: reseat the stone, feed a false name, give a true name, smash the well (thirst), or walk away at dusk (a household forgets). No one NPC is required. Campaign fact from Episode 1 (lantern ending) colors how hungry the Draught is, it does not change the graph.",
     "campaignFrame": "After Briar Glen, they are back in Hearthford. Oda Flint (mill, building 2) has the next job. Mark her Helped when this night ends."

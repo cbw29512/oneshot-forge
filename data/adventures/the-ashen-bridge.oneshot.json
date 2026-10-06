@@ -26,7 +26,8 @@
     "openingLocation": "East road approach to the Ashen Bridge",
     "gmSummary": "The party reaches the Ashen Bridge during a blackwater surge. Six civilians and two wagons are trapped on the center span while Bridgewarden Soren Vale tries to hold a cracked pier together. The old bridge was designed with ashwood drainage ribs that neutralized seepage from the Night Spring, but recent emergency repairs replaced three ribs with iron braces. The water is now eroding the pier instead of being wicked into ash beds. The party must reach the bridge ashhouse, mix a sealing mortar, then manage a live evacuation while installing the seal. The best ending saves the people and bridge. A hard rescue can save everyone while losing the bridge. Greedy delay can cost cargo or lives.",
     "background": "For generations the Ashen Bridge carried Oakhaven's east road across the Merecut gorge. Its blackened ashwood ribs were not ornamental: they drew tainted groundwater into sacrificial ash beds beneath the eastern pier. After spring floods damaged the bridge, cash-strapped road crews replaced three ash ribs with iron. The change went unnoticed until the Night Spring intensified. Now blackwater pressure is undermining the eastern pier while a caravan is stranded above it.",
-    "standaloneStart": "If prior Oakhaven modules were not played, Bridgewarden Soren sends a runner to Oakhaven when black water begins boiling from the eastern pier and the center span cracks under a trapped caravan."
+    "standaloneStart": "If prior Oakhaven modules were not played, Bridgewarden Soren sends a runner to Oakhaven when black water begins boiling from the eastern pier and the center span cracks under a trapped caravan.",
+    "characterPressure": "Soren Vale wants every civilian off the bridge before his ignored warning kills someone; Mera Holt will sacrifice both wagons without hesitation if that buys a safer rescue."
   },
   "quest": {
     "type": "rescue / stabilize",

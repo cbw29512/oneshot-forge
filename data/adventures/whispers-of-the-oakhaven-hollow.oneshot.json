@@ -25,7 +25,7 @@
     "pitch": "Oakhaven's apothecary sends the party into the Whispering Hollow for Gloom-Lily Nectar, but the ancient weaving grove is choking beneath a shadow blight and its druid guardian, Malakor, is bound to the corruption.",
     "openingLocation": "Kaelen's Apothecary on Oakhaven's eastern lane",
     "gmSummary": "Kaelen needs four vials of Gloom-Lily Nectar before the Hollow's shroud spoils the crop. The party crosses a razor-vine path guarded by blight-twisted shrubs, rot-blooms, and a corrupted bear, opens a sunken druidic shrine by restoring the cycle Decay → Balance → Growth, then enters the Heart Chamber. The Heart Tree Core shields Malakor until fire or radiant energy breaks it. The party can kill Malakor, or cleanse him through three successful cleansing actions before two failures once the core is exposed. The Shroud has three visible stages; rushing or repeated mistakes can make the grove a lasting dead zone even if Malakor falls.",
-    "background": "The Whispering Hollow is an old druidic weaving grove where roots, moonlight, and seasonal magic were once braided into healing plants. Weeks ago Malakor found a black splinter embedded in the Heart Tree and tried to draw the sickness into himself. The corruption instead used him as an anchor. Kaelen knows only that his Gloom-Lilies have stopped arriving and that the Hollow's birds no longer cross the eastern ridge.",
+    "background": "The Whispering Hollow is an old druidic weaving grove where roots, moonlight, and seasonal magic were once braided into healing plants. Malakor has tended it long enough to know individual trees by scar and season, leaves bundles of dried Gloom-Lily for Kaelen without being asked, and refuses to cut living wood when deadfall will do. Weeks ago he found a black splinter embedded in the Heart Tree and tried to draw the sickness into himself rather than let it spread into Oakhaven. The corruption instead used him as an anchor. In lucid moments he still repeats the old tending cycle—Decay, Balance, Growth—and apologizes to the grove before the blight forces him to attack. Kaelen knows only that his Gloom-Lilies have stopped arriving and that the Hollow's birds no longer cross the eastern ridge.",
     "pregenTieIns": [
       "Fighter: hold narrow lanes, protect the cleansing attempt, and break the bear's thorn binding.",
       "Rogue: cross razor-vines safely, inspect shrine mechanisms, and recover hidden offerings.",
@@ -69,6 +69,10 @@
       {
         "id": "fact-watchtower-map",
         "text": "Malakor carried a marked map pointing to caverns beneath Oakhaven's eastern watchtower."
+      },
+      {
+        "id": "fact-malakor-person",
+        "text": "Malakor is still intermittently himself beneath the blight: he remembers the grove's tending cycle, recognizes Kaelen's name, and deliberately fights the corruption when given a chance."
       }
     ],
     "secrets": [
@@ -1095,7 +1099,7 @@
             "ranged": "Blight Bolt. Ranged spell attack +4 to hit, range 60 ft.; 1d10 necrotic.",
             "action": "Grasping Vines (Recharge 5–6): creatures in a 15-ft. square within 60 ft. make DC 12 Strength saves or become Restrained until the end of their next turns.",
             "trait": "Spell themes: Entangle, Thunderwave, Shillelagh. If you swap in full spellcasting, use the SRD Druid stat block for the selected edition and keep the Core rules.",
-            "tactics": "Stay near the Core, restrain clustered intruders, then pressure whoever is dealing fire/radiant damage. After the Core breaks, lucid pauses make cleansing possible.",
+            "tactics": "Stay near the Core, restrain clustered intruders, then pressure whoever is dealing fire/radiant damage. After the Core breaks, lucid pauses make cleansing possible: he lowers the staff, repeats “Decay. Balance. Growth,” recognizes Kaelen’s name, and begs the party not to let the Hollow die.",
             "cr": "2",
             "xp": 450,
             "statBlock": "Original corrupted druid (not a Monster Manual reprint), built to CR 2 (450 XP) with the Core's protection."

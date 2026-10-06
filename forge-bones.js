@@ -25,6 +25,62 @@
   const choose = (rng, locks, key, list) => locks?.[key] || pick(rng, list);
 
   const POOLS = {
+    themes:[
+      {
+        id:"hidden-cost-protection",
+        core:"a protection that keeps people safe also carries a hidden cost",
+        motifs:["ward","seal","maintenance","sacrifice"],
+        questTypes:["break","investigate","protect"],
+        twistTags:["hidden-cost","warning"],
+        obstacleKinds:["puzzle","trap+puzzle"],
+        finaleKinds:["artifact","ritual","mixed"]
+      },
+      {
+        id:"scarce-resource",
+        core:"one necessary resource cannot satisfy everyone who needs it",
+        motifs:["scarcity","ownership","tradeoff","consequence"],
+        questTypes:["retrieve","protect","deliver"],
+        twistTags:["scarcity","contested"],
+        obstacleKinds:["puzzle","trap+puzzle"],
+        finaleKinds:["artifact","npc","mixed"]
+      },
+      {
+        id:"ignored-warning",
+        core:"a frightening sign is actually a warning that somebody failed to understand",
+        motifs:["warning","signal","history","escalation"],
+        questTypes:["find","investigate","stop"],
+        twistTags:["warning","hidden-cost"],
+        obstacleKinds:["puzzle","trap+puzzle"],
+        finaleKinds:["ritual","environment","mixed"]
+      },
+      {
+        id:"rescue-under-pressure",
+        core:"people must be saved while a place or system visibly fails around them",
+        motifs:["rescue","clock","triage","sacrifice"],
+        questTypes:["find","protect","escort","stop"],
+        twistTags:["hidden-cost","contested"],
+        obstacleKinds:["trap","trap+puzzle"],
+        finaleKinds:["environment","mixed"]
+      },
+      {
+        id:"misunderstood-creature",
+        core:"a dangerous creature has a concrete need that changes what 'defeat it' means",
+        motifs:["creature","need","territory","mercy"],
+        questTypes:["stop","protect","investigate"],
+        twistTags:["misunderstood","scarcity"],
+        obstacleKinds:["trap","puzzle"],
+        finaleKinds:["monster","mixed","npc"]
+      },
+      {
+        id:"contested-claim",
+        core:"two sides have incompatible but understandable claims to the same person, place, or object",
+        motifs:["claim","law","bargain","choice"],
+        questTypes:["retrieve","deliver","investigate"],
+        twistTags:["contested","choice"],
+        obstacleKinds:["puzzle","trap+puzzle"],
+        finaleKinds:["npc","artifact","mixed"]
+      }
+    ],
     origins:["roadside inn","river market","border village","forest shrine","caravan camp","small port","mountain hamlet","city gate"],
     destinations:["ruined watchtower","abandoned mine","marsh temple","forgotten manor","sea cave","old monastery","buried vault","isolated mill"],
     quests:[
@@ -36,12 +92,12 @@
     givers:["mayor","farmer","merchant","priest","criminal","child","soldier","scholar","ghost","monster","anonymous letter","talking artifact"],
     motives:["protect the community","recover someone they love","hide their own mistake","prevent a scandal","make money","repair an old wrong","stop a larger disaster"],
     twists:[
-      ["The obvious suspect caused the problem.","The obvious suspect is protecting people from the real threat."],
-      ["The quest giver gave an incomplete story.","The quest giver caused the crisis accidentally and is hiding it."],
-      ["The target was taken against their will.","The target left willingly and does not want to return."],
-      ["The object must be destroyed.","The object is containing something worse."],
-      ["The monster is hunting locals.","The monster is starving, injured, or defending its young."],
-      ["A rival faction wants the opposite outcome.","Both factions have legitimate reasons and incompatible goals."]
+      ["The obvious suspect caused the problem.","The obvious suspect is protecting people from the real threat.",["misunderstood","hidden-cost"]],
+      ["The quest giver gave an incomplete story.","The quest giver caused the crisis accidentally and is hiding it.",["hidden-cost","contested"]],
+      ["The target was taken against their will.","The target left willingly and does not want to return.",["contested","choice"]],
+      ["The object must be destroyed.","The object is containing something worse.",["hidden-cost","warning"]],
+      ["The monster is hunting locals.","The monster is starving, injured, or defending its young.",["misunderstood","scarcity"]],
+      ["A rival faction wants the opposite outcome.","Both factions have legitimate reasons and incompatible goals.",["contested","scarcity","choice"]]
     ],
     obstacles:[
       ["trap","Pressure plates seal the exit and release a physical hazard.",13,"Failure costs resources but opens a slower route."],
@@ -85,11 +141,18 @@
       const seed = String(options.seed || "FORGE").trim().toUpperCase();
       const locks = options.locks || {};
       const rng = rngFromSeed(seed + "|" + JSON.stringify(locks));
-      const quest = choose(rng, locks, "quest", POOLS.quests);
-      const twist = choose(rng, locks, "twist", POOLS.twists);
-      const obstacle = choose(rng, locks, "obstacle", POOLS.obstacles);
+      const theme = locks.theme
+        ? POOLS.themes.find(item => item.id === locks.theme) || POOLS.themes[0]
+        : pick(rng, POOLS.themes);
+      const themed = (list, predicate) => {
+        const filtered = list.filter(predicate);
+        return filtered.length ? filtered : list;
+      };
+      const quest = choose(rng, locks, "quest", themed(POOLS.quests, item => theme.questTypes.includes(item[0])));
+      const twist = choose(rng, locks, "twist", themed(POOLS.twists, item => (item[2] || []).some(tag => theme.twistTags.includes(tag))));
+      const obstacle = choose(rng, locks, "obstacle", themed(POOLS.obstacles, item => theme.obstacleKinds.includes(item[0])));
       const travel = choose(rng, locks, "travel", POOLS.travels);
-      const finale = choose(rng, locks, "finale", POOLS.finales);
+      const finale = choose(rng, locks, "finale", themed(POOLS.finales, item => theme.finaleKinds.includes(item[0])));
       const aftermath = choose(rng, locks, "aftermath", POOLS.aftermaths);
       let encounter1 = choose(rng, locks, "randomEncounter1", POOLS.encounters);
       let encounter2 = choose(rng, locks, "randomEncounter2", POOLS.encounters);
@@ -103,6 +166,11 @@
 
       return {
         version:"0.1.0", seed,
+        theme:{
+          id:theme.id,
+          spine:`At the ${destination}, ${theme.core}.`,
+          motifs:[...theme.motifs]
+        },
         preview:{origin,destination},
         hook:{type:quest[0],objective:quest[1],target:destination},
         questGiver:{role:giverRole,motive:giverMotive},
@@ -110,9 +178,9 @@
         obstacle:{kind:obstacle[0],mechanic:obstacle[1],dc:obstacle[2],failForward:obstacle[3]},
         travel:{environment:travel[0],pressure:travel[1]},
         locationProgression:[
-          {role:"entrance",job:"Establish the location and a bypassable first obstacle."},
-          {role:"middle",job:"Reveal evidence that makes the simple quest story doubtful."},
-          {role:"inner",job:"Deliver the truth and force preparation for the finale."}
+          {role:"entrance",job:`Establish the location through the theme: ${theme.motifs[0]} and a bypassable first obstacle.`},
+          {role:"middle",job:`Reveal the cost behind the premise using ${theme.motifs[1]} or ${theme.motifs[2]} as concrete evidence.`},
+          {role:"inner",job:"Deliver the truth, reframe the original job, and force preparation for the finale without abandoning the theme."}
         ],
         finale:{kind:finale[0],subject:finale[1],objective:finale[2],noncombatResolution:finale[3],failure:finale[4]},
         aftermath:{mode:aftermath[0],consequence:aftermath[1]},
