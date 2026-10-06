@@ -6,7 +6,7 @@
     "systemCompatibility": "5E-compatible fantasy RPG",
     "partyLevel": 3,
     "partySize": 4,
-    "partySizeRange": "4 players",
+    "partySizeRange": "3–6 players (tuned for 4)",
     "durationMinutes": 150,
     "tone": [
       "storm rescue",
@@ -654,7 +654,7 @@
       "id": "enc-blackwater-lampreys",
       "name": "Blackwater Lampreys",
       "type": "combat / shove / ignore",
-      "difficulty": "light",
+      "difficulty": "easy (light; time pressure)",
       "summary": "Two pale lamprey-like scavengers climb the east rail while the party prepares the center span.",
       "objective": "Keep the preparation area clear long enough to set lines or dump cargo.",
       "resolution": "Drive both lampreys into the gorge, defeat them, or ignore them and proceed to the finale.",
@@ -1038,14 +1038,20 @@
             "name": "Blackwater Lamprey",
             "count": 2,
             "ac": 12,
-            "hp": 10,
-            "speed": "20 ft., climb 20 ft., swim 30 ft.",
-            "attack": "Bite +4 to hit, 1d6+2 piercing.",
-            "trait": "Clinging Mouth: after a hit, target's speed is reduced by 10 ft. until the start of the lamprey's next turn.",
-            "tactics": "Bite isolated characters near the east rail; retreat into the gorge when bloodied."
+            "hp": 13,
+            "speed": "30 ft., swim 30 ft.",
+            "cr": "1/4",
+            "xp": 50,
+            "statBlock": "SRD Constrictor Snake, reskinned as a pale, eel-like lamprey that climbs the wet rail. Blindsight 10 ft.",
+            "attack": "Bite. Melee +4 to hit, reach 5 ft.; 5 (1d6+2) piercing. Constrict. Melee +4 to hit, reach 5 ft.; 6 (1d8+2) bludgeoning, and the target is grappled (escape DC 14); until the grapple ends the target is restrained and the lamprey can't constrict another target.",
+            "trait": "Shove-able: an adjacent creature can use an Action and DC 12 Strength (Athletics) to shove a lamprey back into the gorge, removing it from the encounter.",
+            "edition2024": "AC 13. Bite +4 to hit, 6 (1d8+2) piercing. Constrict: DC 12 Strength save, one Medium or smaller creature within 5 ft.; on a failure 7 (3d4) bludgeoning and Grappled (escape DC 12).",
+            "tactics": "Latch onto isolated characters near the east rail; retreat into the gorge when bloodied."
           }
         ],
-        "end": "Lampreys are defeated, shoved away, ignored as the finale begins, or the party leaves their reach."
+        "end": "Lampreys are defeated, shoved away, ignored as the finale begins, or the party leaves their reach.",
+        "balance": "4 × level 3: 100 XP, ×1.5 = 150 adjusted → below Easy (2014 DMG); below Low (2024 budget). Deliberately light: it spends the party's preparation time, not their hit points.",
+        "scaling": "3 PCs: 1 lamprey per round climbs up (2 total). 5 PCs: 3 lampreys. 6 PCs: 4 lampreys."
       },
       {
         "id": "enc-bridge-rescue",
@@ -1053,7 +1059,8 @@
         "start": "Bridge Integrity 4; Civilians 6; Pier Seal false; Pressure Break at initiative 20.",
         "bypass": "The party may ignore bridge preservation entirely and spend actions only on civilians, accepting bridge loss as a successful rescue.",
         "creatures": [],
-        "end": "All civilians are safe and the bridge is sealed or abandoned/collapsed."
+        "end": "All civilians are safe and the bridge is sealed or abandoned/collapsed.",
+        "scaling": "3 PCs: start Bridge Integrity at 5. 5 PCs: 7 civilians (add a frightened child who needs a separate guide action). 6 PCs: 8 civilians and the first Pressure Break also costs 1 Integrity even if the cargo was dumped."
       }
     ],
     "hazards": [
