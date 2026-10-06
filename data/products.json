@@ -256,7 +256,10 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "revisionOverlay": "docs/OWLBEAR_ARMS_V1_2_REPAIR.md",
+      "pregenUrl": "sheets.html?pack=owlbear-arms",
+      "mechanicsRevision": "1.2"
     }
   ]
 }
