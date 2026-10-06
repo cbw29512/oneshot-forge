@@ -1313,7 +1313,7 @@
       "className": "Fighter",
       "subclass": "Champion",
       "race": "Human",
-      "background": "Soldier",
+      "background": "Soldier (custom background)",
       "role": "Front line",
       "recommended": true,
       "portrait": "assets/pregens/brann.jpg",
@@ -1537,9 +1537,9 @@
           "text": "Already applied in the scores on this sheet."
         },
         {
-          "name": "Military Rank",
-          "source": "Soldier",
-          "text": "Soldiers loyal to your former rank still recognize you. You can invoke that rank for food, lodging, or an audience with officers."
+          "name": "Levy Veteran",
+          "source": "Soldier background (original feature)",
+          "text": "Old soldiers of the Hearthford levy know your unit token. One will share a meal, a rumor, or a dry place to sleep."
         }
       ],
       "equipment": [
@@ -1591,7 +1591,7 @@
         "Action Surge: On your turn, take one additional action. 1/rest.",
         "Improved Critical: Weapon attacks crit on 19–20.",
         "Ability Score Improvement: Already applied in the scores on this sheet.",
-        "Military Rank: Soldiers loyal to your former rank still recognize you. You can invoke that rank for food, lodging, or an audience with officers."
+        "Levy Veteran: Old soldiers of the Hearthford levy know your unit token. One will share a meal, a rumor, or a dry place to sleep."
       ],
       "gear": "Chain mail, Shield, Longsword, 3× Javelin, Explorer’s pack, 12 gp"
     },
@@ -2017,7 +2017,7 @@
       "className": "Rogue",
       "subclass": "Thief",
       "race": "Lightfoot Halfling",
-      "background": "Criminal",
+      "background": "Criminal (custom background)",
       "role": "Scout and striker",
       "recommended": true,
       "portrait": "assets/pregens/nyx.jpg",
@@ -2259,9 +2259,9 @@
           "text": "You can attempt to hide even when you are obscured only by a creature one size larger than you."
         },
         {
-          "name": "Criminal Contact",
-          "source": "Criminal",
-          "text": "You have a reliable contact who can pass messages through the criminal network."
+          "name": "River-Road Fence",
+          "source": "Criminal background (original feature)",
+          "text": "A fence on the river roads owes you. Once per day you can pass a short message along the smugglers' chain or learn who has been buying stolen goods."
         }
       ],
       "equipment": [
@@ -2315,7 +2315,7 @@
         "Brave: Advantage on saves against being frightened.",
         "Halfling Nimbleness: Move through the space of any creature of a size larger than yours.",
         "Naturally Stealthy: You can attempt to hide even when you are obscured only by a creature one size larger than you.",
-        "Criminal Contact: You have a reliable contact who can pass messages through the criminal network."
+        "River-Road Fence: A fence on the river roads owes you. Once per day you can pass a short message along the smugglers' chain or learn who has been buying stolen goods."
       ],
       "gear": "Studded leather, Rapier, Shortbow, 20× Arrows, Thieves’ tools, Crowbar, 18 gp"
     },
@@ -2325,7 +2325,7 @@
       "className": "Wizard",
       "subclass": "Evocation",
       "race": "High Elf",
-      "background": "Sage",
+      "background": "Sage (custom background)",
       "role": "Damage and control",
       "recommended": true,
       "portrait": "assets/pregens/ivo.jpg",
@@ -2661,9 +2661,9 @@
           "text": "Advantage vs charm. Magic cannot put you to sleep. Darkvision 60 ft. Trance: 4 hours instead of sleep."
         },
         {
-          "name": "Researcher",
-          "source": "Sage",
-          "text": "If you do not know a piece of lore, you usually know where to find it."
+          "name": "Archive Letters",
+          "source": "Sage background (original feature)",
+          "text": "You carry letters of introduction to two regional archives. When you lack a fact, you know which library, shrine, or scholar holds it."
         }
       ],
       "equipment": [
@@ -2709,7 +2709,7 @@
         "Arcane Recovery: 1/day after a short rest, recover slot levels totaling 2 (wizard level ÷ 2).",
         "Sculpt Spells: When you cast an evocation that affects others you can see, choose 1 + spell level creatures. They auto-succeed the save and take no damage.",
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60 ft. Trance: 4 hours instead of sleep.",
-        "Researcher: If you do not know a piece of lore, you usually know where to find it."
+        "Archive Letters: You carry letters of introduction to two regional archives. When you lack a fact, you know which library, shrine, or scholar holds it."
       ],
       "gear": "Spellbook, Dagger, Arcane focus (crystal), Scholar’s pack, Bottle of ink, 22 gp"
     },
@@ -2718,8 +2718,8 @@
       "name": "Kael Thornwake",
       "className": "Ranger",
       "subclass": "Hunter",
-      "race": "Wood Elf",
-      "background": "Outlander",
+      "race": "High Elf",
+      "background": "Outlander (custom background)",
       "role": "Ranged hunter",
       "recommended": true,
       "portrait": "assets/pregens/kael.jpg",
@@ -2872,7 +2872,7 @@
       "ac": 16,
       "acNotes": "scale mail 14 + Dex 2 (medium, max 2)",
       "initiative": 3,
-      "speedFt": 35,
+      "speedFt": 30,
       "hp": 36,
       "hitDice": "4d10",
       "darkvision": 60,
@@ -2922,7 +2922,9 @@
         },
         "focus": "druidic focus (optional)",
         "prepareCount": "Known ranger spells, not prepared: 3.",
-        "cantrips": [],
+        "cantrips": [
+          "Light (High Elf, Int)"
+        ],
         "prepared": [
           "Hunter’s Mark",
           "Goodberry",
@@ -2930,6 +2932,13 @@
         ]
       },
       "spellList": [
+        {
+          "level": 0,
+          "name": "Light",
+          "time": "action",
+          "range": "touch",
+          "effect": "High Elf cantrip. An object sheds bright light 20 ft. and dim light 20 ft. more for 1 hour."
+        },
         {
           "level": 1,
           "name": "Hunter’s Mark",
@@ -2980,19 +2989,19 @@
           "uses": "spell slot"
         },
         {
-          "name": "Mask of the Wild",
-          "source": "Wood Elf",
-          "text": "Hide when only lightly obscured by foliage, heavy rain, falling snow, mist, or other natural phenomena."
-        },
-        {
           "name": "Fey Ancestry",
           "source": "Elf",
           "text": "Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. Trance 4 hours."
         },
         {
-          "name": "Wanderer",
-          "source": "Outlander",
-          "text": "You can always recall the layout of surrounding territory and find food and water for yourself and five others when the land can provide."
+          "name": "Waymark Reader",
+          "source": "Outlander background (original feature)",
+          "text": "You read old woodland waymarks. On a marked trail you never become lost, and you can tell roughly how long ago someone passed a waymark."
+        },
+        {
+          "name": "Cantrip",
+          "source": "High Elf",
+          "text": "You know Light (Intelligence is your spellcasting ability for it)."
         }
       ],
       "equipment": [
@@ -3020,7 +3029,7 @@
         "bond": "A sister who stopped writing from Saltmere.",
         "flaw": "Will not sleep inside a sealed room."
       },
-      "appearance": "Wood elf, green cloak gone dark with rain, longbow taller than some doors.",
+      "appearance": "Elf, green cloak gone dark with rain, longbow taller than some doors.",
       "passivePerception": 14,
       "passiveInsight": 12,
       "level": 4,
@@ -3029,7 +3038,7 @@
       "proficiency": 2,
       "class": "Ranger (Hunter)",
       "saves": "Str +3, Dex +5",
-      "speed": "35 ft.",
+      "speed": "30 ft.",
       "attacks": [
         "Longbow. +7 to hit; 1d8+3 piercing; Archery included; range 150/600; two-handed. Extra Attack is ranger 5 — one shot.",
         "Shortsword. +5 to hit; 1d6+3 piercing; finesse"
@@ -3040,9 +3049,8 @@
         "Fighting Style: Archery: +2 to attack rolls with ranged weapons (already in +7).",
         "Colossus Slayer: Once per turn, when you hit a creature below its HP maximum, +1d8 damage.",
         "Primeval Awareness: Expend a spell slot: for 1 minute per slot level, sense favored enemies within 1 mile (6 miles in your favored terrain).",
-        "Mask of the Wild: Hide when only lightly obscured by foliage, heavy rain, falling snow, mist, or other natural phenomena.",
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. Trance 4 hours.",
-        "Wanderer: You can always recall the layout of surrounding territory and find food and water for yourself and five others when the land can provide."
+        "Waymark Reader: You read old woodland waymarks. On a marked trail you never become lost, and you can tell roughly how long ago someone passed a waymark."
       ],
       "gear": "Scale mail, Longbow, 20× Arrows, Shortsword, Explorer’s pack, 11 gp"
     },
@@ -3052,7 +3060,7 @@
       "className": "Paladin",
       "subclass": "Oath of Devotion",
       "race": "Human",
-      "background": "Folk Hero",
+      "background": "Folk Hero (custom background)",
       "role": "Face and second front line",
       "recommended": true,
       "portrait": "assets/pregens/hester.jpg",
@@ -3343,9 +3351,9 @@
           "uses": "1/rest shared"
         },
         {
-          "name": "Rustic Hospitality",
-          "source": "Folk Hero",
-          "text": "Common folk will hide you from the law or anyone searching, if you are not putting them in undue danger."
+          "name": "Village Champion",
+          "source": "Folk Hero background (original feature)",
+          "text": "Farmers and laborers who know your story will give you and your companions a hot meal and a dry barn. They will not lie to the law for you."
         }
       ],
       "equipment": [
@@ -3395,7 +3403,7 @@
         "Divine Health: Immune to disease.",
         "Channel Divinity: Sacred Weapon: Bonus action, 1/rest. 1 minute. One weapon: add Cha (+3) to attack rolls (use this instead of Str if better — +6 to hit), magical, sheds light.",
         "Channel Divinity: Turn the Unholy: Action, 1/rest. Fiends and undead within 30 ft. that see/hear you: Wis DC 13 or turned 1 minute.",
-        "Rustic Hospitality: Common folk will hide you from the law or anyone searching, if you are not putting them in undue danger."
+        "Village Champion: Farmers and laborers who know your story will give you and your companions a hot meal and a dry barn. They will not lie to the law for you."
       ],
       "gear": "Chain mail, Shield, Longsword, 3× Javelin, Holy symbol (iron lantern), 14 gp"
     },
@@ -3405,7 +3413,7 @@
       "className": "Barbarian",
       "subclass": "Path of the Berserker",
       "race": "Half-Orc",
-      "background": "Outlander",
+      "background": "Outlander (custom background)",
       "role": "Rage striker",
       "recommended": false,
       "portrait": "",
@@ -3639,9 +3647,9 @@
           "text": "On a melee crit, roll one extra weapon damage die."
         },
         {
-          "name": "Wanderer",
-          "source": "Outlander",
-          "text": "Always know the surrounding territory; find food and water for six when the land allows."
+          "name": "Den Sense",
+          "source": "Outlander background (original feature)",
+          "text": "In wild country you can tell which predator claims a stretch of land and where its den probably lies."
         }
       ],
       "equipment": [
@@ -3685,7 +3693,7 @@
         "Frenzy: When you rage, you can frenzy: bonus melee weapon attack each turn. When the rage ends, gain 1 exhaustion.",
         "Relentless Endurance: 1/long rest, when you drop to 0 HP and don’t die outright, drop to 1 HP instead.",
         "Savage Attacks: On a melee crit, roll one extra weapon damage die.",
-        "Wanderer: Always know the surrounding territory; find food and water for six when the land allows."
+        "Den Sense: In wild country you can tell which predator claims a stretch of land and where its den probably lies."
       ],
       "gear": "Greataxe, 4× Javelin, Explorer’s pack, 9 gp"
     },
@@ -3695,7 +3703,7 @@
       "className": "Bard",
       "subclass": "College of Lore",
       "race": "Half-Elf",
-      "background": "Entertainer",
+      "background": "Entertainer (custom background)",
       "role": "Face, support, and control",
       "recommended": false,
       "portrait": "",
@@ -3914,7 +3922,7 @@
         "prepared": [
           "Healing Word",
           "Faerie Fire",
-          "Dissonant Whispers",
+          "Sleep",
           "Thunderwave",
           "Shatter",
           "Hold Person",
@@ -3953,10 +3961,10 @@
         },
         {
           "level": 1,
-          "name": "Dissonant Whispers",
+          "name": "Sleep",
           "time": "action",
-          "range": "60 ft.",
-          "effect": "Wis DC 13 or 3d6 psychic and use its reaction to move away. Half damage on success."
+          "range": "90 ft. (20-ft radius)",
+          "effect": "Roll 5d8; creatures fall unconscious in order of lowest current HP for 1 minute. Undead and creatures immune to being charmed are unaffected."
         },
         {
           "level": 1,
@@ -4032,9 +4040,9 @@
           "text": "Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. +2 Cha / +1 Dex / +1 Con already in scores."
         },
         {
-          "name": "By Popular Demand",
-          "source": "Entertainer",
-          "text": "You can always find a place to perform; free lodging at the inn where you perform."
+          "name": "Tavern Circuit",
+          "source": "Entertainer background (original feature)",
+          "text": "Innkeepers on the Hearthford roads know your name. An evening's performance earns a room and the night's gossip."
         }
       ],
       "equipment": [
@@ -4080,7 +4088,7 @@
         "Bonus Proficiencies: Three extra skills (already on the sheet).",
         "Expertise: Double proficiency on Persuasion and Deception (already on the sheet).",
         "Fey Ancestry: Advantage vs charm. Magic cannot put you to sleep. Darkvision 60. +2 Cha / +1 Dex / +1 Con already in scores.",
-        "By Popular Demand: You can always find a place to perform; free lodging at the inn where you perform."
+        "Tavern Circuit: Innkeepers on the Hearthford roads know your name. An evening's performance earns a room and the night's gossip."
       ],
       "gear": "Studded leather, Rapier, Lute, Diplomat’s pack, 16 gp"
     },
@@ -4090,7 +4098,7 @@
       "className": "Druid",
       "subclass": "Circle of the Land (Forest)",
       "race": "Human",
-      "background": "Hermit",
+      "background": "Hermit (custom background)",
       "role": "Control and utility caster",
       "recommended": false,
       "portrait": "",
@@ -4434,9 +4442,9 @@
           "text": "Barkskin and Spider Climb always prepared, do not count against prepares."
         },
         {
-          "name": "Discovery",
-          "source": "Hermit",
-          "text": "The quiet seclusion of your hermitage gave you a unique and powerful discovery — here: you can always find potable water if it exists within a mile."
+          "name": "Herbalist's Eye",
+          "source": "Hermit background (original feature)",
+          "text": "You can name any common plant on sight and know whether it heals, harms, or does nothing."
         }
       ],
       "equipment": [
@@ -4481,7 +4489,7 @@
         "Wild Shape: 2/short rest. Beast CR 1/2, no fly, up to 2 hours. You keep Wis/Int/Cha, gain beast HP/AC.",
         "Natural Recovery: 1/long rest, after a short rest, recover slot levels totaling 2.",
         "Circle Spells (Forest): Barkskin and Spider Climb always prepared, do not count against prepares.",
-        "Discovery: The quiet seclusion of your hermitage gave you a unique and powerful discovery — here: you can always find potable water if it exists within a mile."
+        "Herbalist's Eye: You can name any common plant on sight and know whether it heals, harms, or does nothing."
       ],
       "gear": "Hide armor, Shield (wood), Quarterstaff, Druidic focus, Explorer’s pack, 12 gp"
     },
@@ -4491,7 +4499,7 @@
       "className": "Monk",
       "subclass": "Way of the Open Hand",
       "race": "Human",
-      "background": "Hermit",
+      "background": "Hermit (custom background)",
       "role": "Mobile striker",
       "recommended": false,
       "portrait": "",
@@ -4724,9 +4732,9 @@
           "text": "Reaction: reduce fall damage by 20 (5 × monk level)."
         },
         {
-          "name": "Discovery",
-          "source": "Hermit",
-          "text": "You know a quiet path into any walled town if you have a day to watch it."
+          "name": "Watcher's Patience",
+          "source": "Hermit background (original feature)",
+          "text": "After an hour of uninterrupted watching, you know a building's or camp's routine: who comes and goes, and when."
         }
       ],
       "equipment": [
@@ -4767,7 +4775,7 @@
         "Deflect Missiles: Reaction: reduce ranged weapon damage by 1d10 + Dex + monk level (1d10+7).",
         "Open Hand Technique: When you hit with Flurry, choose: Dex DC 13 or prone; Str DC 13 or push 15 ft.; or it cannot take reactions until the end of your next turn.",
         "Slow Fall: Reaction: reduce fall damage by 20 (5 × monk level).",
-        "Discovery: You know a quiet path into any walled town if you have a day to watch it."
+        "Watcher's Patience: After an hour of uninterrupted watching, you know a building's or camp's routine: who comes and goes, and when."
       ],
       "gear": "10× Darts, Explorer’s pack, 8 gp"
     },
@@ -4777,7 +4785,7 @@
       "className": "Sorcerer",
       "subclass": "Draconic Bloodline (Red)",
       "race": "Dragonborn (red)",
-      "background": "Folk Hero",
+      "background": "Folk Hero (custom background)",
       "role": "Burst damage",
       "recommended": false,
       "portrait": "",
@@ -5102,9 +5110,9 @@
           "text": "Resistance to fire."
         },
         {
-          "name": "Rustic Hospitality",
-          "source": "Folk Hero",
-          "text": "Common folk hide you if you are not endangering them."
+          "name": "Forge-Town Name",
+          "source": "Folk Hero background (original feature)",
+          "text": "Smiths and charcoal-burners know the story of your burned forge and will repair a weapon or armor for you at cost."
         }
       ],
       "equipment": [
@@ -5144,7 +5152,7 @@
         "Metamagic: Twinned Spell: Points = spell level. Twin a single-target spell that does not target you.",
         "Breath Weapon: 1/short rest. 15-ft cone fire, Dex DC 13 (8+PB+Con), 2d6, half on success.",
         "Damage Resistance: Resistance to fire.",
-        "Rustic Hospitality: Common folk hide you if you are not endangering them."
+        "Forge-Town Name: Smiths and charcoal-burners know the story of your burned forge and will repair a weapon or armor for you at cost."
       ],
       "gear": "Arcane focus (ember-glass shard), Dungeoneer’s pack, 19 gp"
     },
@@ -5154,7 +5162,7 @@
       "className": "Warlock",
       "subclass": "The Fiend (Pact of the Tome)",
       "race": "Tiefling",
-      "background": "Charlatan",
+      "background": "Charlatan (custom background)",
       "role": "Short-rest blaster",
       "recommended": false,
       "portrait": "",
@@ -5344,7 +5352,7 @@
         }
       ],
       "bonusActions": [
-        "Hex (if a slot remains): bonus, concentration 1 hour. +1d6 necrotic vs one target; disadvantage on checks of one ability."
+        "Misty Step (2nd-level slot): teleport up to 30 ft. to a space you can see."
       ],
       "reactions": [
         "Hellish Rebuke (slot or 1/day racial as 2nd-level): when you take damage, Dex DC 13, 3d10 fire (racial 2nd) or 2d10 if a 1st-equivalent — you only have 2nd-level slots: 3d10, half on success."
@@ -5367,8 +5375,8 @@
           "Thaumaturgy"
         ],
         "prepared": [
-          "Hex",
-          "Armor of Agathys",
+          "Command",
+          "Burning Hands",
           "Misty Step",
           "Hold Person",
           "Scorching Ray",
@@ -5420,17 +5428,17 @@
         },
         {
           "level": 2,
-          "name": "Hex",
-          "time": "bonus",
-          "range": "90 ft.",
-          "effect": "Concentration 1 hour. +1d6 necrotic; disadvantage on chosen ability checks."
+          "name": "Command",
+          "time": "action",
+          "range": "60 ft.",
+          "effect": "Fiend expanded spell. Cast at 2nd level: two creatures, Wis DC 13 or obey a one-word command on their next turn."
         },
         {
           "level": 2,
-          "name": "Armor of Agathys",
+          "name": "Burning Hands",
           "time": "action",
-          "range": "self",
-          "effect": "1 hour. 10 temp HP (cast at 2nd). Attackers who hit you in melee take 10 cold."
+          "range": "self (15-ft cone)",
+          "effect": "Fiend expanded spell. Cast at 2nd level: Dex DC 13, 4d6 fire, half on success."
         },
         {
           "level": 2,
@@ -5488,9 +5496,9 @@
           "text": "Thaumaturgy at will. Hellish Rebuke 1/day as a 2nd-level spell. Fire resistance. Darkvision 60."
         },
         {
-          "name": "False Identity",
-          "source": "Charlatan",
-          "text": "You have a second identity with papers and acquaintances. You can forge documents as long as you have seen an example."
+          "name": "Borrowed Name",
+          "source": "Charlatan background (original feature)",
+          "text": "You keep a second name that two contacts in Hearthford will vouch for if someone asks around."
         },
         {
           "name": "Not yet: Dark One’s Own Luck",
@@ -5539,7 +5547,7 @@
         "Eldritch Invocations (2 at level 4): Agonizing Blast: add Cha to EB damage. Devil’s Sight: 120 ft. vision in magical and nonmagical darkness. (Book of Ancient Secrets is a 5th-level invocation pick — not yet.)",
         "Pact of the Tome: Book of Shadows: three extra cantrips (Guidance, Mage Hand, Minor Illusion).",
         "Infernal Legacy: Thaumaturgy at will. Hellish Rebuke 1/day as a 2nd-level spell. Fire resistance. Darkvision 60.",
-        "False Identity: You have a second identity with papers and acquaintances. You can forge documents as long as you have seen an example.",
+        "Borrowed Name: You keep a second name that two contacts in Hearthford will vouch for if someone asks around.",
         "Not yet: Dark One’s Own Luck: You do not have this. It arrives at warlock 6. Do not use it."
       ],
       "gear": "Leather armor, Dagger, Book of Shadows, Arcane focus, 20 gp"

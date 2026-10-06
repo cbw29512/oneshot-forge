@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 """Compile table-complete 2014 SRD level-4 pregens. Quality over quantity."""
+# STALE GENERATOR (production pass 1, 2026-10-05): data/pregens/*.json and the Lantern embedded pregens
+# were hand-corrected for SRD compliance (no Hex, Armor of Agathys, Dissonant Whispers, Wood Elf,
+# or PHB background features in the 2014 pack). Do not rerun this script without porting those fixes.
 from __future__ import annotations
 import json
 from pathlib import Path

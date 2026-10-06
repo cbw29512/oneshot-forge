@@ -342,7 +342,7 @@
       "name": "Sister Pell Bramble",
       "className": "Cleric",
       "subclass": "Life Domain",
-      "race": "Hill Dwarf",
+      "race": "Dwarf",
       "background": "Acolyte",
       "role": "Healer and support",
       "recommended": true,
@@ -733,7 +733,7 @@
         "bond": "The chapel at Briar Glen still owes her a letter.",
         "flaw": "Will spend a spell slot on a stranger before she keeps one for herself."
       },
-      "appearance": "Hill dwarf woman, copper braid, kind tired eyes, warhammer looped at the hip.",
+      "appearance": "Dwarf woman, copper braid, kind tired eyes, warhammer looped at the hip.",
       "passivePerception": 13,
       "passiveInsight": 15,
       "level": 4,
@@ -766,7 +766,7 @@
       "name": "Nyx Keller",
       "className": "Rogue",
       "subclass": "Thief",
-      "race": "Lightfoot Halfling",
+      "race": "Halfling",
       "background": "Criminal",
       "role": "Scout and striker",
       "recommended": true,
@@ -994,7 +994,7 @@
           "text": "Climbing costs no extra movement. Running jump + Dex modifier feet."
         },
         {
-          "name": "Lucky",
+          "name": "Luck",
           "source": "Halfling",
           "text": "When you roll a 1 on a d20 test, reroll and use the new roll."
         },
@@ -1042,7 +1042,7 @@
         "bond": "Still owes Tamsin a bottle from two winters ago.",
         "flaw": "Will pick a pocket to see if she can, even when she does not need to."
       },
-      "appearance": "Lightfoot halfling, short dark hair, rain-dark leather, a grin that is not always kind.",
+      "appearance": "Halfling, short dark hair, rain-dark leather, a grin that is not always kind.",
       "passivePerception": 13,
       "passiveInsight": 11,
       "level": 4,
@@ -1062,7 +1062,7 @@
         "Cunning Action: Bonus Action: Dash, Disengage, or Hide.",
         "Fast Hands: Cunning Action: Use an Object, Sleight of Hand, or thieves’ tools on a lock or trap.",
         "Second-Story Work: Climbing costs no extra movement. Running jump + Dex modifier feet.",
-        "Lucky: When you roll a 1 on a d20 test, reroll and use the new roll.",
+        "Luck: When you roll a 1 on a d20 test, reroll and use the new roll.",
         "Brave: Advantage on saves against Frightened. Advantage vs Frightened; you can also move through a larger creature’s space.",
         "Naturally Stealthy: You can take Hide when you have merely Three-Quarters cover behind a creature at least one size larger.",
         "Alert: +5 Initiative (already 8). You cannot be surprised. Other creatures do not gain Advantage on you for being hidden from you."
