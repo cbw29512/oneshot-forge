@@ -145,7 +145,7 @@ function magicItems(c, n) {
     cleric: ["+1 mace", "+1 shield", "spell scroll of cure wounds", n >= 5 ? "+1 chain mail" : null, n >= 9 ? "spell scroll of revivify" : null],
     druid: ["+1 scimitar", "spell scroll of entangle", "spell scroll of cure wounds", n >= 5 ? "spell scroll of call lightning" : null, n >= 11 ? "+2 scimitar" : null],
     sorcerer: ["wand of magic missiles", "spell scroll of shield", n >= 5 ? "spell scroll of fireball" : null, n >= 11 ? "spell scroll of counterspell" : null],
-    warlock: ["wand of magic missiles", "spell scroll of hex", n >= 5 ? "spell scroll of counterspell" : null, n >= 11 ? "+1 rod" : null],
+    warlock: ["wand of magic missiles", "spell scroll of hex", n >= 5 ? "spell scroll of counterspell" : null, n >= 11 ? "cloak of elvenkind" : null],
     wizard: ["wand of magic missiles", "spell scroll of shield", "spell scroll of magic missile", n >= 5 ? "spell scroll of fireball" : null, n >= 9 ? "spell scroll of counterspell" : null, n >= 11 ? "bag of holding" : null]
   };
   const potions = ["potion of healing"];
