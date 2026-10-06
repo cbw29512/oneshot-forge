@@ -21,7 +21,7 @@ const ALWAYS_BANNED = [
 // Present in SRD 5.2.1 but not in SRD 5.1: banned only in 2014-labelled material.
 const BANNED_2014 = ["hex", "dissonant whispers", "wood elf", "mask of the wild"];
 
-const files2014 = ["data/pregens/quiet-seals-level-4-2014-srd.json", "birthday-one-shot/player-data.js"];
+const files2014 = ["data/pregens/quiet-seals-level-4-2014-srd.json", "birthday-one-shot/player-data.js", "data/pregens/owlbear-arms-level-6-2014-srd-v1.2.json"];
 const adventureFiles = list("data/adventures", /\.oneshot\.json$/);
 const scanFiles = [...adventureFiles, ...list("data/pregens", /\.json$/), ...list("adventures", /\.html$/), ...list("birthday-one-shot", /\.(js|html)$/), "index.html"];
 

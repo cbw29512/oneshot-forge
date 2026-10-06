@@ -6,7 +6,7 @@
     "systemCompatibility": "5E-compatible fantasy RPG",
     "partyLevel": 1,
     "partySize": 4,
-    "partySizeRange": "3–5 players",
+    "partySizeRange": "3–6 players (tuned for 4)",
     "durationMinutes": 135,
     "tone": [
       "rural cryptid investigation",
@@ -987,7 +987,8 @@
         "start": "Thunder rolls during tracking.",
         "bypass": "Close the next gate or let Pella collect it.",
         "creatures": [],
-        "end": "Calf is stopped or Pella takes over."
+        "end": "Calf is stopped or Pella takes over.",
+        "scaling": "3 PCs: Pella brings a rope, so the first failed check still turns the calf. 5–6 PCs: two calves bolt in different directions, so split the party or let Pella take one."
       },
       {
         "id": "enc-fencewalker",
@@ -1003,10 +1004,16 @@
             "speed": "40 ft., climb 20 ft.",
             "attack": "Forked Claw +4 to hit; 1d4+2 slashing.",
             "trait": "Rail Walker: difficult terrain from fences/hedges costs it no extra movement. Warning Sense: it cannot be surprised by natural ground collapse within 60 ft.",
-            "tactics": "Avoids trading attacks. Uses speed, terrain, and nonlethal shoves to escape toward the fissure. Never attacks a downed creature and prioritizes warning/repair behavior over fighting."
+            "tactics": "Avoids trading attacks. Uses speed, terrain, and nonlethal shoves to escape toward the fissure. Never attacks a downed creature and prioritizes warning/repair behavior over fighting.",
+            "cr": "1/4",
+            "xp": 50,
+            "statBlock": "Original creature (not a Monster Manual reprint), built to CR 1/4 with DMG creature math: defense CR 1/8 (AC 13, 18 HP), offense CR 1/4 (+4, 4.5 damage a round). The same numbers work for 2014 and 2024 rules.",
+            "edition2024": "No change. In 2024 rules its shove is the Shove option of an Unarmed Strike (DC 12 Strength or Dexterity save)."
           }
         ],
-        "end": "Party follows it, drives it off, traps it, or forces it to flee; the fissure evidence remains available either way."
+        "end": "Party follows it, drives it off, traps it, or forces it to flee; the fissure evidence remains available either way.",
+        "balance": "This is not meant to be a fight. One CR 1/4 creature (50 XP) is below Easy for 4 level-1 PCs (2014 Easy threshold 100 XP) and below the 2024 Low budget (200 XP). If the party attacks, it flees at half HP (9) and the mystery stays solvable.",
+        "scaling": "3–6 PCs: do not change the creature. Larger parties simply corner it faster, so at 5–6 PCs it flees at the first hit and leaves the stolen hinge behind as evidence."
       },
       {
         "id": "enc-storm-collapse",
@@ -1014,7 +1021,9 @@
         "start": "Storm reaches 3 or fissure repair is completed.",
         "bypass": "Evacuation is always a legal successful resolution.",
         "creatures": [],
-        "end": "Road holds or danger zone is evacuated."
+        "end": "Road holds or danger zone is evacuated.",
+        "balance": "Environmental finale with no enemies. Six DC 11 checks for level 1 (an easy-to-medium band) on a Storm clock. Evacuation always counts as a success.",
+        "scaling": "3 PCs: Pella or Hesta completes one repair job automatically (runoff), and the Storm starts one step lower. 5–6 PCs: add a fourth job (lead Hesta's cart and livestock uphill: DC 11 Animal Handling or Athletics). A failure advances the Storm as normal, and the group check uses everyone."
       }
     ],
     "hazards": [

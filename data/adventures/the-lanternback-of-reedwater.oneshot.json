@@ -6,7 +6,7 @@
     "systemCompatibility": "5E-compatible fantasy RPG",
     "partyLevel": 2,
     "partySize": 4,
-    "partySizeRange": "3–5 players",
+    "partySizeRange": "3–6 players (tuned for 4)",
     "durationMinutes": 150,
     "tone": [
       "wetland cryptid investigation",
@@ -1129,7 +1129,8 @@
         "start": "Party reaches Blackwater Bend.",
         "bypass": "Follow visible plume upstream.",
         "creatures": [],
-        "end": "Party accepts contamination as a working theory."
+        "end": "Party accepts contamination as a working theory.",
+        "scaling": "3 PCs: Bram volunteers the reed-cutting test, which grants advantage on the check. 5–6 PCs: no change; extra hands can run the clean and dirty sample comparison at the same time."
       },
       {
         "id": "enc-lanternback",
@@ -1145,10 +1146,16 @@
             "speed": "30 ft., swim 40 ft.",
             "attack": "Shoulder Shove +4 to hit; target moves 5 ft. and takes 1d4+2 bludgeoning only if the shove hits a solid obstacle.",
             "trait": "Water Sentinel: advantage on Perception checks involving changes in water quality or struggling creatures within 60 ft.",
-            "tactics": "Avoids combat. Uses body-blocking, shoves, and swimming speed to move creatures away from contaminated water. Never attacks a downed creature."
+            "tactics": "Avoids combat. Uses body-blocking, shoves, and swimming speed to move creatures away from contaminated water. Never attacks a downed creature.",
+            "cr": "1/4",
+            "xp": 50,
+            "statBlock": "Original creature (not a Monster Manual reprint), built to CR 1/4 with DMG creature math: defense CR 1/8 (AC 13, 24 HP), offense CR 1/4 (+4, about 4 damage a round, and only when it shoves a target into an obstacle). The same numbers work for 2014 and 2024 rules.",
+            "edition2024": "No change. Treat Shoulder Shove as an attack that also pushes the target 5 ft. on a hit."
           }
         ],
-        "end": "Party understands, follows, or drives it off; no unique clue depends on combat."
+        "end": "Party understands, follows, or drives it off; no unique clue depends on combat.",
+        "balance": "This is not meant to be a fight. One CR 1/4 creature (50 XP) is far below Easy for 4 level-2 PCs (2014 Easy threshold 200 XP; 2024 Low budget 400 XP). If it is attacked, it dives and flees at half HP (12), costing one Tide step.",
+        "scaling": "3–6 PCs: do not change the creature. At 5–6 PCs it flees after the first hit."
       },
       {
         "id": "enc-sableworks",
@@ -1156,7 +1163,9 @@
         "start": "Party sees cracked cistern and poisoned outflow.",
         "bypass": "Close entire side channel for three days.",
         "creatures": [],
-        "end": "Jobs complete or TIDE reaches 3."
+        "end": "Jobs complete or TIDE reaches 3.",
+        "balance": "Environmental challenge with no enemies. Three containment jobs at DC 10–12 for level 2 (easy to medium) on a Tide clock. Closing the channel is always a legal way out.",
+        "scaling": "3 PCs: the Lanternback assist (or Nessa, if it was driven off) completes one job automatically. 5–6 PCs: add a fourth job (shore up the cracked sluice gate: DC 12 Athletics or mason's tools), and each failure still advances the Tide 1."
       },
       {
         "id": "enc-tide",
@@ -1164,7 +1173,8 @@
         "start": "Evening tide rises.",
         "bypass": "Evacuate and close channel completely.",
         "creatures": [],
-        "end": "Waterway controlled or safely closed."
+        "end": "Waterway controlled or safely closed.",
+        "scaling": "3 PCs: start the Tide one step lower. 5–6 PCs: a second skiff of reed-cutters needs warning (DC 11 Persuasion or a signal), which is one more task on the same clock."
       }
     ],
     "hazards": [

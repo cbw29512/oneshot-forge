@@ -113,7 +113,7 @@
       "runnerUrl": "run.html?id=whispers-of-the-oakhaven-hollow",
       "productUrl": "adventures/whispers-of-the-oakhaven-hollow.html",
       "level": 3,
-      "party": "4 players",
+      "party": "3–6 players",
       "playTime": "2–3 hours",
       "releaseGate": {
         "requiresApproval": true,
@@ -138,7 +138,7 @@
       "runnerUrl": "run.html?id=beneath-the-eastern-watchtower",
       "productUrl": "adventures/beneath-the-eastern-watchtower.html",
       "level": 3,
-      "party": "4 players",
+      "party": "3–6 players",
       "playTime": "2–3 hours",
       "releaseGate": {
         "requiresApproval": true,
@@ -163,7 +163,7 @@
       "runnerUrl": "run.html?id=the-black-orchard",
       "productUrl": "adventures/the-black-orchard.html",
       "level": 3,
-      "party": "4 players",
+      "party": "3–6 players",
       "playTime": "2–3 hours",
       "releaseGate": {
         "requiresApproval": true,
@@ -188,7 +188,7 @@
       "runnerUrl": "run.html?id=the-ashen-bridge",
       "productUrl": "adventures/the-ashen-bridge.html",
       "level": 3,
-      "party": "4 players",
+      "party": "3–6 players",
       "playTime": "2–3 hours",
       "releaseGate": {
         "requiresApproval": true,
@@ -213,7 +213,7 @@
       "runnerUrl": "run.html?id=the-bell-beneath-the-mere",
       "productUrl": "adventures/the-bell-beneath-the-mere.html",
       "level": 3,
-      "party": "4 players",
+      "party": "3–6 players",
       "playTime": "2–3 hours",
       "releaseGate": {
         "requiresApproval": true,
@@ -243,7 +243,7 @@
       "productUrl": "adventures/right-to-owlbear-arms.html",
       "auditUrl": "docs/OWLBEAR_ARMS_AUDIT.md",
       "level": 6,
-      "party": "5 players",
+      "party": "3–6 players",
       "playTime": "5–7 hours",
       "releaseGate": {
         "requiresApproval": true,
@@ -271,7 +271,7 @@
       "runnerUrl": "run.html?id=the-fencewalker-of-bellmere",
       "productUrl": "adventures/the-fencewalker-of-bellmere.html",
       "level": 1,
-      "party": "3–5 players",
+      "party": "3–6 players",
       "playTime": "2–3 hours",
       "releaseGate": {
         "requiresApproval": true,
@@ -296,7 +296,7 @@
       "runnerUrl": "run.html?id=the-lanternback-of-reedwater",
       "productUrl": "adventures/the-lanternback-of-reedwater.html",
       "level": 2,
-      "party": "3–5 players",
+      "party": "3–6 players",
       "playTime": "2–3 hours",
       "releaseGate": {
         "requiresApproval": true,

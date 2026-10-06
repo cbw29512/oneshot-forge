@@ -170,7 +170,7 @@ There is no unlisted score.
 
 # 6. Encounter budget and wave roster
 
-These are v1.2 original quick-run enemies. Their XP values are used only to document encounter pressure.
+Production Pass 1 sourcing: Raider Scout = SRD **Scout** reskin; Ash Berserker = SRD **Berserker** reskin; Raid Captain = SRD **Bandit Captain** reskin (longsword for scimitar, Command Push for Parry). Raider and Ash Shaman are original creatures built to CR 1/4 and CR 1 with DMG creature math. Grubbleclaw is an upgraded SRD **Owlbear** (about CR 4, 1,100 XP, if he ever fights the party). The XP below uses the 2014 DMG multipliers.
 
 For five level-6 PCs, the audit baseline is:
 - Easy 1,500
@@ -183,7 +183,7 @@ For five level-6 PCs, the audit baseline is:
 - Raider — CR 1/4 / 50 XP
 - Raider Scout — CR 1/2 / 100 XP
 - Ash Berserker — CR 2 / 450 XP
-- Ash Shaman — CR 2 / 450 XP
+- Ash Shaman — CR 1 / 200 XP
 - Raid Captain — CR 2 / 450 XP
 
 ## Full Village waves
@@ -197,8 +197,8 @@ For five level-6 PCs, the audit baseline is:
 6 creatures → x2 adjustment = **2,200 adjusted XP**.
 
 ### Wave 3 — Command push
-2 Raiders + 2 Ash Berserkers + 1 Ash Shaman + 1 Raid Captain = **1,900 raw XP**.
-6 creatures → x2 adjustment = **3,800 adjusted XP**.
+2 Raiders + 2 Ash Berserkers + 1 Ash Shaman + 1 Raid Captain = **1,650 raw XP**.
+6 creatures → x2 adjustment = **3,300 adjusted XP** (between Medium and Hard for five PCs).
 
 No single full-party village wave reaches the five-character Hard threshold.
 
@@ -206,9 +206,9 @@ No single full-party village wave reaches the five-character Hard threshold.
 Use:
 - Wave 1: 4 Raiders + 1 Scout = 300 raw; x2 = **600 adjusted**.
 - Wave 2: 2 Raiders + 2 Berserkers = 1,000 raw; x2 = **2,000 adjusted**.
-- Wave 3: 1 Raider + 1 Berserker + 1 Shaman + 1 Captain = 1,400 raw; x2 = **2,800 adjusted**.
+- Wave 3: 1 Raider + 1 Berserker + 1 Shaman + 1 Captain = 1,150 raw; x2 = **2,300 adjusted**.
 
-For three level-6 PCs: Easy 900 / Medium 1,800 / Hard 2,700 / Deadly 4,200. Wave 3 is slightly above Hard and below Deadly; this is the intended split-front peak.
+For three level-6 PCs: Easy 900 / Medium 1,800 / Hard 2,700 / Deadly 4,200. Wave 3 sits between Medium and Hard. It is the intended split-front peak, and the waves come without a long rest.
 
 ## Nest waves — 2 PCs + Grubbleclaw ally
 - Wave 1: 4 Raiders = 200 raw; x2 = **400 adjusted**.
@@ -217,12 +217,21 @@ For three level-6 PCs: Easy 900 / Medium 1,800 / Hard 2,700 / Deadly 4,200. Wave
 
 For two level-6 PCs: Easy 600 / Medium 1,200 / Hard 1,800 / Deadly 2,800. Grubbleclaw is additional allied power, so these intentionally sit below Medium before his contribution.
 
+## Party-size scaling (3–6 players)
+
+The heroes packet has five characters. These rules let 3–6 players run the same procedure.
+- **3 PCs:** use the *Split Village waves — 3 PCs* table above for the village. If the party defends the nest instead, use the Nest waves with Grubbleclaw. During preparation, Bess's militia completes *Treat/arm militia* on its own, with no PC time spent.
+- **4 PCs** (Easy 1,200 / Medium 2,400 / Hard 3,600 / Deadly 5,600): remove 2 Raiders from every Full Village wave. Wave 1: 4 Raiders + 2 Scouts = 400 raw, x2 = 800. Wave 2: 2 Raiders + 2 Berserkers = 1,000 raw, x2 = 2,000. Wave 3: 2 Berserkers + Shaman + Captain = 1,550 raw, x2 = 3,100.
+- **5 PCs:** use the Full Village waves as written.
+- **6 PCs** (Easy 1,800 / Medium 3,600 / Hard 5,400 / Deadly 8,400; the DMG uses one multiplier step lower for six or more PCs): add 1 Raider Scout to Waves 1 and 2, and 1 Ash Berserker to Wave 3. Wave 1: 600 raw, x2 = 1,200. Wave 2: 1,200 raw, x1.5 = 1,800. Wave 3: 2,100 raw, x1.5 = 3,150.
+- If you hand out a sixth character, use any level-6 SRD character. Do not raise DCs for a larger party; add enemies or fronts instead.
+
 ---
 
 # 7. Complete enemy quick-run blocks
 
 ## Raider
-**AC 13 · HP 11 · Speed 30 ft.**
+**AC 13 · HP 11 · Speed 30 ft.** *(original, CR 1/4)*
 
 STR +2, DEX +2, CON +1, INT +0, WIS +0, CHA +0.
 
@@ -233,7 +242,7 @@ STR +2, DEX +2, CON +1, INT +0, WIS +0, CHA +0.
 **Morale:** flees if isolated after its wave leader falls.
 
 ## Raider Scout
-**AC 13 · HP 16 · Speed 30 ft.**
+**AC 13 · HP 16 · Speed 30 ft.** *(SRD Scout, CR 1/2)*
 
 DEX save +4; Perception +4; Stealth +6.
 
@@ -246,7 +255,7 @@ DEX save +4; Perception +4; Stealth +6.
 **Skirmish:** after making a ranged attack, the Scout may move 10 ft. without provoking from the target of that attack.
 
 ## Ash Berserker
-**AC 13 · HP 36 · Speed 30 ft.**
+**AC 13 · HP 67 · Speed 30 ft.** *(SRD Berserker, CR 2)*
 
 STR save +5; CON save +5.
 
@@ -254,10 +263,10 @@ STR save +5; CON save +5.
 
 **Reckless.** Before its first attack on its turn, it may gain Advantage on melee attacks this turn; attacks against it then have Advantage until its next turn.
 
-**Morale:** fights until below 12 HP, then withdraws if the Captain is down.
+**Morale:** fights until below 20 HP, then withdraws if the Captain is down.
 
 ## Ash Shaman
-**AC 12 · HP 27 · Speed 30 ft.**
+**AC 12 · HP 27 · Speed 30 ft.** *(original, CR 1)*
 Spell-like attack +5; save DC 13.
 
 **Ash Bolt.** Ranged +5, 60 ft.; 2d8 fire.
@@ -269,7 +278,7 @@ Spell-like attack +5; save DC 13.
 **Targeting:** protects the Captain first, then targets clustered defenders. Never invent extra spell slots.
 
 ## Raid Captain
-**AC 15 · HP 65 · Speed 30 ft.**
+**AC 15 · HP 65 · Speed 30 ft.** *(SRD Bandit Captain, CR 2)*
 
 STR save +5, Dex save +4, Wis save +3.
 

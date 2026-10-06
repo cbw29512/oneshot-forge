@@ -3,7 +3,7 @@
   "ruleset": "5e-2014-srd",
   "level": 6,
   "series": "Right to OwlBear Arms v1.2",
-  "note": "Authoritative v1.2 replacement for the incomplete v1.1 hero summaries. These five heroes are rebuilt as complete SRD-compatible level-6 sheets. Portrait art remains a separate bundle-layout task; gameplay data is complete.",
+  "note": "Authoritative v1.2 replacement for the incomplete v1.1 hero summaries. These five heroes are rebuilt as complete SRD-compatible level-6 sheets. Portrait art remains a separate bundle-layout task; gameplay data is complete. Production Pass 1: SRD 5.1 only. Thalen is a Human ranger (SRD 5.1 race), and every non-Acolyte background is a custom background.",
   "recommendedParty": [
     "owlbear-rowan",
     "owlbear-dagna",
@@ -18,7 +18,7 @@
       "className": "Fighter",
       "subclass": "Champion",
       "race": "Human",
-      "background": "Soldier",
+      "background": "Veteran Militia (custom background)",
       "role": "Front-line defender",
       "recommended": true,
       "scores": {
@@ -684,7 +684,7 @@
       "className": "Rogue",
       "subclass": "Thief",
       "race": "Lightfoot Halfling",
-      "background": "Criminal",
+      "background": "Lockbreaker (custom background)",
       "role": "Scout and objective runner",
       "recommended": true,
       "scores": {
@@ -972,7 +972,7 @@
       "className": "Wizard",
       "subclass": "School of Evocation",
       "race": "High Elf",
-      "background": "Sage",
+      "background": "Scholar (custom background)",
       "role": "Area control and arcane utility",
       "recommended": true,
       "scores": {
@@ -1364,8 +1364,8 @@
       "name": "Thalen",
       "className": "Ranger",
       "subclass": "Hunter",
-      "race": "Wood Elf",
-      "background": "Outlander",
+      "race": "Human",
+      "background": "Forest Guide (custom background)",
       "role": "Ranged striker and scout",
       "recommended": true,
       "scores": {
@@ -1374,7 +1374,7 @@
         "CON": 14,
         "INT": 10,
         "WIS": 16,
-        "CHA": 8
+        "CHA": 9
       },
       "saveMap": {
         "STR": {
@@ -1465,8 +1465,8 @@
         },
         "nature": {
           "ability": "INT",
-          "bonus": 3,
-          "proficient": true,
+          "bonus": 0,
+          "proficient": false,
           "expertise": false
         },
         "perception": {
@@ -1512,14 +1512,14 @@
           "expertise": false
         }
       },
-      "skills": "Animal Handling +6, Athletics +4, Nature +3, Perception +6, Stealth +7, Survival +6",
+      "skills": "Animal Handling +6, Athletics +4, Perception +6, Stealth +7, Survival +6",
       "ac": 16,
       "acNotes": "studded leather 12 + Dex 4",
       "initiative": 4,
-      "speedFt": 35,
+      "speedFt": 30,
       "hp": 52,
       "hitDice": "6d10",
-      "darkvision": 60,
+      "darkvision": null,
       "proficiencies": {
         "armor": [
           "light",
@@ -1626,19 +1626,9 @@
           "text": "Attack twice when taking the Attack action."
         },
         {
-          "name": "Darkvision / Keen Senses",
-          "source": "Wood Elf",
-          "text": "Darkvision 60 ft.; proficiency in Perception already included."
-        },
-        {
-          "name": "Fey Ancestry",
-          "source": "Wood Elf",
-          "text": "Advantage on saves against charmed; magic cannot put Thalen to sleep."
-        },
-        {
-          "name": "Mask of the Wild",
-          "source": "Wood Elf",
-          "text": "May attempt to Hide when lightly obscured by natural phenomena."
+          "name": "Human",
+          "source": "Human",
+          "text": "+1 to every ability score (already included). Extra language: Elvish."
         }
       ],
       "equipment": [
