@@ -595,7 +595,7 @@ function dmBoxHtml(scene, bits) {
         const dialogue = (npc.tableDialogue || []).slice(0, 3);
         const reactions = npc.reactions || {};
         return '<div class="dm-npc">' +
-          '<p><b>' + escapeHtml(npc.name) + '.</b> ' + escapeHtml(npc.description || npc.role || '') + '</p>' +
+          '<p><b><button type="button" class="npc-link" data-stat="' + escapeHtml(npc.name) + '">' + escapeHtml(npc.name) + '</button>.</b> ' + escapeHtml(npc.description || npc.role || '') + '</p>' +
           (npc.role ? '<p><b>Role.</b> ' + escapeHtml(npc.role) + '</p>' : '') +
           (npc.questFunction ? '<p><b>Function.</b> ' + escapeHtml(npc.questFunction) + '</p>' : '') +
           (npc.voiceCues?.length ? '<p><b>Voice.</b> ' + escapeHtml(npc.voiceCues.join('; ')) + '</p>' : '') +
@@ -689,16 +689,17 @@ function tableMapNote(sceneId) {
 function creatureBlockHtml(creature) {
   const extras = [creature.statBlock && ("Stat block. " + creature.statBlock), creature.saves && ("Saves. " + creature.saves), creature.resistances && ("Resistances. " + creature.resistances), creature.immunities && ("Immunities. " + creature.immunities), creature.attack, creature.ranged, creature.action, creature.reaction, creature.trait, creature.edition2024 && ("2024 rules (SRD 5.2.1). " + creature.edition2024)]
     .filter(Boolean);
-  return '<div class="creature">' +
-    "<strong>" + escapeHtml(creature.count) + "× " + escapeHtml(creature.name) + "</strong>" +
-    '<div class="stat-strip">' +
+  const stats = '<div class="stat-strip">' +
     "<span>AC <b>" + escapeHtml(creature.ac) + "</b></span>" +
     "<span>HP <b>" + escapeHtml(creature.hp) + "</b></span>" +
     "<span>Speed <b>" + escapeHtml(creature.speed) + "</b></span>" +
-    (creature.cr !== undefined ? "<span>CR <b>" + escapeHtml(creature.cr) + "</b>" + (creature.xp ? " (" + escapeHtml(creature.xp) + " XP)" : "") + "</span>" : "") +
-    "</div>" +
-    extras.map(line => "<p>" + escapeHtml(line) + "</p>").join("") +
+    (creature.cr !== undefined ? "<span>CR <b>" + escapeHtml(creature.cr) + "</b></span>" : "") +
+    "</div>" + extras.map(line => "<p>" + escapeHtml(line) + "</p>").join("");
+  if (typeof registerStat === "function") registerStat(creature.name, "<h3>" + escapeHtml(creature.name) + "</h3>" + stats);
+  return '<div class="creature">' +
+    "<strong>" + escapeHtml(creature.count) + "× <button type=\"button\" class=\"npc-link\" data-stat=\"" + escapeHtml(creature.name) + "\">" + escapeHtml(creature.name) + "</button></strong>" +
     (creature.tactics ? '<p class="tiny"><b>Tactics.</b> ' + escapeHtml(creature.tactics) + "</p>" : "") +
+    '<p class="tiny muted">Stats are in the appendix. Click the name.</p>' +
     "</div>";
 }
 
@@ -739,22 +740,12 @@ function encounterCardHtml(encounter) {
     if (table.bargain) body += "<p><b>Bargain.</b> " + escapeHtml(table.bargain) + "</p>";
     body += '<p class="muted"><b>End.</b> ' + escapeHtml(table.end) + "</p>";
   } else if (mechanics) {
-    body +=
-      '<div class="stat-strip">' +
-      "<span><b>" + mechanics.count + "</b> creature" + (mechanics.count === 1 ? "" : "s") + "</span>" +
-      "<span>AC <b>" + mechanics.ac + "</b></span>" +
-      "<span>HP <b>" + mechanics.hpEach + "</b> each</span>" +
-      "<span>Speed <b>" + escapeHtml(mechanics.speed) + "</b></span>" +
-      "</div>" +
-      '<div class="quick-block">' +
-      "<p><b>Attack.</b> " + escapeHtml(mechanics.basicAttack) + "</p>" +
-      (mechanics.attacksPerTurn > 1 ? "<p><b>Multiattack.</b> " + mechanics.attacksPerTurn + " attacks per turn.</p>" : "") +
-      "<p><b>Signature.</b> " + escapeHtml(mechanics.signature) + "</p>" +
-      '<p class="tiny muted">' + escapeHtml(mechanics.balanceNote) + "</p>" +
-      "</div>";
+    const stats = '<div class="stat-strip"><span>AC <b>' + mechanics.ac + '</b></span><span>HP <b>' + mechanics.hpEach + '</b></span><span>Speed <b>' + escapeHtml(mechanics.speed) + '</b></span></div><p><b>Attack.</b> ' + escapeHtml(mechanics.basicAttack) + '</p><p><b>Signature.</b> ' + escapeHtml(mechanics.signature) + '</p>';
+    if (typeof registerStat === "function") registerStat(encounter.name, "<h3>" + escapeHtml(encounter.name) + "</h3>" + stats);
+    body += '<p class="tiny muted">Combat numbers are in the appendix. Click the name.</p>';
   }
   return '<div class="card">' +
-    "<strong>" + escapeHtml(encounter.name) + "</strong>" +
+    "<strong><button type=\"button\" class=\"npc-link\" data-stat=\"" + escapeHtml(encounter.name) + "\">" + escapeHtml(encounter.name) + "</button></strong>" +
     '<p><span class="badge">' + escapeHtml(encounter.type || "encounter") + "</span> " +
     '<span class="badge">' + escapeHtml(encounter.difficulty || "") + "</span></p>" +
     "<p>" + escapeHtml(encounter.summary || "") + "</p>" +
