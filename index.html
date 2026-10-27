@@ -4,39 +4,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>99¢ One-Shots — Buy it. Open it. Run it tonight.</title>
-  <meta name="description" content="Complete 5E-compatible one-shots built for busy DMs. Run them in the browser or print the complete kit. Start with a full adventure free; paid releases are 99¢.">
+  <meta name="description" content="Start free with The Lantern Below. Every other adventure is free while we test, then $0.99 each.">
   <link rel="canonical" href="https://99centoneshot.netlify.app/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="99¢ One-Shots — Buy it. Open it. Run it tonight.">
-  <meta property="og:description" content="Complete one-shots for busy DMs. Run in the browser or print the kit. The Lantern Below is free; proven releases are 99¢.">
+  <meta property="og:description" content="Start free with The Lantern Below. Every other adventure is free while we test, then $0.99 each.">
   <meta property="og:image" content="https://99centoneshot.netlify.app/assets/cover-lantern.jpg">
   <meta property="og:url" content="https://99centoneshot.netlify.app/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="99¢ One-Shots — Buy it. Open it. Run it tonight.">
   <meta name="twitter:image" content="https://99centoneshot.netlify.app/assets/cover-lantern.jpg">
   <link rel="icon" href="assets/mark-lantern.jpg">
-  <link rel="stylesheet" href="styles.css?v=20261006a">
-  <link rel="stylesheet" href="catalog-layout.css?v=20261006a">
+  <link rel="stylesheet" href="styles.css?v=20261027a">
+  <link rel="stylesheet" href="catalog-layout.css?v=20261027a">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"99¢ One-Shots","alternateName":"One-Shot Forge","url":"https://99centoneshot.netlify.app/","description":"Complete original 5E-compatible one-shots for busy DMs: browser runner plus printable and downloadable play kits."}
+  {"@context":"https://schema.org","@type":"WebSite","name":"99¢ One-Shots","alternateName":"One-Shot Forge","url":"https://99centoneshot.netlify.app/","description":"Complete original 5th Edition-compatible one-shots for a busy game master (DM): browser runner plus printable and downloadable play kits."}
   </script>
 </head>
 <body class="landing catalog-first">
   <a class="skip-link" href="#nights">Skip to one-shots</a>
   <header class="land-bar">
     <a class="brand" href="./"><img src="assets/mark-lantern.jpg" alt="" width="36" height="36"><span>99¢ One-Shots</span></a>
-    <nav class="land-nav"><span id="ruleset-host"></span><a href="#nights">One-shots</a><a href="#wanted">Wanted board</a><a href="campaign.html">Town</a><a href="pregen-builder.html">Pregens</a><a href="about.html">About</a></nav>
+    <nav class="land-nav"><span id="ruleset-host"></span><a href="#nights">One-shots</a><a href="#oakhaven-series">Oakhaven series</a><a href="#wanted">Wanted board</a><a href="campaign.html">Town</a><a href="pregen-builder.html">Ready-made characters</a><a href="about.html">About</a></nav>
   </header>
 
   <section class="catalog-mast">
     <div>
       <p class="eyebrow ember">Choose tonight</p>
       <h1>Pick a one-shot. Open it. Run it.</h1>
-      <p class="lede">Start free. Then pick a 99¢ night. Browser runner and printable kit. The Lantern Below is the free starter. Every night includes Player read-aloud, a DM stage checklist, Fail-forward rules, and Maps & print views.</p>
+      <p class="lede">Start free with The Lantern Below. Every other adventure is free while we test, then $0.99 each. Every night includes Player read-aloud, a game master (DM) stage checklist, Fail-forward rules, and Maps & print views.</p>
+      <p class="price-clarity">Everything here is free to play right now. Paid versions will cost $0.99 each.</p>
     </div>
     <div class="mast-actions">
       <a class="button ember" href="#nights">See the one-shots</a>
-      <a class="button ghost" href="pregen-builder.html">Pregens</a>
+      <a class="button ghost" href="pregen-builder.html">Ready-made characters</a>
     </div>
   </section>
 
@@ -45,136 +46,182 @@
       <p class="eyebrow ember">The catalog</p>
       <h2>One-shots</h2>
       <p class="lede short">Same region, different night. Hearthcross, Hearthford, and Oakhaven share one connected region, and they remember what the party did. Standalone nights say so on the card.</p>
+      <div class="catalog-filters">
+        <label>Level
+          <select id="filter-level" aria-label="Filter by level">
+            <option value="">All levels</option>
+            <option value="1">Level 1</option>
+            <option value="2">Level 2</option>
+            <option value="3">Level 3</option>
+            <option value="4">Level 4</option>
+            <option value="5">Level 5</option>
+            <option value="6">Level 6</option>
+          </select>
+        </label>
+        <label>Series
+          <select id="filter-series" aria-label="Filter by series">
+            <option value="">All series</option>
+            <option value="oakhaven">Oakhaven</option>
+            <option value="quiet-seals">The Quiet Seals</option>
+            <option value="hearthcross-road">Hearthcross road tales</option>
+            <option value="cryptid">Cryptid cases</option>
+            <option value="standalone">Standalone</option>
+          </select>
+        </label>
+      </div>
+      <p class="lede short">Which rules? 2014 = SRD 5.1, 2024 = SRD 5.2.1, and both means every stat block and character comes in both versions.</p>
+      <nav class="series-row" id="oakhaven-series" aria-label="Oakhaven series">
+        <h2>Oakhaven series</h2>
+        <ol id="oakhaven-series-list">
+          <li><a data-series-link="whispers-of-the-oakhaven-hollow" href="#card-whispers-of-the-oakhaven-hollow">Module 02 · Level 2 — Whispers of the Oakhaven Hollow</a></li>
+          <li><a data-series-link="beneath-the-eastern-watchtower" href="#card-beneath-the-eastern-watchtower">Module 03 · Level 3 — Beneath the Eastern Watchtower</a></li>
+          <li><a data-series-link="the-black-orchard" href="#card-the-black-orchard">Module 04 · Level 4 — The Black Orchard</a></li>
+          <li><a data-series-link="the-ashen-bridge" href="#card-the-ashen-bridge">Module 05 · Level 5 — The Ashen Bridge</a></li>
+          <li><a data-series-link="the-bell-beneath-the-mere" href="#card-the-bell-beneath-the-mere">Module 06 · Level 6 — The Bell Beneath the Mere</a></li>
+          <li><span class="series-coming">Levels 1 and 7–10 coming</span></li>
+        </ol>
+      </nav>
       <div class="catalog">
-        <article class="adv-card live" data-product-id="the-lantern-below">
-          <img src="assets/cover-lantern.jpg" alt="A dark iron lantern over a rain-soaked village.">
+        <article class="adv-card live" id="card-the-lantern-below" data-product-id="the-lantern-below" data-level="4" data-series="quiet-seals">
+          <img width="800" height="800" src="assets/cover-lantern.webp" alt="A dark iron lantern over a rain-soaked village." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>Free</span><span class="edition-badge" data-edition-badge>Works with 2014 and 2024 rules</span></p>
             <p class="eyebrow" data-product-status>FREE STARTER · Complete adventure</p>
             <h3>The Lantern Below</h3>
             <p>The village lantern that never needed oil has gone dark. Recover the stolen Emberglass before moonrise—but the thief may have taken it because the lantern was never a blessing.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 4</span><span class="adv-tag">3–6 players</span><span class="adv-tag">~4 hours</span><span class="adv-tag">Mystery</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 4</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">about 4 hours</span><span class="adv-tag">Mystery</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="run.html?id=the-lantern-below">Play the free adventure</a><a class="text-link" href="adventures/the-lantern-below.html">See everything included →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="the-well-that-would-not-dry">
-          <img src="assets/cover-well.jpg" alt="An old stone well in a dark village square.">
+        <article class="adv-card live" id="card-the-well-that-would-not-dry" data-product-id="the-well-that-would-not-dry" data-level="4" data-series="quiet-seals">
+          <img width="800" height="1067" src="assets/cover-well.webp" alt="An old stone well in a dark village square." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>Works with 2014 and 2024 rules</span></p>
             <p class="eyebrow" data-product-status>Live · Free preview</p>
             <h3>The Well That Would Not Dry</h3>
             <p>Saltmere’s well still gives water, but it has started taking names. Someone pried the old name-stone from the cistern wall; restore, trick, pay, or break the bargain before the dusk bucket is drawn.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 4</span><span class="adv-tag">3–6 players</span><span class="adv-tag">~4 hours</span><span class="adv-tag">Horror mystery</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 4</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">about 4 hours</span><span class="adv-tag">Horror mystery</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="run.html?id=the-well-that-would-not-dry">Run now</a><a class="text-link" href="adventures/the-well-that-would-not-dry.html">Details & print options →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="birthday-one-shot">
-          <img src="assets/cover-birthday.jpg" alt="A candlelit tavern feast; the birthday candles have just gone out and a golden spark flees into the shadows." loading="lazy">
+        <article class="adv-card live" id="card-birthday-one-shot" data-product-id="birthday-one-shot" data-level="3" data-series="standalone">
+          <img width="800" height="425" src="assets/cover-birthday.webp" alt="A candlelit tavern feast; the birthday candles have just gone out and a golden spark flees into the shadows." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>2014 rules only</span></p>
             <p class="eyebrow" data-product-status>Playtest preview · Not for sale</p>
             <h3>Birthday One Shot</h3>
             <p>Make the birthday person the hero: their real name flows through the runner and print kit as the party chases a stolen birthday wish through forgotten celebration halls before midnight.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 3</span><span class="adv-tag">4–6 players</span><span class="adv-tag">~3 hours</span><span class="adv-tag">Birthday adventure</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 3</span><span class="adv-tag">4–6 players</span><span class="adv-tag" data-fact="hours">about 3 hours</span><span class="adv-tag">Birthday adventure</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="birthday-one-shot/index.html">Run playtest</a><a class="text-link" href="adventures/birthday-one-shot.html">Details & print options →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="the-owlbear-egg">
-          <img src="assets/cover-owlbear-egg.jpg" alt="A giant speckled egg wrapped in quilts on a handcart in a torchlit village square, beside a clawed and splintered stable wall." loading="lazy">
+        <article class="adv-card live" id="card-the-owlbear-egg" data-product-id="the-owlbear-egg" data-level="4" data-series="standalone">
+          <img width="800" height="425" src="assets/cover-owlbear-egg.webp" alt="A giant speckled egg wrapped in quilts on a handcart in a torchlit village square, beside a clawed and splintered stable wall." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>Works with 2014 and 2024 rules</span></p>
             <p class="eyebrow" data-product-status>Live · Free preview</p>
             <h3>The Owlbear Egg</h3>
             <p>Briar Hollow is starving. The stolen egg is alive, its father is coming, and every solution creates a different consequence by dawn.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 4</span><span class="adv-tag">3–6 players</span><span class="adv-tag">~4 hours</span><span class="adv-tag">Creature dilemma</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 4</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">about 4 hours</span><span class="adv-tag">Creature dilemma</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="run.html?id=the-owlbear-egg">Run now</a><a class="text-link" href="adventures/the-owlbear-egg.html">Details & print options →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="whispers-of-the-oakhaven-hollow">
-          <img src="assets/cover-whispers.jpg" alt="A lone hooded figure stands before the Heart Tree, its trunk split by a glowing wound." loading="lazy">
+        <article class="adv-card live" id="card-whispers-of-the-oakhaven-hollow" data-product-id="whispers-of-the-oakhaven-hollow" data-level="2" data-series="oakhaven">
+          <img width="800" height="425" src="assets/cover-whispers.webp" alt="A lone hooded figure stands before the Heart Tree, its trunk split by a glowing wound." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>Works with 2014 and 2024 rules</span></p>
             <p class="eyebrow" data-product-status>Live · Free preview</p>
             <h3>Whispers of the Oakhaven Hollow</h3>
             <p>A corrupted grove, an endangered Heart Tree, and Malakor—a druid who tried to take the blight into himself and can still be reached, cleansed, or killed.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 2</span><span class="adv-tag">3–6 players</span><span class="adv-tag">3–4 hours</span><span class="adv-tag">Combat + cleansing</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 2</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">3–4 hours</span><span class="adv-tag">Combat + cleansing</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="run.html?id=whispers-of-the-oakhaven-hollow">Run now</a><a class="text-link" href="adventures/whispers-of-the-oakhaven-hollow.html">Details & print options →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="beneath-the-eastern-watchtower">
-          <img src="assets/cover-watchtower.jpg" alt="The ancient brass gear machine in the flooded cellar beneath the watchtower, lit by a single hanging lantern." loading="lazy">
+        <article class="adv-card live" id="card-beneath-the-eastern-watchtower" data-product-id="beneath-the-eastern-watchtower" data-level="3" data-series="oakhaven">
+          <img width="800" height="425" src="assets/cover-watchtower.webp" alt="The ancient brass gear machine in the flooded cellar beneath the watchtower, lit by a single hanging lantern." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>Works with 2014 and 2024 rules</span></p>
             <p class="eyebrow" data-product-status>Live · Free preview</p>
             <h3>Beneath the Eastern Watchtower</h3>
             <p>Oakhaven’s eastern ward is failing beneath its watchtower. Repair three live systems under pressure—or smash the core and knowingly sacrifice the tower to save the town.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 3</span><span class="adv-tag">3–6 players</span><span class="adv-tag">3–4 hours</span><span class="adv-tag">Environmental finale</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 3</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">3–4 hours</span><span class="adv-tag">Environmental finale</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="run.html?id=beneath-the-eastern-watchtower">Run now</a><a class="text-link" href="adventures/beneath-the-eastern-watchtower.html">Details & print options →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="the-black-orchard">
-          <img src="assets/cover-black-orchard.jpg" alt="Ragged scarecrow wardens stand between blood-red trees in the Black Orchard at dusk." loading="lazy">
+        <article class="adv-card live" id="card-the-black-orchard" data-product-id="the-black-orchard" data-level="4" data-series="oakhaven">
+          <img width="800" height="425" src="assets/cover-black-orchard.webp" alt="Ragged scarecrow wardens stand between blood-red trees in the Black Orchard at dusk." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>Works with 2014 and 2024 rules</span></p>
             <p class="eyebrow" data-product-status>Live · Free preview</p>
             <h3>The Black Orchard</h3>
             <p>Two communities need the same living wardstone. Return the shard and the Black Orchard survives while Oakhaven goes without; take it and Oakhaven gains protection at the orchard’s cost—unless the party finds a third way.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 4</span><span class="adv-tag">3–6 players</span><span class="adv-tag">3–4 hours</span><span class="adv-tag">Rescue + choice</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 4</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">3–4 hours</span><span class="adv-tag">Rescue + choice</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="run.html?id=the-black-orchard">Run now</a><a class="text-link" href="adventures/the-black-orchard.html">Details & print options →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="the-ashen-bridge">
-          <img src="assets/cover-ashen-bridge.jpg" alt="Two lantern-lit covered wagons stranded on the old stone bridge in a lightning storm, floodwater raging below." loading="lazy">
+        <article class="adv-card live" id="card-the-ashen-bridge" data-product-id="the-ashen-bridge" data-level="5" data-series="oakhaven">
+          <img width="800" height="425" src="assets/cover-ashen-bridge.webp" alt="Two lantern-lit covered wagons stranded on the old stone bridge in a lightning storm, floodwater raging below." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>Works with 2014 and 2024 rules</span></p>
             <p class="eyebrow" data-product-status>Live · Free preview</p>
             <h3>The Ashen Bridge</h3>
             <p>Six civilians are trapped on a failing bridge above rising black water. Save every person and the night still counts as a victory—even if Oakhaven loses the bridge.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 5</span><span class="adv-tag">3–6 players</span><span class="adv-tag">3–4 hours</span><span class="adv-tag">Timed rescue</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 5</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">3–4 hours</span><span class="adv-tag">Timed rescue</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="run.html?id=the-ashen-bridge">Run now</a><a class="text-link" href="adventures/the-ashen-bridge.html">Details & print options →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="the-bell-beneath-the-mere">
-          <img src="assets/cover-mere-bell.jpg" alt="A still mere at night with a faint bell shape under the water." loading="lazy">
+        <article class="adv-card live" id="card-the-bell-beneath-the-mere" data-product-id="the-bell-beneath-the-mere" data-level="6" data-series="oakhaven">
+          <img width="800" height="425" src="assets/cover-mere-bell.webp" alt="A still mere at night with a faint bell shape under the water." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>Works with 2014 and 2024 rules</span></p>
             <p class="eyebrow" data-product-status>Live · Free preview</p>
             <h3>The Bell Beneath the Mere</h3>
             <p>A drowned bell is ringing a warning nobody answered. Rescue the missing apprentice, hear the dead bellkeeper out, and uncover what Oakhaven’s founders buried beneath the Mere.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 6</span><span class="adv-tag">3–6 players</span><span class="adv-tag">3–4 hours</span><span class="adv-tag">Ghost mystery</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 6</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">3–4 hours</span><span class="adv-tag">Ghost mystery</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="run.html?id=the-bell-beneath-the-mere">Run now</a><a class="text-link" href="adventures/the-bell-beneath-the-mere.html">Details & print options →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="right-to-owlbear-arms">
-          <img src="assets/cover-owlbear-arms.jpg" alt="Magistrate Grubbleclaw, a crowned owlbear in a purple sash, raises his wand in his torchlit court." loading="lazy">
+        <article class="adv-card live" id="card-right-to-owlbear-arms" data-product-id="right-to-owlbear-arms" data-level="6" data-series="standalone">
+          <img width="800" height="425" src="assets/cover-owlbear-arms.webp" alt="Magistrate Grubbleclaw, a crowned owlbear in a purple sash, raises his wand in his torchlit court." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>2014 rules only</span></p>
             <p class="eyebrow" data-product-status>Free preview · PDF bundle</p>
             <h3>Right to OwlBear Arms</h3>
             <p>A genius owlbear has a legal argument for keeping the village’s magic weapons. Raiders arrive at sundown. The law is unclear. The claws are not.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 6</span><span class="adv-tag">3–6 players</span><span class="adv-tag">5–7 hours</span><span class="adv-tag">2014 · PDF kit</span></div>
-            <p class="tiny">v1.2 corrected DM procedure and complete level-6 hero references are live; original v1.1 art/maps remain preserved while the final bundle is rebuilt.</p>
-            <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="assets/bundles/right-to-owlbear-arms-v1.2.zip" download>Download complete kit</a><a class="text-link" href="adventures/right-to-owlbear-arms.html">Start here & print materials →</a></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 6</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">5–7 hours</span><span class="adv-tag">2014 · PDF kit</span></div>
+            <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="assets/bundles/right-to-owlbear-arms-v1.2.zip" data-download-label="Download the complete kit (PDF + maps, ~1.7 MB)" download>Download the complete kit (PDF + maps, ~1.7 MB)</a><a class="text-link" href="adventures/right-to-owlbear-arms.html">Start here & print materials →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="the-fencewalker-of-bellmere">
-          <img src="assets/cover-fencewalker.jpg" alt="A tall, gaunt, branch-horned figure stands by the farm fence of a lamplit farmhouse as a storm gathers over Bellmere." loading="lazy">
+        <article class="adv-card live" id="card-the-fencewalker-of-bellmere" data-product-id="the-fencewalker-of-bellmere" data-level="1" data-series="hearthcross-road cryptid">
+          <img width="800" height="425" src="assets/cover-fencewalker.webp" alt="A tall, gaunt, branch-horned figure stands by the farm fence of a lamplit farmhouse as a storm gathers over Bellmere." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>Works with 2014 and 2024 rules</span></p>
             <p class="eyebrow" data-product-status>Live · Free preview</p>
             <h3>The Fencewalker of Bellmere</h3>
             <p>Something tall is stealing iron from Bellmere's fences before a hard storm. The villagers think they have a monster problem. The creature may be the only thing trying to save the road.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 1</span><span class="adv-tag">3–6 players</span><span class="adv-tag">2–3 hours</span><span class="adv-tag">Cryptid mystery</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 1</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">2–3 hours</span><span class="adv-tag">Cryptid mystery</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="run.html?id=the-fencewalker-of-bellmere">Run now</a><a class="text-link" href="adventures/the-fencewalker-of-bellmere.html">Details & print options →</a></div>
           </div>
         </article>
 
-        <article class="adv-card live" data-product-id="the-lanternback-of-reedwater">
-          <img src="assets/cover-lanternback.jpg" alt="A huge scaly marsh beast with a row of glowing blue-green lights along its back noses a lantern-lit skiff through misty Reedwater." loading="lazy">
+        <article class="adv-card live" id="card-the-lanternback-of-reedwater" data-product-id="the-lanternback-of-reedwater" data-level="2" data-series="cryptid">
+          <img width="800" height="425" src="assets/cover-lanternback.webp" alt="A huge scaly marsh beast with a row of glowing blue-green lights along its back noses a lantern-lit skiff through misty Reedwater." loading="lazy">
           <div class="adv-card-body">
+            <p class="card-kicker"><span class="price-chip" data-price-chip>$0.99 (coming soon)</span><span class="edition-badge" data-edition-badge>Works with 2014 and 2024 rules</span></p>
             <p class="eyebrow" data-product-status>Live · Free preview</p>
             <h3>The Lanternback of Reedwater</h3>
             <p>Skiffs are overturning and livestock are disappearing near six blue-green lights in the marsh. The creature everyone blames may be the only thing pulling victims out of poisoned water.</p>
-            <div class="adv-tags"><span class="adv-tag">Level 2</span><span class="adv-tag">3–6 players</span><span class="adv-tag">2–3 hours</span><span class="adv-tag">Cryptid investigation</span></div>
+            <div class="adv-tags"><span class="adv-tag" data-fact="level">Level 2</span><span class="adv-tag">3–6 players</span><span class="adv-tag" data-fact="hours">2–3 hours</span><span class="adv-tag">Cryptid investigation</span></div>
             <div class="adv-card-actions"><a class="button ember small" data-product-action data-commercial-state="preview" href="run.html?id=the-lanternback-of-reedwater">Run now</a><a class="text-link" href="adventures/the-lanternback-of-reedwater.html">Details & print options →</a></div>
           </div>
         </article>
@@ -289,29 +336,29 @@
       <p class="eyebrow ember">SPECIAL PLAYTEST BOXED SET · Not a one-shot · Level 0 · 7 SESSIONS</p>
       <h2 id="zero-hero-heading">From Zero to Hero</h2>
       <p class="lede short">A boxed playtest for growing a character from age 12 to Level 1 in Hearthcross. Not for sale.</p>
-      <div class="hero-actions"><a class="button ember" href="zero-hero-kit.html">Open the boxed set</a><a class="button ghost" href="zero-hero-adventure.html">DM adventure</a></div>
+      <div class="hero-actions"><a class="button ember" href="zero-hero-kit.html">Open the boxed set</a><a class="button ghost" href="zero-hero-adventure.html">Game master (DM) adventure</a></div>
     </section>
 
     <section class="land-section" id="party">
-      <p class="eyebrow">Characters</p><h2>12 pregens. 6 for tonight.</h2>
-      <p class="lede short">Every class starts at level 0. Pick the SRD subclass, set the level, and print. Fixed level-4 faces stay on the old sheet page.</p>
+      <p class="eyebrow">Characters</p><h2>12 ready-made characters. 6 for tonight.</h2>
+      <p class="lede short">Every class starts at level 0. Pick the System Reference Document subclass, set the level, and print. Fixed level-4 faces stay on the old sheet page.</p>
       <div class="hero-actions"><a class="button ember" href="pregen-builder.html">Open the level builder</a><a class="button ghost" href="sheets.html">Level-4 faces</a></div>
       <div class="party-grid">
-        <a class="face" href="sheets.html#pregen-brann"><img src="assets/pregens/brann.jpg" alt=""><span>Brann<br><small>Fighter</small></span></a>
-        <a class="face" href="sheets.html#pregen-pell"><img src="assets/pregens/pell.jpg" alt=""><span>Pell<br><small>Cleric</small></span></a>
-        <a class="face" href="sheets.html#pregen-nyx"><img src="assets/pregens/nyx.jpg" alt=""><span>Nyx<br><small>Rogue</small></span></a>
-        <a class="face" href="sheets.html#pregen-ivo"><img src="assets/pregens/ivo.jpg" alt=""><span>Ivo<br><small>Wizard</small></span></a>
-        <a class="face" href="sheets.html#pregen-kael"><img src="assets/pregens/kael.jpg" alt=""><span>Kael<br><small>Ranger</small></span></a>
-        <a class="face" href="sheets.html#pregen-hester"><img src="assets/pregens/hester.jpg" alt=""><span>Hester<br><small>Paladin</small></span></a>
+        <a class="face" href="sheets.html#pregen-brann"><img src="assets/pregens/brann.jpg" alt="Portrait of Brann"><span>Brann<br><small>Fighter</small></span></a>
+        <a class="face" href="sheets.html#pregen-pell"><img src="assets/pregens/pell.jpg" alt="Portrait of Pell"><span>Pell<br><small>Cleric</small></span></a>
+        <a class="face" href="sheets.html#pregen-nyx"><img src="assets/pregens/nyx.jpg" alt="Portrait of Nyx"><span>Nyx<br><small>Rogue</small></span></a>
+        <a class="face" href="sheets.html#pregen-ivo"><img src="assets/pregens/ivo.jpg" alt="Portrait of Ivo"><span>Ivo<br><small>Wizard</small></span></a>
+        <a class="face" href="sheets.html#pregen-kael"><img src="assets/pregens/kael.jpg" alt="Portrait of Kael"><span>Kael<br><small>Ranger</small></span></a>
+        <a class="face" href="sheets.html#pregen-hester"><img src="assets/pregens/hester.jpg" alt="Portrait of Hester"><span>Hester<br><small>Paladin</small></span></a>
       </div>
     </section>
 
-    <section class="land-section" id="problem"><h2>What this solves</h2><div class="pack-grid"><article><h3>No time to write</h3><p>The stage card is the prep.</p></article><article><h3>No time for sheets</h3><p>12 pregens, 6 for a full party.</p></article><article><h3>One-shots that go nowhere</h3><p>Hearthford remembers last Saturday.</p></article><article><h3>PDFs that are still homework</h3><p>Numbers, DCs, and talk-outs are on the card.</p></article></div></section>
+    <section class="land-section" id="problem"><h2>What this solves</h2><div class="pack-grid"><article><h3>No time to write</h3><p>The stage card is the prep.</p></article><article><h3>No time for sheets</h3><p>12 ready-made characters, 6 for a full party.</p></article><article><h3>One-shots that go nowhere</h3><p>Hearthford remembers last Saturday.</p></article><article><h3>PDFs that are still homework</h3><p>Numbers, DCs, and talk-outs are on the card.</p></article></div></section>
   </main>
 
-  <footer class="land-foot"><p><a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a> · <a href="forge.html">Forge Lab</a> · <a href="https://buymeacoffee.com/divclass016" target="_blank" rel="noopener">Buy Me a Coffee</a></p><p>Original 5E-compatible fantasy. Not affiliated with Wizards of the Coast.</p><p class="tiny">This work includes material from the System Reference Document 5.1 and SRD 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0.</p></footer>
+  <footer class="land-foot"><p><a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a> · <a href="forge.html">Forge Lab</a> · <a href="https://buymeacoffee.com/divclass016" target="_blank" rel="noopener">Buy Me a Coffee</a></p><p>Original 5th Edition-compatible fantasy. Not affiliated with Wizards of the Coast.</p><p class="tiny">This work includes material from the System Reference Document 5.1 and SRD 5.2.1 by Wizards of the Coast LLC, licensed under CC-BY-4.0.</p></footer>
   <script src="rules.js?v=20260920p"></script>
   <script>mountRulesetToggle(document.getElementById("ruleset-host"));</script>
-  <script src="catalog.js?v=20261003a"></script>
+  <script src="catalog.js?v=20261027a"></script>
 </body>
 </html>

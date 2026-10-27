@@ -21,7 +21,7 @@
     .print-tile.disabled{opacity:.55}
     .print-tile.disabled .button{pointer-events:none;background:#b7ab97;border-color:#b7ab97}
     .tile-icon{font-size:1.5rem;line-height:1}
-    .hub-tip{margin-top:1.5rem;font-size:.85rem;color:#5f554b}
+    .hub-tip{margin-top:1.5rem;font-size:.875rem;color:#5f554b}
   </style>
 </head>
 <body class="landing print-center-page">
@@ -48,7 +48,7 @@
 
     <div class="print-grid" id="print-grid"></div>
 
-    <p class="hub-tip">Tip: in the print dialog choose “Save as PDF” to keep a file, or a printer for paper. Cards print two-sided (art fronts, DM backs) on mirrored sheets.</p>
+    <p class="hub-tip">Tip: in the print dialog choose “Save as PDF” to keep a file, or a printer for paper. Cards print two-sided (art fronts, game master (DM) backs) on mirrored sheets.</p>
   </main>
 
   <script src="rules.js?v=20260926c"></script>
@@ -131,21 +131,21 @@
         )
       );
       const characterDesc = hasCompatiblePregens
-        ? "Print the compatible level-" + adventure.metadata.partyLevel + " pregen packet for this adventure. Spellcasters include their spell reference sheet."
-        : "This is a level-" + (adventure?.metadata?.partyLevel || "?") + " adventure and currently expects bring-your-own characters. No compatible pregen packet is included yet.";
+        ? "Print the compatible level-" + adventure.metadata.partyLevel + " ready-made characters for this adventure. Spellcasters include their spell reference sheet."
+        : "This is a level-" + (adventure?.metadata?.partyLevel || "?") + " adventure and currently expects bring-your-own player characters. Ready-made characters are not included yet.";
       const tiles = [
         tile({
           icon: "🧙",
           title: "Character sheets",
           desc: characterDesc,
           href: "sheets.html?rules=" + ed + "&print=1",
-          label: hasCompatiblePregens ? "Print compatible pregens" : "Pregens not included",
+          label: hasCompatiblePregens ? "Print ready-made characters" : "Ready-made characters not included",
           disabled: !hasCompatiblePregens
         }),
         tile({
           icon: "📖",
           title: "Adventure module",
-          desc: "The full printable module: cover, scenes, NPCs, clue matrix, endings, and GM recovery.",
+          desc: "The full printable module: cover, scenes, non-player characters (NPCs), clue matrix, endings, and GM recovery.",
           href: "module.html?id=" + encodeURIComponent(id) + "&print=1",
           label: "Print adventure"
         }),

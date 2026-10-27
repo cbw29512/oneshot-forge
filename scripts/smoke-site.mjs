@@ -14,11 +14,18 @@ const index = read("index.html");
 if (!index.includes('id="nights"')) errors.push("homepage missing #nights catalog");
 if (!/Choose tonight/i.test(index)) errors.push("homepage must lead with choose-tonight catalog");
 if (!index.includes("Coming after review")) errors.push("next adventure must remain gated behind review");
-if (!index.includes("12 pregens")) errors.push("homepage must say 12 pregens");
+if (!index.includes("12 ready-made characters")) errors.push("homepage must say 12 ready-made characters");
+if (!index.includes("Everything here is free to play right now. Paid versions will cost $0.99 each.")) errors.push("homepage must state the free-now / $0.99 later price");
+if (!index.includes("Oakhaven series")) errors.push("homepage must show the Oakhaven series row");
+if (!index.includes("Levels 1 and 7–10 coming")) errors.push("homepage must say levels 1 and 7–10 are coming");
+if (!index.includes('id="filter-level"') || !index.includes('id="filter-series"')) errors.push("homepage must offer level and series filters");
+if (!index.includes("Works with 2014 and 2024 rules") || !index.includes("2014 rules only")) errors.push("homepage must show edition badges");
+if (!index.includes("$0.99 (coming soon)") || !index.includes(">Free<")) errors.push("homepage cards must show Free and $0.99 coming-soon chips");
+if (!/assets\/cover-[^"]+\.webp/.test(index) || !index.includes('loading="lazy"')) errors.push("homepage covers must be lazy-loaded WebP");
 if (!index.includes("og:image")) errors.push("homepage missing Open Graph image");
 if (!index.includes('src="catalog.js')) errors.push("homepage must hydrate from product contract");
 if (!index.includes("99¢ One-Shots")) errors.push("homepage must use 99¢ One-Shots customer-facing brand");
-if (!index.includes("Start free. Then pick a 99¢ night.")) errors.push("homepage must state the free-starter/99¢ offer");
+if (!index.includes("Start free with The Lantern Below. Every other adventure is free while we test, then $0.99 each.")) errors.push("homepage must state the free-starter/$0.99 offer");
 if (!index.includes("SPECIAL PLAYTEST BOXED SET")) errors.push("homepage must distinguish Hearthcross from the one-shot catalog");
 if (!index.includes("7 SESSIONS")) errors.push("homepage must disclose Hearthcross campaign length");
 if (!index.includes("Not for sale")) errors.push("homepage must keep Hearthcross commercial state explicit");
@@ -64,6 +71,15 @@ try {
     if (!page.includes("99¢ One-Shots")) {
       errors.push(`${product.id}: product page must use 99¢ One-Shots customer-facing brand`);
     }
+    if (!page.includes("What you get / what you need")) {
+      errors.push(`${product.id}: product page missing what you get / what you need`);
+    }
+    if (!page.includes("data-edition-badge")) {
+      errors.push(`${product.id}: product page missing an edition badge`);
+    }
+    if (product.id !== "the-lantern-below" && !page.includes("Free to play while we finish testing. It will cost $0.99 when it launches.")) {
+      errors.push(`${product.id}: product page missing the public checkout line`);
+    }
   }
 } catch (error) {
   errors.push("could not validate product-page branding: " + error.message);
@@ -83,7 +99,10 @@ for (const required of ["GET /api/entitlements/{productId}", '"owned": true', "4
   if (!entitlement.includes(required)) errors.push("entitlement contract missing: " + required);
 }
 
+const sheets = read("sheets.html");
+if (!sheets.includes('<meta name="description"')) errors.push("sheets.html missing meta description");
 const run = read("run.html");
+if (!run.includes('<meta name="description"')) errors.push("run.html missing meta description");
 for (const id of ["read-aloud", "dm-box", "monster-box", "stage-progress", "scene-exits", "prev-scene", "next-scene"]) if (!run.includes('id="' + id + '"')) errors.push("run.html missing #" + id);
 if (/id="forge-random"/.test(run)) errors.push("customer runner still has New random");
 const app = read("app.js");

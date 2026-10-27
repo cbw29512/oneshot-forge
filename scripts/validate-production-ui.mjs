@@ -33,7 +33,7 @@ for (const product of products.products || []) {
   if (!index.includes(`href="${product.productUrl}"`)) errors.push(`${product.id}: catalog lacks details path`);
 
   const productPage = read(product.productUrl);
-  if (productPage && !productPage.includes("styles.css?v=20261002e")) {
+  if (productPage && !productPage.includes("styles.css?v=20261027a")) {
     errors.push(`${product.id}: landing page is not pinned to production gameplay styling`);
   }
   if (productPage && !productPage.includes(startUrl)) {
@@ -111,7 +111,7 @@ for (const required of [
 }
 
 if (!index.includes("Player read-aloud") ||
-    !index.includes("DM stage checklist") ||
+    !index.includes("game master (DM) stage checklist") ||
     !index.includes("Fail-forward rules") ||
     !index.includes("Maps & print views")) {
   errors.push("homepage no longer explains the table-ready product contract");
@@ -119,8 +119,8 @@ if (!index.includes("Player read-aloud") ||
 
 for (const required of [
   "hasCompatiblePregens",
-  "Pregens not included",
-  "bring-your-own characters",
+  "Ready-made characters not included",
+  "bring-your-own player characters",
   "disabled: !hasCompatiblePregens"
 ]) {
   if (!printCenter.includes(required)) errors.push("print center compatibility guard missing: " + required);

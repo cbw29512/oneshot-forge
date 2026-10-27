@@ -818,7 +818,7 @@
         "1. A dock idler says the bell is a loose buoy knocking a hull. He has not been out. DC 10 Wisdom (Insight): he wants the ferry to stay shut so he can charge for rumors. The cork float is his.",
         "2. DC 10 Dexterity (Acrobatics) on the slick step. Failure: Prone, wet, no damage, and the fare box spills Tamsin's spare chalk.",
         "3. A gull drops a scrap of reed-cloth with one stitched letter N. It matches the NIGHT FLOW marks later. It is not the only copy.",
-        "4. One SRD Hunter Shark fin in the stair's shadow. It leaves if they do not enter the water. 2014: Bite +6, reach 5 ft., 13 (2d8+4) piercing; Blood Frenzy; blindsight 30 ft.; speed 0 ft., swim 40 ft. 2024: 14 (3d6+4), blindsight 60 ft., speed 5 ft. AC 12, HP 45, Water Breathing only. If they fight it here, remove one skimmer from the channel later.",
+        "4. One SRD Hunter Shark fin in the stair's shadow. It leaves if they do not enter the water. 2014: Bite +6, reach 5 ft., 13 (2d8+4) piercing; Blood Frenzy; blindsight 30 ft. 2024: 14 (3d6+4), blindsight 60 ft. AC 12, HP 45, Water Breathing only. If they fight it here, remove one skimmer from the channel later.",
         "5. Noll hums the wrong three notes on purpose, then stops, ashamed. Color. The real sequence is in the bell-house.",
         "6. A coil of rope, 50 feet, mundane. Taking it helps the rescue and is not required."
       ],
@@ -1496,9 +1496,9 @@
             "cr": "2",
             "xp": 450,
             "statBlock": "SRD Hunter Shark, reskinned as a Mere skimmer. Large. Water Breathing only. AC 12, HP 45, CR 2, 450 XP.",
-            "attack": "2014: Bite +6, reach 5 ft., 13 (2d8+4) piercing; Blood Frenzy; blindsight 30 ft.; speed 0 ft., swim 40 ft. 2024: 14 (3d6+4), blindsight 60 ft., speed 5 ft. Bite +6, reach 5 ft., Advantage if the target is missing any Hit Points.",
+            "attack": "2014: Bite +6, reach 5 ft., 13 (2d8+4) piercing; Blood Frenzy; blindsight 30 ft. 2024: 14 (3d6+4), blindsight 60 ft. Bite +6, reach 5 ft., Advantage if the target is missing any Hit Points.",
             "trait": "Water Breathing: it can breathe only underwater. It can reach a creature at the rail and cannot chase across the deck. A struck cork float within 60 feet draws the skimmers for 1 round.",
-            "edition2024": "2024: 14 (3d6+4), blindsight 60 ft., speed 5 ft. Bite +6, reach 5 ft., Advantage if the target is missing any Hit Points. AC 12, HP 45.",
+            "edition2024": "2024: 14 (3d6+4), blindsight 60 ft. Bite +6, reach 5 ft., Advantage if the target is missing any Hit Points. AC 12, HP 45.",
             "tactics": "Ram the hull, bite anyone in the water or leaning on the rail, and break off when bloodied. They are not the mystery."
           }
         ],
