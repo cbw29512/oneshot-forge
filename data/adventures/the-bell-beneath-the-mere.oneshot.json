@@ -4,10 +4,10 @@
     "id": "the-bell-beneath-the-mere",
     "title": "The Bell Beneath the Mere",
     "systemCompatibility": "5E-compatible fantasy RPG",
-    "partyLevel": 3,
+    "partyLevel": 6,
     "partySize": 4,
     "partySizeRange": "3–6 players (tuned for 4)",
-    "durationMinutes": 150,
+    "durationMinutes": 210,
     "tone": [
       "flooded ruin",
       "ghost mystery",
@@ -19,12 +19,30 @@
     "episode": 6,
     "hub": "Oakhaven",
     "giver": "Ferryman Noll Vey",
-    "nextTitle": "The Founders' Crypt"
+    "nextTitle": "The Founders' Crypt",
+    "level": 6,
+    "worth": "exactly one level",
+    "questGiver": {
+      "name": "Noll Vey",
+      "npcId": "npc-noll",
+      "why": "His apprentice is missing and the bell is ringing on his water. He hires the party at the ferry stair."
+    },
+    "mayorFrame": "Only level 1 and level 10 are the mayor's quests. This module's giver is the NPC in questGiver. Do not move this job onto the mayor's desk.",
+    "pace": [
+      "1 hook",
+      "2 rolled encounter",
+      "3 clearer direction",
+      "4 rolled encounter while traveling",
+      "5 arrival, trap, and puzzle",
+      "6 the holder of the goal",
+      "7 return to Oakhaven and settle",
+      "8 lead to the next module"
+    ]
   },
   "setup": {
     "pitch": "The Night Spring soundings end beneath the Mere, where a drowned warning bell has begun ringing underwater and a ferryman's apprentice vanished while investigating it.",
     "openingLocation": "Noll Vey's ferry landing on the Mere",
-    "gmSummary": "The party follows blackwater soundings to the Mere after locals hear a bell ringing beneath still water. Ferryman Noll Vey's apprentice, Tamsin Reed, disappeared while checking the flooded bell-house. The party crosses reed channels, descends through a half-submerged bell-house, and reconstructs a three-note warning sequence from physical inscriptions and drowned keeper records. The apparent haunting is Bellkeeper Ysra, who is not trying to drown intruders; she is repeatedly sounding the old contamination warning because the Night Spring is carrying buried corruption into the Mere. Ringing the proper sequence opens the founder's dry archive chamber, releases Ysra from duty, and reveals that the spring was deliberately diverted from beneath Oakhaven's Founders' Crypt generations ago.",
+    "gmSummary": "The party follows blackwater soundings to the Mere after locals hear a bell ringing beneath still water. Ferryman Noll Vey's apprentice, Tamsin Reed, disappeared while checking the flooded bell-house. The party crosses reed channels, descends through a half-submerged bell-house, and reconstructs a three-note warning sequence from physical inscriptions and drowned keeper records. The apparent haunting is Bellkeeper Ysra, who is not trying to drown intruders; she is repeatedly sounding the old contamination warning because the Night Spring is carrying buried corruption into the Mere. Ringing the proper sequence opens the founder's dry archive chamber, releases Ysra from duty, and reveals that the spring was deliberately diverted from beneath Oakhaven's Founders' Crypt generations ago. Pace: Noll's hire at the stair, a rolled encounter before the chart, the false buoy, a second roll on the crossing, arrival at the bell-house with the water trap and the note puzzle, Ysra holding the warning, the return to the stair, and the Founders' Crypt lead.",
     "background": "Before Oakhaven built its later wards, the Mere bell-house monitored groundwater and flood channels. Bellkeeper Ysra was ordered to sound three notes if tainted water reached the Mere. During a catastrophic flood, the bell-house sank, Ysra died at her post, and the warning system was abandoned. The Night Spring now carries the same corruption route past the Ashen Bridge into the Mere. Ysra's echo continues the last duty she understood: ring the warning until someone answers correctly.",
     "standaloneStart": "If prior Oakhaven modules were not played, Noll Vey hires the party after his apprentice Tamsin disappears near a submerged bell-house that has started ringing beneath calm water."
   },
@@ -298,9 +316,63 @@
       "connections": [
         "loc-bell-house"
       ]
+    },
+    {
+      "id": "loc-ferry-stair",
+      "name": "Oakhaven ferry stair",
+      "description": "The ferry stair drops from Oakhaven's east street to a black skiff and a peg for a red scarf. The water here still has ripples. It smells of rope, tar, and cold iron. Noll Vey keeps the fare box nailed to the rail where he can see it without looking.",
+      "tags": [
+        "oakhaven",
+        "travel"
+      ]
     }
   ],
   "scenes": [
+    {
+      "id": "scene-noll-hire",
+      "title": "The Scarf Is Off the Peg",
+      "purpose": "Hook the party at Oakhaven's ferry stair: Noll's apprentice is missing and a bell is ringing where the Mere should be quiet.",
+      "paceBeat": 1,
+      "locationId": "loc-ferry-stair",
+      "readAloud": "Noll Vey stands on the ferry stair with one hand on the empty peg where Tamsin Reed's red scarf should be. The skiff knocks the piling in an ordinary way. Noll does not look ordinary. “She went to answer a bell,” he says. “The Mere is flat. Bells do not ring under flat water unless somebody built them to. I will pay you to bring her back. I will pay you more if you can tell me why the bell thinks it still has a job.”",
+      "gmNotes": [
+        "Noll rows them. If he is refused or killed, the skiff is unlocked and Tamsin's chart is in the fare box. The night continues.",
+        "He believes the bell is a haunting. That belief is incomplete, not a lie he is telling on purpose.",
+        "Do not reveal the founders' diversion on the stair."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [
+        "npc-noll"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-stair-roll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-stair-roll",
+          "label": "Cast off",
+          "description": "Roll once before the chart is clear."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Give the job",
+          "text": "Bring Tamsin back. Find out why the bell is ringing. Name the pay from the endings, not a new number."
+        },
+        {
+          "title": "Show the empty peg",
+          "text": "The scarf is the personal stake. The bell is the mystery."
+        },
+        {
+          "title": "Noll's limit",
+          "text": "He will not dive. He will row. If they attack him, use no stat block beyond a commoner and let the chart carry the job."
+        }
+      ],
+      "advanceWhen": "The party is in the skiff or has taken it, and the stair is behind them."
+    },
     {
       "id": "scene-landing",
       "title": "A Bell Under Still Water",
@@ -363,7 +435,7 @@
       "flowLabel": "Approach",
       "readAloud": "The channel narrows until reeds brush both sides of the ferry. Black bubbles rise in straight rows beneath you, each one popping without sound. Ahead, three white ferry markers lean toward the same sunken roof. Then something bumps the hull from below hard enough to rock the lantern.",
       "gmNotes": [
-        "Two Mere Skimmers circle the ferry but are attracted to vibration, not blood.",
+        "Four Mere Skimmers circle the ferry but are attracted to vibration, not blood.",
         "The party can distract them by throwing one cork float and striking the hull away from the bell-house; no check required.",
         "A physical survey marker carved with NIGHT FLOW points directly from the Ashen Bridge direction toward the bell-house.",
         "If combat occurs, skimmers retreat once one is bloodied."
@@ -593,7 +665,7 @@
       "readAloud": "The final low note fades across the Mere instead of beneath it. Ysra appears once in the reflection beside Tamsin, no water pouring from her sleeves now. “Warning answered,” she says. Then the bell stops moving. At the landing, Noll grips Tamsin by both shoulders before remembering to pretend he is angry.",
       "gmNotes": [
         "Award 125 gp total.",
-        "Noll gives the party a Mereglass Token: once per long rest, gain advantage on one saving throw against being pushed, pulled, or knocked Prone.",
+        "On the release ending, Noll gives Boots of Elvenkind (SRD 5.2, uncommon, no attunement line): silent steps and Advantage on Dexterity (Stealth). If your SRD 5.1 copy requires attunement, use that rule. The custom Boots of Elvenkind is not awarded.",
         "The bell-house becomes quiet.",
         "The Founders' Crypt service-tunnel map is retained for Module 07."
       ],
@@ -604,7 +676,7 @@
         },
         {
           "title": "Award closure",
-          "text": "Give the Mereglass Token."
+          "text": "Give the Boots of Elvenkind."
         },
         {
           "title": "Point home",
@@ -620,7 +692,16 @@
         "clue-crypt"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-noll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-noll",
+          "label": "Return to Noll",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
     },
     {
       "id": "scene-resolution-silence",
@@ -636,7 +717,7 @@
       "gmNotes": [
         "Award 110 gp total.",
         "Tamsin survives and the archive truth is preserved.",
-        "No Mereglass Token is awarded.",
+        "No Boots of Elvenkind is awarded.",
         "The service tunnel still points to the Founders' Crypt."
       ],
       "runSteps": [
@@ -662,7 +743,16 @@
         "clue-crypt"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-noll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-noll",
+          "label": "Return to Noll",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
     },
     {
       "id": "scene-resolution-preserve",
@@ -704,7 +794,240 @@
         "clue-crypt"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-noll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-noll",
+          "label": "Return to Noll",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
+    },
+    {
+      "id": "scene-stair-roll",
+      "title": "Roll at the Stair",
+      "purpose": "A rolled encounter at the ferry stair before the route across the Mere is clear.",
+      "paceBeat": 2,
+      "locationId": "loc-ferry-stair",
+      "readAloud": "The stair's lower step is slick and the fare box ticks in the wash. Someone has tied a new cork float beside Noll's old one, painted like a channel buoy and pointing at open water that is not the bell-house. The skiff is ready. The direction is not, until you roll.",
+      "gmNotes": [
+        "Roll 1d6 in the open. Use that row only. This is not a fixed fight.",
+        "The row never carries the only copy of a required clue. Skipping it does not stop the night.",
+        "1. A dock idler says the bell is a loose buoy knocking a hull. He has not been out. DC 10 Wisdom (Insight): he wants the ferry to stay shut so he can charge for rumors. The cork float is his.",
+        "2. DC 10 Dexterity (Acrobatics) on the slick step. Failure: Prone, wet, no damage, and the fare box spills Tamsin's spare chalk.",
+        "3. A gull drops a scrap of reed-cloth with one stitched letter N. It matches the NIGHT FLOW marks later. It is not the only copy.",
+        "4. One SRD Hunter Shark fin in the stair's shadow. It leaves if they do not enter the water. Confirmed 2024: AC 12, HP 45, Bite +6, 14 (3d6+4), Advantage if the target is missing any HP, Water Breathing only. If they fight it here, remove one skimmer from the channel later.",
+        "5. Noll hums the wrong three notes on purpose, then stops, ashamed. Color. The real sequence is in the bell-house.",
+        "6. A coil of rope, 50 feet, mundane. Taking it helps the rescue and is not required."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-buoy-lie"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-buoy-lie",
+          "label": "Read the chart",
+          "description": "The rolled row is done and the road continues."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Roll in the open",
+          "text": "Tell the table this beat is a roll, not a scripted monster. Roll 1d6 where everyone can see it."
+        },
+        {
+          "title": "Run only that row",
+          "text": "Read the matching row. If it is the combat row, offer the listed way out before initiative."
+        },
+        {
+          "title": "Move on either way",
+          "text": "Success and failure both leave the party able to continue. Do not gate the next scene on this roll."
+        }
+      ],
+      "advanceWhen": "One rolled row has been resolved and the party is moving again."
+    },
+    {
+      "id": "scene-buoy-lie",
+      "title": "The Buoy Is Not the Bell",
+      "purpose": "Give a clear course to the sunken bell-house and retire the loose-buoy red herring.",
+      "paceBeat": 3,
+      "locationId": "loc-ferry-stair",
+      "readAloud": "Two courses are tied to the same piling. A new white cork float points at open water and a dock idler calls the bell a loose buoy knocking a hull. Tamsin's chart, still folded in the fare box, draws a line of soundings from the Ashen Bridge's direction to a square marked BELL, and that square is not where the white float points. Noll has orange paint under one nail and none of the white. He looks at the float as if it owes him money. He does not say he is sure.",
+      "gmNotes": [
+        "Quest giver is Noll Vey, the ferryman. He wants Tamsin Reed back and he will pay to know why the bell is ringing. He believes it is a haunting. That belief is incomplete. The mayor does not give this job.",
+        "Lead A, red herring: the white buoy and the idler. Motive: the idler wants the ferry shut so he can charge for rumors. The paint is fresh and the wrong color. Tamsin paints buoys orange. Chasing the float costs about ten minutes and finds empty water.",
+        "Lead B: Noll. Motive: fear for his apprentice, and a habit of blaming ghosts before paper. He will row. He will not dive. If he is refused or dead, the chart is still in the fare box.",
+        "Lead C, physical: Tamsin's chart and, if they found it, the reed-cloth scrap stitched with N. The chart is the course. It does not explain the founders yet.",
+        "Let them question the idler and Noll, and let them row the wrong water once. The square on the chart is still there when they come back."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [
+        "npc-noll"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-mere-roll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-mere-roll",
+          "label": "Row the sounding line",
+          "description": "Roll once on the crossing."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Put the leads on the table",
+          "text": "Name the people and the physical claims. Let the players choose the order. Do not announce which one is true."
+        },
+        {
+          "title": "Play the motive",
+          "text": "Each person wants something. A false lead has a reason. Answer questions in that person's voice."
+        },
+        {
+          "title": "Wrong turns fail forward",
+          "text": "Checking the red herring costs about ten minutes. The true route is still in their hands afterward, on paper or on the ground."
+        }
+      ],
+      "advanceWhen": "The party is rowing the chart's line, not the decoy."
+    },
+    {
+      "id": "scene-mere-roll",
+      "title": "Roll on the Crossing",
+      "purpose": "A rolled encounter while traveling the Mere toward the bell-house.",
+      "paceBeat": 4,
+      "locationId": "loc-reed-channel",
+      "readAloud": "The Mere goes flat as soon as the stair is behind you. Ripples die without a reason you can point at. Reed islands stand like stitches. Somewhere ahead a bell rings once, under the water, and the skiff's boards answer it through your boots. You are not at the landing. Roll.",
+      "gmNotes": [
+        "Roll 1d6 in the open. Use that row only. This is not a fixed fight.",
+        "The row never carries the only copy of a required clue. Skipping it does not stop the night.",
+        "1. A floating oar, Tamsin's initials burned in the grip. DC 10 Wisdom (Perception) spots it. Failure: it knocks the hull and they have it anyway.",
+        "2. DC 10 Strength (Athletics) against a reed snag. Failure: lose five minutes cutting free. The bell rings again so they cannot miss the direction.",
+        "3. Fog for one minute. It hides nothing that matters. The chart still points.",
+        "4. A single Mere Skimmer bumps the hull and leaves. Use the Hunter Shark block if they attack. Otherwise it is a warning, not initiative.",
+        "5. Noll, if present, almost says the founders' names and swallows them. He does not know the diversion. Do not give it away.",
+        "6. A dry tin with chalk and a half-rubbing of one bell note. It helps the puzzle later and is not the only rubbing."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-landing"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-landing",
+          "label": "Reach the landing",
+          "description": "The rolled row is done and the road continues."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Roll in the open",
+          "text": "Tell the table this beat is a roll, not a scripted monster. Roll 1d6 where everyone can see it."
+        },
+        {
+          "title": "Run only that row",
+          "text": "Read the matching row. If it is the combat row, offer the listed way out before initiative."
+        },
+        {
+          "title": "Move on either way",
+          "text": "Success and failure both leave the party able to continue. Do not gate the next scene on this roll."
+        }
+      ],
+      "advanceWhen": "One rolled row has been resolved and the party is moving again."
+    },
+    {
+      "id": "scene-return-noll",
+      "title": "Noll Takes the Count",
+      "purpose": "Return to Oakhaven's ferry stair and settle with Noll, including the Boots of Elvenkind if Ysra was released.",
+      "paceBeat": 7,
+      "locationId": "loc-ferry-stair",
+      "readAloud": "The ferry stair has ripples again, or it does not, and Oakhaven can hear the difference from the street. Noll is at the peg. He does not ask about founders first. He asks whether Tamsin climbed the stair under her own power. The fare box is open. Inside it, under the coin, is a pair of soft grey boots that do not quite touch the wood the way boots should.",
+      "gmNotes": [
+        "Pay the gold from the ending they chose.",
+        "Release ending: the boots are Boots of Elvenkind. SRD 5.2, uncommon, no attunement line printed: silent steps and Advantage on Dexterity (Stealth). SRD 5.1 attunement was not re-read from a 5.1 PDF. If that printing requires attunement, use it at a 2014 table.",
+        "Silence and Preserve endings do not include the boots. The custom Boots of Elvenkind is retired. Series level-6 pregens assume the release ending."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [
+        "npc-noll"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-lead-crypt"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-lead-crypt",
+          "label": "Open the service map",
+          "description": "Take the Founders' Crypt lead."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Tamsin first",
+          "text": "Say whether she is alive. Noll's face follows that answer, not the politics."
+        },
+        {
+          "title": "Pay and boots",
+          "text": "Coin always. Boots only if Ysra was released."
+        },
+        {
+          "title": "What the town will say",
+          "text": "Ask what they tell Oakhaven about the founders. That choice is already in the ending."
+        }
+      ],
+      "advanceWhen": "Noll has paid, Tamsin's fate is known, and any boots have been given or withheld."
+    },
+    {
+      "id": "scene-lead-crypt",
+      "title": "Resolution: The Stair under the Town",
+      "purpose": "End the Mere and point at the Founders' Crypt, which is the planned level-7 module and is not written yet.",
+      "paceBeat": 8,
+      "locationId": "loc-ferry-stair",
+      "readAloud": "The service-tunnel sketch from the archive, or Noll's copy of the rubbing, ends under a building the town still uses. The label is plain: FOUNDERS' CRYPT. The passage is sealed on the Oakhaven side by a door the ferry stair does not open. Noll folds the paper. “That is not a bell,” he says. “That is the people who moved the water. I will not row you there. It is under our own street, and it can wait until you are ready to knock.”",
+      "gmNotes": [
+        "Level 7, the Founders' Crypt, is planned and not written. Do not improvise it as a published module. Stop on the lead.",
+        "This module was worth the step from 6 toward 7. Say that, then stop.",
+        "The archive map, Ysra's memory, and this rubbing are three sources. Losing Noll does not erase the paper."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 8,
+      "npcIds": [
+        "npc-noll"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [],
+      "runSteps": [
+        {
+          "title": "Show the crypt",
+          "text": "The passage returns under Oakhaven to the Founders' Crypt."
+        },
+        {
+          "title": "Say it is not ready",
+          "text": "The next module is not on the table yet. Do not invent the crypt's rooms."
+        },
+        {
+          "title": "Close",
+          "text": "End at the stair."
+        }
+      ],
+      "advanceWhen": "The crypt lead is recorded and play stops."
     }
   ],
   "clues": [
@@ -779,7 +1102,7 @@
       "objective": "Reach the drowned bell-house without losing the ferry.",
       "resolution": "Distract, drive off, or bloody the skimmers; they do not pursue into the ruin.",
       "talkOut": "They are animals and do not negotiate.",
-      "bypass": "Throw a cork float and strike the water away from the bell-house; both skimmers follow it for long enough to reach the ruin.",
+      "bypass": "Throw a cork float and strike the water away from the bell-house; the skimmers follow it for long enough to reach the ruin.",
       "special": "A bloodied skimmer retreats immediately."
     },
     {
@@ -833,7 +1156,7 @@
       "name": "Cork Floats",
       "kind": "tool",
       "description": "Three bright ferry floats.",
-      "effect": "One can distract both Mere Skimmers long enough to bypass the approach encounter."
+      "effect": "One can distract the Mere Skimmers long enough to bypass the approach encounter."
     },
     {
       "id": "item-charcoal-rubbing",
@@ -844,10 +1167,10 @@
     },
     {
       "id": "item-mereglass-token",
-      "name": "Mereglass Token",
-      "kind": "original magic item",
-      "description": "A flat piece of blue-gray glass drilled for a cord.",
-      "effect": "Once per long rest, gain advantage on one saving throw against being pushed, pulled, or knocked Prone."
+      "name": "Boots of Elvenkind",
+      "kind": "magic item",
+      "description": "Soft grey boots from the fare box, given if Ysra is released.",
+      "effect": "SRD 5.2 Boots of Elvenkind, uncommon, no attunement line: steps make no sound, and the wearer has Advantage on Dexterity (Stealth) checks. Whether SRD 5.1 requires attunement was not re-read from a 5.1 PDF. The custom Mereglass Token is not awarded."
     },
     {
       "id": "item-founder-map",
@@ -967,7 +1290,7 @@
       "id": "ending-release",
       "name": "Warning Answered",
       "condition": "Archive recovered and Ysra formally released with the answered warning.",
-      "result": "Tamsin safe; 125 gp; Mereglass Token; bell quiet; Founders' Crypt lead."
+      "result": "Tamsin safe; 125 gp; Boots of Elvenkind; bell quiet; Founders' Crypt lead."
     },
     {
       "id": "ending-silence",
@@ -1039,10 +1362,11 @@
     ]
   },
   "pacing": {
-    "targetMinutes": 150,
-    "plannedMinutes": 155,
+    "targetMinutes": 210,
+    "plannedMinutes": 249,
     "bossReserveMinutes": 35,
     "cutOrder": [
+      "If the table is behind, resolve each rolled row in one sentence. Do not skip the return to Oakhaven or the lead into the next module.",
       "If 20+ minutes behind, remove the Mere Skimmers and deliver the NIGHT FLOW marker as the ferry reaches the ruin.",
       "If 15+ minutes behind at the bell, have Tamsin's rubbing already visible through the grate.",
       "Never cut Tamsin's rescue, the founder diversion reveal, or Ysra's final choice."
@@ -1055,7 +1379,7 @@
   },
   "initialState": {
     "questStage": "offered",
-    "currentSceneId": "scene-landing",
+    "currentSceneId": "scene-noll-hire",
     "discoveredClueIds": [],
     "revealedSecretIds": [],
     "npcState": {
@@ -1109,7 +1433,7 @@
     "adventureId": "the-bell-beneath-the-mere",
     "version": "0.1.0",
     "target": {
-      "level": 3,
+      "level": 6,
       "partySize": 4
     },
     "requiredCheckIds": [
@@ -1160,27 +1484,28 @@
       {
         "id": "enc-mere-skimmers",
         "objective": "Reach the drowned bell-house with the ferry intact.",
-        "start": "Two Mere Skimmers bump the ferry in the reed channel.",
-        "bypass": "Throw one cork float and strike the water away from the ruin; both skimmers follow it.",
+        "start": "Four Mere Skimmers bump the ferry in the reed channel.",
+        "bypass": "Throw one cork float and strike the water away from the ruin. The skimmers follow it. They breathe only underwater and cannot chase across the deck.",
         "creatures": [
           {
             "name": "Mere Skimmer",
-            "count": 2,
+            "count": 4,
             "ac": 12,
-            "hp": 22,
-            "speed": "swim 40 ft.",
-            "cr": "1/2",
-            "xp": 100,
-            "statBlock": "SRD Reef Shark, reskinned as a blunt-nosed freshwater skimmer. Blindsight 30 ft.; breathes only underwater.",
-            "attack": "Bite. Melee +4 to hit, reach 5 ft.; 6 (1d8+2) piercing. Against the ferry, describe hits as rams that rock the hull.",
-            "trait": "Pack Tactics: advantage on an attack roll if an ally is within 5 ft. of the target. Vibration Hunter: a struck cork float within 60 ft. draws both skimmers to it on their next turn.",
-            "edition2024": "Speed 5 ft., swim 30 ft. Bite +4 to hit, 7 (2d4+2) piercing.",
-            "tactics": "Hit swimmers or anyone leaning over the rail; retreat immediately when bloodied."
+            "hp": 45,
+            "speed": "5 ft., swim 40 ft.",
+            "cr": "2",
+            "xp": 450,
+            "statBlock": "SRD Hunter Shark, reskinned as a Mere skimmer. Large. Water Breathing only. Blindsight 60 ft.",
+            "attack": "2024, confirmed: Bite +6 to hit, reach 5 ft., 14 (3d6+4) piercing, with Advantage if the target is missing any Hit Points. 2014 Hunter Shark bite damage was not re-copied from SRD 5.1 in this pass. AC 12, HP 45, CR 2, and 450 XP are the figures used. If your 5.1 bite differs, use that bite at a 2014 table and do not also use the 3d6+4 line.",
+            "trait": "Water Breathing: it can breathe only underwater. It can reach a creature at the rail and cannot chase across the deck. A struck cork float within 60 feet draws the skimmers for 1 round.",
+            "edition2024": "Confirmed SRD 5.2 Hunter Shark: AC 12, HP 45 (6d10+12), speed 5 ft., swim 40 ft., Bite +6, 14 (3d6+4) piercing, Advantage if the target does not have all its Hit Points.",
+            "tactics": "Ram the hull, bite anyone in the water or leaning on the rail, and break off when bloodied. They are not the mystery."
           }
         ],
         "end": "Skimmers are distracted, driven away, or one is bloodied.",
-        "balance": "4 × level 3: 200 XP, ×1.5 = 300 adjusted → Easy (2014 DMG); below Low (2024 budget). Light by design; they only reach characters at the rail or in the water.",
-        "scaling": "3 PCs: 2 skimmers, and they lose Pack Tactics against a character standing mid-ferry. 5 PCs: 3 skimmers. 6 PCs: 4 skimmers."
+        "balance": "SRD 5.2.1 for 4 level-6 characters: Low 2400, Moderate 4000, High 5600. Creature XP spent: 1800, below the Low budget. Four hunter sharks stay under Low for four level-6 characters. They cannot cross the deck. The bell is the point. SRD 5.1 prints monster XP and does not include an encounter-budget table, so this module does not invent a 2014 Easy/Medium/Hard/Deadly label.",
+        "scaling": "3 PCs: 3 skimmers (1350 XP) against Low 1800. 5 PCs: 5 skimmers (2250 XP) against Low 3000. 6 PCs: 5 skimmers (2250 XP) against Low 3600.",
+        "balanceWhy": "Four hunter sharks stay under Low for four level-6 characters. They cannot cross the deck. The bell is the point."
       },
       {
         "id": "enc-ysra-warning",
@@ -1214,7 +1539,7 @@
       {
         "id": "reward-release",
         "when": "Tamsin is rescued, archive recovered, and Ysra released.",
-        "reward": "125 gp total plus Mereglass Token."
+        "reward": "125 gp total plus Boots of Elvenkind."
       },
       {
         "id": "reward-silence",
@@ -1261,6 +1586,10 @@
   "flowContract": {
     "principle": "One rescue-and-mystery spine with a final social choice after the founder truth is recovered.",
     "mainSpine": [
+      "scene-noll-hire",
+      "scene-stair-roll",
+      "scene-buoy-lie",
+      "scene-mere-roll",
       "scene-landing",
       "scene-reeds",
       "scene-bell-house",
@@ -1271,9 +1600,7 @@
       "scene-archive"
     ],
     "terminalScenes": [
-      "scene-resolution-release",
-      "scene-resolution-silence",
-      "scene-resolution-preserve"
+      "scene-lead-crypt"
     ],
     "stageCount": 6
   },
@@ -1287,5 +1614,15 @@
       "2 — lower stair chest-deep; strong current",
       "3 — lower stair fully submerged; emergency air shaft required"
     ]
+  },
+  "pregenPack": "data/pregens/oakhaven-level-6-2014-srd.json",
+  "pregenPack2024": "data/pregens/oakhaven-level-6-2024-srd.json",
+  "rulesEditions": {
+    "supported": [
+      "2014 SRD 5.1",
+      "2024 SRD 5.2.1"
+    ],
+    "carryForward": "Level 6 sheets add the Boots of Elvenkind on Ness Quinn and still carry the wand, cloak, pearl, and +1 longsword.",
+    "unsettled": "SRD 5.1 has no encounter-budget table. Boots of Elvenkind attunement in SRD 5.1 was not re-read from a 5.1 PDF. Where a 2014 attack line is not copied, the scene says so and points at the 5.1 stat block."
   }
 }

@@ -3,6 +3,8 @@
 
   // Canonical browser registry for authored adventure-package paths.
   // Commerce/release state remains authoritative in data/products.json.
+  // Oakhaven series, one level each: hollow 2, watchtower 3, orchard 4, bridge 5, mere 6.
+  // Level 1 and level 10 are the mayor's quests and are not packages yet. Levels 7–9 are not written.
   window.ONE_SHOT_ADVENTURES = Object.freeze({
     "the-lantern-below": "data/adventures/the-lantern-below.oneshot.json",
     "the-well-that-would-not-dry": "data/adventures/the-well-that-would-not-dry.oneshot.json",

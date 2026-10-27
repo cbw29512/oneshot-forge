@@ -25,7 +25,7 @@
     <section class="print-hide land-section" style="border-top:0">
       <p class="eyebrow ember">Table-complete · 2014 SRD · level 4</p>
       <h1>Character sheets</h1>
-      <p class="lede short">Click <b>2014 SRD</b> or <b>2024 SRD</b> at the top. Same six people, rebuilt on that edition. Beyond cannot import them. Print them.</p>
+      <p class="lede short">Click <b>2014 SRD</b> or <b>2024 SRD</b> at the top. The Quiet Seals six are the default. An Oakhaven module link loads that module’s four heroes instead. Beyond cannot import them. Print them.</p>
     </section>
     <div id="sheets"></div>
   </main>
@@ -506,12 +506,19 @@
     const params = new URLSearchParams(window.location.search);
     const requestedPack = params.get("pack") || "";
     const owlbearMode = requestedPack === "owlbear-arms";
+    const oakhavenLevel = (/^oakhaven-([2-6])$/.exec(requestedPack) || [])[1] || "";
     const edition = owlbearMode ? "2014" : ((typeof getRuleset === "function" && getRuleset() === "2024") ? "2024" : "2014");
     const packUrl = owlbearMode
       ? "data/pregens/owlbear-arms-level-6-2014-srd-v1.2.json?v=1.2"
-      : edition === "2024"
+      : oakhavenLevel
+        ? "data/pregens/oakhaven-level-" + oakhavenLevel + "-" + edition + "-srd.json?v=1"
+        : edition === "2024"
         ? "data/pregens/quiet-seals-level-4-2024-srd.json?v=m"
         : "data/pregens/quiet-seals-level-4-2014-srd.json?v=m";
+    if (oakhavenLevel) {
+      const intro = document.querySelector(".sheets-wrap > .land-section");
+      if (intro) intro.innerHTML = '<p class="eyebrow ember">Oakhaven series · level ' + oakhavenLevel + ' · ' + (edition === "2024" ? "SRD 5.2.1" : "SRD 5.1") + '</p><h1>Four series heroes</h1><p class="lede short">Calder Voss, Ness Quinn, Halden Moss, and Mira Quill, built for this module. They carry the permanent magic items earned on the best path of every earlier Oakhaven module. Use the edition toggle to switch 2014 and 2024. A table that did not play those modules can set the extra items aside.</p>';
+    }
     if (owlbearMode) {
       const intro = document.querySelector(".sheets-wrap > .land-section");
       if (intro) intro.innerHTML = '<p class="eyebrow ember">Right to OwlBear Arms v1.2 · Table-complete · 2014 SRD · level 6</p><h1>Five repaired hero sheets</h1><p class="lede short">Rowan, Dagna, Sylvi, Liora, and Thalen rebuilt to the One-Shot Forge print standard: all six saves, all 18 skills, attacks, resources, combat features, and spell procedures. Print one or print all.</p>';
@@ -526,7 +533,7 @@
         const allCharacters = pack.characters || [];
         const screenHtml =
           rec.map(sheetHtml).join("") +
-          (owlbearMode
+          (owlbearMode || oakhavenLevel
             ? rest.map(sheetHtml).join("")
             : edition === "2024"
               ? '<p class="print-hide" style="padding:1rem 1.5rem">The extra six classes are still 2014-only. Tonight’s table is these six.</p>'

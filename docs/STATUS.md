@@ -16,11 +16,28 @@ Live: https://cbw29512.github.io/oneshot-forge/
 
 ## Standalone one-shots (outside The Quiet Seals)
 - The Owlbear Egg — standalone one-shot, NOT a Quiet Seals night. Owner confirmed 2026-09-26. Do not fold it into `data/campaigns/quiet-seals.campaign.json` or the recipe night list. Reuses the shared level-4 pregens.
-- Whispers of the Oakhaven Hollow — Oakhaven Module 02, standalone curated lane, Level 3 / 4 players / 2–3 hours. Review/free-preview state with $0.99 target; no checkout claim until commercial gates pass.
-- Beneath the Eastern Watchtower — Oakhaven Module 03, standalone curated lane, Level 3 / 4 players / 2–3 hours. Artifact/environment finale; review/free-preview state with $0.99 target.
-- The Black Orchard — Oakhaven Module 04, standalone curated lane, Level 3 / 4 players / 2–3 hours. Rescue + resource-choice finale; review/free-preview state with $0.99 target.
-- The Ashen Bridge — Oakhaven Module 05, standalone curated lane, Level 3 / 4 players / 2–3 hours. Timed rescue/infrastructure finale; review/free-preview state with $0.99 target.
-- The Bell Beneath the Mere — Oakhaven Module 06, standalone curated lane, Level 3 / 4 players / 2–3 hours. Flooded ghost mystery + social-choice finale; review/free-preview state with $0.99 target.
+- Whispers of the Oakhaven Hollow — Oakhaven Module 02, Level 2, Old Man Kaelen's quest, 3–6 players (tuned for 4), about 3–4 hours. Review/free-preview, $0.99 target, no checkout.
+- Beneath the Eastern Watchtower — Oakhaven Module 03, Level 3, Captain Edda Marr's quest, 3–6 players (tuned for 4), about 3–4 hours. Review/free-preview, $0.99 target, no checkout.
+- The Black Orchard — Oakhaven Module 04, Level 4, the survey office's quest, 3–6 players (tuned for 4), about 3–4 hours. Review/free-preview, $0.99 target, no checkout.
+- The Ashen Bridge — Oakhaven Module 05, Level 5, Soren Vale's quest, 3–6 players (tuned for 4), about 3–4 hours. Review/free-preview, $0.99 target, no checkout.
+- The Bell Beneath the Mere — Oakhaven Module 06, Level 6, Noll Vey's quest, 3–6 players (tuned for 4), about 3–4 hours. Review/free-preview, $0.99 target, no checkout.
+
+## Oakhaven level chain
+One module per level, levels 1–10. Each written module is worth exactly one level. $0.99 each. Built for a starter DM. The five written nights can be run in order as a fast mini-campaign or dropped into another campaign at the matching level.
+
+Only level 1 and level 10 are the mayor's quests. The mayor's personal name is not invented in these files. Every other module's quest giver is the Oakhaven NPC the story already belongs to.
+
+- Level 1 — not written. The mayor opens the series, introduces Oakhaven, and points at the Hollow. Do not call this module available. Later pregens do not carry an item from it.
+- Level 2 — Whispers of the Oakhaven Hollow. Giver: Old Man Kaelen. Permanent item: Wand of Secrets, carried by Ness Quinn.
+- Level 3 — Beneath the Eastern Watchtower. Giver: Captain Edda Marr. Permanent item: Cloak of Protection (the Saltglass Cloak), carried by Halden Moss.
+- Level 4 — The Black Orchard. Giver: the survey office, because Lio Derran did not come back. Vessa Thorn speaks for the orchard; she is a claimant, not the poster. Permanent item: Pearl of Power, carried by Mira Quill, on the living-graft ending.
+- Level 5 — The Ashen Bridge. Giver: Soren Vale, by the slate at the east gate. Permanent item: +1 longsword, carried by Calder Voss, on the ending that saves the people and the span.
+- Level 6 — The Bell Beneath the Mere. Giver: Noll Vey. Permanent item: Boots of Elvenkind, carried by Ness Quinn, on the ending that releases Ysra.
+- Level 7 — not written. The Mere already leads to the Founders' Crypt. The giver should be whichever Oakhaven NPC owns that door. Do not make it the mayor unless Chris says so. Do not improvise the crypt as a playable module.
+- Levels 8 and 9 — not written and not assigned. Two NPC quests still have to sit between the crypt and the mayor's last job. Do not invent those NPCs or plots until Chris confirms them.
+- Level 10 — not written. The mayor closes the series.
+
+Consumable potions do not carry onto the next sheet. Series pregens assume the best-path permanent item from each earlier module and say so. Custom items (Ring of Plant Protection, Saltglass Brooch, Graftwood Charm, Mereglass Token) are retired. Encounter budgets use the SRD 5.2.1 XP table only. SRD 5.1 has no matching budget table, so these modules do not invent 2014 Easy/Medium/Hard/Deadly labels.
 
 ## Auditor
 - Auditor pass: Night 1 — The Lantern Below — 2026-09-20
@@ -61,6 +78,10 @@ Live: https://cbw29512.github.io/oneshot-forge/
 - Write two curated Quiet Seals nights in one day
 
 ## Last session
+2026-10-27 — Oakhaven series pass. Releveled Modules 02–06 to levels 2–6, one level each. Quest givers stay the story NPCs: Kaelen, Marr, the survey office, Soren Vale, and Noll Vey. The mayor is reserved for the unwritten level 1 opening and level 10 closing. Each written module now runs hook, a rolled encounter, a suspect-and-red-herring direction beat, a second rolled encounter on the road, the existing arrival with its trap and puzzle, the holder of the goal, the return to Oakhaven, and a lead into the next module. Magic items are SRD only and carry forward on both-edition pregen packs at `data/pregens/oakhaven-level-2` through `oakhaven-level-6`. Levels 7–9 and both mayor modules remain unwritten. See the Oakhaven level chain above.
+
+Rules not settled from a 5.1 PDF in this pass: SRD 5.1 has no encounter-budget table. Boots of Elvenkind attunement in SRD 5.1 was not re-read. 2014 Beacon of Hope and Spiritual Weapon are on the Life lists and were not copied onto the sheets. 2014 Hunter Shark bite damage and 2014 Giant Constrictor bite and constrict numbers were not re-copied; the adventures tell the table to use the 5.1 block, and they print the confirmed 5.2 numbers beside that warning. Wand of Secrets uses a Magic action in 5.2; the 2014 action name was not re-copied. 2024 Cure Wounds is 2d8+mod and Healing Word is 2d4+mod; 2014 is 1d8+mod and 1d4+mod. 2024 Lesser Restoration is a Bonus Action and does not mention disease; 2014 is an action and can end one disease. 2024 subclasses start at level 3. 2014 Life is level 1, Evocation is level 2, and Champion and Thief are level 3.
+
 2026-10-05 — Added Cryptid Case 02: `The Lanternback of Reedwater`, Level 2 for 3–5 players, 2–3 hours. Investigation shape differs from Fencewalker: conflicting witness accounts → contaminated-water evidence → deliberate observation/theory test → missing-fisher rescue reveal → trace poison to abandoned Sableworks → environmental containment finale. The Lanternback is blamed for overturning boats and taking livestock but is actually pushing boats away from poisoned water and carrying stunned creatures to dry ground. Added two player-safe maps, product page, runner/product/job-board registration, catalog card, and theme audit entry.
 2026-10-05 — Added an in-world adventurer job board to the hero page. Notices read as `WANTED: adventurers for...` jobs rather than criminal bounties and link directly into existing one-shots. Initial board includes Fencewalker, Lantern, Well, Owlbear Egg, Black Orchard, and Bell Beneath the Mere. Added physical corkboard/pinned-note styling and top-nav `Job Board` link.
 2026-10-05 — Added first low-level cryptid one-shot: `The Fencewalker of Bellmere`, Level 1 for 3–5 players, 2–3 hours. Theme: the cryptid blamed for stealing fence iron is using it to brace a storm-threatened limestone fissure beneath Bellmere Road. Six-stage flow: farm hook → rail tracking → creature reveal → fissure repair → storm finale → consequence. Includes STORM 0–3, three repair jobs, noncombat/attack routes, four endings, fail-forward clue redundancy, two player-safe SVG maps, product page, catalog card, runner registration, and full CI gates.

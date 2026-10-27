@@ -7,7 +7,7 @@
     "partyLevel": 3,
     "partySize": 4,
     "partySizeRange": "3–6 players (tuned for 4)",
-    "durationMinutes": 150,
+    "durationMinutes": 210,
     "tone": [
       "subterranean mystery",
       "ancient civic machinery",
@@ -19,12 +19,30 @@
     "episode": 3,
     "hub": "Oakhaven",
     "giver": "Captain Edda Marr",
-    "nextTitle": "The Black Orchard"
+    "nextTitle": "The Black Orchard",
+    "level": 3,
+    "worth": "exactly one level",
+    "questGiver": {
+      "name": "Captain Edda Marr",
+      "npcId": "npc-edda-marr",
+      "why": "The eastern watchtower is her post. The black threads are coming up through her wall."
+    },
+    "mayorFrame": "Only level 1 and level 10 are the mayor's quests. This module's giver is the NPC in questGiver. Do not move this job onto the mayor's desk.",
+    "pace": [
+      "1 hook",
+      "2 rolled encounter",
+      "3 clearer direction",
+      "4 rolled encounter while traveling",
+      "5 arrival, trap, and puzzle",
+      "6 the holder of the goal",
+      "7 return to Oakhaven and settle",
+      "8 lead to the next module"
+    ]
   },
   "setup": {
     "pitch": "The map recovered from the Whispering Hollow points beneath Oakhaven's eastern watchtower, where an ancient ward-engine is forcing black splinters up through the town's roots.",
     "openingLocation": "Eastern Watchtower, Oakhaven",
-    "gmSummary": "A marked map leads beneath Oakhaven's eastern watchtower. Captain Edda Marr reports black resin seeping from old mortar and allows the party into a sealed sally tunnel. The party crosses a flooded undercroft, survives territorial sump crawlers, and reaches a maintenance vault where three pressure gauges reveal the old system's purpose. The apparent corruption source is actually a civic ward-engine called the Gloam Sluice: it was built to pull supernatural rot away from Oakhaven and bury it in a salt sink. The salt channel collapsed years ago, pressure rose, and the emergency root vent began firing black splinters upward. The finale is an environmental repair under pressure. The party can safely restore the sluice by completing three repair jobs, or smash its overflow core for a faster but destructive shutdown.",
+    "gmSummary": "A marked map leads beneath Oakhaven's eastern watchtower. Captain Edda Marr reports black resin seeping from old mortar and allows the party into a sealed sally tunnel. The party crosses a flooded undercroft, survives territorial sump crawlers, and reaches a maintenance vault where three pressure gauges reveal the old system's purpose. The apparent corruption source is actually a civic ward-engine called the Gloam Sluice: it was built to pull supernatural rot away from Oakhaven and bury it in a salt sink. The salt channel collapsed years ago, pressure rose, and the emergency root vent began firing black splinters upward. The finale is an environmental repair under pressure. The party can safely restore the sluice by completing three repair jobs, or smash its overflow core for a faster but destructive shutdown. Pace: Marr's hook, a rolled encounter on the tower street, a clearer reading of the rising stain, a second roll in the sally mouth, arrival in the flood with the pressure puzzle, the sluice as the thing holding the town's safety, the return to Marr, and the orchard lead.",
     "background": "Generations ago, Oakhaven's founders built a hidden ward beneath the eastern watchtower. The Gloam Sluice drew dangerous magical decay from the town's root network, carried it through carved stone channels, and neutralized it in a deep salt basin. The last bellkeeper died before training a successor. When a lower cavern shifted and crushed the salt outlet, the system kept operating without maintenance. Its emergency root vent eventually began driving hardened fragments of stored corruption upward—the same black splinters that poisoned the Whispering Hollow.",
     "standaloneStart": "If Module 02 was not played, Kaelen discovers black resin beneath the eastern watchtower after comparing old apothecary records. Captain Marr still provides the same access and objective.",
     "characterPressure": "Captain Edda Marr wants the seepage stopped without losing the tower her people still depend on; Harn's Echo wants the truth written down so the system is never forgotten again."
@@ -230,6 +248,15 @@
       "connections": [
         "loc-bell-vault"
       ]
+    },
+    {
+      "id": "loc-tower-street",
+      "name": "Street under the eastern watchtower",
+      "description": "The street under the eastern watchtower is packed stone, spear racks, and lamp oil. Black threads show in the mortar between the oldest blocks. It smells of wet stone and burned leaves, and the tower's shadow covers the lane even at noon.",
+      "tags": [
+        "oakhaven",
+        "travel"
+      ]
     }
   ],
   "scenes": [
@@ -273,13 +300,13 @@
       ],
       "encounterIds": [],
       "exits": [
-        "scene-tunnel"
+        "scene-street-roll"
       ],
       "exitChoices": [
         {
-          "target": "scene-tunnel",
-          "label": "Descend beneath the tower",
-          "description": "Open the sealed hatch and follow the old military tunnel downward."
+          "target": "scene-street-roll",
+          "label": "First roll",
+          "description": "Leave the hook and roll the roadside table."
         }
       ]
     },
@@ -481,14 +508,14 @@
       "readAloud": "The purge lever drops with a weight you feel through the catwalk. Black pressure vanishes from the pipes in a single rushing hiss, followed by the deep crackle of salt below. When you climb back into the tower cellar, the stain on the wall has already begun to gray. High overhead, the watch bell rings once in clear air. Captain Marr looks from the quiet stone to the ledger in your hands. “Tell me we get to keep the tower.”",
       "gmNotes": [
         "Captain Marr pays 125 gp total.",
-        "The party receives the Saltglass Brooch from the old maintenance cabinet: once per long rest when the wearer takes necrotic damage, reduce that damage by 1d6.",
+        "The party receives a Cloak of Protection (SRD, uncommon, attunement): +1 AC and +1 to saving throws while worn. Oakhaven calls it the Saltglass Cloak. Same bonus in SRD 5.1 and SRD 5.2. Do not use the retired 1d6 necrotic reduction.",
         "The sealed ledger identifies the Black Orchard north of Oakhaven as the source of the original wardstone.",
         "The eastern watchtower remains operational."
       ],
       "runSteps": [
         {
           "title": "Pay the repair",
-          "text": "Award 125 gp total and the Saltglass Brooch."
+          "text": "Award 125 gp total and the Cloak of Protection."
         },
         {
           "title": "Confirm the consequence",
@@ -507,7 +534,16 @@
         "clue-orchard"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-marr"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-marr",
+          "label": "Return to Marr",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
     },
     {
       "id": "scene-resolution-lost",
@@ -522,7 +558,7 @@
       "readAloud": "The corruption drains into the salt basin, but the stone above you answers with a long, descending groan. By the time you reach the cellar, Captain Marr is already driving her guards into the street. The eastern watchtower folds inward behind you in a cloud of pale dust. No black stain spreads from the rubble. Oakhaven is safe from the splinters, but its eastern skyline is suddenly missing a tooth.",
       "gmNotes": [
         "Captain Marr pays 100 gp total because the town must fund emergency rebuilding.",
-        "The party still receives the Saltglass Brooch; they fixed the corruption correctly.",
+        "The party still receives the Cloak of Protection; they fixed the corruption correctly.",
         "The ledger survives and names the Black Orchard.",
         "The town now lacks its eastern lookout until rebuilt, a persistent campaign consequence."
       ],
@@ -533,7 +569,7 @@
         },
         {
           "title": "Apply the reduced reward",
-          "text": "Award 100 gp total plus the Saltglass Brooch."
+          "text": "Award 100 gp total plus the Cloak of Protection."
         },
         {
           "title": "Carry the clue forward",
@@ -548,7 +584,16 @@
         "clue-orchard"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-marr"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-marr",
+          "label": "Return to Marr",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
     },
     {
       "id": "scene-resolution-broken",
@@ -564,7 +609,7 @@
       "gmNotes": [
         "The immediate splinter threat ends, but some stored blight escapes into the deeper caverns.",
         "Captain Marr pays 75 gp total; the town is safe but the tower is destroyed and the old ward can no longer protect Oakhaven.",
-        "Do not award the Saltglass Brooch; it is shattered in the destructive purge.",
+        "Do not award the Cloak of Protection; it is shattered in the destructive purge.",
         "The Black Orchard lead becomes more urgent because the town has lost its original underground ward."
       ],
       "runSteps": [
@@ -589,7 +634,240 @@
         "clue-orchard"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-marr"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-marr",
+          "label": "Return to Marr",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
+    },
+    {
+      "id": "scene-street-roll",
+      "title": "Roll under the Tower",
+      "purpose": "A rolled encounter in Oakhaven before the party understands the hatch.",
+      "paceBeat": 2,
+      "locationId": "loc-tower-street",
+      "readAloud": "Captain Marr has you on the street while her guards clear the cellar. The tower should smell of oil and wet stone. It smells of burned leaves. Black threads crawl through the mortar and stop at a spear rack. A guard swears it is a roof leak. Another swears it is sabotage. Neither has opened the hatch. Roll before Marr calls you back inside.",
+      "gmNotes": [
+        "Roll 1d6 in the open. Use that row only. This is not a fixed fight.",
+        "The row never carries the only copy of a required clue. Skipping it does not stop the night.",
+        "1. Guard Lenn says a saboteur poured pitch down the wall last night. He believes it. The pitch, if any, is dry and years old. DC 10 Intelligence (Investigation) shows the stain is coming up, not down. Failure: Marr says the same thing when you go back in.",
+        "2. A spice cart blocks the lane. DC 10 Strength (Athletics) shifts it. The carter saw black glass in the gutter at dawn and will say so either way.",
+        "3. Two crows will not land on the tower. No fight. If attacked they flee. Their refusal is color, not a clue you cannot get inside.",
+        "4. Hungry SRD Black Bear, not a required fight. AC 11, HP 19. 2014: Bite +3 (1d6+2) and Claws +3 (2d4+2). 2024: two Rend attacks +4, 1d6+2 slashing each. Offer food or a DC 15 Wisdom (Animal Handling) check. Success: it leaves. Failure: it snaps once, then the party can still go around. Do not spend the night here.",
+        "5. A loose shutter bangs in a rhythm like a bell. It is a shutter. DC 10 Dexterity (Sleight of Hand) ties it. On a failure it keeps banging and nothing else happens.",
+        "6. Two SRD Awakened Shrubs in the ditch. AC 9, HP 10, vulnerable to fire, resistant to piercing. Rake +1, 1 slashing. They do not chase. A DC 10 Dexterity (Acrobatics) check walks past; on a failure the passer takes 1 slashing and still passes."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-mortar-read"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-mortar-read",
+          "label": "Read the mortar",
+          "description": "The rolled row is done and the road continues."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Roll in the open",
+          "text": "Tell the table this beat is a roll, not a scripted monster. Roll 1d6 where everyone can see it."
+        },
+        {
+          "title": "Run only that row",
+          "text": "Read the matching row. If it is the combat row, offer the listed way out before initiative."
+        },
+        {
+          "title": "Move on either way",
+          "text": "Success and failure both leave the party able to continue. Do not gate the next scene on this roll."
+        }
+      ],
+      "advanceWhen": "One rolled row has been resolved and the party is moving again."
+    },
+    {
+      "id": "scene-mortar-read",
+      "title": "The Stain Comes Up",
+      "purpose": "Make the route under the tower clear, and retire the roof-leak and saboteur red herrings.",
+      "paceBeat": 3,
+      "locationId": "loc-watchtower",
+      "readAloud": "Three answers are already waiting in the tower cellar, and they do not agree. Guard Lenn has a bucket of old pitch and a story about a saboteur. The day book says the black threads are a roof leak and tells Marr to stop opening hatches. The mortar itself is wet from below, and a builder's sketch is nailed beside the Hollow map, both of them drawing a line down. Marr folds her arms. “I hold the wall,” she says. “You tell me which of these is a lie.”",
+      "gmNotes": [
+        "Quest giver is Captain Edda Marr. She wants the tower standing and the town safe. She does not know the Gloam Sluice is a ward yet. The mayor does not give this job.",
+        "Lead A, red herring: Guard Lenn's saboteur. Motive: he was on the night watch and wants the blame off his slate. The pitch is dry and years old. A DC 10 Intelligence (Investigation) check shows the stain rising. On a failure, scraping it still shows the same direction.",
+        "Lead B, red herring: the day book's roof leak. Motive: the quartermaster does not want the cellar unbarred. The book never mentions salt, and the stain is on the inner mortar, not the ceiling.",
+        "Lead C, physical: the builder's sketch and the Hollow map are the same line, down the sally tunnel. The sketch is nailed up. It works if Marr is refused, dead, or simply wrong.",
+        "Let them test Lenn and the day book before you confirm the tunnel. A wrong theory costs talk, not the adventure."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [
+        "npc-edda-marr"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-sally-roll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-sally-roll",
+          "label": "Enter the sally tunnel",
+          "description": "Roll once more on the way down."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Put the leads on the table",
+          "text": "Name the people and the physical claims. Let the players choose the order. Do not announce which one is true."
+        },
+        {
+          "title": "Play the motive",
+          "text": "Each person wants something. A false lead has a reason. Answer questions in that person's voice."
+        },
+        {
+          "title": "Wrong turns fail forward",
+          "text": "Checking the red herring costs about ten minutes. The true route is still in their hands afterward, on paper or on the ground."
+        }
+      ],
+      "advanceWhen": "The party knows to take the sally tunnel and has started down."
+    },
+    {
+      "id": "scene-sally-roll",
+      "title": "Roll in the Sally Mouth",
+      "purpose": "A rolled encounter while traveling down the sally tunnel, before the flooded arrival.",
+      "paceBeat": 4,
+      "locationId": "loc-flooded-tunnel",
+      "readAloud": "The sally stair is narrow enough that shields knock sparks off the wall. Lamp oil and cold mud trade places in the air. Somewhere below, water moves without a current you can see. A dropped spear rings once and the sound comes back wrong, as if the tunnel were longer than the hill. Roll before the water is in sight.",
+      "gmNotes": [
+        "Roll 1d6 in the open. Use that row only. This is not a fixed fight.",
+        "The row never carries the only copy of a required clue. Skipping it does not stop the night.",
+        "1. A guard's lost helm. DC 10 Wisdom (Perception) finds a chalk arrow on the inside, pointing down. Failure: the arrow is still there if anyone picks the helm up.",
+        "2. Loose step. DC 10 Dexterity (Acrobatics) or the first person drops Prone and takes 1 bludgeoning. The stair holds.",
+        "3. Whisper of running feet ahead. It is water in a side pipe. No enemy. Say so after one check or one minute of caution.",
+        "4. One SRD Crocodile in a side sump, AC 12, HP 19 (2014) or HP 13 (2024, see the crawler block). It wants the sump, not the party. DC 15 Wisdom (Animal Handling) or a thrown ration sends it deeper. If they fight, use the Stone-Sump Crawler block and do not also run the full crawler count later.",
+        "5. Salt crust on the rail tastes like the sea and should not. Color only. The vault explains it.",
+        "6. A belt of old coins worth 5 gp in a crack. No trap. Greed does not advance Tower Strain."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-tunnel"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-tunnel",
+          "label": "Reach the black water",
+          "description": "The rolled row is done and the road continues."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Roll in the open",
+          "text": "Tell the table this beat is a roll, not a scripted monster. Roll 1d6 where everyone can see it."
+        },
+        {
+          "title": "Run only that row",
+          "text": "Read the matching row. If it is the combat row, offer the listed way out before initiative."
+        },
+        {
+          "title": "Move on either way",
+          "text": "Success and failure both leave the party able to continue. Do not gate the next scene on this roll."
+        }
+      ],
+      "advanceWhen": "One rolled row has been resolved and the party is moving again."
+    },
+    {
+      "id": "scene-return-marr",
+      "title": "Marr Counts the Tower",
+      "purpose": "Return to the street and settle with Captain Marr, including the Cloak of Protection.",
+      "paceBeat": 7,
+      "locationId": "loc-watchtower",
+      "readAloud": "Daylight hits harder than the cellar lamps. Captain Marr is on the street with soot on one cheek and the duty slate under her arm. She looks at the tower, then at you, and does not ask a clever question. She asks whether the black threads have stopped, and whether the tower is still a tower. The cloth in her off hand is a grey cloak with a salt-glass clasp.",
+      "gmNotes": [
+        "Pay the gp already written on the ending they earned.",
+        "If the tower still stands or they repaired the sluice before it fell, award one Cloak of Protection. SRD, uncommon, attunement. +1 AC and +1 to saving throws while worn, in both SRD 5.1 and SRD 5.2. Oakhaven calls it the Saltglass Cloak. The old custom brooch that reduced necrotic damage by 1d6 is not awarded.",
+        "If they smashed the core, the cloak is in the rubble and shattered. Do not award it. Later pregens assume the best path, and a drop-in table can still give the cloak."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [
+        "npc-edda-marr"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-lead-orchard"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-lead-orchard",
+          "label": "Open the ledger",
+          "description": "Take the next lead."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Answer her two questions",
+          "text": "Did the splinters stop, and does the tower still stand? Use the ending already chosen."
+        },
+        {
+          "title": "Pay and cloak",
+          "text": "Coin first. Cloak only if the ending says the brooch was earned. Read the SRD cloak, not a custom effect."
+        },
+        {
+          "title": "Attune",
+          "text": "One person attunes on a Short Rest. It does not have to happen on screen."
+        }
+      ],
+      "advanceWhen": "Marr has paid, the cloak question is settled, and the ledger is still in hand."
+    },
+    {
+      "id": "scene-lead-orchard",
+      "title": "Resolution: The Orchard Line",
+      "purpose": "End the watchtower job and lead the party to The Black Orchard.",
+      "paceBeat": 8,
+      "locationId": "loc-watchtower",
+      "readAloud": "The maintenance ledger falls open where the clasp was strained. One line is darker than the others, pressed in by a careful hand: wardstone, Black Orchard, north of Oakhaven. Marr reads it twice. “I can hold a wall,” she says. “I cannot grow a stone. If the orchard still has the heart of this machine, that is the next door. Not tonight, unless you are fools for doors.”",
+      "gmNotes": [
+        "Module 04 is level 4. This module was worth one level, from 3 to 4, on the series track.",
+        "The ledger, the vault inscription, and Marr's copy are three ways to know the orchard lead. Losing Marr does not remove the book.",
+        "Do not start the orchard in the same session unless the table asks for the first sentence only."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 8,
+      "npcIds": [
+        "npc-edda-marr"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [],
+      "runSteps": [
+        {
+          "title": "Read the line",
+          "text": "Black Orchard, north. Wardstone. Say it plainly."
+        },
+        {
+          "title": "Name the level",
+          "text": "Series tables advance from level 3 to level 4."
+        },
+        {
+          "title": "Close",
+          "text": "Stop on the road north, not inside the trees."
+        }
+      ],
+      "advanceWhen": "The Black Orchard is named and the session is over."
     }
   ],
   "clues": [
@@ -660,11 +938,11 @@
       "name": "Stone-Sump Crawlers",
       "type": "combat / bypass",
       "difficulty": "easy (moving obstacle)",
-      "summary": "Two territorial mineral-crusted crawlers (SRD Crocodile stat block) occupy the flooded tunnel while loose masonry turns a static fight into a moving one.",
+      "summary": "Four territorial mineral-crusted crawlers (SRD Crocodile stat block) occupy the flooded tunnel while loose masonry turns a static fight into a moving one.",
       "objective": "Reach the Bellkeeper Vault without being trapped in the flooded undercroft.",
       "resolution": "The encounter ends when the party reaches the bronze maintenance door, defeats the crawlers, or lures them away from the route.",
       "talkOut": "The crawlers are beasts and do not negotiate, but they pursue vibration and food rather than defending the door itself.",
-      "bypass": "DC 12 group Dexterity (Stealth) using the broken catwalk, or sacrifice one ration to lure both crawlers toward the mineral runoff for 3 rounds.",
+      "bypass": "DC 12 group Dexterity (Stealth) using the broken catwalk, or sacrifice one ration to lure the crawlers toward the mineral runoff for 3 rounds.",
       "special": "After round 3, one 10-ft. map section suffers falling masonry each round."
     },
     {
@@ -728,10 +1006,10 @@
     },
     {
       "id": "item-saltglass-brooch",
-      "name": "Saltglass Brooch",
-      "kind": "original magic item",
-      "description": "A cloudy white brooch made from the old salt sink.",
-      "effect": "Once per long rest when the wearer takes necrotic damage, reduce that damage by 1d6."
+      "name": "Cloak of Protection",
+      "kind": "magic item",
+      "description": "A grey cloak with a salt-glass clasp. Oakhaven calls it the Saltglass Cloak.",
+      "effect": "SRD Cloak of Protection, uncommon, requires attunement. +1 bonus to AC and saving throws while worn. Same bonus in SRD 5.1 and SRD 5.2. The old 1d6 necrotic reduction is not used."
     },
     {
       "id": "item-maintenance-ledger",
@@ -850,13 +1128,13 @@
       "id": "ending-safe",
       "name": "Bell Above, Salt Below",
       "condition": "All three repair jobs succeed and the purge lever is pulled before Tower Strain reaches 3.",
-      "result": "The splinters stop, the watchtower survives, the party earns 125 gp and the Saltglass Brooch, and the ledger points to the Black Orchard."
+      "result": "The splinters stop, the watchtower survives, the party earns 125 gp and the Cloak of Protection, and the ledger points to the Black Orchard."
     },
     {
       "id": "ending-lost",
       "name": "The Tower Comes Down",
       "condition": "The party safely purges the sluice after Tower Strain reaches 3.",
-      "result": "Oakhaven is protected but loses its eastern watchtower; the party earns 100 gp and the Saltglass Brooch."
+      "result": "Oakhaven is protected but loses its eastern watchtower; the party earns 100 gp and the Cloak of Protection."
     },
     {
       "id": "ending-broken",
@@ -922,11 +1200,12 @@
     ]
   },
   "pacing": {
-    "targetMinutes": 150,
-    "plannedMinutes": 140,
+    "targetMinutes": 210,
+    "plannedMinutes": 222,
     "bossReserveMinutes": 45,
     "cutOrder": [
-      "If 20+ minutes behind, reduce the Stone-Sump Crawlers from two to one and place the maintenance door in clear sight.",
+      "If the table is behind, resolve each rolled row in one sentence. Do not skip the return to Oakhaven or the lead into the next module.",
+      "If 20+ minutes behind, reduce the Stone-Sump Crawlers from four to two and place the maintenance door in clear sight.",
       "If 15+ minutes behind at the pressure puzzle, let Harn's Echo appear immediately after one player states the equality goal.",
       "Never cut the three repair jobs, the destructive-core choice, or the Black Orchard reveal."
     ],
@@ -1051,12 +1330,12 @@
       {
         "id": "enc-sump-crawlers",
         "objective": "Reach the maintenance door or drive off the territorial crawlers.",
-        "start": "The party enters the west end of a 70 × 40 ft. flooded tunnel; two crawlers emerge from the southeast runoff.",
-        "bypass": "DC 12 group Stealth over the north catwalk, or throw one ration into the southeast runoff to draw both crawlers away for 3 rounds.",
+        "start": "The party enters the west end of a 70 × 40 ft. flooded tunnel; four crawlers emerge from the southeast runoff.",
+        "bypass": "DC 12 group Stealth over the north catwalk, or throw one ration into the southeast runoff to draw the crawlers away for 3 rounds.",
         "creatures": [
           {
             "name": "Stone-Sump Crawler",
-            "count": 2,
+            "count": 4,
             "ac": 12,
             "hp": 19,
             "speed": "20 ft., swim 20 ft.",
@@ -1064,14 +1343,15 @@
             "xp": 100,
             "statBlock": "SRD Crocodile, reskinned as a mineral-crusted tunnel crawler. Holds its breath for 15 minutes.",
             "attack": "Bite. Melee +4 to hit, reach 5 ft.; 7 (1d10+2) piercing, and the target is grappled (escape DC 12). Until the grapple ends the target is restrained and the crawler can't bite another target.",
-            "trait": "Drawn to vibration: a thrown ration or loud splash in the southeast runoff pulls both crawlers there for 3 rounds.",
+            "trait": "Drawn to vibration: a thrown ration or loud splash in the southeast runoff pulls the crawlers there for 3 rounds.",
             "edition2024": "HP 13; speed 20 ft., swim 30 ft. Bite +4 to hit, 6 (1d8+2) piercing; a Medium or smaller target is Grappled (escape DC 12) and Restrained while Grappled. Holds its breath for 1 hour.",
             "tactics": "Attack the nearest source of vibration and drag a grappled target toward the water; retreat toward the runoff when bloodied."
           }
         ],
         "end": "The party reaches the bronze maintenance door, defeats the crawlers, or lures them away.",
-        "balance": "4 × level 3: 200 XP, ×1.5 = 300 adjusted → Easy (2014 DMG); below Low (2024 budget). A moving obstacle, not the climax: falling masonry after round 3 adds pressure.",
-        "scaling": "3 PCs: 2 crawlers, but they release a grappled target at the start of each of the crawler's turns if no other PC is grappled. 5 PCs: 3 crawlers. 6 PCs: 4 crawlers."
+        "balance": "SRD 5.2.1 for 4 level-3 characters: Low 600, Moderate 900, High 1600. Creature XP spent: 400, below the Low budget. Falling masonry after round 3 is the extra pressure. Four crocodiles are still under the Low budget. SRD 5.1 prints monster XP and does not include an encounter-budget table, so this module does not invent a 2014 Easy/Medium/Hard/Deadly label.",
+        "scaling": "3 PCs: 3 crawlers (300 XP) against Low 450. 5 PCs: 5 crawlers (500 XP) against Low 750. 6 PCs: 6 crawlers (600 XP) against Low 900. The vibration bait still works.",
+        "balanceWhy": "Falling masonry after round 3 is the extra pressure. Four crocodiles are still under the Low budget."
       },
       {
         "id": "enc-harn-echo",
@@ -1129,12 +1409,12 @@
       {
         "id": "reward-safe",
         "when": "The sluice is safely purged before Tower Strain 3.",
-        "reward": "125 gp total plus the Saltglass Brooch; eastern watchtower remains standing."
+        "reward": "125 gp total plus the Cloak of Protection; eastern watchtower remains standing."
       },
       {
         "id": "reward-late",
         "when": "The sluice is safely purged after Tower Strain reaches 3.",
-        "reward": "100 gp total plus the Saltglass Brooch; the tower is lost."
+        "reward": "100 gp total plus the Cloak of Protection; the tower is lost."
       },
       {
         "id": "reward-broken",
@@ -1177,6 +1457,9 @@
     "principle": "One underground spine with a finale that branches on repair quality and player choice.",
     "mainSpine": [
       "scene-watchtower",
+      "scene-street-roll",
+      "scene-mortar-read",
+      "scene-sally-roll",
       "scene-tunnel",
       "scene-vault",
       "scene-sluice"
@@ -1185,9 +1468,7 @@
       "scene-sluice"
     ],
     "terminalScenes": [
-      "scene-resolution-safe",
-      "scene-resolution-lost",
-      "scene-resolution-broken"
+      "scene-lead-orchard"
     ],
     "stageCount": 5
   },
@@ -1201,5 +1482,15 @@
       "2 — visible cracks climb the tower cellar walls",
       "3 — evacuation begins; the eastern watchtower cannot be saved tonight"
     ]
+  },
+  "pregenPack": "data/pregens/oakhaven-level-3-2014-srd.json",
+  "pregenPack2024": "data/pregens/oakhaven-level-3-2024-srd.json",
+  "rulesEditions": {
+    "supported": [
+      "2014 SRD 5.1",
+      "2024 SRD 5.2.1"
+    ],
+    "carryForward": "Level 3 sheets add the Cloak of Protection on Halden Moss and still carry the Wand of Secrets.",
+    "unsettled": "SRD 5.1 has no encounter-budget table. Boots of Elvenkind attunement in SRD 5.1 was not re-read from a 5.1 PDF. Where a 2014 attack line is not copied, the scene says so and points at the 5.1 stat block."
   }
 }

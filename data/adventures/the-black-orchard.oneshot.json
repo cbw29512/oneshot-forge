@@ -4,10 +4,10 @@
     "id": "the-black-orchard",
     "title": "The Black Orchard",
     "systemCompatibility": "5E-compatible fantasy RPG",
-    "partyLevel": 3,
+    "partyLevel": 4,
     "partySize": 4,
     "partySizeRange": "3–6 players (tuned for 4)",
-    "durationMinutes": 150,
+    "durationMinutes": 210,
     "tone": [
       "folk mystery",
       "living corruption",
@@ -19,12 +19,30 @@
     "episode": 4,
     "hub": "Oakhaven",
     "giver": "Vessa Thorn / Oakhaven survey office",
-    "nextTitle": "The Ashen Bridge"
+    "nextTitle": "The Ashen Bridge",
+    "level": 4,
+    "worth": "exactly one level",
+    "questGiver": {
+      "name": "Oakhaven survey office",
+      "npcId": "npc-lio-derran",
+      "why": "Lio Derran did not come back from logging the wardstone. The office hired the party. Vessa Thorn speaks for the orchard once they arrive. She is a claimant, not the poster."
+    },
+    "mayorFrame": "Only level 1 and level 10 are the mayor's quests. This module's giver is the NPC in questGiver. Do not move this job onto the mayor's desk.",
+    "pace": [
+      "1 hook",
+      "2 rolled encounter",
+      "3 clearer direction",
+      "4 rolled encounter while traveling",
+      "5 arrival, trap, and puzzle",
+      "6 the holder of the goal",
+      "7 return to Oakhaven and settle",
+      "8 lead to the next module"
+    ]
   },
   "setup": {
     "pitch": "The wardstone beneath Oakhaven came from a black-barked orchard north of town. A surveyor sent to inspect the old quarry has vanished, and the orchard keeper insists nobody may take another stone.",
     "openingLocation": "The Black Orchard, north road outside Oakhaven",
-    "gmSummary": "Oakhaven's records identify the Black Orchard as the source of the Gloam Sluice's wardstone. Surveyor Lio Derran entered the orchard to recover a replacement sample and never returned. Vessa Thorn, the orchard keeper, blocks further quarrying but cannot safely enter the awakened grove alone. The party crosses orchard rows guarded by rag-stitched wardens, solves a three-offering gate, and rescues Lio from roots inside the abandoned quarry. The twist is that the orchard is not corrupted because of the wardstone—the living wardstone and black apples are containing a Night Spring beneath the quarry. Lio loosened a shard and destabilized the Rootheart. In the finale, the party chooses whether to return the shard and preserve the orchard, take it to strengthen Oakhaven while sacrificing the orchard, or use a recovered silver survey chain to create a living graft that shares the ward between both places.",
+    "gmSummary": "Oakhaven's records identify the Black Orchard as the source of the Gloam Sluice's wardstone. Surveyor Lio Derran entered the orchard to recover a replacement sample and never returned. Vessa Thorn, the orchard keeper, blocks further quarrying but cannot safely enter the awakened grove alone. The party crosses orchard rows guarded by rag-stitched wardens, solves a three-offering gate, and rescues Lio from roots inside the abandoned quarry. The twist is that the orchard is not corrupted because of the wardstone—the living wardstone and black apples are containing a Night Spring beneath the quarry. Lio loosened a shard and destabilized the Rootheart. In the finale, the party chooses whether to return the shard and preserve the orchard, take it to strengthen Oakhaven while sacrificing the orchard, or use a recovered silver survey chain to create a living graft that shares the ward between both places. Pace: the survey office hook, a rolled north-road encounter, a boundary sign that kills the bandit story, a second roll in the rows, arrival at the gate with the thorn trap and offering puzzle, the wardstone choice, the walk back to the office, and the bridge lead.",
     "background": "The Black Orchard grew around a natural seam of living wardstone. Its roots learned to draw shadow seepage from a buried Night Spring into fruit that ripens black and falls harmlessly into mineral soil. Oakhaven's founders quarried part of that seam for the Gloam Sluice, weakening but not destroying the old balance. Vessa's family has guarded the orchard since then. Lio Derran, following incomplete civic records, entered the quarry and pried loose a fresh shard. The Rootheart woke, trapped him, and turned its old scarecrow wardens against anyone carrying cutting tools.",
     "standaloneStart": "If Module 03 was not played, Oakhaven's survey office sends the party after missing surveyor Lio Derran, whose last note says he found a wardstone quarry beneath the Black Orchard.",
     "characterPressure": "Vessa Thorn wants Lio alive and the orchard treated as a living protector rather than a quarry; Lio wants to correct the mistake he made before Oakhaven acts on his bad survey."
@@ -285,9 +303,61 @@
       "connections": [
         "loc-quarry-gate"
       ]
+    },
+    {
+      "id": "loc-survey-office",
+      "name": "Oakhaven survey office",
+      "description": "The survey office is a narrow room of pine shelves, dried ink, and a north window. Rolled maps tick in the draft. It smells of graphite and apple wood someone was not supposed to burn. A slate by the door still has Lio Derran's name on today's work.",
+      "tags": [
+        "oakhaven",
+        "travel"
+      ]
     }
   ],
   "scenes": [
+    {
+      "id": "scene-survey-hook",
+      "title": "Lio Did Not Come Back",
+      "purpose": "Hook the party in Oakhaven: the surveyor is missing and two communities want the same stone.",
+      "paceBeat": 1,
+      "locationId": "loc-survey-office",
+      "readAloud": "The survey office has left the door unlatched and the kettle cold. Lio Derran's slate is still marked for the Black Orchard, and the line through his name is tomorrow's, not today's. A clerk's note on the desk is only one sentence: he went north to log a wardstone, and the orchard people say the stone is not the town's to log. Nobody in the office will walk past the first row of trees.",
+      "gmNotes": [
+        "Standalone start: the party is hired here even if the watchtower ledger was never found. If they have the ledger, it is the same job.",
+        "The clerk is offstage and not a required voice. The slate, the note, and later Vessa are enough.",
+        "Do not explain the Living Graft yet. They know a man is missing and a stone is claimed twice."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-north-roll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-north-roll",
+          "label": "Take the north road",
+          "description": "Roll before the orchard is in sight."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Give the job",
+          "text": "Find Lio. Learn what the wardstone is. The office pays either way."
+        },
+        {
+          "title": "State the dilemma in one line",
+          "text": "Two communities want one living stone. Do not reveal the third way."
+        },
+        {
+          "title": "Clock",
+          "text": "Lio is alive at the start. Say he will not survive a night in the root cage if they camp."
+        }
+      ],
+      "advanceWhen": "The party has accepted or stolen the job and is on the north road."
+    },
     {
       "id": "scene-gate",
       "title": "Do Not Pick the Fruit",
@@ -351,7 +421,7 @@
       "flowLabel": "Wardens",
       "readAloud": "Lio's red survey flags lead between rows of black trunks until the wind stops. The scarecrows do not move at first. Then one turns its sackcloth head without bending its wooden neck. A second lifts a rusted pruning hook from behind its post. Red cords run from both figures into the roots at their feet. Beyond them, the quarry ridge rises through the branches, and a human voice calls once from somewhere under the stone.",
       "gmNotes": [
-        "Two Rag-Stitched Wardens block the route. They are orchard tools, not evil creatures.",
+        "Four Rag-Stitched Wardens block the route. They are orchard tools, not evil creatures.",
         "A character adjacent to a warden can use an Action and DC 12 Dexterity (Sleight of Hand) or Intelligence (Nature) to cut/unhook its red control cord; success disables that warden.",
         "The orchard token from Vessa grants advantage on one cord-disabling check.",
         "Fire damage to living orchard trees angers Mother Graft. Record orchardHarm +1 for roleplay consequences, but the adventure remains finishable.",
@@ -563,7 +633,16 @@
         "clue-bridge"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-office"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-office",
+          "label": "Return to Oakhaven",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
     },
     {
       "id": "scene-resolution-take",
@@ -605,7 +684,16 @@
         "clue-bridge"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-office"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-office",
+          "label": "Return to Oakhaven",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
     },
     {
       "id": "scene-resolution-graft",
@@ -620,14 +708,14 @@
       "readAloud": "The silver chain tightens around the sapling without cutting its bark. Green-black light runs from the wardstone shard into the young roots, then settles into a slow pulse. Mother Graft's voice comes once from every tree in the orchard: “Two homes.” Vessa lifts the sapling herself. Lio is already sketching a transport cradle before you reach the gate. The orchard keeps its heart, and Oakhaven receives something stranger than a stone—a living piece of the same promise.",
       "gmNotes": [
         "Oakhaven pays 125 gp total for Lio's rescue and the living ward-graft.",
-        "Vessa gives the party a Graftwood Charm: once per long rest, after failing a saving throw against poison or necrotic damage, reroll the save and use the new result.",
+        "On the Living Graft, the office gives a Pearl of Power (SRD, uncommon, attunement by a spellcaster). SRD 5.2: Magic action, regain one spell slot of level 3 or lower, once until the next dawn. SRD 5.1: an action regains a slot, and a slot of 4th level or higher returns as 3rd level. The custom reroll charm is not awarded.",
         "The orchard remains stable and Oakhaven can cultivate the graft without quarrying the Rootheart.",
         "The Night Spring still exists. Lio's water survey points east toward the Ashen Bridge."
       ],
       "runSteps": [
         {
           "title": "Award the compromise",
-          "text": "Give 125 gp total and the Graftwood Charm."
+          "text": "Give 125 gp total and the Pearl of Power."
         },
         {
           "title": "Record both states",
@@ -647,7 +735,234 @@
         "clue-bridge"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-office"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-office",
+          "label": "Return to Oakhaven",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
+    },
+    {
+      "id": "scene-north-roll",
+      "title": "Roll on the North Road",
+      "purpose": "A rolled encounter after the hook, before the orchard gate is understood.",
+      "paceBeat": 2,
+      "locationId": "loc-survey-office",
+      "readAloud": "The north road leaves the last fence and runs between apple scrub and a ditch full of last year's leaves. Crows work a fallen fruit and will not touch the black ones. A mile-post has two arrows nailed to it, pointing at each other. Roll before you tell them which arrow is newer.",
+      "gmNotes": [
+        "Roll 1d6 in the open. Use that row only. This is not a fixed fight.",
+        "The row never carries the only copy of a required clue. Skipping it does not stop the night.",
+        "1. A shepherd insists the wardens are bandits in stolen armor. He is wrong, and he is frightened. DC 10 Wisdom (Insight) sees the fear. He still shares a true detail: the armor does not breathe.",
+        "2. Black apples in the ditch, bitter and cold. Eating one does nothing but taste of iron. Not a trap yet. The real thorn-lash is at the gate.",
+        "3. A broken survey chain, silver, three links. It is Lio's. DC 10 Intelligence (Investigation) matches the office punch. Failure: the punch is still readable if they carry it to Vessa.",
+        "4. One SRD Animated Armor, inert in a ditch, AC 18, HP 33, two Slam attacks +4 for 5 (1d6+2). It is a shed frame, not a warden, unless they wear it or attack it. If it wakes, it walks back toward the orchard and stops at the sign.",
+        "5. Rain starts and stops in one minute. The black fruit does not get wet. Color. The offering puzzle uses rain later.",
+        "6. DC 10 Dexterity (Acrobatics) across a slick log. Failure: Prone in the ditch, no damage, the chain is easier to see."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-orchard-sign"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-orchard-sign",
+          "label": "Read the boundary sign",
+          "description": "The rolled row is done and the road continues."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Roll in the open",
+          "text": "Tell the table this beat is a roll, not a scripted monster. Roll 1d6 where everyone can see it."
+        },
+        {
+          "title": "Run only that row",
+          "text": "Read the matching row. If it is the combat row, offer the listed way out before initiative."
+        },
+        {
+          "title": "Move on either way",
+          "text": "Success and failure both leave the party able to continue. Do not gate the next scene on this roll."
+        }
+      ],
+      "advanceWhen": "One rolled row has been resolved and the party is moving again."
+    },
+    {
+      "id": "scene-orchard-sign",
+      "title": "Do Not Pick, Do Not Cut",
+      "purpose": "Give a clear direction to the gate and retire the bandit red herring.",
+      "paceBeat": 3,
+      "locationId": "loc-orchard-gate",
+      "readAloud": "The north road ends in an argument you can walk around. A shepherd at the last fence says the things in the rows are bandits wearing stolen armor, and he will not come closer. A carved board on the living gate says not to pick the fruit and not to cut the trees, and it asks for ash, rain, and a black apple if you want the heart. In the ditch, an iron frame lies on its back with rags stitched to it and nobody inside. The office slate in your pocket still has Lio Derran's name on today's work.",
+      "gmNotes": [
+        "The hiring party is the Oakhaven survey office: Lio did not come back, and the office wants the wardstone logged. Vessa Thorn is the orchard's voice, not the person who posted the job. The mayor does not give this job.",
+        "Lead A, red herring: the shepherd's bandits. Motive: fear. He saw iron move and invented a person to put inside it. DC 10 Wisdom (Insight) shows he believes it. Searching the ditch frame finds stitches and no corpse.",
+        "Lead B: Vessa, at the gate in the next scene. Motive: keep the stone in the orchard because the trees die without it. She will accuse the town of theft. She is not the bandit, and she is not lying about the trees.",
+        "Lead C, physical: the gate board names ash, rain, and a black apple. It does not say which offering matches which vein. Lio's broken chain, if they already have it, is his, and Vessa can name the punch if they cannot.",
+        "Question the shepherd, search the empty armor, and read the board in any order. Following the bandit story into the rows still reaches the gate."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-row-roll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-row-roll",
+          "label": "Approach the rows",
+          "description": "Roll once more before the gate conversation."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Put the leads on the table",
+          "text": "Name the people and the physical claims. Let the players choose the order. Do not announce which one is true."
+        },
+        {
+          "title": "Play the motive",
+          "text": "Each person wants something. A false lead has a reason. Answer questions in that person's voice."
+        },
+        {
+          "title": "Wrong turns fail forward",
+          "text": "Checking the red herring costs about ten minutes. The true route is still in their hands afterward, on paper or on the ground."
+        }
+      ],
+      "advanceWhen": "The party is committed to the gate and knows the bandit story is false."
+    },
+    {
+      "id": "scene-row-roll",
+      "title": "Roll between the Rows",
+      "purpose": "A rolled encounter while traveling the last stretch to the gate.",
+      "paceBeat": 4,
+      "locationId": "loc-orchard-gate",
+      "readAloud": "The last hundred yards are apple rows planted too close for a cart. Black fruit brushes shoulders. The soil is warm, which it should not be, and somewhere a cord ticks against iron. You can see the gate. You are not at it yet. Roll.",
+      "gmNotes": [
+        "Roll 1d6 in the open. Use that row only. This is not a fixed fight.",
+        "The row never carries the only copy of a required clue. Skipping it does not stop the night.",
+        "1. A rag flutters with nobody in it. DC 10 Wisdom (Perception) sees the cord, not a person. Failure: they flinch, and the rag is still empty.",
+        "2. Warm soil. DC 15 Intelligence (Nature) says the warmth is the wardstone, not a fire. Failure: they still feel it, and Vessa can name it.",
+        "3. A black apple falls and does not bruise. Pocketing it helps the puzzle later. It is not the only black apple.",
+        "4. One waking warden frame takes a single step and stops. Use the Rag-Stitched Warden block if they attack. If they stand still or show the sign's words, it lets them pass. Do not add it to the later count.",
+        "5. Bee-loud ordinary tree in a row of quiet ones. The living tree is a hint that not everything here is sick. No roll.",
+        "6. DC 10 Dexterity (Acrobatics) through a whip of cords. Failure: 1 slashing and they are through."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-gate"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-gate",
+          "label": "Meet the gate",
+          "description": "The rolled row is done and the road continues."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Roll in the open",
+          "text": "Tell the table this beat is a roll, not a scripted monster. Roll 1d6 where everyone can see it."
+        },
+        {
+          "title": "Run only that row",
+          "text": "Read the matching row. If it is the combat row, offer the listed way out before initiative."
+        },
+        {
+          "title": "Move on either way",
+          "text": "Success and failure both leave the party able to continue. Do not gate the next scene on this roll."
+        }
+      ],
+      "advanceWhen": "One rolled row has been resolved and the party is moving again."
+    },
+    {
+      "id": "scene-return-office",
+      "title": "The Office Pays Either Way",
+      "purpose": "Return to Oakhaven and settle with the survey office, including the Pearl of Power.",
+      "paceBeat": 7,
+      "locationId": "loc-survey-office",
+      "readAloud": "The survey office kettle is hot this time, as if someone hoped you would make it. Lio's slate is wiped clean or it is not, depending on whether he walked in with you. A grey pearl sits on a square of graftwood, the only pretty thing in a room of pine and ink. The clerk's chair is empty. The pay chest is not. The town wants to know what you did with the stone before it wants to know your names.",
+      "gmNotes": [
+        "Pay the gp from the ending they chose.",
+        "On the Living Graft ending, the pearl is a Pearl of Power. SRD, uncommon, attunement by a spellcaster. SRD 5.2: Magic action, regain one expended slot of level 3 or lower, once until the next dawn. SRD 5.1: an action regains one slot, and a 4th-level or higher slot comes back as 3rd level. No one here has a 4th-level slot.",
+        "Return and Take endings do not include the pearl. The custom Pearl of Power that rerolled poison saves is retired. Series pregens assume the graft ending; say so if this table chose otherwise."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-lead-bridge"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-lead-bridge",
+          "label": "Follow the water",
+          "description": "Take the Night Spring lead."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Report the stone",
+          "text": "Say which ending is now true: orchard keeps it, town takes it, or the graft serves both."
+        },
+        {
+          "title": "Pay",
+          "text": "Count the gold. Award the Pearl of Power only on the graft."
+        },
+        {
+          "title": "Lio",
+          "text": "If he lived, he signs the slate. If he died, the office writes his name off and the road east still exists."
+        }
+      ],
+      "advanceWhen": "The office has the outcome and any pearl has been awarded or refused."
+    },
+    {
+      "id": "scene-lead-bridge",
+      "title": "Resolution: Water under the Bridge",
+      "purpose": "End the orchard and lead the party to The Ashen Bridge.",
+      "paceBeat": 8,
+      "locationId": "loc-survey-office",
+      "readAloud": "Under the last map weight is a strip of damp paper that should be dry. Lio's final sounding, or the office copy of it, draws the Night Spring east instead of down. The line crosses the Merecut gorge at a span labeled ASHEN BRIDGE. Someone has added, in a hurried hand, six people and two wagons, and the ink is not old enough to be history.",
+      "gmNotes": [
+        "Module 05 is level 5. This module was worth the step from 4 to 5.",
+        "The sounding, the rootheart channels, and Vessa's memory are three paths to the bridge. The office paper is the physical copy in the room.",
+        "Stop here. The bridge is the next session."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 8,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [],
+      "runSteps": [
+        {
+          "title": "Show the line",
+          "text": "Night Spring to the Ashen Bridge. Six people. Two wagons."
+        },
+        {
+          "title": "Name the level",
+          "text": "Series characters become level 5 after this module."
+        },
+        {
+          "title": "Close",
+          "text": "Do not put them on the span tonight."
+        }
+      ],
+      "advanceWhen": "The Ashen Bridge lead is in their hands and play stops."
     }
   ],
   "clues": [
@@ -782,10 +1097,10 @@
     },
     {
       "id": "item-graftwood-charm",
-      "name": "Graftwood Charm",
-      "kind": "original magic item",
-      "description": "A small blackwood charm with a silver living vein.",
-      "effect": "Once per long rest, after failing a saving throw against poison or necrotic damage, reroll the save and use the new result."
+      "name": "Pearl of Power",
+      "kind": "magic item",
+      "description": "A grey pearl left on the survey desk when the living graft holds.",
+      "effect": "SRD Pearl of Power, uncommon, attunement by a spellcaster. SRD 5.2: Magic action, regain one expended slot of level 3 or lower, once until the next dawn. SRD 5.1: an action regains a slot, and a 4th-level or higher slot returns as 3rd level. The custom poison-save charm is not awarded."
     }
   ],
   "maps": [
@@ -889,7 +1204,7 @@
       "id": "ending-graft",
       "name": "Two Homes",
       "condition": "The party succeeds on the Living Graft using Lio's silver survey chain.",
-      "result": "The orchard survives, Oakhaven gains a living ward-graft, and the party earns 125 gp plus the Graftwood Charm."
+      "result": "The orchard survives, Oakhaven gains a living ward-graft, and the party earns 125 gp plus the Pearl of Power."
     }
   ],
   "recovery": {
@@ -949,10 +1264,11 @@
     ]
   },
   "pacing": {
-    "targetMinutes": 150,
-    "plannedMinutes": 145,
+    "targetMinutes": 210,
+    "plannedMinutes": 239,
     "bossReserveMinutes": 35,
     "cutOrder": [
+      "If the table is behind, resolve each rolled row in one sentence. Do not skip the return to Oakhaven or the lead into the next module.",
       "If 20+ minutes behind, reduce the warden encounter to one Rag-Stitched Warden and start the party beside the first red control cord.",
       "If 15+ minutes behind at the Offering Gate, reveal one correct offering match before the party acts.",
       "Never cut Lio's rescue, the three explicit shard options, or the Ashen Bridge reveal."
@@ -965,7 +1281,7 @@
   },
   "initialState": {
     "questStage": "offered",
-    "currentSceneId": "scene-gate",
+    "currentSceneId": "scene-survey-hook",
     "discoveredClueIds": [],
     "revealedSecretIds": [],
     "npcState": {
@@ -1019,7 +1335,7 @@
     "adventureId": "the-black-orchard",
     "version": "0.1.0",
     "target": {
-      "level": 3,
+      "level": 4,
       "partySize": 4
     },
     "requiredCheckIds": [
@@ -1070,12 +1386,12 @@
       {
         "id": "enc-rag-wardens",
         "objective": "Reach the quarry path while preserving as much of the orchard as the party chooses.",
-        "start": "Two Rag-Stitched Wardens animate between the center rows when the party approaches with tools or weapons.",
+        "start": "Four Rag-Stitched Wardens animate between the center rows when the party approaches with tools or weapons.",
         "bypass": "DC 12 group Stealth along the irrigation ditch, or disable each red cord with an adjacent Action.",
         "creatures": [
           {
             "name": "Rag-Stitched Warden",
-            "count": 2,
+            "count": 4,
             "ac": 18,
             "hp": 33,
             "speed": "25 ft.",
@@ -1088,9 +1404,10 @@
             "tactics": "Block the quarry path and shove intruders away from living trees; do not pursue past the Offering Gate."
           }
         ],
-        "end": "Both wardens are disabled/defeated or the party reaches the quarry path.",
-        "balance": "4 × level 3: 400 XP, ×1.5 = 600 adjusted → Medium (2014 DMG); below Low (2024 budget). AC 18 is the point: the red cords are the intended answer.",
-        "scaling": "3 PCs: 2 wardens, but the first cord check each round has advantage. 5 PCs: 3 wardens. 6 PCs: 3 wardens and the third starts already moving toward the quarry gate."
+        "end": "The wardens are disabled or defeated, or the party reaches the quarry path.",
+        "balance": "SRD 5.2.1 for 4 level-4 characters: Low 1000, Moderate 1500, High 2000. Creature XP spent: 800, below the Low budget. AC 18 is the pressure. The red cords disable a warden without a damage race. Four suits are still under Low. SRD 5.1 prints monster XP and does not include an encounter-budget table, so this module does not invent a 2014 Easy/Medium/Hard/Deadly label.",
+        "scaling": "3 PCs: 3 wardens (600 XP) against Low 750. 5 PCs: 5 wardens (1000 XP) against Low 1250. 6 PCs: 5 wardens (1000 XP) against Low 1500. Each cord check still drops one warden.",
+        "balanceWhy": "AC 18 is the pressure. The red cords disable a warden without a damage race. Four suits are still under Low."
       },
       {
         "id": "enc-rootheart-choice",
@@ -1126,7 +1443,7 @@
       {
         "id": "reward-graft",
         "when": "The Living Graft succeeds.",
-        "reward": "125 gp total plus the Graftwood Charm; orchard survives and Oakhaven receives a transplantable living ward."
+        "reward": "125 gp total plus the Pearl of Power; orchard survives and Oakhaven receives a transplantable living ward."
       },
       {
         "id": "reward-hook",
@@ -1141,7 +1458,7 @@
         "features": [
           "west party entry",
           "east quarry path",
-          "two warden posts near center",
+          "four warden posts near center",
           "north and south irrigation ditches",
           "dense living-tree rows"
         ]
@@ -1162,6 +1479,10 @@
   "flowContract": {
     "principle": "One rescue-and-investigation spine with a finale that branches on an explicit resource choice.",
     "mainSpine": [
+      "scene-survey-hook",
+      "scene-north-roll",
+      "scene-orchard-sign",
+      "scene-row-roll",
       "scene-gate",
       "scene-rows",
       "scene-quarry-gate",
@@ -1171,10 +1492,18 @@
       "scene-rootheart"
     ],
     "terminalScenes": [
-      "scene-resolution-return",
-      "scene-resolution-take",
-      "scene-resolution-graft"
+      "scene-lead-bridge"
     ],
     "stageCount": 5
+  },
+  "pregenPack": "data/pregens/oakhaven-level-4-2014-srd.json",
+  "pregenPack2024": "data/pregens/oakhaven-level-4-2024-srd.json",
+  "rulesEditions": {
+    "supported": [
+      "2014 SRD 5.1",
+      "2024 SRD 5.2.1"
+    ],
+    "carryForward": "Level 4 sheets add the Pearl of Power on Mira Quill and still carry the wand and the cloak.",
+    "unsettled": "SRD 5.1 has no encounter-budget table. Boots of Elvenkind attunement in SRD 5.1 was not re-read from a 5.1 PDF. Where a 2014 attack line is not copied, the scene says so and points at the 5.1 stat block."
   }
 }
