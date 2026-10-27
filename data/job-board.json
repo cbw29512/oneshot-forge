@@ -68,9 +68,9 @@
       "type": "Moral investigation",
       "headline": "Wanted adventurers for a missing surveyor and one living wardstone claimed by two communities.",
       "teaser": "The orchard is protecting something. Oakhaven still needs the shard.",
-      "level": 3,
+      "level": 4,
       "party": "4",
-      "time": "2–3 hours",
+      "time": "3–4 hours",
       "href": "run.html?id=the-black-orchard"
     },
     {
@@ -80,9 +80,9 @@
       "type": "Ghost mystery",
       "headline": "Wanted adventurers for a missing apprentice and a bell ringing under perfectly still water.",
       "teaser": "The bell may be a haunting. It may also be a warning nobody answered.",
-      "level": 3,
+      "level": 6,
       "party": "4",
-      "time": "2–3 hours",
+      "time": "3–4 hours",
       "href": "run.html?id=the-bell-beneath-the-mere"
     }
   ]

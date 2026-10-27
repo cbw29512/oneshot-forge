@@ -4,10 +4,10 @@
     "id": "the-ashen-bridge",
     "title": "The Ashen Bridge",
     "systemCompatibility": "5E-compatible fantasy RPG",
-    "partyLevel": 3,
+    "partyLevel": 5,
     "partySize": 4,
     "partySizeRange": "3–6 players (tuned for 4)",
-    "durationMinutes": 150,
+    "durationMinutes": 210,
     "tone": [
       "storm rescue",
       "failing infrastructure",
@@ -19,12 +19,30 @@
     "episode": 5,
     "hub": "Oakhaven",
     "giver": "Bridgewarden Soren Vale",
-    "nextTitle": "The Bell Beneath the Mere"
+    "nextTitle": "The Bell Beneath the Mere",
+    "level": 5,
+    "worth": "exactly one level",
+    "questGiver": {
+      "name": "Soren Vale",
+      "npcId": "npc-soren",
+      "why": "The people on the span are his watch. His slate hires the party at the east gate because he cannot leave them."
+    },
+    "mayorFrame": "Only level 1 and level 10 are the mayor's quests. This module's giver is the NPC in questGiver. Do not move this job onto the mayor's desk.",
+    "pace": [
+      "1 hook",
+      "2 rolled encounter",
+      "3 clearer direction",
+      "4 rolled encounter while traveling",
+      "5 arrival, trap, and puzzle",
+      "6 the holder of the goal",
+      "7 return to Oakhaven and settle",
+      "8 lead to the next module"
+    ]
   },
   "setup": {
     "pitch": "The Night Spring traced from the Black Orchard resurfaces beneath the Ashen Bridge just as a merchant caravan is caught on the failing span.",
     "openingLocation": "East road approach to the Ashen Bridge",
-    "gmSummary": "The party reaches the Ashen Bridge during a blackwater surge. Six civilians and two wagons are trapped on the center span while Bridgewarden Soren Vale tries to hold a cracked pier together. The old bridge was designed with ashwood drainage ribs that neutralized seepage from the Night Spring, but recent emergency repairs replaced three ribs with iron braces. The water is now eroding the pier instead of being wicked into ash beds. The party must reach the bridge ashhouse, mix a sealing mortar, then manage a live evacuation while installing the seal. The best ending saves the people and bridge. A hard rescue can save everyone while losing the bridge. Greedy delay can cost cargo or lives.",
+    "gmSummary": "The party reaches the Ashen Bridge during a blackwater surge. Six civilians and two wagons are trapped on the center span while Bridgewarden Soren Vale tries to hold a cracked pier together. The old bridge was designed with ashwood drainage ribs that neutralized seepage from the Night Spring, but recent emergency repairs replaced three ribs with iron braces. The water is now eroding the pier instead of being wicked into ash beds. The party must reach the bridge ashhouse, mix a sealing mortar, then manage a live evacuation while installing the seal. The best ending saves the people and bridge. A hard rescue can save everyone while losing the bridge. Greedy delay can cost cargo or lives. Pace: the gate slate, a rolled encounter outside town, the false west ford, a second roll on the last mile, arrival on the span with the caustic trap and ash-mortar puzzle, the rescue under Soren's count, the return to the gate, and the Mere lead. Pace: the gate slate, a rolled encounter outside town, the false west ford, a second roll on the last mile, arrival on the span with the caustic trap and ash-mortar puzzle, the rescue under Soren's count, the return to the gate, and the Mere lead.",
     "background": "For generations the Ashen Bridge carried Oakhaven's east road across the Merecut gorge. Its blackened ashwood ribs were not ornamental: they drew tainted groundwater into sacrificial ash beds beneath the eastern pier. After spring floods damaged the bridge, cash-strapped road crews replaced three ash ribs with iron. The change went unnoticed until the Night Spring intensified. Now blackwater pressure is undermining the eastern pier while a caravan is stranded above it.",
     "standaloneStart": "If prior Oakhaven modules were not played, Bridgewarden Soren sends a runner to Oakhaven when black water begins boiling from the eastern pier and the center span cracks under a trapped caravan.",
     "characterPressure": "Soren Vale wants every civilian off the bridge before his ignored warning kills someone; Mera Holt will sacrifice both wagons without hesitation if that buys a safer rescue."
@@ -225,9 +243,61 @@
       "connections": [
         "loc-center-span"
       ]
+    },
+    {
+      "id": "loc-east-gate",
+      "name": "Oakhaven east gate",
+      "description": "The east gate is oak, iron strap, and a bench that always holds one wet cloak. Beyond it the Merecut road runs straight until the gorge. Tonight the bench holds a runner's satchel and the cloak is Soren Vale's spare, still dripping black water.",
+      "tags": [
+        "oakhaven",
+        "travel"
+      ]
     }
   ],
   "scenes": [
+    {
+      "id": "scene-gate-hook",
+      "title": "Six People, Two Wagons",
+      "purpose": "Hook the party at Oakhaven's gate: the Ashen Bridge is failing with people on it.",
+      "paceBeat": 1,
+      "locationId": "loc-east-gate",
+      "readAloud": "The east gate is open and the bench is wet. A runner's satchel holds Bridgewarden Soren Vale's spare cloak and a slate that has been written fast: six people, two wagons, center span, black water in the pier. The runner is gone back to the gorge. The gate sergeant will not leave the gate. She pushes the slate into your hands and says the bridge has four good breaths left, which is Soren's count, not hers.",
+      "gmNotes": [
+        "Soren is on the bridge, not here. The slate is the hook if he is later dead or unreachable.",
+        "Saving the people is success even if the bridge is lost. Say that before they leave.",
+        "Red herring waiting on the road: a rumor that the west ford is the safer crossing. It is not. The people are already on the span."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-gate-roll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-gate-roll",
+          "label": "Take the east road",
+          "description": "Roll before the gorge."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Read the slate",
+          "text": "Six people. Two wagons. Four breaths in Soren's count. Integrity clock starts at 4 when they can see the bridge, not now."
+        },
+        {
+          "title": "Say the value",
+          "text": "People count as the victory. The bridge is the second prize."
+        },
+        {
+          "title": "Do not wait for the sergeant",
+          "text": "She stays. The adventure does not need her to live or to like them."
+        }
+      ],
+      "advanceWhen": "The party is on the east road with the slate."
+    },
     {
       "id": "scene-arrival",
       "title": "Six People on a Bad Bridge",
@@ -500,7 +570,16 @@
         "clue-mere"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-gate"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-gate",
+          "label": "Return to the gate",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
     },
     {
       "id": "scene-resolution-lost",
@@ -542,7 +621,16 @@
         "clue-mere"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-gate"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-gate",
+          "label": "Return to the gate",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
     },
     {
       "id": "scene-resolution-costly",
@@ -585,7 +673,234 @@
         "clue-mere"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-gate"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-gate",
+          "label": "Return to the gate",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
+    },
+    {
+      "id": "scene-gate-roll",
+      "title": "Roll outside the Gate",
+      "purpose": "A rolled encounter just outside Oakhaven, before the bridge's real direction is tested.",
+      "paceBeat": 2,
+      "locationId": "loc-east-gate",
+      "readAloud": "Outside the gate the east road is a pale track under a dark sky. Rain has started in the gorge and not here, which makes the dust look like a lie. A mile-post offers the bridge and, in newer chalk, a west ford. Somebody wants the traffic to turn around. Roll before you let them choose.",
+      "gmNotes": [
+        "Roll 1d6 in the open. Use that row only. This is not a fixed fight.",
+        "The row never carries the only copy of a required clue. Skipping it does not stop the night.",
+        "1. A merchant turning back says the ford is safe and the bridge is already gone. He has not seen either. DC 10 Wisdom (Insight): he is repeating a shout. The slate in their hands is newer than his story.",
+        "2. A loose dog with a bridgewarden's whistle on its collar. It will lead toward the gorge, not the ford, if anyone DC 10 Wisdom (Animal Handling) or simply follows. Failure: it goes anyway.",
+        "3. Wind knocks a sign down. DC 10 Strength (Athletics) resets it. The sign's carved face still says ASHEN BRIDGE. The chalk ford arrow is on a separate board.",
+        "4. Hungry SRD Black Bear, not a required fight. AC 11, HP 19. 2014: Bite +3 (1d6+2) and Claws +3 (2d4+2). 2024: two Rend attacks +4, 1d6+2 slashing each. Offer food or a DC 15 Wisdom (Animal Handling) check. Success: it leaves. Failure: it snaps once, then the party can still go around. Do not spend the night here.",
+        "5. A child selling bad luck charms for 1 cp. No magic. If they buy one, it does nothing. Say so.",
+        "6. DC 10 Dexterity (Acrobatics) around a mud slick. Failure: Prone, clothes wet, no damage, and they are still on the east road."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-ford-lie"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-ford-lie",
+          "label": "Hear the ford rumor",
+          "description": "The rolled row is done and the road continues."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Roll in the open",
+          "text": "Tell the table this beat is a roll, not a scripted monster. Roll 1d6 where everyone can see it."
+        },
+        {
+          "title": "Run only that row",
+          "text": "Read the matching row. If it is the combat row, offer the listed way out before initiative."
+        },
+        {
+          "title": "Move on either way",
+          "text": "Success and failure both leave the party able to continue. Do not gate the next scene on this roll."
+        }
+      ],
+      "advanceWhen": "One rolled row has been resolved and the party is moving again."
+    },
+    {
+      "id": "scene-ford-lie",
+      "title": "The Ford Is the Lie",
+      "purpose": "Make the gorge the clear destination and kill the west-ford red herring.",
+      "paceBeat": 3,
+      "locationId": "loc-east-gate",
+      "readAloud": "The mile-post outside the gate has been recruited by two different stories. Fresh chalk sends traffic to a west ford and calls the bridge already gone. Under the chalk, older letters cut into the wood say ASHEN BRIDGE, ONE MILE. A merchant with a turned wagon wants company if you go west. A wet bootprint over the chalk points east, and from that direction comes one wooden crack too large to be a branch. Soren's slate, still in your hand, says the people are on the span.",
+      "gmNotes": [
+        "Quest giver is Bridgewarden Soren Vale. He is on the bridge. The slate at the east gate is how the job reaches the party if he is later dead or out of reach. The gate sergeant only passes the slate. The mayor does not give this job.",
+        "Lead A, red herring: the west ford. Motive: the merchant already turned his wagon around and does not want to be the only one who ran. He has not seen the span. The ford is a flooded ditch. Checking it costs about ten minutes.",
+        "Lead B: the chalk itself. Motive of whoever wrote it is panic, not a second bridge. It smears. The carved letters do not.",
+        "Lead C, physical: Soren's slate and the bootprint both point east. The crack is audible from the true road. Saving the people still counts if the bridge is lost. Say that before they commit.",
+        "Let them question the merchant and test the ford. The slate does not stop being true while they do."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-gorge-roll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-gorge-roll",
+          "label": "Run for the gorge",
+          "description": "Roll once on the last mile."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Put the leads on the table",
+          "text": "Name the people and the physical claims. Let the players choose the order. Do not announce which one is true."
+        },
+        {
+          "title": "Play the motive",
+          "text": "Each person wants something. A false lead has a reason. Answer questions in that person's voice."
+        },
+        {
+          "title": "Wrong turns fail forward",
+          "text": "Checking the red herring costs about ten minutes. The true route is still in their hands afterward, on paper or on the ground."
+        }
+      ],
+      "advanceWhen": "The party is committed to the gorge road."
+    },
+    {
+      "id": "scene-gorge-roll",
+      "title": "Roll on the Last Mile",
+      "purpose": "A rolled encounter while traveling to the Ashen Bridge.",
+      "paceBeat": 4,
+      "locationId": "loc-west-approach",
+      "readAloud": "The last mile smells of wet ash and cold iron. The gorge opens as a darker cut in the rain. You can hear people and you cannot see them yet. The road underfoot shifts once, not enough to be the bridge and enough to be a warning. Roll before the span comes into view.",
+      "gmNotes": [
+        "Roll 1d6 in the open. Use that row only. This is not a fixed fight.",
+        "The row never carries the only copy of a required clue. Skipping it does not stop the night.",
+        "1. A dropped medicine crate, two Potion of Healing doses (SRD, 2d4+2). Taking them is allowed. They are consumable. The wagon on the bridge may still hold more.",
+        "2. DC 10 Strength (Athletics) to drag a fallen limb out of the lane. Failure: climb over, arrive muddy, no damage.",
+        "3. A shout from the gorge: “Six!” It is Mera Holt counting heads. They do not need to answer for her to still be there.",
+        "4. One SRD Giant Constrictor Snake in the ditch, if they attack the water. Otherwise it stays down. 2014 (no Multiattack): Bite +6, reach 10 ft., 11 (2d6+4) piercing, or Constrict +6, reach 5 ft., 13 (2d8+4) bludgeoning, grappled (escape DC 16). 2024: Multiattack Bite + Constrict, DC 14 Str save, escape DC 14. Do not add it to the span count.",
+        "5. Ash on the wind. DC 15 Intelligence (Nature): this is the bridge's own ashwood, already failing. Failure: Soren can say it on the span.",
+        "6. DC 10 Dexterity (Acrobatics) on the wet camber. Failure: Prone. The bridge is still ahead."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-arrival"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-arrival",
+          "label": "See the span",
+          "description": "The rolled row is done and the road continues."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Roll in the open",
+          "text": "Tell the table this beat is a roll, not a scripted monster. Roll 1d6 where everyone can see it."
+        },
+        {
+          "title": "Run only that row",
+          "text": "Read the matching row. If it is the combat row, offer the listed way out before initiative."
+        },
+        {
+          "title": "Move on either way",
+          "text": "Success and failure both leave the party able to continue. Do not gate the next scene on this roll."
+        }
+      ],
+      "advanceWhen": "One rolled row has been resolved and the party is moving again."
+    },
+    {
+      "id": "scene-return-gate",
+      "title": "The Gate Hears the Count",
+      "purpose": "Return to Oakhaven and settle the rescue, including the +1 weapon if the people and the span were both saved.",
+      "paceBeat": 7,
+      "locationId": "loc-east-gate",
+      "readAloud": "The east gate bench is drier than you left it, which feels like an insult if the gorge is still in your clothes. The sergeant counts people, not planks. She makes a mark for each civilian who walks through, and she does not mark the wagons until the people are done. On the table behind her is a longsword in a plain sheath, city-issue, with a thin line of light along the fuller that ordinary steel does not keep.",
+      "gmNotes": [
+        "People saved are the success, even if the bridge is gone. Say the count out loud.",
+        "Best ending (people and bridge): the sword is a +1 longsword. SRD, uncommon, no attunement in SRD 5.2 or SRD 5.1. +1 to attack and damage rolls. Any simple or martial weapon can replace the longsword if the fighter does not want a sword; the bonus stays +1.",
+        "If the bridge was lost or the rescue was costly, pay the gold already written and do not give the sword. Series pregens assume the best ending. Tell a drop-in table they may still grant the sword."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-lead-mere"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-lead-mere",
+          "label": "Read the soundings",
+          "description": "Take the Mere lead."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Count the living",
+          "text": "Mark each saved civilian. Do not let the bridge outrank them."
+        },
+        {
+          "title": "Pay",
+          "text": "Use the ending's gold. Award the +1 weapon only on the full save."
+        },
+        {
+          "title": "Soren",
+          "text": "If he lived, he sleeps on the bench. If he died, the sergeant writes his name and still pays."
+        }
+      ],
+      "advanceWhen": "The survivor count and the payment are written down."
+    },
+    {
+      "id": "scene-lead-mere",
+      "title": "Resolution: The Bell in the Water",
+      "purpose": "End the bridge and lead the party to The Bell Beneath the Mere.",
+      "paceBeat": 8,
+      "locationId": "loc-east-gate",
+      "readAloud": "Under the pay slate is a ferryman's sounding, still damp. The Night Spring does not stop at the gorge. The line continues into the Mere, and beside it someone has written that a bell is ringing under still water where bells should not ring. The sergeant taps the note. “Noll Vey is hiring. His apprentice went to answer it. That is the next wet job, and it can wait until you are dry.”",
+      "gmNotes": [
+        "Module 06 is level 6. This module was the step from 5 to 6.",
+        "The sounding, the pier ash, and Soren's report are three ways to know the Mere is next.",
+        "Stop. Do not row onto the Mere tonight."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 8,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [],
+      "runSteps": [
+        {
+          "title": "Show the line",
+          "text": "Night Spring into the Mere. A bell. A missing apprentice."
+        },
+        {
+          "title": "Name the level",
+          "text": "Series characters become level 6."
+        },
+        {
+          "title": "Close",
+          "text": "End at the gate."
+        }
+      ],
+      "advanceWhen": "The Mere lead is clear and the session ends."
     }
   ],
   "clues": [
@@ -655,7 +970,7 @@
       "id": "enc-blackwater-lampreys",
       "name": "Blackwater Lampreys",
       "type": "combat / shove / ignore",
-      "difficulty": "easy (light; time pressure)",
+      "difficulty": "below Low (1350 XP; Low 2000 for four level-5 characters)",
       "summary": "Two pale lamprey-like scavengers climb the east rail while the party prepares the center span.",
       "objective": "Keep the preparation area clear long enough to set lines or dump cargo.",
       "resolution": "Drive both lampreys into the gorge, defeat them, or ignore them and proceed to the finale.",
@@ -717,6 +1032,13 @@
       "kind": "reward",
       "description": "Medicine cargo awarded if the wagon survives.",
       "effect": "Contains two separate Potion of Healing doses using the selected ruleset's normal potion rules."
+    },
+    {
+      "id": "item-plus-one-sword",
+      "name": "+1 Longsword",
+      "kind": "magic item",
+      "description": "City-issue steel with a thin line of light along the fuller. Awarded only if the people and the span are both saved.",
+      "effect": "SRD +1 weapon, uncommon. No attunement in SRD 5.2 or SRD 5.1. +1 to attack and damage rolls. Any simple or martial weapon can replace the longsword; the bonus stays +1."
     }
   ],
   "maps": [
@@ -903,10 +1225,11 @@
     ]
   },
   "pacing": {
-    "targetMinutes": 150,
-    "plannedMinutes": 140,
+    "targetMinutes": 210,
+    "plannedMinutes": 234,
     "bossReserveMinutes": 45,
     "cutOrder": [
+      "If the table is behind, resolve each rolled row in one sentence. Do not skip the return to Oakhaven or the lead into the next module.",
       "If 20+ minutes behind, remove the Blackwater Lampreys and let the party begin scene-span with Mera already holding one end of the guide line.",
       "If 15+ minutes behind in the ashhouse, reveal the scoop wear marks before the first mix.",
       "Never cut the six-person rescue count, the four-integrity clock, or the pier-seal choice."
@@ -919,7 +1242,7 @@
   },
   "initialState": {
     "questStage": "offered",
-    "currentSceneId": "scene-arrival",
+    "currentSceneId": "scene-gate-hook",
     "discoveredClueIds": [],
     "revealedSecretIds": [],
     "npcState": {
@@ -971,7 +1294,7 @@
     "adventureId": "the-ashen-bridge",
     "version": "0.1.0",
     "target": {
-      "level": 3,
+      "level": 5,
       "partySize": 4
     },
     "requiredCheckIds": [
@@ -1032,27 +1355,28 @@
       {
         "id": "enc-blackwater-lampreys",
         "objective": "Keep the center span clear while preparing the evacuation.",
-        "start": "Two lampreys climb the east rail when the party reaches the center wagons.",
-        "bypass": "Adjacent Action + DC 12 Athletics shoves a lamprey back into the gorge and removes it from the encounter.",
+        "start": "Three blackwater lampreys climb the east rail when the party reaches the center wagons.",
+        "bypass": "An adjacent creature can use an action and a DC 15 Strength (Athletics) check to shove one lamprey into the gorge. DC 15 is this scene's bypass. It is not the grapple escape DC printed on the stat block.",
         "creatures": [
           {
             "name": "Blackwater Lamprey",
-            "count": 2,
+            "count": 3,
             "ac": 12,
-            "hp": 13,
+            "hp": 60,
             "speed": "30 ft., swim 30 ft.",
-            "cr": "1/4",
-            "xp": 50,
-            "statBlock": "SRD Constrictor Snake, reskinned as a pale, eel-like lamprey that climbs the wet rail. Blindsight 10 ft.",
-            "attack": "Bite. Melee +4 to hit, reach 5 ft.; 5 (1d6+2) piercing. Constrict. Melee +4 to hit, reach 5 ft.; 6 (1d8+2) bludgeoning, and the target is grappled (escape DC 14); until the grapple ends the target is restrained and the lamprey can't constrict another target.",
-            "trait": "Shove-able: an adjacent creature can use an Action and DC 12 Strength (Athletics) to shove a lamprey back into the gorge, removing it from the encounter.",
-            "edition2024": "AC 13. Bite +4 to hit, 6 (1d8+2) piercing. Constrict: DC 12 Strength save, one Medium or smaller creature within 5 ft.; on a failure 7 (3d4) bludgeoning and Grappled (escape DC 12).",
-            "tactics": "Latch onto isolated characters near the east rail; retreat into the gorge when bloodied."
+            "cr": "2",
+            "xp": 450,
+            "statBlock": "SRD Giant Constrictor Snake, reskinned as a blackwater lamprey surging onto the span. Huge. Blindsight 10 ft.",
+            "attack": "2014 (no Multiattack): Bite +6, reach 10 ft., 11 (2d6+4) piercing, or Constrict +6, reach 5 ft., 13 (2d8+4) bludgeoning, grappled (escape DC 16), restrained while grappled, can't constrict another target. 2024: Multiattack Bite + Constrict, DC 14 Str save, escape DC 14. Bite +6, reach 10 ft., 11 (2d6+4) piercing. Constrict 13 (2d8+4) bludgeoning.",
+            "trait": "Bypass: an adjacent creature can use an action and a DC 15 Strength (Athletics) check to shove one lamprey back into the gorge, removing it. This DC 15 is the scene's bypass, not the grapple escape.",
+            "edition2024": "2024: Multiattack Bite + Constrict, DC 14 Str save, escape DC 14. AC 12, HP 60, speed 30 ft., swim 30 ft. Bite +6, reach 10 ft., 11 (2d6+4) piercing. Constrict 13 (2d8+4) bludgeoning.",
+            "tactics": "Surge onto the east rail, grapple one isolated person, and drag them toward the edge. A shoved lamprey does not return."
           }
         ],
         "end": "Lampreys are defeated, shoved away, ignored as the finale begins, or the party leaves their reach.",
-        "balance": "4 × level 3: 100 XP, ×1.5 = 150 adjusted → below Easy (2014 DMG); below Low (2024 budget). Deliberately light: it spends the party's preparation time, not their hit points.",
-        "scaling": "3 PCs: 1 lamprey per round climbs up (2 total). 5 PCs: 3 lampreys. 6 PCs: 4 lampreys."
+        "balance": "SRD 5.2.1 for 4 level-5 characters: Low 2000, Moderate 3000, High 4400. Creature XP spent: 1350, below the Low budget. Three CR 2 snakes are still under Low for four level-5 characters. The Integrity clock is the real finale. SRD 5.1 prints monster XP and does not include an encounter-budget table, so this module does not invent a 2014 Easy/Medium/Hard/Deadly label.",
+        "scaling": "3 PCs: 2 lampreys (900 XP) against Low 1500. 5 PCs: 4 lampreys (1800 XP) against Low 2500. 6 PCs: 4 lampreys (1800 XP) against Low 3000.",
+        "balanceWhy": "Three CR 2 snakes are still under Low for four level-5 characters. The Integrity clock is the real finale."
       },
       {
         "id": "enc-bridge-rescue",
@@ -1134,6 +1458,10 @@
   "flowContract": {
     "principle": "Preparation scene leads into one timed rescue finale with outcome branches based on lives saved and bridge state.",
     "mainSpine": [
+      "scene-gate-hook",
+      "scene-gate-roll",
+      "scene-ford-lie",
+      "scene-gorge-roll",
       "scene-arrival",
       "scene-ashhouse",
       "scene-span",
@@ -1143,9 +1471,7 @@
       "scene-finale"
     ],
     "terminalScenes": [
-      "scene-resolution-saved",
-      "scene-resolution-lost",
-      "scene-resolution-costly"
+      "scene-lead-mere"
     ],
     "stageCount": 5
   },
@@ -1160,5 +1486,15 @@
       "1 — primary beam splits; only rope and secondary braces remain",
       "0 — center span collapses"
     ]
+  },
+  "pregenPack": "data/pregens/oakhaven-level-5-2014-srd.json",
+  "pregenPack2024": "data/pregens/oakhaven-level-5-2024-srd.json",
+  "rulesEditions": {
+    "supported": [
+      "2014 SRD 5.1",
+      "2024 SRD 5.2.1"
+    ],
+    "carryForward": "Level 5 sheets add the +1 longsword on Calder Voss and still carry the wand, cloak, and pearl.",
+    "unsettled": "Settled against SRD 5.1 and SRD 5.2.1. No 2014 Easy/Medium/Hard/Deadly labels, because SRD 5.1 has no encounter-budget table. Boots of Elvenkind need no attunement in either edition; 2014 advantage is only on Stealth checks that rely on moving silently. Wand of Secrets: 2014 an action within 30 feet; 2024 a Magic action within 60 feet. 2014 Life always prepares Spiritual Weapon from level 3 and Beacon of Hope from level 5. 2024 Life does not. Hunter Shark and Giant Constrictor Snake are printed in both edition blocks."
   }
 }

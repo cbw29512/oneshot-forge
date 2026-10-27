@@ -4,10 +4,10 @@
     "id": "whispers-of-the-oakhaven-hollow",
     "title": "Whispers of the Oakhaven Hollow",
     "systemCompatibility": "5E-compatible fantasy RPG",
-    "partyLevel": 3,
+    "partyLevel": 2,
     "partySize": 4,
     "partySizeRange": "3–6 players (tuned for 4)",
-    "durationMinutes": 150,
+    "durationMinutes": 210,
     "tone": [
       "dark woodland",
       "corruption mystery",
@@ -19,12 +19,30 @@
     "episode": 2,
     "hub": "Oakhaven",
     "giver": "Old Man Kaelen",
-    "nextTitle": "Beneath the Eastern Watchtower"
+    "nextTitle": "Beneath the Eastern Watchtower",
+    "level": 2,
+    "worth": "exactly one level",
+    "questGiver": {
+      "name": "Old Man Kaelen",
+      "npcId": "npc-kaelen",
+      "why": "He sells the nectar and he sent Malakor into the grove. The job starts at his counter."
+    },
+    "mayorFrame": "Only level 1 and level 10 are the mayor's quests. This module's giver is the NPC in questGiver. Do not move this job onto the mayor's desk.",
+    "pace": [
+      "1 hook",
+      "2 rolled encounter",
+      "3 clearer direction",
+      "4 rolled encounter while traveling",
+      "5 arrival, trap, and puzzle",
+      "6 the holder of the goal",
+      "7 return to Oakhaven and settle",
+      "8 lead to the next module"
+    ]
   },
   "setup": {
     "pitch": "Oakhaven's apothecary sends the party into the Whispering Hollow for Gloom-Lily Nectar, but the ancient weaving grove is choking beneath a shadow blight and its druid guardian, Malakor, is bound to the corruption.",
     "openingLocation": "Kaelen's Apothecary on Oakhaven's eastern lane",
-    "gmSummary": "Kaelen needs four vials of Gloom-Lily Nectar before the Hollow's shroud spoils the crop. The party crosses a razor-vine path guarded by blight-twisted shrubs, rot-blooms, and a corrupted bear, opens a sunken druidic shrine by restoring the cycle Decay → Balance → Growth, then enters the Heart Chamber. The Heart Tree Core shields Malakor until fire or radiant energy breaks it. The party can kill Malakor, or cleanse him through three successful cleansing actions before two failures once the core is exposed. The Shroud has three visible stages; rushing or repeated mistakes can make the grove a lasting dead zone even if Malakor falls.",
+    "gmSummary": "Kaelen needs four vials of Gloom-Lily Nectar before the Hollow's shroud spoils the crop. The party crosses a razor-vine path guarded by blight-twisted shrubs, rot-blooms, and a corrupted bear, opens a sunken druidic shrine by restoring the cycle Decay → Balance → Growth, then enters the Heart Chamber. The Heart Tree Core shields Malakor until fire or radiant energy breaks it. The party can kill Malakor, or cleanse him through three successful cleansing actions before two failures once the core is exposed. The Shroud has three visible stages; rushing or repeated mistakes can make the grove a lasting dead zone even if Malakor falls. Pace: hook at the shop, a rolled lane encounter, a clearer ridge direction with a false north-wood sale, a second roll on the ridge, arrival at the bramble trap and the moonstone puzzle, Malakor holding the nectar, the walk back to Kaelen, and the watchtower lead. Pace: hook at the shop, a rolled lane encounter, a clearer ridge direction with a false north-wood sale, a second roll on the ridge, arrival at the bramble trap and the moonstone puzzle, Malakor holding the nectar, the walk back to Kaelen, and the watchtower lead.",
     "background": "The Whispering Hollow is an old druidic weaving grove where roots, moonlight, and seasonal magic were once braided into healing plants. Malakor has tended it long enough to know individual trees by scar and season, leaves bundles of dried Gloom-Lily for Kaelen without being asked, and refuses to cut living wood when deadfall will do. Weeks ago he found a black splinter embedded in the Heart Tree and tried to draw the sickness into himself rather than let it spread into Oakhaven. The corruption instead used him as an anchor. In lucid moments he still repeats the old tending cycle—Decay, Balance, Growth—and apologizes to the grove before the blight forces him to attack. Kaelen knows only that his Gloom-Lilies have stopped arriving and that the Hollow's birds no longer cross the eastern ridge.",
     "pregenTieIns": [
       "Fighter: hold narrow lanes, protect the cleansing attempt, and break the bear's thorn binding.",
@@ -234,6 +252,24 @@
       "connections": [
         "loc-sunken-shrine"
       ]
+    },
+    {
+      "id": "loc-east-lane",
+      "name": "Oakhaven's eastern lane",
+      "description": "The eastern lane is a rutted dirt road between mint hedges and a drainage ditch. It smells of wet ash, horse sweat, and crushed leaves. A lichen-green milestone stands at the fork, papered with overlapping notices.",
+      "tags": [
+        "oakhaven",
+        "travel"
+      ]
+    },
+    {
+      "id": "loc-ridge-road",
+      "name": "Ridge road to the Hollow",
+      "description": "The ridge road climbs through oak shade toward the Whispering Hollow. Ferns slap at the knees, bird calls stop in patches, and old charcoal blazes mark the trees Kaelen uses when the path is vague.",
+      "tags": [
+        "oakhaven",
+        "travel"
+      ]
     }
   ],
   "scenes": [
@@ -252,7 +288,8 @@
         "Kaelen offers 150 gp total for four clean vials of Gloom-Lily Nectar.",
         "He tells the party Malakor was the Hollow's caretaker; he does not know Malakor is corrupted.",
         "Put three boxes labeled SHROUD on the table. The adventure starts at 0/3.",
-        "The nectar is safe to harvest only after the Heart Tree corruption is broken."
+        "The nectar is safe to harvest only after the Heart Tree corruption is broken.",
+        "Quest giver: Old Man Kaelen. If someone says Malakor's name over an empty vial, the glass fogs and the word Balance shows in the condensation, then fades. That is a strange hook, not the shrine's solution."
       ],
       "runSteps": [
         {
@@ -277,13 +314,13 @@
       ],
       "encounterIds": [],
       "exits": [
-        "scene-bramble"
+        "scene-lane-roll"
       ],
       "exitChoices": [
         {
-          "target": "scene-bramble",
-          "label": "Enter the Hollow",
-          "description": "Follow Kaelen's charcoal trail toward the ancient grove."
+          "target": "scene-lane-roll",
+          "label": "First roll",
+          "description": "Leave the hook and roll the roadside table."
         }
       ]
     },
@@ -477,7 +514,7 @@
       "readAloud": "The last black root snaps loose from Malakor's wrist. For a moment the entire Hollow goes silent; then water begins moving beneath the roots again, and pale Gloom-Lilies open one by one around the Heart Tree. Malakor sinks to his knees and pulls a mud-stained map from inside his robe. A charcoal mark circles Oakhaven's eastern watchtower, with a line drawn beneath it into the earth.",
       "gmNotes": [
         "The party can harvest four clean vials of Gloom-Lily Nectar.",
-        "Kaelen/Town Council pays 150 gp total and gives the Ring of Plant Protection.",
+        "Kaelen/Town Council pays 150 gp total and gives the Potion of Greater Healing.",
         "Malakor confirms the black splinter came upward through a root fissure connected to caverns beneath the eastern watchtower.",
         "This is the cleanest hook into Module 03, but do not force immediate travel."
       ],
@@ -488,7 +525,7 @@
         },
         {
           "title": "Pay the bounty",
-          "text": "On return to Oakhaven, award 150 gp total plus the Ring of Plant Protection."
+          "text": "On return to Oakhaven, award 150 gp total plus the Potion of Greater Healing."
         },
         {
           "title": "Show the next map",
@@ -504,7 +541,16 @@
         "clue-watchtower"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-kaelen"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-kaelen",
+          "label": "Return to Kaelen",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
     },
     {
       "id": "scene-resolution-felled",
@@ -519,7 +565,7 @@
       "readAloud": "When Malakor falls, the black filaments across the Heart Tree recoil into the split trunk and turn to ash. The grove does not celebrate; it simply begins to live again. Beneath Malakor's staff lies a folded map stained with root sap. One charcoal circle marks Oakhaven's eastern watchtower, and beside it someone has written a single word: BELOW.",
       "gmNotes": [
         "If the Core broke before SHROUD 3, four clean Gloom-Lily vials survive.",
-        "Kaelen/Town Council still pays 150 gp total and grants the Ring of Plant Protection.",
+        "Kaelen/Town Council still pays 150 gp total and grants the Potion of Greater Healing.",
         "Malakor's marked map is found on his body or beneath his staff; Module 03 remains available even if he cannot explain it.",
         "Kaelen is relieved the Hollow is saved but openly mourns the loss of its caretaker."
       ],
@@ -530,7 +576,7 @@
         },
         {
           "title": "Return",
-          "text": "Award 150 gp total and the Ring of Plant Protection in Oakhaven."
+          "text": "Award 150 gp total and the Potion of Greater Healing in Oakhaven."
         },
         {
           "title": "Reveal below",
@@ -545,7 +591,16 @@
         "clue-watchtower"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-kaelen"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-kaelen",
+          "label": "Return to Kaelen",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
     },
     {
       "id": "scene-resolution-shrouded",
@@ -560,7 +615,7 @@
       "readAloud": "The Core finally breaks, but the black fog does not leave. It settles into the lowest roots like ink soaking into cloth. Half the Gloom-Lilies collapse before your eyes; the rest close around beads of dark nectar. Near the split trunk, a root fissure exhales the same cold air as the corruption. Malakor's marked map—or the papers at his feet—points from that fissure toward Oakhaven's eastern watchtower.",
       "gmNotes": [
         "Only two usable Gloom-Lily vials survive. Kaelen pays 75 gp for the partial harvest and information.",
-        "Do not award the Ring of Plant Protection on this outcome; the Council reserves it for a restored grove.",
+        "Do not award the Potion of Greater Healing on this outcome; the Council reserves it for a restored grove.",
         "The Hollow remains a dead zone until the deeper source beneath the eastern watchtower is addressed.",
         "The adventure is complete; failure on the clock changes the world but does not block Module 03."
       ],
@@ -586,7 +641,239 @@
         "clue-watchtower"
       ],
       "encounterIds": [],
-      "exits": []
+      "exits": [
+        "scene-return-kaelen"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-return-kaelen",
+          "label": "Return to Kaelen",
+          "description": "Go back to Oakhaven and settle the job."
+        }
+      ]
+    },
+    {
+      "id": "scene-lane-roll",
+      "title": "Roll on the Eastern Lane",
+      "purpose": "A truly random encounter on the way out of Oakhaven, rolled at the table, before the Hollow's direction is clear.",
+      "paceBeat": 2,
+      "locationId": "loc-east-lane",
+      "readAloud": "The eastern lane smells of wet ash and crushed mint. Kaelen's marks stop at a milestone where three tracks argue: the ridge road, a goat path, and the ditch people call the Short Cut. A handcart sits with one wheel off. Somebody has nailed a fresh notice over a faded one. The Hollow is not in sight yet. Roll before anyone picks a road.",
+      "gmNotes": [
+        "Roll 1d6 in the open. Use that row only. This is not a fixed fight.",
+        "The row never carries the only copy of a required clue. Skipping it does not stop the night.",
+        "1. A carter named Poul asks help with the wheel. DC 10 Strength (Athletics) sets it. Success: he gives a true rumor that birds will not cross the ridge. Failure: the wheel still goes on crooked and he warns you the Short Cut is a lie.",
+        "2. The fresh notice says Malakor is selling nectar in the north wood. It is a week old and wrong. Treat it as the red herring, then keep going. The notice is not a required clue.",
+        "3. Hungry SRD Black Bear, not a required fight. AC 11, HP 19. 2014: Bite +3 (1d6+2) and Claws +3 (2d4+2). 2024: two Rend attacks +4, 1d6+2 slashing each. Offer food or a DC 15 Wisdom (Animal Handling) check. Success: it leaves. Failure: it snaps once, then the party can still go around. Do not spend the night here.",
+        "4. A child has lost a goat bell, not a goat. Returning it earns no gold and a warning that the ridge has gone quiet. DC 10 Wisdom (Perception) finds the bell in the ditch either way.",
+        "5. Slick boards over the ditch. DC 10 Dexterity (Acrobatics) or fall Prone and lose a minute. The road continues.",
+        "6. Two SRD Awakened Shrubs in the ditch. AC 9, HP 10, vulnerable to fire, resistant to piercing. Rake +1, 1 slashing. They do not chase. A DC 10 Dexterity (Acrobatics) check walks past; on a failure the passer takes 1 slashing and still passes."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-ridge-mark"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-ridge-mark",
+          "label": "Read the milestone",
+          "description": "The rolled row is done and the road continues."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Roll in the open",
+          "text": "Tell the table this beat is a roll, not a scripted monster. Roll 1d6 where everyone can see it."
+        },
+        {
+          "title": "Run only that row",
+          "text": "Read the matching row. If it is the combat row, offer the listed way out before initiative."
+        },
+        {
+          "title": "Move on either way",
+          "text": "Success and failure both leave the party able to continue. Do not gate the next scene on this roll."
+        }
+      ],
+      "advanceWhen": "One rolled row has been resolved and the party is moving again."
+    },
+    {
+      "id": "scene-ridge-mark",
+      "title": "The Blaze and the False Notice",
+      "purpose": "Give a clearer direction to the Heart Tree, and show that the north-wood sale is a red herring.",
+      "paceBeat": 3,
+      "locationId": "loc-east-lane",
+      "readAloud": "The milestone at the fork is arguing with itself. A fresh notice, still smelling of paste, says Malakor is selling nectar in the north wood and names a price. A chalk arrow points down the goat path. Charcoal the color of Kaelen's stained fingers marks the ridge, then smears, as if the hand got embarrassed and stopped. In the ditch, a torn scrap shows one word in a tight hand: Decay. The birds will not cross any of the three tracks.",
+      "gmNotes": [
+        "Quest giver is Old Man Kaelen, the apothecary who sells the nectar. The mayor does not give this job. Level 1 and level 10 are the mayor's modules, and they are not written.",
+        "Lead A, red herring: the north-wood notice. Motive: a rival stall wants Kaelen's buyers walking the wrong way so the grove trade dies. The paste is old. The stall is empty. Checking it costs about ten minutes.",
+        "Lead B: Kaelen himself, if they go back or already pressed him. Motive: shame. He sent Malakor in. He shows how he makes a charcoal blaze only if someone asks how he marks a path. He is not lying about the missing nectar. He is leaving the ridge out.",
+        "Lead C, physical: the scrap in the ditch. Dry it or make a DC 10 Intelligence (Investigation) check and the rest reads Decay, Balance, Growth in Malakor's hand. On a failure the word Decay is still there, and the shrine repeats the cycle later. This scrap is not the only copy of that cycle.",
+        "Any order works. Do not announce the ridge as the answer in the first sentence. After they test one false road, the charcoal and the scrap are still on the stone."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-ridge-roll"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-ridge-roll",
+          "label": "Take the ridge",
+          "description": "Follow the blazes. Roll again on the road."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Put the leads on the table",
+          "text": "Name the people and the physical claims. Let the players choose the order. Do not announce which one is true."
+        },
+        {
+          "title": "Play the motive",
+          "text": "Each person wants something. A false lead has a reason. Answer questions in that person's voice."
+        },
+        {
+          "title": "Wrong turns fail forward",
+          "text": "Checking the red herring costs about ten minutes. The true route is still in their hands afterward, on paper or on the ground."
+        }
+      ],
+      "advanceWhen": "The party knows the ridge road is the real route and has left the milestone."
+    },
+    {
+      "id": "scene-ridge-roll",
+      "title": "Roll on the Ridge Road",
+      "purpose": "A second rolled encounter while traveling to the Hollow, before arrival at the brambles.",
+      "paceBeat": 4,
+      "locationId": "loc-ridge-road",
+      "readAloud": "The ridge road climbs under oaks that should be noisy and are not. Ferns soak your boots. Charcoal blazes keep the path honest, then stop where the light turns the color of old iron. Something moves once, off the trail, and does not call. Roll before the party steps into the brambles.",
+      "gmNotes": [
+        "Roll 1d6 in the open. Use that row only. This is not a fixed fight.",
+        "The row never carries the only copy of a required clue. Skipping it does not stop the night.",
+        "1. A silent deer crosses and will not be hunted. DC 10 Wisdom (Animal Handling) or it bolts. Either way the party sees it refuse to enter the iron-colored light.",
+        "2. Old camp ash and a cold kettle. DC 15 Intelligence (Investigation) finds Malakor's herb twist, proof he came this way alive. Failure still leaves the twist in plain sight if they search the kettle.",
+        "3. A fallen limb blocks the trail. DC 10 Strength (Athletics) moves it. Failure: go around, lose five minutes, and do not mark a Shroud box unless they camp.",
+        "4. Hungry SRD Black Bear, not a required fight. AC 11, HP 19. 2014: Bite +3 (1d6+2) and Claws +3 (2d4+2). 2024: two Rend attacks +4, 1d6+2 slashing each. Offer food or a DC 15 Wisdom (Animal Handling) check. Success: it leaves. Failure: it snaps once, then the party can still go around. Do not spend the night here.",
+        "5. Wind through the canopy sounds like whispering. It is branches. Say so if they ask. No roll required to disbelieve it.",
+        "6. Two SRD Awakened Shrubs in the ditch. AC 9, HP 10, vulnerable to fire, resistant to piercing. Rake +1, 1 slashing. They do not chase. A DC 10 Dexterity (Acrobatics) check walks past; on a failure the passer takes 1 slashing and still passes."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 10,
+      "npcIds": [],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-bramble"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-bramble",
+          "label": "Reach the brambles",
+          "description": "The rolled row is done and the road continues."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Roll in the open",
+          "text": "Tell the table this beat is a roll, not a scripted monster. Roll 1d6 where everyone can see it."
+        },
+        {
+          "title": "Run only that row",
+          "text": "Read the matching row. If it is the combat row, offer the listed way out before initiative."
+        },
+        {
+          "title": "Move on either way",
+          "text": "Success and failure both leave the party able to continue. Do not gate the next scene on this roll."
+        }
+      ],
+      "advanceWhen": "One rolled row has been resolved and the party is moving again."
+    },
+    {
+      "id": "scene-return-kaelen",
+      "title": "Back to Kaelen's Counter",
+      "purpose": "Travel back to Oakhaven and settle the nectar job with Kaelen, including the permanent magic item.",
+      "paceBeat": 7,
+      "locationId": "loc-kaelen-shop",
+      "readAloud": "Oakhaven's eastern lane is louder on the way home. Mint and hot copper meet you at Kaelen's door before he does. He counts the vials with a stained finger, then looks past you, once, as if the grove might have followed. The counter is clear except for a cloth-wrapped wand he did not have out this morning. He waits to hear whether Malakor is still a man.",
+      "gmNotes": [
+        "Pay the bounty that matches the ending already chosen: 150 gp if the corruption broke before Shroud 3, otherwise the partial pay already written on that ending.",
+        "Permanent item, both editions: Wand of Secrets, uncommon, no attunement, 3 charges, regains 1d3 at dawn, expend 1 charge. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet. If the shrine wand was missed, Kaelen had this second wand in the shop and gives it now. The party does not get two.",
+        "If the grove was restored, he also gives one Potion of Greater Healing (SRD, uncommon, 4d4+4 HP). It is consumable and is not assumed to remain on later sheets. The custom Potion of Greater Healing is not real and is not awarded."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 12,
+      "npcIds": [
+        "npc-kaelen"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [
+        "scene-lead-watchtower"
+      ],
+      "exitChoices": [
+        {
+          "target": "scene-lead-watchtower",
+          "label": "Ask what the map means",
+          "description": "Settle the coin, then take the next lead."
+        }
+      ],
+      "runSteps": [
+        {
+          "title": "Count the vials",
+          "text": "Kaelen pays what the ending already earned. Say the number out loud."
+        },
+        {
+          "title": "Hand over the wand",
+          "text": "Give one Wand of Secrets and read the charge rule for the table's edition. Do not also give a ring."
+        },
+        {
+          "title": "Record Malakor",
+          "text": "Write whether he lived. Oakhaven remembers that answer in the next module."
+        }
+      ],
+      "advanceWhen": "Coin and the Wand of Secrets are recorded, and Kaelen has heard Malakor's fate."
+    },
+    {
+      "id": "scene-lead-watchtower",
+      "title": "Resolution: The Map under the Tower",
+      "purpose": "Close this ending and hand the party the lead into Beneath the Eastern Watchtower.",
+      "paceBeat": 8,
+      "locationId": "loc-kaelen-shop",
+      "readAloud": "Kaelen spreads the stained map on the counter and weights the corner with a vial. The charcoal circle is not the Hollow. It sits under Oakhaven's eastern watchtower, with a line drawn down into the earth. He taps it once. “I sell leaves. I do not keep a cellar that draws pictures of itself. Captain Marr will pretend she is not worried. She is.”",
+      "gmNotes": [
+        "This is the series lead, not a new fight. Module 03 is level 3.",
+        "If they already have Malakor's map from the Heart Tree, this scene confirms it. If that copy was lost, Kaelen traced a second from the scrap in the ditch and the fissure they described.",
+        "The mayor of Oakhaven is the level 1 and level 10 frame of the series and is not in this module. Do not invent a mayor scene tonight."
+      ],
+      "pacingClass": "core",
+      "estimatedMinutes": 8,
+      "npcIds": [
+        "npc-kaelen"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": [],
+      "exitChoices": [],
+      "runSteps": [
+        {
+          "title": "Show the circle",
+          "text": "Put the watchtower map in their hands. Name Captain Marr as the next person."
+        },
+        {
+          "title": "Say what leveled",
+          "text": "Tell the players this module is worth one level, from 2 to 3, if they are playing the series."
+        },
+        {
+          "title": "Stop",
+          "text": "End. Do not start the tower tonight unless the table demands a cliffhanger sentence."
+        }
+      ],
+      "advanceWhen": "The watchtower map is in the party's hands and the session is closing."
     }
   ],
   "clues": [
@@ -644,7 +931,7 @@
       "id": "enc-bramble-guard",
       "name": "The Bramble Guard",
       "type": "combat / bypass",
-      "difficulty": "easy (introductory)",
+      "difficulty": "below Low (230 XP; Low 400 for four level-2 characters)",
       "summary": "Three blight-twisted Thorn-Shrubs and two Rot-Blooms guard a thorn-bound bear while razor-vines make careless movement dangerous.",
       "objective": "Reach the shrine trail or neutralize the corruption without being trapped in the thorn lane.",
       "resolution": "The scene ends when the party reaches the far steps, all hostile thorn-shrubs and rot-blooms are neutralized, or the bear is freed and a safe route is opened.",
@@ -656,7 +943,7 @@
       "id": "enc-malakor",
       "name": "Malakor and the Heart Tree Core",
       "type": "boss / cleansing ritual",
-      "difficulty": "medium (climactic; the Core shield makes it play harder)",
+      "difficulty": "between Low and Moderate (500 XP; Low 400, Moderate 600 for four level-2 characters)",
       "summary": "The Core protects Malakor while animated roots control the battlefield. Fire or radiant energy breaks the Core; then the party chooses combat or a three-success cleansing.",
       "objective": "Break the Core and end Malakor's connection to the shadow blight before the grove is permanently scarred.",
       "resolution": "Core at 0 HP plus Malakor defeated or 3 cleansing successes. Two cleansing failures do not end the adventure; Malakor returns to full hostility and the party may keep fighting or try a new approach.",
@@ -706,14 +993,14 @@
       "name": "Wand of Secrets",
       "kind": "magic item",
       "description": "An old shrine wand with 3 charges.",
-      "effect": "Use the selected ruleset's SRD wording for Wand of Secrets."
+      "effect": "No attunement. 3 charges, regains 1d3 at dawn, expend 1 charge. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet."
     },
     {
       "id": "item-ring-plant-protection",
-      "name": "Ring of Plant Protection",
-      "kind": "original magic item",
-      "description": "Council reward for fully restoring the Hollow.",
-      "effect": "+1 AC against attacks made by Beasts and Plants while worn."
+      "name": "Potion of Greater Healing",
+      "kind": "consumable",
+      "description": "Kaelen's extra payment when the grove is restored. It does not carry onto later sheets.",
+      "effect": "SRD Potion of Greater Healing: regain 4d4+4 HP when drunk. Consumed. The custom Ring of Plant Protection is not awarded."
     },
     {
       "id": "item-watchtower-map",
@@ -831,13 +1118,13 @@
       "id": "ending-cleansed",
       "name": "The Hollow Breathes",
       "condition": "Core broken before SHROUD 3 and Malakor cleansed.",
-      "result": "Four nectar vials, 150 gp bounty, Ring of Plant Protection, Malakor survives, and the watchtower map points to Module 03."
+      "result": "Four nectar vials, 150 gp bounty, Potion of Greater Healing, Malakor survives, and the watchtower map points to Module 03."
     },
     {
       "id": "ending-felled",
       "name": "Roots Without a Keeper",
       "condition": "Core broken before SHROUD 3 and Malakor dies.",
-      "result": "Four nectar vials, 150 gp bounty, Ring of Plant Protection, and Malakor's map still reveals the watchtower caverns."
+      "result": "Four nectar vials, 150 gp bounty, Potion of Greater Healing, and Malakor's map still reveals the watchtower caverns."
     },
     {
       "id": "ending-shrouded",
@@ -903,10 +1190,11 @@
     ]
   },
   "pacing": {
-    "targetMinutes": 150,
-    "plannedMinutes": 140,
+    "targetMinutes": 210,
+    "plannedMinutes": 222,
     "bossReserveMinutes": 45,
     "cutOrder": [
+      "If the table is behind, resolve each rolled row in one sentence. Do not skip the return to Oakhaven or the lead into the next module.",
       "If 20+ minutes behind, remove two Thorn-Shrubs and one Rot-Bloom from the Bramble Guard and start the bear adjacent to a character who can inspect its collar.",
       "If 15+ minutes behind at the shrine, reveal the WHAT DIES FEEDS WHAT LIVES inscription immediately and allow one DC 13 bypass attempt.",
       "Never cut the Core mechanic, the cleansing choice, or the eastern-watchtower reveal."
@@ -970,7 +1258,7 @@
     "adventureId": "whispers-of-the-oakhaven-hollow",
     "version": "0.1.0",
     "target": {
-      "level": 3,
+      "level": 2,
       "partySize": 4
     },
     "requiredCheckIds": [
@@ -1067,8 +1355,9 @@
           }
         ],
         "end": "The party reaches the shrine steps, defeats the thorn-shrubs and rot-blooms, or otherwise opens a safe path.",
-        "balance": "4 × level 3: 230 XP, ×2 = 460 adjusted → Easy (2014 DMG); below Low (2024 budget). Introductory by design; razor-vines add pressure.",
-        "scaling": "3 PCs: 2 Thorn-Shrubs, 1 Rot-Bloom, bear. 5 PCs: add 1 Rot-Bloom. 6 PCs: add 1 Rot-Bloom and 1 Thorn-Shrub. The collar check and Cautious Passage stay the same."
+        "balance": "SRD 5.2.1 for 4 level-2 characters: Low 400, Moderate 600, High 800. Creature XP spent: 230, below the Low budget. Razor-vines add damage outside the creature XP. Introductory by design. SRD 5.1 prints monster XP and does not include an encounter-budget table, so this module does not invent a 2014 Easy/Medium/Hard/Deadly label.",
+        "scaling": "3 PCs: drop one Rot-Bloom (XP 180). 5 PCs: add one Rot-Bloom (XP 280). 6 PCs: add one Rot-Bloom and one Thorn-Shrub (XP 290). Low budget at level 2 is 100 XP per character. Stay under it.",
+        "balanceWhy": "Razor-vines add damage outside the creature XP. Introductory by design."
       },
       {
         "id": "enc-malakor",
@@ -1119,8 +1408,9 @@
           }
         ],
         "end": "Core at 0 HP and Malakor defeated, or three cleansing successes are completed.",
-        "balance": "4 × level 3: 500 XP, ×1.5 = 750 adjusted → Medium (2014 DMG); below Low (2024 budget). The Core shield and the root surge at initiative 20 push it toward Hard; the cleanse can end it early.",
-        "scaling": "3 PCs: remove the Rot-Bloom and drop the root surge DC to 12. 5 PCs: 2 Rot-Blooms. 6 PCs: 3 Rot-Blooms and give the Core 30 HP."
+        "balance": "SRD 5.2.1 for 4 level-2 characters: Low 400, Moderate 600, High 800. Creature XP spent: 500, between Low and Moderate. The Core's ward and the cleanse option make this harder in play than the creature XP alone. SRD 5.1 prints monster XP and does not include an encounter-budget table, so this module does not invent a 2014 Easy/Medium/Hard/Deadly label.",
+        "scaling": "3 PCs: remove the Rot-Bloom (XP 450, on the Moderate budget for three level-2 characters). 5 PCs: two Rot-Blooms (XP 550) against Low 500. 6 PCs: two Rot-Blooms and Core 30 HP (XP 550) against Low 600.",
+        "balanceWhy": "The Core's ward and the cleanse option make this harder in play than the creature XP alone."
       }
     ],
     "hazards": [
@@ -1161,7 +1451,7 @@
       {
         "id": "reward-full",
         "when": "The Core breaks before SHROUD 3.",
-        "reward": "Four Gloom-Lily Nectar vials; 150 gp total bounty; Ring of Plant Protection (+1 AC against Beast and Plant attacks)."
+        "reward": "Four Gloom-Lily Nectar vials; 150 gp total bounty; Potion of Greater Healing (SRD, 4d4+4 HP, consumed) if the grove is restored. The permanent item is the Wand of Secrets."
       },
       {
         "id": "reward-partial",
@@ -1203,6 +1493,9 @@
     "principle": "One clear route to the Heart Tree; the finale branches only on outcome.",
     "mainSpine": [
       "scene-kaelen",
+      "scene-lane-roll",
+      "scene-ridge-mark",
+      "scene-ridge-roll",
       "scene-bramble",
       "scene-shrine",
       "scene-heart"
@@ -1211,9 +1504,7 @@
       "scene-heart"
     ],
     "terminalScenes": [
-      "scene-resolution-cleansed",
-      "scene-resolution-felled",
-      "scene-resolution-shrouded"
+      "scene-lead-watchtower"
     ],
     "stageCount": 5
   },
@@ -1227,5 +1518,15 @@
       "2 — black condensation on the Heart Tree; full recovery still possible",
       "3 — corruption settles into the root bed; the grove becomes a lasting dead zone"
     ]
+  },
+  "pregenPack": "data/pregens/oakhaven-level-2-2014-srd.json",
+  "pregenPack2024": "data/pregens/oakhaven-level-2-2024-srd.json",
+  "rulesEditions": {
+    "supported": [
+      "2014 SRD 5.1",
+      "2024 SRD 5.2.1"
+    ],
+    "carryForward": "Level 2 sheets carry the Wand of Secrets on Ness Quinn.",
+    "unsettled": "Settled against SRD 5.1 and SRD 5.2.1. No 2014 Easy/Medium/Hard/Deadly labels, because SRD 5.1 has no encounter-budget table. Boots of Elvenkind need no attunement in either edition; 2014 advantage is only on Stealth checks that rely on moving silently. Wand of Secrets: 2014 an action within 30 feet; 2024 a Magic action within 60 feet. 2014 Life always prepares Spiritual Weapon from level 3 and Beacon of Hope from level 5. 2024 Life does not. Hunter Shark and Giant Constrictor Snake are printed in both edition blocks."
   }
 }
