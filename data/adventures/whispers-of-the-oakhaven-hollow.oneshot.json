@@ -42,7 +42,7 @@
   "setup": {
     "pitch": "Oakhaven's apothecary sends the party into the Whispering Hollow for Gloom-Lily Nectar, but the ancient weaving grove is choking beneath a shadow blight and its druid guardian, Malakor, is bound to the corruption.",
     "openingLocation": "Kaelen's Apothecary on Oakhaven's eastern lane",
-    "gmSummary": "Kaelen needs four vials of Gloom-Lily Nectar before the Hollow's shroud spoils the crop. The party crosses a razor-vine path guarded by blight-twisted shrubs, rot-blooms, and a corrupted bear, opens a sunken druidic shrine by restoring the cycle Decay → Balance → Growth, then enters the Heart Chamber. The Heart Tree Core shields Malakor until fire or radiant energy breaks it. The party can kill Malakor, or cleanse him through three successful cleansing actions before two failures once the core is exposed. The Shroud has three visible stages; rushing or repeated mistakes can make the grove a lasting dead zone even if Malakor falls. Pace: hook at the shop, a rolled lane encounter, a clearer ridge direction with a false north-wood sale, a second roll on the ridge, arrival at the bramble trap and the moonstone puzzle, Malakor holding the nectar, the walk back to Kaelen, and the watchtower lead.",
+    "gmSummary": "Kaelen needs four vials of Gloom-Lily Nectar before the Hollow's shroud spoils the crop. The party crosses a razor-vine path guarded by blight-twisted shrubs, rot-blooms, and a corrupted bear, opens a sunken druidic shrine by restoring the cycle Decay → Balance → Growth, then enters the Heart Chamber. The Heart Tree Core shields Malakor until fire or radiant energy breaks it. The party can kill Malakor, or cleanse him through three successful cleansing actions before two failures once the core is exposed. The Shroud has three visible stages; rushing or repeated mistakes can make the grove a lasting dead zone even if Malakor falls. Pace: hook at the shop, a rolled lane encounter, a clearer ridge direction with a false north-wood sale, a second roll on the ridge, arrival at the bramble trap and the moonstone puzzle, Malakor holding the nectar, the walk back to Kaelen, and the watchtower lead. Pace: hook at the shop, a rolled lane encounter, a clearer ridge direction with a false north-wood sale, a second roll on the ridge, arrival at the bramble trap and the moonstone puzzle, Malakor holding the nectar, the walk back to Kaelen, and the watchtower lead.",
     "background": "The Whispering Hollow is an old druidic weaving grove where roots, moonlight, and seasonal magic were once braided into healing plants. Malakor has tended it long enough to know individual trees by scar and season, leaves bundles of dried Gloom-Lily for Kaelen without being asked, and refuses to cut living wood when deadfall will do. Weeks ago he found a black splinter embedded in the Heart Tree and tried to draw the sickness into himself rather than let it spread into Oakhaven. The corruption instead used him as an anchor. In lucid moments he still repeats the old tending cycle—Decay, Balance, Growth—and apologizes to the grove before the blight forces him to attack. Kaelen knows only that his Gloom-Lilies have stopped arriving and that the Hollow's birds no longer cross the eastern ridge.",
     "pregenTieIns": [
       "Fighter: hold narrow lanes, protect the cleansing attempt, and break the bear's thorn binding.",
@@ -802,7 +802,7 @@
       "readAloud": "Oakhaven's eastern lane is louder on the way home. Mint and hot copper meet you at Kaelen's door before he does. He counts the vials with a stained finger, then looks past you, once, as if the grove might have followed. The counter is clear except for a cloth-wrapped wand he did not have out this morning. He waits to hear whether Malakor is still a man.",
       "gmNotes": [
         "Pay the bounty that matches the ending already chosen: 150 gp if the corruption broke before Shroud 3, otherwise the partial pay already written on that ending.",
-        "Permanent item, both editions: Wand of Secrets, uncommon, 3 charges, regains 1d3 at dawn. SRD 5.2 uses a Magic action. 2014 uses an action; that action name was not re-copied from a 5.1 PDF here. If the shrine wand was missed, Kaelen had this second wand in the shop and gives it now. The party does not get two.",
+        "Permanent item, both editions: Wand of Secrets, uncommon, no attunement, 3 charges, regains 1d3 at dawn, expend 1 charge. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet. If the shrine wand was missed, Kaelen had this second wand in the shop and gives it now. The party does not get two.",
         "If the grove was restored, he also gives one Potion of Greater Healing (SRD, uncommon, 4d4+4 HP). It is consumable and is not assumed to remain on later sheets. The custom Potion of Greater Healing is not real and is not awarded."
       ],
       "pacingClass": "core",
@@ -931,7 +931,7 @@
       "id": "enc-bramble-guard",
       "name": "The Bramble Guard",
       "type": "combat / bypass",
-      "difficulty": "easy (introductory)",
+      "difficulty": "below Low (230 XP; Low 400 for four level-2 characters)",
       "summary": "Three blight-twisted Thorn-Shrubs and two Rot-Blooms guard a thorn-bound bear while razor-vines make careless movement dangerous.",
       "objective": "Reach the shrine trail or neutralize the corruption without being trapped in the thorn lane.",
       "resolution": "The scene ends when the party reaches the far steps, all hostile thorn-shrubs and rot-blooms are neutralized, or the bear is freed and a safe route is opened.",
@@ -943,7 +943,7 @@
       "id": "enc-malakor",
       "name": "Malakor and the Heart Tree Core",
       "type": "boss / cleansing ritual",
-      "difficulty": "medium (climactic; the Core shield makes it play harder)",
+      "difficulty": "between Low and Moderate (500 XP; Low 400, Moderate 600 for four level-2 characters)",
       "summary": "The Core protects Malakor while animated roots control the battlefield. Fire or radiant energy breaks the Core; then the party chooses combat or a three-success cleansing.",
       "objective": "Break the Core and end Malakor's connection to the shadow blight before the grove is permanently scarred.",
       "resolution": "Core at 0 HP plus Malakor defeated or 3 cleansing successes. Two cleansing failures do not end the adventure; Malakor returns to full hostility and the party may keep fighting or try a new approach.",
@@ -993,7 +993,7 @@
       "name": "Wand of Secrets",
       "kind": "magic item",
       "description": "An old shrine wand with 3 charges.",
-      "effect": "Use the selected ruleset's SRD wording for Wand of Secrets."
+      "effect": "No attunement. 3 charges, regains 1d3 at dawn, expend 1 charge. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet."
     },
     {
       "id": "item-ring-plant-protection",
@@ -1409,7 +1409,7 @@
         ],
         "end": "Core at 0 HP and Malakor defeated, or three cleansing successes are completed.",
         "balance": "SRD 5.2.1 for 4 level-2 characters: Low 400, Moderate 600, High 800. Creature XP spent: 500, between Low and Moderate. The Core's ward and the cleanse option make this harder in play than the creature XP alone. SRD 5.1 prints monster XP and does not include an encounter-budget table, so this module does not invent a 2014 Easy/Medium/Hard/Deadly label.",
-        "scaling": "3 PCs: remove the Rot-Bloom (XP 450, on the Low budget of 300 for three level-2 characters — still the finale). 5 PCs: two Rot-Blooms (XP 550) against Low 500. 6 PCs: two Rot-Blooms and Core 30 HP (XP 550) against Low 600.",
+        "scaling": "3 PCs: remove the Rot-Bloom (XP 450, on the Moderate budget for three level-2 characters). 5 PCs: two Rot-Blooms (XP 550) against Low 500. 6 PCs: two Rot-Blooms and Core 30 HP (XP 550) against Low 600.",
         "balanceWhy": "The Core's ward and the cleanse option make this harder in play than the creature XP alone."
       }
     ],
@@ -1527,6 +1527,6 @@
       "2024 SRD 5.2.1"
     ],
     "carryForward": "Level 2 sheets carry the Wand of Secrets on Ness Quinn.",
-    "unsettled": "SRD 5.1 has no encounter-budget table. Boots of Elvenkind attunement in SRD 5.1 was not re-read from a 5.1 PDF. Where a 2014 attack line is not copied, the scene says so and points at the 5.1 stat block."
+    "unsettled": "Settled against SRD 5.1 and SRD 5.2.1. No 2014 Easy/Medium/Hard/Deadly labels, because SRD 5.1 has no encounter-budget table. Boots of Elvenkind need no attunement in either edition; 2014 advantage is only on Stealth checks that rely on moving silently. Wand of Secrets: 2014 an action within 30 feet; 2024 a Magic action within 60 feet. 2014 Life always prepares Spiritual Weapon from level 3 and Beacon of Hope from level 5. 2024 Life does not. Hunter Shark and Giant Constrictor Snake are printed in both edition blocks."
   }
 }

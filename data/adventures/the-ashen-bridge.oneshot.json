@@ -42,7 +42,7 @@
   "setup": {
     "pitch": "The Night Spring traced from the Black Orchard resurfaces beneath the Ashen Bridge just as a merchant caravan is caught on the failing span.",
     "openingLocation": "East road approach to the Ashen Bridge",
-    "gmSummary": "The party reaches the Ashen Bridge during a blackwater surge. Six civilians and two wagons are trapped on the center span while Bridgewarden Soren Vale tries to hold a cracked pier together. The old bridge was designed with ashwood drainage ribs that neutralized seepage from the Night Spring, but recent emergency repairs replaced three ribs with iron braces. The water is now eroding the pier instead of being wicked into ash beds. The party must reach the bridge ashhouse, mix a sealing mortar, then manage a live evacuation while installing the seal. The best ending saves the people and bridge. A hard rescue can save everyone while losing the bridge. Greedy delay can cost cargo or lives. Pace: the gate slate, a rolled encounter outside town, the false west ford, a second roll on the last mile, arrival on the span with the caustic trap and ash-mortar puzzle, the rescue under Soren's count, the return to the gate, and the Mere lead.",
+    "gmSummary": "The party reaches the Ashen Bridge during a blackwater surge. Six civilians and two wagons are trapped on the center span while Bridgewarden Soren Vale tries to hold a cracked pier together. The old bridge was designed with ashwood drainage ribs that neutralized seepage from the Night Spring, but recent emergency repairs replaced three ribs with iron braces. The water is now eroding the pier instead of being wicked into ash beds. The party must reach the bridge ashhouse, mix a sealing mortar, then manage a live evacuation while installing the seal. The best ending saves the people and bridge. A hard rescue can save everyone while losing the bridge. Greedy delay can cost cargo or lives. Pace: the gate slate, a rolled encounter outside town, the false west ford, a second roll on the last mile, arrival on the span with the caustic trap and ash-mortar puzzle, the rescue under Soren's count, the return to the gate, and the Mere lead. Pace: the gate slate, a rolled encounter outside town, the false west ford, a second roll on the last mile, arrival on the span with the caustic trap and ash-mortar puzzle, the rescue under Soren's count, the return to the gate, and the Mere lead.",
     "background": "For generations the Ashen Bridge carried Oakhaven's east road across the Merecut gorge. Its blackened ashwood ribs were not ornamental: they drew tainted groundwater into sacrificial ash beds beneath the eastern pier. After spring floods damaged the bridge, cash-strapped road crews replaced three ash ribs with iron. The change went unnoticed until the Night Spring intensified. Now blackwater pressure is undermining the eastern pier while a caravan is stranded above it.",
     "standaloneStart": "If prior Oakhaven modules were not played, Bridgewarden Soren sends a runner to Oakhaven when black water begins boiling from the eastern pier and the center span cracks under a trapped caravan.",
     "characterPressure": "Soren Vale wants every civilian off the bridge before his ignored warning kills someone; Mera Holt will sacrifice both wagons without hesitation if that buys a safer rescue."
@@ -790,7 +790,7 @@
         "1. A dropped medicine crate, two Potion of Healing doses (SRD, 2d4+2). Taking them is allowed. They are consumable. The wagon on the bridge may still hold more.",
         "2. DC 10 Strength (Athletics) to drag a fallen limb out of the lane. Failure: climb over, arrive muddy, no damage.",
         "3. A shout from the gorge: “Six!” It is Mera Holt counting heads. They do not need to answer for her to still be there.",
-        "4. One SRD Giant Constrictor Snake in the ditch, if they attack the water. Otherwise it stays down. See the lamprey block for the 2024 bite and constrict. Do not add it to the span count.",
+        "4. One SRD Giant Constrictor Snake in the ditch, if they attack the water. Otherwise it stays down. 2014 (no Multiattack): Bite +6, reach 10 ft., 11 (2d6+4) piercing, or Constrict +6, reach 5 ft., 13 (2d8+4) bludgeoning, grappled (escape DC 16). 2024: Multiattack Bite + Constrict, DC 14 Str save, escape DC 14. Do not add it to the span count.",
         "5. Ash on the wind. DC 15 Intelligence (Nature): this is the bridge's own ashwood, already failing. Failure: Soren can say it on the span.",
         "6. DC 10 Dexterity (Acrobatics) on the wet camber. Failure: Prone. The bridge is still ahead."
       ],
@@ -970,7 +970,7 @@
       "id": "enc-blackwater-lampreys",
       "name": "Blackwater Lampreys",
       "type": "combat / shove / ignore",
-      "difficulty": "easy (light; time pressure)",
+      "difficulty": "below Low (1350 XP; Low 2000 for four level-5 characters)",
       "summary": "Two pale lamprey-like scavengers climb the east rail while the party prepares the center span.",
       "objective": "Keep the preparation area clear long enough to set lines or dump cargo.",
       "resolution": "Drive both lampreys into the gorge, defeat them, or ignore them and proceed to the finale.",
@@ -1367,9 +1367,9 @@
             "cr": "2",
             "xp": 450,
             "statBlock": "SRD Giant Constrictor Snake, reskinned as a blackwater lamprey surging onto the span. Huge. Blindsight 10 ft.",
-            "attack": "2024, confirmed: Bite +6, reach 10 ft., 11 (2d6+4) piercing. Constrict is a Strength save DC 14, 13 (2d8+4) bludgeoning, and Grappled (escape DC 14). 2014 Constrict is an attack roll. The 2014 bite damage and the 2014 escape DC were not re-copied from an SRD 5.1 PDF. Use the 5.1 block if you have it. If you do not, say so and use the 2024 DC 14 save.",
+            "attack": "2014 (no Multiattack): Bite +6, reach 10 ft., 11 (2d6+4) piercing, or Constrict +6, reach 5 ft., 13 (2d8+4) bludgeoning, grappled (escape DC 16), restrained while grappled, can't constrict another target. 2024: Multiattack Bite + Constrict, DC 14 Str save, escape DC 14. Bite +6, reach 10 ft., 11 (2d6+4) piercing. Constrict 13 (2d8+4) bludgeoning.",
             "trait": "Bypass: an adjacent creature can use an action and a DC 15 Strength (Athletics) check to shove one lamprey back into the gorge, removing it. This DC 15 is the scene's bypass, not the grapple escape.",
-            "edition2024": "Confirmed SRD 5.2: AC 12, HP 60, speed 30 ft., swim 30 ft. Multiattack: Bite and Constrict. Bite +6, reach 10 ft., 11 (2d6+4) piercing. Constrict: DC 14 Strength save, 13 (2d8+4) bludgeoning and Grappled (escape DC 14).",
+            "edition2024": "2024: Multiattack Bite + Constrict, DC 14 Str save, escape DC 14. AC 12, HP 60, speed 30 ft., swim 30 ft. Bite +6, reach 10 ft., 11 (2d6+4) piercing. Constrict 13 (2d8+4) bludgeoning.",
             "tactics": "Surge onto the east rail, grapple one isolated person, and drag them toward the edge. A shoved lamprey does not return."
           }
         ],
@@ -1495,6 +1495,6 @@
       "2024 SRD 5.2.1"
     ],
     "carryForward": "Level 5 sheets add the +1 longsword on Calder Voss and still carry the wand, cloak, and pearl.",
-    "unsettled": "SRD 5.1 has no encounter-budget table. Boots of Elvenkind attunement in SRD 5.1 was not re-read from a 5.1 PDF. Where a 2014 attack line is not copied, the scene says so and points at the 5.1 stat block."
+    "unsettled": "Settled against SRD 5.1 and SRD 5.2.1. No 2014 Easy/Medium/Hard/Deadly labels, because SRD 5.1 has no encounter-budget table. Boots of Elvenkind need no attunement in either edition; 2014 advantage is only on Stealth checks that rely on moving silently. Wand of Secrets: 2014 an action within 30 feet; 2024 a Magic action within 60 feet. 2014 Life always prepares Spiritual Weapon from level 3 and Beacon of Hope from level 5. 2024 Life does not. Hunter Shark and Giant Constrictor Snake are printed in both edition blocks."
   }
 }

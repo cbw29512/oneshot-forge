@@ -166,7 +166,7 @@ function finish(adv, level, packNote, giver) {
   adv.rulesEditions = {
     supported: ["2014 SRD 5.1", "2024 SRD 5.2.1"],
     carryForward: packNote,
-    unsettled: "SRD 5.1 has no encounter-budget table. Boots of Elvenkind attunement in SRD 5.1 was not re-read from a 5.1 PDF. Where a 2014 attack line is not copied, the scene says so and points at the 5.1 stat block."
+    unsettled: "Settled against SRD 5.1 and SRD 5.2.1. No 2014 Easy/Medium/Hard/Deadly labels, because SRD 5.1 has no encounter-budget table. Boots of Elvenkind need no attunement in either edition; 2014 advantage is only on Stealth checks that rely on moving silently. Wand of Secrets: 2014 an action within 30 feet; 2024 a Magic action within 60 feet. 2014 Life always prepares Spiritual Weapon from level 3 and Beacon of Hope from level 5. 2024 Life does not. Hunter Shark and Giant Constrictor Snake are printed in both edition blocks."
   };
   if (adv.pacing) {
     adv.pacing.targetMinutes = 210;
@@ -203,7 +203,42 @@ const shrubRow = "Two SRD Awakened Shrubs in the ditch. AC 9, HP 10, vulnerable 
 function load(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
+const DIFFICULTY = {
+  "enc-bramble-guard": "below Low (230 XP; Low 400 for four level-2 characters)",
+  "enc-malakor": "between Low and Moderate (500 XP; Low 400, Moderate 600 for four level-2 characters)",
+  "enc-sump-crawlers": "below Low (400 XP; Low 600 for four level-3 characters)",
+  "enc-rag-wardens": "below Low (800 XP; Low 1000 for four level-4 characters)",
+  "enc-blackwater-lampreys": "below Low (1350 XP; Low 2000 for four level-5 characters)",
+  "enc-mere-skimmers": "below Low (1800 XP; Low 2400 for four level-6 characters)"
+};
+
+function applySettled(adv) {
+  for (const enc of adv.encounters || []) {
+    if (DIFFICULTY[enc.id]) enc.difficulty = DIFFICULTY[enc.id];
+  }
+  for (const enc of adv.quickrun?.encounters || []) {
+    for (const creature of enc.creatures || []) {
+      if (String(creature.statBlock || "").includes("Animated Armor")) {
+        creature.edition2024 = "Same AC, HP, and Slam. 2024 drops the Blinded immunity. SRD 5.1 lists both Blinded and Petrified. The 2024 block has no Antimagic Susceptibility or False Appearance.";
+      }
+    }
+  }
+  const wand = (adv.items || []).find(item => item.id === "item-wand-secrets");
+  if (wand) wand.effect = "No attunement. 3 charges, regains 1d3 at dawn, expend 1 charge. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet.";
+  replaceStrings(adv, [
+    ["Permanent item, both editions: Wand of Secrets, uncommon, 3 charges, regains 1d3 at dawn. SRD 5.2 uses a Magic action. 2014 uses an action; that action name was not re-copied from a 5.1 PDF here. If the shrine wand was missed, Kaelen had this second wand in the shop and gives it now. The party does not get two.",
+      "Permanent item, both editions: Wand of Secrets, uncommon, no attunement, 3 charges, regains 1d3 at dawn, expend 1 charge. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet. If the shrine wand was missed, Kaelen had this second wand in the shop and gives it now. The party does not get two."],
+    ["Release ending: the boots are Boots of Elvenkind. SRD 5.2, uncommon, no attunement line printed: silent steps and Advantage on Dexterity (Stealth). SRD 5.1 attunement was not re-read from a 5.1 PDF. If that printing requires attunement, use it at a 2014 table.",
+      "Release ending: the boots are Boots of Elvenkind. No attunement in either edition. 2014: steps make no sound, and advantage only on Dexterity (Stealth) checks that rely on moving silently. 2024: steps make no sound regardless of the surface, and Advantage on Dexterity (Stealth) checks."],
+    ["One SRD Hunter Shark fin in the stair's shadow. It leaves if they do not enter the water. Confirmed 2024: AC 12, HP 45, Bite +6, 14 (3d6+4), Advantage if the target is missing any HP, Water Breathing only. If they fight it here, remove one skimmer from the channel later.",
+      "One SRD Hunter Shark fin in the stair's shadow. It leaves if they do not enter the water. 2014: Bite +6, reach 5 ft., 13 (2d8+4) piercing; Blood Frenzy; blindsight 30 ft.; speed 0 ft., swim 40 ft. 2024: 14 (3d6+4), blindsight 60 ft., speed 5 ft. AC 12, HP 45, Water Breathing only. If they fight it here, remove one skimmer from the channel later."],
+    ["One SRD Giant Constrictor Snake in the ditch, if they attack the water. Otherwise it stays down. See the lamprey block for the 2024 bite and constrict. Do not add it to the span count.",
+      "One SRD Giant Constrictor Snake in the ditch, if they attack the water. Otherwise it stays down. 2014 (no Multiattack): Bite +6, reach 10 ft., 11 (2d6+4) piercing, or Constrict +6, reach 5 ft., 13 (2d8+4) bludgeoning, grappled (escape DC 16). 2024: Multiattack Bite + Constrict, DC 14 Str save, escape DC 14. Do not add it to the span count."]
+  ]);
+}
+
 function save(file, adv) {
+  applySettled(adv);
   fs.writeFileSync(file, JSON.stringify(adv, null, 2) + "\n");
 }
 
@@ -287,7 +322,7 @@ function hollow() {
       readAloud: "Oakhaven's eastern lane is louder on the way home. Mint and hot copper meet you at Kaelen's door before he does. He counts the vials with a stained finger, then looks past you, once, as if the grove might have followed. The counter is clear except for a cloth-wrapped wand he did not have out this morning. He waits to hear whether Malakor is still a man.",
       gmNotes: [
         "Pay the bounty that matches the ending already chosen: 150 gp if the corruption broke before Shroud 3, otherwise the partial pay already written on that ending.",
-        "Permanent item, both editions: Wand of Secrets, uncommon, 3 charges, regains 1d3 at dawn. SRD 5.2 uses a Magic action. 2014 uses an action; that action name was not re-copied from a 5.1 PDF here. If the shrine wand was missed, Kaelen had this second wand in the shop and gives it now. The party does not get two.",
+        "Permanent item, both editions: Wand of Secrets, uncommon, no attunement, 3 charges, regains 1d3 at dawn, expend 1 charge. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet. If the shrine wand was missed, Kaelen had this second wand in the shop and gives it now. The party does not get two.",
         "If the grove was restored, he also gives one Potion of Greater Healing (SRD, uncommon, 4d4+4 HP). It is consumable and is not assumed to remain on later sheets. The custom Ring of Plant Protection is not real and is not awarded."
       ],
       exits: ["scene-lead-watchtower"],
@@ -331,7 +366,7 @@ function hollow() {
   bramble.scaling = "3 PCs: drop one Rot-Bloom (XP 180). 5 PCs: add one Rot-Bloom (XP 280). 6 PCs: add one Rot-Bloom and one Thorn-Shrub (XP 290). Low budget at level 2 is 100 XP per character. Stay under it.";
   const mal = findEnc(adv, "enc-malakor");
   mal.balanceWhy = "The Core's ward and the cleanse option make this harder in play than the creature XP alone.";
-  mal.scaling = "3 PCs: remove the Rot-Bloom (XP 450, on the Low budget of 300 for three level-2 characters — still the finale). 5 PCs: two Rot-Blooms (XP 550) against Low 500. 6 PCs: two Rot-Blooms and Core 30 HP (XP 550) against Low 600.";
+  mal.scaling = "3 PCs: remove the Rot-Bloom (XP 450, on the Moderate budget for three level-2 characters). 5 PCs: two Rot-Blooms (XP 550) against Low 500. 6 PCs: two Rot-Blooms and Core 30 HP (XP 550) against Low 600.";
   replaceStrings(adv, [
     ["Ring of Plant Protection (+1 AC against Beast and Plant attacks).", "Potion of Greater Healing (SRD, 4d4+4 HP, consumed) if the grove is restored. The permanent item is the Wand of Secrets."],
     ["Ring of Plant Protection", "Potion of Greater Healing"]
@@ -782,7 +817,7 @@ function bridge() {
         "A dropped medicine crate, two Potion of Healing doses (SRD, 2d4+2). Taking them is allowed. They are consumable. The wagon on the bridge may still hold more.",
         "DC 10 Strength (Athletics) to drag a fallen limb out of the lane. Failure: climb over, arrive muddy, no damage.",
         "A shout from the gorge: “Six!” It is Mera Holt counting heads. They do not need to answer for her to still be there.",
-        "One SRD Giant Constrictor Snake in the ditch, if they attack the water. Otherwise it stays down. See the lamprey block for the 2024 bite and constrict. Do not add it to the span count.",
+        "One SRD Giant Constrictor Snake in the ditch, if they attack the water. Otherwise it stays down. 2014 (no Multiattack): Bite +6, reach 10 ft., 11 (2d6+4) piercing, or Constrict +6, reach 5 ft., 13 (2d8+4) bludgeoning, grappled (escape DC 16). 2024: Multiattack Bite + Constrict, DC 14 Str save, escape DC 14. Do not add it to the span count.",
         "Ash on the wind. DC 15 Intelligence (Nature): this is the bridge's own ashwood, already failing. Failure: Soren can say it on the span.",
         "DC 10 Dexterity (Acrobatics) on the wet camber. Failure: Prone. The bridge is still ahead."
       ]
@@ -851,9 +886,9 @@ function bridge() {
     cr: "2",
     xp: 450,
     statBlock: "SRD Giant Constrictor Snake, reskinned as a blackwater lamprey surging onto the span. Huge. Blindsight 10 ft.",
-    attack: "2024, confirmed: Bite +6, reach 10 ft., 11 (2d6+4) piercing. Constrict is a Strength save DC 14, 13 (2d8+4) bludgeoning, and Grappled (escape DC 14). 2014 Constrict is an attack roll. The 2014 bite damage and the 2014 escape DC were not re-copied from an SRD 5.1 PDF. Use the 5.1 block if you have it. If you do not, say so and use the 2024 DC 14 save.",
+    attack: "2014 (no Multiattack): Bite +6, reach 10 ft., 11 (2d6+4) piercing, or Constrict +6, reach 5 ft., 13 (2d8+4) bludgeoning, grappled (escape DC 16), restrained while grappled, can't constrict another target. 2024: Multiattack Bite + Constrict, DC 14 Str save, escape DC 14. Bite +6, reach 10 ft., 11 (2d6+4) piercing. Constrict 13 (2d8+4) bludgeoning.",
     trait: "Bypass: an adjacent creature can use an action and a DC 15 Strength (Athletics) check to shove one lamprey back into the gorge, removing it. This DC 15 is the scene's bypass, not the grapple escape.",
-    edition2024: "Confirmed SRD 5.2: AC 12, HP 60, speed 30 ft., swim 30 ft. Multiattack: Bite and Constrict. Bite +6, reach 10 ft., 11 (2d6+4) piercing. Constrict: DC 14 Strength save, 13 (2d8+4) bludgeoning and Grappled (escape DC 14).",
+    edition2024: "2024: Multiattack Bite + Constrict, DC 14 Str save, escape DC 14. AC 12, HP 60, speed 30 ft., swim 30 ft. Bite +6, reach 10 ft., 11 (2d6+4) piercing. Constrict 13 (2d8+4) bludgeoning.",
     tactics: "Surge onto the east rail, grapple one isolated person, and drag them toward the edge. A shoved lamprey does not return."
   });
   const enc = findEnc(adv, "enc-blackwater-lampreys");
@@ -932,7 +967,7 @@ function mere() {
         "A dock idler says the bell is a loose buoy knocking a hull. He has not been out. DC 10 Wisdom (Insight): he wants the ferry to stay shut so he can charge for rumors. The cork float is his.",
         "DC 10 Dexterity (Acrobatics) on the slick step. Failure: Prone, wet, no damage, and the fare box spills Tamsin's spare chalk.",
         "A gull drops a scrap of reed-cloth with one stitched letter N. It matches the NIGHT FLOW marks later. It is not the only copy.",
-        "One SRD Hunter Shark fin in the stair's shadow. It leaves if they do not enter the water. Confirmed 2024: AC 12, HP 45, Bite +6, 14 (3d6+4), Advantage if the target is missing any HP, Water Breathing only. If they fight it here, remove one skimmer from the channel later.",
+        "One SRD Hunter Shark fin in the stair's shadow. It leaves if they do not enter the water. 2014: Bite +6, reach 5 ft., 13 (2d8+4) piercing; Blood Frenzy; blindsight 30 ft.; speed 0 ft., swim 40 ft. 2024: 14 (3d6+4), blindsight 60 ft., speed 5 ft. AC 12, HP 45, Water Breathing only. If they fight it here, remove one skimmer from the channel later.",
         "Noll hums the wrong three notes on purpose, then stops, ashamed. Color. The real sequence is in the bell-house.",
         "A coil of rope, 50 feet, mundane. Taking it helps the rescue and is not required."
       ]
@@ -996,7 +1031,7 @@ function mere() {
       readAloud: "The ferry stair has ripples again, or it does not, and Oakhaven can hear the difference from the street. Noll is at the peg. He does not ask about founders first. He asks whether Tamsin climbed the stair under her own power. The fare box is open. Inside it, under the coin, is a pair of soft grey boots that do not quite touch the wood the way boots should.",
       gmNotes: [
         "Pay the gold from the ending they chose.",
-        "Release ending: the boots are Boots of Elvenkind. SRD 5.2, uncommon, no attunement line printed: silent steps and Advantage on Dexterity (Stealth). SRD 5.1 attunement was not re-read from a 5.1 PDF. If that printing requires attunement, use it at a 2014 table.",
+        "Release ending: the boots are Boots of Elvenkind. No attunement in either edition. 2014: steps make no sound, and advantage only on Dexterity (Stealth) checks that rely on moving silently. 2024: steps make no sound regardless of the surface, and Advantage on Dexterity (Stealth) checks.",
         "Silence and Preserve endings do not include the boots. The custom Mereglass Token is retired. Series level-6 pregens assume the release ending."
       ],
       exits: ["scene-lead-crypt"],
@@ -1042,10 +1077,11 @@ function mere() {
     speed: "5 ft., swim 40 ft.",
     cr: "2",
     xp: 450,
-    statBlock: "SRD Hunter Shark, reskinned as a Mere skimmer. Large. Water Breathing only. Blindsight 60 ft.",
-    attack: "2024, confirmed: Bite +6 to hit, reach 5 ft., 14 (3d6+4) piercing, with Advantage if the target is missing any Hit Points. 2014 Hunter Shark bite damage was not re-copied from SRD 5.1 in this pass. AC 12, HP 45, CR 2, and 450 XP are the figures used. If your 5.1 bite differs, use that bite at a 2014 table and do not also use the 3d6+4 line.",
+    statBlock: "SRD Hunter Shark, reskinned as a Mere skimmer. Large. Water Breathing only. AC 12, HP 45, CR 2, 450 XP.",
+    speed: "2014: 0 ft., swim 40 ft. 2024: 5 ft., swim 40 ft.",
+    attack: "2014: Bite +6, reach 5 ft., 13 (2d8+4) piercing; Blood Frenzy; blindsight 30 ft.; speed 0 ft., swim 40 ft. 2024: 14 (3d6+4), blindsight 60 ft., speed 5 ft. Bite +6, reach 5 ft., Advantage if the target is missing any Hit Points.",
     trait: "Water Breathing: it can breathe only underwater. It can reach a creature at the rail and cannot chase across the deck. A struck cork float within 60 feet draws the skimmers for 1 round.",
-    edition2024: "Confirmed SRD 5.2 Hunter Shark: AC 12, HP 45 (6d10+12), speed 5 ft., swim 40 ft., Bite +6, 14 (3d6+4) piercing, Advantage if the target does not have all its Hit Points.",
+    edition2024: "2024: 14 (3d6+4), blindsight 60 ft., speed 5 ft. Bite +6, reach 5 ft., Advantage if the target is missing any Hit Points. AC 12, HP 45.",
     tactics: "Ram the hull, bite anyone in the water or leaning on the rail, and break off when bloodied. They are not the mystery."
   });
   const enc = findEnc(adv, "enc-mere-skimmers");
@@ -1053,14 +1089,14 @@ function mere() {
   enc.scaling = "3 PCs: 3 skimmers (1350 XP) against Low 1800. 5 PCs: 5 skimmers (2250 XP) against Low 3000. 6 PCs: 5 skimmers (2250 XP) against Low 3600.";
   enc.balance = "";
   replaceStrings(adv, [
-    ["Noll gives the party a Mereglass Token: once per long rest, gain advantage on one saving throw against being pushed, pulled, or knocked Prone.", "On the release ending, Noll gives Boots of Elvenkind (SRD 5.2, uncommon, no attunement line): silent steps and Advantage on Dexterity (Stealth). If your SRD 5.1 copy requires attunement, use that rule. The custom Mereglass Token is not awarded."],
+    ["Noll gives the party a Mereglass Token: once per long rest, gain advantage on one saving throw against being pushed, pulled, or knocked Prone.", "On the release ending, Noll gives Boots of Elvenkind. No attunement in either edition. 2014: advantage only on Dexterity (Stealth) checks that rely on moving silently. 2024: Advantage on Dexterity (Stealth) checks. The custom Mereglass Token is not awarded."],
     ["Mereglass Token", "Boots of Elvenkind"]
   ]);
   retitleItem(adv, "item-mereglass-token", {
     name: "Boots of Elvenkind",
     kind: "magic item",
     description: "Soft grey boots from the fare box, given if Ysra is released.",
-    effect: "SRD 5.2 Boots of Elvenkind, uncommon, no attunement line: steps make no sound, and the wearer has Advantage on Dexterity (Stealth) checks. Whether SRD 5.1 requires attunement was not re-read from a 5.1 PDF. The custom Mereglass Token is not awarded."
+    effect: "No attunement in either edition. 2014: steps make no sound, and advantage only on Dexterity (Stealth) checks that rely on moving silently. 2024: steps make no sound regardless of the surface, and Advantage on Dexterity (Stealth) checks. The custom Mereglass Token is not awarded."
   });
   replaceStrings(adv, [
     ["Two Mere Skimmers", "Four Mere Skimmers"],

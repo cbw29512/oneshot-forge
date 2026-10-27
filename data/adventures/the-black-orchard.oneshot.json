@@ -42,7 +42,7 @@
   "setup": {
     "pitch": "The wardstone beneath Oakhaven came from a black-barked orchard north of town. A surveyor sent to inspect the old quarry has vanished, and the orchard keeper insists nobody may take another stone.",
     "openingLocation": "The Black Orchard, north road outside Oakhaven",
-    "gmSummary": "Oakhaven's records identify the Black Orchard as the source of the Gloam Sluice's wardstone. Surveyor Lio Derran entered the orchard to recover a replacement sample and never returned. Vessa Thorn, the orchard keeper, blocks further quarrying but cannot safely enter the awakened grove alone. The party crosses orchard rows guarded by rag-stitched wardens, solves a three-offering gate, and rescues Lio from roots inside the abandoned quarry. The twist is that the orchard is not corrupted because of the wardstone—the living wardstone and black apples are containing a Night Spring beneath the quarry. Lio loosened a shard and destabilized the Rootheart. In the finale, the party chooses whether to return the shard and preserve the orchard, take it to strengthen Oakhaven while sacrificing the orchard, or use a recovered silver survey chain to create a living graft that shares the ward between both places. Pace: the survey office hook, a rolled north-road encounter, a boundary sign that kills the bandit story, a second roll in the rows, arrival at the gate with the thorn trap and offering puzzle, the wardstone choice, the walk back to the office, and the bridge lead.",
+    "gmSummary": "Oakhaven's records identify the Black Orchard as the source of the Gloam Sluice's wardstone. Surveyor Lio Derran entered the orchard to recover a replacement sample and never returned. Vessa Thorn, the orchard keeper, blocks further quarrying but cannot safely enter the awakened grove alone. The party crosses orchard rows guarded by rag-stitched wardens, solves a three-offering gate, and rescues Lio from roots inside the abandoned quarry. The twist is that the orchard is not corrupted because of the wardstone—the living wardstone and black apples are containing a Night Spring beneath the quarry. Lio loosened a shard and destabilized the Rootheart. In the finale, the party chooses whether to return the shard and preserve the orchard, take it to strengthen Oakhaven while sacrificing the orchard, or use a recovered silver survey chain to create a living graft that shares the ward between both places. Pace: the survey office hook, a rolled north-road encounter, a boundary sign that kills the bandit story, a second roll in the rows, arrival at the gate with the thorn trap and offering puzzle, the wardstone choice, the walk back to the office, and the bridge lead. Pace: the survey office hook, a rolled north-road encounter, a boundary sign that kills the bandit story, a second roll in the rows, arrival at the gate with the thorn trap and offering puzzle, the wardstone choice, the walk back to the office, and the bridge lead.",
     "background": "The Black Orchard grew around a natural seam of living wardstone. Its roots learned to draw shadow seepage from a buried Night Spring into fruit that ripens black and falls harmlessly into mineral soil. Oakhaven's founders quarried part of that seam for the Gloam Sluice, weakening but not destroying the old balance. Vessa's family has guarded the orchard since then. Lio Derran, following incomplete civic records, entered the quarry and pried loose a fresh shard. The Rootheart woke, trapped him, and turned its old scarecrow wardens against anyone carrying cutting tools.",
     "standaloneStart": "If Module 03 was not played, Oakhaven's survey office sends the party after missing surveyor Lio Derran, whose last note says he found a wardstone quarry beneath the Black Orchard.",
     "characterPressure": "Vessa Thorn wants Lio alive and the orchard treated as a living protector rather than a quarry; Lio wants to correct the mistake he made before Oakhaven acts on his bad survey."
@@ -1032,7 +1032,7 @@
       "id": "enc-rag-wardens",
       "name": "Rag-Stitched Wardens",
       "type": "combat / disable / bypass",
-      "difficulty": "medium (cords make it manageable)",
+      "difficulty": "below Low (800 XP; Low 1000 for four level-4 characters)",
       "summary": "Two orchard scarecrow wardens animate when armed strangers enter the inner rows. Their red root cords can be disabled without destroying them.",
       "objective": "Reach the quarry gate without unnecessary damage to the orchard.",
       "resolution": "The encounter ends when both wardens are disabled/defeated or the party reaches the quarry path beyond them.",
@@ -1400,7 +1400,7 @@
             "statBlock": "SRD Animated Armor, reskinned as an iron orchard frame wrapped in stitched rags and red root cords. Immune to poison and psychic damage; blindsight 60 ft.",
             "attack": "Multiattack: two Slam attacks. Slam. Melee +4 to hit, reach 5 ft.; 5 (1d6+2) bludgeoning (the pruning hook's flat).",
             "trait": "Cord-Bound: an adjacent creature can use an Action and DC 12 Dexterity (Sleight of Hand) or Intelligence (Nature) to unhook the red cord; the warden drops inert. False Appearance while motionless.",
-            "edition2024": "Same AC, HP, and Slam. Condition immunities differ slightly (Petrified instead of Blinded); no Antimagic Susceptibility or False Appearance traits.",
+            "edition2024": "Same AC, HP, and Slam. 2024 drops the Blinded immunity. SRD 5.1 lists both Blinded and Petrified. The 2024 block has no Antimagic Susceptibility or False Appearance.",
             "tactics": "Block the quarry path and shove intruders away from living trees; do not pursue past the Offering Gate."
           }
         ],
@@ -1504,6 +1504,6 @@
       "2024 SRD 5.2.1"
     ],
     "carryForward": "Level 4 sheets add the Pearl of Power on Mira Quill and still carry the wand and the cloak.",
-    "unsettled": "SRD 5.1 has no encounter-budget table. Boots of Elvenkind attunement in SRD 5.1 was not re-read from a 5.1 PDF. Where a 2014 attack line is not copied, the scene says so and points at the 5.1 stat block."
+    "unsettled": "Settled against SRD 5.1 and SRD 5.2.1. No 2014 Easy/Medium/Hard/Deadly labels, because SRD 5.1 has no encounter-budget table. Boots of Elvenkind need no attunement in either edition; 2014 advantage is only on Stealth checks that rely on moving silently. Wand of Secrets: 2014 an action within 30 feet; 2024 a Magic action within 60 feet. 2014 Life always prepares Spiritual Weapon from level 3 and Beacon of Hope from level 5. 2024 Life does not. Hunter Shark and Giant Constrictor Snake are printed in both edition blocks."
   }
 }

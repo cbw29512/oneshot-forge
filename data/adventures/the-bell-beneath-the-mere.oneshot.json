@@ -42,7 +42,7 @@
   "setup": {
     "pitch": "The Night Spring soundings end beneath the Mere, where a drowned warning bell has begun ringing underwater and a ferryman's apprentice vanished while investigating it.",
     "openingLocation": "Noll Vey's ferry landing on the Mere",
-    "gmSummary": "The party follows blackwater soundings to the Mere after locals hear a bell ringing beneath still water. Ferryman Noll Vey's apprentice, Tamsin Reed, disappeared while checking the flooded bell-house. The party crosses reed channels, descends through a half-submerged bell-house, and reconstructs a three-note warning sequence from physical inscriptions and drowned keeper records. The apparent haunting is Bellkeeper Ysra, who is not trying to drown intruders; she is repeatedly sounding the old contamination warning because the Night Spring is carrying buried corruption into the Mere. Ringing the proper sequence opens the founder's dry archive chamber, releases Ysra from duty, and reveals that the spring was deliberately diverted from beneath Oakhaven's Founders' Crypt generations ago. Pace: Noll's hire at the stair, a rolled encounter before the chart, the false buoy, a second roll on the crossing, arrival at the bell-house with the water trap and the note puzzle, Ysra holding the warning, the return to the stair, and the Founders' Crypt lead.",
+    "gmSummary": "The party follows blackwater soundings to the Mere after locals hear a bell ringing beneath still water. Ferryman Noll Vey's apprentice, Tamsin Reed, disappeared while checking the flooded bell-house. The party crosses reed channels, descends through a half-submerged bell-house, and reconstructs a three-note warning sequence from physical inscriptions and drowned keeper records. The apparent haunting is Bellkeeper Ysra, who is not trying to drown intruders; she is repeatedly sounding the old contamination warning because the Night Spring is carrying buried corruption into the Mere. Ringing the proper sequence opens the founder's dry archive chamber, releases Ysra from duty, and reveals that the spring was deliberately diverted from beneath Oakhaven's Founders' Crypt generations ago. Pace: Noll's hire at the stair, a rolled encounter before the chart, the false buoy, a second roll on the crossing, arrival at the bell-house with the water trap and the note puzzle, Ysra holding the warning, the return to the stair, and the Founders' Crypt lead. Pace: Noll's hire at the stair, a rolled encounter before the chart, the false buoy, a second roll on the crossing, arrival at the bell-house with the water trap and the note puzzle, Ysra holding the warning, the return to the stair, and the Founders' Crypt lead.",
     "background": "Before Oakhaven built its later wards, the Mere bell-house monitored groundwater and flood channels. Bellkeeper Ysra was ordered to sound three notes if tainted water reached the Mere. During a catastrophic flood, the bell-house sank, Ysra died at her post, and the warning system was abandoned. The Night Spring now carries the same corruption route past the Ashen Bridge into the Mere. Ysra's echo continues the last duty she understood: ring the warning until someone answers correctly.",
     "standaloneStart": "If prior Oakhaven modules were not played, Noll Vey hires the party after his apprentice Tamsin disappears near a submerged bell-house that has started ringing beneath calm water."
   },
@@ -818,7 +818,7 @@
         "1. A dock idler says the bell is a loose buoy knocking a hull. He has not been out. DC 10 Wisdom (Insight): he wants the ferry to stay shut so he can charge for rumors. The cork float is his.",
         "2. DC 10 Dexterity (Acrobatics) on the slick step. Failure: Prone, wet, no damage, and the fare box spills Tamsin's spare chalk.",
         "3. A gull drops a scrap of reed-cloth with one stitched letter N. It matches the NIGHT FLOW marks later. It is not the only copy.",
-        "4. One SRD Hunter Shark fin in the stair's shadow. It leaves if they do not enter the water. Confirmed 2024: AC 12, HP 45, Bite +6, 14 (3d6+4), Advantage if the target is missing any HP, Water Breathing only. If they fight it here, remove one skimmer from the channel later.",
+        "4. One SRD Hunter Shark fin in the stair's shadow. It leaves if they do not enter the water. 2014: Bite +6, reach 5 ft., 13 (2d8+4) piercing; Blood Frenzy; blindsight 30 ft.; speed 0 ft., swim 40 ft. 2024: 14 (3d6+4), blindsight 60 ft., speed 5 ft. AC 12, HP 45, Water Breathing only. If they fight it here, remove one skimmer from the channel later.",
         "5. Noll hums the wrong three notes on purpose, then stops, ashamed. Color. The real sequence is in the bell-house.",
         "6. A coil of rope, 50 feet, mundane. Taking it helps the rescue and is not required."
       ],
@@ -957,7 +957,7 @@
       "readAloud": "The ferry stair has ripples again, or it does not, and Oakhaven can hear the difference from the street. Noll is at the peg. He does not ask about founders first. He asks whether Tamsin climbed the stair under her own power. The fare box is open. Inside it, under the coin, is a pair of soft grey boots that do not quite touch the wood the way boots should.",
       "gmNotes": [
         "Pay the gold from the ending they chose.",
-        "Release ending: the boots are Boots of Elvenkind. SRD 5.2, uncommon, no attunement line printed: silent steps and Advantage on Dexterity (Stealth). SRD 5.1 attunement was not re-read from a 5.1 PDF. If that printing requires attunement, use it at a 2014 table.",
+        "Release ending: the boots are Boots of Elvenkind. No attunement in either edition. 2014: steps make no sound, and advantage only on Dexterity (Stealth) checks that rely on moving silently. 2024: steps make no sound regardless of the surface, and Advantage on Dexterity (Stealth) checks.",
         "Silence and Preserve endings do not include the boots. The custom Boots of Elvenkind is retired. Series level-6 pregens assume the release ending."
       ],
       "pacingClass": "core",
@@ -1097,7 +1097,7 @@
       "id": "enc-mere-skimmers",
       "name": "Mere Skimmers",
       "type": "combat / distraction",
-      "difficulty": "easy (light)",
+      "difficulty": "below Low (1800 XP; Low 2400 for four level-6 characters)",
       "summary": "Two vibration-hunting aquatic scavengers bump and climb the ferry on the approach to the bell-house.",
       "objective": "Reach the drowned bell-house without losing the ferry.",
       "resolution": "Distract, drive off, or bloody the skimmers; they do not pursue into the ruin.",
@@ -1170,7 +1170,7 @@
       "name": "Boots of Elvenkind",
       "kind": "magic item",
       "description": "Soft grey boots from the fare box, given if Ysra is released.",
-      "effect": "SRD 5.2 Boots of Elvenkind, uncommon, no attunement line: steps make no sound, and the wearer has Advantage on Dexterity (Stealth) checks. Whether SRD 5.1 requires attunement was not re-read from a 5.1 PDF. The custom Mereglass Token is not awarded."
+      "effect": "No attunement in either edition. 2014: steps make no sound, and advantage only on Dexterity (Stealth) checks that rely on moving silently. 2024: steps make no sound regardless of the surface, and Advantage on Dexterity (Stealth) checks. The custom Mereglass Token is not awarded."
     },
     {
       "id": "item-founder-map",
@@ -1492,13 +1492,13 @@
             "count": 4,
             "ac": 12,
             "hp": 45,
-            "speed": "5 ft., swim 40 ft.",
+            "speed": "2014: 0 ft., swim 40 ft. 2024: 5 ft., swim 40 ft.",
             "cr": "2",
             "xp": 450,
-            "statBlock": "SRD Hunter Shark, reskinned as a Mere skimmer. Large. Water Breathing only. Blindsight 60 ft.",
-            "attack": "2024, confirmed: Bite +6 to hit, reach 5 ft., 14 (3d6+4) piercing, with Advantage if the target is missing any Hit Points. 2014 Hunter Shark bite damage was not re-copied from SRD 5.1 in this pass. AC 12, HP 45, CR 2, and 450 XP are the figures used. If your 5.1 bite differs, use that bite at a 2014 table and do not also use the 3d6+4 line.",
+            "statBlock": "SRD Hunter Shark, reskinned as a Mere skimmer. Large. Water Breathing only. AC 12, HP 45, CR 2, 450 XP.",
+            "attack": "2014: Bite +6, reach 5 ft., 13 (2d8+4) piercing; Blood Frenzy; blindsight 30 ft.; speed 0 ft., swim 40 ft. 2024: 14 (3d6+4), blindsight 60 ft., speed 5 ft. Bite +6, reach 5 ft., Advantage if the target is missing any Hit Points.",
             "trait": "Water Breathing: it can breathe only underwater. It can reach a creature at the rail and cannot chase across the deck. A struck cork float within 60 feet draws the skimmers for 1 round.",
-            "edition2024": "Confirmed SRD 5.2 Hunter Shark: AC 12, HP 45 (6d10+12), speed 5 ft., swim 40 ft., Bite +6, 14 (3d6+4) piercing, Advantage if the target does not have all its Hit Points.",
+            "edition2024": "2024: 14 (3d6+4), blindsight 60 ft., speed 5 ft. Bite +6, reach 5 ft., Advantage if the target is missing any Hit Points. AC 12, HP 45.",
             "tactics": "Ram the hull, bite anyone in the water or leaning on the rail, and break off when bloodied. They are not the mystery."
           }
         ],
@@ -1623,6 +1623,6 @@
       "2024 SRD 5.2.1"
     ],
     "carryForward": "Level 6 sheets add the Boots of Elvenkind on Ness Quinn and still carry the wand, cloak, pearl, and +1 longsword.",
-    "unsettled": "SRD 5.1 has no encounter-budget table. Boots of Elvenkind attunement in SRD 5.1 was not re-read from a 5.1 PDF. Where a 2014 attack line is not copied, the scene says so and points at the 5.1 stat block."
+    "unsettled": "Settled against SRD 5.1 and SRD 5.2.1. No 2014 Easy/Medium/Hard/Deadly labels, because SRD 5.1 has no encounter-budget table. Boots of Elvenkind need no attunement in either edition; 2014 advantage is only on Stealth checks that rely on moving silently. Wand of Secrets: 2014 an action within 30 feet; 2024 a Magic action within 60 feet. 2014 Life always prepares Spiritual Weapon from level 3 and Beacon of Hope from level 5. 2024 Life does not. Hunter Shark and Giant Constrictor Snake are printed in both edition blocks."
   }
 }

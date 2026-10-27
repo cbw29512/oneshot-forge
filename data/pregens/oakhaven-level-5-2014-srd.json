@@ -10,7 +10,7 @@
       "name": "Wand of Secrets",
       "bearer": "Ness Quinn",
       "from": "Whispers of the Oakhaven Hollow (level 2)",
-      "text": "Uncommon. No attunement in SRD 5.2. 3 charges, regains 1d3 expended charges daily at dawn. Magic action (2024) / an action (2014): if a secret door or trap is within 60 feet, the wand pulses and points at the nearest one. 2014 action name was not re-copied from an SRD 5.1 PDF in this pass; charge count and range match the confirmed 5.2 text."
+      "text": "Uncommon. No attunement. 3 charges, regains 1d3 expended charges daily at dawn, expend 1 charge. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet."
     },
     {
       "name": "Cloak of Protection",
@@ -33,13 +33,14 @@
   ],
   "dropInNote": "These four are the series party. They carry every permanent SRD magic item earned on the best path of each earlier Oakhaven module. Consumables are not assumed to remain. A table that drops in without those modules can set the extra items aside. SRD 5.2 Starting at Higher Levels gives a smaller default kit (levels 2–4: one common item; levels 5–10: one common and one uncommon). The series kit is earned treasure, not that starting package.",
   "unsettledRules": [
-    "SRD 5.1 does not include the 2014 Dungeon Master's Guide Easy/Medium/Hard/Deadly XP threshold table or the encounter multiplier. These sheets do not invent one.",
-    "Boots of Elvenkind attunement in SRD 5.1 was not re-read from a 5.1 PDF. SRD 5.2 prints no attunement line.",
-    "2014 Beacon of Hope is on the Life Domain list at cleric level 5. Its effect text was not copied onto the sheet. 2014 Spiritual Weapon is on the Life list at cleric level 3 and was also left off the sheet. Use the SRD 5.1 text at the table. 2024 Life Domain does not prepare either spell; at level 5 it prepares Mass Healing Word and Revivify.",
-    "2014 Hunter Shark and Giant Constrictor attack lines that differ from SRD 5.2 are called out in the adventures, not guessed onto these sheets.",
-    "2024 Cure Wounds is 2d8 + modifier and Healing Word is 2d4 + modifier. 2014 is 1d8 + modifier and 1d4 + modifier.",
-    "2024 Lesser Restoration is a Bonus Action and does not mention disease. 2014 is an action and can end one disease.",
-    "2024 subclasses begin at level 3. 2014 Life Domain is level 1. 2014 Evocation school is level 2. 2014 Champion and Thief are level 3. Do not give a level-2 2014 fighter Improved Critical or a level-2 2014 rogue Fast Hands."
+    "Settled: SRD 5.1 has no encounter-budget table. These sheets do not print 2014 Easy, Medium, Hard, or Deadly labels. Encounter bands use the SRD 5.2.1 XP budget.",
+    "Settled: Boots of Elvenkind need no attunement in SRD 5.1 or SRD 5.2. 2014 grants advantage only on Dexterity (Stealth) checks that rely on moving silently. 2024 grants Advantage on Dexterity (Stealth) checks, and your steps make no sound.",
+    "Settled: 2014 Life Domain always prepares Spiritual Weapon from cleric level 3 and Beacon of Hope from cleric level 5. Both spells are printed on those 2014 sheets. 2024 Life Domain does not prepare either spell.",
+    "Settled: Wand of Secrets has 3 charges and regains 1d3 at dawn in both editions. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet.",
+    "Settled: Hunter Shark and Giant Constrictor Snake are printed with separate 2014 and 2024 attack lines in the adventures.",
+    "Settled edition difference: 2024 Cure Wounds is 2d8 + modifier and Healing Word is 2d4 + modifier. 2014 is 1d8 + modifier and 1d4 + modifier.",
+    "Settled edition difference: 2024 Lesser Restoration is a Bonus Action and does not mention disease. 2014 is an action and can end one disease.",
+    "Settled: 2024 subclasses begin at level 3. 2014 Life Domain is level 1. 2014 Evocation school is level 2. 2014 Champion and Thief are level 3. 2024 Channel Divinity is 2 uses at cleric levels 2–5 and 3 uses at level 6."
   ],
   "characters": [
     {
@@ -621,7 +622,7 @@
           "name": "Wand of Secrets",
           "bearer": "Ness Quinn",
           "from": "Whispers of the Oakhaven Hollow (level 2)",
-          "text": "Uncommon. No attunement in SRD 5.2. 3 charges, regains 1d3 expended charges daily at dawn. Magic action (2024) / an action (2014): if a secret door or trap is within 60 feet, the wand pulses and points at the nearest one. 2014 action name was not re-copied from an SRD 5.1 PDF in this pass; charge count and range match the confirmed 5.2 text."
+          "text": "Uncommon. No attunement. 3 charges, regains 1d3 expended charges daily at dawn, expend 1 charge. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet."
         }
       ]
     },
@@ -840,7 +841,8 @@
       ],
       "bonusActions": [
         "Healing Word",
-        "Shield of Faith"
+        "Shield of Faith",
+        "Spiritual Weapon"
       ],
       "reactions": [
         "Opportunity Attack"
@@ -855,7 +857,7 @@
           "3": 2
         },
         "focus": "holy symbol",
-        "prepareCount": "SRD 5.1 prepared count is 9 (Wis mod + cleric level); domain spells are extra. This sheet prints only spells whose text was checked. Fill any empty slots from the SRD cleric list. Spiritual Weapon is on the 2014 Life list at level 3 and is not printed here.",
+        "prepareCount": "SRD 5.1 prepared count is 9 (Wis mod + cleric level). Life Domain spells are always prepared and extra: Spiritual Weapon from level 3, Beacon of Hope from level 5. Other printed spells are the checked SRD list; fill any remaining slots from the SRD cleric list.",
         "cantrips": [
           "Sacred Flame",
           "Guidance",
@@ -866,7 +868,9 @@
           "Bless",
           "Cure Wounds",
           "Lesser Restoration",
+          "Spiritual Weapon",
           "Revivify",
+          "Beacon of Hope",
           "Healing Word",
           "Shield of Faith"
         ]
@@ -936,11 +940,25 @@
           "effect": "End one disease or the Blinded, Deafened, Paralyzed, or Poisoned condition. Action, not a bonus action."
         },
         {
+          "level": 2,
+          "name": "Spiritual Weapon",
+          "time": "bonus action",
+          "range": "60 ft.",
+          "effect": "SRD 5.1 Life Domain, always prepared from cleric level 3. Duration 1 minute, not concentration. A spectral weapon appears within range. Melee spell attack against a creature within 5 feet: 1d8 + your spellcasting modifier force. On later turns, a bonus action moves it 20 feet and repeats the attack. A slot of 3rd level or higher increases the damage by 1d8 for every two slot levels above 2nd. Not on the 2024 Life list."
+        },
+        {
           "level": 3,
           "name": "Revivify",
           "time": "action",
           "range": "touch",
           "effect": "A creature that died within the last minute returns with 1 HP. Consumes a diamond worth 300+ GP. Cannot restore missing body parts or death from old age."
+        },
+        {
+          "level": 3,
+          "name": "Beacon of Hope",
+          "time": "action",
+          "range": "30 ft.",
+          "effect": "SRD 5.1 Life Domain, always prepared from cleric level 5. Concentration, up to 1 minute. Choose any number of creatures within range. Each target has advantage on Wisdom saving throws and death saving throws, and regains the maximum number of hit points possible from any healing. Not on the 2024 Life list."
         }
       ],
       "featureList": [

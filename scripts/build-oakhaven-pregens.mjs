@@ -22,7 +22,7 @@ const ITEMS = {
     name: "Wand of Secrets",
     bearer: "Ness Quinn",
     from: "Whispers of the Oakhaven Hollow (level 2)",
-    text: "Uncommon. No attunement in SRD 5.2. 3 charges, regains 1d3 expended charges daily at dawn. Magic action (2024) / an action (2014): if a secret door or trap is within 60 feet, the wand pulses and points at the nearest one. 2014 action name was not re-copied from an SRD 5.1 PDF in this pass; charge count and range match the confirmed 5.2 text."
+    text: "Uncommon. No attunement. 3 charges, regains 1d3 expended charges daily at dawn, expend 1 charge. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet."
   },
   cloak: {
     name: "Cloak of Protection",
@@ -46,7 +46,7 @@ const ITEMS = {
     name: "Boots of Elvenkind",
     bearer: "Ness Quinn",
     from: "The Bell Beneath the Mere (level 6)",
-    text: "Uncommon. SRD 5.2 prints no attunement line: your steps make no sound, and you have Advantage on Dexterity (Stealth) checks. Whether SRD 5.1 requires attunement was not re-checked from a 5.1 PDF in this pass. If your 5.1 entry requires attunement, use that rule at a 2014 table."
+    text: "Uncommon. No attunement in either edition. 2014: your steps make no sound, and you have advantage on Dexterity (Stealth) checks that rely on moving silently. 2024: your steps make no sound, regardless of the surface, and you have Advantage on Dexterity (Stealth) checks."
   }
 };
 
@@ -282,7 +282,9 @@ function rogue(edition, level) {
   const skillsMap = skillBlock(scores, proficient, expertise, prof);
   if (mine.some(i => i.name.startsWith("Boots"))) {
     skillsMap.stealth.bonus += 0;
-    skillsMap.stealth.notes = "Boots of Elvenkind: Advantage on Stealth, not a flat bonus.";
+    skillsMap.stealth.notes = edition === "2014"
+      ? "Boots of Elvenkind: no attunement. Advantage only on Stealth checks that rely on moving silently, not a flat bonus."
+      : "Boots of Elvenkind: no attunement. Advantage on Dexterity (Stealth) checks, not a flat bonus.";
   }
   const saveMap = saveBlock(scores, new Set(["DEX", "INT"]), prof, false);
   const features = [
@@ -372,7 +374,8 @@ function cleric(edition, level) {
     features.push({name: "Alert", source: "Human origin feat", text: "Add your Proficiency Bonus to Initiative. Immediately after rolling Initiative, you may swap with one willing ally in the same combat unless you or that ally is Incapacitated."});
     features.push({name: "Divine Order: Protector", source: "Cleric 1", text: "Martial weapon proficiency and Heavy armor training. Life Domain is not chosen until level 3 in 2024."});
     features.push({name: "Magic Initiate (Cleric)", source: "Acolyte origin feat", text: "Guidance and Spare the Dying if not already known, and Bless always prepared. Cast Bless once without a slot per Long Rest; you may also spend a slot."});
-    if (level >= 2) features.push({name: "Channel Divinity (2 uses)", source: "Cleric 2", text: "Regain 1 use on a Short Rest, all on a Long Rest. Divine Spark: Magic action, 30 ft., 1d8 + Wis mod healing OR Con save for that much Necrotic or Radiant (half on success). Turn Undead: Wisdom save or Frightened and Incapacitated for 1 minute, moving away; damage ends it."});
+    const channelUses = level >= 6 ? 3 : 2;
+    if (level >= 2) features.push({name: `Channel Divinity (${channelUses} uses)`, source: "Cleric 2", text: `The SRD 5.2.1 cleric table gives ${channelUses} uses at level ${level} (2 at levels 2–5, 3 at level 6). Regain 1 use on a Short Rest and all on a Long Rest. Divine Spark: Magic action, 30 ft., 1d8 + Wis mod healing OR Con save for that much Necrotic or Radiant (half on success). Turn Undead: Wisdom save or Frightened and Incapacitated for 1 minute, moving away; damage ends it.`});
   } else {
     features.push({name: "Life Domain", source: "Cleric 1", text: "Heavy armor proficiency. Disciple of Life: when a 1st-level or higher spell restores HP, the creature regains extra HP equal to 2 + the spell's level."});
     features.push({name: "Disciple of Life", source: "Life 1", text: "Healing spells of 1st level or higher restore an extra 2 + spell level HP. 2024 moves this feature to level 3."});
@@ -387,9 +390,9 @@ function cleric(edition, level) {
   if (level >= 6) features.push({name: "Blessed Healer", source: "Life 6", text: "When you cast a spell with a slot that restores HP to a creature other than you, you also regain 2 + the slot's level HP."});
   const domain = [];
   if (edition === "2014" || level >= 3) domain.push("Bless", "Cure Wounds");
-  if (level >= 3 && edition === "2014") domain.push("Lesser Restoration");
+  if (level >= 3 && edition === "2014") domain.push("Lesser Restoration", "Spiritual Weapon");
   if (level >= 3 && edition === "2024") domain.push("Aid", "Lesser Restoration");
-  if (level >= 5 && edition === "2014") domain.push("Revivify");
+  if (level >= 5 && edition === "2014") domain.push("Revivify", "Beacon of Hope");
   if (level >= 5 && edition === "2024") domain.push("Mass Healing Word", "Revivify");
   const prepared = ["Healing Word", "Shield of Faith", "Bless", "Cure Wounds"];
   const spellList = [
@@ -403,8 +406,10 @@ function cleric(edition, level) {
   ];
   if (level >= 4) spellList.push({level: 0, name: "Spare the Dying", time: "action", range: "touch", effect: "A living creature at 0 HP becomes stable."});
   if (level >= 3) spellList.push({level: 2, name: "Lesser Restoration", time: edition === "2024" ? "bonus action" : "action", range: "touch", effect: edition === "2024" ? "End Blinded, Deafened, Paralyzed, or Poisoned. 2024 casting time is a Bonus Action. 2014 is an action and can also end one disease." : "End one disease or the Blinded, Deafened, Paralyzed, or Poisoned condition. Action, not a bonus action."});
+  if (level >= 3 && edition === "2014") spellList.push({level: 2, name: "Spiritual Weapon", time: "bonus action", range: "60 ft.", effect: "SRD 5.1 Life Domain, always prepared from cleric level 3. Duration 1 minute, not concentration. A spectral weapon appears within range. Melee spell attack against a creature within 5 feet: 1d8 + your spellcasting modifier force. On later turns, a bonus action moves it 20 feet and repeats the attack. A slot of 3rd level or higher increases the damage by 1d8 for every two slot levels above 2nd. Not on the 2024 Life list."});
   if (level >= 3 && edition === "2024") spellList.push({level: 2, name: "Aid", time: "action", range: "30 ft.", effect: "8 hours. Up to three creatures: +5 max HP and +5 current HP. +5 more per slot level above 2."});
   if (level >= 5) spellList.push({level: 3, name: "Revivify", time: "action", range: "touch", effect: "A creature that died within the last minute returns with 1 HP. Consumes a diamond worth 300+ GP. Cannot restore missing body parts or death from old age."});
+  if (level >= 5 && edition === "2014") spellList.push({level: 3, name: "Beacon of Hope", time: "action", range: "30 ft.", effect: "SRD 5.1 Life Domain, always prepared from cleric level 5. Concentration, up to 1 minute. Choose any number of creatures within range. Each target has advantage on Wisdom saving throws and death saving throws, and regains the maximum number of hit points possible from any healing. Not on the 2024 Life list."});
   if (level >= 5 && edition === "2024") spellList.push({level: 3, name: "Mass Healing Word", time: "bonus action", range: "60 ft.", effect: `Up to six creatures regain 2d4 + ${wis} HP.`});
   const ac = (cloak ? 19 : 18);
   return baseSheet({
@@ -432,7 +437,7 @@ function cleric(edition, level) {
       {name: "Mace", bonus: prof + str, damage: `1d6+${str}`, type: "bludgeoning", notes: "One melee attack. Spellcasting is the better action most rounds."},
       {name: "Sacred Flame", bonus: dc, damage: cantripDice, type: "radiant", notes: `Dexterity save DC ${dc}, not an attack roll.`}
     ],
-    bonusActions: ["Healing Word", "Shield of Faith", ...(edition === "2024" && level >= 3 ? ["Lesser Restoration (2024 bonus action)"] : [])],
+    bonusActions: ["Healing Word", "Shield of Faith", ...(edition === "2014" && level >= 3 ? ["Spiritual Weapon"] : []), ...(edition === "2024" && level >= 3 ? ["Lesser Restoration (2024 bonus action)"] : [])],
     reactions: ["Opportunity Attack"],
     spellcasting: {
       ability: "Wisdom",
@@ -442,7 +447,7 @@ function cleric(edition, level) {
       focus: "holy symbol",
       prepareCount: edition === "2024"
         ? `SRD 5.2 class table says ${({2: 5, 3: 6, 4: 7, 5: 9, 6: 10}[level])} prepared spells; domain spells are extra. This sheet prints only spells whose text was checked. Fill any empty slots from the SRD cleric list.`
-        : `SRD 5.1 prepared count is ${wis + level} (Wis mod + cleric level); domain spells are extra. This sheet prints only spells whose text was checked. Fill any empty slots from the SRD cleric list. Spiritual Weapon is on the 2014 Life list at level 3 and is not printed here.`,
+        : `SRD 5.1 prepared count is ${wis + level} (Wis mod + cleric level). Life Domain spells are always prepared and extra: Spiritual Weapon from level 3, Beacon of Hope from level 5. Other printed spells are the checked SRD list; fill any remaining slots from the SRD cleric list.`,
       cantrips: spellList.filter(s => s.level === 0).map(s => s.name),
       prepared: [...new Set([...domain, ...prepared])]
     },
@@ -565,13 +570,14 @@ function clean(pc) {
 }
 
 const unsettled = [
-  "SRD 5.1 does not include the 2014 Dungeon Master's Guide Easy/Medium/Hard/Deadly XP threshold table or the encounter multiplier. These sheets do not invent one.",
-  "Boots of Elvenkind attunement in SRD 5.1 was not re-read from a 5.1 PDF. SRD 5.2 prints no attunement line.",
-  "2014 Beacon of Hope is on the Life Domain list at cleric level 5. Its effect text was not copied onto the sheet. 2014 Spiritual Weapon is on the Life list at cleric level 3 and was also left off the sheet. Use the SRD 5.1 text at the table. 2024 Life Domain does not prepare either spell; at level 5 it prepares Mass Healing Word and Revivify.",
-  "2014 Hunter Shark and Giant Constrictor attack lines that differ from SRD 5.2 are called out in the adventures, not guessed onto these sheets.",
-  "2024 Cure Wounds is 2d8 + modifier and Healing Word is 2d4 + modifier. 2014 is 1d8 + modifier and 1d4 + modifier.",
-  "2024 Lesser Restoration is a Bonus Action and does not mention disease. 2014 is an action and can end one disease.",
-  "2024 subclasses begin at level 3. 2014 Life Domain is level 1. 2014 Evocation school is level 2. 2014 Champion and Thief are level 3. Do not give a level-2 2014 fighter Improved Critical or a level-2 2014 rogue Fast Hands."
+  "Settled: SRD 5.1 has no encounter-budget table. These sheets do not print 2014 Easy, Medium, Hard, or Deadly labels. Encounter bands use the SRD 5.2.1 XP budget.",
+  "Settled: Boots of Elvenkind need no attunement in SRD 5.1 or SRD 5.2. 2014 grants advantage only on Dexterity (Stealth) checks that rely on moving silently. 2024 grants Advantage on Dexterity (Stealth) checks, and your steps make no sound.",
+  "Settled: 2014 Life Domain always prepares Spiritual Weapon from cleric level 3 and Beacon of Hope from cleric level 5. Both spells are printed on those 2014 sheets. 2024 Life Domain does not prepare either spell.",
+  "Settled: Wand of Secrets has 3 charges and regains 1d3 at dawn in both editions. 2014: an action, secret door or trap within 30 feet. 2024: a Magic action, within 60 feet.",
+  "Settled: Hunter Shark and Giant Constrictor Snake are printed with separate 2014 and 2024 attack lines in the adventures.",
+  "Settled edition difference: 2024 Cure Wounds is 2d8 + modifier and Healing Word is 2d4 + modifier. 2014 is 1d8 + modifier and 1d4 + modifier.",
+  "Settled edition difference: 2024 Lesser Restoration is a Bonus Action and does not mention disease. 2014 is an action and can end one disease.",
+  "Settled: 2024 subclasses begin at level 3. 2014 Life Domain is level 1. 2014 Evocation school is level 2. 2014 Champion and Thief are level 3. 2024 Channel Divinity is 2 uses at cleric levels 2–5 and 3 uses at level 6."
 ];
 
 for (const level of [2, 3, 4, 5, 6]) {
