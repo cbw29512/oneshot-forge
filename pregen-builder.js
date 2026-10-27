@@ -35,12 +35,17 @@ const levelSel = document.getElementById("pg-level");
 const grid = document.getElementById("pg-grid");
 const verify = document.getElementById("pg-verify");
 
+// Level 0 characters stay in the Hearthcross package. This builder offers levels 1–20.
+const OFFER_LEVEL_ZERO = false;
 CLASSES.forEach(c => classSel.add(new Option(c.name, c.id)));
-for (let i = 0; i <= 20; i++) levelSel.add(new Option(i === 0 ? "0 — on screen" : String(i), String(i)));
-levelSel.value = "0";
+for (let i = OFFER_LEVEL_ZERO ? 0 : 1; i <= 20; i++) levelSel.add(new Option(i === 0 ? "0 — on screen" : String(i), String(i)));
+levelSel.value = "4";
 
 function current() { return CLASSES.find(c => c.id === classSel.value); }
-function level() { return Number(levelSel.value); }
+function level() {
+  const n = Number(levelSel.value);
+  return !OFFER_LEVEL_ZERO && n < 1 ? 1 : n;
+}
 function pb(n) { return n < 1 ? 2 : n < 5 ? 2 : n < 9 ? 3 : n < 13 ? 4 : n < 17 ? 5 : 6; }
 function slots(c, n) {
   if (!c.caster || n < 1) return "none";
@@ -78,12 +83,12 @@ function render() {
   const n = level();
   verify.textContent = n === 0
     ? "Level 0. No class features yet. Standard array applies when you leave 0."
-    : c.name + " " + n + " · " + c.sub + " · proficiency +" + pb(n) + " · spell slots: " + slots(c, n) + ". Feature names follow the 2014 SRD class table.";
+    : c.name + " " + n + " · " + c.sub + " · 2014 SRD 5.1 · proficiency +" + pb(n) + " · spell slots: " + slots(c, n) + ". Feature names follow the 2014 SRD class table.";
   grid.innerHTML = CLASSES.map(item => {
     const on = item.id === c.id;
-    return '<button type="button" class="pg-card' + (on ? " on" : "") + '" data-id="' + item.id + '"><b>' + item.name + '</b><span>Level ' + (on ? n : 0) + ' · ' + item.sub + '</span></button>';
+    return '<button type="button" class="pg-card' + (on ? " on" : "") + '" data-id="' + item.id + '"><b>' + item.name + '</b><span>' + (on ? "Level " + n + " · " : "") + item.sub + '</span></button>';
   }).join("");
-  grid.querySelectorAll(".pg-card").forEach(btn => btn.onclick = () => { classSel.value = btn.dataset.id; levelSel.value = "0"; render(); });
+  grid.querySelectorAll(".pg-card").forEach(btn => btn.onclick = () => { classSel.value = btn.dataset.id; render(); });
 }
 
 
@@ -169,10 +174,13 @@ function sheetHtml() {
     const bonus = mod(k) + (on && n ? prof : 0);
     return "<div>" + (on && n ? "●" : "○") + " " + name + " " + sign(bonus) + "</div>";
   }).join("");
+  const skillBonus = (name, ab) => {
+    const on = proficient.has(name) && n;
+    return mod(ab) + (on ? prof : 0) + (c.id === "bard" && n >= 2 ? Math.floor(prof / 2) : 0);
+  };
   const skillRows = SKILLS.map(([name, ab]) => {
     const on = proficient.has(name) && n;
-    const bonus = mod(ab) + (on ? prof : 0) + (c.id === "bard" && n >= 2 ? Math.floor(prof / 2) : 0);
-    return "<div>" + (on ? "●" : "○") + " " + name + " " + sign(bonus) + "</div>";
+    return "<div>" + (on ? "●" : "○") + " " + name + " " + sign(skillBonus(name, ab)) + "</div>";
   }).join("");
   const toHit = sign(mod(c.primary[0]) + (n ? prof : 0));
   const dmg = sign(mod(c.primary[0]));
@@ -196,33 +204,74 @@ function sheetHtml() {
     const key = /scroll/i.test(line) ? "scroll" : /cloak/i.test(line) ? "cloak" : /boot/i.test(line) ? "boots" : /wand/i.test(line) ? "wand" : /bracer/i.test(line) ? "bracers" : /staff/i.test(line) ? "staff" : /headband/i.test(line) ? "headband" : /arrow|ammunition/i.test(line) ? "arrows" : /shield/i.test(line) ? "shield" : /armor|mail/i.test(line) ? "armor" : /sword|axe|rapier|weapon/i.test(line) ? "sword" : "potion";
     return '<figure class="item-pic"><img src="assets/pregens/items/' + key + '.svg" alt=""><figcaption>' + line.replace(" SRD 5.1. Chosen for this class. No armor on a barbarian or monk. No wand on a fighter.", "") + '</figcaption></figure>';
   }).join("");
-  return '<article class="screen-sheet web-fixed-sheet sheet-official">' +
-    (portrait ? '<img class="sheet-portrait" src="' + portrait + '" alt="Portrait of ' + face[0] + '">' : '') +
-    '<header class="pr-head"><div class="pr-id"><p class="pr-kicker">99¢ ONE-SHOTS · SRD SHEET</p><h2>' + c.name + ' ' + n + '</h2>' +
-    '<p><b>' + c.sub + '</b> · Human · ' + (c.id === "fighter" ? "Soldier" : "Acolyte") + ' · Neutral good</p>' +
-    '<p class="pr-subid">2014 SRD 5.1 · XP milestone · proficiency ' + sign(prof) + '</p></div>' +
-    '<div class="pr-vitals"><span><small>AC</small><b>' + ac + '</b></span><span><small>Max HP</small><b>' + hp + '</b></span>' +
-    '<span><small>Init</small><b>' + sign(mod("dex")) + '</b></span><span><small>Speed</small><b>30</b></span>' +
-    '<span><small>Prof</small><b>' + sign(prof) + '</b></span><span><small>Passive Per</small><b>' + (10 + mod("wis") + (proficient.has("Perception") && n ? prof : 0)) + '</b></span></div></header>' +
-    '<div class="pr-fixed-grid">' +
-    '<section class="pr-zone"><h3>Abilities</h3>' + ["str","dex","con","int","wis","cha"].map(k => "<p><b>" + k.toUpperCase() + "</b> " + s[k] + " (" + sign(mod(k)) + ")</p>").join("") + '</section>' +
-    '<section class="pr-zone"><h3>Saving Throws</h3>' + saveRows + '</section>' +
-    '<section class="pr-zone"><h3>Skills</h3>' + skillRows + '</section>' +
-    '<section class="pr-zone"><h3>Combat</h3><p><b>Current HP</b> ' + hp + ' · <b>Temp HP</b> 0</p><p><b>Hit dice</b> ' + Math.max(n, 1) + 'd' + c.hd + '</p><p><b>Death saves</b> success ○ ○ ○ · failure ○ ○ ○</p><p><b>Attacks</b> ' + attacks + extra + '</p><p><b>Inspiration</b> no</p></section>' +
-    '<section class="pr-zone"><h3>Gear and training</h3><p><b>Armor</b> ' + (["fighter","paladin","cleric"].includes(c.id) ? "all armor, shields" : "light armor") + '</p><p><b>Weapons</b> simple weapons' + (["fighter","paladin","ranger","barbarian"].includes(c.id) ? ", martial weapons" : "") + '</p><p><b>Tools</b> ' + (c.id === "rogue" ? "thieves' tools" : "none from class") + '</p><p><b>Languages</b> Common, one extra</p><p><b>Equipment</b> ' + GEAR[c.id] + '</p></section>' +
-    '<section class="pr-zone"><h3>Character</h3><p><b>Trait</b> ' + pers[0] + '</p><p><b>Ideal</b> ' + pers[1] + '</p><p><b>Bond</b> ' + pers[2] + '</p><p><b>Flaw</b> ' + pers[3] + '</p></section>' +
-    '<section class="pr-zone"><h3>Features</h3><ul>' + feats.map(f => "<li>" + f + "</li>").join("") + '</ul></section>' +
-    '<section class="pr-zone"><h3>Spells</h3><p>' + cast + '</p><p>' + (spellList.length ? spellList.join(", ") : "No spells at this level.") + '</p></section>' +
+  const abilityBoxes = ["str","dex","con","int","wis","cha"].map(k =>
+    '<div class="ab"><em class="ab-mod">' + sign(mod(k)) + '</em><span class="ab-name">' + k.toUpperCase() + '</span><strong class="ab-score">' + s[k] + '</strong></div>'
+  ).join("");
+  const passPer = 10 + skillBonus("Perception", "wis");
+  const passInv = 10 + skillBonus("Investigation", "int");
+  const passIns = 10 + skillBonus("Insight", "wis");
+  const meleeHit = n === 0 ? "+0" : toHit;
+  const meleeDmg = n === 0 ? "1 bludgeoning" : "1d8" + dmg;
+  const rangedRow = n === 0 ? "" : '<tr><td><b>Ranged weapon</b></td><td>' + sign(mod("dex") + prof) + '</td><td>1d8' + sign(mod("dex")) + '</td><td>ranged</td></tr>';
+  return '<article class="beyond-sheet">' +
+    (portrait ? '<header class="beyond-head"><img class="pr-port" src="' + portrait + '" alt="Portrait of ' + face[0] + '">' : '<header class="beyond-head"><div class="pr-port ph"></div>') +
+    '<div class="beyond-id"><p class="edition-badge">2014</p><h2>' + face[0] + '</h2>' +
+    '<p class="beyond-class">' + c.name + ' ' + n + ' · ' + c.sub + '</p>' +
+    '<p class="beyond-species">Human</p>' +
+    '<p class="beyond-background">' + (c.id === "fighter" ? "Soldier" : "Acolyte") + '</p>' +
+    '<p class="beyond-rules">2014 SRD 5.1 · Neutral good · proficiency ' + sign(prof) + '</p></div></header>' +
+    '<div class="beyond-abilities">' + abilityBoxes + '</div>' +
+    '<div class="beyond-combat">' +
+      '<div class="beyond-stat"><small>Proficiency</small><b>' + sign(prof) + '</b></div>' +
+      '<div class="beyond-stat"><small>Armor Class</small><b>' + ac + '</b></div>' +
+      '<div class="beyond-stat"><small>Initiative</small><b>' + sign(mod("dex")) + '</b></div>' +
+      '<div class="beyond-stat"><small>Speed</small><b>30</b></div>' +
+      '<div class="beyond-stat beyond-hp"><small>Hit Points</small><b>' + hp + '</b></div>' +
+      '<div class="beyond-stat pr-temp-hp"><small>Temp HP</small><b></b></div>' +
+    '</div>' +
+    '<div class="beyond-meta pr-hp-grid">' +
+      '<div class="beyond-write pr-current-hp"><small>Current HP</small><b></b></div>' +
+      '<div class="beyond-write"><small>Hit Dice</small><b>' + Math.max(n, 1) + 'd' + c.hd + '</b></div>' +
+      '<div class="beyond-write"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
+      '<div class="beyond-write"><small>Heroic Inspiration</small><b>○</b></div>' +
+    '</div>' +
+    '<div class="beyond-profs"><section><h3>Saving Throws — All Six</h3><div class="beyond-saves">' + saveRows + '</div></section>' +
+    '<section><h3>Skills</h3><div class="beyond-skills">' + skillRows + '</div></section>' +
+    '<aside class="beyond-passives"><div class="beyond-passive"><small>Passive Perception</small><b>' + passPer + '</b></div>' +
+    '<div class="beyond-passive"><small>Passive Investigation</small><b>' + passInv + '</b></div>' +
+    '<div class="beyond-passive"><small>Passive Insight</small><b>' + passIns + '</b></div></aside></div>' +
+    '<div class="beyond-tabs" role="tablist">' +
+      '<button type="button" data-tab="actions" aria-selected="true">Actions</button>' +
+      '<button type="button" data-tab="spells" aria-selected="false">Spells</button>' +
+      '<button type="button" data-tab="inventory" aria-selected="false">Inventory</button>' +
+      '<button type="button" data-tab="features" aria-selected="false">Features</button>' +
+    '</div>' +
+    '<div class="beyond-panels">' +
+      '<section class="beyond-panel" data-panel="actions"><h3>Actions</h3>' +
+        '<table class="beyond-attack"><thead><tr><th>Attack</th><th>To hit</th><th>Damage</th><th>Range</th></tr></thead><tbody>' +
+        '<tr><td><b>' + (n === 0 ? "Unarmed strike" : "Primary weapon") + '</b>' + (extra ? '<div class="tiny">' + extra.trim() + '</div>' : '') + '</td><td>' + meleeHit + '</td><td>' + meleeDmg + '</td><td>' + (n === 0 ? "melee" : "melee") + '</td></tr>' +
+        rangedRow + '</tbody></table>' +
+        '<p class="beyond-note"><b>Action Economy</b> Attack · Dash · Disengage · Dodge · Help · Hide · Ready · Search · Use an Object</p></section>' +
+      '<section class="beyond-panel" data-panel="spells" hidden><h3>Spells</h3><p>' + cast + '</p><p>' + (spellList.length ? spellList.join(", ") : "No spells at this level.") + '</p><p class="beyond-note">Always prepared: not marked on this generated sheet.</p></section>' +
+      '<section class="beyond-panel" data-panel="inventory" hidden><h3>Inventory</h3><p><b>Equipment</b> ' + GEAR[c.id] + '</p><h3>Magic items</h3>' + (itemPics || '<p>No magic items.</p>') + '<p class="beyond-note"><b>Attunement</b> not stated on this generated sheet.</p></section>' +
+      '<section class="beyond-panel" data-panel="features" hidden><h3>Features and traits</h3><ul>' + feats.map(f => "<li>" + f + "</li>").join("") + '</ul>' +
+        '<p><b>Trait</b> ' + pers[0] + '</p><p><b>Ideal</b> ' + pers[1] + '</p><p><b>Bond</b> ' + pers[2] + '</p><p><b>Flaw</b> ' + pers[3] + '</p></section>' +
     '</div></article>';
 }
 document.getElementById("pg-up").onclick = () => { levelSel.value = String(Math.min(20, level() + 1)); render(); };
-document.getElementById("pg-print").onclick = () => window.print();
-classSel.onchange = () => { levelSel.value = "0"; render(); };
+document.getElementById("pg-print-btn").onclick = () => window.print();
+classSel.onchange = render;
 levelSel.onchange = render;
 subSel.onchange = render;
 const oldRender = render;
 render = function () {
   oldRender();
-  document.getElementById("pg-print").innerHTML = sheetHtml();
+  const host = document.getElementById("pg-sheet");
+  host.innerHTML = sheetHtml();
+  host.querySelectorAll("[data-tab]").forEach(btn => btn.onclick = () => {
+    const name = btn.dataset.tab;
+    host.querySelectorAll("[data-tab]").forEach(tab => tab.setAttribute("aria-selected", tab.dataset.tab === name ? "true" : "false"));
+    host.querySelectorAll("[data-panel]").forEach(panel => { panel.hidden = panel.dataset.panel !== name; });
+  });
 };
 render();

@@ -6,6 +6,10 @@ const read = path => fs.existsSync(path) ? fs.readFileSync(path, "utf8") : (erro
 
 const sheets = read("sheets.html");
 const css = read("styles.css");
+const sheetCss = read("character-sheet.css");
+const builder = read("pregen-builder.js");
+const builderPage = read("pregen-builder.html");
+const index = read("index.html");
 
 for (const required of [
   "characterClass(pc)",
@@ -121,6 +125,44 @@ for (const required of [
 ]) {
   if (!css.includes(required)) errors.push("print CSS missing " + required);
 }
+
+for (const required of [
+  "data-tab=\"actions\"",
+  "data-tab=\"spells\"",
+  "data-tab=\"inventory\"",
+  "data-tab=\"features\"",
+  "edition-badge",
+  "Always prepared",
+  "Attunement",
+  "Passive Investigation",
+  "ab-mod",
+  "ab-score",
+  "beyond-abilities",
+  "To hit / Roll / DC",
+  "Range"
+]) {
+  if (!sheets.includes(required)) errors.push("sheets.html missing redesigned sheet marker " + required);
+}
+for (const required of [
+  ".beyond-abilities",
+  ".edition-badge",
+  "grid-template-columns: repeat(6, minmax(0, 1fr))",
+  ".ab-mod",
+  ".ab-score",
+  "size: Letter portrait",
+  "width: 8.5in",
+  "height: 11in",
+  "@media (max-width: 720px)",
+  "print-color-adjust: exact",
+  "color: #111"
+]) {
+  if (!sheetCss.includes(required)) errors.push("character-sheet.css missing " + required);
+}
+if (!builder.includes("const OFFER_LEVEL_ZERO = false")) errors.push("pregen builder must keep level 0 hidden");
+if (!builderPage.includes("level from 1 to 20")) errors.push("pregen builder page must offer levels 1–20");
+if (/Level 0 until you say otherwise/.test(builderPage)) errors.push("pregen builder must not advertise level 0 characters");
+if (/starts at level 0/i.test(index)) errors.push("homepage character area must not send visitors to level 0 sheets");
+if (!index.includes("zero-hero-kit.html")) errors.push("Hearthcross adventure must stay linked from the homepage");
 
 for (const packPath of [
   "data/pregens/quiet-seals-level-4-2014-srd.json",

@@ -42,9 +42,10 @@ Every pregen must surface:
 
 ## Visual contract
 
-- The successful 2026-09-26 fixed Letter layout is the baseline.
-- The same information hierarchy should be used on web and print.
-- Ability rows: label left, score centered, modifier right.
+- Screen and print use the same information hierarchy.
+- The sheet header names the character, then class and level, species, and background. The rules edition is labeled 2014 or 2024 on the sheet.
+- Ability scores are six boxes in a row. The modifier is the large figure. The score sits below it.
+- On screen, actions, spells, inventory, and features are separate sections. In print, the character page stays one Letter page and spells stay on the following page when the character has them.
 - Skill and save text is solid high-contrast black in print; proficiency is indicated by symbol, not by faded color.
 - Weapon names and attack lines are among the largest body text on the sheet.
 - Current HP must provide real handwriting space.

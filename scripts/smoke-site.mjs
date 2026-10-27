@@ -15,7 +15,7 @@ if (!index.includes('id="nights"')) errors.push("homepage missing #nights catalo
 if (!/Choose tonight/i.test(index)) errors.push("homepage must lead with choose-tonight catalog");
 if (!index.includes("Coming after review")) errors.push("next adventure must remain gated behind review");
 if (!index.includes("12 ready-made characters")) errors.push("homepage must say 12 ready-made characters");
-if (!index.includes("Everything here is free to play right now. Paid versions will cost $0.99 each.")) errors.push("homepage must state the free-now / $0.99 later price");
+if (!index.includes("Everything here is free to play right now. Every other adventure will cost $0.99.")) errors.push("homepage must state the free-now / $0.99 later price");
 if (!index.includes("Oakhaven series")) errors.push("homepage must show the Oakhaven series row");
 if (!index.includes("Levels 1 and 7–10 coming")) errors.push("homepage must say levels 1 and 7–10 are coming");
 if (!index.includes('id="filter-level"') || !index.includes('id="filter-series"')) errors.push("homepage must offer level and series filters");
