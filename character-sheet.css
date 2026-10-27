@@ -1,0 +1,503 @@
+/* Original character-sheet presentation. No publisher logos or trade dress. */
+
+.beyond-sheet {
+  --sheet-ink: #1c140f;
+  --sheet-paper: #f6f0e4;
+  --sheet-card: #fffdf8;
+  --sheet-line: #2a2118;
+  --sheet-muted: #5c5146;
+  --sheet-ember: #8c3d16;
+  max-width: 64rem;
+  margin: 0 auto 2rem;
+  padding: 1.1rem 1rem 1.4rem;
+  color: var(--sheet-ink);
+  background: var(--sheet-paper);
+  border: 1px solid #c9b89a;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .18);
+  font-family: Georgia, "Palatino Linotype", Palatino, serif;
+}
+
+.beyond-head {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr) auto;
+  gap: .9rem;
+  align-items: center;
+  padding-bottom: .8rem;
+  border-bottom: 2px solid var(--sheet-line);
+}
+
+.beyond-sheet .pr-port {
+  width: 5.5rem;
+  height: 5.5rem;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--sheet-line);
+  background: #ddd4c4;
+}
+
+.beyond-id h2 {
+  margin: .05rem 0 .15rem;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  line-height: 1;
+  letter-spacing: -.02em;
+}
+
+.beyond-class {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.beyond-species,
+.beyond-background,
+.beyond-rules {
+  margin: .12rem 0 0;
+  color: var(--sheet-muted);
+}
+
+.edition-badge {
+  display: inline-block;
+  margin: 0 0 .35rem;
+  padding: .18rem .55rem;
+  border: 2px solid var(--sheet-line);
+  border-radius: 999px;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.beyond-abilities {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: .45rem;
+  margin: .85rem 0;
+}
+
+.beyond-abilities .ab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .15rem;
+  padding: .45rem .2rem .4rem;
+  background: var(--sheet-card);
+  border: 1px solid var(--sheet-line);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.beyond-abilities .ab-name {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+
+.beyond-abilities .ab-mod {
+  font-size: 1.85rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: .9;
+}
+
+.beyond-abilities .ab-score {
+  min-width: 2rem;
+  padding: .12rem .4rem;
+  border: 1px solid var(--sheet-line);
+  border-radius: 6px;
+  background: #efe6d6;
+  font-size: .95rem;
+  line-height: 1.1;
+}
+
+.beyond-combat {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: .45rem;
+}
+
+.beyond-stat {
+  padding: .4rem .35rem;
+  background: var(--sheet-card);
+  border: 1px solid var(--sheet-line);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.beyond-stat small,
+.beyond-write small,
+.beyond-passive small {
+  display: block;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--sheet-muted);
+}
+
+.beyond-stat b {
+  display: block;
+  margin-top: .1rem;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.beyond-stat.beyond-hp b { font-size: 1.7rem; }
+
+.beyond-meta,
+.pr-hp-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .8fr 1.3fr .8fr 1fr;
+  gap: .45rem;
+  margin-top: .45rem;
+}
+
+.beyond-death span { display: block; }
+
+.beyond-role,
+.beyond-ac-note,
+.beyond-senses {
+  margin: .35rem 0 0;
+  font-size: 0.875rem;
+}
+
+.beyond-write,
+.pr-current-hp,
+.pr-temp-hp {
+  min-height: 2.6rem;
+  padding: .35rem .45rem;
+  background: #fff;
+  border: 1px dashed var(--sheet-line);
+  border-radius: 8px;
+}
+
+.pr-current-hp b,
+.pr-temp-hp b {
+  display: block;
+  min-height: 1.1rem;
+}
+
+.beyond-profs {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr) minmax(8rem, .6fr);
+  gap: .8rem;
+  margin-top: 1rem;
+}
+
+.beyond-sheet h3 {
+  margin: 0 0 .35rem;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.beyond-saves,
+.beyond-skills {
+  display: grid;
+  gap: .12rem;
+}
+
+.beyond-skills { grid-template-columns: 1fr 1fr; }
+
+.beyond-check {
+  display: grid;
+  grid-template-columns: 1.1rem 2.2rem minmax(0, 1fr);
+  gap: .25rem;
+  align-items: baseline;
+  font-size: .92rem;
+}
+
+.beyond-check i {
+  font-style: normal;
+  text-align: center;
+}
+
+.beyond-check b { font-variant-numeric: tabular-nums; }
+
+.beyond-passives {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.beyond-passive {
+  padding: .35rem .45rem;
+  background: var(--sheet-card);
+  border: 1px solid var(--sheet-line);
+  border-radius: 8px;
+}
+
+.beyond-passive b {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.beyond-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin: 1rem 0 .6rem;
+  padding-bottom: .35rem;
+  border-bottom: 2px solid var(--sheet-line);
+}
+
+.beyond-tabs button {
+  border: 1px solid var(--sheet-line);
+  background: transparent;
+  color: var(--sheet-ink);
+  border-radius: 999px;
+  padding: .35rem .75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.beyond-tabs button[aria-selected="true"] {
+  background: var(--sheet-ink);
+  color: var(--sheet-paper);
+}
+
+.beyond-panel h3 { margin-top: .2rem; }
+
+.beyond-attack {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+}
+
+.beyond-attack th {
+  text-align: left;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: .25rem;
+}
+
+.beyond-attack td {
+  border-top: 1px solid #d9d0c2;
+  padding: .4rem .25rem;
+  vertical-align: top;
+}
+
+.beyond-attack td:first-child b { font-size: 1.02rem; }
+
+.beyond-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .8rem;
+  margin-top: .6rem;
+}
+
+.beyond-spell-summary,
+.beyond-note {
+  margin: .4rem 0;
+  font-size: .92rem;
+}
+
+.spl-mark,
+.always-prepared {
+  display: inline-block;
+  margin-left: .35rem;
+  padding: 0 .35rem;
+  border: 1px solid var(--sheet-ember);
+  border-radius: 999px;
+  color: var(--sheet-ember);
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+
+.beyond-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .4rem;
+  padding: .35rem 0;
+  border-top: 1px solid #d9d0c2;
+}
+
+.beyond-item p { margin: .15rem 0 0; color: var(--sheet-muted); font-size: .88rem; }
+
+.beyond-feature { margin: 0 0 .45rem; }
+.beyond-feature p { margin: .1rem 0 0; }
+
+.cs-screen-actions { margin-bottom: .6rem; }
+
+@media (max-width: 720px) {
+  .beyond-head,
+  .beyond-profs,
+  .beyond-split,
+  .beyond-meta,
+  .pr-hp-grid {
+    grid-template-columns: 1fr;
+  }
+  .beyond-abilities,
+  .beyond-combat {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .beyond-skills { grid-template-columns: 1fr; }
+  .beyond-sheet { padding: .8rem .7rem 1.1rem; }
+}
+
+@media print {
+  @page { size: Letter portrait; margin: 0; }
+  .screen-sheet { display: none !important; }
+  .print-only { display: block !important; }
+  .beyond-tabs { display: none !important; }
+  .beyond-print [hidden] { display: block !important; }
+
+  body[data-print-target]:not([data-print-target="all"]) .print-only.print-match {
+    display: block !important;
+  }
+
+  .pr-page.beyond-print {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 8.5in !important;
+    height: 11in !important;
+    margin: 0 !important;
+    padding: .12in .18in .1in !important;
+    overflow: hidden !important;
+    color: #111 !important;
+    background: #fff !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 8pt;
+    line-height: 1.15;
+  }
+
+  .beyond-print .beyond-head {
+    grid-template-columns: .78in minmax(0, 1fr) auto !important;
+    gap: .08in !important;
+    padding-bottom: .06in !important;
+  }
+  .beyond-print .pr-port {
+    width: .58in !important;
+    height: .58in !important;
+    object-fit: cover;
+  }
+  .beyond-print .beyond-id h2 { font-size: 13pt !important; margin: 0 !important; }
+  .beyond-print .beyond-class { font-size: 9pt !important; }
+  .beyond-print .beyond-species,
+  .beyond-print .beyond-background,
+  .beyond-print .beyond-role,
+  .beyond-print .beyond-rules,
+  .beyond-print .beyond-ac-note,
+  .beyond-print .beyond-senses { font-size: 7.5pt !important; margin: 0 !important; color: #111 !important; }
+  .beyond-print .beyond-death span { display: block !important; }
+  .beyond-print .edition-badge { font-size: 8pt !important; padding: 0 .2in !important; color: #111 !important; }
+
+  .beyond-print .beyond-abilities {
+    gap: .03in !important;
+    margin: .03in 0 !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  }
+  .beyond-print .beyond-abilities .ab { padding: .01in 0 !important; }
+  .beyond-print .beyond-abilities .ab-mod { font-size: 11pt !important; }
+  .beyond-print .beyond-abilities .ab-score { font-size: 8pt !important; }
+  .beyond-print .beyond-abilities .ab-name { font-size: 6pt !important; color: #111 !important; }
+
+  .beyond-print .beyond-combat {
+    gap: .04in !important;
+    grid-template-columns: .7in .7in .7in .7in 1.4fr 1fr !important;
+  }
+  .beyond-print .beyond-stat { padding: .01in !important; }
+  .beyond-print .beyond-stat b,
+  .beyond-print .beyond-stat.beyond-hp b { font-size: 11pt !important; }
+  .beyond-print .beyond-stat small,
+  .beyond-print .beyond-write small { color: #111 !important; font-size: 5.5pt !important; }
+
+  .beyond-print .pr-hp-grid,
+  .beyond-print .beyond-meta {
+    grid-template-columns: 1.15fr .8fr 1.35fr .7fr .9fr !important;
+    gap: .04in !important;
+    margin-top: .04in !important;
+  }
+  .beyond-print .pr-current-hp,
+  .beyond-print .pr-temp-hp,
+  .beyond-print .beyond-write {
+    min-height: 0 !important;
+    padding: .02in .04in !important;
+    background: #fff !important;
+  }
+
+  .beyond-print .beyond-profs {
+    grid-template-columns: 1.55in minmax(0, 1fr) 1.05in !important;
+    gap: .05in !important;
+    margin-top: .03in !important;
+  }
+  .beyond-print h3 { font-size: 7pt !important; margin: 0 0 .03in !important; color: #111 !important; }
+  .beyond-print .beyond-skills { grid-template-columns: 1fr 1fr 1fr !important; }
+  .beyond-print .beyond-check,
+  .beyond-print .beyond-check b,
+  .beyond-print .beyond-check span,
+  .beyond-print .beyond-check i {
+    color: #111 !important;
+    font-size: 7pt !important;
+  }
+  .beyond-print .beyond-passive b { font-size: 10pt !important; color: #111 !important; }
+
+  .beyond-print .beyond-panels {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: grid !important;
+    grid-template-columns: 1.05fr 1.15fr !important;
+    gap: .05in !important;
+    margin-top: .03in !important;
+    align-items: start !important;
+  }
+  .beyond-print [data-panel="actions"] { grid-column: 1; }
+  .beyond-print [data-panel="features"] { grid-column: 2; }
+  .beyond-print [data-panel="spells"] { display: none !important; }
+
+  .pr-gear-page {
+    display: block !important;
+    width: 8.5in !important;
+    height: 11in !important;
+    overflow: hidden !important;
+    color: #111 !important;
+    background: #fff !important;
+    font-size: 9pt;
+    line-height: 1.2;
+  }
+  .pr-gear-page h2 { margin: 0 0 .04in; font-size: 16pt; color: #111; }
+  .pr-gear-page h3 { margin: .08in 0 .03in; font-size: 10pt; color: #111; }
+  .pr-gear-page p,
+  .pr-gear-page .beyond-item,
+  .pr-gear-page .beyond-item p { color: #111 !important; font-size: 8.5pt; margin: 0 0 .03in; }
+
+  .beyond-print .beyond-attack { font-size: 8pt !important; }
+  .beyond-print .beyond-attack th { font-size: 6pt !important; color: #111 !important; }
+  .beyond-print .beyond-attack td { padding: .01in .02in !important; }
+  .beyond-print .beyond-attack td:first-child b { font-size: 8.5pt !important; }
+  .beyond-print .beyond-split { grid-template-columns: 1fr 1fr !important; gap: .06in !important; }
+  .beyond-print .beyond-feature,
+  .beyond-print .beyond-feature p,
+  .beyond-print .beyond-item,
+  .beyond-print .beyond-item p,
+  .beyond-print .pr-line,
+  .beyond-print .pr-quickturn,
+  .beyond-print .pr-quickturn li,
+  .beyond-print .pr-resource,
+  .beyond-print .pr-defense,
+  .beyond-print .pr-defense p { font-size: 6.1pt !important; line-height: 1.05 !important; color: #111 !important; margin: 0 !important; }
+  .beyond-print .pr-feature-heavy .beyond-feature p,
+  .beyond-print .pr-resource-heavy .pr-resource { font-size: 6.2pt !important; }
+
+  .pg-print .beyond-sheet {
+    max-width: none;
+    width: 8.5in;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .pg-print .beyond-tabs { display: none !important; }
+  .pg-print .beyond-panel[hidden] { display: block !important; }
+}

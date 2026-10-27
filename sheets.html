@@ -7,6 +7,7 @@
   <meta name="description" content="Print ready-made characters for 99¢ One-Shots. Level 4 heroes for the 2014 and 2024 rules, plus Oakhaven series heroes when a module asks for them.">
   <link rel="icon" href="assets/mark-lantern.jpg">
   <link rel="stylesheet" href="styles.css?v=20261006a">
+  <link rel="stylesheet" href="character-sheet.css?v=20261027a">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -24,9 +25,9 @@
   </header>
   <main class="sheets-wrap">
     <section class="print-hide land-section" style="border-top:0">
-      <p class="eyebrow ember">Table-complete · 2014 SRD · level 4</p>
+      <p class="eyebrow ember">Table-complete · 2014 SRD and 2024 SRD · level 4</p>
       <h1>Character sheets</h1>
-      <p class="lede short">Click <b>2014 SRD</b> or <b>2024 SRD</b> at the top. The Quiet Seals six are the default. An Oakhaven module link loads that module’s four heroes instead. Beyond cannot import them. Print them.</p>
+      <p class="lede short">Click <b>2014 SRD</b> or <b>2024 SRD</b> at the top. The Quiet Seals six are the default. An Oakhaven module link loads that module’s four heroes instead. Every sheet is labeled with its rules year. Print one character or print all.</p>
     </section>
     <div id="sheets"></div>
   </main>
@@ -46,9 +47,14 @@
     }
     function setPrintTarget(target) {
       document.body.dataset.printTarget = target || "all";
+      document.querySelectorAll(".print-only").forEach(el => {
+        const id = el.getAttribute("data-print-pc");
+        el.classList.toggle("print-match", !target || target === "all" || id === target);
+      });
     }
     function clearPrintTarget() {
       delete document.body.dataset.printTarget;
+      document.querySelectorAll(".print-match").forEach(el => el.classList.remove("print-match"));
     }
     function printAllCharacters() {
       setPrintTarget("all");
@@ -67,7 +73,7 @@
     ];
     function esc(v) {
       return String(v == null ? "" : v)
-        .replace(/&/g,"&").replace(/</g,"<").replace(/>/g,">");
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
     function signed(n) {
       n = Number(n) || 0;
@@ -90,171 +96,292 @@
           (s.proficient ? "●" : "○") + "</i><b>" + signed(s.bonus) + "</b><span>" + k + "</span></div>";
       }).join("");
     }
+    function characterClass(pc) {
+      return pc.className || pc.class || "Adventurer";
+    }
     function scoreCol(pc) {
       return ABIL.map(k => {
         const score = (pc.scores || {})[k];
         return '<div class="ab">' +
+          '<em class="ab-mod">' + signed(mod(score)) + '</em>' +
           '<span class="ab-name">' + k + '</span>' +
           '<strong class="ab-score">' + esc(score) + '</strong>' +
-          '<em class="ab-mod">' + signed(mod(score)) + '</em>' +
         '</div>';
       }).join("");
     }
-    function attackTable(list) {
-      if (!list || !list.length) return "";
-      return '<table class="atk"><thead><tr><th>Attack</th><th>Hit</th><th>Damage</th></tr></thead><tbody>' +
-        list.map(a => "<tr><td>" + esc(a.name) + (a.notes ? '<div class="tiny">' + esc(a.notes) + "</div>" : "") +
-          "</td><td>" + signed(a.bonus) + "</td><td>" + esc(a.damage) + " " + esc(a.type) + "</td></tr>").join("") +
-        "</tbody></table>";
+    function editionLabel(pc) {
+      const rules = String(pc.rules || "");
+      return /2024|5\.2/.test(rules) ? "2024" : "2014";
     }
-    function listBlock(title, arr) {
-      if (!arr || !arr.length) return "";
-      return "<h3>" + esc(title) + "</h3><ul>" + arr.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul>";
+    function classLine(pc) {
+      const name = characterClass(pc);
+      const level = pc.level || 4;
+      const sub = pc.subclass && name.indexOf(pc.subclass) === -1 ? " · " + pc.subclass : "";
+      return name + " " + level + sub;
     }
-    function spellBlock(pc) {
-      const list = pc.spellList;
-      if (!list || !list.length) return "";
-      const sc = pc.spellcasting || {};
+    function attackRange(attack) {
+      const notes = String(attack.notes || "");
+      const thrown = notes.match(/\b(?:thrown|range)\s+\d+\s*\/\s*\d+/i);
+      if (thrown) return thrown[0];
+      const reach = notes.match(/\b(?:reach\s+)?\d+\s*ft\.?(?:\s*reach)?/i);
+      if (reach) return reach[0];
+      const pair = notes.match(/\b\d+\s*\/\s*\d+\b/);
+      if (pair) return pair[0];
+      if (/\bmelee\b/i.test(notes)) return "melee";
+      if (/\branged\b|\bthrown\b/i.test(notes)) return "ranged";
+      return "melee";
+    }
+    function isAlwaysPrepared(spell) {
+      const effect = String(spell.effect || "");
+      return /always prepared/i.test(effect) || /\bdomain\b/i.test(effect);
+    }
+    function attuneState(item) {
+      const text = String(item.text || item.notes || "");
+      if (/no attunement/i.test(text)) return "No attunement";
+      if (/requires attunement/i.test(text)) return "Requires attunement";
+      return "Attunement not stated";
+    }
+    function spellOutNotes(text) {
+      return String(text ?? "")
+        .replace(/\bAC\b/g, "Armor Class")
+        .replace(/\bHP\b/g, "Hit Points")
+        .replace(/\bDC\b/g, "Difficulty Class")
+        .replace(/\bXP\b/g, "Experience")
+        .replace(/\bStr\b/g, "Strength")
+        .replace(/\bDex\b/g, "Dexterity");
+    }
+    function note(text) {
+      return esc(spellOutNotes(text));
+    }
+    function gearLines(pc) {
+      const lines = [];
+      const seen = new Set();
+      const add = line => {
+        const text = String(line || "").trim();
+        if (!text) return;
+        const key = text.toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        lines.push(text);
+      };
+      if (Array.isArray(pc.equipment) && pc.equipment.length) {
+        pc.equipment.forEach(item => {
+          if (typeof item === "string") add(item);
+          else {
+            const qty = item.qty && Number(item.qty) !== 1 ? item.qty + "× " : "";
+            add(qty + (item.name || ""));
+          }
+        });
+      } else if (pc.gear) add(pc.gear);
+      if (pc.gp != null) add(pc.gp + " gp");
+      return lines;
+    }
+    function beyondHead(pc) {
+      const img = pc.portrait
+        ? '<img class="pr-port" src="' + esc(pc.portrait) + '" alt="Portrait of ' + esc(pc.name) + '">'
+        : '<div class="pr-port ph" aria-hidden="true"></div>';
+      return '<header class="beyond-head">' + img +
+        '<div class="beyond-id">' +
+          '<p class="edition-badge">' + editionLabel(pc) + '</p>' +
+          '<h2>' + esc(pc.name) + '</h2>' +
+          '<p class="beyond-class">' + esc(classLine(pc)) + '</p>' +
+          '<p class="beyond-species">' + esc(pc.race || "—") + '</p>' +
+          '<p class="beyond-background">' + esc(pc.background || "—") + '</p>' +
+          (pc.role ? '<p class="beyond-role">' + esc(pc.role) + '</p>' : '') +
+          '<p class="beyond-rules">' + esc(pc.rules || "5th Edition") +
+            (pc.alignment ? " · " + esc(pc.alignment) : "") +
+            " · XP " + esc(pc.xp ?? "Milestone") + '</p>' +
+        '</div></header>';
+    }
+    function beyondAbilities(pc) {
+      return '<div class="beyond-abilities">' + scoreCol(pc) + '</div>';
+    }
+    function beyondCombat(pc) {
+      const speed = pc.speedFt || pc.speed || "—";
+      return '<div class="beyond-combat">' +
+        '<div class="beyond-stat"><small>Proficiency</small><b>+' + esc(pc.proficiency || 2) + '</b></div>' +
+        '<div class="beyond-stat"><small>Armor Class</small><b>' + esc(pc.ac) + '</b></div>' +
+        '<div class="beyond-stat"><small>Initiative</small><b>' + signed(pc.initiative) + '</b></div>' +
+        '<div class="beyond-stat"><small>Speed</small><b>' + esc(speed) + '</b></div>' +
+        '<div class="beyond-stat beyond-hp"><small>Hit Points</small><b>' + esc(pc.hp) + '</b></div>' +
+        '<div class="beyond-stat pr-temp-hp"><small>Temp HP</small><b></b></div>' +
+      '</div>' +
+      (pc.acNotes ? '<p class="beyond-ac-note"><b>Armor Class</b> ' + esc(pc.ac) + ' — ' + note(pc.acNotes) + '</p>' : '') +
+      '<p class="beyond-senses"><b>Senses</b> Darkvision ' + esc(pc.darkvision ?? 0) + ' ft.</p>' +
+      '<div class="beyond-meta pr-hp-grid">' +
+        '<div class="beyond-write pr-current-hp"><small>Current HP</small><b></b></div>' +
+        '<div class="beyond-write"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b></div>' +
+        '<div class="beyond-write beyond-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
+        '<div class="beyond-write"><small>Heroic Inspiration</small><b>○</b></div>' +
+        '<div class="beyond-write"><small>Class / Spell Save DC</small><b>' + esc(classSaveDC(pc)) + '</b></div>' +
+      '</div>' +
+      '<div class="beyond-write"><small>Conditions / Concentration / Combat Notes</small><div></div></div>';
+    }
+    function checkRow(mark, bonus, label) {
+      return '<div class="beyond-check"><i>' + mark + '</i><b>' + signed(bonus) + '</b><span>' + esc(label) + '</span></div>';
+    }
+    function beyondSaves(pc) {
+      const rows = ABIL.map(k => {
+        const score = (pc.scores || {})[k];
+        const s = (pc.saveMap && pc.saveMap[k]) || { bonus: mod(score), proficient: false };
+        return checkRow(s.proficient ? "●" : "○", s.bonus, k);
+      }).join("");
+      return '<section><h3>Saving Throws — All Six</h3><div class="beyond-saves">' + rows + '</div></section>';
+    }
+    function beyondSkills(pc) {
+      const rows = SKILL_ORDER.map(name => {
+        const s = (pc.skillsMap || {})[name] || {};
+        const mark = s.expertise ? "●●" : s.proficient ? "●" : "○";
+        return checkRow(mark, s.bonus, name);
+      }).join("");
+      return '<section><h3>Skills</h3><div class="beyond-skills">' + rows + '</div></section>';
+    }
+    function beyondPassives(pc) {
+      const perception = pc.passivePerception ?? "—";
+      const investigation = pc.passiveInvestigation ?? passiveSkill(pc, "investigation");
+      const insight = pc.passiveInsight ?? passiveSkill(pc, "insight");
+      return '<aside class="beyond-passives">' +
+        '<div class="beyond-passive"><small>Passive Perception</small><b>' + esc(perception) + '</b></div>' +
+        '<div class="beyond-passive"><small>Passive Investigation</small><b>' + esc(investigation) + '</b></div>' +
+        '<div class="beyond-passive"><small>Passive Insight</small><b>' + esc(insight) + '</b></div>' +
+      '</aside>';
+    }
+    function beyondAttacks(pc) {
+      const list = pc.attackList || [];
+      if (!list.length) return '<p class="beyond-note">No listed attacks.</p>';
+      return '<table class="beyond-attack"><thead><tr><th>Attack</th><th>To hit / Roll / DC</th><th>Damage</th><th>Range</th></tr></thead><tbody>' +
+        list.map(a => {
+          const notes = String(a.notes || "");
+          const dc = notes.match(/\b(?:Str|Dex|Con|Int|Wis|Cha)\s+DC\s+\d+/i);
+          const roll = dc ? dc[0] : signed(a.bonus);
+          return '<tr><td><b>' + esc(a.name) + '</b>' +
+            (notes ? '<div class="tiny">' + note(notes) + '</div>' : '') +
+            '</td><td>' + esc(roll) + '</td><td>' + esc(a.damage) + ' ' + esc(a.type) +
+            '</td><td>' + esc(attackRange(a)) + '</td></tr>';
+        }).join("") + '</tbody></table>';
+    }
+    function spellSummary(pc) {
+      const sc = pc.spellcasting;
+      if (!sc) return "";
       const slots = sc.slots || {};
       const slotLine = Object.keys(slots).map(l => "L" + l + " × " + slots[l]).join(" · ");
+      return '<p class="beyond-spell-summary"><b>Spells</b> ' + esc(sc.ability || "") +
+        " · save DC " + esc(sc.saveDC) + " · attack " + signed(sc.attack) +
+        (slotLine ? " · slots " + esc(slotLine) : "") +
+        (sc.prepareCount ? " · " + esc(sc.prepareCount) : "") + "</p>";
+    }
+    function screenSpells(pc) {
+      const list = pc.spellList || [];
+      if (!list.length && !pc.spellcasting) return '<p class="beyond-note">No spells.</p>';
       const groups = {};
       list.forEach(s => {
         const k = s.level === 0 ? "Cantrips" : "Level " + s.level;
         (groups[k] = groups[k] || []).push(s);
       });
-      let html = '<section class="cs-spells"><h3>Spellcasting</h3><p class="cs-slot">' +
-        esc(sc.ability || "") + " · DC " + esc(sc.saveDC) + " · attack " + signed(sc.attack) +
-        (slotLine ? " · slots " + esc(slotLine) : "") +
-        (sc.prepareCount ? '<span class="tiny"> · ' + esc(sc.prepareCount) + "</span>" : "") +
-        "</p>";
+      let html = spellSummary(pc);
       for (const [k, arr] of Object.entries(groups)) {
         html += "<h4>" + esc(k) + "</h4>";
-        html += arr.map(s => '<div class="spl"><b>' + esc(s.name) + "</b> <span>" +
-          esc(s.time) + " · " + esc(s.range) +
-          (s.save ? " · " + esc(s.save) : "") +
-          "</span><p>" + esc(s.effect) + "</p></div>").join("");
+        html += arr.map(s => {
+          const mark = isAlwaysPrepared(s) ? '<em class="always-prepared">Always prepared</em>' : "";
+          return '<div class="spl"><b>' + esc(s.name) + "</b>" + mark +
+            " <span>" + esc(s.time || "") + " · " + esc(s.range || "") +
+            (s.save ? " · " + note(s.save) : "") + "</span><p>" + note(s.effect || "") + "</p></div>";
+        }).join("");
       }
-      return html + "</section>";
+      return html;
     }
-    function characterClass(pc) {
-      return pc.className || pc.class || "Adventurer";
+    function inventoryBlock(pc) {
+      const gear = gearLines(pc).map(line => '<div class="beyond-item"><b>' + esc(line) + '</b></div>').join("");
+      const magic = pc.magicItems || [];
+      const attuned = magic.filter(item => attuneState(item) === "Requires attunement").length;
+      const items = magic.map(item => '<div class="beyond-item"><div><b>' + esc(item.name || "Magic item") +
+        '</b><p>' + note(item.text || "") + '</p></div><span>' + esc(attuneState(item)) + '</span></div>').join("");
+      return '<h3>Inventory</h3>' +
+        '<p class="beyond-note"><b>Attunement</b> ' + attuned + ' / 3</p>' +
+        (gear || '<p class="beyond-note">No equipment listed.</p>') +
+        '<h3>Magic items</h3>' + (items || '<p class="beyond-note">No magic items.</p>') +
+        '<p><b>Armor</b> ' + esc(((pc.proficiencies || {}).armor || []).join(", ") || "none") + '</p>' +
+        '<p><b>Weapons</b> ' + esc(((pc.proficiencies || {}).weapons || []).join(", ") || "none") + '</p>' +
+        '<p><b>Tools</b> ' + esc(((pc.proficiencies || {}).tools || []).join(", ") || "—") + '</p>' +
+        '<p><b>Languages</b> ' + esc(((pc.proficiencies || {}).languages || []).join(", ") || "—") + '</p>';
     }
-    function beyondList(pc) {
-      const sk = pc.skillsMap || {};
-      const profSkills = Object.keys(sk).filter(k => sk[k].proficient).join(", ");
-      const spells = (pc.spellList || []).map(s => s.name).join(", ");
-      return [
-        "D&D Beyond has no character import. Type this by hand if you must.",
-        "Species: " + (pc.race || ""),
-        "Class: " + characterClass(pc) + " " + (pc.level || 4),
-        "Background: " + (pc.background || ""),
-        "Scores: " + ABIL.map(k => k + " " + (pc.scores||{})[k]).join(", "),
-        "Skills: " + profSkills,
-        spells ? "Spells: " + spells : ""
-      ].filter(Boolean).join("\n");
-    }
-    function sheetHtml(pc) {
-      const prof = pc.proficiencies || {};
+    function featuresBlock(pc, printMode) {
+      const heavy = printMode || isFeatureHeavy(pc);
+      const rows = printFeatureRows(pc);
       const pers = pc.personality || {};
-      const img = pc.portrait
-        ? '<img class="pr-port" src="' + esc(pc.portrait) + '" alt="Portrait of ' + esc(pc.name) + '">'
-        : '<div class="pr-port ph" aria-hidden="true"></div>';
-      const printAction = "printCharacter(" + JSON.stringify(pc.id) + ")";
+      const role = heavy ? compactRoleplay(pc) :
+        '<p><b>Trait</b> ' + esc(pers.trait || "—") + '</p>' +
+        '<p><b>Ideal</b> ' + esc(pers.ideal || "—") + '</p>' +
+        '<p><b>Bond</b> ' + esc(pers.bond || "—") + '</p>' +
+        '<p><b>Flaw</b> ' + esc(pers.flaw || "—") + '</p>';
+      return '<h3>Features and traits</h3><div class="pr-features">' + rows + '</div>' + role;
+    }
+    function actionsBlock(pc) {
       const bonus = pc.bonusActions?.length ? compactList(pc.bonusActions) : '<div class="pr-line">No special bonus action.</div>';
       const reactions = pc.reactions?.length ? compactList(pc.reactions) : '<div class="pr-line">Opportunity Attack when triggered.</div>';
-      return '<article class="screen-sheet web-fixed-sheet" id="' + esc(pc.id) + '">' +
-        '<div class="cs-screen-actions print-hide"><button class="button small secondary" type="button" onclick=\'' + esc(printAction) + '\'>Print this character</button></div>' +
-        '<header class="pr-head">' + img +
-          '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
-            '<h2>' + esc(pc.name) + '</h2>' +
-            '<p><b>' + esc(characterClass(pc)) + ' ' + esc(pc.level || 4) + '</b> · ' + esc(pc.race) + ' · ' +
-              esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
-            '<p class="pr-subid">' + esc(pc.rules || "5th Edition") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
-            '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
-          '<div class="pr-vitals">' +
-            '<span><small>AC</small><b>' + esc(pc.ac) + '</b></span>' +
-            '<span><small>Max HP</small><b>' + esc(pc.hp) + '</b></span>' +
-            '<span><small>Init</small><b>' + signed(pc.initiative) + '</b></span>' +
-            '<span><small>Speed</small><b>' + esc(pc.speedFt || pc.speed) + '</b></span>' +
-            '<span><small>Prof</small><b>+' + esc(pc.proficiency || 2) + '</b></span>' +
-            '<span><small>Passive Per</small><b>' + esc(pc.passivePerception) + '</b></span>' +
-          '</div>' +
-        '</header>' +
-        '<div class="pr-fixed-grid">' +
-          '<section class="pr-zone pr-zone-abilities"><h3>Abilities</h3><div class="pr-abilities">' + scoreCol(pc) + '</div></section>' +
-          '<section class="pr-zone pr-zone-saves"><h3>Saving Throws — All Six</h3><div class="pr-saves">' + fullSaveRows(pc) + '</div></section>' +
-          '<section class="pr-zone pr-zone-skills"><h3>Skills</h3><div class="pr-skill-list">' + skillRows(pc.skillsMap) + '</div></section>' +
-
-          '<section class="pr-zone pr-zone-tracker"><h3>Combat Tracker</h3>' +
-            '<div class="pr-hp-grid">' +
-              '<div class="pr-writebox pr-current-hp"><small>Current HP</small><b></b></div>' +
-              '<div class="pr-writebox pr-temp-hp"><small>Temp HP</small><b></b></div>' +
-              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: ' + Array.from({length:Number(pc.level)||4},()=>"□").join(" ") + '</span></div>' +
-              '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
-            '</div>' +
-            '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
-            '<div class="pr-mini-stats">' +
-              '<span><small>Heroic Inspiration</small><b>○</b></span>' +
-              '<span><small>Class / Spell Save DC</small><b>' + esc(classSaveDC(pc)) + '</b></span>' +
-            '</div>' +
-            '<p class="pr-ac-note"><b>AC:</b> ' + esc(pc.ac) + (pc.acNotes ? ' — ' + esc(pc.acNotes) : '') + '</p>' +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-attacks"><h3>Attacks & Combat Cantrips</h3>' + printAttackTable(pc.attackList) +
-            (pc.spellcasting ? '<div class="pr-casting-grid pr-inline-casting">' +
-              '<span><small>Spell Ability</small><b>' + esc(pc.spellcasting.ability || "—") + '</b></span>' +
-              '<span><small>Save DC</small><b>' + esc(pc.spellcasting.saveDC ?? "—") + '</b></span>' +
-              '<span><small>Spell Attack</small><b>' + signed(pc.spellcasting.attack) + '</b></span>' +
-            '</div>' : '') +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-actions"><h3>Action Economy</h3>' +
-            '<div class="pr-standard-actions"><b>Standard Actions</b> ' + esc(standardActionLine()) + '</div>' +
-            '<div class="pr-action-split"><div><h4>Bonus Actions</h4>' + bonus + '</div><div><h4>Reactions</h4>' + reactions + '</div></div>' +
-            '<h4>Quick Turn</h4>' + quickTurn(pc) +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-resources"><h3>Resources & Defenses</h3>' +
-            '<div class="pr-resource-columns"><div>' + limitedUseRows(pc) + '</div><div>' + combatDefenseRows(pc) + '</div></div>' +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-side"><h3>Senses / Training / Gear</h3>' +
-            '<p><b>Senses</b> Darkvision ' + esc(pc.darkvision || 0) + ' ft.</p>' +
-            '<p><b>Passive Perception</b> ' + esc(pc.passivePerception ?? "—") + '</p>' +
-            '<p><b>Passive Insight</b> ' + esc(pc.passiveInsight ?? passiveSkill(pc,"insight")) + '</p>' +
-            '<p><b>Passive Investigation</b> ' + esc(passiveSkill(pc,"investigation")) + '</p>' +
-            '<p><b>Armor</b> ' + esc((prof.armor || []).join(", ") || "none") + '</p>' +
-            '<p><b>Weapons</b> ' + esc((prof.weapons || []).join(", ") || "none") + '</p>' +
-            '<p><b>Tools</b> ' + esc((prof.tools || []).join(", ") || "—") + '</p>' +
-            '<p><b>Languages</b> ' + esc((prof.languages || []).join(", ") || "—") + '</p>' +
-            '<p><b>Equipment</b> ' + esc(pc.gear || "—") + '</p>' +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-character"><h3>Character</h3>' +
-            '<p><b>Trait</b> ' + esc(pers.trait || "—") + '</p>' +
-            '<p><b>Ideal</b> ' + esc(pers.ideal || "—") + '</p>' +
-            '<p><b>Bond</b> ' + esc(pers.bond || "—") + '</p>' +
-            '<p><b>Flaw</b> ' + esc(pers.flaw || "—") + '</p>' +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-features"><h3>Features & Traits</h3><div class="pr-features">' + printFeatureRows(pc) + '</div>' +
-            (isFeatureHeavy(pc) ? compactRoleplay(pc) : '') +
-          '</section>' +
-        '</div>' +
-        '<div class="web-spells">' + spellBlock(pc) + '</div>' +
-        '<pre class="beyond-check print-hide">' + esc(beyondList(pc)) + '</pre>' +
+      return '<h3>Actions</h3>' + beyondAttacks(pc) + spellSummary(pc) +
+        '<p class="pr-standard-actions"><b>Action Economy</b></p><p class="pr-standard-actions"><b>Standard Actions</b> ' + esc(standardActionLine()) + '</p>' +
+        '<div class="beyond-split"><div><h4>Bonus Actions</h4>' + bonus + '</div><div><h4>Reactions</h4>' + reactions + '</div></div>' +
+        '<h4>Quick Turn</h4>' + quickTurn(pc) +
+        '<h3>Resources & Defenses</h3><div class="beyond-split"><div>' + limitedUseRows(pc) + '</div><div>' + combatDefenseRows(pc) + '</div></div>';
+    }
+    function tabs(active) {
+      const on = name => name === active ? "true" : "false";
+      return '<div class="beyond-tabs" role="tablist">' +
+        '<button type="button" role="tab" data-tab="actions" aria-selected="' + on("actions") + '">Actions</button>' +
+        '<button type="button" role="tab" data-tab="spells" aria-selected="' + on("spells") + '">Spells</button>' +
+        '<button type="button" role="tab" data-tab="inventory" aria-selected="' + on("inventory") + '">Inventory</button>' +
+        '<button type="button" role="tab" data-tab="features" aria-selected="' + on("features") + '">Features</button>' +
+      '</div>';
+    }
+    function panels(pc, printMode) {
+      const hide = name => printMode ? "" : (name === "actions" ? "" : " hidden");
+      const names = printMode ? ["actions", "features"] : ["actions", "spells", "inventory", "features"];
+      return '<div class="beyond-panels">' + names.map(name => {
+        const body = name === "actions" ? actionsBlock(pc)
+          : name === "spells" ? screenSpells(pc)
+          : name === "inventory" ? inventoryBlock(pc)
+          : featuresBlock(pc, printMode);
+        return '<section class="beyond-panel" data-panel="' + name + '"' + hide(name) + '>' + body + '</section>';
+      }).join("") + '</div>';
+    }
+    function sheetHtml(pc) {
+      return '<article class="beyond-sheet screen-sheet" id="' + esc(pc.id) + '">' +
+        '<div class="cs-screen-actions print-hide"><button class="button small secondary" type="button" data-print-id="' + esc(pc.id) + '">Print this character</button></div>' +
+        beyondHead(pc) + beyondAbilities(pc) + beyondCombat(pc) +
+        '<div class="beyond-profs">' + beyondSaves(pc) + beyondSkills(pc) + beyondPassives(pc) + '</div>' +
+        tabs("actions") + panels(pc, false) +
       '</article>';
     }
-
+    function bindSheetTabs() {
+      const host = document.getElementById("sheets");
+      if (!host || host.dataset.tabsBound) return;
+      host.dataset.tabsBound = "1";
+      host.addEventListener("click", event => {
+        const printBtn = event.target.closest("[data-print-id]");
+        if (printBtn) { printCharacter(printBtn.getAttribute("data-print-id")); return; }
+        const tab = event.target.closest("[data-tab]");
+        if (!tab) return;
+        const sheet = tab.closest(".beyond-sheet");
+        if (!sheet) return;
+        const name = tab.dataset.tab;
+        sheet.querySelectorAll("[data-tab]").forEach(btn => {
+          btn.setAttribute("aria-selected", btn.dataset.tab === name ? "true" : "false");
+        });
+        sheet.querySelectorAll("[data-panel]").forEach(panel => {
+          panel.hidden = panel.dataset.panel !== name;
+        });
+      });
+    }
     function compactList(arr) {
       if (!arr || !arr.length) return '<span class="dash">—</span>';
-      return arr.map(x => '<div class="pr-line">' + esc(x) + '</div>').join("");
+      return arr.map(x => '<div class="pr-line">' + note(x) + '</div>').join("");
     }
     function printFeatureRows(pc) {
       return (pc.featureList || []).map(f =>
-        '<div class="pr-feature"><b>' + esc(f.name) + '</b>' +
-        (f.uses ? '<span> · ' + esc(f.uses) + '</span>' : '') +
-        '<p>' + esc(f.text) + '</p></div>'
+        '<div class="pr-feature beyond-feature"><b>' + esc(f.name) + '</b>' +
+        (f.uses ? '<span> · ' + note(f.uses) + '</span>' : '') +
+        '<p>' + note(f.text) + '</p></div>'
       ).join("");
     }
     function resourceBoxes(uses) {
@@ -274,7 +401,7 @@
         const key = feature.name + "|" + uses;
         if (seen.has(key)) continue;
         seen.add(key);
-        rows.push('<div class="pr-resource"><b>' + esc(feature.name) + '</b><span>' + esc(uses) + '</span><em>' + esc(resourceBoxes(uses)) + '</em></div>');
+        rows.push('<div class="pr-resource"><b>' + esc(feature.name) + '</b><span>' + note(uses) + '</span><em>' + esc(resourceBoxes(uses)) + '</em></div>');
       }
       return rows.length ? rows.join("") : '<div class="pr-line">No limited-use class resource to track.</div>';
     }
@@ -282,29 +409,10 @@
       const rx = /(resistan|immune|advantage on saves|disadvantage.*attack|reduce .*damage|drop to 1 hp|armor class|\bac\b|deflect|danger sense|brave|fey ancestry|relentless endurance|unarmored defense)/i;
       const rows = (pc.featureList || []).filter(f => rx.test((f.name || "") + " " + (f.text || "")));
       return rows.length
-        ? rows.map(f => '<div class="pr-defense"><b>' + esc(f.name) + '</b><p>' + esc(f.text) + '</p></div>').join("")
-        : '<div class="pr-line">No special combat defenses beyond AC and saving throws.</div>';
+        ? rows.map(f => '<div class="pr-defense"><b>' + esc(f.name) + '</b><p>' + note(f.text) + '</p></div>').join("")
+        : '<div class="pr-line">No special combat defenses beyond Armor Class and saving throws.</div>';
     }
-    function printAttackTable(list) {
-      if (!list || !list.length) return '<div class="pr-line">No listed attacks.</div>';
-      return '<table class="atk pr-atk"><thead><tr><th>Attack</th><th>Roll / DC</th><th>Damage</th></tr></thead><tbody>' +
-        list.map(a => {
-          const notes = String(a.notes || "");
-          const dc = notes.match(/\b(?:Str|Dex|Con|Int|Wis|Cha)\s+DC\s+\d+/i);
-          const roll = dc ? dc[0] : signed(a.bonus);
-          return '<tr><td><b>' + esc(a.name) + '</b>' +
-            (notes ? '<div class="tiny">' + esc(notes) + '</div>' : '') +
-            '</td><td>' + esc(roll) + '</td><td>' + esc(a.damage) + ' ' + esc(a.type) + '</td></tr>';
-        }).join("") + '</tbody></table>';
-    }
-    function fullSaveRows(pc) {
-      return ABIL.map(k => {
-        const score = (pc.scores || {})[k];
-        const s = (pc.saveMap && pc.saveMap[k]) || { bonus: mod(score), proficient: false };
-        return '<div class="pr-save"><span class="pr-prof">' + (s.proficient ? "●" : "○") + '</span>' +
-          '<b>' + k + '</b><strong>' + signed(s.bonus) + '</strong></div>';
-      }).join("");
-    }
+    function fullSaveRows(pc) { return beyondSaves(pc); }
     function quickTurn(pc) {
       const cls = characterClass(pc).toLowerCase();
       const steps = [];
@@ -351,8 +459,8 @@
       const slotLine = Object.keys(slots).map(level => "L" + level + " × " + slots[level]).join(" · ");
       return '<article class="print-only pr-page pr-spell-page" data-print-pc="' + esc(pc.id) + '">' +
         '<header class="pr-spell-head">' +
-          '<div><p class="pr-kicker">ONE-SHOT FORGE · SPELLS</p><h2>' + esc(pc.name) + '</h2>' +
-          '<p>' + esc(characterClass(pc)) + ' ' + esc(pc.level ?? 4) + ' · ' + esc(pc.race) + '</p></div>' +
+          '<div><p class="edition-badge">' + editionLabel(pc) + '</p><p class="pr-kicker">ONE-SHOT FORGE · SPELLS</p><h2>' + esc(pc.name) + '</h2>' +
+          '<p>' + esc(classLine(pc)) + ' · ' + esc(pc.race) + '</p></div>' +
           '<div class="pr-caster-stats">' +
             '<span><small>Ability</small><b>' + esc(sc.ability || "—") + '</b></span>' +
             '<span><small>Save DC</small><b>' + esc(sc.saveDC ?? "—") + '</b></span>' +
@@ -373,13 +481,16 @@
                 Number(spell.level) === 0 ? "Cantrip" : "L" + spell.level,
                 spell.time || "",
                 spell.range || "",
-                spell.save || "",
+                spell.save ? spellOutNotes(spell.save) : "",
                 conc,
-                durationMatch ? durationMatch[0] : ""
+                durationMatch ? durationMatch[0] : "",
+                isAlwaysPrepared(spell) ? "Always prepared" : ""
               ].filter(Boolean).join(" · ");
               return '<div class="pr-spell">' +
-                '<div class="pr-spell-title"><b>' + esc(spell.name) + '</b><span>' + esc(meta) + '</span></div>' +
-                '<p>' + esc(effect) + '</p></div>';
+                '<div class="pr-spell-title"><b>' + esc(spell.name) + '</b>' +
+                (isAlwaysPrepared(spell) ? '<em class="always-prepared">Always prepared</em>' : '') +
+                '<span>' + esc(meta) + '</span></div>' +
+                '<p>' + note(effect) + '</p></div>';
             }).join("") +
             '</section>';
           }).join("") +
@@ -413,95 +524,24 @@
       '</div>';
     }
     function printMainPage(pc) {
-      const prof = pc.proficiencies || {};
-      const pers = pc.personality || {};
-      const img = pc.portrait
-        ? '<img class="pr-port" src="' + esc(pc.portrait) + '" alt="Portrait of ' + esc(pc.name) + '">'
-        : '<div class="pr-port ph"></div>';
-      const bonus = pc.bonusActions?.length ? compactList(pc.bonusActions) : '<div class="pr-line">No special bonus action.</div>';
-      const reactions = pc.reactions?.length ? compactList(pc.reactions) : '<div class="pr-line">Opportunity Attack when triggered.</div>';
       const heavyClass = isFeatureHeavy(pc) ? " pr-feature-heavy" : "";
       const resourceClass = isResourceHeavy(pc) ? " pr-resource-heavy" : "";
-      return '<article class="print-only pr-page pr-main-page pr-fixed-sheet' + heavyClass + resourceClass + '" data-print-pc="' + esc(pc.id) + '">' +
-        '<header class="pr-head">' + img +
-          '<div class="pr-id"><p class="pr-kicker">ONE-SHOT FORGE · PLAYER CHARACTER</p>' +
-            '<h2>' + esc(pc.name) + '</h2>' +
-            '<p><b>' + esc(characterClass(pc)) + ' ' + esc(pc.level || 4) + '</b> · ' + esc(pc.race) + ' · ' +
-              esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
-            '<p class="pr-subid">' + esc(pc.rules || "5th Edition") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
-            '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
-          '<div class="pr-vitals">' +
-            '<span><small>AC</small><b>' + esc(pc.ac) + '</b></span>' +
-            '<span><small>Max HP</small><b>' + esc(pc.hp) + '</b></span>' +
-            '<span><small>Init</small><b>' + signed(pc.initiative) + '</b></span>' +
-            '<span><small>Speed</small><b>' + esc(pc.speedFt || pc.speed) + '</b></span>' +
-            '<span><small>Prof</small><b>+' + esc(pc.proficiency || 2) + '</b></span>' +
-            '<span><small>Passive Per</small><b>' + esc(pc.passivePerception) + '</b></span>' +
-          '</div>' +
-        '</header>' +
-        '<div class="pr-fixed-grid">' +
-          '<section class="pr-zone pr-zone-abilities"><h3>Abilities</h3><div class="pr-abilities">' + scoreCol(pc) + '</div></section>' +
-          '<section class="pr-zone pr-zone-saves"><h3>Saving Throws — All Six</h3><div class="pr-saves">' + fullSaveRows(pc) + '</div></section>' +
-          '<section class="pr-zone pr-zone-skills"><h3>Skills</h3><div class="pr-skill-list">' + skillRows(pc.skillsMap) + '</div></section>' +
-
-          '<section class="pr-zone pr-zone-tracker"><h3>Combat Tracker</h3>' +
-            '<div class="pr-hp-grid">' +
-              '<div class="pr-writebox pr-current-hp"><small>Current HP</small><b></b></div>' +
-              '<div class="pr-writebox pr-temp-hp"><small>Temp HP</small><b></b></div>' +
-              '<div class="pr-writebox pr-hit-dice"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b><span>Spent: ' + Array.from({length:Number(pc.level)||4},()=>"□").join(" ") + '</span></div>' +
-              '<div class="pr-writebox pr-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
-            '</div>' +
-            '<div class="pr-condition-box"><small>Conditions / Concentration / Combat Notes</small><div></div><div></div></div>' +
-            '<div class="pr-mini-stats">' +
-              '<span><small>Heroic Inspiration</small><b>○</b></span>' +
-              '<span><small>Class / Spell Save DC</small><b>' + esc(classSaveDC(pc)) + '</b></span>' +
-            '</div>' +
-            '<p class="pr-ac-note"><b>AC:</b> ' + esc(pc.ac) + (pc.acNotes ? ' — ' + esc(pc.acNotes) : '') + '</p>' +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-attacks"><h3>Attacks & Combat Cantrips</h3>' + printAttackTable(pc.attackList) +
-            (pc.spellcasting ? '<div class="pr-casting-grid pr-inline-casting">' +
-              '<span><small>Spell Ability</small><b>' + esc(pc.spellcasting.ability || "—") + '</b></span>' +
-              '<span><small>Save DC</small><b>' + esc(pc.spellcasting.saveDC ?? "—") + '</b></span>' +
-              '<span><small>Spell Attack</small><b>' + signed(pc.spellcasting.attack) + '</b></span>' +
-            '</div>' : '') +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-actions"><h3>Action Economy</h3>' +
-            '<div class="pr-standard-actions"><b>Standard Actions</b> ' + esc(standardActionLine()) + '</div>' +
-            '<div class="pr-action-split"><div><h4>Bonus Actions</h4>' + bonus + '</div><div><h4>Reactions</h4>' + reactions + '</div></div>' +
-            '<h4>Quick Turn</h4>' + quickTurn(pc) +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-resources"><h3>Resources & Defenses</h3>' +
-            '<div class="pr-resource-columns"><div>' + limitedUseRows(pc) + '</div><div>' + combatDefenseRows(pc) + '</div></div>' +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-side"><h3>Senses / Training / Gear</h3>' +
-            '<p><b>Senses</b> Darkvision ' + esc(pc.darkvision || 0) + ' ft.</p>' +
-            '<p><b>Passive Perception</b> ' + esc(pc.passivePerception ?? "—") + '</p>' +
-            '<p><b>Passive Insight</b> ' + esc(pc.passiveInsight ?? passiveSkill(pc,"insight")) + '</p>' +
-            '<p><b>Passive Investigation</b> ' + esc(passiveSkill(pc,"investigation")) + '</p>' +
-            '<p><b>Armor</b> ' + esc((prof.armor || []).join(", ") || "none") + '</p>' +
-            '<p><b>Weapons</b> ' + esc((prof.weapons || []).join(", ") || "none") + '</p>' +
-            '<p><b>Tools</b> ' + esc((prof.tools || []).join(", ") || "—") + '</p>' +
-            '<p><b>Languages</b> ' + esc((prof.languages || []).join(", ") || "—") + '</p>' +
-            '<p><b>Equipment</b> ' + esc(pc.gear || "—") + '</p>' +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-character"><h3>Character</h3>' +
-            '<p><b>Trait</b> ' + esc(pers.trait || "—") + '</p>' +
-            '<p><b>Ideal</b> ' + esc(pers.ideal || "—") + '</p>' +
-            '<p><b>Bond</b> ' + esc(pers.bond || "—") + '</p>' +
-            '<p><b>Flaw</b> ' + esc(pers.flaw || "—") + '</p>' +
-          '</section>' +
-
-          '<section class="pr-zone pr-zone-features"><h3>Features & Traits</h3><div class="pr-features">' + printFeatureRows(pc) + '</div></section>' +
-        '</div>' +
+      return '<article class="print-only pr-page beyond-sheet beyond-print' + heavyClass + resourceClass + '" data-print-pc="' + esc(pc.id) + '">' +
+        beyondHead(pc) + beyondAbilities(pc) + beyondCombat(pc) +
+        '<div class="beyond-profs">' + beyondSaves(pc) + beyondSkills(pc) + beyondPassives(pc) + '</div>' +
+        panels(pc, true) +
+      '</article>';
+    }
+    function printGearPage(pc) {
+      return '<article class="print-only pr-page pr-gear-page" data-print-pc="' + esc(pc.id) + '">' +
+        '<header class="pr-gear-head"><p class="edition-badge">' + editionLabel(pc) + '</p>' +
+        '<p class="pr-kicker">ONE-SHOT FORGE · INVENTORY</p><h2>' + esc(pc.name) + '</h2>' +
+        '<p>' + esc(classLine(pc)) + '</p></header>' +
+        inventoryBlock(pc) +
       '</article>';
     }
     function printPacket(pc) {
-      return printMainPage(pc) + printSpellPage(pc);
+      return printMainPage(pc) + printGearPage(pc) + printSpellPage(pc);
     }
 
     const params = new URLSearchParams(window.location.search);
@@ -541,6 +581,7 @@
               : '<h2 class="print-hide" style="padding:1rem 1.5rem 0">The other six, if you need them</h2>' + rest.map(sheetHtml).join(""));
         const printHtml = allCharacters.map(printPacket).join("");
         document.getElementById("sheets").innerHTML = screenHtml + printHtml;
+        bindSheetTabs();
         clearPrintTarget();
       })
       .catch(() => { document.getElementById("sheets").innerHTML = "<p>Could not load ready-made characters.</p>"; });

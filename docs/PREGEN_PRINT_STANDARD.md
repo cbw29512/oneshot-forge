@@ -14,7 +14,10 @@ A pregen is not release-ready until a player can receive the printed packet, sit
    - full-page fixed composition, not flowing web columns;
    - no clipped boxes, no content bleeding between zones;
    - all text high-contrast and readable at table distance.
-2. **Page 2 — combat spell reference**
+2. **Page 2 — inventory**
+   - equipment, gold, magic items, attunement, and armor, weapon, tool, and language proficiencies;
+   - its own Letter page, so the combat sheet is not clipped.
+3. **Following page — combat spell reference**
    - only when the character has spells that need reference;
    - grouped by combat role when useful;
    - concise effect text, not full spellbook prose.
@@ -37,14 +40,16 @@ Every pregen must surface:
 - limited-use resources with visible tracking;
 - defenses/resistances/immunities that matter in combat;
 - combat-relevant class/species/subclass features;
-- senses, armor/weapon/tool/language proficiencies, and equipment;
+- senses (including darkvision), the role line, and the armor class breakdown when the sheet has one;
+- armor, weapon, tool, and language proficiencies, equipment, and gold on the inventory page;
 - compact personality/roleplay fields only after combat information is satisfied.
 
 ## Visual contract
 
-- The successful 2026-09-26 fixed Letter layout is the baseline.
-- The same information hierarchy should be used on web and print.
-- Ability rows: label left, score centered, modifier right.
+- Screen and print use the same information hierarchy.
+- The sheet header names the character, then class and level, species, and background. The rules edition is labeled 2014 or 2024 on the sheet.
+- Ability scores are six boxes in a row. The modifier is the large figure. The score sits below it.
+- On screen, actions, spells, inventory, and features are separate sections. In print, the character page stays one Letter page. Inventory, magic items, and proficiencies print on the next Letter page. Spells follow when the character has them.
 - Skill and save text is solid high-contrast black in print; proficiency is indicated by symbol, not by faded color.
 - Weapon names and attack lines are among the largest body text on the sheet.
 - Current HP must provide real handwriting space.

@@ -1,12 +1,12 @@
 .pg-wrap { max-width: 72rem; margin: 0 auto; padding: 1.2rem 1rem 3rem; }
 .pg-controls { display: flex; flex-wrap: wrap; gap: .7rem; align-items: end; margin: 1rem 0; }
-.pg-controls label { display: flex; flex-direction: column; gap: .25rem; font-size: .8rem; font-weight: 700; }
+.pg-controls label { display: flex; flex-direction: column; gap: .25rem; font-size: .875rem; font-weight: 700; }
 .pg-controls select { min-width: 11rem; padding: .45rem .5rem; background: #17140f; color: #f3efe6; border: 1px solid #3a342c; }
 .pg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: .7rem; margin-top: 1rem; }
 .pg-card { border: 1px solid #3a342c; background: #12100c; padding: .8rem; cursor: pointer; }
 .pg-card.on { border-color: #c45c26; }
 .pg-card b { display: block; font-size: 1.05rem; }
-.pg-card span { color: #b7aa98; font-size: .8rem; }
+.pg-card span { color: #b7aa98; font-size: .875rem; }
 .pg-print { display: none; }
 @media print {
   .print-hide { display: none !important; }

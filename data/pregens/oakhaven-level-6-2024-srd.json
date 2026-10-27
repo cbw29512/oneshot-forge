@@ -337,9 +337,8 @@
       "equipment": [
         "Chain mail",
         "Shield",
-        "+1 longsword",
-        "4 javelins",
-        "+1 Longsword"
+        "+1 Longsword",
+        "4 javelins"
       ],
       "gp": 15,
       "personality": {
@@ -361,7 +360,7 @@
       "speed": "30 ft.",
       "attacks": "+1 Longsword; Javelin",
       "features": "Fighting Style: Defense; Second Wind; Resourceful; Weapon Mastery; Savage Attacker; Alert; Action Surge; Tactical Mind; Improved Critical; Remarkable Athlete; Extra Attack; Tactical Shift",
-      "gear": "Chain mail, Shield, +1 longsword, 4 javelins, +1 Longsword",
+      "gear": "Chain mail, Shield, +1 Longsword, 4 javelins",
       "magicItems": [
         {
           "name": "+1 Longsword",
