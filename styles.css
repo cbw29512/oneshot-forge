@@ -596,7 +596,7 @@ ol.steps b { color: var(--fg) }
 .sv.on, .sk.on { color: var(--fg) }
 .sv i, .sk i { font-style: normal; color: var(--ember) }
 .sv b, .sk b { font-variant-numeric: tabular-nums }
-.atk { width: 100%; border-collapse: collapse; font-size: .85rem }
+.atk { width: 100%; border-collapse: collapse; font-size: .875rem }
 .atk th { text-align: left; font-size: 0.875rem; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-muted); padding: .25rem }
 .atk td { border-top: 1px solid var(--border); padding: .35rem .25rem; vertical-align: top }
 .cs-feat, .cs-spells { margin-top: 1rem }
@@ -605,7 +605,7 @@ ol.steps b { color: var(--fg) }
 .ft span, .spl span { color: var(--fg-subtle); font-size: .875rem }
 .ft p, .spl p { margin: .2rem 0 0; color: var(--fg-muted) }
 .cs-slot { color: var(--fg-muted); margin: 0 0 .5rem }
-.cs h4 { margin: .7rem 0 .3rem; font-size: .85rem }
+.cs h4 { margin: .7rem 0 .3rem; font-size: .875rem }
 
 @media (max-width: 900px) {
   .cs-top, .cs-grid { grid-template-columns: 1fr }
@@ -2777,7 +2777,7 @@ body.run { background: var(--bg) }
 .web-fixed-sheet .pr-atk .tiny {
   display:block;
   margin-top:.2rem;
-  font-size:.84rem !important;
+  font-size:.875rem !important;
   color:var(--fg-muted) !important;
 }
 

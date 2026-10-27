@@ -917,12 +917,12 @@ function renderResources() {
 function renderAiContext() {
   const pre = el("ai-context");
   if (!selectedNpcId) {
-    pre.textContent = "No NPC selected.";
+    pre.textContent = "No non-player character (NPC) selected.";
     return;
   }
   const npc = adventure.npcs.find(item => item.id === selectedNpcId);
   if (!npc) {
-    pre.textContent = "No NPC selected.";
+    pre.textContent = "No non-player character (NPC) selected.";
     return;
   }
   const packet = {
