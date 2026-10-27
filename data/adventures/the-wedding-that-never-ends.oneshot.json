@@ -724,15 +724,15 @@
       ],
       "runSteps": [
         {
-          "title": "Read the box aloud",
+          "title": "Read the arrival",
           "text": "Read the box aloud."
         },
         {
-          "title": "Offer the logbook and",
+          "title": "Offer the log",
           "text": "Offer the logbook and Pip's three lines."
         },
         {
-          "title": "If they ask about",
+          "title": "Point at the island",
           "text": "If they ask about breathing water, Pip agrees to the ritual later. Point them at the island."
         }
       ],
@@ -769,15 +769,15 @@
       ],
       "runSteps": [
         {
-          "title": "Roll the channel table",
+          "title": "Roll the channel",
           "text": "Roll the channel table and play only that line."
         },
         {
-          "title": "Hand over the bottle",
+          "title": "Hand over what the roll found",
           "text": "Hand over the bottle scrap if you rolled a 4, or mention the buoy if you rolled a 2."
         },
         {
-          "title": "Pip brings the ferry",
+          "title": "Dock at the quay",
           "text": "Pip brings the ferry alongside the quay."
         }
       ],
@@ -812,15 +812,15 @@
       ],
       "runSteps": [
         {
-          "title": "Let Nessa land them",
+          "title": "Land the guests",
           "text": "Let Nessa land them and point to the lane."
         },
         {
-          "title": "Let Damar give the",
+          "title": "Let Damar warn them",
           "text": "Let Damar give the warning in his three lines, then answer one question."
         },
         {
-          "title": "Show the player map",
+          "title": "Show the island map",
           "text": "Show the player map of the island. The shoal is geography, not a tactic."
         }
       ],
@@ -861,15 +861,15 @@
       ],
       "runSteps": [
         {
-          "title": "Roll one lane event",
+          "title": "Roll the lane or cut it",
           "text": "Roll one lane event or cut it."
         },
         {
-          "title": "If Jun is present,",
+          "title": "Offer Jun's shard",
           "text": "If Jun is present, offer the shard for a promise not to sell the wreck."
         },
         {
-          "title": "The court gates are",
+          "title": "Open the court",
           "text": "The court gates are open."
         }
       ],
@@ -909,11 +909,11 @@
           "text": "Read the court."
         },
         {
-          "title": "Let them speak to",
+          "title": "Speak to the bride or the king",
           "text": "Let them speak to Seraphine or Aldric, or both."
         },
         {
-          "title": "Point at the chapel",
+          "title": "Send them onward",
           "text": "Point at the chapel arch and the gallery door."
         }
       ],
@@ -952,11 +952,11 @@
           "text": "Let Elion refuse once."
         },
         {
-          "title": "The drawer holds the",
+          "title": "Open the drawer",
           "text": "The drawer holds the journal even if the cloth stays up."
         },
         {
-          "title": "The splinter is on",
+          "title": "Take the splinter",
           "text": "The splinter is on the board. Then send them to the chapel."
         }
       ],
@@ -991,15 +991,15 @@
       ],
       "runSteps": [
         {
-          "title": "Present the three strips",
+          "title": "Show the strips",
           "text": "Present the three strips."
         },
         {
-          "title": "On a solve or",
+          "title": "Give the sentence",
           "text": "On a solve or a fail-forward, restate the sentence in plain speech."
         },
         {
-          "title": "Open the chest. Name",
+          "title": "Open the chest",
           "text": "Open the chest. Name the pearls and the draught. Send them back out as the black ship arrives."
         }
       ],
@@ -1039,15 +1039,15 @@
       ],
       "runSteps": [
         {
-          "title": "Read his arrival and",
+          "title": "Read his arrival",
           "text": "Read his arrival and his line."
         },
         {
-          "title": "Run the raid for",
+          "title": "Run the quay",
           "text": "Run the raid for four, or the scaled wave in the quick-run note."
         },
         {
-          "title": "The first real wood",
+          "title": "End the coat",
           "text": "The first real wood hit ends the scene. If Seraphine breaks the ring here, skip to the ending instead."
         }
       ],
@@ -1085,15 +1085,15 @@
       ],
       "runSteps": [
         {
-          "title": "Show the marks and",
+          "title": "Show the bites",
           "text": "Show the marks and let one NPC be horrified."
         },
         {
-          "title": "Damar states the second",
+          "title": "State the second touch",
           "text": "Damar states the second touch in one sentence."
         },
         {
-          "title": "Put them in a",
+          "title": "Put them in a boat",
           "text": "Put them in a boat with whatever breath they have."
         }
       ],
@@ -1138,15 +1138,15 @@
       ],
       "runSteps": [
         {
-          "title": "Read the avatar's warning",
+          "title": "Read the warning",
           "text": "Read the avatar's warning and give the out-of-character confirmation."
         },
         {
-          "title": "Play one way through:",
+          "title": "Play one way through",
           "text": "Play one way through: proof, promise, lie, lower crack, distraction, or flight."
         },
         {
-          "title": "If they attack, run",
+          "title": "Wipe only if they attack",
           "text": "If they attack, run the wipe and the Return, then stop this scene."
         }
       ],
@@ -1185,15 +1185,15 @@
       ],
       "runSteps": [
         {
-          "title": "Read the bell and",
+          "title": "Read the bell",
           "text": "Read the bell and his line."
         },
         {
-          "title": "Ask whether they are",
+          "title": "Ask strike or refusal",
           "text": "Ask whether they are striking or whether Seraphine is refusing."
         },
         {
-          "title": "Resolve that choice. Then",
+          "title": "Go to dawn",
           "text": "Resolve that choice. Then go to dawn."
         }
       ],
@@ -1236,11 +1236,11 @@
           "text": "Read the dawn."
         },
         {
-          "title": "Name the ending they",
+          "title": "Name the ending",
           "text": "Name the ending they earned and the one sentence of consequence."
         },
         {
-          "title": "Ask what each character",
+          "title": "Close the hour",
           "text": "Ask what each character does in the first ordinary hour, then stop."
         }
       ],
