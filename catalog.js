@@ -4,11 +4,18 @@
   const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
   const SITE_ROOT = new URL(".", document.currentScript && document.currentScript.src || location.href);
   const SERIES_KEYS = {
-    "Oakhaven Adventures": "oakhaven",
-    "The Quiet Seals": "quiet-seals",
-    "Hearthcross Road Tales": "hearthcross-road",
-    "Cryptid Cases": "cryptid"
+    "Oakhaven Adventures": ["oakhaven"],
+    "The Quiet Seals": ["quiet-seals"],
+    // The Fencewalker of Bellmere is the Hearthcross road tale and Cryptid Case 01.
+    "Hearthcross Road Tales": ["hearthcross-road", "cryptid"],
+    "Cryptid Cases": ["cryptid"]
   };
+
+  function seriesKeysFor(adventure) {
+    const mapped = SERIES_KEYS[adventure?.series?.title];
+    if (Array.isArray(mapped)) return mapped.filter(Boolean);
+    return mapped ? [mapped] : [];
+  }
 
   function siteFetch(path, options) {
     return fetch(new URL(path, SITE_ROOT), options);
@@ -141,12 +148,12 @@
   function paintAdventureFacts(product, adventure) {
     const level = Number(adventure?.metadata?.partyLevel || product.level || 0);
     const hours = adventure ? hoursLabel(adventure.metadata?.durationMinutes) : (product.playTime || "");
-    const seriesKey = SERIES_KEYS[adventure?.series?.title] || "";
+    const seriesKeys = seriesKeysFor(adventure);
     const card = document.querySelector(`[data-product-id="${CSS.escape(product.id)}"]`);
     const page = document.querySelector(`[data-product-page="${CSS.escape(product.id)}"]`);
     if (card) {
       if (level) card.dataset.level = String(level);
-      if (seriesKey) card.dataset.series = seriesKey;
+      if (seriesKeys.length) card.dataset.series = seriesKeys.join(" ");
     }
     for (const root of [card, page]) {
       if (!root) continue;
@@ -164,7 +171,8 @@
       .map(entry => ({
         id: entry.product.id,
         episode: Number(entry.adventure.series.episode),
-        level: Number(entry.adventure.series.level || entry.adventure.metadata?.partyLevel)
+        level: Number(entry.adventure.series.level || entry.adventure.metadata?.partyLevel),
+        title: entry.adventure.metadata?.title || entry.product.title || ""
       }))
       .filter(entry => entry.episode && entry.level)
       .sort((a, b) => a.episode - b.episode || a.level - b.level);
@@ -175,14 +183,15 @@
       const link = document.createElement("a");
       link.href = `#card-${entry.id}`;
       link.dataset.seriesLink = entry.id;
-      link.textContent = `Module ${String(entry.episode).padStart(2, "0")} · Level ${entry.level}`;
+      const moduleLabel = `Module ${String(entry.episode).padStart(2, "0")} · Level ${entry.level}`;
+      link.textContent = entry.title ? `${moduleLabel} — ${entry.title}` : moduleLabel;
       item.append(link);
       list.append(item);
     }
     const coming = document.createElement("li");
     const note = document.createElement("span");
     note.className = "series-coming";
-    note.textContent = "Levels 1 and 7-10 coming";
+    note.textContent = "Levels 1 and 7–10 coming";
     coming.append(note);
     list.append(coming);
   }
@@ -218,7 +227,8 @@
         return;
       }
       const levelOk = !level || card.dataset.level === level;
-      const seriesOk = !series || card.dataset.series === series;
+      const seriesKeys = (card.dataset.series || "").split(/\s+/).filter(Boolean);
+      const seriesOk = !series || seriesKeys.includes(series);
       card.hidden = !(levelOk && seriesOk);
     });
   }

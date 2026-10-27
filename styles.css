@@ -541,7 +541,7 @@ ol.steps b { color: var(--fg) }
 }
 .cs-role {
   margin-top: .35rem !important;
-  font-size: .78rem;
+  font-size: .875rem;
   letter-spacing: .08em;
   text-transform: uppercase;
   font-weight: 700;
@@ -570,7 +570,7 @@ ol.steps b { color: var(--fg) }
   background: #1c1814;
   text-align: center;
 }
-.cs-combat span { display: block; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-subtle) }
+.cs-combat span { display: block; font-size: .875rem; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-subtle) }
 .cs-combat b { display: block; font-size: 1.45rem; font-family: var(--font-display); line-height: 1.1 }
 .cs-combat small { display: block; font-size: 0.875rem; color: var(--fg-muted) }
 .cs-grid {
@@ -580,7 +580,7 @@ ol.steps b { color: var(--fg) }
 }
 .cs-grid h3, .cs-feat h3, .cs-spells h3 {
   margin: .2rem 0 .45rem;
-  font-size: .78rem;
+  font-size: .875rem;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--ember);
@@ -589,10 +589,10 @@ ol.steps b { color: var(--fg) }
 .ab {
   border: 1px solid var(--border); border-radius: 8px; text-align: center; padding: .35rem .2rem; background: #1c1814;
 }
-.ab span { display: block; font-size: .62rem; letter-spacing: .1em; color: var(--fg-subtle) }
+.ab span { display: block; font-size: .875rem; letter-spacing: .1em; color: var(--fg-subtle) }
 .ab strong { display: block; font-size: 1.25rem }
 .ab em { font-style: normal; color: var(--ember); font-weight: 700 }
-.sv, .sk { display: grid; grid-template-columns: 1.4rem 2.1rem 1fr; gap: .25rem; align-items: center; font-size: .78rem; padding: .08rem 0 }
+.sv, .sk { display: grid; grid-template-columns: 1.4rem 2.1rem 1fr; gap: .25rem; align-items: center; font-size: .875rem; padding: .08rem 0 }
 .sv.on, .sk.on { color: var(--fg) }
 .sv i, .sk i { font-style: normal; color: var(--ember) }
 .sv b, .sk b { font-variant-numeric: tabular-nums }
@@ -602,7 +602,7 @@ ol.steps b { color: var(--fg) }
 .cs-feat, .cs-spells { margin-top: 1rem }
 .ft, .spl { border-top: 1px solid var(--border); padding: .45rem 0 }
 .ft b, .spl b { margin-right: .35rem }
-.ft span, .spl span { color: var(--fg-subtle); font-size: .78rem }
+.ft span, .spl span { color: var(--fg-subtle); font-size: .875rem }
 .ft p, .spl p { margin: .2rem 0 0; color: var(--fg-muted) }
 .cs-slot { color: var(--fg-muted); margin: 0 0 .5rem }
 .cs h4 { margin: .7rem 0 .3rem; font-size: .85rem }
@@ -793,7 +793,7 @@ ol.steps b { color: var(--fg) }
 .rules-toggle { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden }
 .rules-toggle button {
   min-height: 36px; border: 0; background: transparent; color: var(--fg-muted);
-  padding: .35rem .8rem; font-weight: 700; font-size: .8rem; letter-spacing: .06em;
+  padding: .35rem .8rem; font-weight: 700; font-size: .875rem; letter-spacing: .06em;
 }
 .rules-toggle button.on { background: var(--ember); color: #fff8f2 }
 .rules-notes { margin-top: .75rem; color: var(--fg-muted); font-size: .92rem }
@@ -2614,7 +2614,7 @@ body.run { background: var(--bg) }
 .web-fixed-sheet .pr-zone h4 {
   margin:.5rem 0 .25rem;
   color:var(--ember);
-  font-size:.8rem;
+  font-size:.875rem;
   text-transform:uppercase;
 }
 .web-fixed-sheet .pr-zone-abilities { grid-area:abilities; }
@@ -2762,7 +2762,7 @@ body.run { background: var(--bg) }
 .web-fixed-sheet .pr-atk th {
   text-align:left;
   color:var(--fg-muted);
-  font-size:.78rem;
+  font-size:.875rem;
   padding:.4rem .45rem;
   border-bottom:1px solid var(--border);
 }
@@ -3313,7 +3313,7 @@ body.run { background: var(--bg) }
 .dm-spoken-layer > .box-label {
   margin:0 0 .55rem;
   color:var(--gm-label);
-  font-size:.78rem;
+  font-size:.875rem;
 }
 .dm-npc + .dm-npc {
   margin-top:.9rem;
@@ -3543,7 +3543,7 @@ body.run { background: var(--bg) }
     border-radius: 999px;
     color: var(--fg-muted);
     background: var(--bg-subtle);
-    font-size: .8rem;
+    font-size: .875rem;
     font-weight: 700;
     white-space: nowrap;
   }
@@ -3646,7 +3646,7 @@ body.run { background: var(--bg) }
   #scene-exits-wrap > h3 {
     margin: 0 0 .65rem;
     color: #e9d7bc;
-    font-size: .8rem;
+    font-size: .875rem;
   }
   #scene-exits {
     display: grid;
@@ -3758,7 +3758,7 @@ body.run { background: var(--bg) }
   }
   .adv-card-art > * { position: relative; z-index: 1 }
   .adv-card-art span {
-    font-size: .7rem;
+    font-size: .875rem;
     text-transform: uppercase;
     letter-spacing: .16em;
     font-weight: 800;
@@ -3842,7 +3842,7 @@ body.run { background: var(--bg) }
   .adv-card-actions .button { flex: 0 0 auto }
   .text-link {
     color: #d7c5ad;
-    font-size: .84rem;
+    font-size: .875rem;
     font-weight: 650;
     text-decoration: none;
   }
@@ -3922,7 +3922,7 @@ body.run { background: var(--bg) }
     border-radius: 999px;
     background: rgba(8,7,6,.42);
     color: #f2e8da;
-    font-size: .76rem;
+    font-size: .875rem;
     font-weight: 700;
     backdrop-filter: blur(8px);
   }
@@ -3967,7 +3967,7 @@ body.run { background: var(--bg) }
   }
   .adventure-cover-copy span,
   .adventure-cover-copy small {
-    font-size: .7rem;
+    font-size: .875rem;
     font-weight: 800;
     letter-spacing: .18em;
     text-transform: uppercase;
