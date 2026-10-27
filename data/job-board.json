@@ -2,6 +2,18 @@
   "version": "1.0",
   "notices": [
     {
+      "id": "the-wedding-that-never-ends",
+      "issuer": "Damar Voss, if the letter is believed",
+      "urgency": "Before midnight",
+      "type": "Gothic horror",
+      "headline": "Wanted adventurers for a wedding on Veyra that the sea will not let end.",
+      "teaser": "The vows repeat. A lost god's last body is chained under the bell. Do not strike it.",
+      "level": 5,
+      "party": "3–6",
+      "time": "about 4 hours",
+      "href": "run.html?id=the-wedding-that-never-ends"
+    },
+    {
       "id": "the-lanternback-of-reedwater",
       "issuer": "Ferrymaster Jory Pell · Reedwater",
       "urgency": "Before tomorrow's market boats",

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+<rect width="900" height="560" fill="#e7efe8"/>
+<ellipse cx="470" cy="300" rx="280" ry="180" fill="#c5d2b8" stroke="#243028" stroke-width="3"/>
+<rect x="250" y="250" width="70" height="40" fill="#8aa0a8" stroke="#243028"/>
+<text x="250" y="245" font-family="Georgia" font-size="16" fill="#1c241c">Harbor</text>
+<path d="M320 270 L430 220 L520 210" fill="none" stroke="#f4f1e6" stroke-width="8"/>
+<text x="380" y="200" font-family="Georgia" font-size="16" fill="#1c241c">Ribbon lane</text>
+<rect x="500" y="180" width="80" height="50" fill="#efe6c9" stroke="#243028"/>
+<text x="508" y="170" font-family="Georgia" font-size="16" fill="#1c241c">Court</text>
+<rect x="590" y="190" width="46" height="36" fill="#f7f3ea" stroke="#243028"/>
+<text x="640" y="210" font-family="Georgia" font-size="16" fill="#1c241c">Chapel</text>
+<rect x="470" y="150" width="40" height="28" fill="#ddd4c0" stroke="#243028"/>
+<text x="430" y="145" font-family="Georgia" font-size="14" fill="#1c241c">Palace</text>
+<path d="M200 340 C260 420 360 450 470 430" fill="none" stroke="#8d6b45" stroke-width="6"/>
+<text x="210" y="430" font-family="Georgia" font-size="16" fill="#1c241c">Beach and shale</text>
+<g transform="translate(180,300)">
+<path d="M0 40 L30 0 L60 40 L40 40 L40 70 L20 70 L20 40 Z" fill="#1b1e24" stroke="#1b1e24"/>
+</g>
+<text x="150" y="290" font-family="Georgia" font-size="16" fill="#1c241c">Old Bell Shoal</text>
+<text x="40" y="40" font-family="Georgia" font-size="22" fill="#1c241c">Veyra</text>
+<text x="40" y="64" font-family="Georgia" font-size="14" fill="#3c463c">Player map. The shoal is a place, not a plan.</text>
+</svg>

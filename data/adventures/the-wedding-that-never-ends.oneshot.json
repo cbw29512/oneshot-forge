@@ -1,0 +1,1880 @@
+{
+  "schemaVersion": "0.1.0",
+  "metadata": {
+    "id": "the-wedding-that-never-ends",
+    "title": "The Wedding That Never Ends",
+    "systemCompatibility": "5E-compatible fantasy RPG, SRD 5.1 and SRD 5.2.1",
+    "partyLevel": 5,
+    "partySize": 4,
+    "partySizeRange": "3\u20136 players (tuned for 4)",
+    "durationMinutes": 240,
+    "tone": [
+      "gothic nautical horror",
+      "wedding time loop",
+      "lost god under the bell"
+    ]
+  },
+  "series": {
+    "title": "Veyra",
+    "episode": 1,
+    "hub": "The island of Veyra, a distant shore. Not Oakhaven, not Hearthcross, and not a Quiet Seals night.",
+    "giver": "Damar Voss",
+    "nextTitle": "None. This one-shot stands alone."
+  },
+  "setup": {
+    "pitch": "A coerced wedding on Veyra repeats every midnight. The captain the bride loved has been bound into a stolen shape, and the last body of a lost octopus god is chained under the drowned bell.",
+    "openingLocation": "The ferry Little Promise, three in the afternoon, with Veyra in sight",
+    "gmSummary": "Lady Seraphine Vale loved the privateer Malachar Vane. King Aldric Renn took the crown, coerced the marriage, and stole the unfinished law of Serevath, a lost octopus god, to bind Malachar into an octopus-like coat until the wedding held. Serevath's only remaining law is that a broken tide returns to the morning it left. That law is the loop. The Bellward, a salt-fog bound to the drowned bell, is the oath's weather. The Bell Avatar under Old Bell Shoal is Serevath's last body, Gargantuan, homebrew, CR 20. Level-5 characters cannot win against it. If they attack it, they die, and the same law puts them back on the ferry. The curse ends when original first-keel wood of the Widow's Grin strikes Malachar twice, once above the water and once below, and the true form then falls; or when Seraphine breaks the oath ring with that wood and refuses the marriage. New timber does nothing. The avatar is not the villain to kill.",
+    "background": "Serevath was an octopus god of tides that do not end. The god is lost. No living church on Veyra keeps the name. The last flesh is chained in the wreck by Aldric's tide-oath. Villagers are living people. They do not rot. They do not see their circular scars until the surface curse breaks, and they call the scars birthmarks. Damar Voss remembers every return. Pip Thistlewick forgets. The red lantern is both a wrecker mark and Jun Keel's warning. Aldric started the curse. He does not run the loop now.",
+    "standaloneStart": "The party wakes on the Little Promise already paid for a wedding. This adventure is not part of the Oakhaven series and does not use the Quiet Seals cast.",
+    "characterPressure": "Seraphine wants the theft undone without butchery. Aldric wants the wedding to make his crown feel safe. Malachar wants the oath ended and believes he must be struck. Damar wants the god left alone. Serevath wants the stolen law returned and will rewind anyone who tries to kill its last body."
+  },
+  "quest": {
+    "type": "break a stolen tide-oath without killing the god's avatar",
+    "objective": "End the repeating wedding by two strikes of first-keel wood or by Seraphine's refusal, and leave Serevath's avatar unkilled.",
+    "stakes": "If the oath still holds at midnight, the day rewinds. If the party attacks the avatar, they die and the morning takes them at once.",
+    "deadline": "The Midnight Bell. A one-shot table should face zero or one rewind before the wood hits. The deterioration chart still runs to five returns if they loop.",
+    "successConditions": [
+      "The party knows the first keel is the key and the avatar is not.",
+      "Malachar is unmade by two wood strikes and a final fall, or by Seraphine breaking the ring.",
+      "The table chooses an ending with the consequences in view."
+    ],
+    "failureConditions": [
+      "They leave the island with eyes open and the loop holds.",
+      "They keep striking the avatar and learn only the return."
+    ]
+  },
+  "truth": {
+    "centralMystery": "The wedding repeats because Aldric stole Serevath's law, and the god's last body is what makes a murder in the wreck into a morning on the ferry.",
+    "reveals": [
+      "The day has happened before.",
+      "The circles are sucker bites, not birthmarks.",
+      "Aldric cursed Malachar. Malachar did not curse the island.",
+      "Only the original first keel of the Widow's Grin breaks the coat.",
+      "A second touch must land on the true form under the water.",
+      "The Bell Avatar is Serevath. Fighting it is a total party wipe, and the wipe is the loop."
+    ]
+  },
+  "pregenPack": "data/pregens/wedding-level-5-2014-srd.json",
+  "pregenPack2024": "data/pregens/wedding-level-5-2024-srd.json",
+  "sheetPack": "wedding",
+  "npcs": [
+    {
+      "id": "npc-pip",
+      "name": "Pip Thistlewick",
+      "role": "Ferry herald who forgets the loop",
+      "description": "A small bright person in a salt-stained yellow coat, with a whistle, a passenger list, and ink on both thumbs. Pip smiles as if this crossing is the first.",
+      "personality": [
+        "cheerful",
+        "precise about fares",
+        "uneasy when the list is already filled in"
+      ],
+      "voiceCues": [
+        "Light and quick.",
+        "Calls the island before anyone asks.",
+        "Goes quiet if the log shows the same day twice."
+      ],
+      "wants": [
+        "Wants the crossing to feel like an ordinary paid wedding trip."
+      ],
+      "knows": [
+        "The fare was paid.",
+        "A page in the coat pocket is the ritual for Water Breathing.",
+        "The bell under the water answers the ferry bell."
+      ],
+      "believes": [
+        "Believes this is the first approach to Veyra."
+      ],
+      "secrets": [
+        "The page has been read on other mornings. Pip does not remember those readings."
+      ],
+      "cannotKnow": [
+        "Pip cannot know that the day has already repeated."
+      ],
+      "questFunction": "Opens the adventure, forgets each return, and can still ritual-cast Water Breathing from the page when asked.",
+      "tableDialogue": [
+        "Veyra in sight! You paid for a wedding, so you had best not miss it.",
+        "The list already has your names. I have a very tidy hand, even when I do not remember writing.",
+        "If you need to breathe the deep water, the page in my pocket will do it. Give me ten quiet minutes."
+      ],
+      "reactions": {
+        "agreement": "Pip nods and strikes the ferry bell twice, pleased to be useful.",
+        "refusal": "Then enjoy the view. The island will still be there. Pip does not know how true that is.",
+        "accusation": "Pip laughs, hurt. I sell crossings, not curses. Look at the log if you want a quarrel.",
+        "danger": "Pip's whistle drops. The drowned bell just answered us. Hold the rail."
+      }
+    },
+    {
+      "id": "npc-nessa",
+      "name": "Nessa Baird",
+      "role": "Harbor warden who wants the wedding to look proper",
+      "description": "A square-shouldered woman in a blue harbor coat, with a ledger, a dry smile, and salt whitening the seams of her cuffs. She walks the quay as if a royal visit can be kept tidy.",
+      "personality": [
+        "brisk",
+        "proud of the harbor",
+        "impatient with ghost stories"
+      ],
+      "voiceCues": [
+        "Short sentences.",
+        "Taps the ledger.",
+        "Lowers her voice only for the king."
+      ],
+      "wants": [
+        "Wants the quay swept, the guests landed, and no panic before the vows."
+      ],
+      "knows": [
+        "A black ship has been seen on the fog.",
+        "Damar tells the same warning every day.",
+        "The red lantern means wreckers to the harbor watch."
+      ],
+      "believes": [
+        "Believes the black ship is a storm tale and the circles are old family marks."
+      ],
+      "secrets": [
+        "She has hung wedding garlands over gouges in the quay stones."
+      ],
+      "cannotKnow": [
+        "Nessa cannot know that Damar remembers other mornings."
+      ],
+      "questFunction": "Gives the road to the court and treats the loop as rumor, so the party has to go find the physical proof.",
+      "tableDialogue": [
+        "Guests to the left. Mud on the carpet will be my problem, so wipe your boots.",
+        "Damar Voss will tell you a sea tale. Nod, and then come to the wedding.",
+        "If you came to hunt a monster, do it after the king has smiled."
+      ],
+      "reactions": {
+        "agreement": "Good. Then you are guests. The lane is marked with ribbon.",
+        "refusal": "Then stay on the quay. The wedding does not need skeptics in the aisle.",
+        "accusation": "Nessa closes the ledger. Accuse the harbor after you have danced. Not before.",
+        "danger": "She looks at the fog and hates that her hands are shaking. Get up the lane."
+      }
+    },
+    {
+      "id": "npc-seraphine",
+      "name": "Lady Seraphine Vale",
+      "role": "The bride, who loved Malachar before the crown",
+      "description": "A tall woman in a silver-gray gown, dark hair pinned with a shell comb, eyes clear and tired. A privateer's ring sits hidden in her sleeve, and the circular marks on her wrist have been powdered pale.",
+      "personality": [
+        "composed",
+        "honest when it costs her",
+        "unwilling to be a symbol"
+      ],
+      "voiceCues": [
+        "Quiet, then exact.",
+        "Does not flirt with the court.",
+        "Says Malachar's name without flinching."
+      ],
+      "wants": [
+        "Wants the theft undone and Malachar returned to himself, not butchered for the court's relief."
+      ],
+      "knows": [
+        "She loved Malachar.",
+        "Aldric coerced the marriage.",
+        "The ring on the altar is an oath, not a gift."
+      ],
+      "believes": [
+        "Believes the circles are a Vale family mark until someone shows her otherwise."
+      ],
+      "secrets": [
+        "The privateer's ring in her sleeve is the one Malachar gave her before the crown."
+      ],
+      "cannotKnow": [
+        "She cannot know a way to kill the body under the bell. There is not one."
+      ],
+      "questFunction": "Holds the noncombat ending: with first-keel wood in her hand she can break the oath ring and refuse.",
+      "tableDialogue": [
+        "I will say the vow if it saves him. I will not say it if it only saves the crown.",
+        "Aldric did this. Malachar was a man when I loved him, and he is still that man under the coat.",
+        "Put the old wood in my hand and I will break the ring myself."
+      ],
+      "reactions": {
+        "agreement": "Then stand by me when I refuse. Do not let them call it nerves.",
+        "refusal": "Seraphine's mouth tightens. Then I will have to find another hand for the wood.",
+        "accusation": "If you think I asked for this wedding, you have not looked at my hands.",
+        "danger": "She catches your wrist. If you mean to strike the thing under the bell, you will die and the morning will spend you again. I have woken from that. I do not remember it. Damar does."
+      }
+    },
+    {
+      "id": "npc-aldric",
+      "name": "King Aldric Renn",
+      "role": "The king who stole the oath and no longer holds it",
+      "description": "A careful man in a dark red coat, crown a thin gold band, smile practiced and a little afraid. Powder hides the same circular marks at his collar.",
+      "personality": [
+        "polite",
+        "controlling",
+        "guilty when the fragment is read aloud"
+      ],
+      "voiceCues": [
+        "Court voice, soft.",
+        "Says we when he means I.",
+        "Stops smiling if Serevath is named."
+      ],
+      "wants": [
+        "Wants the public wedding to make the oath feel finished so his crown will stop feeling borrowed."
+      ],
+      "knows": [
+        "He spoke the oath.",
+        "He used Serevath's unfinished law.",
+        "A splinter of the first keel is mounted as a trophy in the palace."
+      ],
+      "believes": [
+        "Believes a completed ceremony will satisfy the loop. It will not."
+      ],
+      "secrets": [
+        "He cannot end the loop by decree. The law he stole does not answer to him now."
+      ],
+      "cannotKnow": [
+        "He cannot know that killing the avatar would free him. It would not."
+      ],
+      "questFunction": "Can confess, surrender the trophy splinter, and be remembered as the thief. His confession alone does not break the oath.",
+      "tableDialogue": [
+        "Smile. Sit. The island is celebrating, and celebration is a kind of peace.",
+        "Malachar delayed a wedding. I corrected a delay. The sea is dramatic about it.",
+        "If you have my words on paper, then hear them in the court. I stole a law that was not mine."
+      ],
+      "reactions": {
+        "agreement": "Aldric exhales. Take the splinter. Do not ask me to be glad.",
+        "refusal": "Then we will pretend, you and I, until midnight makes us honest.",
+        "accusation": "He does not deny it. He looks smaller. Yes. I bound him. The bell did the rest.",
+        "danger": "Do not fire on the shoal. I have seen the water stand up. I will not bury guests to soothe a story."
+      }
+    },
+    {
+      "id": "npc-oren",
+      "name": "Father Oren Pell",
+      "role": "Chapel priest with six Tide Pearls and a scrambled verse",
+      "description": "An older man in a salt-faded stole, gentle hands, and a habit of straightening three carved strips that will not stay in order. His eyes are kind and newly surprised by everything.",
+      "personality": [
+        "gentle",
+        "literal",
+        "embarrassed by the scrambled verse"
+      ],
+      "voiceCues": [
+        "Soft. Calls everyone child once.",
+        "Reads carvings aloud.",
+        "Apologizes to the bell."
+      ],
+      "wants": [
+        "Wants the chapel verse in the right order and the drowned bell quiet."
+      ],
+      "knows": [
+        "The strips name a first keel and a god.",
+        "Six Tide Pearls are in the chest.",
+        "A bottled draught beside them lets one person breathe water for a day."
+      ],
+      "believes": [
+        "Believes the bell is only a sunken ship's bell and the strips are a decorator's mistake."
+      ],
+      "secrets": [
+        "He has read the verse every morning and forgotten it by noon."
+      ],
+      "cannotKnow": [
+        "He cannot know the body under the shoal is a god. He would try to pray it into a fight."
+      ],
+      "questFunction": "Holds the dive tools and the chapel puzzle. If he is skipped, the chest and the plaque remain.",
+      "tableDialogue": [
+        "The strips were straight at dawn. I think. They are not straight now.",
+        "The pearls are blessings. One each. They let a body breathe the deep for an hour and swim as if taught.",
+        "Read the small plaque if the strips quarrel. I thought it was decoration. It is the same sentence."
+      ],
+      "reactions": {
+        "agreement": "Oren opens the chest. Take what keeps you alive. Bring the rest back if you can.",
+        "refusal": "Then the chest stays locked, and he tells you which floorboard hides the key anyway, because he is bad at secrets.",
+        "accusation": "He looks wounded. I marry people. I do not chain them. Read the fragment before you name me.",
+        "danger": "If the bell speaks in your head, you are too close to the shoal. Come back up the lane."
+      }
+    },
+    {
+      "id": "npc-damar",
+      "name": "Damar Voss",
+      "role": "The one living person who remembers, and the cane is first-keel wood",
+      "description": "A lean gray man with a sailor's scar through one eyebrow, a black-oak cane, and the patience of someone who has had this talk before. His circular scars are uncovered on purpose.",
+      "personality": [
+        "dry",
+        "exact",
+        "fond of the party only after they listen"
+      ],
+      "voiceCues": [
+        "Low voice.",
+        "Does not repeat himself unless the loop just reset.",
+        "Taps the cane when he means the wood."
+      ],
+      "wants": [
+        "Wants the oath broken and Serevath left unkilled."
+      ],
+      "knows": [
+        "The day repeats.",
+        "The circles are bites.",
+        "Aldric spoke first.",
+        "One wood hit ends the coat.",
+        "The second must land below.",
+        "Striking the avatar kills the party and returns the morning."
+      ],
+      "believes": [
+        "Believes the party can finish it this time if they are warned in plain speech."
+      ],
+      "secrets": [
+        "The cane was cut from the Widow's Grin's first keel. The oath will not let Damar himself strike the true form."
+      ],
+      "cannotKnow": [
+        "He cannot know the party's plan before they make it. He does know their previous deaths."
+      ],
+      "questFunction": "Quest giver and the voice that makes the wipe fair. If he is dead or refused, his cane, the bell, and the armor tally still speak.",
+      "tableDialogue": [
+        "You have died here. If you have not, you will, unless you leave the god alone.",
+        "The cane is the first keel. One touch takes his coat. The second touch has to find him in the wreck, and then he has to fall.",
+        "Serevath is the tide that returns. Kill that body and the tide puts you back on the ferry. I will be here. You will think it is the first time. It will not be."
+      ],
+      "reactions": {
+        "agreement": "Damar hands you the cane. Bring it back, or leave it in the keel. Do not feed it to the water.",
+        "refusal": "Then take the beach shard, or the king's trophy, or the keel itself. I am not the only wood.",
+        "accusation": "He bares the bites. I remember because the keel marked me. Yell at Aldric. He wrote the theft.",
+        "danger": "Stop. If your weapon is for the thing in the chain, put it down. I am telling you the end of that choice before you pay for it."
+      }
+    },
+    {
+      "id": "npc-jun",
+      "name": "Jun Keel",
+      "role": "Beach comber who keeps a shard and a red lantern",
+      "description": "A weather-brown figure in a patched coat, barefoot on the shale, with a red lantern hooded at their belt and oilcloth under one arm. Jun watches the shoal and does not bow to the wedding.",
+      "personality": [
+        "wry",
+        "territorial",
+        "honest about danger"
+      ],
+      "voiceCues": [
+        "Few words.",
+        "Points instead of naming.",
+        "Says wood as if it is a person."
+      ],
+      "wants": [
+        "Wants the beach left alone and no wrecker led to the keel."
+      ],
+      "knows": [
+        "The red lantern is a wrecker mark and also Jun's own warning to stay off the shoal.",
+        "A black-oak shard is in the cairn.",
+        "New wood does nothing."
+      ],
+      "believes": [
+        "Believes the party will sell the wreck if they are not made to promise."
+      ],
+      "secrets": [
+        "The shard is big enough for one strike. The keel below is the rest."
+      ],
+      "cannotKnow": [
+        "Jun cannot know the oath's full wording, only that old wood matters and the chained body is death."
+      ],
+      "questFunction": "Physical backup for the wood and a red herring that is also true: follow the lantern and you find the shard, not a monster.",
+      "tableDialogue": [
+        "That lantern means wreckers. It also means me, telling you to stay off the shoal.",
+        "The shard is old. The crate of new oak you may have fished up is a crate. Do not confuse them.",
+        "Promise you will not sell the wreck, and the oilcloth is yours."
+      ],
+      "reactions": {
+        "agreement": "Jun puts the oilcloth in your hands and steps back from the bargain.",
+        "refusal": "Then the cairn stays piled. Jun will not fight you for it. The shale will still be here.",
+        "accusation": "Jun snorts. I rob no ships. I rob the tide of people who would otherwise drown for a story.",
+        "danger": "You go in that water swinging, you do not come out as yourselves. The morning will. I have watched it."
+      }
+    },
+    {
+      "id": "npc-elion",
+      "name": "Elion Marr",
+      "role": "Palace steward who hides a true portrait",
+      "description": "A precise steward in dove-gray gloves, perfume stronger than the sea, with a ring of keys and a habit of standing between guests and the covered portrait.",
+      "personality": [
+        "fussy",
+        "loyal to the look of the court",
+        "afraid of scandal"
+      ],
+      "voiceCues": [
+        "Clipped.",
+        "Calls the portrait improper.",
+        "Says birthmark too quickly."
+      ],
+      "wants": [
+        "Wants the old portrait of Seraphine and Malachar kept covered until the wedding is over."
+      ],
+      "knows": [
+        "The portrait shows them laughing, before the crown.",
+        "The painted wrist has circles.",
+        "A journal note beside the frame argues about the word bite."
+      ],
+      "believes": [
+        "Believes the circles are a painter's fancy and a family mark."
+      ],
+      "secrets": [
+        "Elion powdered the king's collar this morning and saw the same circles."
+      ],
+      "cannotKnow": [
+        "Elion cannot know how the oath breaks."
+      ],
+      "questFunction": "Optional palace scene. The portrait and the journal still deliver the love and the bites if the steward is skipped or hostile.",
+      "tableDialogue": [
+        "The covered frame stays covered. A wedding is not a confession.",
+        "Those marks are birthmarks. The journal is a rude painter. I should have burned it.",
+        "If the king is watching, we are discussing flowers."
+      ],
+      "reactions": {
+        "agreement": "Elion draws the cloth. Do not make me regret a soft moment.",
+        "refusal": "Then the cloth stays. The journal is in the drawer, and Elion has already looked away.",
+        "accusation": "Elion goes pale. I dress the king. I do not write his crimes.",
+        "danger": "From the window Elion sees the black ship. Lock the inner doors. The outer ones will not matter."
+      }
+    },
+    {
+      "id": "npc-malachar",
+      "name": "Malachar Vane",
+      "role": "The bound captain, an original curse and not the god",
+      "description": "On the deck he is a man stretched wrong: coat crusted with salt, eyes still human, arms too long at the cuffs. Under the shoal the coat is gone and the true form is a huge octopus-bodied man who still speaks with a privateer's voice.",
+      "personality": [
+        "weary",
+        "proud",
+        "done with being a lesson"
+      ],
+      "voiceCues": [
+        "Sea-captain plain.",
+        "Uses her name.",
+        "Does not beg."
+      ],
+      "wants": [
+        "Wants the oath ended. He believes he must be struck with the old wood, twice."
+      ],
+      "knows": [
+        "Aldric spoke the oath.",
+        "New timber cannot hurt the coat.",
+        "The body in the chain is not him."
+      ],
+      "believes": [
+        "Believes talk cannot release him, because he does not hold the loop."
+      ],
+      "secrets": [
+        "He loves Seraphine and will stop fighting if she breaks the ring and refuses."
+      ],
+      "cannotKnow": [
+        "He cannot know, until he sees it, that her refusal unmakes him without a killing blow."
+      ],
+      "questFunction": "The fight the party can win. Talk buys time for the wood. He does not surrender the loop, because the loop is not his.",
+      "tableDialogue": [
+        "Put the old wood on me or get off my deck.",
+        "I will not hand you the island. I do not have it. He stole a god's law and dressed me in it.",
+        "Seraphine. If you break that ring, do it because you mean the no."
+      ],
+      "reactions": {
+        "agreement": "Then do it clean. Once above. Once below. Then let me fall.",
+        "refusal": "Malachar raises the cutlass. I do not get to refuse. Neither do you, if you stay.",
+        "accusation": "Yes. I took ships. I did not take a god. Read the fragment before you name me thief of this.",
+        "danger": "Leave the chain alone. That body is the tide. It hates me, and it is right to, and it will spend you if you strike it."
+      }
+    },
+    {
+      "id": "npc-serevath",
+      "name": "Serevath, the Tide That Returns",
+      "role": "Lost octopus god, present only as the Bell Avatar",
+      "description": "A Gargantuan octopus chained in the wreck, hide the color of wet ink, one eye as wide as a cartwheel and gold as a coin left underwater too long. The voice arrives inside the skull and sounds tired, not cruel.",
+      "personality": [
+        "ancient",
+        "exact",
+        "without boast"
+      ],
+      "voiceCues": [
+        "No mouth moves.",
+        "Names itself once.",
+        "Does not threaten twice."
+      ],
+      "wants": [
+        "Wants the stolen law ended and this last body left unkilled."
+      ],
+      "knows": [
+        "Who struck the oath.",
+        "Who has died here.",
+        "Which lies have already been tried."
+      ],
+      "believes": [
+        "Believes a level-5 blade cannot finish a god, because that is the law, not a guess."
+      ],
+      "secrets": [
+        "The rewind is Serevath's own remaining law. The Bellward is only the oath's weather."
+      ],
+      "cannotKnow": [
+        "Serevath cannot know a life the party has not brought onto the water."
+      ],
+      "questFunction": "The warning, the bargain, and the reason a wipe returns the party to the ferry. Not an enemy to defeat.",
+      "tableDialogue": [
+        "I am what remains of Serevath. Strike this body and you all die.",
+        "The tide will put you back on the ferry. You will want to call it a dream. It will not be a dream.",
+        "Show me the first wood, or leave by the lower crack. The fight is not a way through."
+      ],
+      "reactions": {
+        "agreement": "Then pass. I will move one beam. I will not kill him for you.",
+        "refusal": "The eye closes once. Then leave. I do not bargain with a drawn blade.",
+        "accusation": "You name a god a beast to be ended. Then you will die, and the morning will have you again.",
+        "danger": "Stop. The next blow is your death. I am telling you with the only mercy I have left."
+      }
+    }
+  ],
+  "locations": [
+    {
+      "id": "loc-ferry",
+      "name": "Little Promise",
+      "description": "A two-masted ferry with a clean passenger hold, a hanging bell, and a logbook chained to the chart table. Veyra sits ahead, green over gray water."
+    },
+    {
+      "id": "loc-channel",
+      "name": "The channel",
+      "description": "Open water between the ferry lane and the harbor, with fog banks, a red-lantern buoy, and the first view of the ribs on Old Bell Shoal."
+    },
+    {
+      "id": "loc-harbor",
+      "name": "Veyra harbor",
+      "description": "A stone quay dressed for a wedding, garlands over old gouges, Damar's wall at the outer end, and the lane uphill marked with white ribbon."
+    },
+    {
+      "id": "loc-lane",
+      "name": "The ribbon lane",
+      "description": "A packed lane from harbor to court, flowers ground into ruts, a shell cairn on the seaward side, and the palace roof visible above the court wall."
+    },
+    {
+      "id": "loc-court",
+      "name": "The wedding court",
+      "description": "An open court of pale stone, an altar with an oath ring on a cushion, benches of powdered guests, and a chapel arch at the inland end."
+    },
+    {
+      "id": "loc-palace",
+      "name": "The palace gallery",
+      "description": "A short gallery off the court, one covered portrait, a drawer with a journal, and a trophy board holding a splinter of black oak."
+    },
+    {
+      "id": "loc-chapel",
+      "name": "The chapel of the scrambled verse",
+      "description": "A small chapel, three carved strips set in the wrong order, a plaque beneath them, and a chest with pearls and a bottled draught."
+    },
+    {
+      "id": "loc-echo",
+      "name": "The echo ship at the quay",
+      "description": "A black-hulled ship that is not the wreck. New timber shines where the old keel is not. It comes to the quay under Malachar's coat."
+    },
+    {
+      "id": "loc-wreck",
+      "name": "Old Bell Shoal",
+      "description": "The drowned ribs of the Widow's Grin, a silver oath-ring on the seabed, a lower crack outside the ring, and the Bell Avatar inside the chain."
+    },
+    {
+      "id": "loc-bell",
+      "name": "Under the drowned bell",
+      "description": "The bell lies on its side in the hold. Past it, in a keel-trench outside the avatar's chain, Malachar's true form waits."
+    }
+  ],
+  "clues": [
+    {
+      "id": "clue-loop",
+      "required": true,
+      "revelation": "The wedding day has happened before, and midnight rewinds it while the oath holds.",
+      "sources": [
+        "Damar says the wedding morning has happened before and that he has counted the returns.",
+        "The chapel inscription says a broken tide comes back to the morning it left.",
+        "The ferry log is a note with today's date written twice in the same hand."
+      ]
+    },
+    {
+      "id": "clue-bites",
+      "required": true,
+      "revelation": "The circles on wrists and throats are sucker bites, not birthmarks.",
+      "sources": [
+        "Damar names the circles as sucker bites from the chained body.",
+        "Jun Keel says the same circles appear on anyone the tide has pulled under and returned.",
+        "A palace journal note beside the portrait calls the marks bites, then crosses the word out."
+      ]
+    },
+    {
+      "id": "clue-aldric",
+      "required": true,
+      "revelation": "Aldric stole Serevath's law and bound Malachar. Malachar did not curse the island.",
+      "sources": [
+        "Seraphine says Aldric coerced the marriage and used a stolen oath on Malachar.",
+        "The binding fragment is a note in Aldric's hand naming the theft of Serevath's law.",
+        "Damar saw Aldric speak the oath over the first keel."
+      ]
+    },
+    {
+      "id": "clue-wood",
+      "required": true,
+      "revelation": "Only original first-keel wood of the Widow's Grin breaks the surface coat. New timber does nothing.",
+      "sources": [
+        "The Widow's Grin manifest is a note that says only the first keel remembers.",
+        "The chapel inscription says the first keel tears the theft.",
+        "Damar says his cane is a cut of that keel and that one touch ends the coat."
+      ]
+    },
+    {
+      "id": "clue-second",
+      "required": true,
+      "revelation": "A second touch of that wood must strike the true form under the water, and then that form must fall.",
+      "sources": [
+        "Damar's cane note says the second touch must land under the water before the true form can fall.",
+        "The drowned bell inscription says one wound is not the end of the theft.",
+        "After the first hit, Malachar says the coat was only the surface."
+      ]
+    },
+    {
+      "id": "clue-where",
+      "required": true,
+      "revelation": "First-keel wood is the cane, Jun's shard, Aldric's trophy splinter, and the wreck keel itself.",
+      "sources": [
+        "The manifest note lists the wreck keel, the palace trophy, and the beach shard.",
+        "Jun's oilcloth is an object wrapped around a black-oak shard.",
+        "Damar's cane is first-keel wood he will lend."
+      ]
+    },
+    {
+      "id": "clue-dive",
+      "required": true,
+      "revelation": "The wreck can be reached without a single savior: Pip's ritual page, Oren's pearls, or the bottled draught.",
+      "sources": [
+        "Oren's six Tide Pearls are objects in the chapel chest, each an hour of breath and a swim.",
+        "Pip's coat holds a note with the Water Breathing ritual, and he can cast it when asked.",
+        "A bottled draught in the same chest is labeled, on a note, as a day of breath for one."
+      ]
+    },
+    {
+      "id": "clue-avatar",
+      "required": true,
+      "revelation": "The chained octopus is Serevath's last body. Striking it kills the party, and the god's law returns them to the ferry.",
+      "sources": [
+        "Damar says a blow against Serevath kills the party and returns the morning.",
+        "Crushed armor on the shoal is evidence, and the tally note inside it lists the same deaths more than once.",
+        "The bell inscription says weapons do not finish a god, and the tide returns the strikers."
+      ]
+    }
+  ],
+  "puzzles": [
+    {
+      "id": "puzzle-keel",
+      "prompt": "Three chapel strips are set in the wrong order. They read: the god is not the lock / As the tide returns / the first keel tears the theft.",
+      "solution": "Put them in this order: As the tide returns / the first keel tears the theft / the god is not the lock. The practical answer is the same sentence: first-keel wood ends the theft, and Serevath's body is not the lock to break.",
+      "failForward": "A plaque under the strips repeats the sentence in smaller letters. DC 15 Investigation finds it. If the roll fails, Oren reads the plaque aloud, because he has read it every morning. The chest key is under the nearby floorboard either way."
+    }
+  ],
+  "traps": [
+    {
+      "id": "trap-arch",
+      "trigger": "When the echo ship fires a warning gun, or when someone climbs the court wall, the chapel arch drops masonry.",
+      "effect": "Each creature under the arch makes a DC 15 Dexterity saving throw. Failure is 7 (2d6) bludgeoning damage and the prone condition. Success is half damage and the creature is not prone. The way through stays open."
+    },
+    {
+      "id": "trap-ring",
+      "trigger": "A creature crosses the silver oath-ring with a weapon drawn before anyone speaks to the avatar.",
+      "effect": "A tentacle slaps the water. DC 15 Dexterity saving throw or 7 (2d6) bludgeoning damage and prone at the edge. The avatar then speaks the warning. This slap is not the wipe. The wipe begins only if they attack after the warning."
+    }
+  ],
+  "encounters": [
+    {
+      "id": "enc-crossing",
+      "type": "exploration",
+      "objective": "Cross to the harbor and roll one channel event.",
+      "resolution": "They arrive with a herring, a warning, or a clear view of the shoal. No fight is required.",
+      "talkOut": "The fog fisher and the buoy keeper will talk. Nothing here must be killed."
+    },
+    {
+      "id": "enc-lane",
+      "type": "exploration",
+      "objective": "Take the ribbon lane and roll one travel event.",
+      "resolution": "They reach the court. The snare, the procession, and the cairn cannot stop the lane.",
+      "talkOut": "Damar, the preacher, and the procession all talk. The snare is a stumble, not a combat."
+    },
+    {
+      "id": "enc-raid",
+      "type": "combat",
+      "objective": "Break Malachar's surface coat with first-keel wood, or hold him until Seraphine can reach the ring.",
+      "resolution": "The first original-wood hit ends the coat, the regeneration, and the legendary actions. He dissolves toward the shoal. New wood does nothing. Dropping him to 0 without wood only delays him a round.",
+      "talkOut": "He will not surrender the loop. He will stop swinging if they show first-keel wood and a real intention to use it, or if Seraphine stands between them and breaks the oath ring.",
+      "bypass": "Skip the deck and go to the wreck with wood from the cane, the shard, or the trophy. He still reforms below. The echo ship is not the only road."
+    },
+    {
+      "id": "enc-avatar",
+      "type": "combat",
+      "objective": "Pass Serevath's avatar without striking it.",
+      "resolution": "They pass, or they die and the Return procedure puts them on the ferry. Reducing the avatar to 0 hit points is still the Return, not a win.",
+      "talkOut": "Show the writ, the manifest, Seraphine, a fresh wound from Malachar, or the first wood, and it moves one beam with no check. A new promise works on a DC 15 Charisma (Persuasion) check. A new lie works on a DC 16 Charisma (Deception) check, standing in for its Insight +6. The same lie after a return fails automatically.",
+      "bypass": "The lower crack is outside the ring: 10 minutes, or DC 15 Athletics to hurry. Turning back before an attack is flight, and it does not chase. Ink, a thrown feast, or the ferry bell can draw it to the side of the ring for 10 minutes on a DC 15 group check."
+    },
+    {
+      "id": "enc-true",
+      "type": "combat",
+      "objective": "End the curse with a second wood touch and a fall, or with Seraphine's refusal.",
+      "resolution": "After the second wood touch, 0 hit points ends the oath. Before that touch, 0 hit points only reforms him at 40 hit points after two rounds.",
+      "talkOut": "Seraphine breaks the oath ring with first-keel wood and refuses the coerced marriage. He is unmade and not murdered. He will not free himself by promising to stop.",
+      "bypass": "If they never dive, Seraphine can still refuse at the altar with any piece of first-keel wood, and this scene is skipped."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-ferry",
+      "title": "Veyra in sight",
+      "purpose": "Hook the wedding and show that the morning is already strange.",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "locationId": "loc-ferry",
+      "readAloud": "You wake among folded bedrolls you do not remember packing. Salt air comes through the hatch, and every pack sits where a careful clerk would have put it. A bright voice calls down from the deck. Veyra is in sight, Pip Thistlewick says, and you paid for a wedding, so you had best not miss it. Through the hatch the island is green and gold on a gray sea. Somewhere under the water, a drowned bell answers the ferry's own bell, one stroke late.",
+      "gmNotes": [
+        "Start here after every avatar wipe. Read this box again.",
+        "The logbook note has today's date twice. That is the loop clue if they look. DC 10 Intelligence (Investigation).",
+        "Pip forgets. Do not have Pip confess the loop. The page in the coat is the Water Breathing ritual, cast in ten minutes if they ask now or later.",
+        "Failed-return count starts at 0. If you arrived here from the Return procedure, increase it before Pip speaks, then tell the players what they kept."
+      ],
+      "runSteps": [
+        {
+          "title": "Read the box aloud",
+          "text": "Read the box aloud."
+        },
+        {
+          "title": "Offer the logbook and",
+          "text": "Offer the logbook and Pip's three lines."
+        },
+        {
+          "title": "If they ask about",
+          "text": "If they ask about breathing water, Pip agrees to the ritual later. Point them at the island."
+        }
+      ],
+      "advanceWhen": "They take the ferry toward the harbor, or they already know the loop and choose to land anyway.",
+      "npcIds": [
+        "npc-pip"
+      ],
+      "clueIds": [
+        "clue-loop",
+        "clue-dive"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-crossing"
+      ]
+    },
+    {
+      "id": "scene-crossing",
+      "title": "One roll on the channel",
+      "purpose": "Deliver a direction and one rolled channel event.",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "locationId": "loc-channel",
+      "readAloud": "The Little Promise leaves the lane and the island grows sharper. Fog sits in banks, not in a wall, and the water smells of iron and flowers. Pip keeps the lead line and hums the wrong verse of a wedding song. Ahead, a red lantern burns on a buoy where no harbor needs a light. Under it, something huge turns once and settles, too deep to be a fish and too still to be a ship.",
+      "gmNotes": [
+        "Roll 1d6 once. Do not reroll for a fight. None of these are combat.",
+        "1. A fisher sells a chart of the monster's heart that marks a dry storehouse on the far cliff. Herring.",
+        "2. The red-lantern buoy. It is a wrecker mark and Jun's warning. Following it later finds the beach shard.",
+        "3. A crate of new oak. If they test it later, it does nothing to the curse. Say that plainly.",
+        "4. A corked bottle. The scrap inside is the warning handout: strike the god and the morning takes you back.",
+        "5. The fog opens on the shoal ribs. No attack.",
+        "6. A seal passes the bow and leaves. It is an animal. It is not Serevath.",
+        "After the roll, Pip points at the quay. The direction is the harbor, then the ribbon lane, then the court."
+      ],
+      "runSteps": [
+        {
+          "title": "Roll the channel table",
+          "text": "Roll the channel table and play only that line."
+        },
+        {
+          "title": "Hand over the bottle",
+          "text": "Hand over the bottle scrap if you rolled a 4, or mention the buoy if you rolled a 2."
+        },
+        {
+          "title": "Pip brings the ferry",
+          "text": "Pip brings the ferry alongside the quay."
+        }
+      ],
+      "advanceWhen": "The ferry is at the quay.",
+      "npcIds": [
+        "npc-pip"
+      ],
+      "clueIds": [
+        "clue-loop",
+        "clue-avatar"
+      ],
+      "encounterIds": [
+        "enc-crossing"
+      ],
+      "exits": [
+        "scene-harbor"
+      ]
+    },
+    {
+      "id": "scene-harbor",
+      "title": "The quay is dressed for a day it has already had",
+      "purpose": "Give Damar's plain warning and the road to the wedding.",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "locationId": "loc-harbor",
+      "readAloud": "Garlands cover gouges in the quay stones. Guests laugh in the key people use when they are late. Nessa Baird checks your names off a list that was already complete. At the outer wall a gray man watches you as if he has paid for this meeting. The circular scars on his wrists are bare. He taps a black cane twice and says, before you can bow, that you should hear him before you hear the king.",
+      "gmNotes": [
+        "Damar tells them, in ordinary words: the day repeats, the circles are bites, Aldric bound Malachar with a stolen law, the cane is first-keel wood, and the thing under the bell is Serevath.",
+        "He says the next sentence without poetry: if they strike that body, they all die, and they wake here again. Offer the warning handout.",
+        "If they refuse Damar, Nessa still points up the ribbon lane. The cane can be taken from his room later. The bell and the armor tally do not need him.",
+        "Do not start a fight on the quay."
+      ],
+      "runSteps": [
+        {
+          "title": "Let Nessa land them",
+          "text": "Let Nessa land them and point to the lane."
+        },
+        {
+          "title": "Let Damar give the",
+          "text": "Let Damar give the warning in his three lines, then answer one question."
+        },
+        {
+          "title": "Show the player map",
+          "text": "Show the player map of the island. The shoal is geography, not a tactic."
+        }
+      ],
+      "advanceWhen": "They go up the lane, or they cut toward the chapel with a reason.",
+      "npcIds": [
+        "npc-nessa",
+        "npc-damar"
+      ],
+      "clueIds": [
+        "clue-bites",
+        "clue-wood",
+        "clue-avatar",
+        "clue-where",
+        "clue-aldric"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-lane",
+        "scene-chapel"
+      ]
+    },
+    {
+      "id": "scene-lane",
+      "title": "The lane has been walked raw",
+      "purpose": "One travel roll, then the court.",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "locationId": "loc-lane",
+      "readAloud": "The ribbon lane climbs between walls of wedding flowers that have been trodden into the ruts. People in pale clothes walk as if they have walked this exact pace before. From the seaward wall you can see a shale beach, a hooded red lantern, and the black ribs on the shoal. Somewhere up the hill a court bell practices the wedding hour and does not get it right.",
+      "gmNotes": [
+        "Roll 1d6 once. Cut this whole roll if you are behind, and have a child hand them a crushed flower and the words the day is stuck.",
+        "1. A procession. They will talk about the bride and not about the sea.",
+        "2. A villager calls the circles birthmarks. They are bites. He does not believe you.",
+        "3. A ribbon snare. DC 10 Dexterity or fall prone and arrive rumpled. No damage. The gate is still ahead.",
+        "4. Jun's cairn and the shard, if they have not taken it. Jun is on the beach below.",
+        "5. A preacher tells children the circles are holy birthmarks. Herring.",
+        "6. Damar is already at the gate and will not repeat the quay speech. He says the bride first."
+      ],
+      "runSteps": [
+        {
+          "title": "Roll one lane event",
+          "text": "Roll one lane event or cut it."
+        },
+        {
+          "title": "If Jun is present,",
+          "text": "If Jun is present, offer the shard for a promise not to sell the wreck."
+        },
+        {
+          "title": "The court gates are",
+          "text": "The court gates are open."
+        }
+      ],
+      "advanceWhen": "They can see the altar.",
+      "npcIds": [
+        "npc-jun",
+        "npc-damar"
+      ],
+      "clueIds": [
+        "clue-bites",
+        "clue-where"
+      ],
+      "encounterIds": [
+        "enc-lane"
+      ],
+      "exits": [
+        "scene-court"
+      ]
+    },
+    {
+      "id": "scene-court",
+      "title": "The vow is a lock",
+      "purpose": "Show the coerced wedding, the ring, and Aldric's guilt.",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "locationId": "loc-court",
+      "readAloud": "The court is pale stone and too many flowers. King Aldric Renn stands as if the crown is a task. Lady Seraphine Vale stands as if the aisle is a plank. On the cushion between them the oath ring is black metal, cold when it should be warm in the sun. Guests wear powder over circular marks and call them birthmarks to their neighbors. The chapel arch inland has a crack someone has stuffed with ribbon.",
+      "gmNotes": [
+        "Seraphine will talk if they approach before the vow. She wants him saved, not butchered.",
+        "Aldric will lie until the binding fragment is read aloud. Then he can confess. Confession gives the trophy splinter and does not, by itself, end the oath.",
+        "The portrait gallery is the side door. Cut it if you are behind. The journal and the splinter can be found during the raid instead.",
+        "Do not fire the masonry yet unless they climb the wall. The raid fires it."
+      ],
+      "runSteps": [
+        {
+          "title": "Read the court",
+          "text": "Read the court."
+        },
+        {
+          "title": "Let them speak to",
+          "text": "Let them speak to Seraphine or Aldric, or both."
+        },
+        {
+          "title": "Point at the chapel",
+          "text": "Point at the chapel arch and the gallery door."
+        }
+      ],
+      "advanceWhen": "They enter the chapel, or they divert to the gallery first.",
+      "npcIds": [
+        "npc-seraphine",
+        "npc-aldric"
+      ],
+      "clueIds": [
+        "clue-aldric",
+        "clue-bites"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-palace",
+        "scene-chapel"
+      ]
+    },
+    {
+      "id": "scene-palace",
+      "title": "The covered portrait",
+      "purpose": "Show that the bride loved the captain, and that the bites were painted over.",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "locationId": "loc-palace",
+      "readAloud": "The gallery smells of perfume and dust. Elion Marr stands in dove-gray gloves between you and a covered frame, keys tight in one hand. Under the cloth, if it moves, two people laugh in paint: Seraphine and a dark-haired captain, his hand at her wrist. The circles there are the same circles the court is powdering away. A trophy board by the window holds a splinter of black wood, labeled as a souvenir of a privateer.",
+      "gmNotes": [
+        "This scene is the second cut. If you skip it, Elion brings the splinter to the quay during the raid, frightened, and the journal can be looted then.",
+        "The journal note is the bite clue. Elion calls it a painter's fancy.",
+        "The splinter is first-keel wood. Taking it is not a crime the adventure punishes. Aldric mounted a stolen law as a trophy.",
+        "No combat in the gallery."
+      ],
+      "runSteps": [
+        {
+          "title": "Let Elion refuse once",
+          "text": "Let Elion refuse once."
+        },
+        {
+          "title": "The drawer holds the",
+          "text": "The drawer holds the journal even if the cloth stays up."
+        },
+        {
+          "title": "The splinter is on",
+          "text": "The splinter is on the board. Then send them to the chapel."
+        }
+      ],
+      "advanceWhen": "They have seen the portrait or taken the splinter, and the chapel is next.",
+      "npcIds": [
+        "npc-elion"
+      ],
+      "clueIds": [
+        "clue-bites",
+        "clue-where",
+        "clue-aldric"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-chapel"
+      ]
+    },
+    {
+      "id": "scene-chapel",
+      "title": "The verse in the wrong order",
+      "purpose": "Solve the first-keel puzzle and collect a way to dive.",
+      "pacingClass": "core",
+      "estimatedMinutes": 20,
+      "locationId": "loc-chapel",
+      "readAloud": "The chapel is small and smells of wax and brine. Three carved strips have been set where a verse should be, and they disagree with each other. Father Oren Pell straightens them, watches them fail to help, and looks embarrassed. Beneath the strips a plaque has been half painted, as if someone hoped it was only decoration. A chest sits under the side bench. From the court door you can still hear the guests practicing a cheer.",
+      "gmNotes": [
+        "Read the strips in the wrong order, then let them reorder. The solution is in the puzzle entry. Say it if they ask you, out of character, what the verse is trying to mean.",
+        "Fail forward is the plaque, then Oren reading it. Nobody is stuck.",
+        "Tide Pearl, original consumable: an action to crush it. The user breathes water and has a swim speed of 30 feet for 1 hour. Six pearls. One creature each.",
+        "The bottled draught is an SRD Potion of Water Breathing, uncommon. One creature, 24 hours. Label the edition only by saying the effect is the same in both.",
+        "Pip's ritual is the third dive path. A pregen wizard can also ritual-cast it. No single person owns the dive."
+      ],
+      "runSteps": [
+        {
+          "title": "Present the three strips",
+          "text": "Present the three strips."
+        },
+        {
+          "title": "On a solve or",
+          "text": "On a solve or a fail-forward, restate the sentence in plain speech."
+        },
+        {
+          "title": "Open the chest. Name",
+          "text": "Open the chest. Name the pearls and the draught. Send them back out as the black ship arrives."
+        }
+      ],
+      "advanceWhen": "They know the god is not the lock, and they have at least one way to breathe, or they know Pip can make one.",
+      "npcIds": [
+        "npc-oren",
+        "npc-pip"
+      ],
+      "clueIds": [
+        "clue-wood",
+        "clue-second",
+        "clue-dive",
+        "clue-avatar",
+        "clue-loop"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-raid"
+      ]
+    },
+    {
+      "id": "scene-raid",
+      "title": "The coat comes to the quay",
+      "purpose": "Fight or stall Malachar until the first wood hits.",
+      "pacingClass": "core",
+      "estimatedMinutes": 30,
+      "locationId": "loc-echo",
+      "readAloud": "The cheer dies. A black ship slides out of the salt-fog and is already at the quay, as if the harbor has been practicing this arrival. The hull is new timber over something older. Malachar Vane steps down with eyes still his own and arms too long for the coat. Guests scream in a way that sounds rehearsed. He looks at Seraphine first. The cutlass in his hand is a sailor's sword. The voice is tired. He says to put the old wood on him or get off his deck.",
+      "gmNotes": [
+        "This is the fight they can win. Read the balance aloud to yourself: for four characters it is Deadly on the 2014 adjusted table and Low-to-Moderate by 2024 raw XP, and it plays harder until the wood hits.",
+        "Beginner cut: he does not use legendary actions until round 3 or until the wood hits, whichever comes first. Do not soften the avatar later to pay for this kindness.",
+        "Masonry: the warning gun drops the chapel arch. DC 15 Dexterity, 2d6, prone on a failure, half and not prone on a success. The path stays open.",
+        "A hit with the cane, the shard, the splinter, or a weapon hafted with keel wood ends the coat. Describe the salt falling off him like a shed shell. He dissolves toward the shoal.",
+        "New oak does nothing. Tell them on the hit.",
+        "Learned tricks if the failed-return count is already up: one return, he can force a DC 15 Wisdom save or a creature is frightened until the end of its next turn, once on his turn. Two returns, he can parry one melee attack as a reaction for +3 AC. Three returns, a spell of 2nd level or lower fails against him once. These are original. Do not call them a published trait.",
+        "Underwater is not this scene. The quay is dry."
+      ],
+      "runSteps": [
+        {
+          "title": "Read his arrival and",
+          "text": "Read his arrival and his line."
+        },
+        {
+          "title": "Run the raid for",
+          "text": "Run the raid for four, or the scaled wave in the quick-run note."
+        },
+        {
+          "title": "The first real wood",
+          "text": "The first real wood hit ends the scene. If Seraphine breaks the ring here, skip to the ending instead."
+        }
+      ],
+      "advanceWhen": "The coat is gone, or Seraphine has refused, or the party breaks off and goes to the wreck with wood anyway.",
+      "npcIds": [
+        "npc-malachar",
+        "npc-seraphine",
+        "npc-aldric"
+      ],
+      "clueIds": [
+        "clue-wood",
+        "clue-second"
+      ],
+      "encounterIds": [
+        "enc-raid"
+      ],
+      "exits": [
+        "scene-wake",
+        "scene-ferry"
+      ]
+    },
+    {
+      "id": "scene-wake",
+      "title": "What the bites were",
+      "purpose": "Show the island seeing itself, and point at the shoal.",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "locationId": "loc-harbor",
+      "readAloud": "The salt-fog pulls back a little, as if the oath has flinched. On the quay, powder runs in the rain of spray. Circular marks show on wrists, throats, and the king's collar. People touch them and do not know the word. Seraphine does. She looks at the shoal, where the old ribs break the water, and says his name once. Damar is already walking toward a boat. The drowned bell tolls under the surface, not at midnight yet, and the sound is a summons rather than an ending.",
+      "gmNotes": [
+        "If they already refused the wedding with the wood, go to the dawn scene instead of the dive.",
+        "Otherwise the second touch is still required. Say that in Damar's voice.",
+        "Boat, pearls, Pip's page, or the draught. If they have none, the chest is unlooted and the ferry is still at the quay. Do not stick them.",
+        "The player map shows the shoal. The GM wreck map stays with you until they are in the water."
+      ],
+      "runSteps": [
+        {
+          "title": "Show the marks and",
+          "text": "Show the marks and let one NPC be horrified."
+        },
+        {
+          "title": "Damar states the second",
+          "text": "Damar states the second touch in one sentence."
+        },
+        {
+          "title": "Put them in a",
+          "text": "Put them in a boat with whatever breath they have."
+        }
+      ],
+      "advanceWhen": "They are committed to the wreck, or they are going to the altar to refuse.",
+      "npcIds": [
+        "npc-damar",
+        "npc-seraphine",
+        "npc-jun"
+      ],
+      "clueIds": [
+        "clue-second",
+        "clue-bites"
+      ],
+      "encounterIds": [],
+      "exits": [
+        "scene-wreck",
+        "scene-dawn"
+      ]
+    },
+    {
+      "id": "scene-wreck",
+      "title": "The body that is not the lock",
+      "purpose": "Make the wipe obvious, then pass, bargain, or return to the ferry.",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "locationId": "loc-wreck",
+      "readAloud": "Eight arms, each thicker than the ferry's mast, turn under the split hull. An eye as wide as a cartwheel opens behind the ribs. It is gold, tired, and not an animal's eye. A voice enters every skull at once. I am what remains of Serevath, the tide that returns. Strike this body and you all die. There is no brave exception and no lucky blade. The tide will put every one of you back on the ferry, and you will want to call it a dream. It will not be a dream. Put the weapons down, show me the first wood, or leave by the lower crack. Those are the ways through. The fight is a grave.",
+      "gmNotes": [
+        "Read the box. Then stop. Ask, out of character, whether anyone is still going to attack. Tell them the attack kills the whole party and the adventure returns them to the ferry. Ask again. A failed Stealth check is not an attack. The avatar sees them and speaks. They can still talk, show proof, or leave.",
+        "Passing without a check: the binding fragment, Seraphine present, the manifest, a fresh wound dealt by Malachar, or first-keel wood held up where the eye can see it. It moves one beam. It will not kill him for them.",
+        "DC 15 Persuasion for a new concrete promise. DC 16 Deception for a new lie. After a return, that same lie fails. Insight +6 is the contest if you prefer a roll on both sides.",
+        "Lower crack: outside the 90-foot ring. Ten minutes, or DC 15 Athletics. Fleeing back across the ring before anyone deals damage or casts at the avatar is not a wipe. It does not chase past 30 feet beyond the ring.",
+        "Distraction: feast silver, ink, or the ferry bell, DC 15. It investigates for 10 minutes.",
+        "THE WIPE. It starts when they deal damage, cast a harmful spell at the avatar, or say they stand and fight. Do not run it as a winnable combat. Optional: roll one tentacle, +10 to hit, 31 bludgeoning, grapple escape DC 19. A level-5 character has about 32 to 49 hit points, so one hit drops most of them. Then stop. Anyone still standing is dragged under and dies. Do not roll death saves. A lucky round is not a win. If they somehow reach 0 hit points on the avatar, the Avatar trait rewinds the day anyway.",
+        "RETURN, BOTH EDITIONS. Move to scene-ferry. It is 3 in the afternoon on the Little Promise. Read Pip's line Veyra in sight. Increase the failed-return count by 1. The whole island rewinds, including anyone who had already stepped outside the ring.",
+        "KEEP, both editions: memories, clues understood, plans, narrative scars of how the avatar killed them, with no mechanical penalty, the failed-return count, Malachar's learned tricks if the count grants them, Damar's memory, and the avatar's memory. Next visit it speaks first: You died. Do not do it again. It does not attack on sight.",
+        "LOSE, both editions: place, back to the ferry; hit points, back to the morning maximum; death; every condition; concentration; items taken this loop, which are back in their places; gold found this loop; pearls, potions, and wood, unconsumed where they came from; attunement to found items. Villagers forget. Seraphine forgets. Pip forgets. This is not a long rest. It is the morning put back.",
+        "2014 ONLY. Clear all six exhaustion levels. A long rest would remove only one. The morning body had none. Death saves and massive-damage death do not persist. Inspiration returns only if they had it at the morning start. There is no Heroic Inspiration. Spell slots, Hit Dice, Second Wind, Action Surge, Channel Divinity, Lay on Hands, and rages return to the unused morning.",
+        "2024 ONLY. Clear the Dead, Unconscious, Bloodied, Grappled, and Restrained conditions. Exhaustion in this edition dies at level 6, subtracts twice the level from D20 Tests, and reduces Speed by 5 feet times the level. A long rest removes 1 level. The rewind sets Exhaustion to 0. Heroic Inspiration returns to the morning: humans with Resourceful have it again. Hit Point Dice return unused. Short-rest and long-rest features return to the morning, including Weapon Mastery choices already made. Do not use the 2014 destroy-undead-by-CR rule. Do not use the 2014 rule that Divine Smite is not a spell.",
+        "Underwater, 2014 SRD. A melee attack without a swim speed has disadvantage unless the weapon is a dagger, javelin, shortsword, spear, or trident. A ranged attack misses beyond normal range. Inside normal range it has disadvantage unless it is a crossbow, a net, or a thrown javelin, spear, trident, or dart. A fully immersed creature has resistance to fire.",
+        "Underwater, 2024 SRD. A melee attack without a Swim Speed has Disadvantage unless the weapon deals Piercing damage. A ranged attack misses beyond normal range and has Disadvantage inside it. Anything underwater has Resistance to Fire damage. There is no crossbow exception in this edition."
+      ],
+      "runSteps": [
+        {
+          "title": "Read the avatar's warning",
+          "text": "Read the avatar's warning and give the out-of-character confirmation."
+        },
+        {
+          "title": "Play one way through:",
+          "text": "Play one way through: proof, promise, lie, lower crack, distraction, or flight."
+        },
+        {
+          "title": "If they attack, run",
+          "text": "If they attack, run the wipe and the Return, then stop this scene."
+        }
+      ],
+      "advanceWhen": "They are past the chain without having attacked, or they have woken on the ferry.",
+      "npcIds": [
+        "npc-serevath",
+        "npc-damar"
+      ],
+      "clueIds": [
+        "clue-avatar",
+        "clue-dive",
+        "clue-second"
+      ],
+      "encounterIds": [
+        "enc-avatar"
+      ],
+      "exits": [
+        "scene-bell",
+        "scene-ferry"
+      ]
+    },
+    {
+      "id": "scene-bell",
+      "title": "The second touch",
+      "purpose": "Finish the curse under the bell, or let Seraphine's refusal stand.",
+      "pacingClass": "core",
+      "estimatedMinutes": 25,
+      "locationId": "loc-bell",
+      "readAloud": "Past the chain, the drowned bell lies on its side in the hold. The inscription on it is clear in the water-light: a broken tide comes back, and the first keel finishes the theft. In the trench beyond, Malachar is no longer wearing the coat. The true form is huge, arms of a man gone into the arms of an octopus, and the voice is still his. He looks at the wood in your hands. He says once above was the coat. Once below is the man. Then he has to fall, or she has to mean the no.",
+      "gmNotes": [
+        "The avatar does not enter this trench. The ring holds it. Do not add it to this fight.",
+        "Second wood touch, then 0 hit points, ends the curse. Before the touch, 0 hit points reforms him at 40 hit points after two rounds. Tell them that the moment it happens.",
+        "Seraphine can arrive with the ring if she came down, or this refusal can already have happened at the altar. If the oath is already broken, he is unmaking as they arrive. Go to dawn.",
+        "Same underwater rules as the wreck. Same party-size hit points as the quick-run note.",
+        "When he falls after the second touch, the Bellward thins. Serevath is not killed. The chain loosens. The avatar may sink, sleep, or leave. Do not start a new fight."
+      ],
+      "runSteps": [
+        {
+          "title": "Read the bell and",
+          "text": "Read the bell and his line."
+        },
+        {
+          "title": "Ask whether they are",
+          "text": "Ask whether they are striking or whether Seraphine is refusing."
+        },
+        {
+          "title": "Resolve that choice. Then",
+          "text": "Resolve that choice. Then go to dawn."
+        }
+      ],
+      "advanceWhen": "The oath is broken, or they flee back to the ferry and the loop holds.",
+      "npcIds": [
+        "npc-malachar",
+        "npc-seraphine"
+      ],
+      "clueIds": [
+        "clue-second",
+        "clue-avatar"
+      ],
+      "encounterIds": [
+        "enc-true"
+      ],
+      "exits": [
+        "scene-dawn",
+        "scene-ferry"
+      ]
+    },
+    {
+      "id": "scene-dawn",
+      "title": "What the island is allowed to remember",
+      "purpose": "Final resolution: choose what Veyra keeps.",
+      "pacingClass": "core",
+      "estimatedMinutes": 15,
+      "locationId": "loc-harbor",
+      "readAloud": "The drowned bell goes quiet. The salt-fog thins until the horizon is only weather. On the shore, people touch their own wrists and see the circles for what they are. Malachar is a man, or he is gone cleanly, or the day is already folding back toward the ferry. Serevath's eye, if it is still under the water, closes without a victory in it. What you did with the oath is already done. What the island remembers starts now.",
+      "gmNotes": [
+        "Pick the ending that matches the table. Do not score it.",
+        "Two Strikes: wood above, wood below, true form to 0 after the second touch. He dies as himself. Seraphine mourns him and the crown has to live with the confession if it was spoken.",
+        "The Bride Refuses: she breaks the ring with first-keel wood and refuses the coerced marriage. He is unmade, not murdered. The court hears the no.",
+        "The King Confesses: Aldric says the theft in public and gives up the splinter. Pair it with a refusal or with the strikes. The island remembers his guilt either way.",
+        "The Loop Holds: they leave, or they only ever struck the god. The ferry will bring another morning. If they choose this with eyes open, end on the Little Promise and do not play another day unless they ask.",
+        "Serevath remains lost. The avatar is not a trophy. If the oath ended, the body is free of the chain and is not theirs to kill."
+      ],
+      "runSteps": [
+        {
+          "title": "Read the dawn",
+          "text": "Read the dawn."
+        },
+        {
+          "title": "Name the ending they",
+          "text": "Name the ending they earned and the one sentence of consequence."
+        },
+        {
+          "title": "Ask what each character",
+          "text": "Ask what each character does in the first ordinary hour, then stop."
+        }
+      ],
+      "advanceWhen": "The one-shot is over.",
+      "npcIds": [
+        "npc-seraphine",
+        "npc-aldric",
+        "npc-damar",
+        "npc-malachar"
+      ],
+      "clueIds": [],
+      "encounterIds": [],
+      "exits": []
+    }
+  ],
+  "maps": [
+    {
+      "id": "map-island",
+      "title": "Veyra, player map",
+      "asset": "assets/maps/wedding/island.svg",
+      "description": "Player-safe island. No tactics for the avatar.",
+      "regions": [
+        {
+          "id": "reg-harbor",
+          "name": "Harbor",
+          "sceneId": "scene-harbor"
+        },
+        {
+          "id": "reg-lane",
+          "name": "Ribbon lane",
+          "sceneId": "scene-lane"
+        },
+        {
+          "id": "reg-court",
+          "name": "Court",
+          "sceneId": "scene-court"
+        },
+        {
+          "id": "reg-chapel",
+          "name": "Chapel",
+          "sceneId": "scene-chapel"
+        },
+        {
+          "id": "reg-shoal",
+          "name": "Old Bell Shoal",
+          "sceneId": "scene-wreck"
+        }
+      ]
+    },
+    {
+      "id": "map-wreck",
+      "title": "GM wreck map",
+      "asset": "assets/maps/wedding/wreck.svg",
+      "description": "GM map. The ring, the lower crack, and the trench. Do not show it before the dive.",
+      "regions": [
+        {
+          "id": "reg-ring",
+          "name": "Oath ring",
+          "sceneId": "scene-wreck"
+        },
+        {
+          "id": "reg-crack",
+          "name": "Lower crack",
+          "sceneId": "scene-wreck"
+        },
+        {
+          "id": "reg-trench",
+          "name": "Keel trench",
+          "sceneId": "scene-bell"
+        }
+      ]
+    },
+    {
+      "id": "map-binding",
+      "title": "Binding fragment",
+      "asset": "assets/handouts/wedding/binding.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-binding-r",
+          "name": "Binding fragment",
+          "sceneId": "scene-court"
+        }
+      ]
+    },
+    {
+      "id": "map-manifest",
+      "title": "Widow's Grin manifest",
+      "asset": "assets/handouts/wedding/manifest.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-manifest-r",
+          "name": "Widow's Grin manifest",
+          "sceneId": "scene-chapel"
+        }
+      ]
+    },
+    {
+      "id": "map-cane",
+      "title": "Damar's cane note",
+      "asset": "assets/handouts/wedding/cane.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-cane-r",
+          "name": "Damar's cane note",
+          "sceneId": "scene-harbor"
+        }
+      ]
+    },
+    {
+      "id": "map-bell",
+      "title": "Drowned bell inscription",
+      "asset": "assets/handouts/wedding/bell.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-bell-r",
+          "name": "Drowned bell inscription",
+          "sceneId": "scene-bell"
+        }
+      ]
+    },
+    {
+      "id": "map-clock",
+      "title": "Midnight and return clock",
+      "asset": "assets/handouts/wedding/clock.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-clock-r",
+          "name": "Midnight and return clock",
+          "sceneId": "scene-ferry"
+        }
+      ]
+    },
+    {
+      "id": "map-warning",
+      "title": "Shoal warning",
+      "asset": "assets/handouts/wedding/warning.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-warning-r",
+          "name": "Shoal warning",
+          "sceneId": "scene-wreck"
+        }
+      ]
+    }
+  ],
+  "playMaps": [
+    {
+      "id": "map-island",
+      "title": "Veyra, player map",
+      "asset": "assets/maps/wedding/island.svg",
+      "description": "Player-safe island. No tactics for the avatar.",
+      "regions": [
+        {
+          "id": "reg-harbor",
+          "name": "Harbor",
+          "sceneId": "scene-harbor"
+        },
+        {
+          "id": "reg-lane",
+          "name": "Ribbon lane",
+          "sceneId": "scene-lane"
+        },
+        {
+          "id": "reg-court",
+          "name": "Court",
+          "sceneId": "scene-court"
+        },
+        {
+          "id": "reg-chapel",
+          "name": "Chapel",
+          "sceneId": "scene-chapel"
+        },
+        {
+          "id": "reg-shoal",
+          "name": "Old Bell Shoal",
+          "sceneId": "scene-wreck"
+        }
+      ]
+    },
+    {
+      "id": "map-wreck",
+      "title": "GM wreck map",
+      "asset": "assets/maps/wedding/wreck.svg",
+      "description": "GM map. The ring, the lower crack, and the trench. Do not show it before the dive.",
+      "regions": [
+        {
+          "id": "reg-ring",
+          "name": "Oath ring",
+          "sceneId": "scene-wreck"
+        },
+        {
+          "id": "reg-crack",
+          "name": "Lower crack",
+          "sceneId": "scene-wreck"
+        },
+        {
+          "id": "reg-trench",
+          "name": "Keel trench",
+          "sceneId": "scene-bell"
+        }
+      ]
+    },
+    {
+      "id": "map-binding",
+      "title": "Binding fragment",
+      "asset": "assets/handouts/wedding/binding.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-binding-r",
+          "name": "Binding fragment",
+          "sceneId": "scene-court"
+        }
+      ]
+    },
+    {
+      "id": "map-manifest",
+      "title": "Widow's Grin manifest",
+      "asset": "assets/handouts/wedding/manifest.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-manifest-r",
+          "name": "Widow's Grin manifest",
+          "sceneId": "scene-chapel"
+        }
+      ]
+    },
+    {
+      "id": "map-cane",
+      "title": "Damar's cane note",
+      "asset": "assets/handouts/wedding/cane.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-cane-r",
+          "name": "Damar's cane note",
+          "sceneId": "scene-harbor"
+        }
+      ]
+    },
+    {
+      "id": "map-bell",
+      "title": "Drowned bell inscription",
+      "asset": "assets/handouts/wedding/bell.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-bell-r",
+          "name": "Drowned bell inscription",
+          "sceneId": "scene-bell"
+        }
+      ]
+    },
+    {
+      "id": "map-clock",
+      "title": "Midnight and return clock",
+      "asset": "assets/handouts/wedding/clock.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-clock-r",
+          "name": "Midnight and return clock",
+          "sceneId": "scene-ferry"
+        }
+      ]
+    },
+    {
+      "id": "map-warning",
+      "title": "Shoal warning",
+      "asset": "assets/handouts/wedding/warning.svg",
+      "description": "Printable handout.",
+      "regions": [
+        {
+          "id": "map-warning-r",
+          "name": "Shoal warning",
+          "sceneId": "scene-wreck"
+        }
+      ]
+    }
+  ],
+  "recovery": {
+    "principle": "No single speaker is required. The finale stays reachable if the bride, the captain, or the chapel is gone.",
+    "routes": [
+      {
+        "trigger": "Damar or Seraphine refuses, is missing, or dead",
+        "response": "The binding fragment, the chapel inscription, the manifest note, and the bell still say who stole the law and how wood ends it."
+      },
+      {
+        "trigger": "Malachar is attacked or made hostile before he explains",
+        "response": "The first wood hit still ends the coat. The bell inscription and Damar's cane note still require the second touch. Killing him without wood does not end the loop."
+      },
+      {
+        "trigger": "The party skips or leaves the chapel, the court, or the gallery",
+        "response": "Jun's shard, the wreck keel, and the trophy splinter remain. Pip's page and the chest still cover the dive. They can still finish."
+      },
+      {
+        "trigger": "The party attacks Serevath's avatar",
+        "response": "They die and return to the ferry. The adventure is not over. The paths around the chain still work, and the same lie will not."
+      }
+    ]
+  },
+  "pathPressure": {
+    "principle": "Listening and collecting the wood makes the captain easier and the avatar a door. Rushing costs warnings and wood. The ending is never locked, and they can still finish.",
+    "prepared": [
+      "Damar's warning and the handout make the wipe a choice rather than a surprise.",
+      "Any first-keel piece collected before the raid ends the coat on the first clean hit."
+    ],
+    "rushed": [
+      "Skipping Damar means they may not hear the god's name until the wreck, so read the avatar box anyway.",
+      "Showing up without wood means the coat regenerates until they go get a piece. The keel is still there."
+    ]
+  },
+  "pacing": {
+    "minutes": 240,
+    "cutOrder": [
+      "If you are 20 minutes behind, skip the lane roll and hand them the flower line.",
+      "If you are still behind, skip the gallery. Elion brings the splinter to the quay during the raid.",
+      "Never cut the avatar's warning or the out-of-character confirmation."
+    ],
+    "optionalOrder": [
+      "scene-palace",
+      "scene-lane"
+    ]
+  },
+  "endings": [
+    {
+      "id": "ending-strikes",
+      "title": "Two Strikes",
+      "result": "First-keel wood hits the coat and then the true form, and the true form falls. Malachar dies as himself. Serevath is not fought. The loop stops."
+    },
+    {
+      "id": "ending-refusal",
+      "title": "The Bride Refuses",
+      "result": "Seraphine breaks the oath ring with first-keel wood and refuses the coerced marriage. Malachar is unmade, not murdered. The court hears the no."
+    },
+    {
+      "id": "ending-confess",
+      "title": "The King Confesses",
+      "result": "Aldric admits the theft in public and surrenders the splinter. Paired with a refusal or with the strikes, the island remembers his guilt."
+    },
+    {
+      "id": "ending-loop",
+      "title": "The Loop Holds",
+      "result": "They leave, or they only strike the god and learn the return. The wedding continues. This is a real ending if they choose it."
+    }
+  ],
+  "initialState": {
+    "currentSceneId": "scene-ferry",
+    "questStage": "offered",
+    "discoveredClueIds": [],
+    "inventory": {},
+    "eventState": {
+      "failedReturns": 0
+    },
+    "sceneHistory": [],
+    "completedRunSteps": {}
+  },
+  "flowContract": {
+    "principle": "One wedding-loop spine: ferry, warning, court, coat, avatar, second touch, dawn. Branches reconverge.",
+    "mainSpine": [
+      "scene-ferry",
+      "scene-crossing",
+      "scene-harbor",
+      "scene-lane",
+      "scene-court",
+      "scene-chapel",
+      "scene-raid",
+      "scene-wake",
+      "scene-wreck",
+      "scene-bell",
+      "scene-dawn"
+    ],
+    "allowedBranchScenes": [],
+    "terminalScenes": [
+      "scene-dawn"
+    ],
+    "stageCount": 12
+  },
+  "rulesets": {
+    "2014": {
+      "label": "2014 SRD 5.1",
+      "tableNotes": [
+        "Use the 2014 avatar block. Giant Octopus source: SRD 5.1. The scale-up is homebrew.",
+        "Underwater melee without a swim speed has disadvantage unless the weapon is a dagger, javelin, shortsword, spear, or trident.",
+        "Ranged attacks miss beyond normal range. Inside it, disadvantage except crossbow, net, or thrown javelin, spear, trident, or dart.",
+        "Fully immersed creatures resist fire. Divine Smite is not a spell. There is no Heroic Inspiration.",
+        "The Return clears all exhaustion levels, not one."
+      ]
+    },
+    "2024": {
+      "label": "2024 SRD 5.2.1",
+      "tableNotes": [
+        "Use the 2024 avatar block. Giant Octopus source: SRD 5.2.1. The scale-up is homebrew. The CR row is the 2014 derivation, because this SRD does not reprint the building table.",
+        "Underwater melee without a Swim Speed has Disadvantage unless the weapon deals Piercing damage.",
+        "Ranged attacks miss beyond normal range and have Disadvantage inside it. No crossbow exception.",
+        "Anything underwater has Resistance to Fire. Divine Smite is a spell. Heroic Inspiration exists.",
+        "The Return sets Exhaustion to 0. A long rest would remove only 1 level. Do not import 2014 smite or destroy-undead rules."
+      ]
+    }
+  },
+  "quickrun": {
+    "requiredCheckIds": [
+      "check-log",
+      "check-verse",
+      "check-pass",
+      "check-crack"
+    ],
+    "checks": [
+      {
+        "id": "check-log",
+        "sceneId": "scene-ferry",
+        "label": "Read the ferry log",
+        "ability": "Intelligence (Investigation)",
+        "dc": 10,
+        "success": "The date is written twice. Someone has lived this morning.",
+        "failure": "Pip shrugs and reads it once. Damar will still say it at the quay. The log remains for later."
+      },
+      {
+        "id": "check-snare",
+        "sceneId": "scene-lane",
+        "label": "Ribbon snare",
+        "ability": "Dexterity saving throw",
+        "dc": 10,
+        "success": "They step over it and reach the gate tidy.",
+        "failure": "Prone and rumpled. No damage. The gate is ten yards on."
+      },
+      {
+        "id": "check-verse",
+        "sceneId": "scene-chapel",
+        "label": "Read the painted plaque",
+        "ability": "Intelligence (Investigation)",
+        "dc": 15,
+        "success": "The plaque gives the strip order and the plain meaning.",
+        "failure": "Oren reads the plaque aloud. The meaning still lands."
+      },
+      {
+        "id": "check-arch",
+        "sceneId": "scene-raid",
+        "label": "Falling chapel arch",
+        "ability": "Dexterity saving throw",
+        "dc": 15,
+        "success": "Half of 7 bludgeoning, not prone. The door stays open.",
+        "failure": "7 bludgeoning and prone. The door stays open."
+      },
+      {
+        "id": "check-pass",
+        "sceneId": "scene-wreck",
+        "label": "Promise or new lie to Serevath",
+        "ability": "Charisma (Persuasion DC 15 or Deception DC 16)",
+        "dc": 15,
+        "success": "It moves one beam. They pass. A lie uses DC 16. Proof needs no roll.",
+        "failure": "It does not move the beam. They can still use the lower crack, distract it, or leave. A repeated lie after a return fails with no roll."
+      },
+      {
+        "id": "check-crack",
+        "sceneId": "scene-wreck",
+        "label": "Hurry through the lower crack",
+        "ability": "Strength (Athletics)",
+        "dc": 15,
+        "success": "They are outside the ring in a minute.",
+        "failure": "It takes ten minutes instead. They still arrive. The avatar does not reach this crack."
+      },
+      {
+        "id": "check-ring",
+        "sceneId": "scene-wreck",
+        "label": "Slap at the ring",
+        "ability": "Dexterity saving throw",
+        "dc": 15,
+        "success": "They keep their feet. The avatar speaks.",
+        "failure": "7 bludgeoning and prone at the edge. Then it speaks. This is not the wipe."
+      }
+    ],
+    "hazards": [
+      {
+        "id": "haz-arch",
+        "sceneId": "scene-raid",
+        "trigger": "The warning gun or a climb drops the chapel arch.",
+        "save": "DC 15 Dexterity",
+        "failure": "7 (2d6) bludgeoning and prone.",
+        "success": "Half damage, not prone.",
+        "failForward": "The arch does not block the scene."
+      },
+      {
+        "id": "haz-ring",
+        "sceneId": "scene-wreck",
+        "trigger": "They cross the ring armed and silent.",
+        "save": "DC 15 Dexterity",
+        "failure": "7 (2d6) bludgeoning and prone, then the warning.",
+        "success": "No damage, then the warning.",
+        "failForward": "The slap is a warning. Leaving or talking prevents the wipe."
+      }
+    ],
+    "encounters": [
+      {
+        "id": "enc-crossing",
+        "objective": "Roll one channel event and land.",
+        "start": "Leave the ferry lane.",
+        "end": "At the quay.",
+        "creatures": []
+      },
+      {
+        "id": "enc-lane",
+        "objective": "Roll one lane event and reach the court.",
+        "start": "Step onto the ribbon lane.",
+        "end": "The gates are open.",
+        "creatures": []
+      },
+      {
+        "id": "enc-raid",
+        "objective": "Land the first wood hit.",
+        "start": "Malachar steps onto the quay.",
+        "end": "The coat dissolves, or Seraphine breaks the ring.",
+        "balance": "Four level-5 characters. 2024 XP budgets per character are Low 500, Moderate 750, High 1,100, so the party is Low 2,000, Moderate 3,000, High 4,400. 2014 thresholds per character are Easy 250, Medium 500, Hard 750, Deadly 1,100, so the party is 1,000 / 2,000 / 3,000 / 4,400. Default wave: Malachar CR 5 (1,800 XP) and four Salt Raiders CR 1/2 (100 XP each). Raw total 2,200 XP. 2024 uses the raw total: Low-to-Moderate. 2014 multiplies five creatures by 2, which is 4,400 adjusted, exactly Deadly. Regeneration and two legendary actions make the opening rounds play High until the first original-wood hit removes both. Do not add extra XP for those traits. Beginner cut: no legendary actions until round 3 or the wood hit.",
+        "scaling": "Three players: Malachar at 96 hit points and one Salt Raider. Raw 1,900. 2014 two-creature multiplier 1.5 is 2,850 adjusted, under the three-person Deadly threshold of 3,300. Five players: add one Drowned Deckhand. Six creatures, raw 2,250, 2014 multiplier 2 is 4,500, under the five-person Deadly threshold of 5,500. Six players: add two Drowned Deckhands. Seven creatures, raw 2,300, 2014 multiplier 2.5 is 5,750, under the six-person Deadly threshold of 6,600. 2024 uses the raw totals and stays under Moderate for these adds.",
+        "creatures": [
+          {
+            "name": "Malachar Vane, surface coat",
+            "ac": 16,
+            "hp": 120,
+            "cr": 5,
+            "xp": 1800,
+            "tactics": "Two cutlass attacks. Two legendary cutlass actions until the wood hit. Regenerates 10 until that hit. Goes for whoever holds the old wood. Stops if Seraphine breaks the ring.",
+            "statBlock": "Original creature, Malachar Vane in the stolen coat. Not a published stat block. The same numbers are used in both editions because he is not a player class. The cutlass uses scimitar statistics (1d6 slashing, finesse). He does not gain 2024 Weapon Mastery.\n\nAC 16 (salt-crusted coat). HP 120 (16d8 + 48) for four characters. Speed 30 ft., swim 30 ft.\nSTR 18 (+4) DEX 14 (+2) CON 16 (+3) INT 12 (+1) WIS 14 (+2) CHA 16 (+3)\nSaves Str +7, Con +6, Wis +5. Skills Intimidation +6, Perception +5.\nSenses darkvision 60 ft., passive Perception 15. Languages Common.\nCR 5 (1,800 XP) before the wood. Proficiency +3.\n\nRegeneration. He regains 10 hit points at the start of his turn. The first hit with original first-keel wood ends regeneration, ends his legendary actions, and ends this coat. He does not need to reach 0 hit points. He dissolves into seawater and reforms under the shoal.\nCutlass. Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 8 (1d6 + 4) slashing damage.\nMultiattack. Two cutlass attacks.\nLegendary actions, 2 per round, only until the wood hit. One action: one cutlass attack.\n\nCR note. Hit points 120 sit on the CR 4 hit-point step (116\u2013130). AC 16 is one point above that step's AC 14, so defensive CR is 5. Two cutlasses are about 15 damage, a CR 2 damage step, and attack +7 pulls the offensive rating up to about 4. The average is CR 5, 1,800 XP. The two legendary attacks and regeneration 10 make the first rounds play harder than that printed CR. Say so. Do not add a second CR. After the wood hit, this block is gone."
+          },
+          {
+            "name": "Salt Raider",
+            "ac": 13,
+            "hp": 16,
+            "cr": "1/2",
+            "xp": 100,
+            "tactics": "Default table uses four of this block. Screen Malachar. Crossbow if a target is on the chapel steps, cutlass if a target is on the quay.",
+            "statBlock": "Original humanoid, Salt Raider, CR 1/2 (100 XP). Not a published bandit. AC 13 (salt-stiffened coat), HP 16 (3d8 + 3), speed 30 ft. STR 14 (+2), DEX 12 (+1), CON 12 (+1), INT 10, WIS 10, CHA 8. Cutlass using scimitar statistics: +4 to hit, 1d6 + 2 slashing. Light crossbow: +3 to hit, 1d8 + 1 piercing, range 80/320. Proficiency +2. Same block in both editions. No Weapon Mastery."
+          }
+        ]
+      },
+      {
+        "id": "enc-avatar",
+        "objective": "Get past without striking.",
+        "start": "The eye opens and the warning is spoken.",
+        "end": "They are past the ring, or they wake on the ferry.",
+        "balance": "Not a balanced fight. Four level-5 characters top out at a 2024 High budget of 4,400 XP and a 2014 Deadly threshold of 4,400 XP. This creature is CR 20, 25,000 XP, one creature so the 2014 multiplier is 1. That is above both budgets on purpose. The derived CR 20 row is AC 19, 363 hit points, attack +10, about 124 damage, save DC 19. One tentacle can drop a level-5 character. The lore reason is stronger than the math: this is Serevath's last body, and 0 hit points rewinds the day instead of winning. Do not reduce the numbers for a smaller party.",
+        "scaling": "Do not lower hit points, AC, attack, or damage for three players, and do not add a second avatar for six. The wipe is the same at every party size. The ways around it do not change.",
+        "creatures": [
+          {
+            "name": "Bell Avatar of Serevath (HOMEBREW)",
+            "ac": 19,
+            "hp": 363,
+            "cr": 20,
+            "xp": 25000,
+            "tactics": "It warns first. It does not attack on sight. It attacks only after they damage it, cast at it, or declare the fight. Then it wipes them. Use the 2014 block or the 2024 block to match the table. One optional tentacle, then the Return. It does not chase past the ring.",
+            "statBlock": "HOMEBREW \u2014 Bell Avatar of Serevath. Gargantuan beast, unaligned. This is not a published stat block. It is a homebrew Gargantuan octopus scaled from the SRD 5.1 Giant Octopus so the combat numbers sit on the CR 20 row derived below. Use this block at a 2014 table.\n\nArmor Class 19 (natural armor). The Giant Octopus has AC 11. Natural armor is raised so the defensive rating matches CR 20.\nHit Points 363 (22d20 + 132)\nSpeed 10 ft., swim 60 ft.\n\nSTR 19 (+4) DEX 13 (+1) CON 22 (+6) INT 14 (+2) WIS 10 (+0) CHA 4 (\u22123)\nSaving Throws Str +10, Con +12\nSkills Perception +12, Stealth +13\nSenses darkvision 60 ft., passive Perception 22\nLanguages understands Primordial; telepathy 120 ft. (homebrew, so it can bargain)\nChallenge 20 (25,000 XP). Proficiency Bonus +6.\n\nHold Breath. The avatar can hold its breath for 1 hour.\nUnderwater Camouflage. The avatar has advantage on Dexterity (Stealth) checks made while underwater.\nWater Breathing. The avatar can breathe only underwater.\nAvatar of Serevath. This is the last body of the lost octopus god Serevath, the Tide That Returns. Level-5 weapons can bruise it. They cannot end it. If it drops to 0 hit points, it is not destroyed: the wedding day rewinds at once under the Return procedure. There is no victory in killing it.\nChain of the Shoal. An oath-ring holds it inside a 90-foot radius. It will not cross the ring. A tentacle reaches 30 feet past the ring. It does not chase beyond that.\n\nMultiattack. It makes four tentacle attacks and can grapple up to four creatures at once. The SRD Giant Octopus grapples only one target. The extra grapples are part of this scale-up.\nTentacles. Melee Weapon Attack: +10 to hit, reach 30 ft., one target. Hit: 31 (5d10 + 4) bludgeoning damage, and the target is grappled (escape DC 19). Until this grapple ends, the target is restrained. The SRD Giant Octopus reach is 15 feet. Thirty feet is the scale-up.\nInk Cloud (Recharges after a Short or Long Rest). A 60-foot-radius cloud of ink extends around the avatar if it is underwater. The area is heavily obscured for 1 minute, although a significant current can disperse the ink. After releasing the ink, the avatar can take the Dash action as a bonus action. The SRD cloud is 20 feet. The ink deals no damage.\n\nCR math. The 2014 Dungeon Master's Guide prints challenge rating in steps. The rows for CR 4 and CR 5 are hit points 116\u2013130 then 131\u2013145, and damage 27\u201332 then 33\u201338: a step of 15 hit points and 6 damage. Continuing that step puts CR 20 at hit points 356\u2013370 and damage 123\u2013128, with AC 19, attack +10, save DC 19, and proficiency +6. This body has AC 19 and 363 hit points, so defensive CR is 20 with no Armor Class adjustment. Four tentacles list 31 damage each. Four times 31 is 124, inside 123\u2013128, and the attack bonus is +10, so offensive CR is 20 with no attack adjustment. The average is CR 20. Experience is 25,000, the SRD value for CR 20. Intelligence 14 replaces the Giant Octopus's Intelligence 4 so the avatar can speak. That change is not part of the CR math. Strength 19 and Constitution 22 exist so the attack bonus and hit points land on this row. If a printed book shows a different CR 20 band, move the hit points or the tentacle dice until the body sits in the printed row. Do not drop it below CR 20.\n\nHOMEBREW \u2014 Bell Avatar of Serevath. Gargantuan Beast, Unaligned. Built from the SRD 5.2.1 Giant Octopus and then scaled. The 2024 SRD does not reprint the creature-building table. These combat numbers are the same CR 20 row as the 2014 block. The traits follow the 2024 Giant Octopus's shape. Use this block at a 2024 table.\n\nAC 19 (natural armor). The Giant Octopus has AC 11.\nInitiative +1 (11)\nHP 363 (22d20 + 132)\nSpeed 10 ft., Swim 60 ft.\n\nSTR 19 (+4), save +10\nDEX 13 (+1)\nCON 22 (+6), save +12\nINT 14 (+2). The Giant Octopus's Intelligence is 5. Fourteen is the homebrew mind, so it can bargain. It does not change CR.\nWIS 10 (+0)\nCHA 4 (\u22123)\n\nSkills Perception +12, Stealth +13\nSenses Darkvision 60 ft.; Passive Perception 22\nLanguages understands Primordial; telepathy 120 ft. (homebrew)\nCR 20 (XP 25,000; PB +6)\n\nWater Breathing. The avatar can breathe only underwater, and it can hold its breath for 1 hour outside water.\nAvatar of Serevath. This is the last body of the lost god Serevath. If it drops to 0 Hit Points, it is not killed. The wedding day rewinds immediately under the Return procedure. A level-5 party cannot win this fight.\nChain of the Shoal. It will not move outside a 90-foot oath-ring. Tentacles reach 30 feet past that ring. It does not chase farther.\n\nMultiattack. The avatar makes four Tentacle attacks and can grapple up to four creatures at once.\nTentacles. Melee Attack Roll: +10, reach 30 ft. Hit: 31 (5d10 + 4) Bludgeoning damage. The 2024 Giant Octopus reach is 10 feet. Thirty feet is the scale-up. If the target is Huge or smaller, it has the Grappled condition (escape DC 19) from one tentacle, and it has the Restrained condition while Grappled. The SRD octopus limits this to Medium or smaller because that octopus is Large. Huge or smaller is the scale-up.\nInk Cloud (1/Day), Reaction. Trigger: the avatar takes damage while underwater. Response: ink fills a 30-foot Cube centered on itself, Heavily Obscured for 1 minute or until a strong current disperses it, and the avatar moves up to its Swim Speed. The 2024 Giant Octopus uses a 10-foot Cube. The ink deals no damage.\n\nCR math. Same derived row as the 2014 block: AC 19, 363 Hit Points inside 356\u2013370, attack +10, 124 damage inside 123\u2013128, grapple DC 19. Defensive CR 20. Offensive CR 20. Average CR 20. XP 25,000. Do not add lightning, and do not give it extra attacks to \"use up\" the party. The block is already the wipe."
+          }
+        ]
+      },
+      {
+        "id": "enc-true",
+        "objective": "Second wood touch, then a fall, or the refusal.",
+        "start": "He speaks under the bell.",
+        "end": "The oath breaks.",
+        "balance": "Malachar's true form is CR 5, 1,800 XP, one creature. 2024 raw XP is under the Low budget of 2,000 for four level-5 characters. 2014 adjusted XP is 1,800, between Medium 2,000 and Easy 1,000, so it is an Easy-to-Medium fight by the threshold table and the hit points play closer to Hard until the second wood touch. Say both. The oath-ring refusal ends the scene with no attack roll.",
+        "scaling": "Three players: 110 hit points. Five players: 170. Six players: 190 and a third tentacle attack. The refusal ending does not use these numbers.",
+        "creatures": [
+          {
+            "name": "Malachar Vane, true form",
+            "ac": 15,
+            "hp": 152,
+            "cr": 5,
+            "xp": 1800,
+            "tactics": "Two tentacles. Reforms at 40 hit points after two rounds if dropped before the second wood touch. After that touch, 0 hit points ends it. He holds still if Seraphine breaks the ring.",
+            "statBlock": "Original creature, Malachar's true form under the shoal. Not a published stat block. Same numbers in both editions. He is not the god, and he is not the Bell Avatar.\n\nHuge original monstrosity. AC 15. HP 152 (16d10 + 64) for four characters. Speed 10 ft., swim 40 ft.\nSTR 18 (+4) DEX 12 (+1) CON 18 (+4) INT 12 (+1) WIS 14 (+2) CHA 14 (+2)\nSaves Str +7, Con +7, Wis +5. Darkvision 60 ft. Passive Perception 12. Languages Common.\nCR 5 (1,800 XP). Proficiency +3.\n\nBound Flesh. The second touch of original first-keel wood makes this form mortal. Before that touch, if he drops to 0 hit points he reforms at 40 hit points after two rounds. After the second touch, 0 hit points ends the curse.\nTentacle. Melee Weapon Attack: +7 to hit, reach 15 ft. Hit: 13 (2d8 + 4) bludgeoning.\nMultiattack. Two tentacle attacks.\n\nCR note. 152 hit points sit on the CR 6 hit-point step (146\u2013160) and AC 15 matches that step, so defensive CR is 6. Two tentacles are about 26 damage, a CR 3 damage step, and attack +7 raises the offensive rating to about 4. The average rounds to CR 5, 1,800 XP. Label it CR 5 and say the hit points play like CR 6 until the second wood touch."
+          }
+        ]
+      }
+    ],
+    "mapNotes": [
+      {
+        "sceneId": "scene-raid",
+        "dimensions": "Quay 40 by 80 feet, ship alongside the long edge, chapel arch at the inland end.",
+        "features": [
+          "Gangplank",
+          "Chapel arch that can drop",
+          "Seraphine at the altar end",
+          "Water on the seaward side, not deep enough to hide"
+        ]
+      },
+      {
+        "sceneId": "scene-wreck",
+        "dimensions": "Ribs in 30 feet of water. Silver ring 90 feet across. Tentacle reach 30 feet past the ring. Lower crack outside it.",
+        "features": [
+          "Oath ring",
+          "Lower crack",
+          "Crushed armor with the tally",
+          "Avatar inside the ring",
+          "Bell trench beyond, outside the chain"
+        ]
+      },
+      {
+        "sceneId": "scene-bell",
+        "dimensions": "Hold trench 20 by 50 feet, bell on its side, true form at the far end.",
+        "features": [
+          "Inscribed bell",
+          "Keel timber that counts as wood",
+          "No avatar in this trench"
+        ]
+      }
+    ],
+    "rewards": [
+      {
+        "id": "reward-pearls",
+        "when": "Chapel chest or Oren's gift",
+        "reward": "Six original Tide Pearls. Action to crush. Breathe water and swim 30 feet for 1 hour. One creature each."
+      },
+      {
+        "id": "reward-potion",
+        "when": "Same chest",
+        "reward": "One SRD Potion of Water Breathing, uncommon. One creature breathes water for 24 hours."
+      },
+      {
+        "id": "reward-wood",
+        "when": "Cane, shard, trophy, or keel",
+        "reward": "First-keel wood. It is the key, not a magic weapon bonus."
+      },
+      {
+        "id": "reward-coin",
+        "when": "Echo-ship strongbox",
+        "reward": "80 gp. The strongbox is new timber and does not break the curse."
+      }
+    ]
+  }
+}

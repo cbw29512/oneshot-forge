@@ -322,6 +322,32 @@
         "entitlementVerificationUrl": null
       },
       "rulesSupport": "both"
+    },
+    {
+      "id": "the-wedding-that-never-ends",
+      "title": "The Wedding That Never Ends",
+      "status": "review",
+      "priceCents": 99,
+      "currentAccess": "free-preview",
+      "sellable": false,
+      "runnerUrl": "run.html?id=the-wedding-that-never-ends",
+      "productUrl": "adventures/the-wedding-that-never-ends.html",
+      "level": 5,
+      "party": "3–6 players",
+      "playTime": "about 4 hours",
+      "releaseGate": {
+        "requiresApproval": true,
+        "approved": false,
+        "requiresCheckout": true,
+        "checkoutConfigured": false
+      },
+      "commerce": {
+        "provider": null,
+        "checkoutUrl": null,
+        "entitlementMode": "server-verified",
+        "entitlementVerificationUrl": null
+      },
+      "rulesSupport": "both"
     }
   ]
 }

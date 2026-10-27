@@ -15,6 +15,7 @@ Live: https://cbw29512.github.io/oneshot-forge/
 **Forge Farm lane:** batch generation is allowed. There is no daily quantity target. Candidates may be generated in volume, but only constitution-compliant, audited candidates may become release-ready.
 
 ## Standalone one-shots (outside The Quiet Seals)
+- The Wedding That Never Ends — standalone gothic nautical horror, NOT an Oakhaven module and NOT a Quiet Seals night. Level 5, 3–6 players tuned for 4, about 4 hours. Veyra is a distant island. Review/free-preview, $0.99 target, checkout closed. The Bell Avatar of Serevath is homebrew CR 20. Do not fold it into `data/campaigns/quiet-seals.campaign.json`.
 - The Owlbear Egg — standalone one-shot, NOT a Quiet Seals night. Owner confirmed 2026-09-26. Do not fold it into `data/campaigns/quiet-seals.campaign.json` or the recipe night list. Reuses the shared level-4 pregens.
 - Whispers of the Oakhaven Hollow — Oakhaven Module 02, Level 2, Old Man Kaelen's quest, 3–6 players (tuned for 4), about 3–4 hours. Review/free-preview, $0.99 target, no checkout.
 - Beneath the Eastern Watchtower — Oakhaven Module 03, Level 3, Captain Edda Marr's quest, 3–6 players (tuned for 4), about 3–4 hours. Review/free-preview, $0.99 target, no checkout.
@@ -78,6 +79,8 @@ Consumable potions do not carry onto the next sheet. Series pregens assume the b
 - Write two curated Quiet Seals nights in one day
 
 ## Last session
+2026-10-27 — Added The Wedding That Never Ends as a standalone level-5 horror one-shot. The repeating wedding is a stolen law of Serevath, an original lost octopus god. The Gargantuan octopus under Old Bell Shoal is that god's last body: homebrew, challenge rating 20, 25,000 XP, with separate 2014 and 2024 blocks scaled from the SRD Giant Octopus. Striking it wipes the party and returns them to the Little Promise at 3 p.m. because a broken tide comes back to the morning it left. Checkout stays closed.
+
 2026-10-27 — Public catalog pass. The homepage now states that everything is free to play and that paid versions will cost $0.99, with a price chip and an edition badge on each card. Level, hours, and the Oakhaven series row are read from the adventure packages (Modules 02–06 are levels 2–6, 3–4 hours). Level and series filters, a what-you-get box, plain-language public copy, lazy WebP covers, and the Mere skimmer attack line (speeds stay in the speed field) are in this pass. Commercial checkout stays closed.
 
 2026-10-27 — Oakhaven series pass. Releveled Modules 02–06 to levels 2–6, one level each. Quest givers stay the story NPCs: Kaelen, Marr, the survey office, Soren Vale, and Noll Vey. The mayor is reserved for the unwritten level 1 opening and level 10 closing. Each written module now runs hook, a rolled encounter, a suspect-and-red-herring direction beat, a second rolled encounter on the road, the existing arrival with its trap and puzzle, the holder of the goal, the return to Oakhaven, and a lead into the next module. Magic items are SRD only and carry forward on both-edition pregen packs at `data/pregens/oakhaven-level-2` through `oakhaven-level-6`. Levels 7–9 and both mayor modules remain unwritten. See the Oakhaven level chain above.

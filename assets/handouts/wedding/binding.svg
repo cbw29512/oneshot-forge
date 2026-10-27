@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+<rect width="800" height="500" fill="#f4efe2" stroke="#2a241c" stroke-width="4"/>
+<text x="40" y="60" font-family="Georgia" font-size="24" fill="#2a241c">Binding fragment</text>
+<text x="40" y="110" font-family="Georgia" font-size="16" fill="#2a241c">I, Aldric Renn, take the unfinished law of Serevath</text>
+<text x="40" y="142" font-family="Georgia" font-size="16" fill="#2a241c">and bind it to Malachar Vane.</text>
+<text x="40" y="174" font-family="Georgia" font-size="16" fill="#2a241c">The wedding holds until the first timber of the Widow's Grin</text>
+<text x="40" y="206" font-family="Georgia" font-size="16" fill="#2a241c">strikes him twice: once in the air, once under the bell.</text>
+<text x="40" y="238" font-family="Georgia" font-size="16" fill="#2a241c">The body of the god is not the lock. It is the law.</text>
+<text x="40" y="270" font-family="Georgia" font-size="16" fill="#2a241c">Strike that body and the tide returns.</text>
+</svg>

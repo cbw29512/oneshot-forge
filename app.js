@@ -366,6 +366,9 @@ function renderPregens() {
     .sort((a, b) => Number(Boolean(b.recommended)) - Number(Boolean(a.recommended)))
     .map(pregenCardHtml)
     .join("");
+  if (adventure && adventure.sheetPack) {
+    wrap.innerHTML += '<p class="tiny"><a href="sheets.html?pack=' + encodeURIComponent(adventure.sheetPack) + '&print=1">Print these sheets</a></p>';
+  }
 }
 
 function pregenCardHtml(pc) {
