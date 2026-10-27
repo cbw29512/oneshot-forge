@@ -138,7 +138,7 @@
           icon: "🧙",
           title: "Character sheets",
           desc: characterDesc,
-          href: "sheets.html?rules=" + ed + "&print=1",
+href: "sheets.html?rules=" + ed + "&print=1" + ((adventure && (adventure.sheetPack || String(adventure.pregenPack || "").indexOf("wedding-level-5") >= 0)) ? "&pack=wedding" : ""),
           label: hasCompatiblePregens ? "Print ready-made characters" : "Ready-made characters not included",
           disabled: !hasCompatiblePregens
         }),

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+<rect width="900" height="560" fill="#d5e2e4"/>
+<circle cx="430" cy="280" r="180" fill="none" stroke="#b9c6cf" stroke-width="6" stroke-dasharray="8 6"/>
+<text x="250" y="90" font-family="Georgia" font-size="18" fill="#1c2830">GM only. Oath ring, 90 feet. Do not show early.</text>
+<path d="M300 160 L340 120 L390 170 L360 240 L300 220 Z" fill="none" stroke="#2a3338" stroke-width="4"/>
+<path d="M460 150 L520 130 L540 200 L480 230 Z" fill="none" stroke="#2a3338" stroke-width="4"/>
+<path d="M340 300 L400 280 L430 360 L350 380 Z" fill="none" stroke="#2a3338" stroke-width="4"/>
+<text x="360" y="270" font-family="Georgia" font-size="16" fill="#1c2830">Avatar inside the ring</text>
+<path d="M620 340 L700 360 L690 430 L600 410 Z" fill="#c9b89a" stroke="#2a3338"/>
+<text x="600" y="460" font-family="Georgia" font-size="16" fill="#1c2830">Lower crack, outside the ring</text>
+<rect x="640" y="180" width="120" height="50" fill="#efe6c9" stroke="#2a3338"/>
+<text x="648" y="210" font-family="Georgia" font-size="16" fill="#1c2830">Bell trench</text>
+<text x="40" y="520" font-family="Georgia" font-size="14" fill="#1c2830">Tentacles reach 30 feet past the ring. They do not chase farther. The trench is not their ground.</text>
+</svg>

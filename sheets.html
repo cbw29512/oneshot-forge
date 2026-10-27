@@ -508,17 +508,26 @@
     const requestedPack = params.get("pack") || "";
     const owlbearMode = requestedPack === "owlbear-arms";
     const oakhavenLevel = (/^oakhaven-([2-6])$/.exec(requestedPack) || [])[1] || "";
+    const weddingMode = requestedPack === "wedding";
     const edition = owlbearMode ? "2014" : ((typeof getRuleset === "function" && getRuleset() === "2024") ? "2024" : "2014");
     const packUrl = owlbearMode
       ? "data/pregens/owlbear-arms-level-6-2014-srd-v1.2.json?v=1.2"
       : oakhavenLevel
         ? "data/pregens/oakhaven-level-" + oakhavenLevel + "-" + edition + "-srd.json?v=1"
-        : edition === "2024"
-        ? "data/pregens/quiet-seals-level-4-2024-srd.json?v=m"
-        : "data/pregens/quiet-seals-level-4-2014-srd.json?v=m";
+        : weddingMode
+          ? (edition === "2024"
+            ? "data/pregens/wedding-level-5-2024-srd.json?v=1"
+            : "data/pregens/wedding-level-5-2014-srd.json?v=1")
+          : edition === "2024"
+            ? "data/pregens/quiet-seals-level-4-2024-srd.json?v=m"
+            : "data/pregens/quiet-seals-level-4-2014-srd.json?v=m";
     if (oakhavenLevel) {
       const intro = document.querySelector(".sheets-wrap > .land-section");
       if (intro) intro.innerHTML = '<p class="eyebrow ember">Oakhaven series · level ' + oakhavenLevel + ' · ' + (edition === "2024" ? "SRD 5.2.1" : "SRD 5.1") + '</p><h1>Four series heroes</h1><p class="lede short">Calder Voss, Ness Quinn, Halden Moss, and Mira Quill, built for this module. They carry the permanent magic items earned on the best path of every earlier Oakhaven module. Use the edition toggle to switch 2014 and 2024. A table that did not play those modules can set the extra items aside.</p>';
+    }
+    if (weddingMode) {
+      const intro = document.querySelector(".sheets-wrap > .land-section");
+      if (intro) intro.innerHTML = '<p class="eyebrow ember">The Wedding That Never Ends · Level 5 · ' + edition + ' SRD</p><h1>Six ready-made guests</h1><p class="lede short">Soren, Maren, Lark, Quill, Bram, and Cade. Each carries one uncommon SRD item. The 2024 packet is its own build.</p>';
     }
     if (owlbearMode) {
       const intro = document.querySelector(".sheets-wrap > .land-section");
@@ -534,7 +543,7 @@
         const allCharacters = pack.characters || [];
         const screenHtml =
           rec.map(sheetHtml).join("") +
-          (owlbearMode || oakhavenLevel
+(owlbearMode || oakhavenLevel || weddingMode
             ? rest.map(sheetHtml).join("")
             : edition === "2024"
               ? '<p class="print-hide" style="padding:1rem 1.5rem">The extra six classes are still 2014-only. Tonight’s table is these six.</p>'

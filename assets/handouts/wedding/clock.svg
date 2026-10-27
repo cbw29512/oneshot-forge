@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+<rect width="800" height="500" fill="#f4efe2" stroke="#2a241c" stroke-width="4"/>
+<text x="40" y="60" font-family="Georgia" font-size="24" fill="#2a241c">Clock card</text>
+<text x="40" y="110" font-family="Georgia" font-size="16" fill="#2a241c">Midnight bell: the day rewinds if the oath still holds.</text>
+<text x="40" y="142" font-family="Georgia" font-size="16" fill="#2a241c">A death dealt by Serevath's body rewinds the day at once.</text>
+<text x="40" y="174" font-family="Georgia" font-size="16" fill="#2a241c">You wake on the Little Promise at three in the afternoon.</text>
+<text x="40" y="206" font-family="Georgia" font-size="16" fill="#2a241c">Failed returns: ______</text>
+<text x="40" y="238" font-family="Georgia" font-size="16" fill="#2a241c">Same lie will not work twice.</text>
+<text x="40" y="270" font-family="Georgia" font-size="16" fill="#2a241c">A new approach still will.</text>
+</svg>

@@ -124,7 +124,9 @@ for (const required of [
 
 for (const packPath of [
   "data/pregens/quiet-seals-level-4-2014-srd.json",
-  "data/pregens/quiet-seals-level-4-2024-srd.json"
+  "data/pregens/quiet-seals-level-4-2024-srd.json",
+  "data/pregens/wedding-level-5-2014-srd.json",
+  "data/pregens/wedding-level-5-2024-srd.json"
 ]) {
   const raw = read(packPath);
   if (!raw) continue;

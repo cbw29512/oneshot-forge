@@ -15,6 +15,7 @@
     "the-ashen-bridge": "data/adventures/the-ashen-bridge.oneshot.json",
     "the-bell-beneath-the-mere": "data/adventures/the-bell-beneath-the-mere.oneshot.json",
     "the-fencewalker-of-bellmere": "data/adventures/the-fencewalker-of-bellmere.oneshot.json",
-    "the-lanternback-of-reedwater": "data/adventures/the-lanternback-of-reedwater.oneshot.json"
+    "the-lanternback-of-reedwater": "data/adventures/the-lanternback-of-reedwater.oneshot.json",
+    "the-wedding-that-never-ends": "data/adventures/the-wedding-that-never-ends.oneshot.json"
   });
 })();
