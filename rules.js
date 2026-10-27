@@ -39,5 +39,5 @@ function mountRulesetToggle(host) {
 }
 
 function rulesetLabel() {
-  return getRuleset() === "2024" ? "5E 2024 SRD 5.2.1" : "5E 2014 SRD";
+  return getRuleset() === "2024" ? "5th Edition 2024 (SRD 5.2.1)" : "5th Edition 2014 (SRD 5.1)";
 }

@@ -25,7 +25,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "both"
     },
     {
       "id": "the-well-that-would-not-dry",
@@ -50,7 +51,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "both"
     },
     {
       "id": "the-owlbear-egg",
@@ -75,7 +77,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "both"
     },
     {
       "id": "birthday-one-shot",
@@ -101,7 +104,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "2014"
     },
     {
       "id": "whispers-of-the-oakhaven-hollow",
@@ -126,7 +130,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "both"
     },
     {
       "id": "beneath-the-eastern-watchtower",
@@ -151,7 +156,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "both"
     },
     {
       "id": "the-black-orchard",
@@ -176,7 +182,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "both"
     },
     {
       "id": "the-ashen-bridge",
@@ -201,7 +208,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "both"
     },
     {
       "id": "the-bell-beneath-the-mere",
@@ -226,7 +234,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "both"
     },
     {
       "id": "right-to-owlbear-arms",
@@ -259,7 +268,8 @@
       },
       "revisionOverlay": "docs/OWLBEAR_ARMS_V1_2_REPAIR.md",
       "pregenUrl": "sheets.html?pack=owlbear-arms",
-      "mechanicsRevision": "1.2"
+      "mechanicsRevision": "1.2",
+      "rulesSupport": "2014"
     },
     {
       "id": "the-fencewalker-of-bellmere",
@@ -284,7 +294,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "both"
     },
     {
       "id": "the-lanternback-of-reedwater",
@@ -309,7 +320,8 @@
         "checkoutUrl": null,
         "entitlementMode": "server-verified",
         "entitlementVerificationUrl": null
-      }
+      },
+      "rulesSupport": "both"
     }
   ]
 }

@@ -2,6 +2,17 @@
   "use strict";
 
   const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+  const SITE_ROOT = new URL(".", document.currentScript && document.currentScript.src || location.href);
+  const SERIES_KEYS = {
+    "Oakhaven Adventures": "oakhaven",
+    "The Quiet Seals": "quiet-seals",
+    "Hearthcross Road Tales": "hearthcross-road",
+    "Cryptid Cases": "cryptid"
+  };
+
+  function siteFetch(path, options) {
+    return fetch(new URL(path, SITE_ROOT), options);
+  }
 
   function commerceFor(product) {
     return product.commerce || {};
@@ -47,6 +58,29 @@
     return "Coming after review";
   }
 
+  function priceChipLabel(product) {
+    if (!product || product.priceCents === 0 || product.currentAccess === "free-starter") return "Free";
+    if (releaseGate(product)) return money.format(product.priceCents / 100);
+    if (product.priceCents === 99) return "$0.99 (coming soon)";
+    return "Free";
+  }
+
+  function editionLabel(product) {
+    if (product && product.rulesSupport === "2014") return "2014 rules only";
+    if (product && product.rulesSupport === "2024") return "2024 rules only";
+    return "Works with 2014 and 2024 rules";
+  }
+
+  function hoursLabel(minutes) {
+    const hours = Number(minutes) / 60;
+    if (!Number.isFinite(hours) || hours <= 0) return "";
+    if (Math.abs(hours - Math.round(hours)) < 0.05) {
+      const whole = Math.round(hours);
+      return whole === 1 ? "about 1 hour" : `about ${whole} hours`;
+    }
+    return `${Math.floor(hours)}–${Math.ceil(hours)} hours`;
+  }
+
   function hasLocalProgress(productId) {
     try {
       const raw = localStorage.getItem("oneshot-forge:state:" + productId);
@@ -67,10 +101,11 @@
     const owned = entitlement === "owned";
     const canSell = releaseGate(product) && !owned;
     const resume = hasLocalProgress(product.id);
+    const downloadLabel = action.dataset.downloadLabel || "Download complete kit";
     action.textContent = canSell
       ? `Buy ${money.format(product.priceCents / 100)}`
       : product.currentAccess === "free-starter" ? (resume ? "Resume free adventure" : "Play free adventure")
-      : product.format === "download-bundle" ? "Download complete kit"
+      : product.format === "download-bundle" ? downloadLabel
       : resume ? "Resume game" : "Run now";
     action.dataset.commercialState = owned ? "owned" : canSell ? "sellable" : "preview";
 
@@ -91,7 +126,115 @@
     }
   }
 
+  function paintChipAndEdition(product) {
+    const chip = priceChipLabel(product);
+    const edition = editionLabel(product);
+    const card = document.querySelector(`[data-product-id="${CSS.escape(product.id)}"]`);
+    const page = document.querySelector(`[data-product-page="${CSS.escape(product.id)}"]`);
+    for (const root of [card, page]) {
+      if (!root) continue;
+      root.querySelectorAll("[data-price-chip]").forEach(node => { node.textContent = chip; });
+      root.querySelectorAll("[data-edition-badge]").forEach(node => { node.textContent = edition; });
+    }
+  }
+
+  function paintAdventureFacts(product, adventure) {
+    const level = Number(adventure?.metadata?.partyLevel || product.level || 0);
+    const hours = adventure ? hoursLabel(adventure.metadata?.durationMinutes) : (product.playTime || "");
+    const seriesKey = SERIES_KEYS[adventure?.series?.title] || "";
+    const card = document.querySelector(`[data-product-id="${CSS.escape(product.id)}"]`);
+    const page = document.querySelector(`[data-product-page="${CSS.escape(product.id)}"]`);
+    if (card) {
+      if (level) card.dataset.level = String(level);
+      if (seriesKey) card.dataset.series = seriesKey;
+    }
+    for (const root of [card, page]) {
+      if (!root) continue;
+      if (level) root.querySelectorAll('[data-fact="level"]').forEach(node => { node.textContent = `Level ${level}`; });
+      if (hours) root.querySelectorAll('[data-fact="hours"]').forEach(node => { node.textContent = hours; });
+    }
+    return adventure;
+  }
+
+  function renderOakhavenSeries(adventures) {
+    const list = document.getElementById("oakhaven-series-list");
+    if (!list) return;
+    const entries = adventures
+      .filter(entry => entry.adventure?.series?.title === "Oakhaven Adventures")
+      .map(entry => ({
+        id: entry.product.id,
+        episode: Number(entry.adventure.series.episode),
+        level: Number(entry.adventure.series.level || entry.adventure.metadata?.partyLevel)
+      }))
+      .filter(entry => entry.episode && entry.level)
+      .sort((a, b) => a.episode - b.episode || a.level - b.level);
+    if (!entries.length) return;
+    list.replaceChildren();
+    for (const entry of entries) {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = `#card-${entry.id}`;
+      link.dataset.seriesLink = entry.id;
+      link.textContent = `Module ${String(entry.episode).padStart(2, "0")} · Level ${entry.level}`;
+      item.append(link);
+      list.append(item);
+    }
+    const coming = document.createElement("li");
+    const note = document.createElement("span");
+    note.className = "series-coming";
+    note.textContent = "Levels 1 and 7-10 coming";
+    coming.append(note);
+    list.append(coming);
+  }
+
+  function fillLevelFilter() {
+    const select = document.getElementById("filter-level");
+    if (!select) return;
+    const levels = [...document.querySelectorAll(".catalog .adv-card[data-level]")]
+      .map(card => Number(card.dataset.level))
+      .filter(level => level > 0);
+    const unique = [...new Set(levels)].sort((a, b) => a - b);
+    const current = select.value;
+    select.replaceChildren();
+    const all = document.createElement("option");
+    all.value = "";
+    all.textContent = "All levels";
+    select.append(all);
+    for (const level of unique) {
+      const option = document.createElement("option");
+      option.value = String(level);
+      option.textContent = `Level ${level}`;
+      select.append(option);
+    }
+    if ([...select.options].some(option => option.value === current)) select.value = current;
+  }
+
+  function applyFilters() {
+    const level = document.getElementById("filter-level")?.value || "";
+    const series = document.getElementById("filter-series")?.value || "";
+    document.querySelectorAll(".catalog .adv-card").forEach(card => {
+      if (!card.dataset.productId) {
+        card.hidden = Boolean(level || series);
+        return;
+      }
+      const levelOk = !level || card.dataset.level === level;
+      const seriesOk = !series || card.dataset.series === series;
+      card.hidden = !(levelOk && seriesOk);
+    });
+  }
+
+  function bindFilters() {
+    for (const id of ["filter-level", "filter-series"]) {
+      const select = document.getElementById(id);
+      if (select && !select.dataset.bound) {
+        select.dataset.bound = "true";
+        select.addEventListener("change", applyFilters);
+      }
+    }
+  }
+
   function applyProduct(product, entitlement = "none") {
+    paintChipAndEdition(product);
     const card = document.querySelector(`[data-product-id="${CSS.escape(product.id)}"]`);
     if (!card) return;
     const status = card.querySelector("[data-product-status]");
@@ -115,27 +258,47 @@
     }
   }
 
+  async function loadAdventure(id) {
+    try {
+      const response = await siteFetch(`data/adventures/${id}.oneshot.json`, { cache: "no-store" });
+      if (!response.ok) return null;
+      return await response.json();
+    } catch (error) {
+      console.error(`One-Shot Forge could not read adventure facts for ${id}`, error);
+      return null;
+    }
+  }
+
   async function hydrateCatalog() {
     try {
-      const response = await fetch("data/products.json", { cache: "no-store" });
+      const response = await siteFetch("data/products.json", { cache: "no-store" });
       if (!response.ok) throw new Error(`product contract HTTP ${response.status}`);
       const contract = await response.json();
       if (!Array.isArray(contract.products)) throw new Error("product contract has no products array");
 
       const returnedProductId = checkoutReturnProductId();
-      await Promise.all(contract.products.map(async (product) => {
+      const loaded = await Promise.all(contract.products.map(async (product) => {
         const entitlement = await verifiedEntitlement(product);
         applyProduct(product, entitlement);
+        const adventure = await loadAdventure(product.id);
+        paintAdventureFacts(product, adventure);
         if (returnedProductId === product.id && entitlement !== "owned") {
           console.warn(`One-Shot Forge checkout returned before ownership was verified for ${product.id}`);
         }
+        return { product, adventure };
       }));
+      renderOakhavenSeries(loaded);
+      fillLevelFilter();
+      bindFilters();
+      applyFilters();
       clearCheckoutReturn();
     } catch (error) {
       // Fail closed: static markup remains preview/run UI and never becomes purchase UI.
       console.error("One-Shot Forge catalog hydration failed", error);
+      bindFilters();
     }
   }
 
+  bindFilters();
   hydrateCatalog();
 })();

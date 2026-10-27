@@ -131,15 +131,15 @@
         )
       );
       const characterDesc = hasCompatiblePregens
-        ? "Print the compatible level-" + adventure.metadata.partyLevel + " pregen packet for this adventure. Spellcasters include their spell reference sheet."
-        : "This is a level-" + (adventure?.metadata?.partyLevel || "?") + " adventure and currently expects bring-your-own characters. No compatible pregen packet is included yet.";
+        ? "Print the compatible level-" + adventure.metadata.partyLevel + " ready-made characters for this adventure. Spellcasters include their spell reference sheet."
+        : "This is a level-" + (adventure?.metadata?.partyLevel || "?") + " adventure and currently expects bring-your-own player characters. Ready-made characters are not included yet.";
       const tiles = [
         tile({
           icon: "🧙",
           title: "Character sheets",
           desc: characterDesc,
           href: "sheets.html?rules=" + ed + "&print=1",
-          label: hasCompatiblePregens ? "Print compatible pregens" : "Pregens not included",
+          label: hasCompatiblePregens ? "Print ready-made characters" : "Ready-made characters not included",
           disabled: !hasCompatiblePregens
         }),
         tile({

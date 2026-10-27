@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>One-Shot Forge — Character sheets</title>
+  <title>Ready-made characters — 99¢ One-Shots</title>
+  <meta name="description" content="Print ready-made characters for 99¢ One-Shots. Level 4 heroes for the 2014 and 2024 rules, plus Oakhaven series heroes when a module asks for them.">
   <link rel="icon" href="assets/mark-lantern.jpg">
   <link rel="stylesheet" href="styles.css?v=20261006a">
 </head>
@@ -17,7 +18,7 @@
       <span id="ruleset-host"></span>
       <a href="./">Home</a>
       <a href="campaign.html">Town</a>
-      <a href="run.html">GM table</a>
+      <a href="run.html">Game master (DM) table</a>
       <button class="button ember small" type="button" onclick="printAllCharacters()">Print all</button>
     </nav>
   </header>
@@ -168,7 +169,7 @@
             '<h2>' + esc(pc.name) + '</h2>' +
             '<p><b>' + esc(characterClass(pc)) + ' ' + esc(pc.level || 4) + '</b> · ' + esc(pc.race) + ' · ' +
               esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
-            '<p class="pr-subid">' + esc(pc.rules || "5E") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
+            '<p class="pr-subid">' + esc(pc.rules || "5th Edition") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
             '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
           '<div class="pr-vitals">' +
             '<span><small>AC</small><b>' + esc(pc.ac) + '</b></span>' +
@@ -427,7 +428,7 @@
             '<h2>' + esc(pc.name) + '</h2>' +
             '<p><b>' + esc(characterClass(pc)) + ' ' + esc(pc.level || 4) + '</b> · ' + esc(pc.race) + ' · ' +
               esc(pc.background || "") + ' · ' + esc(pc.alignment || "") + '</p>' +
-            '<p class="pr-subid">' + esc(pc.rules || "5E") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
+            '<p class="pr-subid">' + esc(pc.rules || "5th Edition") + ' · XP ' + esc(pc.xp ?? "Milestone") + '</p>' +
             '<p class="pr-role">' + esc(pc.role || "") + '</p></div>' +
           '<div class="pr-vitals">' +
             '<span><small>AC</small><b>' + esc(pc.ac) + '</b></span>' +
@@ -542,7 +543,7 @@
         document.getElementById("sheets").innerHTML = screenHtml + printHtml;
         clearPrintTarget();
       })
-      .catch(() => { document.getElementById("sheets").innerHTML = "<p>Could not load pregens.</p>"; });
+      .catch(() => { document.getElementById("sheets").innerHTML = "<p>Could not load ready-made characters.</p>"; });
   </script>
 </body>
 </html>
