@@ -256,7 +256,7 @@ function fighter(edition, level) {
     bonusActions: ["Second Wind"],
     reactions: ["Opportunity Attack"],
     featureList: features,
-    equipment: ["Chain mail", "Shield", sword ? "+1 longsword" : "Longsword", "4 javelins", ...mine.map(i => i.name)],
+    equipment: ["Chain mail", "Shield", sword ? "+1 Longsword" : "Longsword", "4 javelins", ...mine.map(i => i.name).filter(name => !/^\+1 longsword$/i.test(name))],
     gp: 15,
     personality: {trait: "Counts doors, spears, and people before he counts treasure.", ideal: "The town stands if somebody holds the line.", bond: "Oakhaven's east gate taught him the job.", flaw: "He will not leave a fallen person to make a cleaner retreat."},
     appearance: "Broad human in chain mail, shield scarred, voice flat and brief.",

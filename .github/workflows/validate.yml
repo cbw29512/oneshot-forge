@@ -146,6 +146,10 @@ jobs:
         run: node scripts/validate-presentation.mjs data/adventures/the-owlbear-egg.oneshot.json
       - name: Validate Owlbear printable cards
         run: node scripts/validate-cards.mjs data/adventures/the-owlbear-egg.oneshot.json
+      - name: Install Chrome for the print height check
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
       - name: Validate printable pregen packets
         run: node scripts/validate-pregen-print.mjs
       - name: Certify active stage-card rendering

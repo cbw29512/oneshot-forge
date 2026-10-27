@@ -141,15 +141,40 @@
       if (/requires attunement/i.test(text)) return "Requires attunement";
       return "Attunement not stated";
     }
+    function spellOutNotes(text) {
+      return String(text ?? "")
+        .replace(/\bAC\b/g, "Armor Class")
+        .replace(/\bHP\b/g, "Hit Points")
+        .replace(/\bDC\b/g, "Difficulty Class")
+        .replace(/\bXP\b/g, "Experience")
+        .replace(/\bStr\b/g, "Strength")
+        .replace(/\bDex\b/g, "Dexterity");
+    }
+    function note(text) {
+      return esc(spellOutNotes(text));
+    }
     function gearLines(pc) {
+      const lines = [];
+      const seen = new Set();
+      const add = line => {
+        const text = String(line || "").trim();
+        if (!text) return;
+        const key = text.toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        lines.push(text);
+      };
       if (Array.isArray(pc.equipment) && pc.equipment.length) {
-        return pc.equipment.map(item => {
-          if (typeof item === "string") return item;
-          const qty = item.qty && Number(item.qty) !== 1 ? item.qty + "× " : "";
-          return qty + (item.name || "");
+        pc.equipment.forEach(item => {
+          if (typeof item === "string") add(item);
+          else {
+            const qty = item.qty && Number(item.qty) !== 1 ? item.qty + "× " : "";
+            add(qty + (item.name || ""));
+          }
         });
-      }
-      return pc.gear ? [pc.gear] : [];
+      } else if (pc.gear) add(pc.gear);
+      if (pc.gp != null) add(pc.gp + " gp");
+      return lines;
     }
     function beyondHead(pc) {
       const img = pc.portrait
@@ -162,6 +187,7 @@
           '<p class="beyond-class">' + esc(classLine(pc)) + '</p>' +
           '<p class="beyond-species">' + esc(pc.race || "—") + '</p>' +
           '<p class="beyond-background">' + esc(pc.background || "—") + '</p>' +
+          (pc.role ? '<p class="beyond-role">' + esc(pc.role) + '</p>' : '') +
           '<p class="beyond-rules">' + esc(pc.rules || "5th Edition") +
             (pc.alignment ? " · " + esc(pc.alignment) : "") +
             " · XP " + esc(pc.xp ?? "Milestone") + '</p>' +
@@ -180,10 +206,12 @@
         '<div class="beyond-stat beyond-hp"><small>Hit Points</small><b>' + esc(pc.hp) + '</b></div>' +
         '<div class="beyond-stat pr-temp-hp"><small>Temp HP</small><b></b></div>' +
       '</div>' +
+      (pc.acNotes ? '<p class="beyond-ac-note"><b>Armor Class</b> ' + esc(pc.ac) + ' — ' + note(pc.acNotes) + '</p>' : '') +
+      '<p class="beyond-senses"><b>Senses</b> Darkvision ' + esc(pc.darkvision ?? 0) + ' ft.</p>' +
       '<div class="beyond-meta pr-hp-grid">' +
         '<div class="beyond-write pr-current-hp"><small>Current HP</small><b></b></div>' +
         '<div class="beyond-write"><small>Hit Dice</small><b>' + esc(pc.hitDice || "—") + '</b></div>' +
-        '<div class="beyond-write"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
+        '<div class="beyond-write beyond-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
         '<div class="beyond-write"><small>Heroic Inspiration</small><b>○</b></div>' +
         '<div class="beyond-write"><small>Class / Spell Save DC</small><b>' + esc(classSaveDC(pc)) + '</b></div>' +
       '</div>' +
@@ -227,7 +255,7 @@
           const dc = notes.match(/\b(?:Str|Dex|Con|Int|Wis|Cha)\s+DC\s+\d+/i);
           const roll = dc ? dc[0] : signed(a.bonus);
           return '<tr><td><b>' + esc(a.name) + '</b>' +
-            (notes ? '<div class="tiny">' + esc(notes) + '</div>' : '') +
+            (notes ? '<div class="tiny">' + note(notes) + '</div>' : '') +
             '</td><td>' + esc(roll) + '</td><td>' + esc(a.damage) + ' ' + esc(a.type) +
             '</td><td>' + esc(attackRange(a)) + '</td></tr>';
         }).join("") + '</tbody></table>';
@@ -257,7 +285,7 @@
           const mark = isAlwaysPrepared(s) ? '<em class="always-prepared">Always prepared</em>' : "";
           return '<div class="spl"><b>' + esc(s.name) + "</b>" + mark +
             " <span>" + esc(s.time || "") + " · " + esc(s.range || "") +
-            (s.save ? " · " + esc(s.save) : "") + "</span><p>" + esc(s.effect || "") + "</p></div>";
+            (s.save ? " · " + note(s.save) : "") + "</span><p>" + note(s.effect || "") + "</p></div>";
         }).join("");
       }
       return html;
@@ -267,7 +295,7 @@
       const magic = pc.magicItems || [];
       const attuned = magic.filter(item => attuneState(item) === "Requires attunement").length;
       const items = magic.map(item => '<div class="beyond-item"><div><b>' + esc(item.name || "Magic item") +
-        '</b><p>' + esc(item.text || "") + '</p></div><span>' + esc(attuneState(item)) + '</span></div>').join("");
+        '</b><p>' + note(item.text || "") + '</p></div><span>' + esc(attuneState(item)) + '</span></div>').join("");
       return '<h3>Inventory</h3>' +
         '<p class="beyond-note"><b>Attunement</b> ' + attuned + ' / 3</p>' +
         (gear || '<p class="beyond-note">No equipment listed.</p>') +
@@ -277,8 +305,8 @@
         '<p><b>Tools</b> ' + esc(((pc.proficiencies || {}).tools || []).join(", ") || "—") + '</p>' +
         '<p><b>Languages</b> ' + esc(((pc.proficiencies || {}).languages || []).join(", ") || "—") + '</p>';
     }
-    function featuresBlock(pc) {
-      const heavy = isFeatureHeavy(pc);
+    function featuresBlock(pc, printMode) {
+      const heavy = printMode || isFeatureHeavy(pc);
       const rows = printFeatureRows(pc);
       const pers = pc.personality || {};
       const role = heavy ? compactRoleplay(pc) :
@@ -308,12 +336,14 @@
     }
     function panels(pc, printMode) {
       const hide = name => printMode ? "" : (name === "actions" ? "" : " hidden");
-      return '<div class="beyond-panels">' +
-        '<section class="beyond-panel" data-panel="actions"' + hide("actions") + '>' + actionsBlock(pc) + '</section>' +
-        '<section class="beyond-panel" data-panel="spells"' + hide("spells") + '>' + screenSpells(pc) + '</section>' +
-        '<section class="beyond-panel" data-panel="inventory"' + hide("inventory") + '>' + inventoryBlock(pc) + '</section>' +
-        '<section class="beyond-panel" data-panel="features"' + hide("features") + '>' + featuresBlock(pc) + '</section>' +
-      '</div>';
+      const names = printMode ? ["actions", "features"] : ["actions", "spells", "inventory", "features"];
+      return '<div class="beyond-panels">' + names.map(name => {
+        const body = name === "actions" ? actionsBlock(pc)
+          : name === "spells" ? screenSpells(pc)
+          : name === "inventory" ? inventoryBlock(pc)
+          : featuresBlock(pc, printMode);
+        return '<section class="beyond-panel" data-panel="' + name + '"' + hide(name) + '>' + body + '</section>';
+      }).join("") + '</div>';
     }
     function sheetHtml(pc) {
       return '<article class="beyond-sheet screen-sheet" id="' + esc(pc.id) + '">' +
@@ -345,13 +375,13 @@
     }
     function compactList(arr) {
       if (!arr || !arr.length) return '<span class="dash">—</span>';
-      return arr.map(x => '<div class="pr-line">' + esc(x) + '</div>').join("");
+      return arr.map(x => '<div class="pr-line">' + note(x) + '</div>').join("");
     }
     function printFeatureRows(pc) {
       return (pc.featureList || []).map(f =>
         '<div class="pr-feature beyond-feature"><b>' + esc(f.name) + '</b>' +
-        (f.uses ? '<span> · ' + esc(f.uses) + '</span>' : '') +
-        '<p>' + esc(f.text) + '</p></div>'
+        (f.uses ? '<span> · ' + note(f.uses) + '</span>' : '') +
+        '<p>' + note(f.text) + '</p></div>'
       ).join("");
     }
     function resourceBoxes(uses) {
@@ -371,7 +401,7 @@
         const key = feature.name + "|" + uses;
         if (seen.has(key)) continue;
         seen.add(key);
-        rows.push('<div class="pr-resource"><b>' + esc(feature.name) + '</b><span>' + esc(uses) + '</span><em>' + esc(resourceBoxes(uses)) + '</em></div>');
+        rows.push('<div class="pr-resource"><b>' + esc(feature.name) + '</b><span>' + note(uses) + '</span><em>' + esc(resourceBoxes(uses)) + '</em></div>');
       }
       return rows.length ? rows.join("") : '<div class="pr-line">No limited-use class resource to track.</div>';
     }
@@ -379,8 +409,8 @@
       const rx = /(resistan|immune|advantage on saves|disadvantage.*attack|reduce .*damage|drop to 1 hp|armor class|\bac\b|deflect|danger sense|brave|fey ancestry|relentless endurance|unarmored defense)/i;
       const rows = (pc.featureList || []).filter(f => rx.test((f.name || "") + " " + (f.text || "")));
       return rows.length
-        ? rows.map(f => '<div class="pr-defense"><b>' + esc(f.name) + '</b><p>' + esc(f.text) + '</p></div>').join("")
-        : '<div class="pr-line">No special combat defenses beyond AC and saving throws.</div>';
+        ? rows.map(f => '<div class="pr-defense"><b>' + esc(f.name) + '</b><p>' + note(f.text) + '</p></div>').join("")
+        : '<div class="pr-line">No special combat defenses beyond Armor Class and saving throws.</div>';
     }
     function fullSaveRows(pc) { return beyondSaves(pc); }
     function quickTurn(pc) {
@@ -451,7 +481,7 @@
                 Number(spell.level) === 0 ? "Cantrip" : "L" + spell.level,
                 spell.time || "",
                 spell.range || "",
-                spell.save || "",
+                spell.save ? spellOutNotes(spell.save) : "",
                 conc,
                 durationMatch ? durationMatch[0] : "",
                 isAlwaysPrepared(spell) ? "Always prepared" : ""
@@ -460,7 +490,7 @@
                 '<div class="pr-spell-title"><b>' + esc(spell.name) + '</b>' +
                 (isAlwaysPrepared(spell) ? '<em class="always-prepared">Always prepared</em>' : '') +
                 '<span>' + esc(meta) + '</span></div>' +
-                '<p>' + esc(effect) + '</p></div>';
+                '<p>' + note(effect) + '</p></div>';
             }).join("") +
             '</section>';
           }).join("") +
@@ -502,8 +532,16 @@
         panels(pc, true) +
       '</article>';
     }
+    function printGearPage(pc) {
+      return '<article class="print-only pr-page pr-gear-page" data-print-pc="' + esc(pc.id) + '">' +
+        '<header class="pr-gear-head"><p class="edition-badge">' + editionLabel(pc) + '</p>' +
+        '<p class="pr-kicker">ONE-SHOT FORGE · INVENTORY</p><h2>' + esc(pc.name) + '</h2>' +
+        '<p>' + esc(classLine(pc)) + '</p></header>' +
+        inventoryBlock(pc) +
+      '</article>';
+    }
     function printPacket(pc) {
-      return printMainPage(pc) + printSpellPage(pc);
+      return printMainPage(pc) + printGearPage(pc) + printSpellPage(pc);
     }
 
     const params = new URLSearchParams(window.location.search);

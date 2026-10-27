@@ -154,6 +154,15 @@
   margin-top: .45rem;
 }
 
+.beyond-death span { display: block; }
+
+.beyond-role,
+.beyond-ac-note,
+.beyond-senses {
+  margin: .35rem 0 0;
+  font-size: 0.875rem;
+}
+
 .beyond-write,
 .pr-current-hp,
 .pr-temp-hp {
@@ -352,7 +361,7 @@
     width: 8.5in !important;
     height: 11in !important;
     margin: 0 !important;
-    padding: .28in .32in .26in !important;
+    padding: .12in .18in .1in !important;
     overflow: hidden !important;
     color: #111 !important;
     background: #fff !important;
@@ -370,24 +379,28 @@
     padding-bottom: .06in !important;
   }
   .beyond-print .pr-port {
-    width: .78in !important;
-    height: .78in !important;
+    width: .58in !important;
+    height: .58in !important;
     object-fit: cover;
   }
-  .beyond-print .beyond-id h2 { font-size: 16pt !important; margin: 0 !important; }
+  .beyond-print .beyond-id h2 { font-size: 13pt !important; margin: 0 !important; }
   .beyond-print .beyond-class { font-size: 9pt !important; }
   .beyond-print .beyond-species,
   .beyond-print .beyond-background,
-  .beyond-print .beyond-rules { font-size: 7.5pt !important; margin: 0 !important; color: #111 !important; }
+  .beyond-print .beyond-role,
+  .beyond-print .beyond-rules,
+  .beyond-print .beyond-ac-note,
+  .beyond-print .beyond-senses { font-size: 7.5pt !important; margin: 0 !important; color: #111 !important; }
+  .beyond-print .beyond-death span { display: block !important; }
   .beyond-print .edition-badge { font-size: 8pt !important; padding: 0 .2in !important; color: #111 !important; }
 
   .beyond-print .beyond-abilities {
-    gap: .04in !important;
-    margin: .06in 0 !important;
+    gap: .03in !important;
+    margin: .03in 0 !important;
     grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
   }
-  .beyond-print .beyond-abilities .ab { padding: .03in .02in !important; }
-  .beyond-print .beyond-abilities .ab-mod { font-size: 13pt !important; }
+  .beyond-print .beyond-abilities .ab { padding: .01in 0 !important; }
+  .beyond-print .beyond-abilities .ab-mod { font-size: 11pt !important; }
   .beyond-print .beyond-abilities .ab-score { font-size: 8pt !important; }
   .beyond-print .beyond-abilities .ab-name { font-size: 6pt !important; color: #111 !important; }
 
@@ -395,9 +408,9 @@
     gap: .04in !important;
     grid-template-columns: .7in .7in .7in .7in 1.4fr 1fr !important;
   }
-  .beyond-print .beyond-stat { padding: .03in !important; }
+  .beyond-print .beyond-stat { padding: .01in !important; }
   .beyond-print .beyond-stat b,
-  .beyond-print .beyond-stat.beyond-hp b { font-size: 12pt !important; }
+  .beyond-print .beyond-stat.beyond-hp b { font-size: 11pt !important; }
   .beyond-print .beyond-stat small,
   .beyond-print .beyond-write small { color: #111 !important; font-size: 5.5pt !important; }
 
@@ -410,14 +423,15 @@
   .beyond-print .pr-current-hp,
   .beyond-print .pr-temp-hp,
   .beyond-print .beyond-write {
-    min-height: .38in !important;
+    min-height: 0 !important;
+    padding: .02in .04in !important;
     background: #fff !important;
   }
 
   .beyond-print .beyond-profs {
-    grid-template-columns: 1.7in minmax(0, 1fr) 1.15in !important;
-    gap: .08in !important;
-    margin-top: .06in !important;
+    grid-template-columns: 1.55in minmax(0, 1fr) 1.05in !important;
+    gap: .05in !important;
+    margin-top: .03in !important;
   }
   .beyond-print h3 { font-size: 7pt !important; margin: 0 0 .03in !important; color: #111 !important; }
   .beyond-print .beyond-skills { grid-template-columns: 1fr 1fr 1fr !important; }
@@ -434,19 +448,34 @@
     flex: 1 1 auto;
     min-height: 0;
     display: grid !important;
-    grid-template-columns: 1.15fr .85fr !important;
-    gap: .06in !important;
-    margin-top: .06in !important;
-    overflow: hidden !important;
+    grid-template-columns: 1.05fr 1.15fr !important;
+    gap: .05in !important;
+    margin-top: .03in !important;
+    align-items: start !important;
   }
-  .beyond-print [data-panel="actions"] { grid-column: 1; grid-row: 1 / span 2; }
-  .beyond-print [data-panel="features"] { grid-column: 2; grid-row: 1; overflow: hidden; }
-  .beyond-print [data-panel="inventory"] { grid-column: 2; grid-row: 2; overflow: hidden; }
+  .beyond-print [data-panel="actions"] { grid-column: 1; }
+  .beyond-print [data-panel="features"] { grid-column: 2; }
   .beyond-print [data-panel="spells"] { display: none !important; }
+
+  .pr-gear-page {
+    display: block !important;
+    width: 8.5in !important;
+    height: 11in !important;
+    overflow: hidden !important;
+    color: #111 !important;
+    background: #fff !important;
+    font-size: 9pt;
+    line-height: 1.2;
+  }
+  .pr-gear-page h2 { margin: 0 0 .04in; font-size: 16pt; color: #111; }
+  .pr-gear-page h3 { margin: .08in 0 .03in; font-size: 10pt; color: #111; }
+  .pr-gear-page p,
+  .pr-gear-page .beyond-item,
+  .pr-gear-page .beyond-item p { color: #111 !important; font-size: 8.5pt; margin: 0 0 .03in; }
 
   .beyond-print .beyond-attack { font-size: 8pt !important; }
   .beyond-print .beyond-attack th { font-size: 6pt !important; color: #111 !important; }
-  .beyond-print .beyond-attack td { padding: .02in .03in !important; }
+  .beyond-print .beyond-attack td { padding: .01in .02in !important; }
   .beyond-print .beyond-attack td:first-child b { font-size: 8.5pt !important; }
   .beyond-print .beyond-split { grid-template-columns: 1fr 1fr !important; gap: .06in !important; }
   .beyond-print .beyond-feature,
@@ -454,7 +483,11 @@
   .beyond-print .beyond-item,
   .beyond-print .beyond-item p,
   .beyond-print .pr-line,
-  .beyond-print .pr-quickturn { font-size: 6.7pt !important; color: #111 !important; margin: 0 0 .03in !important; }
+  .beyond-print .pr-quickturn,
+  .beyond-print .pr-quickturn li,
+  .beyond-print .pr-resource,
+  .beyond-print .pr-defense,
+  .beyond-print .pr-defense p { font-size: 6.1pt !important; line-height: 1.05 !important; color: #111 !important; margin: 0 !important; }
   .beyond-print .pr-feature-heavy .beyond-feature p,
   .beyond-print .pr-resource-heavy .pr-resource { font-size: 6.2pt !important; }
 

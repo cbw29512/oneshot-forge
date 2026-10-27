@@ -232,7 +232,7 @@ function sheetHtml() {
     '<div class="beyond-meta pr-hp-grid">' +
       '<div class="beyond-write pr-current-hp"><small>Current HP</small><b></b></div>' +
       '<div class="beyond-write"><small>Hit Dice</small><b>' + Math.max(n, 1) + 'd' + c.hd + '</b></div>' +
-      '<div class="beyond-write"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
+      '<div class="beyond-write beyond-death"><small>Death Saves</small><span>Success ○ ○ ○</span><span>Failure ○ ○ ○</span></div>' +
       '<div class="beyond-write"><small>Heroic Inspiration</small><b>○</b></div>' +
     '</div>' +
     '<div class="beyond-profs"><section><h3>Saving Throws — All Six</h3><div class="beyond-saves">' + saveRows + '</div></section>' +

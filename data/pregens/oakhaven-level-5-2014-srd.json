@@ -299,9 +299,8 @@
       "equipment": [
         "Chain mail",
         "Shield",
-        "+1 longsword",
-        "4 javelins",
-        "+1 Longsword"
+        "+1 Longsword",
+        "4 javelins"
       ],
       "gp": 15,
       "personality": {
@@ -323,7 +322,7 @@
       "speed": "30 ft.",
       "attacks": "+1 Longsword; Javelin",
       "features": "Fighting Style: Defense; Second Wind; Oakhaven Watch; Action Surge; Improved Critical; Extra Attack",
-      "gear": "Chain mail, Shield, +1 longsword, 4 javelins, +1 Longsword",
+      "gear": "Chain mail, Shield, +1 Longsword, 4 javelins",
       "magicItems": [
         {
           "name": "+1 Longsword",
