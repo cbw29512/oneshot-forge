@@ -78,6 +78,8 @@ Consumable potions do not carry onto the next sheet. Series pregens assume the b
 - Write two curated Quiet Seals nights in one day
 
 ## Last session
+2026-10-29 — Draft catalog card UI consistency pass on `release/catalog-card-consistency-20261029`: one cover ratio, badge slots, title/summary rhythm, four metadata facts, and full-width primary/secondary actions. The long Owlbear Arms download label is shortened without changing its URL or commercial gate. A catalog-card contract test is added to CI. Awaiting PR checks and owner-directed merge to `main` for Netlify production publishing.
+
 2026-10-27 — Public catalog pass. The homepage now states that everything is free to play and that every other adventure will cost $0.99, with a price chip and an edition badge on each card. Level, hours, and the Oakhaven series row are read from the adventure packages (Modules 02–06 are levels 2–6, 3–4 hours). Level and series filters, a what-you-get box, plain-language public copy, lazy WebP covers, and the Mere skimmer attack line (speeds stay in the speed field) are in this pass. Commercial checkout stays closed.
 
 2026-10-27 — Hid level-0 characters from the shared pregen builder, homepage character blurb, and class list. From Zero to Hero stays on its own adventure pages. Rebuilt the other pregen sheets (sheets.html, the level builder, and print) into an original header, ability-modifier, combat, and saves-and-skills layout with actions, spells, inventory, and features sections. Published numbers are unchanged. On-screen type stays at the 0.875rem floor, and the first game master (DM) and non-player character (NPC) stay spelled out.
