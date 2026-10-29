@@ -1,0 +1,143 @@
+/* Catalog product cards only. Keep the GM runner, print cards, and wanted posters unchanged. */
+@media screen {
+  body.catalog-first .catalog {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+    align-items: stretch;
+  }
+
+  body.catalog-first .catalog > .adv-card.live {
+    grid-template-rows: auto minmax(0, 1fr);
+    min-width: 0;
+    height: 100%;
+  }
+
+  body.catalog-first .catalog > .adv-card.live > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 8.5;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  body.catalog-first .catalog > .adv-card.live > .adv-card-body {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    /* The same slots keep badges, titles, summaries, facts, and actions aligned. */
+    grid-template-rows: minmax(4.25rem, auto) minmax(1.65rem, auto)
+      minmax(3.8rem, auto) minmax(7.25rem, 1fr) auto auto;
+    align-content: stretch;
+    gap: .45rem;
+    min-width: 0;
+    padding: 1rem;
+  }
+
+  body.catalog-first .catalog .card-kicker {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    align-content: start;
+    gap: .3rem;
+    margin: 0;
+    min-width: 0;
+  }
+
+  body.catalog-first .catalog .card-kicker > span {
+    max-width: 100%;
+    box-sizing: border-box;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+  }
+
+  body.catalog-first .catalog .adv-card-body > .eyebrow {
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  body.catalog-first .catalog .adv-card.live h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+  }
+
+  body.catalog-first .catalog .adv-card.live .adv-card-body > p:not(.eyebrow):not(.card-kicker) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    margin: 0;
+    line-height: 1.45;
+    color: var(--fg-muted);
+  }
+
+  body.catalog-first .catalog .adv-tags {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .35rem;
+    margin: 0;
+    align-self: end;
+  }
+
+  body.catalog-first .catalog .adv-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    text-align: center;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  body.catalog-first .catalog .adv-card-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-self: end;
+    gap: .4rem;
+    min-width: 0;
+  }
+
+  body.catalog-first .catalog .adv-card-actions .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 3rem;
+    padding: .55rem .7rem;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.25;
+  }
+
+  body.catalog-first .catalog .adv-card-actions .text-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    text-align: center;
+    line-height: 1.3;
+    text-underline-offset: .2em;
+  }
+
+  /* The unreleased teaser is a separate full-width notice, not a mismatched product card. */
+  body.catalog-first .catalog > .adv-card.soon {
+    grid-column: 1 / -1;
+    min-height: 0;
+    padding: 1rem 1.25rem;
+  }
+
+  body.catalog-first .catalog > .adv-card.soon > .adv-card-body {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body.catalog-first .catalog { grid-template-columns: minmax(0, 1fr); }
+
+  body.catalog-first .catalog > .adv-card.live > .adv-card-body {
+    grid-template-rows: auto auto auto auto auto auto;
+  }
+}

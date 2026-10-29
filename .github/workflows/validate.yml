@@ -172,6 +172,8 @@ jobs:
         run: node scripts/smoke-forge-compile.cjs
       - name: Smoke-test product pages and links
         run: node scripts/smoke-site.mjs
+      - name: Validate catalog card uniformity
+        run: node scripts/validate-catalog-card-layout.mjs
       - name: Contrast token
         run: node -e "const s=require('fs').readFileSync('styles.css','utf8'); if(!/--fg-subtle:\\s*#a3988c/.test(s)) { console.error('fg-subtle must stay AA'); process.exit(1);} console.log('contrast token OK')"
       - name: Validate runner readability
