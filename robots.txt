@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cbw29512.github.io/oneshot-forge/sitemap.xml
+Sitemap: https://99centoneshot.netlify.app/sitemap.xml
