@@ -172,6 +172,8 @@ jobs:
         run: node scripts/smoke-forge-compile.cjs
       - name: Smoke-test product pages and links
         run: node scripts/smoke-site.mjs
+      - name: Verify production site URLs and truthful access copy
+        run: node scripts/verify-production-canonical.mjs
       - name: Validate catalog card uniformity
         run: node scripts/validate-catalog-card-layout.mjs
       - name: Contrast token
