@@ -1,0 +1,27 @@
+name: Production storefront audit
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'privacy.html'
+      - 'about.html'
+      - 'contact.html'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'adventures/**'
+      - 'scripts/verify-production-canonical.mjs'
+      - '.github/workflows/storefront-audit.yml'
+permissions:
+  contents: read
+jobs:
+  storefront:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify store release claims, canonical URLs, and privacy
+        run: node scripts/verify-production-canonical.mjs
+      - name: Verify catalog pricing and links
+        run: node scripts/smoke-site.mjs
