@@ -15,7 +15,7 @@ if (!index.includes('id="nights"')) errors.push("homepage missing #nights catalo
 if (!/Choose tonight/i.test(index)) errors.push("homepage must lead with choose-tonight catalog");
 if (!index.includes("Coming after review")) errors.push("next adventure must remain gated behind review");
 if (!index.includes("12 ready-made characters")) errors.push("homepage must say 12 ready-made characters");
-if (!index.includes("Everything here is free to play right now. Every other adventure will cost $0.99.")) errors.push("homepage must state the free-now / $0.99 later price");
+if (!index.includes("No purchases yet. Explore the free starter and playtest previews; approved paid releases are planned at $0.99.")) errors.push("homepage must state the free-now / $0.99 later price");
 if (!index.includes("Oakhaven series")) errors.push("homepage must show the Oakhaven series row");
 if (!index.includes("Levels 1 and 7–10 coming")) errors.push("homepage must say levels 1 and 7–10 are coming");
 if (!index.includes('id="filter-level"') || !index.includes('id="filter-series"')) errors.push("homepage must offer level and series filters");
@@ -25,7 +25,7 @@ if (!/assets\/cover-[^"]+\.webp/.test(index) || !index.includes('loading="lazy"'
 if (!index.includes("og:image")) errors.push("homepage missing Open Graph image");
 if (!index.includes('src="catalog.js')) errors.push("homepage must hydrate from product contract");
 if (!index.includes("99¢ One-Shots")) errors.push("homepage must use 99¢ One-Shots customer-facing brand");
-if (!index.includes("Start free with The Lantern Below. Every other adventure is free while we test, then $0.99 each.")) errors.push("homepage must state the free-starter/$0.99 offer");
+if (!index.includes("Play The Lantern Below free. Other adventures are free to preview while they are tested; approved releases will be $0.99.")) errors.push("homepage must state the free-starter/$0.99 offer");
 if (!index.includes("SPECIAL PLAYTEST BOXED SET")) errors.push("homepage must distinguish Hearthcross from the one-shot catalog");
 if (!index.includes("7 SESSIONS")) errors.push("homepage must disclose Hearthcross campaign length");
 if (!index.includes("Not for sale")) errors.push("homepage must keep Hearthcross commercial state explicit");
