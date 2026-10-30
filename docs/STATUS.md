@@ -78,6 +78,8 @@ Consumable potions do not carry onto the next sheet. Series pregens assume the b
 - Write two curated Quiet Seals nights in one day
 
 ## Last session
+2026-10-30 — Continued 99¢ One-Shots review PR #115. Audited all twelve adventure detail pages on the Netlify preview (all HTTP 200); verified Oakhaven dropdown logic using the actual `catalog.js` filter across seven series/level cases. Added `scripts/validate-catalog-series-filter.mjs` (75 lines) and wired it into `Validate One-Shot Forge` workflow. The GitHub-hosted `validate` job remains blocked before runner allocation (runner ID 0, zero steps); the check has annotations requiring account-side review. No merge to `main` until owner review and CI gate recovery. Do not repeatedly rerun hosted jobs without first checking billing/Actions limits.
+
 2026-10-30 — User-requested catalog simplification on PR #115: removed the redundant Oakhaven module pill row and the top-nav link; retained the Series dropdown Oakhaven choice and its existing filter behavior. Removed the unused dynamic row renderer and CSS; regression guards now assert only the dropdown is offered. Production `main` unchanged pending owner review and the CI pre-step runner issue.
 
 2026-10-30 — Site truthfulness cleanup on PR #115: aligned the homepage Open Graph and Twitter titles with the actual free-preview/no-checkout offer, and added an assertion to the production canonical/storefront verifier. Netlify preview is available for review. GitHub Actions Validate job failed before any steps were scheduled (runner_id 0, no runner name or steps), so this is an infrastructure blocker, not a failing application assertion. Production main is unchanged; do not bypass the owner-reviewed merge gate.
