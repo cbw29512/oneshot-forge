@@ -38,6 +38,12 @@ const home=read('index.html'),products=JSON.parse(read('data/products.json')).pr
 if((home.match(/https:\/\/buymeacoffee\.com\/divclass016/g)||[]).length!==1)failures.push('Homepage must have one and only one support link');
 if(!/class="land-nav"[\s\S]*?href="https:\/\/buymeacoffee\.com\/divclass016"/.test(home))failures.push('Support link must be in homepage navigation');
 if(!home.includes('No purchases yet.'))failures.push('No-checkout status must be clear');
+const previewTitle='99¢ One-Shots — Free adventures now, $0.99 releases later';
+for(const tag of ['<title>'+previewTitle+'</title>',
+                  '<meta property="og:title" content="'+previewTitle+'">',
+                  '<meta name="twitter:title" content="'+previewTitle+'">']){
+  if(!home.includes(tag))failures.push('Missing truthful public or social preview title: '+tag);
+}
 if(products.some(p=>p.sellable))failures.push('Product contract has sellable products; review storefront sales copy before publishing');
 const privacy=read('privacy.html');
 if(!privacy.includes('localStorage')||!privacy.includes('Google Fonts'))failures.push('Privacy notice must cover local progress and external typography');
