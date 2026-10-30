@@ -16,7 +16,10 @@ if (!/Choose tonight/i.test(index)) errors.push("homepage must lead with choose-
 if (!index.includes("Coming after review")) errors.push("next adventure must remain gated behind review");
 if (!index.includes("12 ready-made characters")) errors.push("homepage must say 12 ready-made characters");
 if (!index.includes("No purchases yet. Explore the free starter and playtest previews; approved paid releases are planned at $0.99.")) errors.push("homepage must state the free-now / $0.99 later price");
-if (!index.includes("Oakhaven series")) errors.push("homepage must show the Oakhaven series row");
+if (index.includes('id="oakhaven-series"') || index.includes('id="oakhaven-series-list"') || index.includes('href="#oakhaven-series"'))
+  errors.push("homepage must not expose redundant Oakhaven series link pills");
+if (!index.includes('<option value="oakhaven">Oakhaven</option>'))
+  errors.push("Series dropdown must retain Oakhaven filter");
 if (!index.includes("Levels 1 and 7–10 coming")) errors.push("homepage must say levels 1 and 7–10 are coming");
 if (!index.includes('id="filter-level"') || !index.includes('id="filter-series"')) errors.push("homepage must offer level and series filters");
 if (!index.includes("Works with 2014 and 2024 rules") || !index.includes("2014 rules only")) errors.push("homepage must show edition badges");
