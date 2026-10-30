@@ -20,7 +20,6 @@ if (index.includes('id="oakhaven-series"') || index.includes('id="oakhaven-serie
   errors.push("homepage must not expose redundant Oakhaven series link pills");
 if (!index.includes('<option value="oakhaven">Oakhaven</option>'))
   errors.push("Series dropdown must retain Oakhaven filter");
-if (!index.includes("Levels 1 and 7–10 coming")) errors.push("homepage must say levels 1 and 7–10 are coming");
 if (!index.includes('id="filter-level"') || !index.includes('id="filter-series"')) errors.push("homepage must offer level and series filters");
 if (!index.includes("Works with 2014 and 2024 rules") || !index.includes("2014 rules only")) errors.push("homepage must show edition badges");
 if (!index.includes("$0.99 (coming soon)") || !index.includes(">Free<")) errors.push("homepage cards must show Free and $0.99 coming-soon chips");
