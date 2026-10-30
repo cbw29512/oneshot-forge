@@ -44,7 +44,7 @@ try {
   };
   const expectedIds = (series, level) => original.filter(card =>
     (!level || card.dataset.level === level) &&
-    (!series || card.dataset.series.split(/\\s+/).includes(series))
+    (!series || card.dataset.series.split(/\s+/).includes(series))
   ).map(card => card.dataset.productId);
   const cases = [
     ["oakhaven", ""],
@@ -60,7 +60,7 @@ try {
     selected.level = level;
     // Run the existing production filter in a constrained Node VM, not a
     // rewritten imitation. The mock supplies only the DOM selectors it reads.
-    vm.runInNewContext(filterCode + "\\napplyFilters();", { document },
+    vm.runInNewContext(filterCode + "\napplyFilters();", { document },
       { timeout: 1000 });
     const visible = original.filter(card => !card.hidden)
       .map(card => card.dataset.productId);
