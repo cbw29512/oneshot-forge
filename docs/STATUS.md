@@ -78,6 +78,8 @@ Consumable potions do not carry onto the next sheet. Series pregens assume the b
 - Write two curated Quiet Seals nights in one day
 
 ## Last session
+2026-10-30 — User-requested catalog simplification on PR #115: removed the redundant Oakhaven module pill row and the top-nav link; retained the Series dropdown Oakhaven choice and its existing filter behavior. Removed the unused dynamic row renderer and CSS; regression guards now assert only the dropdown is offered. Production `main` unchanged pending owner review and the CI pre-step runner issue.
+
 2026-10-30 — Site truthfulness cleanup on PR #115: aligned the homepage Open Graph and Twitter titles with the actual free-preview/no-checkout offer, and added an assertion to the production canonical/storefront verifier. Netlify preview is available for review. GitHub Actions Validate job failed before any steps were scheduled (runner_id 0, no runner name or steps), so this is an infrastructure blocker, not a failing application assertion. Production main is unchanged; do not bypass the owner-reviewed merge gate.
 
 2026-10-29 — Draft catalog card UI consistency pass on `release/catalog-card-consistency-20261029`: one cover ratio, badge slots, title/summary rhythm, four metadata facts, and full-width primary/secondary actions. The long Owlbear Arms download label is shortened without changing its URL or commercial gate. A catalog-card contract test is added to CI. Awaiting PR checks and owner-directed merge to `main` for Netlify production publishing.
