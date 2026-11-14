@@ -30,6 +30,7 @@ jobs:
           node --check adventure-registry.js
           node --check owlbear-play-state.js
           node --check owlbear-play-ui.js
+          node --check owlbear-play-rolls.js
           node --check scripts/validate-owlbear-live.mjs
           node --check zero-hero.js
           node --check zero-hero-adventure.js
