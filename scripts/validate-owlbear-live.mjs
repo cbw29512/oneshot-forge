@@ -8,6 +8,7 @@ const state = require("../owlbear-play-state.js");
 const pack = JSON.parse(fs.readFileSync("data/pregens/owlbear-arms-level-6-2014-srd-v1.2.json", "utf8"));
 const html = fs.readFileSync("sheets.html", "utf8");
 const ui = fs.readFileSync("owlbear-play-ui.js", "utf8");
+const dice = fs.readFileSync("owlbear-play-rolls.js", "utf8");
 const css = fs.readFileSync("owlbear-play-ui.css", "utf8");
 
 try {
@@ -20,6 +21,10 @@ try {
   assert.match(css, /@media screen/); // New styling must not affect Letter print.
   assert.match(ui, /aria-pressed/);
   assert.match(ui, /data-play-action/);
+  assert.match(html, /owlbear-play-rolls/);
+  assert.match(html, /initOwlbearRolls/);
+  assert.match(dice, /getRandomValues/);
+  assert.match(dice, /play-roll-result/);
   const fighter = pack.characters[0];
   const canonical = JSON.stringify(fighter);
   let f = state.fresh(fighter);
