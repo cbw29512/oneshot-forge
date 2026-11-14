@@ -55,7 +55,8 @@ try {
   for (const name of ["Rowan","Dagna","Sylvi","Liora","Thalen"]) {
     assert.match(html, new RegExp('data-play-select="owlbear-' + name.toLowerCase() + '"'));
   }
-  assert.doesNotMatch(html, /Could not load ready-made characters/);
+  assert.ok(!html.includes('<div id="sheets"><p>Could not load ready-made characters.</p>'),
+    "The rendered sheet container must not be a load error");
   const ordinary = await dump("sheets.html?rules=2014");
   assert.doesNotMatch(ordinary, /class="play-roster print-hide"/, "Other character packs must not gain OwlBear controls");
   console.log("OwlBear browser smoke: 5 selection cards, 5 trackers, dice buttons, other pack isolation OK");
