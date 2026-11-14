@@ -1,0 +1,134 @@
+/* Original One-Shot Forge table-mode styling; does not reproduce D&D Beyond trade dress. */
+@media screen {
+  .sheets-page .play-roster {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: .65rem;
+    max-width: 64rem;
+    margin: 0 auto 1rem;
+  }
+  .play-hero-option {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+    min-width: 0;
+    min-height: 4.5rem;
+    padding: .65rem;
+    border: 1px solid #9a8769;
+    border-radius: 12px;
+    background: #f5eee0;
+    color: #30251a;
+    text-align: left;
+    cursor: pointer;
+  }
+  .play-hero-option[aria-pressed="true"] {
+    background: #302319;
+    color: #fff5df;
+    border-color: #e1a957;
+    box-shadow: 0 0 0 2px #a16a2b inset;
+  }
+  .play-hero-option:focus-visible,
+  .play-console button:focus-visible,
+  .play-console input:focus-visible,
+  .beyond-tabs button:focus-visible {
+    outline: 3px solid #b06512;
+    outline-offset: 3px;
+  }
+  .play-avatar {
+    flex: 0 0 2.55rem;
+    display: grid;
+    place-items: center;
+    width: 2.55rem;
+    height: 2.55rem;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    font: bold 1.4rem Georgia, serif;
+  }
+  .play-hero-name { min-width: 0; overflow-wrap: anywhere; font: 700 1rem "Segoe UI", sans-serif; }
+  .play-hero-name small { display: block; margin-top: .15rem; font-size: .76rem; font-weight: 500; }
+  .sheets-page .screen-sheet[hidden] { display: none !important; }
+  .sheets-page .screen-sheet {
+    border-top: 5px solid #99501e;
+    background: linear-gradient(180deg, #fff8ed 0, #f5ecdd 15rem, #f8f3e9 100%);
+  }
+  .screen-sheet .beyond-head { grid-template-columns: 5.5rem minmax(0, 1fr); }
+  .screen-sheet .pr-port.ph {
+    display: grid;
+    place-items: center;
+    color: #fff4dc;
+    background: linear-gradient(145deg, #654329, #2b231f);
+    font: 700 2.5rem Georgia, serif;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .screen-sheet .beyond-abilities .ab { border: 2px solid #8e755a; background: #fffcf6; }
+  .screen-sheet .beyond-abilities .ab-mod { color: #623715; }
+  .screen-sheet .beyond-stat { background: #fffdf9; border: 1px solid #a28f75; }
+  .screen-sheet .beyond-profs > section,
+  .screen-sheet .beyond-profs > aside { padding: .7rem; background: #fffaf1; border: 1px solid #d2c1a8; border-radius: 12px; }
+  .screen-sheet .beyond-tabs { position: sticky; top: 0; z-index: 2; padding: .6rem 0; background: #f8f3e9; }
+  .screen-sheet .beyond-tabs button { border-radius: 8px; padding: .6rem .9rem; }
+  .screen-sheet .beyond-panel { padding: .75rem; border: 1px solid #d2c1a8; border-radius: 12px; background: #fffdf7; }
+  .play-console {
+    margin: 1rem 0;
+    padding: .9rem;
+    background: #ede1cf;
+    border: 1px solid #b59a78;
+    border-radius: 14px;
+    font-family: "Segoe UI", Arial, sans-serif;
+  }
+  .play-console-head, .play-hp-line, .play-death-row, .play-slot-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .6rem;
+  }
+  .play-console-head { margin-bottom: .75rem; }
+  .play-console h3 { margin: .1rem 0 0; font: 800 1.13rem "Segoe UI", sans-serif; }
+  .play-console h4 { margin: .5rem 0; font-size: .92rem; }
+  .play-kicker { font-size: .72rem; font-weight: 800; letter-spacing: .12em; color: #6e3b17; }
+  .play-console-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: .7rem; }
+  .play-hp-box, .play-status-box, .play-spell-slots {
+    padding: .75rem;
+    background: #fffaf2;
+    border: 1px solid #c9b99f;
+    border-radius: 10px;
+    min-width: 0;
+  }
+  .play-hp-line > span { font-weight: 800; }
+  .play-hp-line strong { font-size: 1.8rem; color: #633515; }
+  .play-hp-line small { font-size: .9rem; color: #665749; }
+  .play-hp-track { height: .85rem; overflow: hidden; border-radius: 999px; background: #d4b4a3; }
+  .play-hp-track > span { display: block; height: 100%; background: #386e4c; transition: width .18s ease-out; }
+  .play-temporary { margin: .4rem 0; font-size: .9rem; }
+  .play-actions, .play-toggle-row { display: flex; flex-wrap: wrap; align-items: end; gap: .35rem; margin-top: .5rem; }
+  .play-actions label { flex: 1 1 8rem; font-size: .8rem; font-weight: 700; }
+  .play-actions input { width: 100%; min-height: 2.4rem; border: 1px solid #8b725a; border-radius: 6px; padding: .35rem; color: #241d16; background: white; }
+  .play-console button { min-height: 2.4rem; border: 1px solid #754321; border-radius: 7px; padding: .4rem .65rem; background: #69391e; color: #fff8ea; font-weight: 750; cursor: pointer; }
+  .play-console button:hover { background: #492715; }
+  .play-console .play-reset { background: #fffaf2; color: #623b25; }
+  .play-console .play-reset:hover { background: #eddec8; }
+  .play-toggle-row button { flex: 1 1 10rem; background: #fffaf2; color: #57341e; }
+  .play-toggle-row button[aria-pressed="true"] { background: #275740; color: white; border-color: #275740; }
+  .play-death-row { margin: .35rem 0; }
+  .play-death-row b { white-space: nowrap; letter-spacing: .14em; color: #6c321f; }
+  .play-spell-slots { margin-top: .7rem; }
+  .play-slot-row { justify-content: flex-start; flex-wrap: wrap; padding: .3rem 0; border-top: 1px solid #d7c7b1; font-size: .88rem; }
+  .play-slot-row > strong { width: 4.5rem; }
+  .play-slot-marks { display: inline-flex; gap: .25rem; }
+  .play-slot-dot { width: .8rem; height: .8rem; border: 2px solid #49664c; border-radius: 50%; background: #49664c; }
+  .play-slot-dot.used { background: transparent; border-color: #8a6a57; }
+  .play-slot-row button { min-height: 2rem; padding: .25rem .5rem; }
+  .play-footnote { margin: .7rem 0 0; font-size: .75rem; color: #625447; }
+  @media (max-width: 850px) {
+    .sheets-page .play-roster { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .play-console-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 540px) {
+    .sheets-page .play-roster { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .play-console-head { align-items: flex-start; }
+    .screen-sheet .beyond-head { grid-template-columns: 4.5rem minmax(0, 1fr); }
+    .screen-sheet .pr-port.ph { width: 4.5rem; height: 4.5rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .play-hp-track > span { transition: none; } }
+}
