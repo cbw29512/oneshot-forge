@@ -57,6 +57,23 @@ const page = read("adventures/right-to-owlbear-arms.html");
 for (const required of ["OWLBEAR_ARMS_V1_2_REPAIR.md","sheets.html?pack=owlbear-arms","preserved v1.1"]) {
   if (!page.includes(required)) fail("product page missing v1.2 route: " + required);
 }
+// OwlBear Arms product-page layout contract: print links stay real, action geometry stays stable.
+const layoutCss = read("owlbear-arms.css");
+for (const required of [
+  "grid-template-columns: repeat(2, minmax(0, 1fr))",
+  ".owlbear-kit-body .setup-steps > li",
+  "flex-direction: column",
+  ".owlbear-kit-body .setup-steps > li > .button",
+  "margin-top: auto",
+  "@media screen and (max-width: 540px)"
+]) {
+  if (!layoutCss.includes(required)) fail("product-page alignment contract missing: " + required);
+}
+if (!page.includes('owlbear-arms.css?v=20261114c')) fail("OwlBear Arms stylesheet cache version is stale");
+if (!page.includes('id="release-notes"')) fail("technical notes must be reachable from a collapsed section");
+if (!page.includes('02_Pregenerated_Heroes/Right_To_Bear_Arms_Pregenerated_Heroes_Level_6_v1.2.pdf')) fail("five printable hero sheets link is missing");
+if ((page.match(/<li><h3>/g) || []).length !== 3) fail("expected exactly three setup steps");
+
 const sheets = read("sheets.html");
 if (!sheets.includes('requestedPack === "owlbear-arms"') || !sheets.includes("owlbear-arms-level-6-2014-srd-v1.2.json")) fail("sheet renderer does not expose v1.2 heroes");
 
