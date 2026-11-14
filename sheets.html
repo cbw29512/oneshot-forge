@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css?v=20261006a">
   <link rel="stylesheet" href="character-sheet.css?v=20261027a">
   <link rel="stylesheet" href="owlbear-play-ui.css?v=20261114a">
+  <link rel="stylesheet" href="owlbear-play-rolls.css?v=20261114a">
 </head>
 <body class="sheets-page">
   <header class="land-bar print-hide">
@@ -35,6 +36,7 @@
   <script src="rules.js?v=20260920n"></script>
   <script src="owlbear-play-state.js?v=20261114a"></script>
   <script src="owlbear-play-ui.js?v=20261114a"></script>
+  <script src="owlbear-play-rolls.js?v=20261114a"></script>
   <script>mountRulesetToggle(document.getElementById("ruleset-host"));</script>
   <script>
     function waitImagesThenPrint(root) {
@@ -565,7 +567,7 @@
     }
     if (owlbearMode) {
       const intro = document.querySelector(".sheets-wrap > .land-section");
-      if (intro) intro.innerHTML = '<p class="eyebrow ember">Right to OwlBear Arms v1.2 · Table-complete · 2014 SRD · level 6</p><h1>Five repaired hero sheets</h1><p class="lede short">Rowan, Dagna, Sylvi, Liora, and Thalen rebuilt to the One-Shot Forge print standard: all six saves, all 18 skills, attacks, resources, combat features, and spell procedures. Use the live combat tracker to record HP, spell slots, and status during play. Print one or print all.</p>';
+      if (intro) intro.innerHTML = '<p class="eyebrow ember">Right to OwlBear Arms v1.2 · Table-complete · 2014 SRD · level 6</p><h1>Five repaired hero sheets</h1><p class="lede short">Rowan, Dagna, Sylvi, Liora, and Thalen rebuilt to the One-Shot Forge print standard: all six saves, all 18 skills, attacks, resources, combat features, and spell procedures. Roll d20 checks and attacks, and use the combat tracker to record HP, spell slots, and status during play. Print one or print all.</p>';
       const toggle = document.getElementById("ruleset-host");
       if (toggle) toggle.textContent = "2014 SRD";
     }
@@ -585,7 +587,10 @@
         const printHtml = allCharacters.map(printPacket).join("");
         document.getElementById("sheets").innerHTML = screenHtml + printHtml;
         bindSheetTabs();
-        if (owlbearMode) window.initOwlbearPlay(document.getElementById("sheets"), allCharacters);
+        if (owlbearMode) {
+          window.initOwlbearPlay(document.getElementById("sheets"), allCharacters);
+          window.initOwlbearRolls(document.getElementById("sheets"), allCharacters);
+        }
         clearPrintTarget();
       })
       .catch(() => { document.getElementById("sheets").innerHTML = "<p>Could not load ready-made characters.</p>"; });
