@@ -24,7 +24,7 @@
       button.dataset.rollLabel = label;
       button.dataset.rollBonus = String(Number(bonus));
       button.setAttribute("aria-label", "Roll " + label + " with " + (bonus >= 0 ? "+" : "") + bonus + " bonus");
-      button.textContent = "Roll d20";
+      button.textContent = "d20";
       target.appendChild(button);
     } catch (error) { console.error("Could not mount OwlBear roll button", error); }
   }
