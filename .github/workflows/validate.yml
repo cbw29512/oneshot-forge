@@ -32,6 +32,7 @@ jobs:
           node --check owlbear-play-ui.js
           node --check owlbear-play-rolls.js
           node --check scripts/validate-owlbear-live.mjs
+          node --check scripts/validate-owlbear-ui.mjs
           node --check zero-hero.js
           node --check zero-hero-adventure.js
           node --check zero-hero-module.js
@@ -156,6 +157,8 @@ jobs:
         uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: stable
+      - name: Smoke-test OwlBear interactive character sheets
+        run: node scripts/validate-owlbear-ui.mjs
       - name: Validate printable pregen packets
         run: node scripts/validate-pregen-print.mjs
       - name: Certify active stage-card rendering
