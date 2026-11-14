@@ -1,0 +1,34 @@
+/* Screen-only d20 controls; print packets never contain dice buttons. */
+@media screen {
+  .sheets-page .screen-sheet .beyond-check {
+    grid-template-columns: 1.1rem 2.2rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .2rem;
+  }
+  .screen-sheet .play-roll-button {
+    min-width: 2.75rem;
+    min-height: 1.9rem;
+    margin: .12rem 0;
+    padding: .15rem .3rem;
+    border: 1px solid #98643c;
+    border-radius: 6px;
+    background: #fff0d6;
+    color: #653713;
+    font: 750 .7rem "Segoe UI", sans-serif;
+    cursor: pointer;
+  }
+  .screen-sheet .play-roll-button:hover { background: #edd1a4; }
+  .screen-sheet .play-roll-button:focus-visible { outline: 3px solid #b06512; outline-offset: 2px; }
+  .screen-sheet .beyond-abilities .play-roll-button { margin-top: .28rem; }
+  .screen-sheet .beyond-attack .play-roll-button { display: inline-block; margin-left: .35rem; }
+  .screen-sheet .play-roll-result {
+    display: block;
+    margin: .75rem 0;
+    padding: .6rem .8rem;
+    background: #fbefce;
+    border-left: 4px solid #97561d;
+    border-radius: 5px;
+    color: #3a2818;
+    font: 700 .95rem "Segoe UI", sans-serif;
+  }
+}
