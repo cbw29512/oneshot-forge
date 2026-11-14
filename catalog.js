@@ -163,39 +163,6 @@
     return adventure;
   }
 
-  function renderOakhavenSeries(adventures) {
-    const list = document.getElementById("oakhaven-series-list");
-    if (!list) return;
-    const entries = adventures
-      .filter(entry => entry.adventure?.series?.title === "Oakhaven Adventures")
-      .map(entry => ({
-        id: entry.product.id,
-        episode: Number(entry.adventure.series.episode),
-        level: Number(entry.adventure.series.level || entry.adventure.metadata?.partyLevel),
-        title: entry.adventure.metadata?.title || entry.product.title || ""
-      }))
-      .filter(entry => entry.episode && entry.level)
-      .sort((a, b) => a.episode - b.episode || a.level - b.level);
-    if (!entries.length) return;
-    list.replaceChildren();
-    for (const entry of entries) {
-      const item = document.createElement("li");
-      const link = document.createElement("a");
-      link.href = `#card-${entry.id}`;
-      link.dataset.seriesLink = entry.id;
-      const moduleLabel = `Module ${String(entry.episode).padStart(2, "0")} · Level ${entry.level}`;
-      link.textContent = entry.title ? `${moduleLabel} — ${entry.title}` : moduleLabel;
-      item.append(link);
-      list.append(item);
-    }
-    const coming = document.createElement("li");
-    const note = document.createElement("span");
-    note.className = "series-coming";
-    note.textContent = "Levels 1 and 7–10 coming";
-    coming.append(note);
-    list.append(coming);
-  }
-
   function fillLevelFilter() {
     const select = document.getElementById("filter-level");
     if (!select) return;
@@ -287,7 +254,7 @@
       if (!Array.isArray(contract.products)) throw new Error("product contract has no products array");
 
       const returnedProductId = checkoutReturnProductId();
-      const loaded = await Promise.all(contract.products.map(async (product) => {
+      await Promise.all(contract.products.map(async (product) => {
         const entitlement = await verifiedEntitlement(product);
         applyProduct(product, entitlement);
         const adventure = await loadAdventure(product.id);
@@ -295,9 +262,7 @@
         if (returnedProductId === product.id && entitlement !== "owned") {
           console.warn(`One-Shot Forge checkout returned before ownership was verified for ${product.id}`);
         }
-        return { product, adventure };
       }));
-      renderOakhavenSeries(loaded);
       fillLevelFilter();
       bindFilters();
       applyFilters();
