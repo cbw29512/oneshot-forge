@@ -78,7 +78,7 @@ Consumable potions do not carry onto the next sheet. Series pregens assume the b
 - Write two curated Quiet Seals nights in one day
 
 ## Last session
-2026-11-14 — OwlBear Arms five-hero digital sheet UI in draft on `release/owlbear-live-character-sheets-20261114`: single-character picker, browser-local HP/temp HP, spell slot, death save, inspiration, and concentration tracking; no rule automation or changes to canonical pregen stats/print packets. Added standalone state/UI/CSS modules and Node regression checks to CI. Awaiting PR CI and owner release; not merged to main.
+2026-11-14 — OwlBear Arms five-hero digital sheet UI in draft on `release/owlbear-live-character-sheets-20261114`: single-character picker, clickable generic d20 ability/save/skill/attack rolls, browser-local HP/temp HP, spell slot, death save, inspiration, and concentration tracking; no rule automation or changes to canonical pregen stats/print packets. Added standalone state/UI/CSS modules and Node regression checks to CI. Awaiting PR CI and owner release; not merged to main.
 
 2026-10-29 — Draft catalog card UI consistency pass on `release/catalog-card-consistency-20261029`: one cover ratio, badge slots, title/summary rhythm, four metadata facts, and full-width primary/secondary actions. The long Owlbear Arms download label is shortened without changing its URL or commercial gate. A catalog-card contract test is added to CI. Awaiting PR checks and owner-directed merge to `main` for Netlify production publishing.
 
