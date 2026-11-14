@@ -28,6 +28,9 @@ jobs:
           node --check quickrun.js
           node --check rules.js
           node --check adventure-registry.js
+          node --check owlbear-play-state.js
+          node --check owlbear-play-ui.js
+          node --check scripts/validate-owlbear-live.mjs
           node --check zero-hero.js
           node --check zero-hero-adventure.js
           node --check zero-hero-module.js
@@ -52,6 +55,8 @@ jobs:
         run: python3 scripts/validate-owlbear-arms-bundle.py
       - name: Validate OwlBear Arms v1.2 repairs
         run: node scripts/validate-owlbear-arms-v1-2.mjs
+      - name: Validate OwlBear live character sheets
+        run: node scripts/validate-owlbear-live.mjs
       - name: Validate authored adventures
         run: |
           node scripts/validate-adventure.mjs data/adventures/the-lantern-below.oneshot.json
