@@ -62,7 +62,7 @@
         const result = document.createElement("output");
         result.className = "play-roll-result print-hide";
         result.setAttribute("aria-live", "polite");
-        result.textContent = "Click Roll d20 beside an ability, save, skill, or attack.";
+        result.textContent = "Click a d20 button beside an ability, save, skill, or attack.";
         sheet.querySelector(".beyond-combat").insertAdjacentElement("afterend", result);
       }
       host.addEventListener("click", event => {
