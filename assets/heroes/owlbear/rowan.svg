@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Original fantasy portrait illustration">
+<defs><radialGradient id="paper"><stop offset="0" stop-color="#f7eee0"/><stop offset="1" stop-color="#dbc9aa"/></radialGradient><clipPath id="frame"><rect x="24" y="24" width="464" height="464" rx="22"/></clipPath></defs>
+<rect x="16" y="16" width="480" height="480" rx="28" fill="#fffdf6" stroke="#352d26" stroke-width="14"/><g clip-path="url(#frame)"><rect x="24" y="24" width="464" height="464" fill="url(#paper)"/>
+<circle cx="259" cy="251" r="186" fill="#8d7756" opacity=".11"/><path d="M48 462 Q261 412 472 462 V510 H48 Z" fill="#7a5b42" opacity=".3"/>
+<path d="M198 303 L200 362 Q252 408 311 361 L315 298Z" fill="#a26b4d" stroke="#49382e" stroke-width="8"/>
+<path d="M195 190 Q200 122 255 123 Q314 121 321 191 L311 279 Q292 332 257 340 Q222 337 201 287Z" fill="#a26b4d" stroke="#624638" stroke-width="8"/>
+<path d="M201 218 Q222 205 237 217 M276 216 Q294 203 317 218" fill="none" stroke="#45332d" stroke-width="9" stroke-linecap="round"/>
+<path d="M246 260 L258 276 L246 283 M231 309 Q253 320 277 308" fill="none" stroke="#805a48" stroke-width="7" stroke-linecap="round"/>
+<path d="M148 190 L165 140 Q256 100 344 140 L362 190 L326 199 L309 153 L203 153 L184 201 Z" fill="#4f4540" stroke="#1f2224" stroke-width="7"/><path d="M173 154 Q256 92 338 154 L315 173 Q256 131 193 173Z" fill="#bcb5aa" stroke="#342e2b" stroke-width="8"/><path d="M157 371 L186 337 L217 373 L294 373 L330 338 L357 381 L359 451 L150 451Z" fill="#9a9c99" stroke="#3b3228" stroke-width="8"/><path d="M210 383 L256 409 L304 383 M256 409 V458" fill="none" stroke="#4c4942" stroke-width="9"/><path d="M219 136 L218 173 M292 136 L293 174" stroke="#56524e" stroke-width="5"/>
+<path d="M30 458 Q254 424 482 458" fill="none" stroke="#3a3028" stroke-width="14"/>
+</g><rect x="24" y="24" width="464" height="464" rx="22" fill="none" stroke="#977a50" stroke-width="5"/>
+</svg>
