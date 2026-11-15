@@ -1,0 +1,93 @@
+/* Original tabletop character-sheet finish; scoped to the five 2014 OwlBear Arms heroes. */
+@media screen {
+  body.owlbear-print .sheets-wrap > .land-section {
+    max-width: 64rem;
+    margin: 0 auto 1.1rem;
+  }
+  body.owlbear-print .beyond-sheet {
+    background: #f7f2e7;
+    border: 2px solid #a88d63;
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.28);
+  }
+  body.owlbear-print .beyond-head {
+    border-bottom: 3px double #7d5033;
+  }
+  body.owlbear-print .beyond-head .pr-port {
+    object-fit: cover;
+    border: 2px solid #674b37;
+    box-shadow: 0 3px 10px rgba(0,0,0,.15);
+  }
+  body.owlbear-print .beyond-id h2 {
+    letter-spacing: -.03em;
+    color: #2f211c;
+  }
+  body.owlbear-print .beyond-abilities .ab,
+  body.owlbear-print .beyond-stat,
+  body.owlbear-print .beyond-passive {
+    border-color: #6f5b46;
+    background: #fffef8;
+  }
+  body.owlbear-print .beyond-attack th {
+    background: #e4d5bc;
+    color: #2b221b;
+  }
+  body.owlbear-print .beyond-attack td {
+    border-top-color: #baa78a;
+  }
+  body.owlbear-print .cs-screen-actions .button {
+    min-height: 44px;
+  }
+}
+@media print {
+  body.owlbear-print .beyond-print .beyond-head {
+    border-bottom: 1.5pt double #40342a !important;
+    background: #fff !important;
+  }
+  body.owlbear-print .beyond-print .pr-port {
+    width: .68in !important;
+    height: .68in !important;
+    border: 1pt solid #45372b !important;
+    border-radius: 2pt !important;
+    object-fit: cover !important;
+  }
+  body.owlbear-print .beyond-print .beyond-id h2 {
+    font-size: 15pt !important;
+    font-weight: 800 !important;
+    color: #121212 !important;
+  }
+  body.owlbear-print .beyond-print .beyond-class {
+    font-size: 9.5pt !important;
+    color: #161616 !important;
+  }
+  body.owlbear-print .beyond-print .beyond-abilities .ab {
+    border: 1pt solid #343434 !important;
+    border-radius: 3pt !important;
+    background: #fff !important;
+  }
+  body.owlbear-print .beyond-print .beyond-stat {
+    border: 1pt solid #343434 !important;
+    border-radius: 3pt !important;
+    background: #fff !important;
+  }
+  body.owlbear-print .beyond-print .beyond-attack th {
+    color: #111 !important;
+    border-bottom: .7pt solid #555;
+  }
+  body.owlbear-print .pr-gear-page h2,
+  body.owlbear-print .pr-spell-page h2 {
+    color: #111 !important;
+    font-size: 16pt !important;
+  }
+  body.owlbear-print .pr-gear-page .pr-kicker,
+  body.owlbear-print .pr-spell-page .pr-kicker {
+    font-size: 8pt !important;
+    font-weight: 800 !important;
+    letter-spacing: .07em;
+    color: #333 !important;
+  }
+  body.owlbear-print .pr-gear-page,
+  body.owlbear-print .pr-spell-page {
+    border-top: 2pt solid #3c3026 !important;
+  }
+}
