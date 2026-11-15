@@ -93,7 +93,12 @@ for (const clue of ["Brindlebarrow", "TOMAS", "CAVE", "BELLS"]) {
 for (const spoiler of ["SMOKE CHAMBER", "TACTICAL TESTING GROUND", "NEST & TREASURE", "NEGOTIATION CHAMBER", "SIDE TUNNEL"]) {
   if (cobb.toUpperCase().includes(spoiler)) fail("Cobb's player sketch reveals DM-only layout: " + spoiler);
 }
-if (!page.includes("Old_Cobb_Rough_Survivor_Map_PLAYER.svg")) fail("adventure page still routes players to the spoiler map");
+if (!page.includes("Old_Cobb_Survivor_Map_PLAYER.pdf")) fail("the corrected player PDF link is missing");
+const corrected = fs.readFileSync("assets/bundles/owlbear-arms-v1.2/03_Maps/Old_Cobb_Survivor_Map_PLAYER.pdf");
+if (!corrected.subarray(0, 5).toString().startsWith("%PDF-")) fail("Cobb's corrected printout is not a PDF");
+for (const spoiler of ["SMOKE CHAMBER", "TACTICAL TESTING GROUND", "NEST & TREASURE", "NEGOTIATION CHAMBER"]) {
+  if (corrected.toString("latin1").toUpperCase().includes(spoiler)) fail("the printable Cobb map leaks DM-only rooms");
+}
 
 const sheets = read("sheets.html");
 if (!sheets.includes("owlbear-pregen-print.css?v=20261115a")) fail("premium printable stylesheet is not wired");
