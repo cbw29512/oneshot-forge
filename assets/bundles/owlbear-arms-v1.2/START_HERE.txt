@@ -11,7 +11,9 @@ START HERE
    Part 2 (Scenes, NPCs & Dialogue) holds every scene, NPC, and ending.
    If anything in Part 2 seems to differ from Part 1, Part 1 wins.
 2. Print one hero per player from 02_Pregenerated_Heroes (SRD 5.1 only).
-3. Keep the DM maps in 03_Maps hidden; Old Cobb's survivor map is player-safe.
+3. Keep the DM maps in 03_Maps hidden. Old Cobb's revised rough survivor map
+   is player-safe: it shows only the exterior trail, last-seen Tomas mark and bells.
+   The earlier over-detailed sketch has been replaced; do not hand out a DM map.
 4. Print 04_Handouts and reveal the Accord/Writ only if play earns them.
 5. NPC cards in 05_NPC_Cards are designed for duplex printing (flip on short edge).
 6. 06_DM_Aids contains the Grubbleclaw visual and the v1.2 clue-flow sheet.

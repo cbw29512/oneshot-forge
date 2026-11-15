@@ -21,8 +21,8 @@
     },
     {
       "path": "03_Maps/Old_Cobb_Survivor_Map_PLAYER.pdf",
-      "size_bytes": 249184,
-      "sha256": "7db6f383f9e74cd33f4d20b229eef3443eba415974250e5a33f72760a46bb2e0"
+      "size_bytes": 7957,
+      "sha256": "3b81f6633a5b67367273b64800054400744a5515947ae01c42abb2bcc89b1c9c"
     },
     {
       "path": "03_Maps/Owlbear_Lair_Full_Layout_DM.pdf",
@@ -66,8 +66,9 @@
     },
     {
       "path": "START_HERE.txt",
-      "size_bytes": 2333,
-      "sha256": "1a94897c753f426bf31d37205a51b49270bb1b4702bb5c257479c1ce0a878f2a"
+      "size_bytes": 2497,
+      "sha256": "23f5d9f31968de493b0fbd6148f09831f5ca03f8de3178e62236ea85c6298a41"
     }
-  ]
+  ],
+  "map_handout_revision": "2026-11-15: Cobb exterior-only survivor sketch replaces overly detailed player map"
 }
