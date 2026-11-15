@@ -49,6 +49,15 @@ for (const pc of pack.characters) {
   if (pc.spellcasting && (!pc.spellList?.length || pc.spellcasting.saveDC == null || pc.spellcasting.attack == null)) fail(pc.name + " incomplete spell reference");
   for (const spell of pc.spellList || []) if (!spell.name || !spell.time || !spell.range || !spell.effect) fail(pc.name + " has incomplete spell entry");
 }
+// Original portraits are required for every printable OwlBear Arms hero.
+// This extends the validation rather than silently accepting blank portrait boxes.
+for (const pc of pack.characters) {
+  if (!pc.portrait || !pc.portrait.endsWith(".svg")) fail(pc.name + " missing original portrait");
+  if (!fs.existsSync(pc.portrait)) fail(pc.name + " portrait file is not in the repository: " + pc.portrait);
+  const portrait = read(pc.portrait);
+  if (!portrait.includes("<svg") || !portrait.includes("viewBox=")) fail(pc.name + " portrait is not valid SVG markup");
+}
+
 const ranger = pack.characters.find(pc => pc.name === "Thalen");
 const rangerText = JSON.stringify(ranger);
 if (!rangerText.includes("humanoids (raiders)") || !rangerText.includes("monstrosities") || !rangerText.includes("forest") || !rangerText.includes("grassland")) fail("ranger favored enemy/terrain choices not explicit");
@@ -74,7 +83,24 @@ if (!page.includes('id="release-notes"')) fail("technical notes must be reachabl
 if (!page.includes('02_Pregenerated_Heroes/Right_To_Bear_Arms_Pregenerated_Heroes_Level_6_v1.2.pdf')) fail("five printable hero sheets link is missing");
 if ((page.match(/<li><h3>/g) || []).length !== 3) fail("expected exactly three setup steps");
 
+// Cobb's new handout must be player-safe. The DM map and the locked ZIP
+// remain separate until the binary download is explicitly regenerated.
+const cobbPath = "assets/bundles/owlbear-arms-v1.2/03_Maps/Old_Cobb_Rough_Survivor_Map_PLAYER.svg";
+const cobb = read(cobbPath);
+for (const clue of ["Brindlebarrow", "TOMAS", "CAVE", "BELLS"]) {
+  if (!cobb.toLowerCase().includes(clue.toLowerCase())) fail("Cobb's sketch missing visible grounded landmark: " + clue);
+}
+for (const spoiler of ["SMOKE CHAMBER", "TACTICAL TESTING GROUND", "NEST & TREASURE", "NEGOTIATION CHAMBER", "SIDE TUNNEL"]) {
+  if (cobb.toUpperCase().includes(spoiler)) fail("Cobb's player sketch reveals DM-only layout: " + spoiler);
+}
+if (!page.includes("Old_Cobb_Rough_Survivor_Map_PLAYER.svg")) fail("adventure page still routes players to the spoiler map");
+
 const sheets = read("sheets.html");
+if (!sheets.includes("owlbear-pregen-print.css?v=20261115a")) fail("premium printable stylesheet is not wired");
+if (!sheets.includes('classList.add("owlbear-print")')) fail("OwlBear sheet styling must be scoped to this pack");
+const printCss = read("owlbear-pregen-print.css");
+if (!printCss.includes("@media print") || !printCss.includes(".beyond-print")) fail("premium print rules missing");
+
 if (!sheets.includes('requestedPack === "owlbear-arms"') || !sheets.includes("owlbear-arms-level-6-2014-srd-v1.2.json")) fail("sheet renderer does not expose v1.2 heroes");
 
 console.log("OwlBear Arms v1.2 repair OK: chronology, defense, rules, reveals, and five complete hero data sheets.");
