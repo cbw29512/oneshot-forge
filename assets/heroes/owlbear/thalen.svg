@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Original fantasy portrait illustration">
+<defs><radialGradient id="paper"><stop offset="0" stop-color="#f7eee0"/><stop offset="1" stop-color="#cec6ae"/></radialGradient><clipPath id="frame"><rect x="24" y="24" width="464" height="464" rx="22"/></clipPath></defs>
+<rect x="16" y="16" width="480" height="480" rx="28" fill="#fffdf6" stroke="#352d26" stroke-width="14"/><g clip-path="url(#frame)"><rect x="24" y="24" width="464" height="464" fill="url(#paper)"/>
+<circle cx="259" cy="251" r="186" fill="#8d7756" opacity=".11"/><path d="M48 462 Q261 412 472 462 V510 H48 Z" fill="#7a5b42" opacity=".3"/>
+<path d="M198 303 L200 362 Q252 408 311 361 L315 298Z" fill="#a97b58" stroke="#49382e" stroke-width="8"/>
+<path d="M195 190 Q200 122 255 123 Q314 121 321 191 L311 279 Q292 332 257 340 Q222 337 201 287Z" fill="#a97b58" stroke="#624638" stroke-width="8"/>
+<path d="M201 218 Q222 205 237 217 M276 216 Q294 203 317 218" fill="none" stroke="#45332d" stroke-width="9" stroke-linecap="round"/>
+<path d="M246 260 L258 276 L246 283 M231 309 Q253 320 277 308" fill="none" stroke="#805a48" stroke-width="7" stroke-linecap="round"/>
+<path d="M167 211 Q156 112 256 90 Q359 110 350 215 L321 176 L201 177Z" fill="#3f5046" stroke="#303c36" stroke-width="9"/><path d="M156 369 L190 294 L222 336 L292 336 L326 296 L375 367 L410 450 L102 450Z" fill="#4b6255" stroke="#29362f" stroke-width="8"/><path d="M207 175 L200 237 M309 175 L315 240" stroke="#435348" stroke-width="10"/><path d="M203 345 L259 408 L312 344 M259 407 V448" fill="none" stroke="#9f896c" stroke-width="9"/><path d="M348 319 Q386 344 396 404 M386 352 Q411 385 410 451" fill="none" stroke="#b49362" stroke-width="7"/><path d="M196 128 Q255 108 324 128" fill="none" stroke="#65715c" stroke-width="8"/>
+<path d="M30 458 Q254 424 482 458" fill="none" stroke="#3a3028" stroke-width="14"/>
+</g><rect x="24" y="24" width="464" height="464" rx="22" fill="none" stroke="#977a50" stroke-width="5"/>
+</svg>
