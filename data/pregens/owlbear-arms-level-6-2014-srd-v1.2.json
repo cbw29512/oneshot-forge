@@ -3,7 +3,7 @@
   "ruleset": "5e-2014-srd",
   "level": 6,
   "series": "Right to OwlBear Arms v1.2",
-  "note": "Authoritative v1.2 replacement for the incomplete v1.1 hero summaries. These five heroes are rebuilt as complete SRD-compatible level-6 sheets. Portrait art remains a separate bundle-layout task; gameplay data is complete. Production Pass 1: SRD 5.1 only. Thalen is a Human ranger (SRD 5.1 race), and every non-Acolyte background is a custom background.",
+  "note": "Authoritative v1.2 replacement for the incomplete v1.1 hero summaries. These five heroes are rebuilt as complete SRD-compatible level-6 sheets. Original printable portrait art now accompanies the five heroes; gameplay data is unchanged. Production Pass 1: SRD 5.1 only. Thalen is a Human ranger (SRD 5.1 race), and every non-Acolyte background is a custom background.",
   "recommendedParty": [
     "owlbear-rowan",
     "owlbear-dagna",
@@ -15,6 +15,7 @@
     {
       "id": "owlbear-rowan",
       "name": "Rowan",
+      "portrait": "assets/heroes/owlbear/rowan.svg",
       "className": "Fighter",
       "subclass": "Champion",
       "race": "Human",
@@ -282,6 +283,7 @@
     {
       "id": "owlbear-dagna",
       "name": "Dagna",
+      "portrait": "assets/heroes/owlbear/dagna.svg",
       "className": "Cleric",
       "subclass": "Life Domain",
       "race": "Hill Dwarf",
@@ -681,6 +683,7 @@
     {
       "id": "owlbear-sylvi",
       "name": "Sylvi",
+      "portrait": "assets/heroes/owlbear/sylvi.svg",
       "className": "Rogue",
       "subclass": "Thief",
       "race": "Lightfoot Halfling",
@@ -969,6 +972,7 @@
     {
       "id": "owlbear-liora",
       "name": "Liora",
+      "portrait": "assets/heroes/owlbear/liora.svg",
       "className": "Wizard",
       "subclass": "School of Evocation",
       "race": "High Elf",
@@ -1362,6 +1366,7 @@
     {
       "id": "owlbear-thalen",
       "name": "Thalen",
+      "portrait": "assets/heroes/owlbear/thalen.svg",
       "className": "Ranger",
       "subclass": "Hunter",
       "race": "Human",
